@@ -1,0 +1,222 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper AM Capabilities | DfAM & Inspection',
+  description:
+    'Copper AM engineering capabilities for material review, LPBF DfAM, post-processing, thermal/electrical validation, CT, leak testing, and RF/vacuum acceptance.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/hero-1.webp',
+        width: 1200,
+        height: 628,
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Capabilities', item: '/capabilities' },
+    ]),
+    createItemListSchema('Copper AM capability areas', [
+      {
+        name: 'Material and process fit',
+        description: 'Pure copper, CuCrZr, and GRCop-42 review against function, temperature, and acceptance evidence.',
+        url: '/capabilities#materials',
+      },
+      {
+        name: 'Inspection and acceptance planning',
+        description:
+          'CT, leak, pressure, dimensional, flow, and certification planning for function-critical copper parts.',
+        url: '/capabilities#inspection',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Capabilities"
+    image={{
+      src: '~/assets/images/copper/hero-1.webp',
+      alt: 'Industrial copper additive manufacturing components',
+    }}
+  >
+    <Fragment slot="title">
+      Engineering support for <br />
+      <span class="text-accent dark:text-white">function-critical copper AM parts</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      COPPER 3DP evaluates copper additive manufacturing around application risk: material behavior, channel geometry,
+      conductivity, pressure integrity, post-processing, and inspection evidence.
+    </Fragment>
+  </Hero>
+
+  <Stats
+    title="Program review scope"
+    stats={[
+      { title: 'Copper alloy families', amount: '3' },
+      { title: 'Application hubs', amount: '15' },
+      { title: 'Inspection methods', amount: 'CT / leak / flow' },
+      { title: 'RFQ evidence sets', amount: '8+' },
+    ]}
+  />
+
+  <Features3
+    id="materials"
+    title="Materials and process fit"
+    subtitle="The first decision is whether the material and process route can support the operating target."
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Pure copper',
+        description:
+          'Reviewed when conductivity and heat-transfer path dominate the requirement, with post-processing planned around final performance.',
+        icon: 'tabler:hexagon-letter-c',
+      },
+      {
+        title: 'CuCrZr',
+        description:
+          'Considered when strength, thermal softening resistance, and service temperature matter alongside electrical or thermal conductivity.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'GRCop-42',
+        description:
+          'Reviewed for aerospace and high-temperature programs where alloy behavior, heat treatment, and acceptance evidence are central.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    items={[
+      {
+        title: 'LPBF copper builds',
+        description:
+          'Powder-bed builds for compact parts with internal passages, complex flow paths, thin structures, or assembly consolidation goals.',
+        icon: 'tabler:layers-intersect',
+      },
+      {
+        title: 'DfAM feasibility',
+        description:
+          'Geometry review for minimum channels, wall thickness, overhangs, support access, powder removal, and post-machining stock.',
+        icon: 'tabler:ruler-measure',
+      },
+      {
+        title: 'Post-processing intent',
+        description:
+          'Machining, heat treatment, polishing, cleaning, plating, and sealing surfaces are defined before build strategy is finalized.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Thermal validation',
+        description:
+          'Cold plates, heat sinks, and exchangers are reviewed against heat load, flow rate, pressure drop, and interface flatness.',
+        icon: 'tabler:temperature',
+      },
+      {
+        title: 'Electrical validation',
+        description:
+          'Busbars, coils, and electrodes are reviewed for current density, joint resistance, insulation interfaces, and hot-spot risk.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'RF and vacuum risk',
+        description:
+          'Waveguides and vacuum parts require surface, geometry, leak-rate, cleanliness, and sealing strategy to be specified early.',
+        icon: 'tabler:antenna-bars-5',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/semiconductor-copper-parts.webp',
+      alt: 'Semiconductor copper hardware',
+    }}
+  />
+
+  <Steps2
+    id="inspection"
+    title="Inspection and acceptance planning"
+    subtitle="Acceptance criteria should be part of the RFQ, not a late-stage add-on."
+    items={[
+      {
+        title: 'Internal continuity',
+        description:
+          'CT scanning can check channel continuity, trapped powder risk, wall thickness around critical passages, and internal defect indications.',
+      },
+      {
+        title: 'Pressure and leak targets',
+        description:
+          'Cold plates, manifolds, vacuum hardware, and hydrogen components need working pressure, proof pressure, hold time, and leak threshold.',
+      },
+      {
+        title: 'Dimensional evidence',
+        description:
+          'Datum faces, sealing lands, threaded interfaces, RF-critical surfaces, and electrical contact planes need inspection scope defined.',
+      },
+    ]}
+  />
+
+  <Steps2
+    title="What makes a quote actionable"
+    subtitle="A strong RFQ package connects the part geometry to the operating environment and required evidence."
+    isReversed={true}
+    callToAction={{
+      text: 'Send RFQ inputs',
+      href: '/contact#form',
+    }}
+    items={[
+      {
+        title: 'Functional surfaces marked',
+        description:
+          'Identify sealing faces, datum structures, contact planes, coolant ports, electrical interfaces, and keep-out regions.',
+        icon: 'tabler:focus-centered',
+      },
+      {
+        title: 'Service load defined',
+        description:
+          'Provide heat flux, coolant, pressure drop, current, duty cycle, RF band, vacuum exposure, or qualification constraints.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'Evidence requested',
+        description:
+          'Specify whether CT, leak testing, pressure testing, flow validation, material certification, or surface inspection is required.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Where the team can help"
+    tagline="Contact us"
+    columns={2}
+    items={[
+      {
+        title: 'Feasibility and DfAM notes',
+        description:
+          'Early review for manufacturability limits, risk drivers, and options before you lock geometry or submit a formal RFQ.',
+        icon: 'tabler:messages',
+      },
+      {
+        title: 'Quote and acceptance scope',
+        description:
+          'Quotation support for copper AM builds with material target, lead time, post-processing, and inspection options aligned.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,66 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'About Custom Copper AM RFQ Support',
+  description:
+    'COPPER 3DP helps engineering teams screen custom copper additive manufacturing projects, prepare RFQ scope, and reduce quotation iteration for thermal, electrical, RF, vacuum, and fluid-system copper components.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+        width: 1200,
+        height: 628,
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: createBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'About', item: '/about' },
+  ]),
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="About"
+    title="COPPER 3DP supports engineering teams quoting custom copper AM parts"
+    subtitle="The site is built for application-first feasibility review: thermal, electrical, RF, vacuum, and fluid-system copper components."
+  />
+
+  <Features2
+    title="What the business is built to do"
+    columns={3}
+    items={[
+      {
+        title: 'Screen feasibility',
+        description:
+          'Review whether copper additive manufacturing is technically justified for the application and geometry.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Prepare quotation scope',
+        description:
+          'Connect CAD, material, quantity, lead time, post-processing, and inspection requirements into a quote-ready package.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Reduce RFQ iteration',
+        description:
+          'Help buyers and engineers state the operating targets and acceptance evidence needed for function-critical copper parts.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Have a copper AM project to review?"
+    subtitle="Send CAD, material target, quantity, lead time, and critical acceptance requirements."
+    actions={[{ variant: 'primary', text: 'Send CAD for RFQ', href: '/contact#form' }]}
+  />
+</Layout>

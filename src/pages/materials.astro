@@ -1,0 +1,119 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper AM Materials | Pure Copper, CuCrZr & GRCop-42',
+  description:
+    'Material selection for LPBF copper AM: pure copper, CuCrZr, and GRCop-42 for thermal, electrical, aerospace, and high-temperature parts.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/high-current-busbars.webp',
+        width: 1200,
+        height: 628,
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials' },
+    ]),
+    createItemListSchema('Copper AM material paths', [
+      {
+        name: 'Pure copper',
+        description: 'Reviewed when electrical or thermal conductivity is the dominant requirement.',
+        url: '/materials',
+      },
+      {
+        name: 'CuCrZr',
+        description: 'Reviewed when strength and softening resistance matter alongside conductivity.',
+        url: '/materials',
+      },
+      {
+        name: 'GRCop-42',
+        description:
+          'Reviewed for high-temperature aerospace and thermal hardware where qualification evidence matters.',
+        url: '/materials',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Materials"
+    title="Copper alloy selection for additive manufacturing"
+    subtitle="Material choice depends on conductivity, strength at temperature, service environment, post-processing route, and acceptance evidence."
+    actions={[{ variant: 'primary', text: 'Ask for material review', href: '/contact#form' }]}
+    image={{ src: '~/assets/images/copper/high-current-busbars.webp', alt: 'Copper AM material selection' }}
+  />
+
+  <Features2
+    title="Common material paths"
+    subtitle="The right route is selected against the function of the part, not by material name alone."
+    columns={3}
+    items={[
+      {
+        title: 'Pure copper',
+        description:
+          'Best reviewed when electrical or thermal conductivity is the dominant requirement and mechanical loads are controlled.',
+        icon: 'tabler:hexagon-letter-c',
+      },
+      {
+        title: 'CuCrZr',
+        description:
+          'Useful when the part needs more strength or softening resistance while retaining useful conductivity after heat treatment.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'GRCop-42',
+        description:
+          'Reviewed for aerospace and high-temperature thermal hardware where alloy behavior, qualification evidence, and post-processing are central.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Conductivity after processing',
+        description:
+          'Conductivity targets should be discussed after stress relief, heat treatment, machining, polishing, or plating requirements are known.',
+      },
+      {
+        title: 'Strength and service temperature',
+        description:
+          'Clamp loads, pressure loads, thermal cycling, and local wall thickness determine whether pure copper is enough.',
+      },
+      {
+        title: 'Inspection and certification',
+        description:
+          'Material certificates, density expectations, CT review, and leak-test evidence should be part of the RFQ scope.',
+      },
+    ]}
+    image={{ src: '~/assets/images/copper/induction-heating-coils.webp', alt: 'Copper induction coil material review' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Quote material as part of the engineering system
+      </h3>
+      The same alloy can behave differently depending on geometry, heat treatment, inspection, and operating environment.
+    </Fragment>
+  </Content>
+
+  <CallToAction
+    title="Not sure which copper alloy fits?"
+    subtitle="Send the operating conditions and acceptance requirements with the CAD package."
+    actions={[{ variant: 'primary', text: 'Request review', href: '/contact#form' }]}
+  />
+</Layout>

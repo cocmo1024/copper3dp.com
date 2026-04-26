@@ -1,0 +1,336 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createCopperServiceSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper 3D Printing Services | LPBF Copper AM',
+  ignoreTitleTemplate: true,
+  description:
+    'LPBF copper 3D printing services for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor copper components.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/hero-2.webp',
+        width: 1200,
+        height: 628,
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createCopperServiceSchema(),
+    createItemListSchema('Copper additive manufacturing application hubs', [
+      {
+        name: 'Copper cold plates',
+        description: 'LPBF copper cold plates with internal channels, manifolds, leak testing, and CT review.',
+        url: '/applications',
+      },
+      {
+        name: 'Copper heat sinks',
+        description:
+          '3D printed copper heat sinks reviewed for airflow, contact resistance, fin geometry, and validation.',
+        url: '/applications#heat-sinks',
+      },
+      {
+        name: 'Induction coils and busbars',
+        description:
+          'Copper AM electrical hardware reviewed for conductivity, current density, cooling, and interface risk.',
+        url: '/applications#electrical',
+      },
+      {
+        name: 'RF and waveguide copper parts',
+        description:
+          'RF, vacuum, and semiconductor copper parts reviewed for tolerance, surface condition, and sealing.',
+        url: '/applications#rf',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Send CAD for RFQ',
+        href: '/contact#form',
+        icon: 'tabler:send',
+      },
+      { text: 'Explore applications', href: '#features' },
+    ]}
+    image={{ src: '~/assets/images/copper/hero-2.webp', alt: 'Copper additive manufacturing parts' }}
+  >
+    <Fragment slot="title">
+      Copper AM for <span class="text-accent dark:text-white">thermal, electrical & fluid systems</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      COPPER 3DP supports industrial copper 3D printing programs using LPBF and advanced copper alloys including pure
+      copper, CuCrZr, and GRCop-42. Start with feasibility, DfAM limits, failure modes, acceptance evidence, and RFQ
+      inputs.
+    </Fragment>
+  </Hero>
+
+  <Note
+    title="RFQ focus:"
+    description="Include CAD, target material, quantity, lead time, critical dimensions, datum faces, operating environment, and inspection requirements."
+  />
+
+  <Features
+    id="features"
+    tagline="Application hubs"
+    title="Copper parts where additive manufacturing can change the design"
+    subtitle="We review copper AM only where geometry, performance, or assembly risk justifies the process."
+    items={[
+      {
+        title: 'Copper cold plates',
+        description:
+          'Micro-channels, integrated manifolds, helium leak risk, pressure drop, CT verification, and post-machined sealing interfaces.',
+        icon: 'tabler:droplet',
+      },
+      {
+        title: 'Copper heat sinks',
+        description:
+          'Fin spacing, contact resistance, base flatness, airflow path, thermal validation, and the limits of printed copper features.',
+        icon: 'tabler:temperature',
+      },
+      {
+        title: 'Induction coils',
+        description:
+          'Conductivity retention, current-path geometry, localized heating, internal cooling, insulation interfaces, and pressure integrity.',
+        icon: 'tabler:magnet',
+      },
+      {
+        title: 'High-current busbars',
+        description:
+          'Compact 3D routing, current density, joint resistance, plating strategy, creepage and clearance constraints, and thermal runaway risk.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'RF and waveguide parts',
+        description:
+          'Geometry accuracy, surface roughness, insertion loss, plating requirements, and RF acceptance testing before production release.',
+        icon: 'tabler:antenna-bars-5',
+      },
+      {
+        title: 'Semiconductor copper hardware',
+        description:
+          'Integrated cooling, vacuum sealing, particle risk, internal surface condition, cleaning, bakeout compatibility, and leak targets.',
+        icon: 'tabler:device-desktop-cog',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Feasibility first"
+    title="Quote copper AM by function, not novelty"
+    items={[
+      {
+        title: 'Material selection',
+        description:
+          'Pure copper, CuCrZr, and GRCop-42 are reviewed against conductivity, strength at temperature, post-processing, and service environment.',
+      },
+      {
+        title: 'Geometry limits',
+        description:
+          'Minimum walls, channels, unsupported features, powder removal, and machining allowance are evaluated before quoting.',
+      },
+      {
+        title: 'Acceptance evidence',
+        description:
+          'CT, pressure or helium leak testing, dimensional inspection, surface finish, and cleaning requirements are planned with the RFQ.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/copper-cold-plates.webp',
+      alt: '3D printed copper cold plates',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        From prototype review to production evidence
+      </h3>
+      The best copper AM projects define operating targets and acceptance criteria before the first build.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Thermal systems',
+        description:
+          'Cold plates, micro-channel exchangers, mold inserts, and heat sinks where channel placement and flow distribution matter.',
+      },
+      {
+        title: 'Electrical systems',
+        description:
+          'Busbars, induction coils, motor conductors, and high-voltage electrodes where geometry must respect current and insulation limits.',
+      },
+      {
+        title: 'Aerospace and propulsion',
+        description:
+          'Copper liners and heat-transfer hardware where cooling geometry, qualification evidence, and alloy selection drive risk.',
+      },
+      {
+        title: 'Vacuum and RF hardware',
+        description:
+          'Waveguides, vacuum copper components, semiconductor hardware, and sealing-critical parts requiring tight acceptance planning.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: 'Copper micro-channel heat exchanger',
+    }}
+  >
+    <Fragment slot="content">Use the application and failure mode to decide whether AM is worth quoting.</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Steps
+    title="A practical RFQ workflow for custom copper AM parts"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Send geometry</span>',
+        description:
+          'Share STEP, X_T, or native CAD files plus drawings for datum faces, sealing lands, threads, and critical dimensions.',
+        icon: 'tabler:file-3d',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Define operating targets</span>',
+        description:
+          'Include heat load, coolant, pressure drop, current, duty cycle, RF band, vacuum or hydrogen exposure, and service temperature.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Set acceptance criteria</span>',
+        description:
+          'Confirm CT scope, leak target, pressure test, dimensional inspection, surface finish, cleaning, and post-machining requirements.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Ready for feasibility notes and quote',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/hero-1.webp',
+      alt: 'Copper 3D printing RFQ workflow',
+    }}
+  />
+
+  <Features2
+    title="What we review before quoting"
+    subtitle="The goal is to find a defensible go/no-go path before cost and lead time are locked."
+    tagline="Engineering review"
+    items={[
+      {
+        title: 'DfAM manufacturability',
+        description: 'Channel size, wall thickness, overhangs, powder removal, support access, and build orientation.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Thermal and electrical risk',
+        description:
+          'Heat flux, current density, contact resistance, duty cycle, hot spots, and conductivity recovery.',
+        icon: 'tabler:temperature',
+      },
+      {
+        title: 'Post-processing plan',
+        description: 'Stress relief, heat treatment, machining, polishing, plating, cleaning, and sealing surfaces.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Inspection package',
+        description:
+          'CT review, leak or pressure testing, dimensional evidence, flow checks, and material certification.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <BlogLatestPosts
+    title="Engineering resources"
+    information="Use these notes to prepare RFQs for cold plates, heat sinks, CT inspection, leak testing, and copper alloy selection."
+  />
+
+  <FAQs
+    title="Frequently asked questions"
+    subtitle="Common questions before quoting copper LPBF parts."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Which copper materials can be reviewed?',
+        description:
+          'Most RFQs start with pure copper, CuCrZr, or GRCop-42. Final selection depends on conductivity, strength, temperature, and post-processing needs.',
+      },
+      {
+        title: 'What files should I send?',
+        description:
+          'Send CAD, drawings, target quantity, lead time, functional surfaces, sealing interfaces, service environment, and required inspection evidence.',
+      },
+      {
+        title: 'Can internal channels be inspected?',
+        description:
+          'CT scanning, pressure testing, leak testing, and flow checks can be planned when the acceptance requirement is defined early.',
+      },
+      {
+        title: 'When is copper AM not a good fit?',
+        description:
+          'Simple plates, very large parts, features that are easier to machine, or parts with undefined acceptance criteria may be better routed elsewhere.',
+      },
+    ]}
+  />
+
+  <Stats
+    stats={[
+      { title: 'Application hubs', amount: '15' },
+      { title: 'Core copper alloys', amount: '3' },
+      { title: 'RFQ inputs reviewed', amount: '8+' },
+      { title: 'Inspection options', amount: 'CT / leak / flow' },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Send CAD for RFQ',
+        href: '/contact#form',
+        icon: 'tabler:send',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Custom copper 3D printed parts, reviewed by application. </Fragment>
+
+    <Fragment slot="subtitle">
+      Share geometry, material target, quantity, lead time, and acceptance criteria to receive feasibility notes and
+      quote scope.
+    </Fragment>
+  </CallToAction>
+</Layout>

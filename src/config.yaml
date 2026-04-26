@@ -1,0 +1,69 @@
+site:
+  name: COPPER 3DP
+  site: 'https://copper3dp.com'
+  base: '/'
+  trailingSlash: true
+
+  googleSiteVerificationId: false
+
+metadata:
+  title:
+    default: COPPER 3DP | Copper 3D Printing Services
+    template: '%s | COPPER 3DP'
+  description: 'Industrial LPBF copper 3D printing services for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and high-precision copper components.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: COPPER 3DP
+    images:
+      - url: '~/assets/images/copper/hero-2.webp'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/posts/EngineeringGuide/%slug%'
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'category/EngineeringGuide'
+      robots:
+        index: true
+
+    category:
+      isEnabled: false
+      pathname: 'blog/category'
+      robots:
+        index: false
+
+    tag:
+      isEnabled: true
+      pathname: 'blog/tag'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'system'

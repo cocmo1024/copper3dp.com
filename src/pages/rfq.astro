@@ -1,0 +1,171 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper AM RFQ Checklist | CAD & Inspection',
+  description:
+    'Copper AM RFQ checklist for CAD, drawings, heat load, coolant, current, RF band, material target, quantity, post-processing, CT, leak testing, and acceptance.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/high-current-busbars.webp',
+        width: 1200,
+        height: 628,
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'RFQ Inputs', item: '/rfq' },
+    ]),
+    createItemListSchema('Copper AM RFQ checklist', [
+      {
+        name: 'Geometry package',
+        description: 'STEP, X_T, native CAD, and 2D drawings for critical faces, ports, threads, and dimensions.',
+        url: '/rfq',
+      },
+      {
+        name: 'Functional requirements',
+        description:
+          'Heat load, coolant, flow rate, pressure drop, current, frequency band, vacuum, or service temperature.',
+        url: '/rfq',
+      },
+      {
+        name: 'Acceptance criteria',
+        description:
+          'CT scope, pressure or helium leak test, dimensional inspection, thermal test, and cleaning requirement.',
+        url: '/rfq',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="RFQ inputs"
+    title="What makes a copper AM quote actionable"
+    subtitle="There is no useful catalog price for function-critical copper AM parts. Quotes are built from geometry, material, process route, post-processing, and acceptance evidence."
+  />
+
+  <Features3
+    title="Quote pathways"
+    subtitle="Choose the path that matches your project stage."
+    columns={3}
+    items={[
+      {
+        title: 'Feasibility screen',
+        description:
+          'Early CAD review for material fit, DfAM constraints, powder removal, channel risk, and likely post-processing requirements.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Prototype quote',
+        description:
+          'Prototype build scope with material target, quantity, machining allowance, inspection options, and estimated lead time.',
+        icon: 'tabler:box',
+      },
+      {
+        title: 'Pilot or production review',
+        description:
+          'Repeatability, acceptance evidence, fixture strategy, inspection sampling, cleaning, packaging, and production risk review.',
+        icon: 'tabler:building-factory-2',
+      },
+    ]}
+  />
+
+  <Steps
+    title="RFQ checklist"
+    tagline="Required inputs"
+    isReversed={true}
+    items={[
+      {
+        title: 'Geometry package',
+        description:
+          'STEP, X_T, or native CAD files plus 2D drawings for critical dimensions, datum faces, sealing lands, contact surfaces, and threaded ports.',
+        icon: 'tabler:number-1',
+      },
+      {
+        title: 'Functional requirements',
+        description:
+          'Heat load, coolant, flow rate, pressure drop, current, duty cycle, frequency band, vacuum or hydrogen exposure, and service temperature.',
+        icon: 'tabler:number-2',
+      },
+      {
+        title: 'Material and quantity',
+        description:
+          'Target alloy, prototype quantity, pilot lot, production volume, target delivery date, and any certification expectation.',
+        icon: 'tabler:number-3',
+      },
+      {
+        title: 'Acceptance criteria',
+        description:
+          'CT scope, pressure or helium leak test, dimensional inspection, thermal test, flow validation, surface finish, and cleaning requirement.',
+        icon: 'tabler:number-4',
+      },
+      {
+        title: 'Post-processing intent',
+        description:
+          'Machining, heat treatment, stress relief, polishing, plating, passivation, assembly, or sealing work expected after printing.',
+        icon: 'tabler:number-5',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/high-current-busbars.webp',
+      alt: 'Copper AM RFQ review inputs',
+    }}
+  />
+
+  <FAQs
+    title="RFQ FAQs"
+    subtitle="These questions usually determine whether a copper AM quote can move quickly."
+    columns={1}
+    items={[
+      {
+        title: 'Can I send an early concept?',
+        description:
+          'Yes. Early CAD is useful for feasibility screening, but formal quotation needs material, quantity, lead time, and acceptance requirements.',
+      },
+      {
+        title: 'Do you need a drawing if CAD is available?',
+        description:
+          'Drawings are recommended for critical dimensions, datum faces, flatness, sealing lands, thread notes, surface finish, and inspection scope.',
+      },
+      {
+        title: 'What if the material is not decided?',
+        description:
+          'Send the service temperature, conductivity target, mechanical load, and environment so pure copper, CuCrZr, or GRCop-42 can be reviewed.',
+      },
+      {
+        title: 'How are internal channels accepted?',
+        description:
+          'Internal passages should define CT scope, pressure or leak targets, flow rate, pressure drop, cleaning method, and allowable blockage risk.',
+      },
+      {
+        title: 'What affects lead time most?',
+        description:
+          'Geometry review, build orientation, post-machining, heat treatment, CT or leak testing, surface requirements, and material availability.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Ready to quote a copper AM part?"
+    subtitle="Send CAD, drawings, target material, quantity, lead time, service conditions, and inspection requirements."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Send CAD for RFQ',
+        href: '/contact#form',
+      },
+    ]}
+  />
+</Layout>
