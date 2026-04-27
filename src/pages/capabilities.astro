@@ -10,7 +10,7 @@ import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured
 const metadata = {
   title: 'Copper AM Capabilities | DfAM & Inspection',
   description:
-    'Copper AM engineering capabilities for material review, LPBF DfAM, post-processing, thermal/electrical validation, CT, leak testing, and RF/vacuum acceptance.',
+    'Copper AM capabilities for material review, LPBF DfAM, post-processing, thermal and electrical parts, CT, leak testing, and RF or vacuum requirements.',
   openGraph: {
     images: [
       {
@@ -29,13 +29,14 @@ const metadata = {
     createItemListSchema('Copper AM capability areas', [
       {
         name: 'Material and process fit',
-        description: 'Pure copper, CuCrZr, and GRCop-42 review against function, temperature, and acceptance evidence.',
+        description:
+          'Pure copper, CuCrZr, and GRCop-42 review against function, temperature, and project requirements.',
         url: '/capabilities#materials',
       },
       {
-        name: 'Inspection and acceptance planning',
+        name: 'Inspection requirements',
         description:
-          'CT, leak, pressure, dimensional, flow, and certification planning for function-critical copper parts.',
+          'CT, leak, pressure, dimensional, flow, and certification requirements for function-critical copper parts.',
         url: '/capabilities#inspection',
       },
     ]),
@@ -61,25 +62,25 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      COPPER 3DP evaluates copper additive manufacturing around application risk: material behavior, channel geometry,
-      conductivity, pressure integrity, post-processing, inspection evidence, and whether the design is ready to quote.
+      COPPER 3DP focuses on copper additive manufacturing. Send the drawing and requirements, and we assess material,
+      manufacturability, post-processing, and testing needs as the project requires.
     </Fragment>
   </Hero>
 
   <Stats
-    title="Quote review scope"
+    title="Review areas"
     stats={[
       { title: 'Copper alloy families', amount: '3' },
       { title: 'Application hubs', amount: '15' },
       { title: 'Inspection methods', amount: 'CT / leak / flow' },
-      { title: 'RFQ evidence sets', amount: '8+' },
+      { title: 'RFQ inputs', amount: '8+' },
     ]}
   />
 
   <Features3
     id="materials"
     title="Materials and process fit"
-    subtitle="The first decision is whether the material and process route can support the operating target with acceptable post-processing and evidence."
+    subtitle="The first decision is whether the material and process route can support the operating target and required post-processing."
     columns={3}
     isBeforeContent={true}
     items={[
@@ -98,7 +99,7 @@ const metadata = {
       {
         title: 'GRCop-42',
         description:
-          'Reviewed for aerospace and high-temperature programs where alloy behavior, heat treatment, and acceptance evidence are central.',
+          'Reviewed for aerospace and high-temperature programs where alloy behavior, heat treatment, and documentation may matter.',
         icon: 'tabler:rocket',
       },
     ]}
@@ -153,8 +154,8 @@ const metadata = {
 
   <Steps2
     id="inspection"
-    title="Inspection and acceptance planning"
-    subtitle="Acceptance criteria should be part of the RFQ, because they often change the build route, machining plan, and quote scope."
+    title="Inspection requirements"
+    subtitle="If the part has pressure, leak, CT, dimensional, or surface requirements, include them with the RFQ so they can be considered during quotation."
     items={[
       {
         title: 'Internal continuity',
@@ -167,16 +168,16 @@ const metadata = {
           'Cold plates, manifolds, vacuum hardware, and hydrogen components need working pressure, proof pressure, hold time, and leak threshold.',
       },
       {
-        title: 'Dimensional evidence',
+        title: 'Dimensional checks',
         description:
-          'Datum faces, sealing lands, threaded interfaces, RF-critical surfaces, and electrical contact planes need inspection scope defined.',
+          'Datum faces, sealing lands, threaded interfaces, RF-critical surfaces, and electrical contact planes need inspection requirements stated.',
       },
     ]}
   />
 
   <Steps2
-    title="What makes a quote actionable"
-    subtitle="A strong RFQ package connects the part geometry to the operating environment and required evidence."
+    title="What helps us quote"
+    subtitle="A useful RFQ package connects the part geometry to quantity, operating environment, and any required testing."
     isReversed={true}
     callToAction={{
       text: 'Send RFQ inputs',
@@ -196,7 +197,7 @@ const metadata = {
         icon: 'tabler:gauge',
       },
       {
-        title: 'Evidence requested',
+        title: 'Testing requested',
         description:
           'Specify whether CT, leak testing, pressure testing, flow validation, material certification, or surface inspection is required.',
         icon: 'tabler:clipboard-check',
@@ -205,20 +206,20 @@ const metadata = {
   />
 
   <Features2
-    title="Where the review creates value"
+    title="How we support the quote"
     tagline="Contact us"
     columns={2}
     items={[
       {
-        title: 'Feasibility and DfAM notes',
+        title: 'Manufacturability review',
         description:
-          'Early review for manufacturability limits, risk drivers, design options, and whether AM is justified before you lock geometry.',
+          'Review for manufacturability limits, risk drivers, design options, and whether AM is suitable for the part.',
         icon: 'tabler:messages',
       },
       {
-        title: 'Quote and acceptance scope',
+        title: 'Quotation support',
         description:
-          'Quotation support that aligns material target, lead time, post-processing, inspection evidence, and acceptance assumptions.',
+          'Quotation support based on the drawing, quantity, material target, lead time, post-processing, and inspection requirements.',
         icon: 'tabler:headset',
       },
     ]}

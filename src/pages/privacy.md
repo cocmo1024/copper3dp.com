@@ -14,7 +14,7 @@ When you submit an RFQ inquiry or email us, you may provide your name, company, 
 
 ## How Information Is Used
 
-Project information is used to respond to inquiries, review manufacturability, prepare feasibility notes, quote manufacturing scope, plan post-processing, and discuss inspection requirements.
+Project information is used to respond to inquiries, review manufacturability, prepare quotations, discuss post-processing, and clarify inspection requirements when needed.
 
 ## Technical Files
 

@@ -8,9 +8,9 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const metadata = {
-  title: 'Copper AM RFQ Checklist | CAD & Inspection',
+  title: 'Copper AM RFQ Checklist | Drawings',
   description:
-    'Copper AM RFQ checklist for CAD, drawings, heat load, coolant, current, RF band, material target, quantity, post-processing, CT, leak testing, and acceptance.',
+    'Copper AM RFQ checklist for CAD, drawings, quantity, material, lead time, heat load, current, RF band, CT, leak testing, and other requirements.',
   openGraph: {
     images: [
       {
@@ -39,7 +39,7 @@ const metadata = {
         url: '/rfq',
       },
       {
-        name: 'Acceptance criteria',
+        name: 'Special requirements',
         description:
           'CT scope, pressure or helium leak test, dimensional inspection, thermal test, and cleaning requirement.',
         url: '/rfq',
@@ -52,40 +52,39 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="RFQ inputs"
-    title="Build a copper AM RFQ engineering can quote"
-    subtitle="Function-critical copper AM has no meaningful catalog price. A useful quote connects geometry, operating load, material route, post-processing, inspection evidence, and acceptance criteria."
+    title="Send enough information for a practical copper AM quote"
+    subtitle="A simple drawing and quantity can be enough for a first quote. For complex thermal, electrical, or fluid parts, include the requirements that affect material, post-processing, and testing."
   />
 
   <Features3
-    title="Quote pathways"
-    subtitle="Choose the path that matches the maturity of your design and the decision you need to make."
+    title="How we handle different RFQs"
+    subtitle="The response depends on the part and the information provided."
     columns={3}
     items={[
       {
-        title: 'Feasibility screen',
-        description:
-          'Early CAD review for material fit, DfAM constraints, powder removal, channel risk, likely post-processing, and whether AM is the right route.',
+        title: 'Simple drawing quote',
+        description: 'If geometry and quantity are clear, we can provide a basic quote with normal assumptions.',
         icon: 'tabler:search',
       },
       {
-        title: 'Prototype quote',
+        title: 'Clarification needed',
         description:
-          'Build scope for prototype quantity, material target, machining allowance, inspection options, quote assumptions, and estimated lead time.',
+          'If material, tolerance, pressure, current, thermal load, or inspection needs are unclear, we ask focused questions before quoting.',
         icon: 'tabler:box',
       },
       {
-        title: 'Pilot or production review',
+        title: 'Complex project review',
         description:
-          'Repeatability, acceptance evidence, fixture strategy, inspection sampling, cleaning, packaging, and production risk before release.',
+          'For demanding parts, we discuss process route, post-processing, inspection, and lead-time drivers as needed.',
         icon: 'tabler:building-factory-2',
       },
     ]}
   />
 
   <Steps
-    title="Fast quote package"
+    title="Information that helps quotation"
     tagline="Required inputs"
-    subtitle="If an input is unknown, state the current assumption. Unknowns are easier to manage when they are visible."
+    subtitle="Do not overprepare if the project is simple; send what you have and note what is critical."
     isReversed={true}
     items={[
       {
@@ -107,9 +106,9 @@ const metadata = {
         icon: 'tabler:number-3',
       },
       {
-        title: 'Acceptance criteria',
+        title: 'Special requirements',
         description:
-          'CT scope, pressure or helium leak test, dimensional inspection, thermal test, flow validation, surface finish, and cleaning requirement.',
+          'CT scope, pressure or helium leak test, dimensional inspection, thermal test, flow validation, surface finish, and cleaning requirements when relevant.',
         icon: 'tabler:number-4',
       },
       {
@@ -131,14 +130,14 @@ const metadata = {
     columns={1}
     items={[
       {
-        title: 'What will you receive back?',
+        title: 'Will every RFQ receive the same response?',
         description:
-          'A useful response should identify feasibility risks, missing inputs, likely process route, post-processing needs, inspection options, and quote assumptions.',
+          'No. If the drawing and quantity are clear, the reply may be a basic quote. If key requirements are missing, we ask clarification questions first.',
       },
       {
         title: 'Can I send an early concept?',
         description:
-          'Yes. Early CAD is useful for feasibility screening, but formal quotation needs material, quantity, lead time, and acceptance requirements.',
+          'Yes. Early CAD is useful for a first review, but quotation usually needs material, quantity, lead time, and any critical requirements.',
       },
       {
         title: 'Do you need a drawing if CAD is available?',
@@ -164,8 +163,8 @@ const metadata = {
   />
 
   <CallToAction
-    title="Ready to make the RFQ quotable?"
-    subtitle="Send CAD, drawings, target material or operating requirements, quantity, lead time, service conditions, and inspection requirements."
+    title="Send the drawing and requirements"
+    subtitle="Share CAD, drawings, quantity, material if known, lead time, service conditions, and inspection requirements when they matter."
     actions={[
       {
         variant: 'primary',

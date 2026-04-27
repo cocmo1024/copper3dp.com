@@ -7,7 +7,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const metadata = {
-  title: 'Copper AM Materials | Pure Copper, CuCrZr & GRCop-42',
+  title: 'Copper AM Materials | Pure Copper & CuCrZr',
   description:
     'Material selection for LPBF copper AM: pure copper, CuCrZr, and GRCop-42 for thermal, electrical, aerospace, and high-temperature parts.',
   openGraph: {
@@ -39,7 +39,7 @@ const metadata = {
       {
         name: 'GRCop-42',
         description:
-          'Reviewed for high-temperature aerospace and thermal hardware where qualification evidence matters.',
+          'Reviewed for high-temperature aerospace and thermal hardware where qualification documentation matters.',
         url: '/materials',
       },
     ]),
@@ -50,8 +50,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Materials"
-    title="Select copper alloy by function and acceptance risk"
-    subtitle="Material choice depends on conductivity, strength at temperature, service environment, post-processing route, inspection evidence, and how the part will be accepted."
+    title="Copper material options for 3D printing"
+    subtitle="If you know the material, send it. If not, send operating requirements so we can discuss pure copper, CuCrZr, or GRCop-42 as needed."
     actions={[
       { variant: 'primary', text: 'Ask for material review', href: '/contact#form' },
       { text: 'RFQ inputs', href: '/rfq' },
@@ -79,7 +79,7 @@ const metadata = {
       {
         title: 'GRCop-42',
         description:
-          'Reviewed for high-temperature thermal hardware where alloy behavior, heat treatment, documentation, and qualification-style evidence are central.',
+          'Reviewed for high-temperature thermal hardware where alloy behavior, heat treatment, and documentation may matter.',
         icon: 'tabler:rocket',
       },
     ]}
@@ -101,7 +101,7 @@ const metadata = {
       {
         title: 'Inspection and certification',
         description:
-          'Material certificates, density expectations, CT review, and leak-test evidence should be part of the RFQ scope.',
+          'State whether material certificates, density expectations, CT review, or leak-test requirements are needed.',
       },
     ]}
     image={{ src: '~/assets/images/copper/induction-heating-coils.webp', alt: 'Copper induction coil material review' }}
@@ -110,14 +110,14 @@ const metadata = {
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         Material decision inputs that speed review
       </h3>
-      The same alloy can behave differently depending on wall thickness, heat treatment, machining allowance,
-      inspection scope, and operating environment.
+      The same alloy can behave differently depending on wall thickness, heat treatment, machining allowance, inspection
+      scope, and operating environment.
     </Fragment>
   </Content>
 
   <CallToAction
     title="Not sure which copper alloy fits the part?"
-    subtitle="Send the operating conditions, acceptance requirements, and CAD package so the material route can be reviewed with the quote."
-    actions={[{ variant: 'primary', text: 'Request review', href: '/contact#form' }]}
+    subtitle="Send the CAD package, quantity, operating conditions, and critical requirements so the material route can be reviewed as needed."
+    actions={[{ variant: 'primary', text: 'Send drawing for review', href: '/contact#form' }]}
   />
 </Layout>

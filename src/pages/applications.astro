@@ -7,9 +7,9 @@ import Layout from '~/layouts/PageLayout.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const metadata = {
-  title: 'Copper AM Applications | Cold Plates & Heat Sinks',
+  title: 'Copper AM Applications | Cold Plates',
   description:
-    'Application guide for LPBF copper cold plates, heat sinks, induction coils, busbars, RF waveguide parts, vacuum hardware, and semiconductor copper components.',
+    'LPBF copper 3D printing applications for cold plates, heat sinks, induction coils, busbars, RF waveguides, vacuum parts, and semiconductor hardware.',
   openGraph: {
     images: [
       {
@@ -56,7 +56,7 @@ const metadata = {
   <Hero
     tagline="Applications"
     title="Use copper AM where it changes performance or risk"
-    subtitle="Start from the application failure mode, then quote the part with geometry, material, operating load, post-processing, acceptance criteria, and inspection scope in view."
+    subtitle="Start from the application need, then send geometry, quantity, material if known, operating load, post-processing, and inspection requirements when they matter."
     actions={[{ variant: 'primary', text: 'Send CAD for RFQ', href: '/contact#form' }]}
     image={{
       src: '~/assets/images/copper/copper-cold-plates.webp',
@@ -96,13 +96,13 @@ const metadata = {
       {
         title: 'Rocket chamber liners',
         description:
-          'Regenerative cooling geometry, alloy selection, injector or manifold integration, and CT plus leak evidence for qualification-style reviews.',
+          'Regenerative cooling geometry, alloy selection, injector or manifold integration, and CT or leak testing when required.',
         icon: 'tabler:rocket',
       },
       {
         title: 'Multi-functional copper structures',
         description:
-          'Thermal, electrical, and structural functions combined into compact hardware with defined datums and acceptance criteria.',
+          'Thermal, electrical, and structural functions combined into compact hardware with defined datums and requirements.',
         icon: 'tabler:components',
       },
     ]}
@@ -127,7 +127,7 @@ const metadata = {
       {
         title: 'Validation plan',
         description:
-          'Thermal testing, interface inspection, dimensional evidence, and pressure drop targets should be defined before production release.',
+          'Thermal testing, interface inspection, dimensional checks, and pressure drop targets should be stated when required.',
         icon: 'tabler:clipboard-check',
       },
     ]}
@@ -138,8 +138,8 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Copper heat sinks</h3>
-      Copper AM is not automatically better than CNC. It needs a performance reason, defined interface control, and a
-      measurable acceptance plan.
+      Copper AM is not automatically better than CNC. It needs a performance reason, defined interface control, and a clear
+      requirement.
     </Fragment>
   </Content>
 
@@ -215,14 +215,14 @@ const metadata = {
   </Content>
 
   <Features2
-    title="Project-fit checks before RFQ"
-    subtitle="These filters help decide whether the part should move toward AM quotation, redesign, or a conventional route."
+    title="Requirements that affect quotation"
+    subtitle="These details help decide whether the part can move toward AM quotation, needs clarification, or fits a conventional route better."
     columns={3}
     items={[
       {
         title: 'Cold plates',
         description:
-          'This cold plate is feasible only if the leak target, proof pressure, channel cleaning path, and post-machined sealing lands are defined before build release.',
+          'Cold plate quotes depend on leak target, proof pressure, channel cleaning path, and post-machined sealing lands when those requirements apply.',
         icon: 'tabler:droplet',
       },
       {
@@ -240,7 +240,7 @@ const metadata = {
       {
         title: 'RF hardware',
         description:
-          'Waveguide and RF parts need frequency band, critical surfaces, plating expectations, and acceptance method before AM value can be judged.',
+          'Waveguide and RF parts need frequency band, critical surfaces, plating expectations, and test method before quoting.',
         icon: 'tabler:antenna-bars-5',
       },
       {
@@ -252,7 +252,7 @@ const metadata = {
       {
         title: 'When to avoid AM',
         description:
-          'If the part is simple, acceptance criteria are undefined, or CNC can produce the function with lower risk, AM may not be the right quote path.',
+          'If the part is simple, requirements are undefined, or CNC can produce the function with lower risk, AM may not be the right route.',
         icon: 'tabler:alert-triangle',
       },
     ]}
@@ -266,7 +266,7 @@ const metadata = {
         href: '/contact#form',
       },
     ]}
-    title="Need a feasibility review for a copper AM part?"
-    subtitle="Send CAD, material target, quantity, lead time, operating conditions, and acceptance requirements."
+    title="Need a quote for a copper AM part?"
+    subtitle="Send CAD, material target if known, quantity, lead time, operating conditions, and critical requirements."
   />
 </Layout>

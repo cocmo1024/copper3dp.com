@@ -18,7 +18,7 @@ const metadata = {
   title: 'Copper 3D Printing Services | LPBF Copper Parts for RFQ',
   ignoreTitleTemplate: true,
   description:
-    'LPBF copper 3D printing services for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor copper components with feasibility, DfAM, post-processing, and inspection review.',
+    'LPBF copper 3D printing for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor copper components.',
   openGraph: {
     images: [
       {
@@ -74,41 +74,40 @@ const metadata = {
     image={{ src: '~/assets/images/copper/hero-2.webp', alt: 'Copper additive manufacturing parts' }}
   >
     <Fragment slot="title">
-      LPBF copper parts for <span class="text-accent dark:text-white">serious thermal, electrical & fluid systems</span>
+      LPBF copper 3D printing for <span class="text-accent dark:text-white">custom copper parts</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      COPPER 3DP helps engineering and sourcing teams turn copper AM concepts into quotable projects: material route,
-      DfAM limits, post-processing, inspection evidence, and acceptance criteria before cost and lead time are locked.
+      Send drawings, quantity, material preference, and requirements. We review the part, ask focused questions when
+      needed, and quote according to the project information provided.
     </Fragment>
   </Hero>
 
   <Note
-    title="Fastest quote path:"
-    description="Send CAD, drawings, target material or operating requirements, quantity, lead time, critical interfaces, service conditions, and required inspection evidence."
+    title="For a faster quote:"
+    description="Send CAD or drawings, quantity, material preference if known, target lead time, and any critical surfaces, pressure, thermal, electrical, or inspection requirements."
   />
 
   <Features3
-    title="What an actionable RFQ response should clarify"
-    subtitle="The first reply should help you decide whether to proceed, redesign, or choose another manufacturing route."
+    title="What to send for review"
+    subtitle="A simple drawing may be enough for a basic quote. Complex parts need clearer operating and inspection requirements."
     columns={3}
     items={[
       {
-        title: 'Feasibility risks',
+        title: 'Drawing package',
         description:
-          'Material fit, thin-wall or channel limits, powder removal, support access, sealing risk, and surfaces that need machining or polishing.',
+          'STEP, X_T, native CAD, or drawings with key dimensions, datum faces, ports, threads, and critical surfaces.',
         icon: 'tabler:search',
       },
       {
-        title: 'Quote scope',
-        description:
-          'Prototype or pilot quantity, process route, build assumptions, post-processing path, lead-time drivers, and missing inputs that affect price.',
+        title: 'Quantity and timing',
+        description: 'Prototype quantity, batch size, target delivery date, and any purchasing or project constraints.',
         icon: 'tabler:file-description',
       },
       {
-        title: 'Acceptance plan',
+        title: 'Special requirements',
         description:
-          'CT, leak or pressure testing, dimensional inspection, flow validation, surface finish, cleaning, and material evidence aligned to the function.',
+          'Material, pressure, leak, thermal, electrical, surface finish, machining, CT, or cleaning requirements when they matter.',
         icon: 'tabler:clipboard-check',
       },
     ]}
@@ -118,7 +117,7 @@ const metadata = {
     id="features"
     tagline="Application hubs"
     title="Where copper AM is worth quoting"
-    subtitle="The strongest projects use additive manufacturing to solve internal flow, thermal density, electrical routing, assembly, or acceptance-risk problems."
+    subtitle="The strongest projects use additive manufacturing to solve internal flow, thermal density, electrical routing, assembly, or manufacturing-risk problems."
     items={[
       {
         title: 'Copper cold plates',
@@ -147,7 +146,7 @@ const metadata = {
       {
         title: 'RF and waveguide parts',
         description:
-          'Geometry accuracy, surface roughness, insertion loss, plating requirements, and RF acceptance testing before production release.',
+          'Geometry accuracy, surface roughness, insertion loss, plating requirements, and RF testing when required.',
         icon: 'tabler:antenna-bars-5',
       },
       {
@@ -162,7 +161,7 @@ const metadata = {
   <Content
     isReversed
     tagline="Feasibility first"
-    title="Quote copper AM by function, not file upload"
+    title="Quote copper AM from the actual requirement"
     items={[
       {
         title: 'Material selection',
@@ -175,14 +174,13 @@ const metadata = {
           'Minimum walls, channels, unsupported features, powder removal, and machining allowance are evaluated before quoting.',
       },
       {
-        title: 'Acceptance evidence',
+        title: 'Inspection needs',
         description:
-          'CT, pressure or helium leak testing, dimensional inspection, surface finish, and cleaning requirements are planned with the RFQ.',
+          'CT, pressure or helium leak testing, dimensional inspection, surface finish, and cleaning are considered when required.',
       },
       {
-        title: 'Go / no-go logic',
-        description:
-          'If CNC, brazing, casting, or EDM is the stronger route, the review should identify that before prototype cost is committed.',
+        title: 'Clarification when needed',
+        description: 'If key information is missing, we ask before quoting rather than guessing a risky route.',
       },
     ]}
     image={{
@@ -191,9 +189,10 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">From CAD review to quote scope</h3>
-      The best copper AM projects define operating targets, critical surfaces, and acceptance evidence before the first
-      build.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        From drawing review to quotation
+      </h3>
+      Simple parts can move directly to a basic quote. Complex parts may need a short technical clarification first.
     </Fragment>
 
     <Fragment slot="bg">
@@ -217,12 +216,12 @@ const metadata = {
       {
         title: 'Aerospace and propulsion',
         description:
-          'Copper liners and heat-transfer hardware where cooling geometry, qualification evidence, and alloy selection drive risk.',
+          'Copper liners and heat-transfer hardware where cooling geometry, qualification requirements, and alloy selection drive risk.',
       },
       {
         title: 'Vacuum and RF hardware',
         description:
-          'Waveguides, vacuum copper components, semiconductor hardware, and sealing-critical parts requiring tight acceptance planning.',
+          'Waveguides, vacuum copper components, semiconductor hardware, and sealing-critical parts with tight surface and leak requirements.',
       },
     ]}
     image={{
@@ -238,8 +237,8 @@ const metadata = {
   </Content>
 
   <Steps
-    title="From CAD to quote scope"
-    subtitle="A useful quote package connects the model to the operating load and the evidence required to accept the part."
+    title="Simple RFQ flow"
+    subtitle="The amount of review depends on the part and the requirements you provide."
     items={[
       {
         title: 'Step 1: <span class="font-medium">Send geometry</span>',
@@ -254,15 +253,15 @@ const metadata = {
         icon: 'tabler:gauge',
       },
       {
-        title: 'Step 3: <span class="font-medium">Set acceptance criteria</span>',
+        title: 'Step 3: <span class="font-medium">State special requirements</span>',
         description:
-          'Confirm CT scope, leak target, pressure test, dimensional inspection, surface finish, cleaning, and post-machining requirements.',
+          'Note CT, leak, pressure, dimensional, surface finish, cleaning, and post-machining requirements when they are important.',
         icon: 'tabler:clipboard-check',
       },
       {
-        title: 'Ready for quote scope',
+        title: 'Step 4: <span class="font-medium">Quote or clarify</span>',
         description:
-          'The output is a feasible route, missing-input list, likely post-processing path, inspection scope, and quote assumptions.',
+          'We quote when the request is clear, or ask focused questions when material, tolerance, testing, or post-processing needs are unclear.',
         icon: 'tabler:check',
       },
     ]}
@@ -274,7 +273,7 @@ const metadata = {
 
   <Features2
     title="What we review before quoting"
-    subtitle="The goal is to find a defensible go/no-go path before cost and lead time are locked."
+    subtitle="The review depth depends on the part complexity, the drawing package, and the requirements provided."
     tagline="Engineering review"
     items={[
       {
@@ -296,7 +295,7 @@ const metadata = {
       {
         title: 'Inspection package',
         description:
-          'CT review, leak or pressure testing, dimensional evidence, flow checks, and material certification.',
+          'CT review, leak or pressure testing, dimensional checks, flow checks, and material certification when required.',
         icon: 'tabler:clipboard-check',
       },
     ]}
@@ -308,7 +307,7 @@ const metadata = {
 
   <BlogLatestPosts
     title="Engineering resources"
-    information="Use these notes to prepare better RFQs for cold plates, heat sinks, CT inspection, leak testing, copper alloy selection, and acceptance criteria."
+    information="Use these notes to prepare RFQs for cold plates, heat sinks, CT inspection, leak testing, copper alloy selection, and copper AM requirements."
   />
 
   <FAQs
@@ -320,7 +319,7 @@ const metadata = {
       {
         title: 'What makes a review move quickly?',
         description:
-          'Marked functional surfaces, operating loads, target quantity, lead time, material preference, and acceptance evidence let the quote path form quickly.',
+          'Drawings, quantity, material if known, target lead time, critical surfaces, and operating or inspection requirements help us quote faster.',
       },
       {
         title: 'Which copper materials can be reviewed?',
@@ -330,17 +329,17 @@ const metadata = {
       {
         title: 'What files should I send?',
         description:
-          'Send CAD, drawings, target quantity, lead time, functional surfaces, sealing interfaces, service environment, and required inspection evidence.',
+          'Send CAD, drawings, target quantity, lead time, functional surfaces, sealing interfaces, service environment, and required inspection notes.',
       },
       {
         title: 'Can internal channels be inspected?',
         description:
-          'CT scanning, pressure testing, leak testing, and flow checks can be planned when the acceptance requirement is defined early.',
+          'CT scanning, pressure testing, leak testing, and flow checks can be considered when the requirement is stated early.',
       },
       {
         title: 'When is copper AM not a good fit?',
         description:
-          'Simple plates, very large parts, features that are easier to machine, or parts with undefined acceptance criteria may be better routed elsewhere.',
+          'Simple plates, very large parts, features that are easier to machine, or parts with undefined testing requirements may be better routed elsewhere.',
       },
     ]}
   />
@@ -364,11 +363,11 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title"> Send a copper AM RFQ engineering can act on. </Fragment>
+    <Fragment slot="title"> Send drawings, quantity, and requirements. </Fragment>
 
     <Fragment slot="subtitle">
-      Share geometry, material target or operating conditions, quantity, lead time, and acceptance criteria to receive
-      feasibility notes and quote scope.
+      We review the request and respond with a quote or clarification questions based on the project information
+      provided.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -29,13 +29,13 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="Project RFQ"
-    title="Send the details that decide feasibility and quote scope"
-    subtitle="Use this form to start a copper AM review. The fastest path is CAD plus material target or operating requirements, quantity, lead time, critical interfaces, and acceptance evidence."
+    title="Send your drawing, quantity, and requirements"
+    subtitle="We review copper 3D printing inquiries case by case. If the information is enough, we quote; if key requirements are unclear, we ask before quoting."
   />
 
   <ContactUs
     id="form"
-    title="Start an engineering RFQ review"
+    title="Start a copper 3D printing quote"
     subtitle="Submit the project summary here. For file transfer, email STEP, X_T, or native CAD files directly to info@szcomo.com with the same project notes."
     form={{
       name: 'copper-am-rfq',
@@ -96,7 +96,7 @@ const metadata = {
       rows: 7,
       required: true,
       placeholder:
-        'Application, operating load, coolant, pressure drop, current, RF band, sealing faces, datum surfaces, leak target, CT or inspection scope, post-machining, surface finish, service environment, and anything that would make the part unacceptable...',
+        'Application, operating load, coolant, pressure drop, current, RF band, sealing faces, datum surfaces, leak target, CT or inspection needs, post-machining, surface finish, and service environment...',
     }}
     disclaimer={{
       label:
@@ -108,23 +108,23 @@ const metadata = {
   />
 
   <Features2
-    title="What happens after you submit"
-    subtitle="The goal is to turn an inquiry into a clear engineering decision path, not just a price response."
+    title="How we respond"
+    subtitle="The reply depends on the drawing and requirements provided."
     items={[
       {
-        title: 'Feasibility screen',
+        title: 'Simple quote',
         description:
-          'Geometry, material fit, DfAM risk, post-processing needs, and acceptance gaps are reviewed before quote assumptions are locked.',
+          'If geometry, quantity, and basic requirements are clear, we can respond with a straightforward quotation.',
       },
       {
-        title: 'Missing inputs flagged',
+        title: 'Clarification questions',
         description:
-          'If heat load, pressure, current, leak target, drawings, or inspection scope are missing, they can be identified early instead of delaying procurement.',
+          'If heat load, pressure, current, leak target, drawings, or inspection needs are unclear, we ask focused questions before quoting.',
       },
       {
-        title: 'Quote path aligned',
+        title: 'Technical discussion when needed',
         description:
-          'The response can separate feasibility notes, prototype quote scope, post-processing options, and inspection evidence needed for acceptance.',
+          'For complex parts, we may discuss material, manufacturability, post-processing, testing, and lead-time drivers as needed.',
       },
       {
         title: 'CAD transfer',
@@ -137,8 +137,9 @@ const metadata = {
         icon: 'tabler:mail',
       },
       {
-        title: 'Response scope',
-        description: 'Feasibility notes, quote path, lead time, post-processing options, and inspection plan.',
+        title: 'Response basis',
+        description:
+          'Quote and follow-up are based on the drawing, quantity, material, lead time, and requirements you provide.',
         icon: 'tabler:clipboard-check',
       },
     ]}
