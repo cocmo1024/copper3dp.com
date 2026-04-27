@@ -4,7 +4,7 @@ publishDate: 2026-01-02
 excerpt: 'When 3D printed copper heat sinks work, what breaks them, and which geometry, material, testing, and post-processing details affect RFQ review.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'feasibility', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/3d-printed-copper-heat-sinks-feasibility/01-3d-printed-copper-heat-sinks-feasibility-1-9f1a216c.webp
 metadata:
   title: '3D Printed Copper Heat Sinks: Feasibility Guide'
@@ -102,7 +102,7 @@ The outcome met thermal targets, but lead time and unit cost moved materially. T
 
 ### Go/No-Go Criteria for 3D Printed Copper Heat Sinks in Real Programs
 
-#### 🟢 Clearly Feasible: 3D Printed Copper Heat Sink Use Cases with Hard Constraints
+#### Clearly Feasible: 3D Printed Copper Heat Sink Use Cases with Hard Constraints
 
 Go ahead if all of the following are true:
 
@@ -111,7 +111,7 @@ Go ahead if all of the following are true:
 - **You have a measurement plan** : density/porosity and thermal performance are verified per lot (at minimum by coupon strategy; ideally correlated to system Rθ).
 - **Volumes are compatible** : low-to-mid volume where added inspection and post-processing do not dominate lifecycle economics.
 
-#### 🟡 Conditionally Feasible (Pyrrhic Zone): Performance Is Possible, but You Pay for It
+#### Conditionally Feasible (High-Cost Route): Performance Is Possible, but You Pay for It
 
 Proceed only if you accept the “tax” and can resource it:
 
@@ -126,7 +126,7 @@ In this zone, the project succeeds when you explicitly budget for:
 - Higher-grade inspection (often CT + CMM)
 - Iteration to tune ΔP and flow distribution
 
-#### 🔴 Structurally Mismatched: When 3D Printed Copper Heat Sinks Are the Wrong Tool
+#### Structurally Mismatched: When 3D Printed Copper Heat Sinks Are the Wrong Tool
 
 Do not print copper when any of the following are true:
 

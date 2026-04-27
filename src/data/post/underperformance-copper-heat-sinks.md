@@ -4,7 +4,7 @@ publishDate: 2026-01-07
 excerpt: 'Printed copper heat sinks often lose performance due to lower k, rough interfaces, and channel ΔP. See failure modes, fixes, and feasibility zones.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'failure-analysis', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/underperformance-copper-heat-sinks/01-underperformance-copper-heat-sinks-1-3ec667ad.webp
 metadata:
   title: 'Why Printed Copper Heat Sinks Underperform'
@@ -142,19 +142,19 @@ This is the common pattern: additive geometry solves one constraint, then post-p
 
 ### Traffic-Light Feasibility Verdict for 3D Printed Copper Heat Sinks
 
-🟢**Clearly Feasible**
+**Clearly Feasible**
 Go ahead if you are building a**prototype**or low-volume part where:
 
 - The sink is not interface-dominated (high clamp load and controlled TIM), and
 - You can accept secondary finishing (machining/lapping) as part of the baseline plan.
 
-🟡**Conditionally Feasible (Pyrrhic Zone)**
+**Conditionally Feasible (High-Cost Route)**
 Possible, but expect the “geometry win” to require a “process win”:
 
 - HIP + thermal treatment, controlled finishing, validated cleaning, and inspection.
 - Budget for **schedule tax (weeks)** and **cost tax (multiple ops)** . This path is chosen only when geometry is non-negotiable.
 
-🔴**Structurally Mismatched**
+**Structurally Mismatched**
 Not recommended when:
 
 - You need **high-volume cost efficiency** , or

@@ -4,7 +4,7 @@ publishDate: 2026-01-01
 excerpt: 'Compare pure copper and CuCrZr heat sinks using thermal conductivity, strength, softening temperature, and real build trade-offs.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'material-selection', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/01-pure-copper-vs-cucrzr-high-performance-heat-sinks-1-9707fcce.webp
 metadata:
   title: 'Pure Copper vs CuCrZr for High-Performance Heat Sinks'
@@ -90,7 +90,7 @@ The failure appeared during assembly trials:
 
 ### Feasibility Verdict: Pure Copper vs CuCrZr Heat Sinks
 
-#### 🟢 Clearly Feasible: Pure Copper Heat Sinks
+#### Clearly Feasible: Pure Copper Heat Sinks
 
 Go ahead if all conditions below are true:
 
@@ -99,7 +99,7 @@ Go ahead if all conditions below are true:
 - Operating temperature stays mostly below **~150°C at the heat sink** and flatness stability is not a yield-limiting requirement.
 - No thin threaded features are load-bearing, or inserts/standoffs isolate torque from copper.
 
-#### 🟡 Conditionally Feasible (Pyrrhic Zone): “Pure Copper, But With Structural Compensation”
+#### Conditionally Feasible (High-Cost Route): “Pure Copper, But With Structural Compensation”
 
 Possible, but expect added cost/complexity when any are true:
 
@@ -109,7 +109,7 @@ Possible, but expect added cost/complexity when any are true:
 
 In this zone, we typically pay the “bill” using at least one: thicker bases, steel backplates, helicoils/inserts, process controls for stress relief, and post-assembly flatness control. Those mitigations can erase the simplicity that motivated pure copper in the first place.
 
-#### 🔴 Structurally Mismatched: Pure Copper Where Mechanics Dominate
+#### Structurally Mismatched: Pure Copper Where Mechanics Dominate
 
 Not recommended when:
 

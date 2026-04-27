@@ -6,6 +6,7 @@ import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
 
 const uppercaseTerms = new Set(['3d', 'ai', 'am', 'cnc', 'ct', 'dfam', 'edm', 'gd&t', 'lpbf', 'rf', 'rfq']);
+const DEFAULT_POST_AUTHOR = 'COPPER 3DP Engineering';
 
 const normalizeTaxonomyTitle = (value: string): string =>
   value
@@ -107,7 +108,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
     category: category,
     tags: tags,
-    author: author,
+    author: author || DEFAULT_POST_AUTHOR,
 
     draft: draft,
 

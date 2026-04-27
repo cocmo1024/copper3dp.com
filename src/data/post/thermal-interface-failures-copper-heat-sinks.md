@@ -4,7 +4,7 @@ publishDate: 2026-01-10
 excerpt: 'Diagnose and prevent copper heat sink interface failures: TCR drivers, TIM pump-out, oxidation, clamp-load loss, and spec controls with trade-offs.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'thermal-management', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/thermal-interface-failures-copper-heat-sinks/01-thermal-interface-failures-copper-heat-sinks-1-25c6b48b.webp
 metadata:
   title: 'Copper Heat Sink Interface Failures'
@@ -121,7 +121,7 @@ Net result: interface-driven thermal spread tightened; the same module ran withi
 
 ### Feasibility Verdict for Copper Heat Sink Interfaces: Traffic-Light Zones
 
-#### 🟢 Clearly Feasible: Controlled Flatness + Stable Clamp Load + Proven TIM
+#### Clearly Feasible: Controlled Flatness + Stable Clamp Load + Proven TIM
 
 Go ahead if:
 
@@ -129,7 +129,7 @@ Go ahead if:
 - Interface pressure is controlled in the **~0.3–1.0 MPa** range across the footprint (not corner-peaked).
 - TIM has documented cycling performance for your profile (e.g., **200–500 cycles** minimum before design freeze).
 
-#### 🟡 Conditionally Feasible: “Pyrrhic Zone” Where the Interface Becomes the Product
+#### Conditionally Feasible: “High-Cost Route” Where the Interface Becomes the Product
 
 Possible, but expect higher cost/complexity if:
 
@@ -139,7 +139,7 @@ Possible, but expect higher cost/complexity if:
 
 This zone is workable when you pay the tax: plated surfaces, controlled bondlines, spring clamps, and verification testing.
 
-#### 🔴 Structurally Mismatched: When Copper Bulk Performance Can’t Save the Interface
+#### Structurally Mismatched: When Copper Bulk Performance Can’t Save the Interface
 
 Not recommended if:
 

@@ -4,7 +4,7 @@ publishDate: 2026-01-25
 excerpt: 'A practical RFQ checklist for custom 3D printed copper cold plates: leak test criteria, pressure drop specs, GD&T, materials, and documentation.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'rfq-specification', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/rfq-checklist-custom-3d-printed-copper-cold-plates/01-rfq-checklist-custom-3d-printed-copper-cold-plates-1-9ecc8f7f.webp
 metadata:
   title: 'RFQ Checklist for Custom 3D Printed Copper Cold Plates'
@@ -215,11 +215,11 @@ If you can answer these eight questions with numbers, the first quote is usually
 
 #### Verdict: a procurement-safe way to issue an RFQ
 
-🟢 Proceed with a “commitment-grade” RFQ if you can lock leak testing (method + threshold), ΔP at flow, and sealing surface requirements. In that case, suppliers can price a defined verification plan and avoid padding uncertainty.
+ Proceed with a “commitment-grade” RFQ if you can lock leak testing (method + threshold), ΔP at flow, and sealing surface requirements. In that case, suppliers can price a defined verification plan and avoid padding uncertainty.
 
-🟡 Proceed with a “prototype-grade” RFQ if the goal is learning and you accept a looser verification plan (e.g., pressure decay only, no CT) for 1–3 pieces. Expect at least one design iteration and treat the first build as a process trial.
+ Proceed with a “prototype-grade” RFQ if the goal is learning and you accept a looser verification plan (e.g., pressure decay only, no CT) for 1–3 pieces. Expect at least one design iteration and treat the first build as a process trial.
 
-🔴 Avoid issuing the RFQ as “3D printed copper cold plate, no leaks” with no ΔP, no test method, and no sealing specs. In our experience, that format forces hidden assumptions, and the downstream dispute risk is higher than the part cost.
+ Avoid issuing the RFQ as “3D printed copper cold plate, no leaks” with no ΔP, no test method, and no sealing specs. In our experience, that format forces hidden assumptions, and the downstream dispute risk is higher than the part cost.
 
 Worst-case failure scenario (to plan around): the part passes dimensional checks, but leaks after final machining because a pore string intersects a machined port feature. This can scrap the part, force a rebuild, and reset the schedule by 3–6 weeks when CT/HIP strategy was not agreed upfront.
 

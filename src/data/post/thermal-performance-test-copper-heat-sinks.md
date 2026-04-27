@@ -4,7 +4,7 @@ publishDate: 2025-12-22
 excerpt: 'Decision-grade methods to test copper heat sink θSA/θJA: duct rigs, calorimetry, interface control, uncertainty, and traffic-light feasibility.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'quality-inspection', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/thermal-performance-test-copper-heat-sinks/01-thermal-performance-test-copper-heat-sinks-1-9e76c6e6.webp
 metadata:
   title: 'Thermal Performance Test Methods for Copper Heat Sinks'
@@ -102,19 +102,19 @@ Result: θSA improved from**0.31 °C/W**reported to**0.26–0.27 °C/W**correlat
 
 ![Thermal resistance versus airflow chart for a copper heat sink with uncertainty and pressure drop curves.](../../assets/images/online-posts/thermal-performance-test-copper-heat-sinks/03-thermal-performance-test-copper-heat-sinks-3-661b8e57.webp)
 
-### Traffic Light Feasibility Verdict for Copper Heat Sink Test Methods
+### Feasibility Verdict for Copper Heat Sink Test Methods
 
-**🟢 Clearly Feasible: Ducted wind tunnel θSA testing**
+**Clearly Feasible: Ducted wind tunnel θSA testing**
 
 - Go ahead if your product airflow is known (e.g., **2–4 m/s** ) and you can lock inlet temperature within **±0.5 °C** and torque within **±0.05 N·m** .
 - Output should be a curve: **θSA (°C/W) vs velocity (m/s)** plus pressure drop (Pa).
 
-**🟡 Conditionally Feasible: Bench fan “CFM” testing**
+**Conditionally Feasible: Bench fan “CFM” testing**
 
 - Possible, but expect **10–30%** non-correlation unless you also log static pressure and map inlet velocity.
 - Use only for quick iteration, not for supplier selection or final thermal budget.
 
-**🔴 Structurally Mismatched: “One-number” thermal claims without boundary conditions**
+**Structurally Mismatched: “One-number” thermal claims without boundary conditions**
 
 - Not recommended when decisions depend on **<0.05 °C/W** differences or when power is **>100 W** .
 - Consider alternatives: a JEDEC-aligned fixture, a calorimetric loop, or an application-representative chassis test.

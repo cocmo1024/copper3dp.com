@@ -4,7 +4,7 @@ publishDate: 2026-01-01
 excerpt: 'Compare monolithic and brazed copper cold plates using leak risk, thermal cycling, inspection burden, and unit cost drivers.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'process-selection', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/monolithic-vs-brazed-copper-cold-plates/01-monolithic-vs-brazed-copper-cold-plates-1-2bd96307.webp
 metadata:
   title: 'Monolithic vs Brazed Copper Cold Plates'
@@ -113,7 +113,7 @@ The point is not “monolithic is better.” The point is:**you either pay to co
 
 ### Traffic-Light Verdict for Copper Cold Plate Architecture Selection
 
-#### 🟢 Clearly Feasible: Brazed Copper Cold Plate With Controlled Joining
+#### Clearly Feasible: Brazed Copper Cold Plate With Controlled Joining
 
 Go ahead if all of the following are true:
 
@@ -121,7 +121,7 @@ Go ahead if all of the following are true:
 - You can afford **100% helium leak testing** and a post-cycle retest gate (not sample-only).
 - Volume economics matter and you expect meaningful cost-down at scale via batch brazing.
 
-#### 🟡 Conditionally Feasible: Monolithic Copper Cold Plate in the Pyrrhic Zone
+#### Conditionally Feasible: Monolithic Copper Cold Plate in the High-Cost Route
 
 Possible, but expect**higher CNC hours (3–8 hr/part)**and a higher process stabilization burden if:
 
@@ -129,7 +129,7 @@ Possible, but expect**higher CNC hours (3–8 hr/part)**and a higher process sta
 - Your system sees aggressive thermal cycling (e.g., **-40°C to +125°C** ) and/or pulsation that historically reveals seam weaknesses.
 - You can accept higher unit cost early to buy down seam risk structurally.
 
-#### 🔴 Structurally Mismatched: Monolithic or Brazed Used for the Wrong System Constraint
+#### Structurally Mismatched: Monolithic or Brazed Used for the Wrong System Constraint
 
 Not recommended in these cases:
 

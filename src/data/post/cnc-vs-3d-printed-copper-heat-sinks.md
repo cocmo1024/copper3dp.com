@@ -4,7 +4,7 @@ publishDate: 2026-01-18
 excerpt: 'Compare CNC and 3D-printed copper heat sinks: tolerances, roughness, density, post-processing, cost drivers, and feasibility zones.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'process-selection', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/cnc-vs-3d-printed-copper-heat-sinks/01-cnc-vs-3d-printed-copper-heat-sinks-1-a7e835d3.webp
 metadata:
   title: 'CNC Machined vs 3D Printed Copper Heat Sinks'
@@ -72,9 +72,9 @@ We treat AM as a geometry enabler, not as a shortcut. When internal channels mat
 
 ![Comparison chart of CNC machined versus 3D printed copper heat sink manufacturing metrics.](../../assets/images/online-posts/cnc-vs-3d-printed-copper-heat-sinks/03-cnc-vs-3d-printed-copper-heat-sinks-3-6ec681da.webp)
 
-### Feasibility Verdict: CNC vs 3D-Printed Copper Heat Sinks (Traffic Light System)
+### Feasibility Verdict: CNC vs 3D-Printed Copper Heat Sinks
 
-#### 🟢 Clearly Feasible: CNC-Machined Copper Heat Sinks
+#### Clearly Feasible: CNC-Machined Copper Heat Sinks
 
 Go ahead if:
 
@@ -82,7 +82,7 @@ Go ahead if:
 - You need tight assembly control (±0.02–0.05 mm) and reliable TIM contact (Ra ≤1.6 µm on the base).
 - You expect production scaling where yield and inspection must stay simple.
 
-#### 🟡 Conditionally Feasible: 3D-Printed Copper Heat Sinks (Pyrrhic Zone)
+#### Conditionally Feasible: 3D-Printed Copper Heat Sinks (High-Cost Route)
 
 Possible, but expect high cost/complexity if:
 
@@ -90,7 +90,7 @@ Possible, but expect high cost/complexity if:
 - You can fund the “qualification stack”: density/porosity validation (often ≥99.5% targets), mandatory face machining, and a cleaning + inspection method that proves internal feature integrity.
 - Your performance win is large enough to justify post-processing and QA as permanent line items (not NPI-only).
 
-#### 🔴 Structurally Mismatched: 3D-Printed Copper Heat Sinks Without Post-Processing
+#### Structurally Mismatched: 3D-Printed Copper Heat Sinks Without Post-Processing
 
 Not recommended if:
 

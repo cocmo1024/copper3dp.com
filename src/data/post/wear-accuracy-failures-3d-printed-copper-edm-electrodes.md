@@ -4,7 +4,7 @@ publishDate: 2025-12-21
 excerpt: 'Why 3D printed copper EDM electrodes lose accuracy: porosity, roughness, wear variance, and the post-processing steps needed to stabilize burns.'
 category: Engineering Guide
 tags: ['edm-copper-electrodes', 'failure-analysis', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/wear-accuracy-failures-3d-printed-copper-edm-electrodes/01-wear-accuracy-failures-3d-printed-copper-edm-electrodes-1-bf06b7b2.webp
 metadata:
   title: '3D Printed Copper EDM Electrode Failures'
@@ -12,7 +12,7 @@ metadata:
   canonical: https://copper3dp.com/posts/EngineeringGuide/wear-accuracy-failures-3d-printed-copper-edm-electrodes/
 ---
 
-> **Wear and accuracy failures in 3D printed copper EDM electrodes are 🟡 conditionally feasible for complex-geometry tooling,**especially when internal flushing paths matter. While they can enable conformal features impossible to mill, engineering teams must account for porosity-driven wear, surface-driven overburn, and post-processing “tax” to make dimensional accuracy hold below ±0.02 mm.
+> **Wear and accuracy failures in 3D printed copper EDM electrodes are conditionally feasible for complex-geometry tooling,**especially when internal flushing paths matter. While they can enable conformal features impossible to mill, engineering teams must account for porosity-driven wear, surface-driven overburn, and post-processing “tax” to make dimensional accuracy hold below ±0.02 mm.
 
 ### 3D Printed Copper EDM Electrodes: The Request We Keep Getting
 
@@ -83,23 +83,23 @@ Printed copper electrodes fail in predictable, diagnosable ways:
 
 ![Infographic comparing EDM electrode conductivity, porosity, and resulting wear variance](../../assets/images/online-posts/wear-accuracy-failures-3d-printed-copper-edm-electrodes/03-wear-accuracy-failures-3d-printed-copper-edm-electrodes-3-a5a82a1f.webp)
 
-### Feasibility Verdict for 3D Printed Copper EDM Electrodes: Traffic Light Zones
+### Feasibility Verdict for 3D Printed Copper EDM Electrodes
 
-**🟢 Clearly Feasible**
+**Clearly Feasible**
 Go ahead if all conditions hold:
 
 - Functional faces are finish-machined to **±0.01 mm** and **Ra ≤ 1.6 µm** .
 - Electrode working surfaces are sealed (e.g., plating **15–30 µm** or equivalent) and verified to be pore-stable near the surface.
 - The burn is not edge-dominated: minimum feature thickness **≥ 0.5 mm** and corner radii are not required below **R0.10 mm** .
 
-**🟡 Conditionally Feasible (Pyrrhic Zone)**
+**Conditionally Feasible (High-Cost Route)**
 Possible, but expect high cost/complexity when any condition holds:
 
 - Feature thickness **0.2–0.5 mm** , deep ribs, or high aspect ratio cavities where flushing is marginal.
 - Tight cavity tolerances **≤ ±0.02 mm** must hold across multiple electrodes/burn cycles.
 - The electrode must be “as-printed functional” without machining (this almost always forces iteration and scrap). In this zone, success typically requires the full stack: densification, machining, sealing, and recipe tuning, plus extra metrology.
 
-**🔴 Structurally Mismatched**
+**Structurally Mismatched**
 Not recommended when:
 
 - Sharp internal corners or microfeatures demand **R < 0.10 mm** retention after repeated burns.

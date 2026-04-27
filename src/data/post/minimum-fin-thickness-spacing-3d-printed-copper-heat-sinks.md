@@ -4,7 +4,7 @@ publishDate: 2026-01-03
 excerpt: 'Minimum fin thickness and spacing guidance for 3D printed copper heat sinks, with process limits, failure modes, inspection checks, and RFQ inputs.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'design-limits', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/01-minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks-1-6743e1c6.webp
 metadata:
   title: 'Copper Heat Sink Fin Thickness and Spacing'

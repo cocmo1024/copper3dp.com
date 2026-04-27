@@ -4,7 +4,7 @@ publishDate: 2025-12-22
 excerpt: 'A practical RFQ checklist for copper heat sinks: thermal targets, interface tolerances, process limits, and acceptance tests to prevent redesign loops.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'rfq-specification', 'engineering-guide']
-author: 'szcomo'
+author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/rfq-specification-copper-heat-sinks/01-rfq-specification-copper-heat-sinks-1-72b62930.webp
 metadata:
   title: 'RFQ Specification Guide for Custom Copper Heat Sinks'
@@ -176,17 +176,17 @@ The project succeeded when the RFQ made the interface a first-class requirement 
 
 ### Feasibility Verdict for Custom Copper Heat Sinks
 
-**🟢 Clearly Feasible**
+**Clearly Feasible**
 
 - Go ahead if the RFQ includes **P (W)** , boundary conditions (airflow or flow), and a measurable target such as **R_th (°C/W)** or **T_base,max** .
 - Go ahead if base flatness and interface controls are specified (e.g., **≤ 0.05 mm** , **Ra ≤ 1.6 µm** ) and acceptance tests are defined.
 
-**🟡 Conditionally Feasible (Pyrrhic Zone)**
+**Conditionally Feasible (High-Cost Route)**
 
 - Possible, but expect higher cost/lead time if you require **very high fin density** , **microchannels** , **extreme flatness** (e.g., ≤ 0.02 mm), or **tight thermal margins** (< 5 °C headroom).
 - The tax typically shows up as added inspection (CMM/roughness), lower yield, and more prototypes to converge.
 
-**🔴 Structurally Mismatched**
+**Structurally Mismatched**
 
 - Not recommended when the real limitation is **air-side convection** (low airflow, high recirculation, clogged filters) and you are trying to “material upgrade” your way out.
 - Not recommended when you cannot control mounting pressure or flatness, and the interface resistance dominates; consider **heat pipes/vapor chambers** , a different enclosure airflow strategy, or a **liquid cold plate** instead.
