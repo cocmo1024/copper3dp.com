@@ -46,6 +46,10 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Capabilities"
+    actions={[
+      { variant: 'primary', text: 'Send CAD for RFQ', href: '/contact#form', icon: 'tabler:send' },
+      { text: 'Review RFQ inputs', href: '/rfq' },
+    ]}
     image={{
       src: '~/assets/images/copper/hero-1.webp',
       alt: 'Industrial copper additive manufacturing components',
@@ -58,12 +62,12 @@ const metadata = {
 
     <Fragment slot="subtitle">
       COPPER 3DP evaluates copper additive manufacturing around application risk: material behavior, channel geometry,
-      conductivity, pressure integrity, post-processing, and inspection evidence.
+      conductivity, pressure integrity, post-processing, inspection evidence, and whether the design is ready to quote.
     </Fragment>
   </Hero>
 
   <Stats
-    title="Program review scope"
+    title="Quote review scope"
     stats={[
       { title: 'Copper alloy families', amount: '3' },
       { title: 'Application hubs', amount: '15' },
@@ -75,7 +79,7 @@ const metadata = {
   <Features3
     id="materials"
     title="Materials and process fit"
-    subtitle="The first decision is whether the material and process route can support the operating target."
+    subtitle="The first decision is whether the material and process route can support the operating target with acceptable post-processing and evidence."
     columns={3}
     isBeforeContent={true}
     items={[
@@ -150,7 +154,7 @@ const metadata = {
   <Steps2
     id="inspection"
     title="Inspection and acceptance planning"
-    subtitle="Acceptance criteria should be part of the RFQ, not a late-stage add-on."
+    subtitle="Acceptance criteria should be part of the RFQ, because they often change the build route, machining plan, and quote scope."
     items={[
       {
         title: 'Internal continuity',
@@ -201,20 +205,20 @@ const metadata = {
   />
 
   <Features2
-    title="Where the team can help"
+    title="Where the review creates value"
     tagline="Contact us"
     columns={2}
     items={[
       {
         title: 'Feasibility and DfAM notes',
         description:
-          'Early review for manufacturability limits, risk drivers, and options before you lock geometry or submit a formal RFQ.',
+          'Early review for manufacturability limits, risk drivers, design options, and whether AM is justified before you lock geometry.',
         icon: 'tabler:messages',
       },
       {
         title: 'Quote and acceptance scope',
         description:
-          'Quotation support for copper AM builds with material target, lead time, post-processing, and inspection options aligned.',
+          'Quotation support that aligns material target, lead time, post-processing, inspection evidence, and acceptance assumptions.',
         icon: 'tabler:headset',
       },
     ]}

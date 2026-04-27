@@ -17,7 +17,8 @@ const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 
 const normalizeStructuredData = (item: JsonLdNode): JsonLdNode => {
-  const { ['@context']: _context, ...node } = item;
+  const node = { ...item };
+  delete node['@context'];
   return node;
 };
 

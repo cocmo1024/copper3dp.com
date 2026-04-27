@@ -5,6 +5,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
@@ -14,10 +15,10 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createCopperServiceSchema, createItemListSchema } from '~/utils/structured-data';
 
 const metadata = {
-  title: 'Copper 3D Printing Services | LPBF Copper AM',
+  title: 'Copper 3D Printing Services | LPBF Copper Parts for RFQ',
   ignoreTitleTemplate: true,
   description:
-    'LPBF copper 3D printing services for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor copper components.',
+    'LPBF copper 3D printing services for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor copper components with feasibility, DfAM, post-processing, and inspection review.',
   openGraph: {
     images: [
       {
@@ -68,31 +69,56 @@ const metadata = {
         href: '/contact#form',
         icon: 'tabler:send',
       },
-      { text: 'Explore applications', href: '#features' },
+      { text: 'Prepare RFQ inputs', href: '/rfq' },
     ]}
     image={{ src: '~/assets/images/copper/hero-2.webp', alt: 'Copper additive manufacturing parts' }}
   >
     <Fragment slot="title">
-      Copper AM for <span class="text-accent dark:text-white">thermal, electrical & fluid systems</span>
+      LPBF copper parts for <span class="text-accent dark:text-white">serious thermal, electrical & fluid systems</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      COPPER 3DP supports industrial copper 3D printing programs using LPBF and advanced copper alloys including pure
-      copper, CuCrZr, and GRCop-42. Start with feasibility, DfAM limits, failure modes, acceptance evidence, and RFQ
-      inputs.
+      COPPER 3DP helps engineering and sourcing teams turn copper AM concepts into quotable projects: material route,
+      DfAM limits, post-processing, inspection evidence, and acceptance criteria before cost and lead time are locked.
     </Fragment>
   </Hero>
 
   <Note
-    title="RFQ focus:"
-    description="Include CAD, target material, quantity, lead time, critical dimensions, datum faces, operating environment, and inspection requirements."
+    title="Fastest quote path:"
+    description="Send CAD, drawings, target material or operating requirements, quantity, lead time, critical interfaces, service conditions, and required inspection evidence."
+  />
+
+  <Features3
+    title="What an actionable RFQ response should clarify"
+    subtitle="The first reply should help you decide whether to proceed, redesign, or choose another manufacturing route."
+    columns={3}
+    items={[
+      {
+        title: 'Feasibility risks',
+        description:
+          'Material fit, thin-wall or channel limits, powder removal, support access, sealing risk, and surfaces that need machining or polishing.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Quote scope',
+        description:
+          'Prototype or pilot quantity, process route, build assumptions, post-processing path, lead-time drivers, and missing inputs that affect price.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Acceptance plan',
+        description:
+          'CT, leak or pressure testing, dimensional inspection, flow validation, surface finish, cleaning, and material evidence aligned to the function.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
   />
 
   <Features
     id="features"
     tagline="Application hubs"
-    title="Copper parts where additive manufacturing can change the design"
-    subtitle="We review copper AM only where geometry, performance, or assembly risk justifies the process."
+    title="Where copper AM is worth quoting"
+    subtitle="The strongest projects use additive manufacturing to solve internal flow, thermal density, electrical routing, assembly, or acceptance-risk problems."
     items={[
       {
         title: 'Copper cold plates',
@@ -136,7 +162,7 @@ const metadata = {
   <Content
     isReversed
     tagline="Feasibility first"
-    title="Quote copper AM by function, not novelty"
+    title="Quote copper AM by function, not file upload"
     items={[
       {
         title: 'Material selection',
@@ -153,6 +179,11 @@ const metadata = {
         description:
           'CT, pressure or helium leak testing, dimensional inspection, surface finish, and cleaning requirements are planned with the RFQ.',
       },
+      {
+        title: 'Go / no-go logic',
+        description:
+          'If CNC, brazing, casting, or EDM is the stronger route, the review should identify that before prototype cost is committed.',
+      },
     ]}
     image={{
       src: '~/assets/images/copper/copper-cold-plates.webp',
@@ -160,10 +191,9 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        From prototype review to production evidence
-      </h3>
-      The best copper AM projects define operating targets and acceptance criteria before the first build.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">From CAD review to quote scope</h3>
+      The best copper AM projects define operating targets, critical surfaces, and acceptance evidence before the first
+      build.
     </Fragment>
 
     <Fragment slot="bg">
@@ -208,7 +238,8 @@ const metadata = {
   </Content>
 
   <Steps
-    title="A practical RFQ workflow for custom copper AM parts"
+    title="From CAD to quote scope"
+    subtitle="A useful quote package connects the model to the operating load and the evidence required to accept the part."
     items={[
       {
         title: 'Step 1: <span class="font-medium">Send geometry</span>',
@@ -229,7 +260,9 @@ const metadata = {
         icon: 'tabler:clipboard-check',
       },
       {
-        title: 'Ready for feasibility notes and quote',
+        title: 'Ready for quote scope',
+        description:
+          'The output is a feasible route, missing-input list, likely post-processing path, inspection scope, and quote assumptions.',
         icon: 'tabler:check',
       },
     ]}
@@ -275,7 +308,7 @@ const metadata = {
 
   <BlogLatestPosts
     title="Engineering resources"
-    information="Use these notes to prepare RFQs for cold plates, heat sinks, CT inspection, leak testing, and copper alloy selection."
+    information="Use these notes to prepare better RFQs for cold plates, heat sinks, CT inspection, leak testing, copper alloy selection, and acceptance criteria."
   />
 
   <FAQs
@@ -284,6 +317,11 @@ const metadata = {
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
+      {
+        title: 'What makes a review move quickly?',
+        description:
+          'Marked functional surfaces, operating loads, target quantity, lead time, material preference, and acceptance evidence let the quote path form quickly.',
+      },
       {
         title: 'Which copper materials can be reviewed?',
         description:
@@ -311,7 +349,7 @@ const metadata = {
     stats={[
       { title: 'Application hubs', amount: '15' },
       { title: 'Core copper alloys', amount: '3' },
-      { title: 'RFQ inputs reviewed', amount: '8+' },
+      { title: 'Quote inputs reviewed', amount: '8+' },
       { title: 'Inspection options', amount: 'CT / leak / flow' },
     ]}
   />
@@ -326,11 +364,11 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title"> Custom copper 3D printed parts, reviewed by application. </Fragment>
+    <Fragment slot="title"> Send a copper AM RFQ engineering can act on. </Fragment>
 
     <Fragment slot="subtitle">
-      Share geometry, material target, quantity, lead time, and acceptance criteria to receive feasibility notes and
-      quote scope.
+      Share geometry, material target or operating conditions, quantity, lead time, and acceptance criteria to receive
+      feasibility notes and quote scope.
     </Fragment>
   </CallToAction>
 </Layout>

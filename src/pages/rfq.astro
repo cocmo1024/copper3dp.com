@@ -52,39 +52,40 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="RFQ inputs"
-    title="What makes a copper AM quote actionable"
-    subtitle="There is no useful catalog price for function-critical copper AM parts. Quotes are built from geometry, material, process route, post-processing, and acceptance evidence."
+    title="Build a copper AM RFQ engineering can quote"
+    subtitle="Function-critical copper AM has no meaningful catalog price. A useful quote connects geometry, operating load, material route, post-processing, inspection evidence, and acceptance criteria."
   />
 
   <Features3
     title="Quote pathways"
-    subtitle="Choose the path that matches your project stage."
+    subtitle="Choose the path that matches the maturity of your design and the decision you need to make."
     columns={3}
     items={[
       {
         title: 'Feasibility screen',
         description:
-          'Early CAD review for material fit, DfAM constraints, powder removal, channel risk, and likely post-processing requirements.',
+          'Early CAD review for material fit, DfAM constraints, powder removal, channel risk, likely post-processing, and whether AM is the right route.',
         icon: 'tabler:search',
       },
       {
         title: 'Prototype quote',
         description:
-          'Prototype build scope with material target, quantity, machining allowance, inspection options, and estimated lead time.',
+          'Build scope for prototype quantity, material target, machining allowance, inspection options, quote assumptions, and estimated lead time.',
         icon: 'tabler:box',
       },
       {
         title: 'Pilot or production review',
         description:
-          'Repeatability, acceptance evidence, fixture strategy, inspection sampling, cleaning, packaging, and production risk review.',
+          'Repeatability, acceptance evidence, fixture strategy, inspection sampling, cleaning, packaging, and production risk before release.',
         icon: 'tabler:building-factory-2',
       },
     ]}
   />
 
   <Steps
-    title="RFQ checklist"
+    title="Fast quote package"
     tagline="Required inputs"
+    subtitle="If an input is unknown, state the current assumption. Unknowns are easier to manage when they are visible."
     isReversed={true}
     items={[
       {
@@ -130,6 +131,11 @@ const metadata = {
     columns={1}
     items={[
       {
+        title: 'What will you receive back?',
+        description:
+          'A useful response should identify feasibility risks, missing inputs, likely process route, post-processing needs, inspection options, and quote assumptions.',
+      },
+      {
         title: 'Can I send an early concept?',
         description:
           'Yes. Early CAD is useful for feasibility screening, but formal quotation needs material, quantity, lead time, and acceptance requirements.',
@@ -158,8 +164,8 @@ const metadata = {
   />
 
   <CallToAction
-    title="Ready to quote a copper AM part?"
-    subtitle="Send CAD, drawings, target material, quantity, lead time, service conditions, and inspection requirements."
+    title="Ready to make the RFQ quotable?"
+    subtitle="Send CAD, drawings, target material or operating requirements, quantity, lead time, service conditions, and inspection requirements."
     actions={[
       {
         variant: 'primary',

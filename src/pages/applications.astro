@@ -3,7 +3,6 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
@@ -56,8 +55,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Applications"
-    title="Application hubs for custom 3D printed copper parts"
-    subtitle="Start from the failure mode, then quote the part with geometry, material, acceptance criteria, and inspection scope in view."
+    title="Use copper AM where it changes performance or risk"
+    subtitle="Start from the application failure mode, then quote the part with geometry, material, operating load, post-processing, acceptance criteria, and inspection scope in view."
     actions={[{ variant: 'primary', text: 'Send CAD for RFQ', href: '/contact#form' }]}
     image={{
       src: '~/assets/images/copper/copper-cold-plates.webp',
@@ -67,7 +66,7 @@ const metadata = {
 
   <Features2
     title="Thermal and fluid systems"
-    subtitle="Copper AM is strongest when internal flow paths, heat-transfer area, and part consolidation change the engineering outcome."
+    subtitle="Copper AM is strongest when internal flow paths, heat-transfer area, part consolidation, or leak-risk control change the engineering outcome."
     columns={3}
     items={[
       {
@@ -139,7 +138,8 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Copper heat sinks</h3>
-      Copper AM is not automatically better than CNC. It needs a performance reason and a measurable acceptance plan.
+      Copper AM is not automatically better than CNC. It needs a performance reason, defined interface control, and a
+      measurable acceptance plan.
     </Fragment>
   </Content>
 
@@ -214,45 +214,48 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <Testimonials
-    title="Typical RFQ review notes"
-    testimonials={[
+  <Features2
+    title="Project-fit checks before RFQ"
+    subtitle="These filters help decide whether the part should move toward AM quotation, redesign, or a conventional route."
+    columns={3}
+    items={[
       {
-        testimonial:
+        title: 'Cold plates',
+        description:
           'This cold plate is feasible only if the leak target, proof pressure, channel cleaning path, and post-machined sealing lands are defined before build release.',
-        name: 'Cold plate review',
-        job: 'Thermal system',
-        image: {
-          src: '~/assets/images/copper/copper-cold-plates.webp',
-          alt: 'Copper cold plate review',
-        },
+        icon: 'tabler:droplet',
       },
       {
-        testimonial:
+        title: 'Heat sinks',
+        description:
           'The heat sink concept needs airflow data and interface flatness requirements; printed copper fins alone do not guarantee lower thermal resistance.',
-        name: 'Heat sink review',
-        job: 'Thermal interface',
-        image: {
-          src: '~/assets/images/copper/copper-heat-sinks.webp',
-          alt: 'Copper heat sink review',
-        },
+        icon: 'tabler:temperature',
       },
       {
-        testimonial:
+        title: 'Busbars and coils',
+        description:
           'For the busbar, the quote depends on current density, joint surface machining, plating requirements, and creepage or clearance targets.',
-        name: 'Busbar review',
-        job: 'Electrical system',
-        image: {
-          src: '~/assets/images/copper/high-current-busbars.webp',
-          alt: 'Copper busbar review',
-        },
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'RF hardware',
+        description:
+          'Waveguide and RF parts need frequency band, critical surfaces, plating expectations, and acceptance method before AM value can be judged.',
+        icon: 'tabler:antenna-bars-5',
+      },
+      {
+        title: 'Vacuum parts',
+        description:
+          'Leak target, trapped-volume risk, cleaning path, bakeout conditions, and sealing surfaces should be known before route selection.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'When to avoid AM',
+        description:
+          'If the part is simple, acceptance criteria are undefined, or CNC can produce the function with lower risk, AM may not be the right quote path.',
+        icon: 'tabler:alert-triangle',
       },
     ]}
-    callToAction={{
-      text: 'Send an RFQ',
-      href: '/contact#form',
-      icon: 'tabler:chevron-right',
-    }}
   />
 
   <CallToAction

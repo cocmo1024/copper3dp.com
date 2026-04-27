@@ -27,10 +27,6 @@ export const headerData = {
       text: 'Engineering',
       links: [
         {
-          text: 'Feasibility review',
-          href: getPermalink('/#features'),
-        },
-        {
           text: 'Capabilities',
           href: getPermalink('/capabilities'),
         },
@@ -39,24 +35,16 @@ export const headerData = {
           href: getPermalink('/materials'),
         },
         {
-          text: 'RFQ inputs',
+          text: 'Inspection planning',
+          href: getPermalink('/capabilities#inspection'),
+        },
+        {
+          text: 'RFQ checklist',
           href: getPermalink('/rfq'),
         },
         {
           text: 'Engineering guide',
           href: getBlogPermalink(),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
         },
       ],
     },
@@ -68,7 +56,7 @@ export const headerData = {
           href: getPermalink('/contact#form'),
         },
         {
-          text: 'Quote pathways',
+          text: 'What to send',
           href: getPermalink('/rfq'),
         },
         {
@@ -78,6 +66,10 @@ export const headerData = {
         {
           text: 'Material selection',
           href: getPermalink('/materials'),
+        },
+        {
+          text: 'RFQ checklist article',
+          href: getPermalink('/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates'),
         },
       ],
     },

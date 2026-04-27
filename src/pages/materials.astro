@@ -50,9 +50,12 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Materials"
-    title="Copper alloy selection for additive manufacturing"
-    subtitle="Material choice depends on conductivity, strength at temperature, service environment, post-processing route, and acceptance evidence."
-    actions={[{ variant: 'primary', text: 'Ask for material review', href: '/contact#form' }]}
+    title="Select copper alloy by function and acceptance risk"
+    subtitle="Material choice depends on conductivity, strength at temperature, service environment, post-processing route, inspection evidence, and how the part will be accepted."
+    actions={[
+      { variant: 'primary', text: 'Ask for material review', href: '/contact#form' },
+      { text: 'RFQ inputs', href: '/rfq' },
+    ]}
     image={{ src: '~/assets/images/copper/high-current-busbars.webp', alt: 'Copper AM material selection' }}
   />
 
@@ -64,19 +67,19 @@ const metadata = {
       {
         title: 'Pure copper',
         description:
-          'Best reviewed when electrical or thermal conductivity is the dominant requirement and mechanical loads are controlled.',
+          'Best reviewed when electrical or thermal conductivity is dominant, mechanical loads are controlled, and final conductivity is more important than strength.',
         icon: 'tabler:hexagon-letter-c',
       },
       {
         title: 'CuCrZr',
         description:
-          'Useful when the part needs more strength or softening resistance while retaining useful conductivity after heat treatment.',
+          'Useful when the part needs more strength, clamp-load stability, or softening resistance while retaining useful conductivity after heat treatment.',
         icon: 'tabler:atom',
       },
       {
         title: 'GRCop-42',
         description:
-          'Reviewed for aerospace and high-temperature thermal hardware where alloy behavior, qualification evidence, and post-processing are central.',
+          'Reviewed for high-temperature thermal hardware where alloy behavior, heat treatment, documentation, and qualification-style evidence are central.',
         icon: 'tabler:rocket',
       },
     ]}
@@ -105,15 +108,16 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Quote material as part of the engineering system
+        Material decision inputs that speed review
       </h3>
-      The same alloy can behave differently depending on geometry, heat treatment, inspection, and operating environment.
+      The same alloy can behave differently depending on wall thickness, heat treatment, machining allowance,
+      inspection scope, and operating environment.
     </Fragment>
   </Content>
 
   <CallToAction
-    title="Not sure which copper alloy fits?"
-    subtitle="Send the operating conditions and acceptance requirements with the CAD package."
+    title="Not sure which copper alloy fits the part?"
+    subtitle="Send the operating conditions, acceptance requirements, and CAD package so the material route can be reviewed with the quote."
     actions={[{ variant: 'primary', text: 'Request review', href: '/contact#form' }]}
   />
 </Layout>

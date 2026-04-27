@@ -29,14 +29,14 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="Project RFQ"
-    title="Send CAD and engineering constraints"
-    subtitle="For a useful quote, include geometry, material target, quantity, lead time, critical interfaces, and acceptance requirements."
+    title="Send the details that decide feasibility and quote scope"
+    subtitle="Use this form to start a copper AM review. The fastest path is CAD plus material target or operating requirements, quantity, lead time, critical interfaces, and acceptance evidence."
   />
 
   <ContactUs
     id="form"
-    title="Copper AM RFQ inputs"
-    subtitle="Use the form fields as a checklist. For file transfer, email STEP, X_T, or native CAD files directly to info@szcomo.com with the same project notes."
+    title="Start an engineering RFQ review"
+    subtitle="Submit the project summary here. For file transfer, email STEP, X_T, or native CAD files directly to info@szcomo.com with the same project notes."
     form={{
       name: 'copper-am-rfq',
       method: 'POST',
@@ -80,7 +80,7 @@ const metadata = {
         type: 'text',
         name: 'material',
         label: 'Target material',
-        placeholder: 'Pure copper, CuCrZr, GRCop-42, or open',
+        placeholder: 'Pure copper, CuCrZr, GRCop-42, or open to recommendation',
       },
       {
         type: 'text',
@@ -93,10 +93,10 @@ const metadata = {
     textarea={{
       name: 'message',
       label: 'Project notes',
-      rows: 6,
+      rows: 7,
       required: true,
       placeholder:
-        'Operating load, coolant, pressure drop, current, RF band, sealing faces, datum surfaces, leak target, CT or inspection scope, post-machining, surface finish, service environment...',
+        'Application, operating load, coolant, pressure drop, current, RF band, sealing faces, datum surfaces, leak target, CT or inspection scope, post-machining, surface finish, service environment, and anything that would make the part unacceptable...',
     }}
     disclaimer={{
       label:
@@ -108,27 +108,28 @@ const metadata = {
   />
 
   <Features2
-    title="What to include"
+    title="What happens after you submit"
+    subtitle="The goal is to turn an inquiry into a clear engineering decision path, not just a price response."
     items={[
       {
-        title: 'CAD and drawings',
+        title: 'Feasibility screen',
         description:
-          'STEP, X_T, or native CAD files plus drawings for datum faces, sealing lands, ports, threads, contact planes, and inspection dimensions.',
+          'Geometry, material fit, DfAM risk, post-processing needs, and acceptance gaps are reviewed before quote assumptions are locked.',
       },
       {
-        title: 'Operating targets',
+        title: 'Missing inputs flagged',
         description:
-          'Heat load, coolant, flow rate, pressure drop, current, duty cycle, RF frequency band, vacuum service, or hydrogen exposure.',
+          'If heat load, pressure, current, leak target, drawings, or inspection scope are missing, they can be identified early instead of delaying procurement.',
       },
       {
-        title: 'Material and quantity',
+        title: 'Quote path aligned',
         description:
-          'Target material such as pure copper, CuCrZr, or GRCop-42, plus prototype quantity, pilot lot, or production intent.',
+          'The response can separate feasibility notes, prototype quote scope, post-processing options, and inspection evidence needed for acceptance.',
       },
       {
-        title: 'Inspection evidence',
+        title: 'CAD transfer',
         description:
-          'CT scan, leak testing, pressure testing, flow validation, dimensional reports, surface finish, cleaning, and material certification.',
+          'Send STEP, X_T, native CAD, and drawings by email when files are too large for a contact form or require project-specific handling.',
       },
       {
         title: 'Email',
