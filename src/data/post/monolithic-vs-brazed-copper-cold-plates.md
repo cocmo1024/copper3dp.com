@@ -111,7 +111,7 @@ The point is not “monolithic is better.” The point is:**you either pay to co
 >   - What is the **maximum acceptable leak rate** after thermal cycling (numeric limit, not “no leaks”) and will you enforce **100% helium testing** post-cycle?
 >     - What is your **field failure cost** (warranty + downtime + reputation) relative to a **+35–60% unit cost** increase at low volume?
 
-### Traffic-Light Verdict for Copper Cold Plate Architecture Selection
+### Feasibility Verdict for Copper Cold Plate Architecture Selection
 
 #### Clearly Feasible: Brazed Copper Cold Plate With Controlled Joining
 

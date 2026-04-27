@@ -119,7 +119,7 @@ Net result: interface-driven thermal spread tightened; the same module ran withi
 >   - Can we specify and verify **flatness ≤0.05 mm** and **Ra ≤0.4 µm** on the copper mating face at production volume?
 >     - Do we have a clamp strategy that limits long-term clamp loss to **≤15%** after thermal cycling and vibration?
 
-### Feasibility Verdict for Copper Heat Sink Interfaces: Traffic-Light Zones
+### Feasibility Verdict for Copper Heat Sink Interfaces
 
 #### Clearly Feasible: Controlled Flatness + Stable Clamp Load + Proven TIM
 

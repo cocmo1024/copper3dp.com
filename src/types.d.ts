@@ -75,6 +75,7 @@ export interface MetaDataImage {
   url: string;
   width?: number;
   height?: number;
+  alt?: string;
 }
 
 export interface MetaDataOpenGraph {
@@ -83,6 +84,13 @@ export interface MetaDataOpenGraph {
   images?: Array<MetaDataImage>;
   locale?: string;
   type?: string;
+  article?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    authors?: ReadonlyArray<string>;
+    section?: string;
+    tags?: ReadonlyArray<string>;
+  };
 }
 
 export interface MetaDataTwitter {

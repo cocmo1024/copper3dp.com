@@ -140,7 +140,7 @@ This is the common pattern: additive geometry solves one constraint, then post-p
 >   - Can we guarantee **mounting face flatness and Ra** after stress relief, and prove it with inspection data?
 >     - Is the system limited by **bulk conduction** or by **interface + coolant-side resistance** once clamp load and pump curve are fixed?
 
-### Traffic-Light Feasibility Verdict for 3D Printed Copper Heat Sinks
+### Feasibility Verdict for 3D Printed Copper Heat Sinks
 
 **Clearly Feasible**
 Go ahead if you are building a**prototype**or low-volume part where:

@@ -172,7 +172,7 @@ Without CT voxel size stated in the inspection report, “gap open” cannot be 
 
 ### Readiness check (K2): supplier acceptance gate (max 7)
 
-1. Supplier states AM route per ISO/ASTM process category (PBF vs binder jet). ( [国际标准化组织](https://www.iso.org/obp/ui/) )
+1. Supplier states AM route per ISO/ASTM process category (PBF vs binder jet). ( [International Organization for Standardization](https://www.iso.org/obp/ui/) )
 2. Supplier provides parameter set or datasheet limits for the copper alloy (e.g., minimal wall thickness for CuCrZr). ( [EOS GmbH](https://www.eos.info/05-datasheet-images/Assets_MDS_Metal/EOS_CopperAlloy_CuCrZr/Material_DataSheet_EOS%20_Copper_CuCrZr_en.pdf) )
 3. Documented depowder method and blast media.
 4. CT capability statement (voxel size at part size).

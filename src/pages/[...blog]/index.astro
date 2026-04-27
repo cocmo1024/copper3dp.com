@@ -43,8 +43,24 @@ const metadata = merge(
     openGraph: {
       type: 'article',
       ...(image
-        ? { images: [{ url: image, width: (image as ImageMetadata)?.width, height: (image as ImageMetadata)?.height }] }
+        ? {
+            images: [
+              {
+                url: image,
+                width: (image as ImageMetadata)?.width,
+                height: (image as ImageMetadata)?.height,
+                alt: post.title,
+              },
+            ],
+          }
         : {}),
+      article: {
+        publishedTime: post.publishDate.toISOString(),
+        modifiedTime: (post.updateDate || post.publishDate).toISOString(),
+        authors: [post.author || 'COPPER 3DP Engineering'],
+        ...(post.category?.title ? { section: post.category.title } : {}),
+        ...(post.tags?.length ? { tags: post.tags.map((tag) => tag.title) } : {}),
+      },
     },
     structuredData: [
       createBreadcrumbSchema([

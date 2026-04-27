@@ -1,5 +1,6 @@
 ---
 import { I18N, METADATA, SITE } from 'astrowind:config';
+import appleTouchIcon from '~/assets/favicons/apple-touch-icon.png';
 import type { MetaData, JsonLdNode } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
@@ -15,6 +16,7 @@ const pageTitle = metadata.title || METADATA?.title?.default || SITE.name;
 const pageDescription = metadata.description || METADATA?.description;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
+const logoUrl = String(new URL(appleTouchIcon.src, `${siteUrl}/`));
 
 const normalizeStructuredData = (item: JsonLdNode): JsonLdNode => {
   const node = { ...item };
@@ -36,6 +38,12 @@ const graph: JsonLdNode[] = [
     legalName: 'Suzhou Como Precision Materials Co., Ltd.',
     url: `${siteUrl}/`,
     email: 'info@szcomo.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+      width: 180,
+      height: 180,
+    },
     description: METADATA?.description,
     knowsAbout: [
       'LPBF copper additive manufacturing',

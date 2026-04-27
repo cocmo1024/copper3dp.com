@@ -1,14 +1,14 @@
 ---
 title: 'Thermal Performance Test Methods for Copper Heat Sinks'
 publishDate: 2025-12-22
-excerpt: 'Decision-grade methods to test copper heat sink θSA/θJA: duct rigs, calorimetry, interface control, uncertainty, and traffic-light feasibility.'
+excerpt: 'Decision-grade methods to test copper heat sink θSA/θJA: duct rigs, calorimetry, interface control, uncertainty, and practical test acceptance.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'quality-inspection', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/thermal-performance-test-copper-heat-sinks/01-thermal-performance-test-copper-heat-sinks-1-9e76c6e6.webp
 metadata:
   title: 'Thermal Performance Test Methods for Copper Heat Sinks'
-  description: 'Decision-grade methods to test copper heat sink θSA/θJA: duct rigs, calorimetry, interface control, uncertainty, and traffic-light feasibility.'
+  description: 'Decision-grade methods to test copper heat sink θSA/θJA: duct rigs, calorimetry, interface control, uncertainty, and practical test acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/
 ---
 
