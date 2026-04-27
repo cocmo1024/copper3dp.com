@@ -309,18 +309,7 @@ export async function getRelatedPosts(originalPost: Post, maxResults: number = 4
   return selectedPosts;
 }
 
-const ignoredRelatedTokens = new Set([
-  'and',
-  'are',
-  'for',
-  'from',
-  'guide',
-  'into',
-  'the',
-  'this',
-  'with',
-  'your',
-]);
+const ignoredRelatedTokens = new Set(['and', 'are', 'for', 'from', 'guide', 'into', 'the', 'this', 'with', 'your']);
 
 const topicFamilies = [
   ['cold', 'plate', 'plates', 'leak', 'ct', 'channel', 'microchannel', 'brazed', 'monolithic'],
