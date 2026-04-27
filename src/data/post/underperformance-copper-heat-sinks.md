@@ -1,5 +1,5 @@
 ---
-title: 'Why 3D Printed Copper Heat Sinks Underperform in Real Systems'
+title: 'Why Printed Copper Heat Sinks Underperform'
 publishDate: 2026-01-07
 excerpt: 'Printed copper heat sinks often lose performance due to lower k, rough interfaces, and channel ΔP. See failure modes, fixes, and feasibility zones.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-heat-sinks', 'failure-analysis', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/underperformance-copper-heat-sinks/01-underperformance-copper-heat-sinks-1-3ec667ad.webp
 metadata:
-  title: 'Why 3D Printed Copper Heat Sinks Underperform in Real Systems'
+  title: 'Why Printed Copper Heat Sinks Underperform'
   description: 'Printed copper heat sinks often lose performance due to lower k, rough interfaces, and channel ΔP. See failure modes, fixes, and feasibility zones.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/underperformance-copper-heat-sinks/
 ---

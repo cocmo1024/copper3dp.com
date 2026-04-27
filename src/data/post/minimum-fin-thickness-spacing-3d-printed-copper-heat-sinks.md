@@ -1,14 +1,14 @@
 ---
-title: 'Minimum Fin Thickness and Spacing in 3D Printed Copper Heat Sinks'
+title: 'Copper Heat Sink Fin Thickness and Spacing'
 publishDate: 2026-01-03
-excerpt: 'Evidence-anchored minimum fin thickness and spacing for 3D printed copper heat sinks across PBF CuCrZr, LPBF pure copper services, and binder jet + sinter, including failure mechanisms, inspection gates, and rollback triggers.'
+excerpt: 'Minimum fin thickness and spacing guidance for 3D printed copper heat sinks, with process limits, failure modes, inspection checks, and RFQ inputs.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'design-limits', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/01-minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks-1-6743e1c6.webp
 metadata:
-  title: 'Minimum Fin Thickness and Spacing in 3D Printed Copper Heat Sinks'
-  description: 'Evidence-anchored minimum fin thickness and spacing for 3D printed copper heat sinks across PBF CuCrZr, LPBF pure copper services, and binder jet + sinter, including failure mechanisms, inspection gates, and rollback triggers.'
+  title: 'Copper Heat Sink Fin Thickness and Spacing'
+  description: 'Minimum fin thickness and spacing guidance for 3D printed copper heat sinks, with process limits, failure modes, inspection checks, and RFQ inputs.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/
 ---
 

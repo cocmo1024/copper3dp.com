@@ -1,5 +1,5 @@
 ---
-title: '3D Printed Copper High-Voltage Electrodes: Feasibility, Constraints, and Go/No-Go Criteria'
+title: '3D Printed Copper High-Voltage Electrodes'
 publishDate: 2025-12-21
 excerpt: 'When AM copper electrodes work for high voltage, what breaks, and the post-processing + IEC testing needed to pass PD and withstand.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['high-voltage-electrodes', 'feasibility', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/01-3d-printed-copper-high-voltage-electrodes-feasibility-1-bd8b56b5.webp
 metadata:
-  title: '3D Printed Copper High-Voltage Electrodes: Feasibility, Constraints, and Go/No-Go Criteria'
+  title: '3D Printed Copper High-Voltage Electrodes'
   description: 'When AM copper electrodes work for high voltage, what breaks, and the post-processing + IEC testing needed to pass PD and withstand.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/
 ---

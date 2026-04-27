@@ -1,5 +1,5 @@
 ---
-title: 'Thermal Contact and Interface Failures in Copper Heat Sinks'
+title: 'Copper Heat Sink Interface Failures'
 publishDate: 2026-01-10
 excerpt: 'Diagnose and prevent copper heat sink interface failures: TCR drivers, TIM pump-out, oxidation, clamp-load loss, and spec controls with trade-offs.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-heat-sinks', 'thermal-management', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/thermal-interface-failures-copper-heat-sinks/01-thermal-interface-failures-copper-heat-sinks-1-25c6b48b.webp
 metadata:
-  title: 'Thermal Contact and Interface Failures in Copper Heat Sinks'
+  title: 'Copper Heat Sink Interface Failures'
   description: 'Diagnose and prevent copper heat sink interface failures: TCR drivers, TIM pump-out, oxidation, clamp-load loss, and spec controls with trade-offs.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/
 ---

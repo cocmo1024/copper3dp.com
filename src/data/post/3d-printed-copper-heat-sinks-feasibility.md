@@ -1,14 +1,14 @@
 ---
-title: '3D Printed Copper Heat Sinks: Feasibility, Constraints, and Go/No-Go Criteria'
+title: '3D Printed Copper Heat Sinks: Feasibility Guide'
 publishDate: 2026-01-02
-excerpt: '3D Printed Copper Heat Sinks: Go/No-Go Criteria * **SEO Description**: When 3D printed copper heat sinks work, what breaks them, and the measurable criteria to decide go/no-go with real post-processing costs.'
+excerpt: 'When 3D printed copper heat sinks work, what breaks them, and which geometry, material, testing, and post-processing details affect RFQ review.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'feasibility', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/3d-printed-copper-heat-sinks-feasibility/01-3d-printed-copper-heat-sinks-feasibility-1-9f1a216c.webp
 metadata:
-  title: '3D Printed Copper Heat Sinks: Feasibility, Constraints, and Go/No-Go Criteria'
-  description: '3D Printed Copper Heat Sinks: Go/No-Go Criteria * **SEO Description**: When 3D printed copper heat sinks work, what breaks them, and the measurable criteria to decide go/no-go with real post-processing costs.'
+  title: '3D Printed Copper Heat Sinks: Feasibility Guide'
+  description: 'When 3D printed copper heat sinks work, what breaks them, and which geometry, material, testing, and post-processing details affect RFQ review.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/
 ---
 

@@ -1,14 +1,14 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
 
 const metadata = {
   title: 'Copper AM RFQ Contact | Send CAD for Quote',
   description:
-    'Send custom copper AM project details for CAD review: application, material target, quantity, lead time, operating constraints, and inspection requirements.',
+    'Email copper 3D printing RFQ details with drawings, quantity, material target, lead time, operating constraints, and inspection requirements.',
   openGraph: {
     images: [
       {
@@ -29,88 +29,45 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="Project RFQ"
-    title="Send your drawing, quantity, and requirements"
-    subtitle="We review copper 3D printing inquiries case by case. If the information is enough, we quote; if key requirements are unclear, we ask before quoting."
+    title="Email your drawing, quantity, and requirements"
+    subtitle="We quote copper 3D printing projects from the information you send. If the drawing and requirements are clear, we quote; if key details are unclear, we ask before quoting."
   />
 
-  <ContactUs
+  <CallToAction
     id="form"
-    title="Start a copper 3D printing quote"
-    subtitle="Submit the project summary here. For file transfer, email STEP, X_T, or native CAD files directly to info@szcomo.com with the same project notes."
-    form={{
-      name: 'copper-am-rfq',
-      method: 'POST',
-      action: '/rfq-submitted/',
-      netlify: true,
-      honeypotName: 'bot-field',
-    }}
-    inputs={[
+    title="Send the RFQ by email"
+    subtitle="Email STEP, X_T, native CAD, drawings, quantity, material if known, lead time, and the requirements that matter for the part."
+    actions={[
       {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-        placeholder: 'Your name',
-        autocomplete: 'name',
-        required: true,
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements',
+        icon: 'tabler:mail',
       },
       {
-        type: 'email',
-        name: 'email',
-        label: 'Work email',
-        placeholder: 'name@company.com',
-        autocomplete: 'email',
-        required: true,
-      },
-      {
-        type: 'text',
-        name: 'company',
-        label: 'Company',
-        placeholder: 'Company, lab, or project team',
-        autocomplete: 'organization',
-        required: true,
-      },
-      {
-        type: 'text',
-        name: 'application',
-        label: 'Application',
-        placeholder: 'Cold plate, heat sink, busbar, coil, RF part...',
-        required: true,
-      },
-      {
-        type: 'text',
-        name: 'material',
-        label: 'Target material',
-        placeholder: 'Pure copper, CuCrZr, GRCop-42, or open to recommendation',
-      },
-      {
-        type: 'text',
-        name: 'quantity',
-        label: 'Quantity and lead time',
-        placeholder: 'Prototype quantity, pilot lot, target delivery',
-        required: true,
+        text: 'Review RFQ inputs',
+        href: '/rfq',
       },
     ]}
-    textarea={{
-      name: 'message',
-      label: 'Project notes',
-      rows: 7,
-      required: true,
-      placeholder:
-        'Application, operating load, coolant, pressure drop, current, RF band, sealing faces, datum surfaces, leak target, CT or inspection needs, post-machining, surface finish, and service environment...',
-    }}
-    disclaimer={{
-      label:
-        'I understand this first contact form is for project screening and I can send CAD files by email for quotation review.',
-      required: true,
-    }}
-    button="Submit RFQ request"
-    description="For CAD files, email STEP, X_T, or native CAD to info@szcomo.com after submitting this form."
   />
 
   <Features2
-    title="How we respond"
-    subtitle="The reply depends on the drawing and requirements provided."
+    title="What to include"
+    subtitle="A short email is fine if the project is simple. Add the details that affect quotation."
     items={[
+      {
+        title: 'Drawings and CAD',
+        description: 'Attach STEP, X_T, native CAD, or drawings with key dimensions and critical surfaces.',
+      },
+      {
+        title: 'Quantity and timing',
+        description: 'State prototype quantity, batch quantity, target delivery date, and any purchasing constraints.',
+      },
+      {
+        title: 'Requirements',
+        description:
+          'Include material, pressure, leak, thermal, electrical, surface finish, machining, CT, or cleaning needs when relevant.',
+      },
       {
         title: 'Simple quote',
         description:
@@ -125,22 +82,6 @@ const metadata = {
         title: 'Technical discussion when needed',
         description:
           'For complex parts, we may discuss material, manufacturability, post-processing, testing, and lead-time drivers as needed.',
-      },
-      {
-        title: 'CAD transfer',
-        description:
-          'Send STEP, X_T, native CAD, and drawings by email when files are too large for a contact form or require project-specific handling.',
-      },
-      {
-        title: 'Email',
-        description: 'info@szcomo.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Response basis',
-        description:
-          'Quote and follow-up are based on the drawing, quantity, material, lead time, and requirements you provide.',
-        icon: 'tabler:clipboard-check',
       },
     ]}
   />

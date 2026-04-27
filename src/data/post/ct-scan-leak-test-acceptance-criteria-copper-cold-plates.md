@@ -1,5 +1,5 @@
 ---
-title: 'CT Scan and Leak Test Acceptance Criteria for Copper Cold Plates'
+title: 'CT and Leak Test Criteria for Copper Cold Plates'
 publishDate: 2026-02-01
 excerpt: 'Practical CT scan and leak test acceptance criteria for copper cold plates, including defect thresholds, escalation logic, and cost trade-offs.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-cold-plates', 'quality-inspection', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/01-ct-scan-leak-test-acceptance-criteria-copper-cold-plates-1-1c3947f1.webp
 metadata:
-  title: 'CT Scan and Leak Test Acceptance Criteria for Copper Cold Plates'
+  title: 'CT and Leak Test Criteria for Copper Cold Plates'
   description: 'Practical CT scan and leak test acceptance criteria for copper cold plates, including defect thresholds, escalation logic, and cost trade-offs.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/
 ---

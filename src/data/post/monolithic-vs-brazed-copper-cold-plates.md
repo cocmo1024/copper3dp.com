@@ -1,5 +1,5 @@
 ---
-title: 'Monolithic vs Brazed Copper Cold Plates: Cost and Reliability Comparison'
+title: 'Monolithic vs Brazed Copper Cold Plates'
 publishDate: 2026-01-01
 excerpt: 'Compare monolithic and brazed copper cold plates using leak risk, thermal cycling, inspection burden, and unit cost drivers.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-cold-plates', 'process-selection', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/monolithic-vs-brazed-copper-cold-plates/01-monolithic-vs-brazed-copper-cold-plates-1-2bd96307.webp
 metadata:
-  title: 'Monolithic vs Brazed Copper Cold Plates: Cost and Reliability Comparison'
+  title: 'Monolithic vs Brazed Copper Cold Plates'
   description: 'Compare monolithic and brazed copper cold plates using leak risk, thermal cycling, inspection burden, and unit cost drivers.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/monolithic-vs-brazed-copper-cold-plates/
 ---

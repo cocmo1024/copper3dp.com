@@ -1,12 +1,12 @@
 ---
-title: '2026’s Most Valuable Copper 3D Printed Components in Real Production'
+title: 'Copper 3D Printed Components in Production'
 publishDate: 2026-01-06
 excerpt: 'Component-level analysis of real copper 3D printed parts in production. Covers cold plates, heat sinks, busbars, injectors, and clear go/no-go boundaries.'
 category: Engineering Guide
 tags: ['COPPER 3DP', 'engineering-guide']
 author: 'szcomo'
 metadata:
-  title: '2026’s Most Valuable Copper 3D Printed Components in Real Production'
+  title: 'Copper 3D Printed Components in Production'
   description: 'Component-level analysis of real copper 3D printed parts in production. Covers cold plates, heat sinks, busbars, injectors, and clear go/no-go boundaries.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-additive-manufacturing-components-2026/
 ---

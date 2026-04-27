@@ -1,5 +1,5 @@
 ---
-title: 'Wear and Accuracy Failures in 3D Printed Copper EDM Electrodes'
+title: '3D Printed Copper EDM Electrode Failures'
 publishDate: 2025-12-21
 excerpt: 'Why 3D printed copper EDM electrodes lose accuracy: porosity, roughness, wear variance, and the post-processing steps needed to stabilize burns.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['edm-copper-electrodes', 'failure-analysis', 'engineering-guide']
 author: 'szcomo'
 image: ~/assets/images/online-posts/wear-accuracy-failures-3d-printed-copper-edm-electrodes/01-wear-accuracy-failures-3d-printed-copper-edm-electrodes-1-bf06b7b2.webp
 metadata:
-  title: 'Wear and Accuracy Failures in 3D Printed Copper EDM Electrodes'
+  title: '3D Printed Copper EDM Electrode Failures'
   description: 'Why 3D printed copper EDM electrodes lose accuracy: porosity, roughness, wear variance, and the post-processing steps needed to stabilize burns.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/wear-accuracy-failures-3d-printed-copper-edm-electrodes/
 ---

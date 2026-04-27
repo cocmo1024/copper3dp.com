@@ -164,38 +164,6 @@ export interface Testimonial {
   image?: string | unknown;
 }
 
-export interface Input {
-  type: HTMLInputTypeAttribute;
-  name: string;
-  label?: string;
-  autocomplete?: string;
-  placeholder?: string;
-  required?: boolean;
-  value?: string;
-}
-
-export interface Textarea {
-  label?: string;
-  name?: string;
-  placeholder?: string;
-  rows?: number;
-  required?: boolean;
-}
-
-export interface Disclaimer {
-  label?: string;
-  required?: boolean;
-}
-
-export interface FormSettings {
-  name?: string;
-  method?: 'GET' | 'POST';
-  action?: string;
-  enctype?: 'application/x-www-form-urlencoded' | 'multipart/form-data' | 'text/plain';
-  netlify?: boolean;
-  honeypotName?: string;
-}
-
 // COMPONENTS
 export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
@@ -218,15 +186,6 @@ export interface Collapse {
   items?: Array<Item>;
   columns?: number;
   classes?: Record<string, string>;
-}
-
-export interface Form {
-  inputs?: Array<Input>;
-  textarea?: Textarea;
-  disclaimer?: Disclaimer;
-  form?: FormSettings;
-  button?: string;
-  description?: string;
 }
 
 // WIDGETS
@@ -294,5 +253,3 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
   callToAction?: CallToAction;
 }
-
-export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}

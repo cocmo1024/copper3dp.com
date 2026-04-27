@@ -1,7 +1,7 @@
 {
-  "name": "copper3dp-astrowind-site",
+  "name": "copper3dp-site",
   "version": "1.0.0-beta.52",
-  "description": "COPPER 3DP website based on AstroWind.",
+  "description": "COPPER 3DP website for copper 3D printing RFQ and engineering content.",
   "type": "module",
   "private": true,
   "engines": {

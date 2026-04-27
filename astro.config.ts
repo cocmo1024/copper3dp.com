@@ -27,12 +27,7 @@ const shouldIndexSitemapPage = (page: string) => {
   const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
   const isPaginatedArchive = /^\/(?:blog|category\/EngineeringGuide)(?:\/category\/[^/]+)?\/\d+$/.test(pathname);
 
-  return (
-    pathname !== '/rfq-submitted' &&
-    !pathname.startsWith('/blog/tag') &&
-    !pathname.startsWith('/blog/category') &&
-    !isPaginatedArchive
-  );
+  return !pathname.startsWith('/blog/tag') && !pathname.startsWith('/blog/category') && !isPaginatedArchive;
 };
 
 export default defineConfig({
