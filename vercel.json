@@ -1,6 +1,53 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.copper3dp.com" }],
+      "destination": "https://copper3dp.com/:path*",
+      "permanent": true
+    },
+    { "source": "/FAQ/", "destination": "/rfq/", "permanent": true },
+    { "source": "/FAQ", "destination": "/rfq/", "permanent": true },
+    { "source": "/faq/", "destination": "/rfq/", "permanent": true },
+    { "source": "/faq", "destination": "/rfq/", "permanent": true },
+    { "source": "/Contact/", "destination": "/contact/", "permanent": true },
+    { "source": "/Contact", "destination": "/contact/", "permanent": true },
+    { "source": "/Terms/", "destination": "/terms/", "permanent": true },
+    { "source": "/Terms", "destination": "/terms/", "permanent": true },
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true },
+    { "source": "/tags/multifunctional-copper-parts/", "destination": "/applications/", "permanent": true },
+    { "source": "/tags/multifunctional-copper-parts", "destination": "/applications/", "permanent": true },
+    { "source": "/tags/copper-busbars/", "destination": "/applications/#electrical", "permanent": true },
+    { "source": "/tags/copper-busbars", "destination": "/applications/#electrical", "permanent": true },
+    {
+      "source": "/tags/micro-channel-heat-exchangers/",
+      "destination": "/copper-cold-plates/",
+      "permanent": true
+    },
+    {
+      "source": "/tags/micro-channel-heat-exchangers",
+      "destination": "/copper-cold-plates/",
+      "permanent": true
+    },
+    { "source": "/tags/conformal-cooling-inserts/", "destination": "/applications/", "permanent": true },
+    { "source": "/tags/conformal-cooling-inserts", "destination": "/applications/", "permanent": true },
+    { "source": "/tags/cucrzr/", "destination": "/materials/", "permanent": true },
+    { "source": "/tags/cucrzr", "destination": "/materials/", "permanent": true },
+    {
+      "source": "/tags/high-voltage-electrodes/",
+      "destination": "/blog/tag/high-voltage-electrodes/",
+      "permanent": true
+    },
+    {
+      "source": "/tags/high-voltage-electrodes",
+      "destination": "/blog/tag/high-voltage-electrodes/",
+      "permanent": true
+    },
+    { "source": "/tags/:tag/", "destination": "/blog/tag/:tag/", "permanent": true },
+    { "source": "/tags/:tag", "destination": "/blog/tag/:tag/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/_astro/(.*)",

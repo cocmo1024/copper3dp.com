@@ -1,5 +1,7 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
+const rfqEmailHref = 'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements';
+
 export const headerData = {
   links: [
     {
@@ -57,7 +59,7 @@ export const headerData = {
       links: [
         {
           text: 'Send project details',
-          href: getPermalink('/contact#form'),
+          href: rfqEmailHref,
         },
         {
           text: 'What to send',
@@ -107,7 +109,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Send CAD for RFQ', href: getPermalink('/contact#form') }],
+  actions: [{ text: 'Email CAD for RFQ', href: rfqEmailHref }],
 };
 
 export const footerData = {
@@ -134,7 +136,7 @@ export const footerData = {
     {
       title: 'Support',
       links: [
-        { text: 'Send RFQ', href: getPermalink('/contact#form') },
+        { text: 'Send RFQ', href: rfqEmailHref },
         { text: 'Email engineering', href: 'mailto:info@szcomo.com' },
         { text: 'Material questions', href: getPermalink('/materials') },
         { text: 'Acceptance criteria', href: getPermalink('/capabilities#inspection') },
