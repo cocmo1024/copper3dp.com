@@ -1,0 +1,241 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import {
+  createBreadcrumbSchema,
+  createCopperApplicationServiceSchema,
+  createItemListSchema,
+} from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Heat Sinks | LPBF RFQ',
+  description:
+    'LPBF copper heat sink RFQ review for fin geometry, thermal targets, interface flatness, material choice, post-processing, and test requirements.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/copper-heat-sinks.webp',
+        width: 1200,
+        height: 628,
+        alt: '3D printed copper heat sinks',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Copper heat sinks', item: '/copper-heat-sinks' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-heat-sinks',
+      name: '3D Printed Copper Heat Sink RFQ Review',
+      serviceType: 'LPBF copper heat sink additive manufacturing',
+      description:
+        'RFQ review for printed copper heat sinks with fin geometry, thermal targets, interface flatness, material selection, post-processing, and test requirements.',
+      url: '/copper-heat-sinks',
+      audienceType: 'Thermal, power electronics, RF, aerospace, and purchasing teams',
+    }),
+    createItemListSchema('Copper heat sink RFQ inputs', [
+      {
+        name: 'Geometry package',
+        description: 'CAD and drawings for base, fins, channels, datum faces, mounting holes, and critical interfaces.',
+        url: '/copper-heat-sinks#rfq-inputs',
+      },
+      {
+        name: 'Thermal requirements',
+        description:
+          'Heat load, airflow or coolant condition, interface stack-up, target temperature, and test method.',
+        url: '/copper-heat-sinks#rfq-inputs',
+      },
+      {
+        name: 'Acceptance requirements',
+        description:
+          'Flatness, surface finish, material route, machining, coating, inspection, and thermal validation needs.',
+        url: '/copper-heat-sinks#review-points',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Copper heat sinks"
+    title="3D printed copper heat sinks for RFQ review"
+    subtitle="Send CAD, drawings, quantity, thermal target, material preference if known, and any interface or inspection requirements. We review the part and quote or clarify based on the information provided."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email CAD for RFQ',
+        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20Heat%20Sink%20RFQ',
+        icon: 'tabler:mail',
+      },
+      { text: 'Review RFQ inputs', href: '/rfq' },
+    ]}
+    image={{
+      src: '~/assets/images/copper/copper-heat-sinks.webp',
+      alt: 'LPBF copper heat sinks with complex fins',
+    }}
+  />
+
+  <Features2
+    title="When a printed copper heat sink is worth reviewing"
+    subtitle="Printed copper is useful when the geometry solves a real thermal or packaging constraint. It is not automatically better than CNC."
+    columns={3}
+    items={[
+      {
+        title: 'Dense thermal geometry',
+        description:
+          'Fins, pins, channels, or hybrid structures can be reviewed when airflow, pressure drop, and cleaning access are realistic.',
+        icon: 'tabler:temperature',
+      },
+      {
+        title: 'Integrated cooling paths',
+        description:
+          'Internal liquid passages or combined heat sink and manifold features can be useful when leak and inspection requirements are clear.',
+        icon: 'tabler:droplet',
+      },
+      {
+        title: 'Constrained packaging',
+        description:
+          'Copper AM may help when thermal surfaces, mounting features, and routing need to fit into a compact envelope.',
+        icon: 'tabler:box-seam',
+      },
+    ]}
+  />
+
+  <Content
+    id="rfq-inputs"
+    isReversed
+    items={[
+      {
+        title: 'Geometry and mounting',
+        description:
+          'Send CAD and drawings for base thickness, fin field, mounting holes, datum faces, contact areas, channels, and machining stock.',
+      },
+      {
+        title: 'Thermal boundary conditions',
+        description:
+          'Include heat load, target temperature, airflow or coolant, interface material, clamp approach, and available test method if known.',
+      },
+      {
+        title: 'Quantity and acceptance',
+        description:
+          'State prototype or batch quantity, material preference, flatness, surface finish, inspection, and thermal validation requirements.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/hero-1.webp',
+      alt: 'Copper heat sink RFQ review',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        What to send for a heat sink quote
+      </h2>
+      A simple drawing can support a basic quotation. Complex thermal parts need enough boundary conditions to avoid quoting
+      a geometry that cannot be accepted later.
+    </Fragment>
+  </Content>
+
+  <Features2
+    id="review-points"
+    title="Review points before quoting"
+    subtitle="Most heat sink surprises come from interface, air-side, coolant-side, or post-processing requirements rather than copper conductivity alone."
+    columns={3}
+    items={[
+      {
+        title: 'Fin and channel limits',
+        description:
+          'Minimum fin thickness, spacing, aspect ratio, support strategy, powder removal, and cleaning access affect feasibility.',
+        icon: 'tabler:ruler-measure',
+      },
+      {
+        title: 'Interface control',
+        description:
+          'Contact flatness, surface finish, clamp load, TIM choice, and machining plan often dominate final thermal resistance.',
+        icon: 'tabler:arrows-minimize',
+      },
+      {
+        title: 'Material behavior',
+        description:
+          'Pure copper, CuCrZr, or GRCop-42 should be reviewed against conductivity, strength, temperature, and heat treatment needs.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'Airflow or pressure drop',
+        description:
+          'Rough surfaces and dense geometry can add flow penalty, so airflow, coolant, or pressure limits should be shared when relevant.',
+        icon: 'tabler:wind',
+      },
+      {
+        title: 'Post-processing scope',
+        description:
+          'Machining, polishing, heat treatment, cleaning, coating, and plating requirements should be known before quoting.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Validation method',
+        description:
+          'Thermal test setup, sensor locations, acceptable limits, and inspection scope should be stated if acceptance depends on them.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Related engineering notes"
+    subtitle="Use these before adding unnecessary requirements to a heat sink RFQ."
+    columns={3}
+    items={[
+      {
+        title: 'Heat sink RFQ specification',
+        description:
+          'A practical guide for thermal targets, interface tolerances, process limits, and acceptance tests in copper heat sink RFQs.',
+        icon: 'tabler:clipboard-list',
+        callToAction: {
+          text: 'Read RFQ guide',
+          href: '/posts/EngineeringGuide/rfq-specification-copper-heat-sinks/',
+        },
+      },
+      {
+        title: 'Fin thickness and spacing',
+        description:
+          'Use this when the design has thin fins, dense channels, powder removal risk, or inspection limits.',
+        icon: 'tabler:ruler',
+        callToAction: {
+          text: 'Read limits',
+          href: '/posts/EngineeringGuide/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/',
+        },
+      },
+      {
+        title: 'Thermal performance testing',
+        description:
+          'Useful when acceptance depends on measured thermal resistance, airflow control, interface control, or calorimetry.',
+        icon: 'tabler:gauge',
+        callToAction: {
+          text: 'Read test methods',
+          href: '/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/',
+        },
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Send drawings, quantity, and heat sink requirements."
+    subtitle="Email the CAD package and the requirements that matter. We will review the information and respond with a quote or clarification questions."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20Heat%20Sink%20RFQ',
+        icon: 'tabler:mail',
+      },
+      { text: 'Prepare RFQ inputs', href: '/rfq' },
+    ]}
+  />
+</Layout>

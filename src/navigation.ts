@@ -6,12 +6,16 @@ export const headerData = {
       text: 'Applications',
       links: [
         {
-          text: 'Copper cold plates',
+          text: 'Applications overview',
           href: getPermalink('/applications'),
         },
         {
+          text: 'Copper cold plates',
+          href: getPermalink('/copper-cold-plates'),
+        },
+        {
           text: 'Copper heat sinks',
-          href: getPermalink('/applications#heat-sinks'),
+          href: getPermalink('/copper-heat-sinks'),
         },
         {
           text: 'Induction coils & busbars',
@@ -111,8 +115,8 @@ export const footerData = {
     {
       title: 'Applications',
       links: [
-        { text: 'Cold plates', href: getPermalink('/applications') },
-        { text: 'Heat sinks', href: getPermalink('/applications#heat-sinks') },
+        { text: 'Cold plates', href: getPermalink('/copper-cold-plates') },
+        { text: 'Heat sinks', href: getPermalink('/copper-heat-sinks') },
         { text: 'Busbars & coils', href: getPermalink('/applications#electrical') },
         { text: 'RF / waveguide parts', href: getPermalink('/applications#rf') },
       ],

@@ -44,6 +44,38 @@ export const createCopperServiceSchema = (): JsonLdNode => ({
   url: toAbsoluteUrl('/'),
 });
 
+export const createCopperApplicationServiceSchema = ({
+  id,
+  name,
+  serviceType,
+  description,
+  url,
+  audienceType,
+}: {
+  id: string;
+  name: string;
+  serviceType: string;
+  description: string;
+  url: string | URL;
+  audienceType: string;
+}): JsonLdNode => ({
+  '@type': 'Service',
+  '@id': `${siteUrl}/${id.replace(/^\/|\/$/g, '')}#service`,
+  name,
+  serviceType,
+  provider: { '@id': organizationId },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Worldwide',
+  },
+  audience: {
+    '@type': 'Audience',
+    audienceType,
+  },
+  description,
+  url: toAbsoluteUrl(url),
+});
+
 export const createItemListSchema = (
   name: string,
   items: Array<{ name: string; description?: string; url: string | URL }>

@@ -1,0 +1,239 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import {
+  createBreadcrumbSchema,
+  createCopperApplicationServiceSchema,
+  createItemListSchema,
+} from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Cold Plates | LPBF RFQ',
+  description:
+    'LPBF copper cold plate RFQ review for internal channels, manifolds, pressure or leak requirements, CT inspection, machining, and sealing interfaces.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/copper-cold-plate-channels.webp',
+        width: 1400,
+        height: 788,
+        alt: '3D printed copper cold plate channels',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Copper cold plates', item: '/copper-cold-plates' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-cold-plates',
+      name: '3D Printed Copper Cold Plate RFQ Review',
+      serviceType: 'LPBF copper cold plate additive manufacturing',
+      description:
+        'RFQ review for custom copper cold plates with internal channels, manifolds, pressure or leak requirements, CT inspection, machining, and sealing interfaces.',
+      url: '/copper-cold-plates',
+      audienceType: 'Thermal, power electronics, semiconductor, aerospace, and purchasing teams',
+    }),
+    createItemListSchema('Copper cold plate RFQ inputs', [
+      {
+        name: 'Geometry package',
+        description: 'CAD and drawings for channels, ports, sealing lands, datum faces, and machined interfaces.',
+        url: '/copper-cold-plates#rfq-inputs',
+      },
+      {
+        name: 'Operating requirements',
+        description: 'Coolant, flow, heat load, pressure, pressure drop, leak target, and service temperature.',
+        url: '/copper-cold-plates#rfq-inputs',
+      },
+      {
+        name: 'Inspection requirements',
+        description: 'CT, leak, pressure, flow, dimensional, surface, and cleaning requirements when they apply.',
+        url: '/copper-cold-plates#review-points',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Copper cold plates"
+    title="3D printed copper cold plates for RFQ review"
+    subtitle="Send CAD, drawings, quantity, material preference if known, pressure or leak targets, thermal requirements, and inspection needs. We review the information provided and quote or ask focused questions."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email CAD for RFQ',
+        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20Cold%20Plate%20RFQ',
+        icon: 'tabler:mail',
+      },
+      { text: 'Review RFQ inputs', href: '/rfq' },
+    ]}
+    image={{
+      src: '~/assets/images/copper/copper-cold-plate-channels.webp',
+      alt: 'LPBF copper cold plates with internal channels',
+    }}
+  />
+
+  <Features2
+    title="When copper AM is worth reviewing"
+    subtitle="A printed cold plate is strongest when the internal flow path, packaging, or assembly risk cannot be handled cleanly by conventional routing."
+    columns={3}
+    items={[
+      {
+        title: 'Internal channel freedom',
+        description:
+          'Micro-channels, curved passages, manifolds, or split flow paths can be reviewed when they have clear thermal and pressure targets.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Part consolidation',
+        description:
+          'Monolithic routing can reduce joints, fittings, or brazed interfaces, but leak target and inspection scope must be stated early.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Tight thermal packaging',
+        description:
+          'Copper AM may fit cooling closer to heat sources when the drawing defines keep-outs, datum faces, and sealing surfaces.',
+        icon: 'tabler:temperature',
+      },
+    ]}
+  />
+
+  <Content
+    id="rfq-inputs"
+    isReversed
+    items={[
+      {
+        title: 'Geometry and interfaces',
+        description:
+          'Send STEP, X_T, native CAD, and drawings for ports, threads, O-ring grooves, sealing lands, datum faces, and machined surfaces.',
+      },
+      {
+        title: 'Thermal and fluid targets',
+        description:
+          'Include heat load, coolant, flow rate, inlet temperature, pressure drop target, working pressure, proof pressure, and leak target if known.',
+      },
+      {
+        title: 'Quantity and timing',
+        description:
+          'State prototype quantity, batch quantity, target lead time, and whether the quote should include testing or documentation.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: 'Copper micro-channel heat exchanger for cold plate review',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        What to send for a cold plate quote
+      </h2>
+      A basic drawing can be enough for a first quote. Pressure, leak, CT, cleaning, or thermal validation requirements should
+      be included when they affect acceptance.
+    </Fragment>
+  </Content>
+
+  <Features2
+    id="review-points"
+    title="Review points before quoting"
+    subtitle="These are the practical constraints that usually decide whether the quote is simple, needs clarification, or requires a higher-control route."
+    columns={3}
+    items={[
+      {
+        title: 'Channel continuity',
+        description:
+          'Channel size, wall thickness, powder removal path, trapped powder risk, and CT access affect manufacturability and inspection.',
+        icon: 'tabler:scan',
+      },
+      {
+        title: 'Pressure and leak target',
+        description:
+          'Working pressure, proof pressure, hold time, leak-rate target, and test method should be stated when they matter.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'Sealing surfaces',
+        description:
+          'O-ring grooves, gasket lands, threaded ports, and datum faces usually need machining allowance and dimensional inspection.',
+        icon: 'tabler:circle-dashed-check',
+      },
+      {
+        title: 'Material route',
+        description:
+          'Pure copper, CuCrZr, or GRCop-42 should be reviewed against conductivity, strength, temperature, and post-processing needs.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'Cleaning and media control',
+        description:
+          'Internal passages need a practical cleaning path and acceptance expectation, especially for semiconductor or vacuum hardware.',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: 'Post-machining scope',
+        description:
+          'Flatness, surface finish, port details, threads, and sealing lands should be marked so they are quoted with the build route.',
+        icon: 'tabler:tools',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Related engineering notes"
+    subtitle="These articles help define a clearer cold plate RFQ without adding unnecessary requirements."
+    columns={3}
+    items={[
+      {
+        title: 'Cold plate RFQ checklist',
+        description:
+          'Use this when you need leak targets, pressure criteria, CT scope, GD&T, material, and documentation requirements in one RFQ.',
+        icon: 'tabler:clipboard-list',
+        callToAction: {
+          text: 'Read checklist',
+          href: '/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/',
+        },
+      },
+      {
+        title: 'CT and leak acceptance',
+        description:
+          'Useful when the part has internal channels, pressure boundaries, or acceptance criteria that need to be stated before quotation.',
+        icon: 'tabler:scan',
+        callToAction: {
+          text: 'Read criteria',
+          href: '/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/',
+        },
+      },
+      {
+        title: 'Monolithic vs brazed',
+        description:
+          'Compare joint risk, thermal cycling, inspection burden, repairability, and cost before deciding whether AM is the right route.',
+        icon: 'tabler:git-compare',
+        callToAction: {
+          text: 'Read comparison',
+          href: '/posts/EngineeringGuide/monolithic-vs-brazed-copper-cold-plates/',
+        },
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Send drawings, quantity, and cold plate requirements."
+    subtitle="Email the CAD package and the requirements that matter. We will review the information and respond with a quote or clarification questions."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20Cold%20Plate%20RFQ',
+        icon: 'tabler:mail',
+      },
+      { text: 'Prepare RFQ inputs', href: '/rfq' },
+    ]}
+  />
+</Layout>
