@@ -24,6 +24,8 @@ CAD files, drawings, and project notes may contain confidential engineering info
 
 The website may use basic analytics or server logs to understand website performance and visitor activity. These records help maintain the site and improve content.
 
+When analytics or advertising measurement is configured, the site may record page views and lead-intent events such as clicks on RFQ email links. Advertising click or campaign parameters, such as Google Ads or UTM parameters, may be stored in the visitor's browser session and included in an RFQ email draft so the inquiry can be understood in context.
+
 ## Sharing
 
 Project information is not sold. It may be shared with internal engineering, manufacturing, quality, or commercial staff when needed to review or quote the inquiry.

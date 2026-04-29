@@ -40,7 +40,111 @@ import { UI } from 'astrowind:config';
     }
   }
 
+  function readStoredAttribution() {
+    try {
+      return JSON.parse(sessionStorage.getItem('copper3dp_attribution') || '{}');
+    } catch {
+      return {};
+    }
+  }
+
+  function captureAttribution() {
+    const params = new URLSearchParams(window.location.search);
+    const keys = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    const attribution = readStoredAttribution();
+    let changed = false;
+
+    keys.forEach((key) => {
+      const value = params.get(key);
+      if (value && attribution[key] !== value) {
+        attribution[key] = value;
+        changed = true;
+      }
+    });
+
+    if (changed || !attribution.landing_page) {
+      attribution.landing_page = attribution.landing_page || window.location.href;
+      attribution.updated_at = new Date().toISOString();
+      sessionStorage.setItem('copper3dp_attribution', JSON.stringify(attribution));
+    }
+
+    return attribution;
+  }
+
+  function getAttributionFields() {
+    const attribution = readStoredAttribution();
+    return Object.fromEntries(Object.entries(attribution).filter(([, value]) => Boolean(value)));
+  }
+
+  function getAttributionReference() {
+    const attribution = getAttributionFields();
+    const priorityKeys = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
+    return priorityKeys
+      .filter((key) => attribution[key])
+      .map((key) => `${key}=${attribution[key]}`)
+      .join('; ');
+  }
+
+  function getTrackingPayload(elem, extra = {}) {
+    const attribution = getAttributionFields();
+    return {
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+      link_url: elem?.getAttribute?.('href') || '',
+      link_text: elem?.textContent?.trim().replace(/\s+/g, ' ') || '',
+      ...attribution,
+      ...extra,
+    };
+  }
+
+  function trackCopperEvent(eventName, payload = {}, options = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...payload });
+
+    if (options.generateLead) {
+      window.dataLayer.push({ event: 'generate_lead', ...payload });
+    }
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, { transport_type: 'beacon', ...payload });
+
+      if (options.generateLead) {
+        window.gtag('event', 'generate_lead', { method: 'email', transport_type: 'beacon', ...payload });
+      }
+
+      const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
+      if (options.adsConversion && sendTo) {
+        window.gtag('event', 'conversion', {
+          send_to: sendTo,
+          transport_type: 'beacon',
+          event_category: 'lead',
+          event_label: payload.link_text || 'RFQ email',
+        });
+      }
+    }
+  }
+
+  function enhanceMailtoHref(elem) {
+    const originalHref = elem.dataset.awOriginalHref || elem.getAttribute('href') || '';
+    elem.dataset.awOriginalHref = originalHref;
+    const [mailtoPart, queryString = ''] = originalHref.split('?');
+    const params = new URLSearchParams(queryString);
+    const baseBody = params.get('body') || '';
+    const attributionReference = getAttributionReference();
+    const bodyLines = [
+      baseBody,
+      '',
+      `Project page: ${window.location.href.split('#')[0]}`,
+      attributionReference ? `Ad/reference: ${attributionReference}` : '',
+    ].filter(Boolean);
+
+    params.set('body', bodyLines.join('\n'));
+    elem.setAttribute('href', `${mailtoPart}?${params.toString()}`);
+  }
+
   const onLoad = function () {
+    captureAttribution();
+
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
@@ -109,16 +213,28 @@ import { UI } from 'astrowind:config';
     });
 
     document.querySelectorAll('a[href^="mailto:"]').forEach((elem) => {
+      enhanceMailtoHref(elem);
       if (elem.dataset.awEmailCopy === 'true') return;
       elem.dataset.awEmailCopy = 'true';
 
       elem.addEventListener(
         'click',
         function () {
+          enhanceMailtoHref(elem);
           const href = elem.getAttribute('href') || '';
           const match = href.match(/^mailto:([^?]+)/);
           const email = match ? decodeURIComponent(match[1]) : '';
           if (!email) return;
+
+          trackCopperEvent(
+            'rfq_email_click',
+            getTrackingPayload(elem, {
+              email,
+              method: 'email',
+              event_category: 'lead',
+            }),
+            { generateLead: true, adsConversion: true }
+          );
 
           const showEmailToast = function (message) {
             let toast = document.getElementById('email-copy-toast');
@@ -141,11 +257,33 @@ import { UI } from 'astrowind:config';
           if (navigator.clipboard?.writeText) {
             navigator.clipboard
               .writeText(email)
-              .then(() => showEmailToast(`Email copied: ${email}`))
+              .then(() => {
+                trackCopperEvent(
+                  'rfq_email_copy',
+                  getTrackingPayload(elem, {
+                    email,
+                    method: 'email_copy',
+                    event_category: 'lead',
+                  })
+                );
+                showEmailToast(`Email copied: ${email}`);
+              })
               .catch(() => showEmailToast(`Email: ${email}`));
           } else {
             showEmailToast(`Email: ${email}`);
           }
+        },
+        false
+      );
+    });
+
+    document.querySelectorAll('a[href="/rfq"], a[href="/rfq/"]').forEach((elem) => {
+      if (elem.dataset.awRfqTrack === 'true') return;
+      elem.dataset.awRfqTrack = 'true';
+      elem.addEventListener(
+        'click',
+        function () {
+          trackCopperEvent('rfq_prepare_click', getTrackingPayload(elem, { event_category: 'engagement' }));
         },
         false
       );
