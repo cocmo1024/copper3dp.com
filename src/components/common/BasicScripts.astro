@@ -97,23 +97,41 @@ import { UI } from 'astrowind:config';
     };
   }
 
+  function isDuplicateConversion(key) {
+    if (!key) return false;
+
+    try {
+      const storageKey = `copper3dp_conversion_${key}`;
+      if (sessionStorage.getItem(storageKey) === 'true') {
+        return true;
+      }
+      sessionStorage.setItem(storageKey, 'true');
+    } catch {
+      return false;
+    }
+
+    return false;
+  }
+
   function trackCopperEvent(eventName, payload = {}, options = {}) {
+    const isDuplicate = isDuplicateConversion(options.conversionKey);
+
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: eventName, ...payload });
 
-    if (options.generateLead) {
+    if (options.generateLead && !isDuplicate) {
       window.dataLayer.push({ event: 'generate_lead', ...payload });
     }
 
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, { transport_type: 'beacon', ...payload });
 
-      if (options.generateLead) {
+      if (options.generateLead && !isDuplicate) {
         window.gtag('event', 'generate_lead', { method: 'email', transport_type: 'beacon', ...payload });
       }
 
       const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
-      if (options.adsConversion && sendTo) {
+      if (options.adsConversion && sendTo && !isDuplicate) {
         window.gtag('event', 'conversion', {
           send_to: sendTo,
           transport_type: 'beacon',
@@ -233,7 +251,7 @@ import { UI } from 'astrowind:config';
               method: 'email',
               event_category: 'lead',
             }),
-            { generateLead: true, adsConversion: true }
+            { generateLead: true, adsConversion: true, conversionKey: 'rfq_email' }
           );
 
           const showEmailToast = function (message) {

@@ -37,6 +37,18 @@ npm run build
 
 Primary domain: `https://copper3dp.com`
 
+## Google Tracking
+
+RFQ email clicks are tracked as the primary lead-intent event. Configure the public build variables in the hosting environment:
+
+```bash
+PUBLIC_GA_MEASUREMENT_ID=G-xxxx
+PUBLIC_GOOGLE_ADS_CONVERSION_ID=AW-xxxx
+PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL=xxxx
+```
+
+`rfq_email_click` records every email CTA click. `generate_lead` and the Google Ads conversion event are deduplicated once per browser session.
+
 ## RFQ Contact
 
 Customer RFQs are directed to email so drawings and requirements can be reviewed directly.
