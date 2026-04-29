@@ -32,15 +32,6 @@ const shouldIndexSitemapPage = (page: string) => {
 
 export default defineConfig({
   output: 'static',
-  redirects: {
-    '/faq': '/rfq/',
-    '/tags/multifunctional-copper-parts': '/applications/',
-    '/tags/copper-busbars': '/applications/#electrical',
-    '/tags/micro-channel-heat-exchangers': '/copper-cold-plates/',
-    '/tags/conformal-cooling-inserts': '/applications/',
-    '/tags/cucrzr': '/materials/',
-    '/tags/high-voltage-electrodes': '/blog/tag/high-voltage-electrodes/',
-  },
 
   integrations: [
     tailwind({
