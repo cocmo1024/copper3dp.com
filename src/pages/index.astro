@@ -14,6 +14,10 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createCopperServiceSchema, createItemListSchema } from '~/utils/structured-data';
 
+const rfqEmail = 'info@szcomo.com';
+const rfqEmailHref =
+  'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements&body=Please%20include%20CAD%20or%20drawings%2C%20quantity%2C%20material%20if%20known%2C%20lead%20time%2C%20service%20conditions%2C%20and%20inspection%20requirements%20when%20they%20matter.';
+
 const metadata = {
   title: 'Copper 3D Printing Services | LPBF Copper Parts for RFQ',
   ignoreTitleTemplate: true,
@@ -65,8 +69,8 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email CAD for RFQ',
-        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements',
+        text: 'Email info@szcomo.com',
+        href: rfqEmailHref,
         icon: 'tabler:mail',
       },
       { text: 'Prepare RFQ inputs', href: '/rfq' },
@@ -80,6 +84,12 @@ const metadata = {
     <Fragment slot="subtitle">
       Send drawings, quantity, material preference, and requirements. We review the part, ask focused questions when
       needed, and quote according to the project information provided.
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="mt-4 text-sm text-muted dark:text-slate-300">
+        Send files to <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a>
+      </p>
     </Fragment>
   </Hero>
 
@@ -359,8 +369,8 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email CAD for RFQ',
-        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements',
+        text: 'Email info@szcomo.com',
+        href: rfqEmailHref,
         icon: 'tabler:mail',
       },
     ]}
@@ -368,8 +378,8 @@ const metadata = {
     <Fragment slot="title"> Send drawings, quantity, and requirements. </Fragment>
 
     <Fragment slot="subtitle">
-      We review the request and respond with a quote or clarification questions based on the project information
-      provided.
+      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with the drawing, quantity,
+      and requirements. We respond with a quote or clarification questions based on the project information provided.
     </Fragment>
   </CallToAction>
 </Layout>

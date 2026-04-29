@@ -7,6 +7,10 @@ import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
+const rfqEmail = 'info@szcomo.com';
+const rfqEmailHref =
+  'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements&body=Please%20include%20CAD%20or%20drawings%2C%20quantity%2C%20material%20if%20known%2C%20lead%20time%2C%20service%20conditions%2C%20and%20inspection%20requirements%20when%20they%20matter.';
+
 const metadata = {
   title: 'Copper AM RFQ Checklist | Drawings',
   description:
@@ -164,14 +168,18 @@ const metadata = {
 
   <CallToAction
     title="Send the drawing and requirements"
-    subtitle="Share CAD, drawings, quantity, material if known, lead time, service conditions, and inspection requirements when they matter."
     actions={[
       {
         variant: 'primary',
-        text: 'Email CAD for RFQ',
-        href: 'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements',
+        text: 'Email info@szcomo.com',
+        href: rfqEmailHref,
         icon: 'tabler:mail',
       },
     ]}
-  />
+  >
+    <Fragment slot="subtitle">
+      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with CAD, drawings,
+      quantity, material if known, lead time, service conditions, and inspection requirements when they matter.
+    </Fragment>
+  </CallToAction>
 </Layout>
