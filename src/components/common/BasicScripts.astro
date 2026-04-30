@@ -133,6 +133,25 @@ import { UI } from 'astrowind:config';
     window.copper3dpAdsConversionPixels.push(pixel);
   }
 
+  function sendGoogleAdsConversionScript(sendTo) {
+    const match = /^AW-(\d+)\/([^/?#]+)$/.exec(sendTo || '');
+    if (!match) return;
+
+    window.google_conversion_id = Number(match[1]);
+    window.google_conversion_label = match[2];
+    window.google_conversion_value = 1.0;
+    window.google_conversion_currency = 'CNY';
+    window.google_remarketing_only = false;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googleadservices.com/pagead/conversion.js';
+    script.onerror = function () {
+      sendGoogleAdsConversionPixel(sendTo);
+    };
+    document.body.appendChild(script);
+  }
+
   function trackCopperEvent(eventName, payload = {}, options = {}) {
     const isDuplicate = isDuplicateConversion(options.conversionKey);
     const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
@@ -171,7 +190,7 @@ import { UI } from 'astrowind:config';
     }
 
     if (options.adsConversion && sendTo && !isDuplicate) {
-      sendGoogleAdsConversionPixel(sendTo);
+      sendGoogleAdsConversionScript(sendTo);
     }
   }
 
