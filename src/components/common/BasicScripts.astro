@@ -113,8 +113,29 @@ import { UI } from 'astrowind:config';
     return false;
   }
 
+  function sendGoogleAdsConversionPixel(sendTo) {
+    const match = /^AW-(\d+)\/([^/?#]+)$/.exec(sendTo || '');
+    if (!match) return;
+
+    const url = new URL(`https://www.googleadservices.com/pagead/conversion/${match[1]}/`);
+    url.searchParams.set('label', match[2]);
+    url.searchParams.set('value', '1.0');
+    url.searchParams.set('currency_code', 'CNY');
+    url.searchParams.set('guid', 'ON');
+    url.searchParams.set('script', '0');
+    url.searchParams.set('random', String(Date.now()));
+
+    const pixel = new Image(1, 1);
+    pixel.alt = '';
+    pixel.referrerPolicy = 'no-referrer-when-downgrade';
+    pixel.src = url.toString();
+    window.copper3dpAdsConversionPixels = window.copper3dpAdsConversionPixels || [];
+    window.copper3dpAdsConversionPixels.push(pixel);
+  }
+
   function trackCopperEvent(eventName, payload = {}, options = {}) {
     const isDuplicate = isDuplicateConversion(options.conversionKey);
+    const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: eventName, ...payload });
@@ -130,7 +151,6 @@ import { UI } from 'astrowind:config';
         window.gtag('event', 'generate_lead', { method: 'email', transport_type: 'beacon', ...payload });
       }
 
-      const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
       if (options.adsConversion && sendTo && !isDuplicate) {
         const conversionPayload = {
           send_to: sendTo,
@@ -148,6 +168,10 @@ import { UI } from 'astrowind:config';
 
         window.gtag('event', 'conversion', conversionPayload);
       }
+    }
+
+    if (options.adsConversion && sendTo && !isDuplicate) {
+      sendGoogleAdsConversionPixel(sendTo);
     }
   }
 
