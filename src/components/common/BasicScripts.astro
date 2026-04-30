@@ -132,14 +132,21 @@ import { UI } from 'astrowind:config';
 
       const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
       if (options.adsConversion && sendTo && !isDuplicate) {
-        window.gtag('event', 'conversion', {
+        const conversionPayload = {
           send_to: sendTo,
           value: 1.0,
           currency: 'CNY',
           transport_type: 'beacon',
           event_category: 'lead',
           event_label: payload.link_text || 'RFQ email',
-        });
+        };
+
+        if (typeof options.eventCallback === 'function') {
+          conversionPayload.event_callback = options.eventCallback;
+          conversionPayload.event_timeout = options.eventTimeout || 1000;
+        }
+
+        window.gtag('event', 'conversion', conversionPayload);
       }
     }
   }
@@ -239,12 +246,21 @@ import { UI } from 'astrowind:config';
 
       elem.addEventListener(
         'click',
-        function () {
+        function (event) {
           enhanceMailtoHref(elem);
           const href = elem.getAttribute('href') || '';
           const match = href.match(/^mailto:([^?]+)/);
           const email = match ? decodeURIComponent(match[1]) : '';
           if (!email) return;
+
+          event.preventDefault();
+          let mailtoOpened = false;
+          const openMailto = function () {
+            if (mailtoOpened) return;
+            mailtoOpened = true;
+            window.location.href = href;
+          };
+          const mailtoTimer = window.setTimeout(openMailto, 900);
 
           trackCopperEvent(
             'rfq_email_click',
@@ -253,7 +269,16 @@ import { UI } from 'astrowind:config';
               method: 'email',
               event_category: 'lead',
             }),
-            { generateLead: true, adsConversion: true, conversionKey: 'rfq_email' }
+            {
+              generateLead: true,
+              adsConversion: true,
+              conversionKey: 'rfq_email',
+              eventCallback: function () {
+                window.clearTimeout(mailtoTimer);
+                openMailto();
+              },
+              eventTimeout: 900,
+            }
           );
 
           const showEmailToast = function (message) {
