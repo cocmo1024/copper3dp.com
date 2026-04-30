@@ -134,6 +134,8 @@ import { UI } from 'astrowind:config';
       if (options.adsConversion && sendTo && !isDuplicate) {
         window.gtag('event', 'conversion', {
           send_to: sendTo,
+          value: 1.0,
+          currency: 'CNY',
           transport_type: 'beacon',
           event_category: 'lead',
           event_label: payload.link_text || 'RFQ email',

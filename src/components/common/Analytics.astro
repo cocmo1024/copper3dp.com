@@ -4,11 +4,15 @@ import { ANALYTICS } from 'astrowind:config';
 const configuredAnalyticsId = ANALYTICS?.vendors?.googleAnalytics?.id
   ? String(ANALYTICS.vendors.googleAnalytics.id)
   : '';
+const defaultGoogleAdsConversionId = 'AW-11030146658';
+const defaultGoogleAdsRfqConversionLabel = 'BQEFCNecoKUcEOLcyosp';
 const googleAnalyticsId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || configuredAnalyticsId;
-const googleAdsConversionId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID || '';
+const googleAdsConversionId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID || defaultGoogleAdsConversionId;
 const googleTagId = import.meta.env.PUBLIC_GOOGLE_TAG_ID || googleAnalyticsId || googleAdsConversionId;
 const googleAdsRfqConversionLabel =
-  import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL || import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || '';
+  import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL ||
+  import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_LABEL ||
+  defaultGoogleAdsRfqConversionLabel;
 const googleAdsRfqSendTo =
   googleAdsConversionId && googleAdsRfqConversionLabel ? `${googleAdsConversionId}/${googleAdsRfqConversionLabel}` : '';
 const tagIds = Array.from(new Set([googleTagId, googleAnalyticsId, googleAdsConversionId].filter(Boolean)));
