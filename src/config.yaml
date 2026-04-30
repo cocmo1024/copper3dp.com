@@ -63,7 +63,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: G-6HD15CRLMQ
+      id: ''
 
 ui:
   theme: 'system'
