@@ -12,6 +12,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
+import GoogleTagManagerNoscript from '~/components/common/GoogleTagManagerNoscript.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
@@ -38,6 +39,7 @@ const { language, textDirection } = I18N;
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">
+    <GoogleTagManagerNoscript />
     <slot />
 
     <BasicScripts />

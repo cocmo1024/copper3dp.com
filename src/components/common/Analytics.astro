@@ -6,6 +6,7 @@ const configuredAnalyticsId = ANALYTICS?.vendors?.googleAnalytics?.id
   : '';
 const defaultGoogleAdsConversionId = 'AW-11030146658';
 const defaultGoogleAdsRfqConversionLabel = 'BQEFCNecoKUcEOLcyosp';
+const googleTagManagerId = import.meta.env.PUBLIC_GOOGLE_TAG_MANAGER_ID || import.meta.env.PUBLIC_GTM_ID || '';
 const googleAnalyticsId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || configuredAnalyticsId;
 const googleAdsConversionId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID || defaultGoogleAdsConversionId;
 const googleTagId = import.meta.env.PUBLIC_GOOGLE_TAG_ID || googleAnalyticsId || googleAdsConversionId;
@@ -18,15 +19,32 @@ const googleAdsRfqSendTo =
 const tagIds = Array.from(new Set([googleTagId, googleAnalyticsId, googleAdsConversionId].filter(Boolean)));
 const primaryTagId = tagIds[0];
 const googleTagSrc = primaryTagId ? `https://www.googletagmanager.com/gtag/js?id=${primaryTagId}` : '';
+const googleTagManagerSrc = googleTagManagerId
+  ? `https://www.googletagmanager.com/gtm.js?id=${googleTagManagerId}`
+  : '';
 ---
 
-<script is:inline define:vars={{ googleAdsRfqSendTo, googleAnalyticsId, googleAdsConversionId }}>
+<script is:inline define:vars={{ googleAdsRfqSendTo, googleAnalyticsId, googleAdsConversionId, googleTagManagerId }}>
   window.dataLayer = window.dataLayer || [];
   window.COPPER3DP_TRACKING = {
     googleAnalyticsId,
     googleAdsConversionId,
     googleAdsRfqSendTo,
+    googleTagManagerId,
   };
+</script>
+
+<script is:inline define:vars={{ googleTagManagerSrc }}>
+  if (googleTagManagerSrc) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+    const gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = googleTagManagerSrc;
+    const firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(gtmScript, firstScript);
+  }
 </script>
 
 {primaryTagId ? <script is:inline async src={googleTagSrc} /> : null}

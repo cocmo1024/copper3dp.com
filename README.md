@@ -43,8 +43,10 @@ RFQ email clicks are tracked as the primary lead-intent event. Configure the pub
 
 ```bash
 PUBLIC_GA_MEASUREMENT_ID=G-xxxx
+PUBLIC_GOOGLE_TAG_MANAGER_ID=GTM-xxxx
 PUBLIC_GOOGLE_ADS_CONVERSION_ID=AW-xxxx
 PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL=xxxx
+PUBLIC_GOOGLE_SITE_VERIFICATION_ID=xxxx
 ```
 
 `rfq_email_click` records every email CTA click. `generate_lead` and the Google Ads conversion event are deduplicated once per browser session.
