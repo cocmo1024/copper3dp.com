@@ -317,7 +317,9 @@ const topicFamilies = [
   ['heat', 'sink', 'sinks', 'thermal', 'interface', 'fin', 'fins', 'airflow'],
   ['rfq', 'specification', 'checklist', 'quote', 'acceptance', 'criteria'],
   ['electrode', 'electrodes', 'edm', 'voltage', 'wear', 'accuracy'],
+  ['busbar', 'busbars', 'induction', 'coil', 'coils', 'electrical', 'current'],
   ['material', 'materials', 'copper', 'cucrzr', 'pure', 'lpbf'],
+  ['process', 'selection', 'cnc', 'brazing', 'skiving', 'manufacturing'],
   ['test', 'inspection', 'failure', 'failures', 'porosity', 'density'],
 ];
 

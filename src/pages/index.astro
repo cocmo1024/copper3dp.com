@@ -19,10 +19,10 @@ const rfqEmailHref =
   'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements&body=Please%20include%20CAD%20or%20drawings%2C%20quantity%2C%20material%20if%20known%2C%20lead%20time%2C%20service%20conditions%2C%20and%20inspection%20requirements%20when%20they%20matter.';
 
 const metadata = {
-  title: 'Copper 3D Printing Services | LPBF Copper Parts for RFQ',
+  title: 'Copper 3D Printing Service | LPBF Copper Parts RFQ',
   ignoreTitleTemplate: true,
   description:
-    'LPBF copper 3D printing for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor copper components.',
+    'Copper 3D printing service for custom LPBF copper cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor hardware.',
   openGraph: {
     images: [
       {
@@ -148,12 +148,20 @@ const metadata = {
         description:
           'Conductivity retention, current-path geometry, localized heating, internal cooling, insulation interfaces, and pressure integrity.',
         icon: 'tabler:magnet',
+        callToAction: {
+          text: 'Busbar and coil RFQ guide',
+          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        },
       },
       {
         title: 'High-current busbars',
         description:
           'Compact 3D routing, current density, joint resistance, plating strategy, creepage and clearance constraints, and thermal runaway risk.',
         icon: 'tabler:bolt',
+        callToAction: {
+          text: 'Electrical copper RFQ guide',
+          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        },
       },
       {
         title: 'RF and waveguide parts',
@@ -193,6 +201,10 @@ const metadata = {
       {
         title: 'Clarification when needed',
         description: 'If key information is missing, we ask before quoting rather than guessing a risky route.',
+        callToAction: {
+          text: 'Copper service RFQ guide',
+          href: '/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/',
+        },
       },
     ]}
     image={{

@@ -50,6 +50,10 @@ export const headerData = {
           href: getPermalink('/rfq'),
         },
         {
+          text: 'Process selection',
+          href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
+        },
+        {
           text: 'Engineering guide',
           href: getBlogPermalink(),
         },
@@ -88,8 +92,16 @@ export const headerData = {
           href: getBlogPermalink(),
         },
         {
+          text: 'Copper service RFQ guide',
+          href: getPermalink('/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide'),
+        },
+        {
           text: 'RFQ checklist',
           href: getPermalink('/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates'),
+        },
+        {
+          text: 'Busbars & coils RFQ',
+          href: getPermalink('/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq'),
         },
         {
           text: 'CT and leak acceptance',
@@ -130,6 +142,10 @@ export const footerData = {
         { text: 'Capabilities', href: getPermalink('/capabilities') },
         { text: 'Materials', href: getPermalink('/materials') },
         { text: 'RFQ inputs', href: getPermalink('/rfq') },
+        {
+          text: 'Process selection',
+          href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
+        },
         { text: 'Inspection planning', href: getPermalink('/capabilities#inspection') },
         { text: 'Engineering guide', href: getBlogPermalink() },
       ],
