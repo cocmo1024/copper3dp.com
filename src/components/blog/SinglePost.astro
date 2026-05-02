@@ -77,12 +77,12 @@ const categoryHref = post.category
         post.image ? (
           <Image
             src={post.image}
-            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
-            widths={[400, 900]}
-            sizes="(max-width: 900px) 400px, 900px"
+            class="max-w-full lg:max-w-5xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            widths={[400, 1024]}
+            sizes="(max-width: 1024px) 400px, 1024px"
             alt={post.title}
-            width={900}
-            height={506}
+            width={1024}
+            height={576}
             loading="eager"
             decoding="async"
           />

@@ -122,7 +122,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Email info@szcomo.com', href: rfqEmailHref }],
+  actions: [{ text: 'Email RFQ', href: rfqEmailHref, title: 'Email info@szcomo.com' }],
 };
 
 export const footerData = {
