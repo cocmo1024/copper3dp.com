@@ -1,9 +1,67 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const aboutShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/rfq-review-workspace.webp',
+      alt: 'Copper AM drawing review workspace',
+    },
+    title: 'What the business is built to do',
+    description:
+      'COPPER 3DP exists to help engineering and purchasing teams decide whether a copper AM part is practical to quote.',
+    points: [
+      {
+        title: 'Screen feasibility',
+        description:
+          'Review whether copper additive manufacturing is technically justified for the application and geometry.',
+      },
+      {
+        title: 'Support quotation',
+        description:
+          'Use CAD, material, quantity, lead time, post-processing, and inspection requirements to support quotation.',
+      },
+      {
+        title: 'Reduce RFQ iteration',
+        description:
+          'Help buyers and engineers state the operating targets and critical requirements for function-critical copper parts.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: 'Copper micro-channel additive manufacturing part',
+    },
+    title: 'How the guidance is kept useful',
+    description: 'The site is intentionally narrow: practical copper AM guidance, not broad manufacturing promises.',
+    points: [
+      {
+        title: 'Bounded claims',
+        description:
+          'We state when copper AM is useful, when it needs clarification, and when a conventional route may be better.',
+      },
+      {
+        title: 'RFQ-first detail',
+        description:
+          'Guidance is written around the information engineers and buyers need before sending drawings for quotation.',
+      },
+      {
+        title: 'Project-specific replies',
+        description:
+          'Quotes and clarification questions depend on the drawing, quantity, material, lead time, and requirements provided.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: 'About Custom Copper AM RFQ Support',
@@ -33,57 +91,15 @@ const metadata = {
     subtitle="The site is built for application-first feasibility review: thermal, electrical, RF, vacuum, and fluid-system copper components."
   />
 
-  <Features2
-    title="What the business is built to do"
-    columns={3}
-    items={[
-      {
-        title: 'Screen feasibility',
-        description:
-          'Review whether copper additive manufacturing is technically justified for the application and geometry.',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Support quotation',
-        description:
-          'Use CAD, material, quantity, lead time, post-processing, and inspection requirements to support quotation.',
-        icon: 'tabler:file-description',
-      },
-      {
-        title: 'Reduce RFQ iteration',
-        description:
-          'Help buyers and engineers state the operating targets and critical requirements for function-critical copper parts.',
-        icon: 'tabler:clipboard-check',
-      },
-    ]}
-  />
-
-  <Features2
-    title="How the guidance is kept useful"
-    columns={3}
-    items={[
-      {
-        title: 'Bounded claims',
-        description:
-          'We state when copper AM is useful, when it needs clarification, and when a conventional route may be better.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'RFQ-first detail',
-        description:
-          'Guidance is written around the information engineers and buyers need before sending drawings for quotation.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Project-specific replies',
-        description:
-          'Quotes and clarification questions depend on the drawing, quantity, material, lead time, and requirements provided.',
-        icon: 'tabler:message-2-question',
-      },
-    ]}
+  <SplitShowcase
+    title="Focused copper AM review"
+    subtitle="The goal is simple: get enough technical context to quote clearly, or ask the right questions before quoting."
+    items={aboutShowcases}
+    classes={{ container: sectionContainerClass }}
   />
 
   <CallToAction
+    classes={{ container: sectionContainerClass }}
     title="Have a copper AM project to review?"
     subtitle="Send CAD, material target if known, quantity, lead time, and critical requirements."
     actions={[

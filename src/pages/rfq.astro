@@ -2,13 +2,14 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
 const rfqEmailHref = 'mailto:info@szcomo.com';
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
 const rfqTemplate = `Subject: Copper 3D printing RFQ - [part name]
 
 Hello COPPER 3DP,
@@ -28,6 +29,60 @@ Post-processing expected:
 Notes:
 
 Best regards,`;
+
+const rfqShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/rfq-review-workspace.webp',
+      alt: 'Copper AM RFQ review workspace',
+    },
+    title: 'How we handle different RFQs',
+    description: 'The response depends on the part and the information provided.',
+    points: [
+      {
+        title: 'Simple drawing quote',
+        description: 'If geometry and quantity are clear, we can provide a basic quote with normal assumptions.',
+      },
+      {
+        title: 'Clarification needed',
+        description:
+          'If material, tolerance, pressure, current, thermal load, or inspection needs are unclear, we ask focused questions before quoting.',
+      },
+      {
+        title: 'Complex project review',
+        description:
+          'For demanding parts, we discuss process route, post-processing, inspection, and lead-time drivers as needed.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/high-current-busbars.webp',
+      alt: 'Copper AM RFQ review inputs',
+    },
+    title: 'Information that helps quotation',
+    description: 'Do not overprepare if the project is simple; send what you have and note what is critical.',
+    points: [
+      {
+        title: 'Geometry package',
+        description:
+          'STEP, X_T, or native CAD files plus 2D drawings for critical dimensions, datum faces, sealing lands, contact surfaces, and threaded ports.',
+      },
+      {
+        title: 'Functional requirements',
+        description:
+          'Heat load, coolant, flow rate, pressure drop, current, duty cycle, frequency band, vacuum exposure, and service temperature.',
+      },
+      {
+        title: 'Special requirements',
+        description:
+          'Material, quantity, lead time, CT scope, pressure or helium leak test, dimensional inspection, surface finish, and post-processing intent.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: 'Copper AM RFQ Checklist | Drawings',
@@ -115,72 +170,12 @@ const metadata = {
     </div>
   </section>
 
-  <Features3
-    title="How we handle different RFQs"
-    subtitle="The response depends on the part and the information provided."
-    columns={3}
-    items={[
-      {
-        title: 'Simple drawing quote',
-        description: 'If geometry and quantity are clear, we can provide a basic quote with normal assumptions.',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Clarification needed',
-        description:
-          'If material, tolerance, pressure, current, thermal load, or inspection needs are unclear, we ask focused questions before quoting.',
-        icon: 'tabler:box',
-      },
-      {
-        title: 'Complex project review',
-        description:
-          'For demanding parts, we discuss process route, post-processing, inspection, and lead-time drivers as needed.',
-        icon: 'tabler:building-factory-2',
-      },
-    ]}
-  />
-
-  <Steps
-    title="Information that helps quotation"
-    tagline="Required inputs"
-    subtitle="Do not overprepare if the project is simple; send what you have and note what is critical."
-    isReversed={true}
-    items={[
-      {
-        title: 'Geometry package',
-        description:
-          'STEP, X_T, or native CAD files plus 2D drawings for critical dimensions, datum faces, sealing lands, contact surfaces, and threaded ports.',
-        icon: 'tabler:number-1',
-      },
-      {
-        title: 'Functional requirements',
-        description:
-          'Heat load, coolant, flow rate, pressure drop, current, duty cycle, frequency band, vacuum or hydrogen exposure, and service temperature.',
-        icon: 'tabler:number-2',
-      },
-      {
-        title: 'Material and quantity',
-        description:
-          'Target alloy, prototype quantity, pilot lot, production volume, target delivery date, and any certification expectation.',
-        icon: 'tabler:number-3',
-      },
-      {
-        title: 'Special requirements',
-        description:
-          'CT scope, pressure or helium leak test, dimensional inspection, thermal test, flow validation, surface finish, and cleaning requirements when relevant.',
-        icon: 'tabler:number-4',
-      },
-      {
-        title: 'Post-processing intent',
-        description:
-          'Machining, heat treatment, stress relief, polishing, plating, passivation, assembly, or sealing work expected after printing.',
-        icon: 'tabler:number-5',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/high-current-busbars.webp',
-      alt: 'Copper AM RFQ review inputs',
-    }}
+  <SplitShowcase
+    title="RFQ review flow"
+    tagline="Practical inputs"
+    subtitle="Send the drawing first. Add the requirements that affect quotation and acceptance."
+    items={rfqShowcases}
+    classes={{ container: sectionContainerClass }}
   />
 
   <FAQs

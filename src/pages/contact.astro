@@ -2,8 +2,65 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const contactShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/rfq-review-workspace.webp',
+      alt: 'Copper AM RFQ email review workspace',
+    },
+    title: 'What to include',
+    description:
+      'A short email is fine if the project is simple. Add only the details that affect quotation and acceptance.',
+    points: [
+      {
+        title: 'Drawings and CAD',
+        description: 'Attach STEP, X_T, native CAD, or drawings with key dimensions and critical surfaces.',
+      },
+      {
+        title: 'Quantity and timing',
+        description: 'State prototype quantity, batch quantity, target delivery date, and any purchasing constraints.',
+      },
+      {
+        title: 'Requirements',
+        description:
+          'Include material, pressure, leak, thermal, electrical, surface finish, machining, CT, or cleaning needs when relevant.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/hero-2.webp',
+      alt: 'Copper additive manufacturing parts for RFQ review',
+    },
+    title: 'How we respond',
+    description:
+      'The reply depends on the drawing and the requirements. We do not force every RFQ into the same deliverable.',
+    points: [
+      {
+        title: 'Simple quote',
+        description:
+          'If geometry, quantity, and basic requirements are clear, we can respond with a straightforward quotation.',
+      },
+      {
+        title: 'Clarification questions',
+        description:
+          'If heat load, pressure, current, leak target, drawings, or inspection needs are unclear, we ask focused questions before quoting.',
+      },
+      {
+        title: 'Technical discussion when needed',
+        description:
+          'For complex parts, we may discuss material, manufacturability, post-processing, testing, and lead-time drivers as needed.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: 'Copper AM RFQ Contact | Send CAD for Quote',
@@ -35,6 +92,7 @@ const metadata = {
 
   <CallToAction
     id="form"
+    classes={{ container: sectionContainerClass }}
     title="Send the RFQ by email"
     subtitle="Email STEP, X_T, native CAD, drawings, quantity, material if known, lead time, and the requirements that matter for the part."
     actions={[
@@ -51,38 +109,10 @@ const metadata = {
     ]}
   />
 
-  <Features2
-    title="What to include"
-    subtitle="A short email is fine if the project is simple. Add the details that affect quotation."
-    items={[
-      {
-        title: 'Drawings and CAD',
-        description: 'Attach STEP, X_T, native CAD, or drawings with key dimensions and critical surfaces.',
-      },
-      {
-        title: 'Quantity and timing',
-        description: 'State prototype quantity, batch quantity, target delivery date, and any purchasing constraints.',
-      },
-      {
-        title: 'Requirements',
-        description:
-          'Include material, pressure, leak, thermal, electrical, surface finish, machining, CT, or cleaning needs when relevant.',
-      },
-      {
-        title: 'Simple quote',
-        description:
-          'If geometry, quantity, and basic requirements are clear, we can respond with a straightforward quotation.',
-      },
-      {
-        title: 'Clarification questions',
-        description:
-          'If heat load, pressure, current, leak target, drawings, or inspection needs are unclear, we ask focused questions before quoting.',
-      },
-      {
-        title: 'Technical discussion when needed',
-        description:
-          'For complex parts, we may discuss material, manufacturability, post-processing, testing, and lead-time drivers as needed.',
-      },
-    ]}
+  <SplitShowcase
+    title="Email-first RFQ path"
+    subtitle="Send the drawing and what you know. Leave unknown fields blank rather than guessing."
+    items={contactShowcases}
+    classes={{ container: sectionContainerClass }}
   />
 </Layout>

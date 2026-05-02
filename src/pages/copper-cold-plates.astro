@@ -1,14 +1,46 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import {
   createBreadcrumbSchema,
   createCopperApplicationServiceSchema,
   createItemListSchema,
 } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const coldPlateShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: 'Copper micro-channel heat exchanger for cold plate review',
+    },
+    title: 'What to send for a cold plate quote',
+    description:
+      'A basic drawing can be enough for a first quote. Pressure, leak, CT, cleaning, or thermal validation requirements should be included when they affect acceptance.',
+    points: [
+      {
+        title: 'Geometry and interfaces',
+        description:
+          'Send STEP, X_T, native CAD, and drawings for ports, threads, O-ring grooves, sealing lands, datum faces, and machined surfaces.',
+      },
+      {
+        title: 'Thermal and fluid targets',
+        description:
+          'Include heat load, coolant, flow rate, inlet temperature, pressure drop target, working pressure, proof pressure, and leak target if known.',
+      },
+      {
+        title: 'Quantity and timing',
+        description:
+          'State prototype quantity, batch quantity, target lead time, and whether the quote should include testing or documentation.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: '3D Printed Copper Cold Plates | LPBF RFQ',
@@ -75,8 +107,9 @@ const metadata = {
       { text: 'Review RFQ inputs', href: '/rfq' },
     ]}
     image={{
-      src: '~/assets/images/copper/copper-cold-plate-channels.webp',
-      alt: 'LPBF copper cold plates with internal channels',
+      src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
+      alt: 'Copper additive manufacturing parts for cold plate RFQ review',
+      class: 'mx-auto w-full',
     }}
   />
 
@@ -106,39 +139,7 @@ const metadata = {
     ]}
   />
 
-  <Content
-    id="rfq-inputs"
-    isReversed
-    items={[
-      {
-        title: 'Geometry and interfaces',
-        description:
-          'Send STEP, X_T, native CAD, and drawings for ports, threads, O-ring grooves, sealing lands, datum faces, and machined surfaces.',
-      },
-      {
-        title: 'Thermal and fluid targets',
-        description:
-          'Include heat load, coolant, flow rate, inlet temperature, pressure drop target, working pressure, proof pressure, and leak target if known.',
-      },
-      {
-        title: 'Quantity and timing',
-        description:
-          'State prototype quantity, batch quantity, target lead time, and whether the quote should include testing or documentation.',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
-      alt: 'Copper micro-channel heat exchanger for cold plate review',
-    }}
-  >
-    <Fragment slot="content">
-      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        What to send for a cold plate quote
-      </h2>
-      A basic drawing can be enough for a first quote. Pressure, leak, CT, cleaning, or thermal validation requirements should
-      be included when they affect acceptance.
-    </Fragment>
-  </Content>
+  <SplitShowcase id="rfq-inputs" items={coldPlateShowcases} classes={{ container: sectionContainerClass }} />
 
   <Features2
     id="review-points"
@@ -224,6 +225,7 @@ const metadata = {
   />
 
   <CallToAction
+    classes={{ container: sectionContainerClass }}
     title="Send drawings, quantity, and cold plate requirements."
     subtitle="Email the CAD package and the requirements that matter. We will review the information and respond with a quote or clarification questions."
     actions={[

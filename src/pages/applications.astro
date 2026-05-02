@@ -1,10 +1,101 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const applicationShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/copper-heat-sinks.webp',
+      alt: '3D printed copper heat sinks',
+    },
+    title: 'Copper heat sinks',
+    description:
+      'Printed copper heat sinks only make sense when the thermal path, airflow, interface control, and geometry limits are reviewed together.',
+    points: [
+      {
+        title: 'Thermal path first',
+        description:
+          'Airflow, contact resistance, fin efficiency, base flatness, and heat load decide whether AM is useful.',
+        callToAction: { text: 'Heat sink RFQ page', href: '/copper-heat-sinks' },
+      },
+      {
+        title: 'Fin limits',
+        description:
+          'Minimum fin thickness, spacing, support strategy, surface finish, and post-machining determine feasibility.',
+      },
+      {
+        title: 'Validation plan',
+        description:
+          'Thermal testing, interface inspection, dimensional checks, and pressure drop targets should be stated when required.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/induction-heating-coils.webp',
+      alt: '3D printed copper induction heating coils',
+    },
+    title: 'Electrical copper hardware',
+    description:
+      'Conductivity, interface resistance, insulation, cooling, and hot-spot control must be reviewed as one system.',
+    points: [
+      {
+        title: 'Induction coils',
+        description:
+          'Monolithic coil routing, internal cooling, turn spacing, electrical isolation, conductivity recovery, and burn-through risk.',
+        callToAction: {
+          text: 'Coil RFQ guide',
+          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        },
+      },
+      {
+        title: 'High-current busbars',
+        description:
+          'Compact routing, joint resistance, current density, plating strategy, flat contact planes, and creepage or clearance constraints.',
+      },
+      {
+        title: 'High-voltage electrodes',
+        description:
+          'Edge radius, field concentration, surface finish, post-processing repeatability, and insulation interface requirements.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/rf-waveguide-copper-parts.webp',
+      alt: 'RF waveguide copper additive manufacturing parts',
+    },
+    title: 'RF, vacuum, and semiconductor hardware',
+    description:
+      'For these parts, tolerance, surface condition, sealing, and cleanliness usually matter more than the printed shape alone.',
+    points: [
+      {
+        title: 'RF / waveguide parts',
+        description:
+          'Dimensional accuracy, surface roughness, conductor loss, plating, and frequency response are the core feasibility constraints.',
+      },
+      {
+        title: 'Semiconductor copper parts',
+        description:
+          'Integrated cooling, compact manifolds, particle risk, vacuum sealing, internal surface condition, cleaning, and leak-rate targets.',
+      },
+      {
+        title: 'Vacuum and hydrogen components',
+        description:
+          'Trapped volume, leak targets, wall-thickness limits, cleaning, bakeout compatibility, and pressure evidence drive review.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: 'Copper AM Applications | Cold Plates',
@@ -65,8 +156,9 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/copper/copper-cold-plates.webp',
-      alt: 'Copper cold plates for LPBF additive manufacturing',
+      src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
+      alt: 'Copper additive manufacturing application parts',
+      class: 'mx-auto w-full',
     }}
   />
 
@@ -115,120 +207,13 @@ const metadata = {
     ]}
   />
 
-  <Content
-    id="heat-sinks"
-    isReversed
-    items={[
-      {
-        title: 'Thermal path first',
-        description:
-          'Printed copper heat sinks only win when airflow, contact resistance, fin efficiency, and base flatness are engineered together.',
-        icon: 'tabler:temperature',
-        callToAction: { text: 'Heat sink RFQ page', href: '/copper-heat-sinks' },
-      },
-      {
-        title: 'Fin limits',
-        description:
-          'Minimum fin thickness, spacing, support strategy, surface finish, and post-machining determine whether the concept is feasible.',
-        icon: 'tabler:ruler-measure',
-      },
-      {
-        title: 'Validation plan',
-        description:
-          'Thermal testing, interface inspection, dimensional checks, and pressure drop targets should be stated when required.',
-        icon: 'tabler:clipboard-check',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/copper-heat-sinks.webp',
-      alt: '3D printed copper heat sinks',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Copper heat sinks</h3>
-      Copper AM is not automatically better than CNC. It needs a performance reason, defined interface control, and a clear
-      requirement.
-    </Fragment>
-  </Content>
-
-  <Content
-    id="electrical"
-    isAfterContent
-    items={[
-      {
-        title: 'Induction coils',
-        description:
-          'Monolithic coil routing, internal cooling, turn spacing, electrical isolation, conductivity recovery, and burn-through risk.',
-        icon: 'tabler:magnet',
-        callToAction: {
-          text: 'Coil RFQ guide',
-          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
-        },
-      },
-      {
-        title: 'High-current busbars',
-        description:
-          'Compact routing, joint resistance, current density, plating strategy, flat contact planes, and creepage or clearance constraints.',
-        icon: 'tabler:bolt',
-        callToAction: {
-          text: 'Busbar RFQ guide',
-          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
-        },
-      },
-      {
-        title: 'High-voltage electrodes',
-        description:
-          'Edge radius, field concentration, surface finish, post-processing repeatability, and insulation interface requirements.',
-        icon: 'tabler:circuit-voltmeter',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/induction-heating-coils.webp',
-      alt: '3D printed copper induction heating coils',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Electrical copper hardware</h3>
-      Conductivity, interface resistance, insulation, and hot-spot control must be reviewed as one system.
-    </Fragment>
-  </Content>
-
-  <Content
-    id="rf"
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'RF / waveguide parts',
-        description:
-          'Dimensional accuracy, surface roughness, conductor loss, plating, and frequency response are the core feasibility constraints.',
-        icon: 'tabler:antenna-bars-5',
-      },
-      {
-        title: 'Semiconductor copper parts',
-        description:
-          'Integrated cooling, compact manifolds, particle risk, vacuum sealing, internal surface condition, cleaning, and leak-rate targets.',
-        icon: 'tabler:device-desktop-cog',
-      },
-      {
-        title: 'Vacuum and hydrogen components',
-        description:
-          'Trapped volume, leak targets, wall-thickness limits, cleaning, bakeout compatibility, and pressure evidence drive review.',
-        icon: 'tabler:gas-station',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/rf-waveguide-copper-parts.webp',
-      alt: 'RF waveguide copper additive manufacturing parts',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        RF, vacuum, and semiconductor hardware
-      </h3>
-      Tolerance, surface condition, sealing, and cleanliness usually matter more than the printed shape alone.
-    </Fragment>
-  </Content>
+  <SplitShowcase
+    title="Application-specific review"
+    subtitle="Use the part function and failure mode to decide whether copper AM is worth quoting."
+    tagline="Where AM can help"
+    items={applicationShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
 
   <Features2
     title="Requirements that affect quotation"
@@ -275,6 +260,7 @@ const metadata = {
   />
 
   <CallToAction
+    classes={{ container: sectionContainerClass }}
     actions={[
       {
         variant: 'primary',

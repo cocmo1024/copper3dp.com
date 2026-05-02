@@ -2,9 +2,41 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Content from '~/components/widgets/Content.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const materialShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/induction-heating-coils.webp',
+      alt: 'Copper induction coil material review',
+    },
+    title: 'Material decision inputs that speed review',
+    description:
+      'The same alloy can behave differently depending on wall thickness, heat treatment, machining allowance, inspection scope, and operating environment.',
+    points: [
+      {
+        title: 'Conductivity after processing',
+        description:
+          'Conductivity targets should be discussed after stress relief, heat treatment, machining, polishing, or plating requirements are known.',
+      },
+      {
+        title: 'Strength and service temperature',
+        description:
+          'Clamp loads, pressure loads, thermal cycling, and local wall thickness determine whether pure copper is enough.',
+      },
+      {
+        title: 'Inspection and certification',
+        description:
+          'State whether material certificates, density expectations, CT review, or leak-test requirements are needed.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: 'Copper AM Materials | Pure Copper & CuCrZr',
@@ -60,7 +92,11 @@ const metadata = {
       },
       { text: 'RFQ inputs', href: '/rfq' },
     ]}
-    image={{ src: '~/assets/images/copper/high-current-busbars.webp', alt: 'Copper AM material selection' }}
+    image={{
+      src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
+      alt: 'Copper additive manufacturing material review parts',
+      class: 'mx-auto w-full',
+    }}
   />
 
   <Features2
@@ -89,37 +125,10 @@ const metadata = {
     ]}
   />
 
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'Conductivity after processing',
-        description:
-          'Conductivity targets should be discussed after stress relief, heat treatment, machining, polishing, or plating requirements are known.',
-      },
-      {
-        title: 'Strength and service temperature',
-        description:
-          'Clamp loads, pressure loads, thermal cycling, and local wall thickness determine whether pure copper is enough.',
-      },
-      {
-        title: 'Inspection and certification',
-        description:
-          'State whether material certificates, density expectations, CT review, or leak-test requirements are needed.',
-      },
-    ]}
-    image={{ src: '~/assets/images/copper/induction-heating-coils.webp', alt: 'Copper induction coil material review' }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Material decision inputs that speed review
-      </h3>
-      The same alloy can behave differently depending on wall thickness, heat treatment, machining allowance, inspection scope,
-      and operating environment.
-    </Fragment>
-  </Content>
+  <SplitShowcase items={materialShowcases} classes={{ container: sectionContainerClass }} />
 
   <CallToAction
+    classes={{ container: sectionContainerClass }}
     title="Not sure which copper alloy fits the part?"
     subtitle="Send the CAD package, quantity, operating conditions, and critical requirements so the material route can be reviewed as needed."
     actions={[

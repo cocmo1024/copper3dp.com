@@ -2,10 +2,100 @@
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const capabilityShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/semiconductor-copper-parts.webp',
+      alt: 'Semiconductor copper hardware',
+    },
+    title: 'Process fit before quotation',
+    description:
+      'The practical route depends on geometry, material behavior, post-processing, and the function the part must prove.',
+    points: [
+      {
+        title: 'LPBF copper builds',
+        description:
+          'Powder-bed builds are reviewed for compact parts with internal passages, complex flow paths, thin structures, or assembly consolidation goals.',
+      },
+      {
+        title: 'DfAM feasibility',
+        description:
+          'Geometry review covers minimum channels, wall thickness, overhangs, support access, powder removal, and post-machining stock.',
+      },
+      {
+        title: 'Post-processing intent',
+        description:
+          'Machining, heat treatment, polishing, cleaning, plating, and sealing surfaces are defined before build strategy is finalized.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/copper-cold-plate-channels.webp',
+      alt: 'Copper cold plate channels for inspection review',
+    },
+    title: 'Inspection requirements',
+    description:
+      'If the part has pressure, leak, CT, dimensional, or surface requirements, include them with the RFQ so they are considered during quotation.',
+    points: [
+      {
+        title: 'Internal continuity',
+        description:
+          'CT scanning can check channel continuity, trapped powder risk, wall thickness around critical passages, and internal defect indications.',
+      },
+      {
+        title: 'Pressure and leak targets',
+        description:
+          'Cold plates, manifolds, vacuum hardware, and hydrogen components need working pressure, proof pressure, hold time, and leak threshold.',
+      },
+      {
+        title: 'Dimensional checks',
+        description:
+          'Datum faces, sealing lands, threaded interfaces, RF-critical surfaces, and electrical contact planes need inspection requirements stated.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/rfq-review-workspace.webp',
+      alt: 'Copper AM RFQ review workspace',
+    },
+    title: 'What helps us quote',
+    description:
+      'A useful RFQ connects the part geometry to quantity, operating environment, and any required testing.',
+    points: [
+      {
+        title: 'Functional surfaces marked',
+        description:
+          'Identify sealing faces, datum structures, contact planes, coolant ports, electrical interfaces, and keep-out regions.',
+      },
+      {
+        title: 'Service load defined',
+        description:
+          'Provide heat flux, coolant, pressure drop, current, duty cycle, RF band, vacuum exposure, or qualification constraints.',
+      },
+      {
+        title: 'Testing requested',
+        description:
+          'Specify whether CT, leak testing, pressure testing, flow validation, material certification, or surface inspection is required.',
+        callToAction: {
+          text: 'Send RFQ inputs',
+          href: 'mailto:info@szcomo.com',
+        },
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: 'Copper AM Capabilities | DfAM & Inspection',
@@ -57,8 +147,9 @@ const metadata = {
       { text: 'Review RFQ inputs', href: '/rfq' },
     ]}
     image={{
-      src: '~/assets/images/copper/hero-1.webp',
+      src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
       alt: 'Industrial copper additive manufacturing components',
+      class: 'mx-auto w-full',
     }}
   >
     <Fragment slot="title">
@@ -110,104 +201,13 @@ const metadata = {
     ]}
   />
 
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'LPBF copper builds',
-        description:
-          'Powder-bed builds for compact parts with internal passages, complex flow paths, thin structures, or assembly consolidation goals.',
-        icon: 'tabler:layers-intersect',
-      },
-      {
-        title: 'DfAM feasibility',
-        description:
-          'Geometry review for minimum channels, wall thickness, overhangs, support access, powder removal, and post-machining stock.',
-        icon: 'tabler:ruler-measure',
-      },
-      {
-        title: 'Post-processing intent',
-        description:
-          'Machining, heat treatment, polishing, cleaning, plating, and sealing surfaces are defined before build strategy is finalized.',
-        icon: 'tabler:tools',
-      },
-      {
-        title: 'Thermal validation',
-        description:
-          'Cold plates, heat sinks, and exchangers are reviewed against heat load, flow rate, pressure drop, and interface flatness.',
-        icon: 'tabler:temperature',
-      },
-      {
-        title: 'Electrical validation',
-        description:
-          'Busbars, coils, and electrodes are reviewed for current density, joint resistance, insulation interfaces, and hot-spot risk.',
-        icon: 'tabler:bolt',
-      },
-      {
-        title: 'RF and vacuum risk',
-        description:
-          'Waveguides and vacuum parts require surface, geometry, leak-rate, cleanliness, and sealing strategy to be specified early.',
-        icon: 'tabler:antenna-bars-5',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/semiconductor-copper-parts.webp',
-      alt: 'Semiconductor copper hardware',
-    }}
-  />
-
-  <Steps2
+  <SplitShowcase
     id="inspection"
-    title="Inspection requirements"
-    subtitle="If the part has pressure, leak, CT, dimensional, or surface requirements, include them with the RFQ so they can be considered during quotation."
-    items={[
-      {
-        title: 'Internal continuity',
-        description:
-          'CT scanning can check channel continuity, trapped powder risk, wall thickness around critical passages, and internal defect indications.',
-      },
-      {
-        title: 'Pressure and leak targets',
-        description:
-          'Cold plates, manifolds, vacuum hardware, and hydrogen components need working pressure, proof pressure, hold time, and leak threshold.',
-      },
-      {
-        title: 'Dimensional checks',
-        description:
-          'Datum faces, sealing lands, threaded interfaces, RF-critical surfaces, and electrical contact planes need inspection requirements stated.',
-      },
-    ]}
-  />
-
-  <Steps2
-    title="What helps us quote"
-    subtitle="A useful RFQ package connects the part geometry to quantity, operating environment, and any required testing."
-    isReversed={true}
-    callToAction={{
-      text: 'Send RFQ inputs',
-      href: 'mailto:info@szcomo.com',
-    }}
-    items={[
-      {
-        title: 'Functional surfaces marked',
-        description:
-          'Identify sealing faces, datum structures, contact planes, coolant ports, electrical interfaces, and keep-out regions.',
-        icon: 'tabler:focus-centered',
-      },
-      {
-        title: 'Service load defined',
-        description:
-          'Provide heat flux, coolant, pressure drop, current, duty cycle, RF band, vacuum exposure, or qualification constraints.',
-        icon: 'tabler:gauge',
-      },
-      {
-        title: 'Testing requested',
-        description:
-          'Specify whether CT, leak testing, pressure testing, flow validation, material certification, or surface inspection is required.',
-        icon: 'tabler:clipboard-check',
-      },
-    ]}
+    title="Capability review modules"
+    subtitle="The quote path is clearer when process fit, inspection, and acceptance needs are stated early."
+    tagline="Engineering review"
+    items={capabilityShowcases}
+    classes={{ container: sectionContainerClass }}
   />
 
   <Features2

@@ -109,15 +109,6 @@ import { UI } from 'astrowind:config';
       return Object.fromEntries(Object.entries(attribution).filter(([, value]) => Boolean(value)));
     }
 
-    function getAttributionReference() {
-      const attribution = getAttributionFields();
-      const priorityKeys = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
-      return priorityKeys
-        .filter((key) => attribution[key])
-        .map((key) => `${key}=${attribution[key]}`)
-        .join('; ');
-    }
-
     function getTrackingPayload(elem, extra = {}) {
       const attribution = getAttributionFields();
       return {
@@ -245,22 +236,18 @@ import { UI } from 'astrowind:config';
       }, 2200);
     }
 
-    function enhanceMailtoHref(elem) {
+    function normalizeMailtoHref(elem) {
       const originalHref = elem.dataset.awOriginalHref || elem.getAttribute('href') || '';
       elem.dataset.awOriginalHref = originalHref;
-      const [mailtoPart, queryString = ''] = originalHref.split('?');
-      const params = new URLSearchParams(queryString);
-      const baseBody = params.get('body') || '';
-      const attributionReference = getAttributionReference();
-      const bodyLines = [
-        baseBody,
-        '',
-        `Project page: ${window.location.href.split('#')[0]}`,
-        attributionReference ? `Ad/reference: ${attributionReference}` : '',
-      ].filter(Boolean);
+      const match = originalHref.match(/^mailto:([^?]+)/);
+      const email = match ? decodeURIComponent(match[1]).trim() : '';
 
-      params.set('body', bodyLines.join('\n'));
-      elem.setAttribute('href', `${mailtoPart}?${params.toString()}`);
+      if (!email) return { href: originalHref, email: '' };
+
+      const href = `mailto:${email}`;
+      elem.setAttribute('href', href);
+
+      return { href, email };
     }
 
     const onLoad = function () {
@@ -335,17 +322,14 @@ import { UI } from 'astrowind:config';
       });
 
       document.querySelectorAll('a[href^="mailto:"]').forEach((elem) => {
-        enhanceMailtoHref(elem);
+        normalizeMailtoHref(elem);
         if (elem.dataset.awEmailCopy === 'true') return;
         elem.dataset.awEmailCopy = 'true';
 
         elem.addEventListener(
           'click',
           function (event) {
-            enhanceMailtoHref(elem);
-            const href = elem.getAttribute('href') || '';
-            const match = href.match(/^mailto:([^?]+)/);
-            const email = match ? decodeURIComponent(match[1]) : '';
+            const { href, email } = normalizeMailtoHref(elem);
             if (!email) return;
 
             event.preventDefault();

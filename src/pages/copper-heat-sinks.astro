@@ -1,14 +1,46 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import {
   createBreadcrumbSchema,
   createCopperApplicationServiceSchema,
   createItemListSchema,
 } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const heatSinkShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/hero-1.webp',
+      alt: 'Copper heat sink RFQ review',
+    },
+    title: 'What to send for a heat sink quote',
+    description:
+      'A simple drawing can support a basic quotation. Complex thermal parts need enough boundary conditions to avoid quoting a geometry that cannot be accepted later.',
+    points: [
+      {
+        title: 'Geometry and mounting',
+        description:
+          'Send CAD and drawings for base thickness, fin field, mounting holes, datum faces, contact areas, channels, and machining stock.',
+      },
+      {
+        title: 'Thermal boundary conditions',
+        description:
+          'Include heat load, target temperature, airflow or coolant, interface material, clamp approach, and available test method if known.',
+      },
+      {
+        title: 'Quantity and acceptance',
+        description:
+          'State prototype or batch quantity, material preference, flatness, surface finish, inspection, and thermal validation requirements.',
+      },
+    ],
+  },
+];
 
 const metadata = {
   title: '3D Printed Copper Heat Sinks | LPBF RFQ',
@@ -77,8 +109,9 @@ const metadata = {
       { text: 'Review RFQ inputs', href: '/rfq' },
     ]}
     image={{
-      src: '~/assets/images/copper/copper-heat-sinks.webp',
-      alt: 'LPBF copper heat sinks with complex fins',
+      src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
+      alt: 'Copper additive manufacturing parts for heat sink RFQ review',
+      class: 'mx-auto w-full',
     }}
   />
 
@@ -108,39 +141,7 @@ const metadata = {
     ]}
   />
 
-  <Content
-    id="rfq-inputs"
-    isReversed
-    items={[
-      {
-        title: 'Geometry and mounting',
-        description:
-          'Send CAD and drawings for base thickness, fin field, mounting holes, datum faces, contact areas, channels, and machining stock.',
-      },
-      {
-        title: 'Thermal boundary conditions',
-        description:
-          'Include heat load, target temperature, airflow or coolant, interface material, clamp approach, and available test method if known.',
-      },
-      {
-        title: 'Quantity and acceptance',
-        description:
-          'State prototype or batch quantity, material preference, flatness, surface finish, inspection, and thermal validation requirements.',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/hero-1.webp',
-      alt: 'Copper heat sink RFQ review',
-    }}
-  >
-    <Fragment slot="content">
-      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        What to send for a heat sink quote
-      </h2>
-      A simple drawing can support a basic quotation. Complex thermal parts need enough boundary conditions to avoid quoting
-      a geometry that cannot be accepted later.
-    </Fragment>
-  </Content>
+  <SplitShowcase id="rfq-inputs" items={heatSinkShowcases} classes={{ container: sectionContainerClass }} />
 
   <Features2
     id="review-points"
@@ -226,6 +227,7 @@ const metadata = {
   />
 
   <CallToAction
+    classes={{ container: sectionContainerClass }}
     title="Send drawings, quantity, and heat sink requirements."
     subtitle="Email the CAD package and the requirements that matter. We will review the information and respond with a quote or clarification questions."
     actions={[
