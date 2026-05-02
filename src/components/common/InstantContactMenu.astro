@@ -7,57 +7,18 @@ const greeting =
 const encodedGreeting = encodeURIComponent(greeting);
 
 const whatsappHref = `https://wa.me/${phone}?text=${encodedGreeting}`;
-const messageHref = `sms:+${phone}?body=${encodedGreeting}`;
 ---
 
-<details class="relative" data-aw-instant-contact>
-  <summary
-    class="inline-flex cursor-pointer list-none items-center rounded-lg p-2.5 text-sm text-muted transition hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-slate-200 dark:focus:ring-gray-700"
-    aria-label="Open instant contact options"
-  >
-    <Icon name="tabler:message-circle" class="h-5 w-5" />
-    <span class="sr-only">Instant contact</span>
-  </summary>
-
-  <div
-    class="absolute bottom-full right-0 z-50 mb-2 w-52 overflow-hidden rounded-md border border-slate-200 bg-white py-1 text-sm shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900 dark:shadow-black/30 md:bottom-auto md:top-full md:mb-0 md:mt-2"
-    role="menu"
-    aria-label="Instant contact options"
-  >
-    <a
-      class="flex items-center gap-3 px-4 py-2.5 text-slate-700 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white"
-      href={whatsappHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      role="menuitem"
-      data-aw-instant-contact-link
-      data-aw-contact-channel="whatsapp"
-    >
-      <Icon name="tabler:brand-whatsapp" class="h-5 w-5 text-emerald-500" />
-      <span>
-        <span class="block font-semibold">WhatsApp</span>
-        <span class="block text-xs text-muted dark:text-slate-400">Send RFQ via WhatsApp</span>
-      </span>
-    </a>
-
-    <a
-      class="flex items-center gap-3 px-4 py-2.5 text-slate-700 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white"
-      href={messageHref}
-      role="menuitem"
-      data-aw-instant-contact-link
-      data-aw-contact-channel="message"
-    >
-      <Icon name="tabler:message" class="h-5 w-5 text-blue-500" />
-      <span>
-        <span class="block font-semibold">Text message</span>
-        <span class="block text-xs text-muted dark:text-slate-400">Send RFQ by text</span>
-      </span>
-    </a>
-  </div>
-</details>
-
-<style>
-  [data-aw-instant-contact] > summary::-webkit-details-marker {
-    display: none;
-  }
-</style>
+<a
+  class="inline-flex items-center rounded-lg p-2.5 text-sm text-muted transition hover:bg-gray-100 hover:text-emerald-600 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-emerald-400 dark:focus:ring-gray-700"
+  href={whatsappHref}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Send RFQ via WhatsApp"
+  title="Send RFQ via WhatsApp"
+  data-aw-instant-contact-link
+  data-aw-contact-channel="whatsapp"
+>
+  <Icon name="tabler:brand-whatsapp" class="h-5 w-5" />
+  <span class="sr-only">Send RFQ via WhatsApp</span>
+</a>

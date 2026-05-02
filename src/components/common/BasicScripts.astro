@@ -250,28 +250,8 @@ import { UI } from 'astrowind:config';
       return { href, email };
     }
 
-    function initInstantContactMenu() {
-      document.querySelectorAll('[data-aw-instant-contact]').forEach((menu) => {
-        if (menu.dataset.awInstantContactReady === 'true') return;
-        menu.dataset.awInstantContactReady = 'true';
-
-        document.addEventListener('click', function (event) {
-          if (!menu.contains(event.target)) {
-            menu.removeAttribute('open');
-          }
-        });
-
-        document.addEventListener('keydown', function (event) {
-          if (event.key === 'Escape') {
-            menu.removeAttribute('open');
-          }
-        });
-      });
-    }
-
     const onLoad = function () {
       captureAttribution();
-      initInstantContactMenu();
 
       let lastKnownScrollPosition = window.scrollY;
       let ticking = true;
