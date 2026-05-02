@@ -65,46 +65,55 @@ const {
     )
   }
 
-  <div class="space-y-16 md:space-y-20">
+  <div class="space-y-14 md:space-y-20">
     {
       items.map(({ id: itemId, eyebrow, title: itemTitle, description, image, imagePosition = 'left', points = [] }) => (
-        <section id={itemId} class="grid gap-10 md:grid-cols-2 md:gap-16">
-          <div class:list={['self-center', imagePosition === 'left' ? 'md:order-2' : 'md:order-1']}>
-            {eyebrow && <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">{eyebrow}</p>}
-            {itemTitle && <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">{itemTitle}</h3>}
-            {description && <p class="mt-3 mb-10 text-lg text-muted dark:text-slate-400" set:html={description} />}
+        <section id={itemId} class="space-y-8">
+          {(eyebrow || itemTitle || description) && (
+            <div class="rounded-md border border-blue-100 bg-blue-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-800 md:px-6">
+              {eyebrow && <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-primary">{eyebrow}</p>}
+              {itemTitle && <h3 class="text-xl font-bold tracking-tight dark:text-white md:text-2xl">{itemTitle}</h3>}
+              {description && (
+                <p class="mt-1 max-w-3xl text-sm leading-6 text-muted dark:text-slate-300 md:text-base" set:html={description} />
+              )}
+            </div>
+          )}
 
-            <ItemGrid
-              items={points}
-              defaultIcon="tabler:check"
-              classes={{
-                container: 'gap-y-4 md:gap-y-8',
-                panel: 'max-w-none',
-                title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-                description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-                icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
-                action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-              }}
-            />
-          </div>
+          <div class="grid gap-10 md:grid-cols-2 md:gap-16">
+            <div class:list={['self-center', imagePosition === 'left' ? 'md:order-2' : 'md:order-1']}>
+              <ItemGrid
+                items={points}
+                defaultIcon="tabler:check"
+                classes={{
+                  container: 'gap-y-4',
+                  panel: 'max-w-none',
+                  title: 'text-base font-semibold leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+                  description: 'mt-1 text-sm leading-5 text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+                  icon:
+                    'flex h-6 w-6 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
+                  action: 'mt-1 text-base font-semibold leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+                }}
+              />
+            </div>
 
-          {
-            image && (
-              <div class:list={['self-center', imagePosition === 'left' ? 'md:order-1' : 'md:order-2']}>
-                <div class="relative m-auto">
-                  <Image
-                    class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-                    width={500}
-                    height={500}
-                    widths={[400, 768]}
-                    sizes="(max-width: 768px) 100vw, 432px"
-                    layout="responsive"
-                    {...image}
-                  />
+            {
+              image && (
+                <div class:list={['self-center', imagePosition === 'left' ? 'md:order-1' : 'md:order-2']}>
+                  <div class="relative m-auto">
+                    <Image
+                      class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                      width={500}
+                      height={500}
+                      widths={[400, 768]}
+                      sizes="(max-width: 768px) 100vw, 432px"
+                      layout="responsive"
+                      {...image}
+                    />
+                  </div>
                 </div>
-              </div>
-            )
-          }
+              )
+            }
+          </div>
         </section>
       ))
     }

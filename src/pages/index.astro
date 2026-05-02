@@ -105,6 +105,7 @@ const requirementShowcases = [
       src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
       alt: 'Copper micro-channel heat exchanger',
     },
+    title: 'Use application and failure mode',
     description: 'Use the application and failure mode to decide whether AM is worth quoting.',
     points: [
       {
@@ -294,6 +295,14 @@ const requirementShowcases = [
   <Steps
     title="Simple RFQ flow"
     subtitle="The amount of review depends on the part and the requirements you provide."
+    isReversed={true}
+    classes={{
+      items: {
+        title: 'text-lg font-semibold leading-6',
+        description: 'text-sm leading-6',
+        icon: 'h-9 w-9',
+      },
+    }}
     items={[
       {
         title: 'Step 1: <span class="font-medium">Send geometry</span>',
