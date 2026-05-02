@@ -250,206 +250,28 @@ import { UI } from 'astrowind:config';
       return { href, email };
     }
 
-    const supportedLanguages = new Set(['en', 'ar', 'fr', 'de', 'es', 'pt']);
-    const rtlLanguages = new Set(['ar']);
-    const languageStorageKey = 'copper3dp_language';
-    let googleTranslatePromise;
+    function initInstantContactMenu() {
+      document.querySelectorAll('[data-aw-instant-contact]').forEach((menu) => {
+        if (menu.dataset.awInstantContactReady === 'true') return;
+        menu.dataset.awInstantContactReady = 'true';
 
-    function getStoredLanguage() {
-      try {
-        const lang = localStorage.getItem(languageStorageKey) || 'en';
-        return supportedLanguages.has(lang) ? lang : 'en';
-      } catch {
-        return 'en';
-      }
-    }
-
-    function setStoredLanguage(lang) {
-      try {
-        if (lang === 'en') {
-          localStorage.removeItem(languageStorageKey);
-        } else {
-          localStorage.setItem(languageStorageKey, lang);
-        }
-      } catch {
-        // Language preference is progressive enhancement only.
-      }
-    }
-
-    function setTranslationCookie(value) {
-      const cookieValue = value ? `googtrans=${value}` : 'googtrans=';
-      const expires = value ? 'Fri, 31 Dec 9999 23:59:59 GMT' : 'Thu, 01 Jan 1970 00:00:00 GMT';
-      const baseCookie = `${cookieValue}; expires=${expires}; path=/; SameSite=Lax`;
-
-      document.cookie = baseCookie;
-
-      const hostParts = window.location.hostname.split('.');
-      if (hostParts.length > 1) {
-        document.cookie = `${baseCookie}; domain=.${hostParts.slice(-2).join('.')}`;
-      }
-    }
-
-    function applyLanguageDirection(lang) {
-      document.documentElement.lang = lang === 'en' ? 'en' : lang;
-      document.documentElement.dir = rtlLanguages.has(lang) ? 'rtl' : 'ltr';
-      document.documentElement.classList.toggle('translated-rtl', rtlLanguages.has(lang));
-      document.documentElement.classList.toggle('translated-ltr', lang !== 'en' && !rtlLanguages.has(lang));
-    }
-
-    function updateLanguageSwitcher(lang) {
-      document.querySelectorAll('[data-aw-language-mark]').forEach((mark) => {
-        const isActive = mark.getAttribute('data-aw-language-mark') === lang;
-        mark.classList.toggle('hidden', !isActive);
-        mark.textContent = lang === 'en' ? 'Default' : 'Active';
-      });
-    }
-
-    function waitForGoogleTranslateSelect() {
-      return new Promise((resolve, reject) => {
-        const existingSelect = document.querySelector('.goog-te-combo');
-        if (existingSelect) {
-          resolve(existingSelect);
-          return;
-        }
-
-        let attempts = 0;
-        const interval = window.setInterval(() => {
-          const select = document.querySelector('.goog-te-combo');
-          attempts += 1;
-
-          if (select) {
-            window.clearInterval(interval);
-            resolve(select);
-          } else if (attempts > 80) {
-            window.clearInterval(interval);
-            reject(new Error('Google Translate select was not created.'));
+        document.addEventListener('click', function (event) {
+          if (!menu.contains(event.target)) {
+            menu.removeAttribute('open');
           }
-        }, 100);
-      });
-    }
-
-    function loadGoogleTranslate() {
-      if (googleTranslatePromise) return googleTranslatePromise;
-
-      googleTranslatePromise = new Promise((resolve, reject) => {
-        if (window.google?.translate?.TranslateElement) {
-          resolve();
-          return;
-        }
-
-        window.googleTranslateElementInit = function () {
-          if (window.google?.translate?.TranslateElement) {
-            new window.google.translate.TranslateElement(
-              {
-                pageLanguage: 'en',
-                includedLanguages: 'en,ar,fr,de,es,pt',
-                autoDisplay: false,
-              },
-              'google_translate_element'
-            );
-            resolve();
-          } else {
-            reject(new Error('Google Translate failed to initialize.'));
-          }
-        };
-
-        const existingScript = document.querySelector('script[data-aw-google-translate]');
-        if (existingScript) {
-          return;
-        }
-
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.dataset.awGoogleTranslate = 'true';
-        script.onerror = function () {
-          reject(new Error('Google Translate script failed to load.'));
-        };
-        document.head.appendChild(script);
-      });
-
-      return googleTranslatePromise;
-    }
-
-    function translatePage(lang) {
-      if (!supportedLanguages.has(lang)) return;
-
-      if (lang === 'en') {
-        const previousLang = getStoredLanguage();
-        setStoredLanguage('en');
-        setTranslationCookie('');
-        applyLanguageDirection('en');
-        updateLanguageSwitcher('en');
-
-        if (previousLang !== 'en') {
-          window.location.reload();
-        }
-        return;
-      }
-
-      setStoredLanguage(lang);
-      setTranslationCookie(`/en/${lang}`);
-      applyLanguageDirection(lang);
-      updateLanguageSwitcher(lang);
-
-      loadGoogleTranslate()
-        .then(waitForGoogleTranslateSelect)
-        .then((select) => {
-          select.value = lang;
-          select.dispatchEvent(new Event('change'));
-        })
-        .catch(() => {
-          showEmailToast('Translation is temporarily unavailable.');
         });
-    }
 
-    function initLanguageSwitcher() {
-      const switcher = document.querySelector('[data-aw-language-switcher]');
-      if (!switcher) return;
-
-      const toggle = switcher.querySelector('[data-aw-language-toggle]');
-      const panel = switcher.querySelector('[data-aw-language-panel]');
-      if (!toggle || !panel || toggle.dataset.awLanguageReady === 'true') return;
-
-      toggle.dataset.awLanguageReady = 'true';
-
-      const closePanel = function () {
-        panel.classList.add('hidden');
-        toggle.setAttribute('aria-expanded', 'false');
-      };
-
-      toggle.addEventListener('click', function (event) {
-        event.stopPropagation();
-        const isOpen = !panel.classList.contains('hidden');
-        panel.classList.toggle('hidden', isOpen);
-        toggle.setAttribute('aria-expanded', String(!isOpen));
-      });
-
-      switcher.querySelectorAll('[data-aw-language-select]').forEach((button) => {
-        button.addEventListener('click', function () {
-          const lang = button.getAttribute('data-lang') || 'en';
-          closePanel();
-          translatePage(lang);
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            menu.removeAttribute('open');
+          }
         });
       });
-
-      document.addEventListener('click', closePanel);
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') closePanel();
-      });
-
-      const storedLang = getStoredLanguage();
-      applyLanguageDirection(storedLang);
-      updateLanguageSwitcher(storedLang);
-
-      if (storedLang !== 'en') {
-        translatePage(storedLang);
-      }
     }
 
     const onLoad = function () {
       captureAttribution();
-      initLanguageSwitcher();
+      initInstantContactMenu();
 
       let lastKnownScrollPosition = window.scrollY;
       let ticking = true;
@@ -576,6 +398,30 @@ import { UI } from 'astrowind:config';
             } else {
               showEmailToast(`Email: ${email}`);
             }
+          },
+          false
+        );
+      });
+
+      document.querySelectorAll('[data-aw-instant-contact-link]').forEach((elem) => {
+        if (elem.dataset.awInstantContactTrack === 'true') return;
+        elem.dataset.awInstantContactTrack = 'true';
+        elem.addEventListener(
+          'click',
+          function () {
+            const channel = elem.getAttribute('data-aw-contact-channel') || 'instant_contact';
+            trackCopperEvent(
+              'instant_contact_click',
+              getTrackingPayload(elem, {
+                method: channel,
+                event_category: 'lead',
+              }),
+              {
+                generateLead: true,
+                adsConversion: true,
+                conversionKey: `instant_contact_${channel}`,
+              }
+            );
           },
           false
         );
