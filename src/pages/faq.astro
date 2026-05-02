@@ -1,24 +1,267 @@
 ---
-const target = '/rfq/';
-const title = 'RFQ Checklist | COPPER 3DP';
-const description = 'The former FAQ page has moved to the RFQ checklist for copper 3D printing inquiries.';
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const rfqEmail = 'info@szcomo.com';
+const rfqEmailHref =
+  'mailto:info@szcomo.com?subject=COPPER%203DP%20FAQ%20-%20Engineering%20question&body=Please%20include%20the%20application%2C%20material%20preference%2C%20geometry%20status%2C%20quantity%2C%20lead%20time%2C%20and%20any%20thermal%2C%20electrical%2C%20fluid%2C%20vacuum%2C%20or%20inspection%20requirements.';
+
+const faqSections = [
+  {
+    title: 'Copper AM fit',
+    items: [
+      {
+        question: 'When is copper 3D printing worth considering?',
+        answer:
+          'Copper AM is most useful when the part needs internal cooling, compact current paths, conformal channels, integrated manifolds, RF or plasma geometry, or assembly reduction that would be difficult to machine conventionally. It is usually weaker for simple plates, basic busbars, and parts where flat stock plus CNC already solves the problem cheaply.',
+      },
+      {
+        question: 'Which applications are usually a strong fit?',
+        answer:
+          'The strongest fit is usually thermal and electrical hardware: cold plates, heat sinks, induction coils, busbars with cooling features, RF waveguide parts, plasma-facing copper hardware, compact heat exchangers, and experimental energy or semiconductor components where geometry matters more than raw material price.',
+      },
+      {
+        question: 'When should buyers avoid copper AM?',
+        answer:
+          'Avoid copper AM when the design is a simple 2D or 2.5D machined part, when all critical surfaces require extensive post-machining that removes the AM advantage, when conductivity must match wrought OFHC without qualification, or when the buyer cannot define acceptance criteria for leakage, flow, pressure, surface finish, or electrical performance.',
+      },
+    ],
+  },
+  {
+    title: 'Material and process selection',
+    items: [
+      {
+        question: 'Should we choose pure copper, CuCrZr, or another copper alloy?',
+        answer:
+          'Pure copper is attractive for conductivity and thermal management, but it can be harder to process and may have lower strength. CuCrZr is often considered when strength, heat treatment response, and more stable AM processing matter. The right answer depends on conductivity target, temperature, mechanical load, post-processing route, and whether the project is prototype, test fixture, or production hardware.',
+      },
+      {
+        question: 'Is LPBF always the correct copper AM process?',
+        answer:
+          'No. LPBF is common for fine features and compact internal channels, but it is not automatically the cheapest or safest route. The process should be compared with CNC, brazing, skiving, EDM, casting, and hybrid manufacturing. A serious RFQ should ask what function AM is solving, not just whether the geometry can be printed.',
+      },
+      {
+        question: 'Can AM copper reach high conductivity?',
+        answer:
+          'It can, but conductivity depends on alloy, powder, machine, laser wavelength, density, heat treatment, and measurement method. Buyers should avoid assuming wrought copper behavior. For electrical or thermal hardware, the RFQ should state the conductivity target or the functional requirement that conductivity must support.',
+      },
+    ],
+  },
+  {
+    title: 'RFQ and design inputs',
+    items: [
+      {
+        question: 'What should be included in a copper 3D printing RFQ?',
+        answer:
+          'Send CAD, drawings for critical dimensions, quantity, material preference if known, target lead time, operating temperature, thermal load, current, duty cycle, pressure, flow rate, coolant, vacuum or gas exposure, leak-test requirements, CT requirements, surface finish targets, and any post-machining expectations.',
+      },
+      {
+        question: 'Do drawings matter if STEP files are available?',
+        answer:
+          'Yes. STEP files define shape, but drawings communicate intent. Drawings should mark datum faces, sealing lands, contact faces, threaded ports, flatness, surface finish, tolerances, pressure boundaries, and inspection points. Without drawings, the supplier may quote the geometry but miss the surfaces that actually control function.',
+      },
+      {
+        question: 'What information matters most for internal cooling channels?',
+        answer:
+          'For cooled copper AM parts, define coolant, flow rate, pressure drop target, maximum pressure, leak-test condition, cleaning method, acceptable blockage risk, and whether CT inspection is required. Internal channels are often the reason to use AM, so they must be treated as functional features, not hidden geometry.',
+      },
+    ],
+  },
+  {
+    title: 'Quality, inspection, and acceptance',
+    items: [
+      {
+        question: 'Which inspection methods are common for copper AM parts?',
+        answer:
+          'Common checks include dimensional inspection, surface-finish measurement, pressure test, helium leak test, flow test, CT inspection for internal channels, conductivity measurement, density or coupon testing, and application-specific thermal or electrical validation. The right inspection scope depends on what failure would cost.',
+      },
+      {
+        question: 'Is CT inspection always required?',
+        answer:
+          'No. CT is valuable for internal channels, hidden porosity, trapped powder risk, and safety-critical parts. It may be unnecessary for simple prototypes or parts where a pressure or flow test is enough. CT should be scoped by risk because it adds cost, schedule, and interpretation work.',
+      },
+      {
+        question: 'Why can a copper AM quote change after design review?',
+        answer:
+          'The first quote may change when the team discovers required machining, polishing, heat treatment, CT, pressure testing, leak testing, special cleaning, plating, or fixture work. Those steps often determine the real cost more than build volume alone.',
+      },
+    ],
+  },
+  {
+    title: 'Price, lead time, and sourcing',
+    items: [
+      {
+        question: 'What drives copper 3D printing cost?',
+        answer:
+          'The largest drivers are material route, machine time, support strategy, build orientation, post-machining, surface finishing, heat treatment, inspection, testing, and project documentation. A cheap print that still needs complex machining and validation may not be a cheap delivered part.',
+      },
+      {
+        question: 'How should buyers compare suppliers?',
+        answer:
+          'Compare suppliers by process capability, material route, application experience, ability to discuss design tradeoffs, inspection options, post-processing partners, communication quality, and whether the quote clearly states assumptions. A low price with unclear acceptance criteria is not a comparable quote.',
+      },
+      {
+        question: 'Can COPPER 3DP review early concepts?',
+        answer:
+          'Yes. Early concepts can be reviewed for process fit, geometry risk, likely post-processing burden, and RFQ completeness. For a quotation, send CAD or drawings plus quantity, material, operating conditions, and inspection expectations where known.',
+      },
+    ],
+  },
+];
+
+const flatFaqs = faqSections.flatMap((section) => section.items);
+
+const metadata = {
+  title: 'Copper 3D Printing FAQ | Engineering RFQ Questions',
+  description:
+    'Engineering FAQ for copper 3D printing services: copper AM fit, materials, RFQ inputs, internal cooling, inspection, cost drivers, and supplier comparison.',
+  canonical: 'https://copper3dp.com/faq/',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Copper 3D Printing FAQ', item: '/faq/' },
+    ]),
+    createItemListSchema(
+      'Copper 3D printing FAQ sections',
+      faqSections.map((section) => ({
+        name: section.title,
+        description: section.items.map((item) => item.question).join(' '),
+        url: '/faq/',
+      }))
+    ),
+    {
+      '@type': 'FAQPage',
+      mainEntity: flatFaqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+};
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, follow" />
-    <meta http-equiv="refresh" content={`0; url=${target}`} />
-    <link rel="canonical" href="https://copper3dp.com/rfq/" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-  </head>
-  <body>
-    <main>
-      <h1>RFQ checklist</h1>
-      <p>The FAQ page has moved. Continue to the <a href={target}>RFQ checklist</a>.</p>
-    </main>
-  </body>
-</html>
+<Layout metadata={metadata}>
+  <section class="relative overflow-hidden bg-slate-950 py-16 text-white md:py-20">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,146,60,0.22),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.16),transparent_34%)]"></div>
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">Copper AM FAQ</p>
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
+        Practical answers before you quote a copper 3D printed part
+      </h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-200">
+        This page is built for engineers and buyers who need more than a generic "yes, we can print copper"
+        answer. Use it to decide whether copper AM is a serious fit, what information belongs in the RFQ, and
+        which inspection or post-processing assumptions can change the economics.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="rounded-md bg-orange-400 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-orange-300" href="/rfq/">
+          Open the RFQ checklist
+        </a>
+        <a
+          class="rounded-md border border-white/25 px-5 py-3 text-sm font-bold text-white hover:bg-white/10"
+          href={rfqEmailHref}
+        >
+          Ask an engineering question
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto grid max-w-5xl gap-6 px-4 sm:px-6 md:grid-cols-3">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">Best fit</p>
+        <h2 class="mt-2 text-xl font-bold dark:text-white">Geometry creates the value</h2>
+        <p class="mt-3 text-sm leading-7 text-muted dark:text-slate-300">
+          Internal channels, compact current paths, and assembly reduction are stronger reasons than simply
+          wanting a printed copper version of a simple machined part.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">Quote risk</p>
+        <h2 class="mt-2 text-xl font-bold dark:text-white">Post-processing changes the price</h2>
+        <p class="mt-3 text-sm leading-7 text-muted dark:text-slate-300">
+          Machining, polishing, leak testing, CT, conductivity targets, and cleaning can matter more than build
+          volume on functional copper hardware.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">Buyer control</p>
+        <h2 class="mt-2 text-xl font-bold dark:text-white">Define acceptance early</h2>
+        <p class="mt-3 text-sm leading-7 text-muted dark:text-slate-300">
+          If the part must pass pressure, flow, thermal, electrical, vacuum, or dimensional requirements, those
+          criteria should be visible before supplier comparison.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-14 md:pb-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="grid gap-6">
+        {
+          faqSections.map((section) => (
+            <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 md:p-8">
+              <p class="text-sm font-semibold uppercase tracking-wide text-primary">{section.title}</p>
+              <div class="mt-5 grid gap-3">
+                {section.items.map((item) => (
+                  <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-700 dark:bg-slate-950">
+                    <summary class="cursor-pointer list-none text-base font-bold text-slate-950 marker:hidden dark:text-white">
+                      {item.question}
+                    </summary>
+                    <p class="mt-3 text-sm leading-7 text-muted dark:text-slate-300">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-14 md:pb-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="rounded-2xl border border-orange-200 bg-orange-50 p-6 dark:border-orange-500/30 dark:bg-orange-950/20 md:p-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-orange-700 dark:text-orange-300">Related engineering guides</p>
+        <div class="mt-5 grid gap-4 md:grid-cols-3">
+          <a class="rounded-xl bg-white p-5 text-sm font-semibold text-slate-950 shadow-sm hover:shadow-md dark:bg-slate-900 dark:text-white" href="/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/">
+            Copper 3D printing service RFQ guide
+          </a>
+          <a class="rounded-xl bg-white p-5 text-sm font-semibold text-slate-950 shadow-sm hover:shadow-md dark:bg-slate-900 dark:text-white" href="/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/">
+            Copper AM vs CNC, brazing, and conventional routes
+          </a>
+          <a class="rounded-xl bg-white p-5 text-sm font-semibold text-slate-950 shadow-sm hover:shadow-md dark:bg-slate-900 dark:text-white" href="/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/">
+            3D printed copper high-voltage electrode feasibility
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Send the part context, not only the file"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: rfqEmailHref,
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Use the RFQ checklist',
+        href: '/rfq/',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      Include geometry, quantity, material preference, service conditions, critical surfaces, and inspection
+      requirements. Unknowns are fine; hidden assumptions are the expensive part.
+    </Fragment>
+  </CallToAction>
+</Layout>
