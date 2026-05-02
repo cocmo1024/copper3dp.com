@@ -20,10 +20,6 @@ export const headerData = {
           text: 'Process selection',
           href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
         },
-        {
-          text: 'CT and leak criteria',
-          href: getPermalink('/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates'),
-        },
       ],
     },
     {
