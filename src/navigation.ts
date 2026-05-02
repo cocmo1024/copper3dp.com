@@ -12,10 +12,6 @@ export const headerData = {
       text: 'Engineering',
       links: [
         {
-          text: 'RFQ checklist',
-          href: getPermalink('/rfq'),
-        },
-        {
           text: 'Materials',
           href: getPermalink('/materials'),
         },
@@ -27,28 +23,11 @@ export const headerData = {
           text: 'CT and leak criteria',
           href: getPermalink('/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates'),
         },
-        {
-          text: 'Engineering guide',
-          href: getBlogPermalink(),
-        },
       ],
     },
     {
       text: 'RFQ',
-      links: [
-        {
-          text: 'Email info@szcomo.com',
-          href: rfqEmailHref,
-        },
-        {
-          text: 'What to send',
-          href: getPermalink('/rfq'),
-        },
-        {
-          text: 'RFQ checklist article',
-          href: getPermalink('/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates'),
-        },
-      ],
+      href: getPermalink('/rfq'),
     },
     {
       text: 'Resources',
