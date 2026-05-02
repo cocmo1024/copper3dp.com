@@ -143,5 +143,5 @@ Use the [materials overview](/materials/) when the alloy is not fixed.
 
 For a busbar or induction coil quote, send CAD, drawing, quantity, target lead time, current, duty cycle, contact faces, cooling requirement, insulation constraints, material preference if known, and inspection requirements.
 
-Send files to [info@szcomo.com](mailto:info@szcomo.com?subject=COPPER%203DP%20Busbar%20or%20Induction%20Coil%20RFQ). A simple part can be quoted with stated assumptions. If the electrical or cooling requirement is unclear, expect focused clarification before quote.
+Send files to [info@szcomo.com](mailto:info@szcomo.com). A simple part can be quoted with stated assumptions. If the electrical or cooling requirement is unclear, expect focused clarification before quote.
 

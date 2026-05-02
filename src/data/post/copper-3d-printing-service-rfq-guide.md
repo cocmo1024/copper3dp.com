@@ -127,5 +127,5 @@ Use this short structure:
 6. Thermal, fluid, electrical, RF, vacuum, or service requirements.
 7. Inspection or documentation required for acceptance.
 
-Send the drawing and requirements to [info@szcomo.com](mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements). If the request is clear, it can move toward quote. If key requirements are missing, we will ask focused questions before quoting.
+Send the drawing and requirements to [info@szcomo.com](mailto:info@szcomo.com). If the request is clear, it can move toward quote. If key requirements are missing, we will ask focused questions before quoting.
 

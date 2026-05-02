@@ -125,5 +125,5 @@ If the process is not fixed, say so. A clear requirement with an open process ca
 
 Use copper 3D printing when the design needs internal geometry, compact integration, or part consolidation that changes performance or risk. Use conventional routes when they satisfy the requirement with fewer steps.
 
-Send the drawing, quantity, requirements, and any known route preference to [info@szcomo.com](mailto:info@szcomo.com?subject=COPPER%203DP%20Process%20Selection%20Review). If the route is uncertain, ask for a review of the practical manufacturing path before requesting a final price.
+Send the drawing, quantity, requirements, and any known route preference to [info@szcomo.com](mailto:info@szcomo.com). If the route is uncertain, ask for a review of the practical manufacturing path before requesting a final price.
 

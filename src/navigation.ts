@@ -1,7 +1,6 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-const rfqEmailHref =
-  'mailto:info@szcomo.com?subject=COPPER%203DP%20RFQ%20-%20Drawings%20and%20requirements&body=Please%20include%20CAD%20or%20drawings%2C%20quantity%2C%20material%20if%20known%2C%20lead%20time%2C%20service%20conditions%2C%20and%20inspection%20requirements%20when%20they%20matter.';
+const rfqEmailHref = 'mailto:info@szcomo.com';
 
 export const headerData = {
   links: [
