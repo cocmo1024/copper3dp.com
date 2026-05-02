@@ -25,17 +25,26 @@ const googleTagManagerSrc = googleTagManagerId
   : '';
 ---
 
-<script is:inline define:vars={{ googleAdsRfqSendTo, googleAnalyticsId, googleAdsConversionId, googleTagManagerId }}>
+<script
+  is:inline
+  data-google-ads-rfq-send-to={googleAdsRfqSendTo}
+  data-google-analytics-id={googleAnalyticsId}
+  data-google-ads-conversion-id={googleAdsConversionId}
+  data-google-tag-manager-id={googleTagManagerId}
+>
+  const trackingConfig = document.currentScript?.dataset || {};
   window.dataLayer = window.dataLayer || [];
   window.COPPER3DP_TRACKING = {
-    googleAnalyticsId,
-    googleAdsConversionId,
-    googleAdsRfqSendTo,
-    googleTagManagerId,
+    googleAnalyticsId: trackingConfig.googleAnalyticsId || '',
+    googleAdsConversionId: trackingConfig.googleAdsConversionId || '',
+    googleAdsRfqSendTo: trackingConfig.googleAdsRfqSendTo || '',
+    googleTagManagerId: trackingConfig.googleTagManagerId || '',
   };
 </script>
 
-<script is:inline define:vars={{ googleTagManagerSrc }}>
+<script is:inline data-google-tag-manager-src={googleTagManagerSrc}>
+  const googleTagManagerSrc = document.currentScript?.dataset.googleTagManagerSrc || '';
+
   if (googleTagManagerSrc) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -50,7 +59,11 @@ const googleTagManagerSrc = googleTagManagerId
 
 {primaryTagId ? <script is:inline async src={googleTagSrc} /> : null}
 
-<script is:inline define:vars={{ tagIds, primaryTagId }}>
+<script is:inline data-tag-ids={tagIds.join(',')} data-primary-tag-id={primaryTagId}>
+  const googleTagConfig = document.currentScript?.dataset || {};
+  const primaryTagId = googleTagConfig.primaryTagId || '';
+  const tagIds = (googleTagConfig.tagIds || '').split(',').filter(Boolean);
+
   if (primaryTagId) {
     window.dataLayer = window.dataLayer || [];
     function gtag(...args) {

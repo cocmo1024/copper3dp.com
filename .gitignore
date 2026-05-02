@@ -12,6 +12,7 @@ yarn-error.log*
 pnpm-debug.log*
 preview.log
 preview.err.log
+.playwright-cli/
 
 
 # environment variables
