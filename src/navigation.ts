@@ -77,6 +77,14 @@ export const footerData = {
         { text: 'Terms', href: getPermalink('/terms') },
       ],
     },
+    {
+      title: 'Related sites',
+      links: [
+        { text: 'Como Precision', href: 'https://szcomo.com/' },
+        { text: 'Titanium Alloy AM', href: 'https://titanium3dp.com/' },
+        { text: 'Precision Ceramics', href: 'https://ceramiccnc.com/' },
+      ],
+    },
   ],
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
