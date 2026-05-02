@@ -75,7 +75,7 @@ const {
         ({ id: itemId, eyebrow, title: itemTitle, description, image, imagePosition = 'left', points = [] }) => (
           <section id={itemId} class="space-y-8">
             {(eyebrow || itemTitle || description) && (
-              <div class="rounded-md border border-blue-100 bg-blue-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-800 md:px-6">
+              <div class="rounded-lg border border-[#ffffff29] bg-white px-5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur dark:bg-slate-900 dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:px-6">
                 {eyebrow && <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-primary">{eyebrow}</p>}
                 {itemTitle && <h3 class="text-xl font-bold tracking-tight dark:text-white md:text-2xl">{itemTitle}</h3>}
                 {description && (
