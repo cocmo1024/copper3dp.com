@@ -10,7 +10,7 @@ const googleTagManagerId = import.meta.env.PUBLIC_GOOGLE_TAG_MANAGER_ID || impor
 const rawGoogleAnalyticsId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || configuredAnalyticsId;
 const googleAnalyticsId = rawGoogleAnalyticsId || '';
 const googleAdsConversionId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID || defaultGoogleAdsConversionId;
-const googleTagId = import.meta.env.PUBLIC_GOOGLE_TAG_ID || googleAnalyticsId || googleAdsConversionId;
+const googleTagId = import.meta.env.PUBLIC_GOOGLE_TAG_ID || googleAdsConversionId || googleAnalyticsId;
 const googleAdsRfqConversionLabel =
   import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL ||
   import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_LABEL ||
