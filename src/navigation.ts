@@ -1,6 +1,7 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 const rfqEmailHref = 'mailto:info@szcomo.com';
+const currentYear = new Date().getFullYear();
 
 export const headerData = {
   links: [
@@ -95,6 +96,6 @@ export const footerData = {
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    © COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
+    © ${currentYear} COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
   `,
 };
