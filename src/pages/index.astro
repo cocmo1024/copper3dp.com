@@ -103,7 +103,7 @@ const metadata = {
   />
 
   <section class="relative not-prose py-10 md:py-14">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="grid gap-6 md:grid-cols-2">
         <div class="rounded-md border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
           <p class="text-sm font-semibold uppercase tracking-wide text-primary">Good fit</p>
@@ -131,6 +131,13 @@ const metadata = {
     title="What to send for review"
     subtitle="A simple drawing may be enough for a basic quote. Complex parts need clearer operating and inspection requirements."
     columns={3}
+    classes={{
+      container: 'max-w-5xl',
+      items: {
+        container: 'gap-x-12',
+        panel: 'max-w-none',
+      },
+    }}
     items={[
       {
         title: 'Drawing package',
@@ -209,6 +216,7 @@ const metadata = {
 
   <Content
     isReversed
+    classes={{ container: 'max-w-5xl' }}
     tagline="Feasibility first"
     title="Quote copper AM from the actual requirement"
     items={[
@@ -255,6 +263,7 @@ const metadata = {
 
   <Content
     isAfterContent
+    classes={{ container: 'max-w-5xl' }}
     items={[
       {
         title: 'Thermal systems',
@@ -328,6 +337,7 @@ const metadata = {
     title="What we review before quoting"
     subtitle="The review depth depends on the part complexity, the drawing package, and the requirements provided."
     tagline="Engineering review"
+    classes={{ container: 'max-w-5xl' }}
     items={[
       {
         title: 'DfAM manufacturability',
@@ -360,6 +370,7 @@ const metadata = {
 
   <BlogLatestPosts
     title="Engineering resources"
+    classes={{ container: 'max-w-5xl' }}
     information="Use these notes to prepare RFQs for cold plates, heat sinks, CT inspection, leak testing, copper alloy selection, and copper AM requirements."
   />
 
@@ -367,7 +378,7 @@ const metadata = {
     title="Frequently asked questions"
     subtitle="Common questions before quoting copper LPBF parts."
     tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+    classes={{ container: 'max-w-5xl' }}
     items={[
       {
         title: 'What makes a review move quickly?',
@@ -398,11 +409,12 @@ const metadata = {
   />
 
   <Stats
+    classes={{ container: 'max-w-5xl' }}
     stats={[
       { title: 'Application hubs', amount: '15' },
       { title: 'Core copper alloys', amount: '3' },
       { title: 'Quote inputs reviewed', amount: '8+' },
-      { title: 'Inspection options', amount: 'CT / leak / flow' },
+      { title: 'Inspection routes', amount: '3+' },
     ]}
   />
 
