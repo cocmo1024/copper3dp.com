@@ -6,51 +6,26 @@ export const headerData = {
   links: [
     {
       text: 'Applications',
-      links: [
-        {
-          text: 'Applications overview',
-          href: getPermalink('/applications'),
-        },
-        {
-          text: 'Copper cold plates',
-          href: getPermalink('/copper-cold-plates'),
-        },
-        {
-          text: 'Copper heat sinks',
-          href: getPermalink('/copper-heat-sinks'),
-        },
-        {
-          text: 'Induction coils & busbars',
-          href: getPermalink('/applications#electrical'),
-        },
-        {
-          text: 'RF / waveguide copper parts',
-          href: getPermalink('/applications#rf'),
-        },
-      ],
+      href: getPermalink('/#applications'),
     },
     {
       text: 'Engineering',
       links: [
         {
-          text: 'Capabilities',
-          href: getPermalink('/capabilities'),
+          text: 'RFQ checklist',
+          href: getPermalink('/rfq'),
         },
         {
           text: 'Materials',
           href: getPermalink('/materials'),
         },
         {
-          text: 'Inspection planning',
-          href: getPermalink('/capabilities#inspection'),
-        },
-        {
-          text: 'RFQ checklist',
-          href: getPermalink('/rfq'),
-        },
-        {
           text: 'Process selection',
           href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
+        },
+        {
+          text: 'CT and leak criteria',
+          href: getPermalink('/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates'),
         },
         {
           text: 'Engineering guide',
@@ -70,14 +45,6 @@ export const headerData = {
           href: getPermalink('/rfq'),
         },
         {
-          text: 'Inspection planning',
-          href: getPermalink('/capabilities#inspection'),
-        },
-        {
-          text: 'Material selection',
-          href: getPermalink('/materials'),
-        },
-        {
           text: 'RFQ checklist article',
           href: getPermalink('/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates'),
         },
@@ -85,36 +52,7 @@ export const headerData = {
     },
     {
       text: 'Resources',
-      links: [
-        {
-          text: 'Engineering Guide',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Copper service RFQ guide',
-          href: getPermalink('/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide'),
-        },
-        {
-          text: 'RFQ checklist',
-          href: getPermalink('/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates'),
-        },
-        {
-          text: 'Busbars & coils RFQ',
-          href: getPermalink('/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq'),
-        },
-        {
-          text: 'CT and leak acceptance',
-          href: getPermalink('/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates'),
-        },
-        {
-          text: 'Cold plate articles',
-          href: getPermalink('copper-cold-plates', 'tag'),
-        },
-        {
-          text: 'Heat sink articles',
-          href: getPermalink('copper-heat-sinks', 'tag'),
-        },
-      ],
+      href: getBlogPermalink(),
     },
     {
       text: 'Contact',
@@ -127,42 +65,34 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Applications',
+      title: 'Start',
       links: [
-        { text: 'Cold plates', href: getPermalink('/copper-cold-plates') },
-        { text: 'Heat sinks', href: getPermalink('/copper-heat-sinks') },
-        { text: 'Busbars & coils', href: getPermalink('/applications#electrical') },
-        { text: 'RF / waveguide parts', href: getPermalink('/applications#rf') },
+        { text: 'Applications', href: getPermalink('/#applications') },
+        { text: 'RFQ inputs', href: getPermalink('/rfq') },
+        { text: 'Engineering resources', href: getBlogPermalink() },
       ],
     },
     {
-      title: 'Engineering',
+      title: 'Engineering notes',
       links: [
-        { text: 'Capabilities', href: getPermalink('/capabilities') },
-        { text: 'Materials', href: getPermalink('/materials') },
-        { text: 'RFQ inputs', href: getPermalink('/rfq') },
+        {
+          text: 'Copper service RFQ guide',
+          href: getPermalink('/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide'),
+        },
         {
           text: 'Process selection',
           href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
         },
-        { text: 'Inspection planning', href: getPermalink('/capabilities#inspection') },
-        { text: 'Engineering guide', href: getBlogPermalink() },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Send RFQ', href: rfqEmailHref },
-        { text: 'Email engineering', href: 'mailto:info@szcomo.com' },
-        { text: 'Material questions', href: getPermalink('/materials') },
-        { text: 'Acceptance criteria', href: getPermalink('/capabilities#inspection') },
+        {
+          text: 'CT and leak criteria',
+          href: getPermalink('/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates'),
+        },
       ],
     },
     {
       title: 'Company',
       links: [
         { text: 'About', href: getPermalink('/about') },
-        { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: getPermalink('/contact') },
         { text: 'Privacy', href: getPermalink('/privacy') },
         { text: 'Terms', href: getPermalink('/terms') },

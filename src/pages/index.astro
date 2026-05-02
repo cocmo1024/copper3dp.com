@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -35,7 +34,7 @@ const metadata = {
   },
   structuredData: [
     createCopperServiceSchema(),
-    createItemListSchema('Copper additive manufacturing application hubs', [
+    createItemListSchema('Typical copper additive manufacturing application cases', [
       {
         name: 'Copper cold plates',
         description: 'LPBF copper cold plates with internal channels, manifolds, leak testing, and CT review.',
@@ -51,17 +50,192 @@ const metadata = {
         name: 'Induction coils and busbars',
         description:
           'Copper AM electrical hardware reviewed for conductivity, current density, cooling, and interface risk.',
-        url: '/applications#electrical',
+        url: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
       },
       {
         name: 'RF and waveguide copper parts',
         description:
           'RF, vacuum, and semiconductor copper parts reviewed for tolerance, surface condition, and sealing.',
-        url: '/applications#rf',
+        url: '/#applications',
       },
     ]),
   ],
 };
+
+const applicationShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: '3D printed copper micro-channel heat exchanger',
+    },
+    title: 'Copper cold plates and micro-channel parts',
+    description: 'Worth reviewing when internal flow paths, sealing faces, pressure drop, or leak risk drive the part.',
+    points: [
+      {
+        title: 'Internal cooling geometry',
+        description:
+          'Channels, manifolds, turns, inlet and outlet placement, and powder removal are reviewed before quoting.',
+      },
+      {
+        title: 'Sealing and inspection risk',
+        description:
+          'Pressure testing, helium leak testing, CT review, sealing lands, and post-machined datum faces can be planned early.',
+      },
+      {
+        title: 'When to send it',
+        description:
+          'Send CAD, coolant, pressure, heat load, target flow, material preference, and inspection requirements.',
+        callToAction: {
+          text: 'Cold plate RFQ details',
+          href: '/copper-cold-plates',
+        },
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/copper-heat-sinks.webp',
+      alt: '3D printed copper heat sink',
+    },
+    title: 'Copper heat sinks and compact thermal hardware',
+    description:
+      'Best fit when the heat sink depends on dense fins, pin structures, compact airflow paths, or integrated copper features.',
+    points: [
+      {
+        title: 'Thermal path review',
+        description:
+          'Heat flux, contact resistance, base flatness, airflow path, fin spacing, and hot-spot risk are checked together.',
+      },
+      {
+        title: 'Manufacturing limits',
+        description:
+          'Minimum feature size, support access, machining allowance, cleaning, and surface finish expectations affect feasibility.',
+      },
+      {
+        title: 'Quote inputs',
+        description:
+          'Send CAD, heat load, interface surfaces, airflow or coolant data, quantity, and validation targets.',
+        callToAction: {
+          text: 'Heat sink RFQ details',
+          href: '/copper-heat-sinks',
+        },
+      },
+    ],
+  },
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/high-current-busbars.webp',
+      alt: '3D printed copper high-current busbar',
+    },
+    title: 'High-current busbars and induction coils',
+    description:
+      'Use copper AM when current routing, local cooling, compact packaging, or integrated joints are hard to solve with stock copper.',
+    points: [
+      {
+        title: 'Electrical constraints',
+        description:
+          'Current density, joint resistance, contact surfaces, creepage, clearance, and insulation strategy shape the route.',
+      },
+      {
+        title: 'Cooling and finishing',
+        description:
+          'Internal passages, pressure integrity, plating, polishing, cleaning, and contact-face machining may be required.',
+      },
+      {
+        title: 'RFQ package',
+        description:
+          'Send current, duty cycle, voltage class, cooling medium, insulation limits, and critical interfaces.',
+        callToAction: {
+          text: 'Busbar and coil RFQ guide',
+          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        },
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/rf-waveguide-copper-parts.webp',
+      alt: 'Copper RF and waveguide additive manufacturing parts',
+    },
+    title: 'RF, waveguide, and vacuum copper parts',
+    description:
+      'Review these parts when RF geometry, vacuum sealing, surface condition, or tight copper routing affects performance.',
+    points: [
+      {
+        title: 'Geometry and surface risk',
+        description:
+          'Waveguide shape, insertion-loss sensitivity, surface roughness, plating needs, and tolerance stack-up are reviewed.',
+      },
+      {
+        title: 'Vacuum and sealing needs',
+        description:
+          'Leak targets, cleaning, bakeout compatibility, sealing faces, and post-machining plans should be stated early.',
+      },
+      {
+        title: 'Useful RFQ data',
+        description:
+          'Send CAD, RF band if relevant, sealing requirements, surface requirements, and inspection expectations.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/semiconductor-copper-parts.webp',
+      alt: 'Semiconductor copper hardware with integrated cooling features',
+    },
+    title: 'Semiconductor and precision copper hardware',
+    description:
+      'Suitable candidates usually combine thermal control, cleanability, sealing risk, and compact copper geometry.',
+    points: [
+      {
+        title: 'Clean and stable interfaces',
+        description:
+          'Particle risk, cleaning route, material condition, sealing surfaces, and dimensional stability must be clear.',
+      },
+      {
+        title: 'Integrated thermal features',
+        description:
+          'Internal cooling, compact channels, local heat extraction, and assembly reduction can justify additive manufacturing.',
+      },
+      {
+        title: 'Before quoting',
+        description: 'Send CAD, critical surfaces, leak or vacuum needs, cleaning expectations, and quantity targets.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/copper-cold-plate-channels.webp',
+      alt: 'Copper additive manufacturing internal channel design',
+    },
+    title: 'Complex copper parts with internal passages',
+    description:
+      'If the main value is hidden geometry, integrated routing, fewer joints, or lower assembly risk, send the design for review.',
+    points: [
+      {
+        title: 'Hidden geometry value',
+        description:
+          'Internal channels, lattices, manifolds, transitions, and integrated mounting features are reviewed as one system.',
+      },
+      {
+        title: 'Risk before price',
+        description:
+          'We check feasibility, material route, inspection, and post-processing before treating the part as a simple commodity quote.',
+      },
+      {
+        title: 'Best next step',
+        description:
+          'Send the drawing, quantity, material preference if known, and the operating requirement that matters most.',
+      },
+    ],
+  },
+];
 
 const requirementShowcases = [
   {
@@ -96,37 +270,6 @@ const requirementShowcases = [
           text: 'Copper service RFQ guide',
           href: '/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/',
         },
-      },
-    ],
-  },
-  {
-    imagePosition: 'right' as const,
-    image: {
-      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
-      alt: 'Copper micro-channel heat exchanger',
-    },
-    title: 'Use application and failure mode',
-    description: 'Use the application and failure mode to decide whether AM is worth quoting.',
-    points: [
-      {
-        title: 'Thermal systems',
-        description:
-          'Cold plates, micro-channel exchangers, mold inserts, and heat sinks where channel placement and flow distribution matter.',
-      },
-      {
-        title: 'Electrical systems',
-        description:
-          'Busbars, induction coils, motor conductors, and high-voltage electrodes where geometry must respect current and insulation limits.',
-      },
-      {
-        title: 'Aerospace and propulsion',
-        description:
-          'Copper liners and heat-transfer hardware where cooling geometry, qualification requirements, and alloy selection drive risk.',
-      },
-      {
-        title: 'Vacuum and RF hardware',
-        description:
-          'Waveguides, vacuum copper components, semiconductor hardware, and sealing-critical parts with tight surface and leak requirements.',
       },
     ],
   },
@@ -234,60 +377,13 @@ const requirementShowcases = [
     ]}
   />
 
-  <Features
-    id="features"
-    tagline="Application hubs"
-    title="Where copper AM is worth quoting"
+  <SplitShowcase
+    id="applications"
+    tagline="Application cases"
+    title="Typical copper AM cases worth reviewing"
     subtitle="The strongest projects use additive manufacturing to solve internal flow, thermal density, electrical routing, assembly, or manufacturing-risk problems."
+    items={applicationShowcases}
     classes={{ container: sectionContainerClass }}
-    items={[
-      {
-        title: 'Copper cold plates',
-        description:
-          'Micro-channels, integrated manifolds, helium leak risk, pressure drop, CT verification, and post-machined sealing interfaces.',
-        icon: 'tabler:droplet',
-        callToAction: { text: 'Cold plate RFQ page', href: '/copper-cold-plates' },
-      },
-      {
-        title: 'Copper heat sinks',
-        description:
-          'Fin spacing, contact resistance, base flatness, airflow path, thermal validation, and the limits of printed copper features.',
-        icon: 'tabler:temperature',
-        callToAction: { text: 'Heat sink RFQ page', href: '/copper-heat-sinks' },
-      },
-      {
-        title: 'Induction coils',
-        description:
-          'Conductivity retention, current-path geometry, localized heating, internal cooling, insulation interfaces, and pressure integrity.',
-        icon: 'tabler:magnet',
-        callToAction: {
-          text: 'Busbar and coil RFQ guide',
-          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
-        },
-      },
-      {
-        title: 'High-current busbars',
-        description:
-          'Compact 3D routing, current density, joint resistance, plating strategy, creepage and clearance constraints, and thermal runaway risk.',
-        icon: 'tabler:bolt',
-        callToAction: {
-          text: 'Electrical copper RFQ guide',
-          href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
-        },
-      },
-      {
-        title: 'RF and waveguide parts',
-        description:
-          'Geometry accuracy, surface roughness, insertion loss, plating requirements, and RF testing when required.',
-        icon: 'tabler:antenna-bars-5',
-      },
-      {
-        title: 'Semiconductor copper hardware',
-        description:
-          'Integrated cooling, vacuum sealing, particle risk, internal surface condition, cleaning, bakeout compatibility, and leak targets.',
-        icon: 'tabler:device-desktop-cog',
-      },
-    ]}
   />
 
   <SplitShowcase
@@ -415,7 +511,7 @@ const requirementShowcases = [
   <Stats
     classes={{ container: sectionContainerClass }}
     stats={[
-      { title: 'Application hubs', amount: '15' },
+      { title: 'Typical case groups', amount: '6' },
       { title: 'Core copper alloys', amount: '3' },
       { title: 'Quote inputs reviewed', amount: '8+' },
       { title: 'Inspection routes', amount: '3+' },
