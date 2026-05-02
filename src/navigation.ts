@@ -108,6 +108,6 @@ export const footerData = {
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    (c) COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
+    © COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
   `,
 };
