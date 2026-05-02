@@ -7,7 +7,7 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
@@ -62,6 +62,74 @@ const metadata = {
     ]),
   ],
 };
+
+const requirementShowcases = [
+  {
+    imagePosition: 'left',
+    image: {
+      src: '~/assets/images/copper/copper-cold-plates.webp',
+      alt: '3D printed copper cold plates',
+    },
+    title: 'From drawing review to quotation',
+    description:
+      'Simple parts can move directly to a basic quote. Complex parts may need a short technical clarification first.',
+    points: [
+      {
+        title: 'Material selection',
+        description:
+          'Pure copper, CuCrZr, and GRCop-42 are reviewed against conductivity, strength at temperature, post-processing, and service environment.',
+      },
+      {
+        title: 'Geometry limits',
+        description:
+          'Minimum walls, channels, unsupported features, powder removal, and machining allowance are evaluated before quoting.',
+      },
+      {
+        title: 'Inspection needs',
+        description:
+          'CT, pressure or helium leak testing, dimensional inspection, surface finish, and cleaning are considered when required.',
+      },
+      {
+        title: 'Clarification when needed',
+        description: 'If key information is missing, we ask before quoting rather than guessing a risky route.',
+        callToAction: {
+          text: 'Copper service RFQ guide',
+          href: '/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/',
+        },
+      },
+    ],
+  },
+  {
+    imagePosition: 'right',
+    image: {
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: 'Copper micro-channel heat exchanger',
+    },
+    description: 'Use the application and failure mode to decide whether AM is worth quoting.',
+    points: [
+      {
+        title: 'Thermal systems',
+        description:
+          'Cold plates, micro-channel exchangers, mold inserts, and heat sinks where channel placement and flow distribution matter.',
+      },
+      {
+        title: 'Electrical systems',
+        description:
+          'Busbars, induction coils, motor conductors, and high-voltage electrodes where geometry must respect current and insulation limits.',
+      },
+      {
+        title: 'Aerospace and propulsion',
+        description:
+          'Copper liners and heat-transfer hardware where cooling geometry, qualification requirements, and alloy selection drive risk.',
+      },
+      {
+        title: 'Vacuum and RF hardware',
+        description:
+          'Waveguides, vacuum copper components, semiconductor hardware, and sealing-critical parts with tight surface and leak requirements.',
+      },
+    ],
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -213,87 +281,15 @@ const metadata = {
     ]}
   />
 
-  <Content
-    isReversed
+  <SplitShowcase
     tagline="Feasibility first"
     title="Quote copper AM from the actual requirement"
-    items={[
-      {
-        title: 'Material selection',
-        description:
-          'Pure copper, CuCrZr, and GRCop-42 are reviewed against conductivity, strength at temperature, post-processing, and service environment.',
-      },
-      {
-        title: 'Geometry limits',
-        description:
-          'Minimum walls, channels, unsupported features, powder removal, and machining allowance are evaluated before quoting.',
-      },
-      {
-        title: 'Inspection needs',
-        description:
-          'CT, pressure or helium leak testing, dimensional inspection, surface finish, and cleaning are considered when required.',
-      },
-      {
-        title: 'Clarification when needed',
-        description: 'If key information is missing, we ask before quoting rather than guessing a risky route.',
-        callToAction: {
-          text: 'Copper service RFQ guide',
-          href: '/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/',
-        },
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/copper-cold-plates.webp',
-      alt: '3D printed copper cold plates',
-    }}
+    items={requirementShowcases}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        From drawing review to quotation
-      </h3>
-      Simple parts can move directly to a basic quote. Complex parts may need a short technical clarification first.
-    </Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Content>
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'Thermal systems',
-        description:
-          'Cold plates, micro-channel exchangers, mold inserts, and heat sinks where channel placement and flow distribution matter.',
-      },
-      {
-        title: 'Electrical systems',
-        description:
-          'Busbars, induction coils, motor conductors, and high-voltage electrodes where geometry must respect current and insulation limits.',
-      },
-      {
-        title: 'Aerospace and propulsion',
-        description:
-          'Copper liners and heat-transfer hardware where cooling geometry, qualification requirements, and alloy selection drive risk.',
-      },
-      {
-        title: 'Vacuum and RF hardware',
-        description:
-          'Waveguides, vacuum copper components, semiconductor hardware, and sealing-critical parts with tight surface and leak requirements.',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
-      alt: 'Copper micro-channel heat exchanger',
-    }}
-  >
-    <Fragment slot="content">Use the application and failure mode to decide whether AM is worth quoting.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+  </SplitShowcase>
 
   <Steps
     title="Simple RFQ flow"
