@@ -1,5 +1,5 @@
 ---
-title: 'Pure Copper vs CuCrZr for High-Performance Heat Sinks'
+title: 'Pure Copper vs CuCrZr Heat Sinks'
 publishDate: 2026-01-01
 excerpt: 'Compare pure copper and CuCrZr heat sinks using thermal conductivity, strength, softening temperature, and real build trade-offs.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-heat-sinks', 'material-selection', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/01-pure-copper-vs-cucrzr-high-performance-heat-sinks-1-9707fcce.webp
 metadata:
-  title: 'Pure Copper vs CuCrZr for High-Performance Heat Sinks'
+  title: 'Pure Copper vs CuCrZr Heat Sinks'
   description: 'Compare pure copper and CuCrZr heat sinks using thermal conductivity, strength, softening temperature, and real build trade-offs.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/
 ---

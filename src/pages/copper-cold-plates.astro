@@ -60,7 +60,7 @@ const metadata = {
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
-      { name: 'Copper cold plates', item: '/copper-cold-plates' },
+      { name: 'Copper cold plates', item: '/copper-cold-plates/' },
     ]),
     createCopperApplicationServiceSchema({
       id: 'copper-cold-plates',
@@ -68,24 +68,24 @@ const metadata = {
       serviceType: 'LPBF copper cold plate additive manufacturing',
       description:
         'RFQ review for custom copper cold plates with internal channels, manifolds, pressure or leak requirements, CT inspection, machining, and sealing interfaces.',
-      url: '/copper-cold-plates',
+      url: '/copper-cold-plates/',
       audienceType: 'Thermal, power electronics, semiconductor, aerospace, and purchasing teams',
     }),
     createItemListSchema('Copper cold plate RFQ inputs', [
       {
         name: 'Geometry package',
         description: 'CAD and drawings for channels, ports, sealing lands, datum faces, and machined interfaces.',
-        url: '/copper-cold-plates#rfq-inputs',
+        url: '/copper-cold-plates/#rfq-inputs',
       },
       {
         name: 'Operating requirements',
         description: 'Coolant, flow, heat load, pressure, pressure drop, leak target, and service temperature.',
-        url: '/copper-cold-plates#rfq-inputs',
+        url: '/copper-cold-plates/#rfq-inputs',
       },
       {
         name: 'Inspection requirements',
         description: 'CT, leak, pressure, flow, dimensional, surface, and cleaning requirements when they apply.',
-        url: '/copper-cold-plates#review-points',
+        url: '/copper-cold-plates/#review-points',
       },
     ]),
   ],
@@ -104,7 +104,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Review RFQ inputs', href: '/rfq' },
+      { text: 'Review RFQ inputs', href: '/rfq/' },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
@@ -235,7 +235,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Prepare RFQ inputs', href: '/rfq' },
+      { text: 'Prepare RFQ inputs', href: '/rfq/' },
     ]}
   />
 </Layout>

@@ -23,7 +23,7 @@ const applicationShowcases = [
         title: 'Thermal path first',
         description:
           'Airflow, contact resistance, fin efficiency, base flatness, and heat load decide whether AM is useful.',
-        callToAction: { text: 'Heat sink RFQ page', href: '/copper-heat-sinks' },
+        callToAction: { text: 'Heat sink RFQ page', href: '/copper-heat-sinks/' },
       },
       {
         title: 'Fin limits',
@@ -101,6 +101,10 @@ const metadata = {
   title: 'Copper AM Applications | Cold Plates',
   description:
     'LPBF copper 3D printing applications for cold plates, heat sinks, induction coils, busbars, RF waveguides, vacuum parts, and semiconductor hardware.',
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     images: [
       {
@@ -114,29 +118,29 @@ const metadata = {
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
-      { name: 'Applications', item: '/applications' },
+      { name: 'Applications', item: '/applications/' },
     ]),
     createItemListSchema('Copper AM applications', [
       {
         name: 'Copper cold plates',
         description: 'Micro-channel cold plates, integrated manifolds, leak-test planning, and CT verification.',
-        url: '/copper-cold-plates',
+        url: '/copper-cold-plates/',
       },
       {
         name: 'Copper heat sinks',
         description: 'Printed copper heat sinks reviewed for airflow, fin limits, interface flatness, and validation.',
-        url: '/copper-heat-sinks',
+        url: '/copper-heat-sinks/',
       },
       {
         name: 'Induction coils and busbars',
         description: 'Conductive copper AM components for high-current, internal cooling, and compact routing.',
-        url: '/applications#electrical',
+        url: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
       },
       {
         name: 'RF, vacuum, and semiconductor hardware',
         description:
           'Copper AM waveguide, vacuum, and semiconductor parts requiring surface, sealing, and cleanliness review.',
-        url: '/applications#rf',
+        url: '/#applications',
       },
     ]),
   ],
@@ -172,7 +176,7 @@ const metadata = {
         description:
           'LPBF copper and CuCrZr cold plates with micro-channels, integrated manifolds, leak-test planning, CT verification, and machined sealing surfaces.',
         icon: 'tabler:droplet',
-        callToAction: { text: 'Cold plate RFQ page', href: '/copper-cold-plates' },
+        callToAction: { text: 'Cold plate RFQ page', href: '/copper-cold-plates/' },
       },
       {
         title: 'Micro-channel heat exchangers',

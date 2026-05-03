@@ -1,5 +1,5 @@
 ---
-title: 'RFQ Checklist for Custom 3D Printed Copper Cold Plates'
+title: '3D Printed Copper Cold Plate RFQ Checklist'
 publishDate: 2026-01-25
 excerpt: 'A practical RFQ checklist for custom 3D printed copper cold plates: leak test criteria, pressure drop specs, GD&T, materials, and documentation.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-cold-plates', 'rfq-specification', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/rfq-checklist-custom-3d-printed-copper-cold-plates/01-rfq-checklist-custom-3d-printed-copper-cold-plates-1-9ecc8f7f.webp
 metadata:
-  title: 'RFQ Checklist for Custom 3D Printed Copper Cold Plates'
+  title: '3D Printed Copper Cold Plate RFQ Checklist'
   description: 'A practical RFQ checklist for custom 3D printed copper cold plates: leak test criteria, pressure drop specs, GD&T, materials, and documentation.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/
 ---

@@ -16,7 +16,7 @@ const heatSinkShowcases = [
   {
     imagePosition: 'left' as const,
     image: {
-      src: '~/assets/images/copper/hero-1.webp',
+      src: '~/assets/images/copper/copper-heat-sinks.webp',
       alt: 'Copper heat sink RFQ review',
     },
     title: 'What to send for a heat sink quote',
@@ -60,7 +60,7 @@ const metadata = {
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
-      { name: 'Copper heat sinks', item: '/copper-heat-sinks' },
+      { name: 'Copper heat sinks', item: '/copper-heat-sinks/' },
     ]),
     createCopperApplicationServiceSchema({
       id: 'copper-heat-sinks',
@@ -68,26 +68,26 @@ const metadata = {
       serviceType: 'LPBF copper heat sink additive manufacturing',
       description:
         'RFQ review for printed copper heat sinks with fin geometry, thermal targets, interface flatness, material selection, post-processing, and test requirements.',
-      url: '/copper-heat-sinks',
+      url: '/copper-heat-sinks/',
       audienceType: 'Thermal, power electronics, RF, aerospace, and purchasing teams',
     }),
     createItemListSchema('Copper heat sink RFQ inputs', [
       {
         name: 'Geometry package',
         description: 'CAD and drawings for base, fins, channels, datum faces, mounting holes, and critical interfaces.',
-        url: '/copper-heat-sinks#rfq-inputs',
+        url: '/copper-heat-sinks/#rfq-inputs',
       },
       {
         name: 'Thermal requirements',
         description:
           'Heat load, airflow or coolant condition, interface stack-up, target temperature, and test method.',
-        url: '/copper-heat-sinks#rfq-inputs',
+        url: '/copper-heat-sinks/#rfq-inputs',
       },
       {
         name: 'Acceptance requirements',
         description:
           'Flatness, surface finish, material route, machining, coating, inspection, and thermal validation needs.',
-        url: '/copper-heat-sinks#review-points',
+        url: '/copper-heat-sinks/#review-points',
       },
     ]),
   ],
@@ -106,7 +106,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Review RFQ inputs', href: '/rfq' },
+      { text: 'Review RFQ inputs', href: '/rfq/' },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
@@ -237,7 +237,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Prepare RFQ inputs', href: '/rfq' },
+      { text: 'Prepare RFQ inputs', href: '/rfq/' },
     ]}
   />
 </Layout>

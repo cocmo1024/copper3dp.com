@@ -1,5 +1,5 @@
 ---
-title: '3D Printed Copper Busbars and Induction Coils: RFQ Guide'
+title: 'Copper Busbars and Induction Coils RFQ Guide'
 publishDate: 2026-04-30
 excerpt: 'RFQ guide for 3D printed copper busbars and induction coils: current path, contact faces, cooling, insulation, plating, material, and inspection inputs.'
 category: Engineering Guide
@@ -7,7 +7,7 @@ tags: ['copper-busbars', 'induction-coils', 'rfq-specification', 'engineering-gu
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/copper/high-current-busbars.webp
 metadata:
-  title: '3D Printed Copper Busbars and Induction Coils: RFQ Guide'
+  title: 'Copper Busbars and Induction Coils RFQ Guide'
   description: 'Prepare RFQs for 3D printed copper busbars and induction coils with current, duty cycle, contact surfaces, cooling, insulation, plating, and inspection requirements.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/
 ---
@@ -144,4 +144,3 @@ Use the [materials overview](/materials/) when the alloy is not fixed.
 For a busbar or induction coil quote, send CAD, drawing, quantity, target lead time, current, duty cycle, contact faces, cooling requirement, insulation constraints, material preference if known, and inspection requirements.
 
 Send files to [info@szcomo.com](mailto:info@szcomo.com). A simple part can be quoted with stated assumptions. If the electrical or cooling requirement is unclear, expect focused clarification before quote.
-

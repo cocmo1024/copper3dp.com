@@ -10,9 +10,20 @@ export const toAbsoluteUrl = (url: string | URL | undefined): string | undefined
   if (!url) return undefined;
 
   const value = String(url);
-  if (value.startsWith('http://') || value.startsWith('https://')) return value;
+  const absoluteUrl =
+    value.startsWith('http://') || value.startsWith('https://')
+      ? new URL(value)
+      : new URL(value.startsWith('/') ? value : `/${value}`, `${siteUrl}/`);
 
-  return String(new URL(value.startsWith('/') ? value : `/${value}`, `${siteUrl}/`));
+  const isInternalUrl = absoluteUrl.origin === siteUrl;
+  const isCleanPath =
+    absoluteUrl.pathname !== '/' && !absoluteUrl.pathname.endsWith('/') && !/\.[^/]+$/.test(absoluteUrl.pathname);
+
+  if (isInternalUrl && isCleanPath) {
+    absoluteUrl.pathname = `${absoluteUrl.pathname}/`;
+  }
+
+  return String(absoluteUrl);
 };
 
 export const createBreadcrumbSchema = (items: Array<{ name: string; item?: string | URL }>): JsonLdNode => ({
@@ -60,7 +71,7 @@ export const createCopperApplicationServiceSchema = ({
   audienceType: string;
 }): JsonLdNode => ({
   '@type': 'Service',
-  '@id': `${siteUrl}/${id.replace(/^\/|\/$/g, '')}#service`,
+  '@id': `${toAbsoluteUrl(id)}#service`,
   name,
   serviceType,
   provider: { '@id': organizationId },

@@ -36,8 +36,8 @@ const contactShowcases = [
   {
     imagePosition: 'right' as const,
     image: {
-      src: '~/assets/images/copper/hero-2.webp',
-      alt: 'Copper additive manufacturing parts for RFQ review',
+      src: '~/assets/images/copper/rfq-review-workspace.webp',
+      alt: 'Copper AM quotation response workflow',
     },
     title: 'How we respond',
     description:
@@ -69,16 +69,16 @@ const metadata = {
   openGraph: {
     images: [
       {
-        url: '~/assets/images/copper/hero-1.webp',
+        url: '~/assets/images/copper/hero-copper-parts-transparent.webp',
         width: 1200,
-        height: 628,
+        height: 675,
       },
     ],
     type: 'website',
   },
   structuredData: createBreadcrumbSchema([
     { name: 'Home', item: '/' },
-    { name: 'Contact', item: '/contact' },
+    { name: 'Contact', item: '/contact/' },
   ]),
 };
 ---
@@ -104,7 +104,7 @@ const metadata = {
       },
       {
         text: 'Review RFQ inputs',
-        href: '/rfq',
+        href: '/rfq/',
       },
     ]}
   />

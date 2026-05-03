@@ -55,24 +55,24 @@ const metadata = {
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
-      { name: 'Materials', item: '/materials' },
+      { name: 'Materials', item: '/materials/' },
     ]),
     createItemListSchema('Copper AM material paths', [
       {
         name: 'Pure copper',
         description: 'Reviewed when electrical or thermal conductivity is the dominant requirement.',
-        url: '/materials',
+        url: '/materials/',
       },
       {
         name: 'CuCrZr',
         description: 'Reviewed when strength and softening resistance matter alongside conductivity.',
-        url: '/materials',
+        url: '/materials/',
       },
       {
         name: 'GRCop-42',
         description:
           'Reviewed for high-temperature aerospace and thermal hardware where qualification documentation matters.',
-        url: '/materials',
+        url: '/materials/',
       },
     ]),
   ],
@@ -90,7 +90,7 @@ const metadata = {
         text: 'Email material review',
         href: 'mailto:info@szcomo.com',
       },
-      { text: 'RFQ inputs', href: '/rfq' },
+      { text: 'RFQ inputs', href: '/rfq/' },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',

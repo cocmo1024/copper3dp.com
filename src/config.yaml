@@ -17,9 +17,9 @@ metadata:
   openGraph:
     site_name: COPPER 3DP
     images:
-      - url: '~/assets/images/copper/hero-2.webp'
+      - url: '~/assets/images/copper/hero-copper-parts-transparent.webp'
         width: 1200
-        height: 628
+        height: 675
     type: website
   twitter:
     cardType: summary_large_image

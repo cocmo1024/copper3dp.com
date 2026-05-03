@@ -101,12 +101,16 @@ const metadata = {
   title: 'Copper AM Capabilities | DfAM & Inspection',
   description:
     'Copper AM capabilities for material review, LPBF DfAM, post-processing, thermal and electrical parts, CT, leak testing, and RF or vacuum requirements.',
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     images: [
       {
-        url: '~/assets/images/copper/hero-1.webp',
+        url: '~/assets/images/copper/hero-copper-parts-transparent.webp',
         width: 1200,
-        height: 628,
+        height: 675,
       },
     ],
     type: 'website',
@@ -114,20 +118,20 @@ const metadata = {
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
-      { name: 'Capabilities', item: '/capabilities' },
+      { name: 'Capabilities', item: '/capabilities/' },
     ]),
     createItemListSchema('Copper AM capability areas', [
       {
         name: 'Material and process fit',
         description:
           'Pure copper, CuCrZr, and GRCop-42 review against function, temperature, and project requirements.',
-        url: '/capabilities#materials',
+        url: '/capabilities/#materials',
       },
       {
         name: 'Inspection requirements',
         description:
           'CT, leak, pressure, dimensional, flow, and certification requirements for function-critical copper parts.',
-        url: '/capabilities#inspection',
+        url: '/capabilities/#inspection',
       },
     ]),
   ],
@@ -144,7 +148,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Review RFQ inputs', href: '/rfq' },
+      { text: 'Review RFQ inputs', href: '/rfq/' },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
