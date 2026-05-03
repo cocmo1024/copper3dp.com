@@ -63,7 +63,7 @@ const {
         classes={{
           container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
           title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
-          subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
+          subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted',
         }}
       />
     )
@@ -75,14 +75,11 @@ const {
         ({ id: itemId, eyebrow, title: itemTitle, description, image, imagePosition = 'left', points = [] }) => (
           <section id={itemId} class="space-y-8">
             {(eyebrow || itemTitle || description) && (
-              <div class="rounded-lg border border-[#ffffff29] bg-white px-5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur dark:bg-slate-900 dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:px-6">
+              <div class="rounded-lg border border-page-border bg-surface px-5 py-4 shadow-[0_4px_30px_rgba(17,24,39,0.08)] backdrop-blur dark:shadow-none md:px-6">
                 {eyebrow && <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-primary">{eyebrow}</p>}
-                {itemTitle && <h3 class="text-xl font-bold tracking-tight dark:text-white md:text-2xl">{itemTitle}</h3>}
+                {itemTitle && <h3 class="text-xl font-bold tracking-tight text-heading md:text-2xl">{itemTitle}</h3>}
                 {description && (
-                  <p
-                    class="mt-1 max-w-3xl text-sm leading-6 text-muted dark:text-slate-300 md:text-base"
-                    set:html={description}
-                  />
+                  <p class="mt-1 max-w-3xl text-sm leading-6 text-muted md:text-base" set:html={description} />
                 )}
               </div>
             )}
@@ -95,10 +92,10 @@ const {
                   classes={{
                     container: 'gap-y-4',
                     panel: 'max-w-none',
-                    title: 'text-base font-semibold leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-                    description: 'mt-1 text-sm leading-5 text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+                    title: 'text-base font-semibold leading-6 text-heading ml-2 rtl:ml-0 rtl:mr-2',
+                    description: 'mt-1 text-sm leading-5 text-muted ml-2 rtl:ml-0 rtl:mr-2',
                     icon: 'flex h-6 w-6 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
-                    action: 'mt-1 text-base font-semibold leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+                    action: 'mt-1 text-base font-semibold leading-6 text-heading ml-2 rtl:ml-0 rtl:mr-2',
                   }}
                 />
               </div>
@@ -107,7 +104,7 @@ const {
                 <div class:list={['self-center', imagePosition === 'left' ? 'md:order-1' : 'md:order-2']}>
                   <div class="relative m-auto">
                     <Image
-                      class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                      class="mx-auto w-full rounded-lg bg-surface-raised shadow-lg shadow-slate-900/10 dark:shadow-black/30"
                       width={500}
                       height={500}
                       widths={[400, 768]}

@@ -24,12 +24,10 @@ const hasHeader = title || subtitle || tagline;
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   {
     hasHeader && (
-      <div class="mb-8 rounded-lg border border-[#ffffff29] bg-white px-5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur dark:bg-slate-900 dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:px-6">
+      <div class="mb-8 rounded-lg border border-page-border bg-surface px-5 py-4 shadow-[0_4px_30px_rgba(17,24,39,0.08)] backdrop-blur dark:shadow-none md:px-6">
         {tagline && <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-primary" set:html={tagline} />}
-        {title && <h2 class="text-xl font-bold tracking-tight dark:text-white md:text-2xl" set:html={title} />}
-        {subtitle && (
-          <p class="mt-1 max-w-3xl text-sm leading-6 text-muted dark:text-slate-300 md:text-base" set:html={subtitle} />
-        )}
+        {title && <h2 class="text-xl font-bold tracking-tight text-heading md:text-2xl" set:html={title} />}
+        {subtitle && <p class="mt-1 max-w-3xl text-sm leading-6 text-muted md:text-base" set:html={subtitle} />}
       </div>
     )
   }
@@ -45,7 +43,7 @@ const hasHeader = title || subtitle || tagline;
             <Fragment set:html={image} />
           ) : (
             <Image
-              class="mx-auto w-full rounded-lg bg-gray-400 shadow-lg dark:bg-slate-700"
+              class="mx-auto w-full rounded-lg bg-surface-raised shadow-lg shadow-slate-900/10 dark:shadow-black/30"
               widths={[400, 768]}
               sizes="(max-width: 768px) 100vw, 432px"
               width={500}

@@ -294,7 +294,7 @@ const requirementShowcases = [
     }}
   >
     <Fragment slot="title">
-      LPBF copper 3D printing for <span class="text-accent dark:text-white">custom copper parts</span>
+      LPBF copper 3D printing for <span class="text-accent">custom copper parts</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -303,7 +303,7 @@ const requirementShowcases = [
     </Fragment>
 
     <Fragment slot="content">
-      <p class="mt-4 text-sm text-muted dark:text-slate-300">
+      <p class="mt-4 text-sm text-muted">
         Send files to <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a>
       </p>
     </Fragment>
@@ -317,25 +317,23 @@ const requirementShowcases = [
   <section class:list={['relative not-prose', sectionContainerClass]}>
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="grid gap-6 md:grid-cols-2">
-        <div class="rounded-md border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <div class="rounded-md border border-page-border bg-surface p-6 shadow-sm shadow-slate-900/10 dark:shadow-none">
           <p class="text-sm font-semibold uppercase tracking-wide text-primary">Good fit</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight dark:text-white">
+          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">
             Copper AM is worth quoting when geometry drives value.
           </h2>
-          <ul class="mt-4 space-y-2 text-muted dark:text-slate-300">
+          <ul class="mt-4 space-y-2 text-muted">
             <li>Internal channels, manifolds, cooling paths, or compact thermal-fluid routing.</li>
             <li>High-current, RF, vacuum, or semiconductor copper parts with functional constraints.</li>
             <li>Designs where fewer joints, integrated features, or iteration speed reduce project risk.</li>
           </ul>
         </div>
-        <div class="rounded-md border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Usually not a fit
-          </p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight dark:text-white">
+        <div class="rounded-md border border-page-border bg-surface p-6 shadow-sm shadow-slate-900/10 dark:shadow-none">
+          <p class="text-sm font-semibold uppercase tracking-wide text-muted">Usually not a fit</p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">
             Simple copper stock is often better made another way.
           </h2>
-          <ul class="mt-4 space-y-2 text-muted dark:text-slate-300">
+          <ul class="mt-4 space-y-2 text-muted">
             <li>Plain plates, bars, tubes, sheet parts, wire, decorative items, or commodity copper stock.</li>
             <li>Printer, filament, powder supply, hobby, jewelry, model-download, or DIY requests.</li>
             <li>Projects where the functional requirement is still unknown and only a material name is specified.</li>
