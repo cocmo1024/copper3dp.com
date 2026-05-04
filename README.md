@@ -154,6 +154,71 @@ Avoid:
 
 Astro processes source images from `src/assets/images/`. Build output should be checked for file size and responsive variants.
 
+## Image Prompt Protocol
+
+For new SEO articles, reuse the accepted TITAN industrial visual logic instead of writing casual prompts. The goal is not decoration. Each image should help the reader understand a real copper AM decision, failure mode, process limit, RFQ input, inspection requirement, or application fit.
+
+Start by deciding the visual role:
+
+- Evidence visual: physical proof of a part, failure, inspection result, or successful geometry.
+- Explanation visual: a mechanism, internal channel, build constraint, thermal path, electrical path, or process window.
+- Data visual: a comparison, decision matrix, acceptance zone, or measurable trade-off.
+
+Choose image count by article length and actual need:
+
+- Under 1200 words: 1 to 2 images.
+- 1200 to 2500 words: 2 to 4 images.
+- Over 2500 words: 3 to 5 images.
+
+Do not place images in the same percentage position in every article. Insert each image where it helps: after the failure or success it proves, after the concept it explains, or after the table/comparison it supports.
+
+Every generated article image prompt should include:
+
+- Subject and engineering action.
+- Camera or view: macro, tilt-shift overview, isometric, cross-section, or product cutout.
+- Composition: rule of thirds, knolling, symmetry, cross-section, exploded view, or compact hero cluster.
+- Lighting: clean industrial product lighting, controlled reflections, readable geometry.
+- Material physics: copper or CuCrZr tone, LPBF texture, machined faces, sealing lands, threads, ports, channels, tool marks, rough-to-polished contrast.
+- Text policy: avoid baked-in text for hero/product cutouts; allow concise readable labels only when the image is explicitly an article thumbnail, comparison diagram, or technical documentation visual.
+- Render style: photorealistic, premium B2B engineering, physically plausible, not fantasy CGI.
+- Aspect ratio and intended usage.
+- Negative prompt.
+- SEO alt text.
+- Engineering caption.
+
+Use this reusable manifest format when planning article visuals:
+
+```text
+--- VISUAL MANIFEST (COPY TO AI) ---
+
+[Figure X]
+Subject:
+[One sentence describing the engineering scene or object.]
+
+Prompt:
+[Subject/Action]: A photorealistic [view type] of [specific copper AM subject], showing [functional geometry, interfaces, channels, ports, inspection points, or failure evidence].
+[Camera/Lens]: [100mm macro / 24mm tilt-shift / isometric / three-quarter product view], deep focus, sharp readable details.
+[Composition]: [rule of thirds / knolling / symmetry / cross-section / exploded view / compact hero cluster], with the engineering feature as the visual priority.
+[Lighting]: Clean industrial product lighting, controlled softbox reflections, crisp edge highlights, no dramatic smoke or decorative effects.
+[Material Physics]: Realistic copper or CuCrZr, warm red-orange metallic tone, visible LPBF micro-pitted texture on as-built surfaces, CNC-machined sealing faces and datum pads, realistic threads, bolt holes, internal channels, and functional ports.
+[Text Rendering]: [No text / concise readable technical labels only if needed].
+[Render Style]: Ultra-realistic industrial product photography or high-end PBR render, 8k detail, premium B2B engineering website quality.
+Aspect Ratio: [16:9 / 3:2 / 1:1 / transparent PNG cutout].
+Negative Prompt: text artifacts, watermark, logo, fake checkerboard, generic factory, stock photo, decorative copper objects, fantasy machinery, impossible channels, disconnected ports, gold, brass, bronze, plastic, rust, patina, dirty surfaces, blurry render, shallow depth of field, cartoon, anime, low-poly, excessive bloom, lens flare, large empty margins, mismatched page topic.
+Alt Text: [Search-friendly alt text tied to the article keyword and visible engineering subject.]
+Caption: [Short engineering caption explaining what decision or requirement the image supports.]
+```
+
+For `copper3dp.com`, prefer prompts that show copper AM value clearly:
+
+- AI accelerator and server cooling: cold plates, microchannels, manifolds, sealing faces, O-ring grooves, leak/pressure/flow inspection context.
+- Data center power and cooling: busbars, liquid-cooled conductors, manifolds, contact pads, insulation and mounting constraints.
+- RF and vacuum hardware: waveguides, cavities, flanges, sealing surfaces, conductive internal geometry.
+- High heat flux parts: heat sinks, regenerative cooling channels, lattice heat exchangers, CuCrZr or pure copper material choices.
+- RFQ process visuals: CAD, drawings, quantity and inspection notes, but only when they support the article's inquiry logic.
+
+Do not reuse existing article images for new SEO posts unless the same image is uniquely correct for that exact topic. New articles should normally receive new topic-specific images stored under `src/assets/images/generated/`, optimized to a practical WebP size before commit.
+
 ## Google Tracking
 
 Public build variables belong in the hosting environment, not source control.
