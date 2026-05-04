@@ -69,15 +69,13 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 const shouldIndexSitemapPage = (page: string) => {
   const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
   const isPaginatedArchive = /^\/(?:blog|category\/EngineeringGuide)(?:\/category\/[^/]+)?\/\d+$/.test(pathname);
-  const isStaticLegacyFallback = pathname === '/faq' || pathname.startsWith('/tags/');
-  const isConsolidatedPage = pathname === '/applications' || pathname === '/capabilities';
+  const isStaticLegacyFallback = pathname.startsWith('/tags/');
 
   return (
     !pathname.startsWith('/blog/tag') &&
     !pathname.startsWith('/blog/category') &&
     !isPaginatedArchive &&
-    !isStaticLegacyFallback &&
-    !isConsolidatedPage
+    !isStaticLegacyFallback
   );
 };
 
