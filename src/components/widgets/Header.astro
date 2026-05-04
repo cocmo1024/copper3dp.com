@@ -100,7 +100,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu rounded border border-page-border bg-surface md:absolute md:hidden md:min-w-[200px] md:backdrop-blur-md md:bg-[rgba(247,248,250,0.92)] dark:md:bg-[rgba(5,8,20,0.92)] pl-4 md:pl-0 font-medium drop-shadow-xl">
+                  <ul class="dropdown-menu rounded-md border border-page-border bg-surface md:absolute md:hidden md:min-w-[200px] pl-4 md:pl-0 font-medium shadow-sm shadow-slate-900/10 dark:shadow-none">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a

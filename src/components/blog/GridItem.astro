@@ -18,14 +18,14 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
 ---
 
 <article class="mb-6 transition intersect-once intersect-quarter">
-  <div class="relative md:h-64 bg-surface-raised rounded shadow-lg mb-6">
+  <div class="relative md:h-64 bg-surface-raised rounded-md border border-page-border mb-6">
     {
       image &&
         (link ? (
           <a href={link}>
             <Image
               src={image}
-              class="w-full md:h-full rounded shadow-lg bg-surface-raised"
+              class="w-full md:h-full rounded-md bg-surface-raised"
               widths={[400, 900]}
               width={400}
               sizes="(max-width: 900px) 400px, 900px"
@@ -39,7 +39,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
         ) : (
           <Image
             src={image}
-            class="w-full md:h-full rounded shadow-lg bg-surface-raised"
+            class="w-full md:h-full rounded-md bg-surface-raised"
             widths={[400, 900]}
             width={400}
             sizes="(max-width: 900px) 400px, 900px"
