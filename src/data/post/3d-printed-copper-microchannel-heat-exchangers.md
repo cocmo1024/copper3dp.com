@@ -5,7 +5,7 @@ excerpt: 'RFQ guide for LPBF copper microchannel heat exchangers: channel geomet
 category: Engineering Guide
 tags: ['micro-channel-heat-exchangers', 'copper-cold-plates', 'thermal-management', 'rfq-specification', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
-image: ~/assets/images/copper/micro-channel-heat-exchangers.webp
+image: ~/assets/images/generated/copper-microchannel-heat-exchanger-rfq.webp
 metadata:
   title: '3D Printed Copper Microchannel Heat Exchangers'
   description: 'Prepare an RFQ for 3D printed copper microchannel heat exchangers with channel geometry, powder removal, pressure drop, cleaning, machining, and inspection inputs.'
@@ -26,7 +26,7 @@ Copper additive manufacturing is strongest when channel routing is the reason fo
 
 The practical question is not only whether the geometry can be printed. The practical question is whether the flow path can be depowdered, cleaned, sealed, and verified after printing.
 
-![3D printed copper microchannel heat exchanger for compact thermal management](../../assets/images/copper/micro-channel-heat-exchangers.webp)
+![3D printed copper microchannel heat exchanger for compact thermal management](../../assets/images/generated/copper-microchannel-heat-exchanger-rfq.webp)
 
 ### Start the RFQ With the Thermal and Flow Problem
 

@@ -5,7 +5,7 @@ excerpt: 'RFQ guide for 3D printed copper RF waveguide, cavity, and vacuum compo
 category: Engineering Guide
 tags: ['rf-waveguide-copper-parts', 'copper-3dp', 'quality-inspection', 'rfq-specification', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
-image: ~/assets/images/copper/rf-waveguide-copper-parts.webp
+image: ~/assets/images/generated/copper-rf-waveguide-vacuum-parts.webp
 metadata:
   title: '3D Printed Copper RF Waveguide and Vacuum Parts'
   description: 'Prepare an RFQ for 3D printed copper RF waveguide, cavity, and vacuum components with conductive surfaces, sealing, cleaning, plating, and inspection inputs.'
@@ -29,7 +29,7 @@ Copper additive manufacturing can be useful when the part needs:
 
 It is usually not the first route for simple straight waveguides, open machined cavities, or flat copper parts that can be made more directly by CNC machining.
 
-![3D printed copper RF waveguide and vacuum hardware](../../assets/images/copper/rf-waveguide-copper-parts.webp)
+![3D printed copper RF waveguide and vacuum hardware](../../assets/images/generated/copper-rf-waveguide-vacuum-parts.webp)
 
 ### Define the Function Before the Manufacturing Route
 
