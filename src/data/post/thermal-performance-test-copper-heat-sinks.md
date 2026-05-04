@@ -12,19 +12,19 @@ metadata:
   canonical: https://copper3dp.com/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/
 ---
 
-> **Thermal performance test methods for copper heat sinks are conditionally feasible for product decisions when the test fixture, airflow boundary conditions, and interface pressure are controlled.**While copper offers a measurable conductivity advantage (≈390–400 W/m·K for high-purity grades), engineering teams must account for fixture-induced contact resistance and airflow non-uniformity (often shifting apparent θSA by 10–30%) to make results decision-grade.
+> **Thermal performance test methods for copper heat sinks are conditionally feasible for product decisions when the test fixture, airflow boundary conditions, and interface pressure are controlled.** While copper offers a measurable conductivity advantage (≈390–400 W/m·K for high-purity grades), engineering teams must account for fixture-induced contact resistance and airflow non-uniformity (often shifting apparent θSA by 10–30%) to make results decision-grade.
 
 ### Copper Heat Sink Thermal Resistance Metrics
 
-When customers ask “What is the thermal performance of this copper heat sink?”, the real request is usually:**what θSA or θJA can we trust at our power level and airflow?**We see failures when a supplier reports a single “°C/W” number without stating**heat input (W), airflow (m/s), inlet temperature (°C), and mounting pressure (kPa)**—because each one can move the result by double digits.
+When customers ask “What is the thermal performance of this copper heat sink?”, the real request is usually: **what θSA or θJA can we trust at our power level and airflow?** We see failures when a supplier reports a single “°C/W” number without stating **heat input (W), airflow (m/s), inlet temperature (°C), and mounting pressure (kPa)**—because each one can move the result by double digits.
 
-In practice, we treat copper heat sink testing as a**metrology problem**: the test must separate**conduction through the base + interface**from**convection to air**, and it must do so with repeatability (typical internal target:**±5% on θSA across three builds**) before we accept it for design freeze.
+In practice, we treat copper heat sink testing as a **metrology problem**: the test must separate **conduction through the base + interface** from **convection to air**, and it must do so with repeatability (typical internal target: **±5% on θSA across three builds**) before we accept it for design freeze.
 
 ### JEDEC JESD51 Boundary Conditions for Heat Sink Testing
 
-Most “heat sink performance” disputes trace back to boundary conditions, not copper. JEDEC JESD51 methods (and fixtures derived from them) exist because small uncontrolled variables—like**inlet turbulence intensity**or**board-to-duct leakage**—can swing θ results by**0.05–0.20 °C/W**at**50–200 W**, which is the difference between passing and failing a junction limit.
+Most “heat sink performance” disputes trace back to boundary conditions, not copper. JEDEC JESD51 methods (and fixtures derived from them) exist because small uncontrolled variables—like **inlet turbulence intensity** or **board-to-duct leakage**—can swing θ results by **0.05–0.20 °C/W** at **50–200 W**, which is the difference between passing and failing a junction limit.
 
-**A copper heat sink test is a type of boundary-condition replication problem**: if the product lives in a 1U chassis at**2.5–4.0 m/s**ducted flow, an open-bench fan test at**0.8 m/s**is not “conservative”—it is often non-correlated.
+**A copper heat sink test is a type of boundary-condition replication problem**: if the product lives in a 1U chassis at **2.5–4.0 m/s** ducted flow, an open-bench fan test at **0.8 m/s** is not “conservative”—it is often non-correlated.
 
 ![Ducted wind tunnel setup for copper heat sink thermal resistance testing with velocity grid and pressure taps.](../../assets/images/online-posts/thermal-performance-test-copper-heat-sinks/01-thermal-performance-test-copper-heat-sinks-1-9e76c6e6.webp)
 
@@ -37,21 +37,21 @@ A wind tunnel (ducted) setup is the most defensible method when your application
 - **Heater power** measured electrically with **±1%** uncertainty (true RMS and accounting for wiring losses).
 - **Pressure drop** across the sink recorded (often **10–200 Pa** depending on fin density), because the same fan can land on different operating points.
 
-**Failure mode we see:**teams report θSA at a quoted “10 CFM” but never record**static pressure**; two sinks can both be “10 CFM” in different test rigs while having**2×**difference in restriction.
+**Failure mode we see:** teams report θSA at a quoted “10 CFM” but never record **static pressure**; two sinks can both be “10 CFM” in different test rigs while having **2×** difference in restriction.
 
 ### Calorimetric Heat Flow Method for Heat Sink Verification
 
-If you need to validate the true heat flow into the sink (especially above**200 W**), calorimetric approaches reduce the “where did the watts go?” argument. A common implementation is a controlled air loop where:
+If you need to validate the true heat flow into the sink (especially above **200 W**), calorimetric approaches reduce the “where did the watts go?” argument. A common implementation is a controlled air loop where:
 
 - **Mass flow rate** is measured (e.g., via nozzle/flow element).
 - **ΔT of air** is measured with matched sensors (target **±0.1–0.2 °C** ).
-- Heat removed is computed by **Q = ṁ·cp·ΔT** .
+- Heat removed is computed by **Q = ṁ·cp·ΔT**.
 
-The trade: calorimetry increases instrumentation cost and setup complexity, but it closes the loop on power accounting. If your electrical heater is**150 W**, calorimetry should recover**≈145–155 W**after losses are characterized; if it “recovers”**120 W**, your setup is leaking heat into fixtures.
+The trade: calorimetry increases instrumentation cost and setup complexity, but it closes the loop on power accounting. If your electrical heater is **150 W**, calorimetry should recover **≈145–155 W** after losses are characterized; if it “recovers”**120 W**, your setup is leaking heat into fixtures.
 
 ### Interface Thermal Resistance RθCS in Copper Heat Sink Tests
 
-Copper often “looks worse than expected” in testing because the**interface dominates**. Even with a strong copper base, a poorly controlled TIM bondline can add**0.05–0.20 °C/W**at realistic contact pressures.
+Copper often “looks worse than expected” in testing because the **interface dominates**. Even with a strong copper base, a poorly controlled TIM bondline can add **0.05–0.20 °C/W** at realistic contact pressures.
 
 Controls that materially change outcomes:
 
@@ -63,11 +63,11 @@ If you do not control these, you are not measuring the heat sink; you are measur
 
 ### Execution Log: 150 W Power Module Copper Heat Sink Wind Tunnel Test
 
-We previously supported a program with a**150 W**power module targeting**θSA ≤ 0.25 °C/W**at**3.0 m/s**ducted airflow. The first supplier report showed**0.31 °C/W**at “3 m/s,” which would have forced a major mechanical redesign.
+We previously supported a program with a **150 W** power module targeting **θSA ≤ 0.25 °C/W** at **3.0 m/s** ducted airflow. The first supplier report showed **0.31 °C/W** at “3 m/s,” which would have forced a major mechanical redesign.
 
-**The attempt (what we did):**We repeated the test in a duct with velocity mapped across the inlet plane (9-point grid). Mean velocity was**3.0 m/s**, but non-uniformity was**±20%**, and the heater power measurement was off by**~4 W**due to lead losses.
+**The attempt (what we did):** We repeated the test in a duct with velocity mapped across the inlet plane (9-point grid). Mean velocity was **3.0 m/s**, but non-uniformity was **±20%**, and the heater power measurement was off by **~4 W** due to lead losses.
 
-**The friction (what went wrong):**The main error was**contact resistance drift**. The mounting stack used a spring plate with torque scatter of**±0.25 N·m**, causing case temperature shifts of**3–6 °C**at**150 W**. That translated to an apparent θSA swing of**0.02–0.04 °C/W**.
+**The friction (what went wrong):** The main error was **contact resistance drift**. The mounting stack used a spring plate with torque scatter of **±0.25 N·m**, causing case temperature shifts of **3–6 °C** at **150 W**. That translated to an apparent θSA swing of **0.02–0.04 °C/W**.
 
 ![Cross-section showing TIM bondline variation and contact resistance drift in copper heat sink testing.](../../assets/images/online-posts/thermal-performance-test-copper-heat-sinks/02-thermal-performance-test-copper-heat-sinks-2-f491e350.webp)
 
@@ -75,9 +75,9 @@ We previously supported a program with a**150 W**power module targeting**θSA �
 
 - We moved to controlled torque with a calibrated driver (repeatability **±0.05 N·m** ).
 - We standardized TIM application by mass (e.g., **0.08–0.12 g** over the footprint) and verified bondline via witness coupons.
-- We added a heat-loss characterization run (insulated dummy) and corrected power by **+2.5%** .
+- We added a heat-loss characterization run (insulated dummy) and corrected power by **+2.5%**.
 
-Result: θSA improved from**0.31 °C/W**reported to**0.26–0.27 °C/W**correlated across two fixtures.
+Result: θSA improved from **0.31 °C/W** reported to **0.26–0.27 °C/W** correlated across two fixtures.
 
 **The tax (the real bill):**
 
@@ -106,7 +106,7 @@ Result: θSA improved from**0.31 °C/W**reported to**0.26–0.27 °C/W**correlat
 
 **Clearly Feasible: Ducted wind tunnel θSA testing**
 
-- Go ahead if your product airflow is known (e.g., **2–4 m/s** ) and you can lock inlet temperature within **±0.5 °C** and torque within **±0.05 N·m** .
+- Go ahead if your product airflow is known (e.g., **2–4 m/s** ) and you can lock inlet temperature within **±0.5 °C** and torque within **±0.05 N·m**.
 - Output should be a curve: **θSA (°C/W) vs velocity (m/s)** plus pressure drop (Pa).
 
 **Conditionally Feasible: Bench fan “CFM” testing**
@@ -116,10 +116,10 @@ Result: θSA improved from**0.31 °C/W**reported to**0.26–0.27 °C/W**correlat
 
 **Structurally Mismatched: “One-number” thermal claims without boundary conditions**
 
-- Not recommended when decisions depend on **<0.05 °C/W** differences or when power is **>100 W** .
+- Not recommended when decisions depend on **<0.05 °C/W** differences or when power is **>100 W**.
 - Consider alternatives: a JEDEC-aligned fixture, a calorimetric loop, or an application-representative chassis test.
 
-> **Project Readiness Check**- Before committing, ask yourself (or your supplier):
+> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
 >   - Can we specify airflow as inlet velocity (m/s) and pressure drop (Pa), not just “fan CFM”?
 >     - Is the interface stack (torque, TIM type, bondline target) controlled tightly enough that RθCS cannot dominate θSA?
 

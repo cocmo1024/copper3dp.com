@@ -12,35 +12,35 @@ metadata:
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/
 ---
 
-> 3D printed copper high-voltage electrodes are**conditionally feasible**for air/oil applications where**all field-critical surfaces are post-machined and polished**. While AM can integrate cooling and complex geometries, engineering teams must account for**surface roughness–driven field enhancement and partial discharge risk**to make it viable.
+> 3D printed copper high-voltage electrodes are **conditionally feasible** for air/oil applications where **all field-critical surfaces are post-machined and polished**. While AM can integrate cooling and complex geometries, engineering teams must account for **surface roughness–driven field enhancement and partial discharge risk** to make it viable.
 
 ### 3D Printed Copper High-Voltage Electrode Requests in Power and Plasma Hardware
 
-We keep seeing the same RFQ pattern: “We want a copper electrode with integrated cooling channels, but we also need it to hold off**30–80 kV**without corona or partial discharge.” The attraction is obvious—powder bed fusion can pack features into a volume that would be expensive to machine.
+We keep seeing the same RFQ pattern: “We want a copper electrode with integrated cooling channels, but we also need it to hold off **30–80 kV** without corona or partial discharge.” The attraction is obvious—powder bed fusion can pack features into a volume that would be expensive to machine.
 
-The conflict is also predictable: high-voltage electrodes punish microscopic defects. A surface “feature” that is irrelevant at**5 kV**can become the initiating site for corona at**20–40 kV**, especially in air at sharp edges and down-skin regions.
+The conflict is also predictable: high-voltage electrodes punish microscopic defects. A surface “feature” that is irrelevant at **5 kV** can become the initiating site for corona at **20–40 kV**, especially in air at sharp edges and down-skin regions.
 
 ### High-Voltage Electrode Physics: Electric Field, Surface Roughness, and PD
 
-A high-voltage electrode**is a type of conductor**that shapes an electric field in a defined medium (air, oil, SF₆ alternatives, vacuum). Your breakdown margin is dominated by (1) local field enhancement and (2) how the medium responds (corona inception, partial discharge, or full breakdown).
+A high-voltage electrode **is a type of conductor** that shapes an electric field in a defined medium (air, oil, SF₆ alternatives, vacuum). Your breakdown margin is dominated by (1) local field enhancement and (2) how the medium responds (corona inception, partial discharge, or full breakdown).
 
-For AM copper, the first problem is surface condition. Published powder bed fusion copper data shows as-built Ra can be**3.3–19.2 μm**depending on surface orientation (top/side/bottom). ([ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S2214860421005704)) Other copper PBF studies report down-skin roughness on the order of**~28–35 μm Ra**on inclined surfaces. ([Springer](https://link.springer.com/article/10.1007/s40516-025-00313-9)) Those ranges are structurally misaligned with HV practice, where field-critical faces often need sub-micron finishing for stable behavior (especially in vacuum or where PD limits are tight).
+For AM copper, the first problem is surface condition. Published powder bed fusion copper data shows as-built Ra can be **3.3–19.2 μm** depending on surface orientation (top/side/bottom). ([ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S2214860421005704)) Other copper PBF studies report down-skin roughness on the order of **~28–35 μm Ra** on inclined surfaces. ([Springer](https://link.springer.com/article/10.1007/s40516-025-00313-9)) Those ranges are structurally misaligned with HV practice, where field-critical faces often need sub-micron finishing for stable behavior (especially in vacuum or where PD limits are tight).
 
-The second problem is defect topology. Even when density is high, pores and lack-of-fusion features can act like embedded field concentrators. Electron beam melting of copper can reach**>99% relative density**under suitable conditions, but “high density” is not the same as “HV-stable surface and subsurface.” ([MDPI](https://www.mdpi.com/2079-6412/11/6/740))
+The second problem is defect topology. Even when density is high, pores and lack-of-fusion features can act like embedded field concentrators. Electron beam melting of copper can reach **>99% relative density** under suitable conditions, but “high density” is not the same as “HV-stable surface and subsurface.” ([MDPI](https://www.mdpi.com/2079-6412/11/6/740))
 
 ![Electric field concentration caused by surface roughness on 3D printed copper high-voltage electrodes versus polished copper.](../../assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/01-3d-printed-copper-high-voltage-electrodes-feasibility-1-bd8b56b5.webp)
 
 ### Copper AM Reality: Conductivity, Heat Treatment, and What It Means for Electrodes
 
-Electrical conductivity matters for electrodes because resistive heating can change temperature, outgassing, and surface conditioning over time. AM copper alloys can vary widely: one vendor datasheet for AM CuCrZr shows**~23% IACS as-built**and up to**~88% IACS after conductivity-optimized heat treatment**(measured per ASTM E1004). ([EOS GmbH](https://www.eos.info/05-datasheet-images/Assets_MDS_Metal/EOS_CopperAlloy_CuCrZr/Material_DataSheet_EOS%20_Copper_CuCrZr_en.pdf))
+Electrical conductivity matters for electrodes because resistive heating can change temperature, outgassing, and surface conditioning over time. AM copper alloys can vary widely: one vendor datasheet for AM CuCrZr shows **~23% IACS as-built** and up to **~88% IACS after conductivity-optimized heat treatment**(measured per ASTM E1004). ([EOS GmbH](https://www.eos.info/05-datasheet-images/Assets_MDS_Metal/EOS_CopperAlloy_CuCrZr/Material_DataSheet_EOS%20_Copper_CuCrZr_en.pdf))
 
-This creates an immediate feasibility constraint: if your electrode design assumes “near-OFHC behavior,” you cannot accept a process route that lands at**<80% IACS**without explicitly modeling the thermal and electrical consequences.
+This creates an immediate feasibility constraint: if your electrode design assumes “near-OFHC behavior,” you cannot accept a process route that lands at **<80% IACS** without explicitly modeling the thermal and electrical consequences.
 
 ### Execution Log: A 60 kV Class Electrode That Failed at 18 kV Until We Paid the “Surface Tax”
 
-Client context: a compact test fixture needed a copper electrode with internal cooling, targeting**60 kV DC**in air with intermittent duty. The client chose AM to integrate coolant paths and reduce assembly interfaces.
+Client context: a compact test fixture needed a copper electrode with internal cooling, targeting **60 kV DC** in air with intermittent duty. The client chose AM to integrate coolant paths and reduce assembly interfaces.
 
-What we tried first: printed copper, stress relief, and a cosmetic external bead blast. The first HV step test showed audible corona and unstable current starting around**~18 kV**near a down-skin edge, well below the target.
+What we tried first: printed copper, stress relief, and a cosmetic external bead blast. The first HV step test showed audible corona and unstable current starting around **~18 kV** near a down-skin edge, well below the target.
 
 Pivot point (failure mode): the down-skin region had orientation-driven roughness and micro-edges; local field enhancement dominated the behavior. This was not a “material strength” failure; it was a “field geometry at the micron scale” failure.
 
@@ -51,7 +51,7 @@ Resolution (and the tax): we reworked the plan into an HV-grade finishing stack:
 - Add a plated finish on the field surfaces (application-specific; the key is defect masking + stable surface chemistry).
 - Re-test using standardized HV withstand + PD measurement practices (see standards below).
 
-Net result: corona inception shifted upward and behavior stabilized, but the electrode was no longer “printed and done.” The finishing stack added**multiple process steps**and forced design changes to expose surfaces that polishing chemistry could actually reach.
+Net result: corona inception shifted upward and behavior stabilized, but the electrode was no longer “printed and done.” The finishing stack added **multiple process steps** and forced design changes to expose surfaces that polishing chemistry could actually reach.
 
 ![Corona onset at a rough down-skin edge on a 3D printed copper high-voltage electrode.](../../assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/02-3d-printed-copper-high-voltage-electrodes-feasibility-2-b510d6ed.webp)
 
@@ -77,7 +77,7 @@ Net result: corona inception shifted upward and behavior stabilized, but the ele
 Go ahead if all of the following are true:
 
 - Operating voltage is modest (typical **≤20–30 kV** class) and geometry enforces generous edge radii (practically **≥1.0 mm** on exposed transitions).
-- Every field-critical surface is reachable by CNC finishing and controlled polishing to a defined Ra target (often **≤0.2–0.8 μm** , application-specific). ( [Clarwe](https://www.clarwe.com/finishes/electropolishing.html) )
+- Every field-critical surface is reachable by CNC finishing and controlled polishing to a defined Ra target (often **≤0.2–0.8 μm**, application-specific). ( [Clarwe](https://www.clarwe.com/finishes/electropolishing.html) )
 - Acceptance includes a standardized HV withstand plan per IEC 60060-1, not an ad-hoc bench test. ( [webstore.iec.ch](https://webstore.iec.ch/en/publication/65088) )
 
 #### Conditionally Feasible: AM Copper Electrodes for Integrated Cooling and Compact Assemblies
@@ -96,7 +96,7 @@ Not recommended when any of the following are true:
 - Geometry contains field-critical areas that **cannot** be machined or chemically polished (blind corners, trapped volumes, inaccessible down-skin faces).
 - You cannot accept conductivity variability or require “wrought-copper-like” IACS without a qualified heat-treatment route (AM alloys can swing from **~23% to ~88% IACS** depending on condition). ( [EOS GmbH](https://www.eos.info/05-datasheet-images/Assets_MDS_Metal/EOS_CopperAlloy_CuCrZr/Material_DataSheet_EOS%20_Copper_CuCrZr_en.pdf) ) Use a CNC-machined electrode from a specified copper grade instead, or redesign the electrode to move peak field away from AM surfaces.
 
-> **Project Readiness Check**- Before committing, ask yourself (or your supplier):
+> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
 >   - Are the **field-critical surfaces** explicitly defined with a measurable roughness target (Ra) and a minimum edge radius (e.g., **≥1.0 mm** )?
 >     - Can every one of those surfaces be **accessed** for machining/polishing and then verified using IEC-aligned HV withstand + PD measurement (IEC 60060-1 / IEC 60270)? ( [webstore.iec.ch](https://webstore.iec.ch/en/publication/65088) )
 

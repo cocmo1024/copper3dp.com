@@ -12,28 +12,28 @@ metadata:
   canonical: https://copper3dp.com/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/
 ---
 
-> **Pure Copper vs CuCrZr for high-performance heat sinks is conditionally feasible**depending on whether your dominant constraint is**bulk conduction (W/m·K)**or**mechanical integrity under load/temperature (MPa, °C)**. While pure copper maximizes thermal conductivity (~390–400 W/m·K), engineering teams must account for its low yield strength and rapid softening above ~150–200°C, which often makes CuCrZr (typically ~320–360 W/m·K) the more reliable choice for thin features, high clamp loads, and repeatable assembly in production.
+> **Pure Copper vs CuCrZr for high-performance heat sinks is conditionally feasible** depending on whether your dominant constraint is **bulk conduction (W/m·K)** or **mechanical integrity under load/temperature (MPa, °C)**. While pure copper maximizes thermal conductivity (~390–400 W/m·K), engineering teams must account for its low yield strength and rapid softening above ~150–200°C, which often makes CuCrZr (typically ~320–360 W/m·K) the more reliable choice for thin features, high clamp loads, and repeatable assembly in production.
 
 ### Pure Copper vs CuCrZr Heat Sinks in High-Power Builds
 
 We repeatedly see the same RFQ pattern: “We need the best thermal performance—use pure copper.” The intent is rational: when heat flux is high, every °C matters, and copper’s headline conductivity looks like the obvious lever.
 
-The mismatch usually appears later, during execution: the heat sink is not just a thermal block—it is also a**structural interface**that must survive**clamp load, thermal cycling, thread torque, and rework**. In practice, a 10–20% gain in bulk conductivity can be erased by**contact resistance**, while a 3×–6× loss in yield strength shows up immediately as bowed bases, stripped threads, distorted fins, or shifting flatness after brazing.
+The mismatch usually appears later, during execution: the heat sink is not just a thermal block—it is also a **structural interface** that must survive **clamp load, thermal cycling, thread torque, and rework**. In practice, a 10–20% gain in bulk conductivity can be erased by **contact resistance**, while a 3×–6× loss in yield strength shows up immediately as bowed bases, stripped threads, distorted fins, or shifting flatness after brazing.
 
 ### Pure Copper Is a Type of High-Conductivity Base Metal
 
-Pure copper (typical heat-sink grades such as C101/C102/C110 variants) is a type of**high-conductivity copper**optimized for heat flow. In finished heat sinks, we usually see room-temperature thermal conductivity on the order of**~390–400 W/m·K**when purity and processing are controlled.
+Pure copper (typical heat-sink grades such as C101/C102/C110 variants) is a type of **high-conductivity copper** optimized for heat flow. In finished heat sinks, we usually see room-temperature thermal conductivity on the order of **~390–400 W/m·K** when purity and processing are controlled.
 
 Where pure copper becomes fragile is mechanical performance in the exact conditions heat sinks live in:
 
 - **Low yield strength** in annealed or stress-relieved conditions (commonly **< ~100 MPa** class, depending on temper and product form).
-- **Fast softening** : copper’s strength drops sharply as temperature rises; by **~150–200°C** , many assemblies start to lose dimensional stability if they rely on copper’s strength rather than geometry.
+- **Fast softening**: copper’s strength drops sharply as temperature rises; by **~150–200°C**, many assemblies start to lose dimensional stability if they rely on copper’s strength rather than geometry.
 
 ![Pure copper vs CuCrZr heat sink cross-section showing deflection under clamp load](../../assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/01-pure-copper-vs-cucrzr-high-performance-heat-sinks-1-9707fcce.webp)
 
 ### CuCrZr Is a Type of Precipitation-Hardened Copper Alloy
 
-CuCrZr (commonly designated as C18150 family) is a type of**precipitation-hardened copper alloy**. It trades some thermal conductivity for major gains in mechanical robustness:
+CuCrZr (commonly designated as C18150 family) is a type of **precipitation-hardened copper alloy**. It trades some thermal conductivity for major gains in mechanical robustness:
 
 - Typical thermal conductivity used in real designs: **~320–360 W/m·K** (processing dependent).
 - Typical yield strength after proper solution + aging: often **~350–500 MPa** class (product form and heat-treat dependent).
@@ -46,23 +46,23 @@ That “strength reserve” is what makes thin fins, dense pins, threaded featur
 When a heat sink underperforms, the root cause is frequently one of these:
 
 - **Interface resistance** (TIM thickness, voiding, pump-out, surface roughness): a few microns of TIM can dominate more than the k difference between 400 and 330 W/m·K.
-- **Spreading resistance vs geometry** : base thickness and heat-source footprint drive gradients more than alloy choice once k is “high enough.”
-- **Mechanical distortion** : warped bases or bowed mounts increase TIM thickness, which can destroy the theoretical advantage of pure copper.
+- **Spreading resistance vs geometry**: base thickness and heat-source footprint drive gradients more than alloy choice once k is “high enough.”
+- **Mechanical distortion**: warped bases or bowed mounts increase TIM thickness, which can destroy the theoretical advantage of pure copper.
 
-Rule we use during design reviews: if the stack-up includes**high clamp load**or**tight flatness**plus**thermal cycling**, then “maximum k” is rarely the highest-leverage variable.
+Rule we use during design reviews: if the stack-up includes **high clamp load** or **tight flatness** plus **thermal cycling**, then “maximum k” is rarely the highest-leverage variable.
 
 ### Execution Log: Where Pure Copper Failed, and What We Paid to Fix It
 
-We ran a program for a compact high-power module with an aggressive target: minimize junction temperature while keeping Z-height low. The initial prototype used**machined pure copper**with a thin base and dense fin field. Early thermal data looked promising on the bench.
+We ran a program for a compact high-power module with an aggressive target: minimize junction temperature while keeping Z-height low. The initial prototype used **machined pure copper** with a thin base and dense fin field. Early thermal data looked promising on the bench.
 
 The failure appeared during assembly trials:
 
 - After repeated torque cycles, the **mounting face lost flatness** and the base started to “dish.”
-- The distortion increased TIM thickness and shifted thermal performance by **multiple °C** , eclipsing the conductivity advantage we thought we had bought.
+- The distortion increased TIM thickness and shifted thermal performance by **multiple °C**, eclipsing the conductivity advantage we thought we had bought.
 
-**Pivot point:**we stopped treating the heat sink as “just a thermal conductor” and treated it as a**precision structural member**.
+**Pivot point:** we stopped treating the heat sink as “just a thermal conductor” and treated it as a **precision structural member**.
 
-**Resolution:**we migrated the part to**CuCrZr with controlled heat treatment**and tightened the process window around post-machining stress relief and final surfacing.
+**Resolution:** we migrated the part to **CuCrZr with controlled heat treatment** and tightened the process window around post-machining stress relief and final surfacing.
 
 **The tax we paid (Price of Success):**
 
@@ -94,7 +94,7 @@ The failure appeared during assembly trials:
 
 Go ahead if all conditions below are true:
 
-- Your dominant bottleneck is **bulk spreading** , not interface resistance (measurably low TIM sensitivity).
+- Your dominant bottleneck is **bulk spreading**, not interface resistance (measurably low TIM sensitivity).
 - Clamp loads are modest, or load is carried by a separate stiffener.
 - Operating temperature stays mostly below **~150°C at the heat sink** and flatness stability is not a yield-limiting requirement.
 - No thin threaded features are load-bearing, or inserts/standoffs isolate torque from copper.
@@ -117,9 +117,9 @@ Not recommended when:
 - The part must function as a precision structural interface with repeated torque cycles.
 - You have elevated soak temperatures in the **~200°C+** regime where softening becomes the governing failure mode.
 
-**Alternative:**CuCrZr (with verified heat treat state) or a hybrid architecture (Cu base + structural frame) when both k and stiffness are critical.
+**Alternative:** CuCrZr (with verified heat treat state) or a hybrid architecture (Cu base + structural frame) when both k and stiffness are critical.
 
-> **Project Readiness Check**- Before committing, ask yourself (or your supplier):
+> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
 >   - What is the maximum clamp load and torque cycle count, and what flatness change (µm) is acceptable after thermal cycling?
 >     - What is your worst-case thermal exposure (°C × hours) including brazing, soldering, burn-in, and field fault conditions?
 

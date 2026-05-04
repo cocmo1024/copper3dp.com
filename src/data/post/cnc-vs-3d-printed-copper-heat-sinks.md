@@ -44,15 +44,15 @@ We treat AM as a geometry enabler, not as a shortcut. When internal channels mat
 
 ### Execution Log: One Copper Cold Plate Program That Forced a Pivot
 
-**Client context (anonymized):**a power electronics team needed a compact copper heat sink for liquid cooling with a footprint cap, and they wanted internal serpentine channels to avoid external tubing. Heat load was ~1–2 kW, coolant was water/glycol, and leak-tightness was non-negotiable (helium leak test requirement implied).
+**Client context (anonymized):** a power electronics team needed a compact copper heat sink for liquid cooling with a footprint cap, and they wanted internal serpentine channels to avoid external tubing. Heat load was ~1–2 kW, coolant was water/glycol, and leak-tightness was non-negotiable (helium leak test requirement implied).
 
-**What we tried:**we first pursued 3D-printed copper to realize a tight internal manifold and eliminate brazed joints. The first build met the envelope, but pressure drop was higher than predicted because as-built internal surfaces behaved like a rough pipe (Ra effectively in the 10–25 µm class), and cleaning/inspection of small internal turns became its own schedule line item.
+**What we tried:** we first pursued 3D-printed copper to realize a tight internal manifold and eliminate brazed joints. The first build met the envelope, but pressure drop was higher than predicted because as-built internal surfaces behaved like a rough pipe (Ra effectively in the 10–25 µm class), and cleaning/inspection of small internal turns became its own schedule line item.
 
-**Failure mode (the pivot point):**we hit repeatability risk: two builds with similar external dimensions produced different flow restriction because micro-porosity + surface texture changed the hydraulic diameter in the most sensitive channel sections. Even if relative density targets were met, the “local defect” risk at thin walls was not ignorable for a production program.
+**Failure mode (the pivot point):** we hit repeatability risk: two builds with similar external dimensions produced different flow restriction because micro-porosity + surface texture changed the hydraulic diameter in the most sensitive channel sections. Even if relative density targets were met, the “local defect” risk at thin walls was not ignorable for a production program.
 
-**Resolution:**we pivoted to a CNC + bonded stack architecture: machined plates with open channels, then brazed/diffusion-bonded, then final-face machined the interface and ports. Thermal performance landed within target, pressure drop became predictable, and leak yield improved after process tuning.
+**Resolution:** we pivoted to a CNC + bonded stack architecture: machined plates with open channels, then brazed/diffusion-bonded, then final-face machined the interface and ports. Thermal performance landed within target, pressure drop became predictable, and leak yield improved after process tuning.
 
-**The bill (the real tax):**we paid for the pivot in three places: (1) added joint qualification (coupon testing + metallography), (2) leak testing every unit (time + fixture cost), and (3) a longer NPI loop because joint process control is a discipline, not a checkbox. Compared to “print-and-ship,” the path was slower—but it was auditable and scalable.
+**The bill (the real tax):** we paid for the pivot in three places: (1) added joint qualification (coupon testing + metallography), (2) leak testing every unit (time + fixture cost), and (3) a longer NPI loop because joint process control is a discipline, not a checkbox. Compared to “print-and-ship,” the path was slower—but it was auditable and scalable.
 
 ### Data Forensics Table: Copper Heat Sink Decision Parameters
 
@@ -98,7 +98,7 @@ Not recommended if:
 - Your design depends on as-built internal surfaces to meet pressure-drop and heat-transfer targets.
 - You expect CNC-like tolerances without secondary machining on interfaces/ports.
 
-> **Project Readiness Check**- Before committing, ask yourself (or your supplier):
+> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
 >   - What is the acceptance criteria for density/porosity (e.g., ≥99.5% relative density) and how will it be measured on production parts (coupon, CT, sectioning)?
 >     - Which surfaces are “functional” (TIM, seals, ports), and which ones will be machined post-build vs left as-built—and what is the plan if internal channels cannot be finished?
 

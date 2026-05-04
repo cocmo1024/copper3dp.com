@@ -12,25 +12,25 @@ metadata:
   canonical: https://copper3dp.com/posts/EngineeringGuide/wear-accuracy-failures-3d-printed-copper-edm-electrodes/
 ---
 
-> **Wear and accuracy failures in 3D printed copper EDM electrodes are conditionally feasible for complex-geometry tooling,**especially when internal flushing paths matter. While they can enable conformal features impossible to mill, engineering teams must account for porosity-driven wear, surface-driven overburn, and post-processing “tax” to make dimensional accuracy hold below ±0.02 mm.
+> **Wear and accuracy failures in 3D printed copper EDM electrodes are conditionally feasible for complex-geometry tooling,** especially when internal flushing paths matter. While they can enable conformal features impossible to mill, engineering teams must account for porosity-driven wear, surface-driven overburn, and post-processing “tax” to make dimensional accuracy hold below ±0.02 mm.
 
 ### 3D Printed Copper EDM Electrodes: The Request We Keep Getting
 
-We repeatedly see the same RFQ: “We need a copper electrode with internal flushing channels and sharp ribs; can we 3D print it and EDM a hardened cavity?” The appeal is clear—conformal geometry and rapid iteration. The hidden problem is that EDM accuracy is not only a CAD problem; it is a**spark-gap stability**problem, and stability collapses when electrode surfaces behave like a porous resistor instead of bulk copper (typical target electrical conductivity for high-grade copper electrodes is**≥ 95% IACS**).
+We repeatedly see the same RFQ: “We need a copper electrode with internal flushing channels and sharp ribs; can we 3D print it and EDM a hardened cavity?” The appeal is clear—conformal geometry and rapid iteration. The hidden problem is that EDM accuracy is not only a CAD problem; it is a **spark-gap stability** problem, and stability collapses when electrode surfaces behave like a porous resistor instead of bulk copper (typical target electrical conductivity for high-grade copper electrodes is **≥ 95% IACS**).
 
 ### EDM Electrode Wear: The Failure Mode Is Volumetric, Not Cosmetic
 
-EDM (Electrical Discharge Machining) is a type of**thermal erosion process**where controlled discharges remove workpiece material and also erode the electrode. For sinker EDM, the accuracy penalty is governed by**volumetric wear ratio (VWR)**and by how predictable the wear is across edges and corners. In practice, the parts that matter are not flat faces; it is corner radii and thin ribs—where a**10–30 µm**local edge recession can translate into measurable taper and loss of detail on the cavity.
+EDM (Electrical Discharge Machining) is a type of **thermal erosion process** where controlled discharges remove workpiece material and also erode the electrode. For sinker EDM, the accuracy penalty is governed by **volumetric wear ratio (VWR)** and by how predictable the wear is across edges and corners. In practice, the parts that matter are not flat faces; it is corner radii and thin ribs—where a **10–30 µm** local edge recession can translate into measurable taper and loss of detail on the cavity.
 
 ![Sinker EDM schematic showing copper electrode, spark gap, and dielectric flushing paths](../../assets/images/online-posts/wear-accuracy-failures-3d-printed-copper-edm-electrodes/01-wear-accuracy-failures-3d-printed-copper-edm-electrodes-1-bf06b7b2.webp)
 
 ### Additive Copper Microstructure: Why Printed Copper “Acts Different” in the Spark Gap
 
-A 3D printed copper electrode is a type of electrode produced by additive manufacturing (commonly LPBF or binder jet), and its surface/subsurface often contains**porosity (e.g., 0.5–3.0 vol%)**and partially sintered particles that are not present in CNC-machined OFHC copper. Those micro-voids trap dielectric, concentrate debris, and create micro-arcing sites. The symptom shows up as**unstable gap voltage**and intermittent arcing, which forces conservative EDM parameters and increases electrode wear per unit removal.
+A 3D printed copper electrode is a type of electrode produced by additive manufacturing (commonly LPBF or binder jet), and its surface/subsurface often contains **porosity (e.g., 0.5–3.0 vol%)** and partially sintered particles that are not present in CNC-machined OFHC copper. Those micro-voids trap dielectric, concentrate debris, and create micro-arcing sites. The symptom shows up as **unstable gap voltage** and intermittent arcing, which forces conservative EDM parameters and increases electrode wear per unit removal.
 
 ### Surface Roughness and Overburn: Where Accuracy Actually Gets Lost
 
-Printed copper surfaces commonly start rougher than machined copper; roughness changes the effective spark distribution. When the electrode surface is**Ra 6.3–12.5 µm**instead of**Ra ≤ 1.6 µm**, discharge energy localizes on asperity peaks, increasing corner rounding and making finishing passes less repeatable. The result is the classic mismatch: the electrode measures “within tolerance” on a CMM, but the cavity shows**overburn drift**after a few burn cycles because the effective geometry changes under load.
+Printed copper surfaces commonly start rougher than machined copper; roughness changes the effective spark distribution. When the electrode surface is **Ra 6.3–12.5 µm** instead of **Ra ≤ 1.6 µm**, discharge energy localizes on asperity peaks, increasing corner rounding and making finishing passes less repeatable. The result is the classic mismatch: the electrode measures “within tolerance” on a CMM, but the cavity shows **overburn drift** after a few burn cycles because the effective geometry changes under load.
 
 ![Macro surface comparison of as-printed copper electrode texture versus machined and plated surface](../../assets/images/online-posts/wear-accuracy-failures-3d-printed-copper-edm-electrodes/02-wear-accuracy-failures-3d-printed-copper-edm-electrodes-2-b0cb9960.webp)
 
@@ -40,22 +40,22 @@ A client asked us to EDM a hardened tool-steel cavity (≈**HRC 52–56**) using
 
 #### The Attempt: Printed Electrode, Minimal Post-Process
 
-We received the electrode, did a light deburr, and ran a standard rough-to-finish sinker EDM sequence. Dimensional intent was**±0.02 mm**on rib thickness.
+We received the electrode, did a light deburr, and ran a standard rough-to-finish sinker EDM sequence. Dimensional intent was **±0.02 mm** on rib thickness.
 
 #### The Friction: Wear “Runs Away” at the Features That Matter
 
-The first red flag was burn instability on thin ribs: we observed repeated arcing events, and the ribs lost definition early. Post-burn inspection showed edge recession and rib thinning beyond expectation; our measured feature loss was on the order of**0.03–0.06 mm**after a small number of cycles (measured by pre/post 3D scan). The cavity geometry then drifted because the electrode no longer matched its own original shape.
+The first red flag was burn instability on thin ribs: we observed repeated arcing events, and the ribs lost definition early. Post-burn inspection showed edge recession and rib thinning beyond expectation; our measured feature loss was on the order of **0.03–0.06 mm** after a small number of cycles (measured by pre/post 3D scan). The cavity geometry then drifted because the electrode no longer matched its own original shape.
 
 #### The Resolution: We Stabilized the Electrode, Then Paid the Tax
 
 We recovered the project, but only by converting the printed electrode into a “near-net preform” and forcing it to behave more like bulk copper:
 
-- **Finish machining** all functional faces and datums to **±0.01 mm** .
+- **Finish machining** all functional faces and datums to **±0.01 mm**.
 - **Densification step** (process-dependent) to push effective density toward **≥ 99%** of theoretical where possible.
 - **Electroless copper plating** on working surfaces (typical **15–30 µm** ) to seal near-surface porosity and normalize discharge behavior.
-- EDM parameter changes: reduced peak energy for finishing and enforced stable flushing to reduce debris-induced arcing (spark gap control held tighter; typical finishing gaps are on the order of **10–30 µm** , machine- and recipe-dependent).
+- EDM parameter changes: reduced peak energy for finishing and enforced stable flushing to reduce debris-induced arcing (spark gap control held tighter; typical finishing gaps are on the order of **10–30 µm**, machine- and recipe-dependent).
 
-**The bill:**we added**2–4 days**of process time and a step-change in cost (machining + plating + extra metrology). The electrode became viable, but only after we treated printing as a geometry enabler—not as a finished electrode process.
+**The bill:** we added **2–4 days** of process time and a step-change in cost (machining + plating + extra metrology). The electrode became viable, but only after we treated printing as a geometry enabler—not as a finished electrode process.
 
 ### Accuracy Failure Map: What Breaks First in Printed Copper EDM Electrodes
 
@@ -88,14 +88,14 @@ Printed copper electrodes fail in predictable, diagnosable ways:
 **Clearly Feasible**
 Go ahead if all conditions hold:
 
-- Functional faces are finish-machined to **±0.01 mm** and **Ra ≤ 1.6 µm** .
+- Functional faces are finish-machined to **±0.01 mm** and **Ra ≤ 1.6 µm**.
 - Electrode working surfaces are sealed (e.g., plating **15–30 µm** or equivalent) and verified to be pore-stable near the surface.
-- The burn is not edge-dominated: minimum feature thickness **≥ 0.5 mm** and corner radii are not required below **R0.10 mm** .
+- The burn is not edge-dominated: minimum feature thickness **≥ 0.5 mm** and corner radii are not required below **R0.10 mm**.
 
 **Conditionally Feasible (High-Cost Route)**
 Possible, but expect high cost/complexity when any condition holds:
 
-- Feature thickness **0.2–0.5 mm** , deep ribs, or high aspect ratio cavities where flushing is marginal.
+- Feature thickness **0.2–0.5 mm**, deep ribs, or high aspect ratio cavities where flushing is marginal.
 - Tight cavity tolerances **≤ ±0.02 mm** must hold across multiple electrodes/burn cycles.
 - The electrode must be “as-printed functional” without machining (this almost always forces iteration and scrap). In this zone, success typically requires the full stack: densification, machining, sealing, and recipe tuning, plus extra metrology.
 
@@ -103,10 +103,10 @@ Possible, but expect high cost/complexity when any condition holds:
 Not recommended when:
 
 - Sharp internal corners or microfeatures demand **R < 0.10 mm** retention after repeated burns.
-- The project requires stable wear without plating/sealing, or conductivity is measured **< 85% IACS** .
+- The project requires stable wear without plating/sealing, or conductivity is measured **< 85% IACS**.
 - You need production repeatability with minimal process steps. Consider alternatives: CNC copper electrode assemblies (brazed segments), graphite (where applicable), or hybrid electrodes (printed preform + brazed/machined copper wear caps).
 
-> **Project Readiness Check**- Before committing, ask yourself (or your supplier):
+> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
 >   - Can you certify conductivity (ASTM B193) and near-surface porosity (microCT or equivalent) for every electrode lot?
 >     - What is the post-processing plan to guarantee **Ra ≤ 1.6 µm** and datum true position **≤ 0.02 mm** after stress relief/plating?
 

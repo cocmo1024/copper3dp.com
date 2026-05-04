@@ -16,27 +16,27 @@ metadata:
 
 ### RFQ Scope for Custom Copper Heat Sinks
 
-We regularly see RFQs that say “copper heat sink, highest conductivity, smallest size,” but omit the two numbers that drive everything:**heat load (W)**and**allowable temperature rise (°C)**. In copper, the material is rarely the bottleneck; the bottleneck is typically**contact resistance at the interface**,**air-side convection**, or**coolant-side pressure drop**.
+We regularly see RFQs that say “copper heat sink, highest conductivity, smallest size,” but omit the two numbers that drive everything: **heat load (W)** and **allowable temperature rise (°C)**. In copper, the material is rarely the bottleneck; the bottleneck is typically **contact resistance at the interface**, **air-side convection**, or **coolant-side pressure drop**.
 
-A usable RFQ frames the requirement as**system performance in a defined test condition**, not as a generic “best possible” part.
+A usable RFQ frames the requirement as **system performance in a defined test condition**, not as a generic “best possible” part.
 
 **Minimum RFQ scope (non-negotiable inputs):**
 
 - Heat load at the sink base: **P = ___ W** (steady-state and transient duty cycle, e.g., 300 W continuous + 600 W for 10 s)
 - Maximum base temperature or junction-to-ambient budget: **T_base,max = ___ °C** (or allowed ΔT)
 - Boundary condition: **forced air** (CFM + fan curve) or **liquid** (flow rate + inlet temperature)
-- Envelope constraints: **L × W × H = ___ mm** , keep-out zones, weight limit (g)
-- Interface definition: **TIM type** , mounting torque (N·m), contact area (mm²)
+- Envelope constraints: **L × W × H = ___ mm**, keep-out zones, weight limit (g)
+- Interface definition: **TIM type**, mounting torque (N·m), contact area (mm²)
 
 ![RFQ inputs needed to specify a custom copper heat sink thermal target](../../assets/images/online-posts/rfq-specification-copper-heat-sinks/01-rfq-specification-copper-heat-sinks-1-72b62930.webp)
 
 ### Thermal Requirement Definition for Copper Heat Sink Performance
 
-A “custom copper heat sink” is a type of**thermal solution**where copper is used to move heat from a source to a larger convection surface. The RFQ must translate “cool enough” into a**thermal resistance target**under a known condition.
+A “custom copper heat sink” is a type of **thermal solution** where copper is used to move heat from a source to a larger convection surface. The RFQ must translate “cool enough” into a **thermal resistance target** under a known condition.
 
 **Specify performance in one of these equivalent forms:**
 
-- **R_th,base-to-ambient (°C/W)** at airflow **Q_air (CFM)** , ambient **T_amb (°C)**
+- **R_th,base-to-ambient (°C/W)** at airflow **Q_air (CFM)**, ambient **T_amb (°C)**
 - **ΔT_base (°C)** at **P (W)** with specified airflow/coolant
 - For liquid cold plates: **R_th,base-to-fluid (°C/W)** at **flow (L/min)** and **ΔP (kPa)**
 
@@ -53,21 +53,21 @@ Copper is not a single material in practice; it is a family with conductivity an
 
 **Material callouts you can put directly into the RFQ:**
 
-- **C101 (OFHC / high-purity copper)** : used when conductivity is prioritized; expect **k ≈ 390–400 W/m·K** depending on temper and verification method.
-- **C110 (ETP copper)** : commonly available, good conductivity, often lower cost; specify minimum conductivity if critical.
-- **CuCrZr** : used when you need higher strength at temperature or better stability; conductivity is lower than pure copper, so specify the trade explicitly.
+- **C101 (OFHC / high-purity copper)**: used when conductivity is prioritized; expect **k ≈ 390–400 W/m·K** depending on temper and verification method.
+- **C110 (ETP copper)**: commonly available, good conductivity, often lower cost; specify minimum conductivity if critical.
+- **CuCrZr**: used when you need higher strength at temperature or better stability; conductivity is lower than pure copper, so specify the trade explicitly.
 
 **What to specify (and why):**
 
 - **Minimum conductivity** (e.g., “≥ 360 W/m·K”) if performance is tight.
 - **Temper / hardness** if you have machining stability or deformation concerns.
-- **Traceability** : heat/lot, CoC, and (if applicable) RoHS/REACH declarations.
+- **Traceability**: heat/lot, CoC, and (if applicable) RoHS/REACH declarations.
 
 If you do not specify conductivity verification, you may receive a compliant “copper” that still misses the performance budget due to alloy selection or heat treatment.
 
 ### Geometry and Tolerance Definition for Copper Heat Sink Manufacturability
 
-Copper’s high thermal conductivity does not compensate for poor**flatness**,**parallelism**, or**fin manufacturability**. Many failures we see are interface-driven.
+Copper’s high thermal conductivity does not compensate for poor **flatness**, **parallelism**, or **fin manufacturability**. Many failures we see are interface-driven.
 
 **Critical drawing callouts (typical engineering defaults):**
 
@@ -87,28 +87,28 @@ Copper’s high thermal conductivity does not compensate for poor**flatness**,**
 
 ### Manufacturing Process Selection for Custom Copper Heat Sinks
 
-A copper heat sink is a type of**manufactured thermal hardware**, and the process determines both achievable geometry and cost.
+A copper heat sink is a type of **manufactured thermal hardware**, and the process determines both achievable geometry and cost.
 
 **RFQ: require the supplier to declare the process and associated limits:**
 
-- **CNC machining** : robust, good tolerances; limited fin density without specialized tooling.
-- **Skiving** : high fin density in copper; good for forced-air; requires process capability on fin height/spacing.
-- **Brazed assemblies** : enables complex stacks; introduces joint integrity as a reliability variable.
-- **Additive manufacturing (AM)** : enables complex internal channels; introduces porosity, surface roughness, and QA overhead; verify with CT or pressure testing.
-- **Extrusion** : economical for volume, but copper extrusion options can be constrained and geometry-limited.
+- **CNC machining**: robust, good tolerances; limited fin density without specialized tooling.
+- **Skiving**: high fin density in copper; good for forced-air; requires process capability on fin height/spacing.
+- **Brazed assemblies**: enables complex stacks; introduces joint integrity as a reliability variable.
+- **Additive manufacturing (AM)**: enables complex internal channels; introduces porosity, surface roughness, and QA overhead; verify with CT or pressure testing.
+- **Extrusion**: economical for volume, but copper extrusion options can be constrained and geometry-limited.
 
-In the RFQ, treat process choice as a controlled variable: ask for**two quotes**(standard vs advanced) with stated performance assumptions and risks.
+In the RFQ, treat process choice as a controlled variable: ask for **two quotes**(standard vs advanced) with stated performance assumptions and risks.
 
 ### Interface and Assembly Requirements for Copper Heat Sink Integration
 
-The interface is where copper projects often fail because the true thermal bottleneck becomes**contact resistance**.
+The interface is where copper projects often fail because the true thermal bottleneck becomes **contact resistance**.
 
 **RFQ interface block (copy/paste):**
 
 - Mounting method: screws / spring clips / clamp frame
 - Target clamp load: **___ N** or torque **___ N·m**
 - TIM: grease / pad / phase-change / solder / graphite, thickness **___ mm**
-- Electrical isolation required: yes/no (if yes, specify dielectric withstand, e.g., **1–3 kV** , and allowable added thermal resistance)
+- Electrical isolation required: yes/no (if yes, specify dielectric withstand, e.g., **1–3 kV**, and allowable added thermal resistance)
 
 **Mechanical reliability callouts:**
 
@@ -122,22 +122,22 @@ If you do not define acceptance tests, the supplier will validate “to their me
 
 **RFQ acceptance test requirements (choose what applies):**
 
-- Thermal test: specify **heater footprint (mm²)** , **power (W)** , airflow/coolant conditions, sensor type (TC/RTD), and where temperature is measured.
+- Thermal test: specify **heater footprint (mm²)**, **power (W)**, airflow/coolant conditions, sensor type (TC/RTD), and where temperature is measured.
 - Pressure drop test (liquid or high-density air): report **ΔP (kPa)** vs **flow (L/min)** or airflow.
-- Leak test (liquid): **pressure (bar)** , hold time (min), allowable leak rate.
+- Leak test (liquid): **pressure (bar)**, hold time (min), allowable leak rate.
 - Surface inspection: base flatness and Ra measured with stated instruments and sampling plan.
 
 ![Copper heat sink interface flatness and TIM thickness as the dominant thermal resistance](../../assets/images/online-posts/rfq-specification-copper-heat-sinks/02-rfq-specification-copper-heat-sinks-2-e9062fa3.webp)
 
 ### Execution Log from a 600 W Power Module Copper Heat Sink RFQ
 
-**Client context (anonymized):**A power electronics team needed to cool a**600 W**module in a compact enclosure. The initial RFQ asked for “OFHC copper heat sink, max height 35 mm,” with no airflow data and no interface definition.
+**Client context (anonymized):** A power electronics team needed to cool a **600 W** module in a compact enclosure. The initial RFQ asked for “OFHC copper heat sink, max height 35 mm,” with no airflow data and no interface definition.
 
-**The attempt:**We translated the requirement into a measurable target:**T_base ≤ 85 °C at T_amb = 35 °C**and obtained the system fan curve. We modeled a skived fin copper sink targeting**R_th,base-to-ambient ≈ 0.08–0.10 °C/W**at the available airflow.
+**The attempt:** We translated the requirement into a measurable target: **T_base ≤ 85 °C at T_amb = 35 °C** and obtained the system fan curve. We modeled a skived fin copper sink targeting **R_th,base-to-ambient ≈ 0.08–0.10 °C/W** at the available airflow.
 
-**The friction (failure mode):**Prototype #1 met airflow constraints but missed temperature by**~10–12 °C**. The root cause was not copper conductivity; it was**interface flatness + clamp load variation**. The base flatness came in at**~0.12 mm**over the footprint, and clamp load scatter pushed TIM thickness higher than assumed.
+**The friction (failure mode):** Prototype #1 met airflow constraints but missed temperature by **~10–12 °C**. The root cause was not copper conductivity; it was **interface flatness + clamp load variation**. The base flatness came in at **~0.12 mm** over the footprint, and clamp load scatter pushed TIM thickness higher than assumed.
 
-**The resolution:**We tightened the RFQ to enforce:
+**The resolution:** We tightened the RFQ to enforce:
 
 - Base flatness **≤ 0.05 mm**
 - Surface finish **Ra ≤ 0.8–1.6 µm**
@@ -170,7 +170,7 @@ The project succeeded when the RFQ made the interface a first-class requirement 
 
 ![Comparison of standard versus advanced RFQ parameters for copper heat sinks](../../assets/images/online-posts/rfq-specification-copper-heat-sinks/03-rfq-specification-copper-heat-sinks-3-29f48b66.webp)
 
-> **Project Readiness Check**- Before committing, ask yourself (or your supplier):
+> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
 >   - Do we have a measured **fan curve / airflow** (or coolant flow + inlet temperature) that will exist in the final enclosure, not on an open bench?
 >     - Is the **interface** fully specified (flatness, Ra, clamp load, TIM type/thickness), or are we assuming “copper fixes it”?
 
@@ -178,18 +178,18 @@ The project succeeded when the RFQ made the interface a first-class requirement 
 
 **Clearly Feasible**
 
-- Go ahead if the RFQ includes **P (W)** , boundary conditions (airflow or flow), and a measurable target such as **R_th (°C/W)** or **T_base,max** .
-- Go ahead if base flatness and interface controls are specified (e.g., **≤ 0.05 mm** , **Ra ≤ 1.6 µm** ) and acceptance tests are defined.
+- Go ahead if the RFQ includes **P (W)**, boundary conditions (airflow or flow), and a measurable target such as **R_th (°C/W)** or **T_base,max**.
+- Go ahead if base flatness and interface controls are specified (e.g., **≤ 0.05 mm**, **Ra ≤ 1.6 µm** ) and acceptance tests are defined.
 
 **Conditionally Feasible (High-Cost Route)**
 
-- Possible, but expect higher cost/lead time if you require **very high fin density** , **microchannels** , **extreme flatness** (e.g., ≤ 0.02 mm), or **tight thermal margins** (< 5 °C headroom).
+- Possible, but expect higher cost/lead time if you require **very high fin density**, **microchannels**, **extreme flatness** (e.g., ≤ 0.02 mm), or **tight thermal margins** (< 5 °C headroom).
 - The tax typically shows up as added inspection (CMM/roughness), lower yield, and more prototypes to converge.
 
 **Structurally Mismatched**
 
 - Not recommended when the real limitation is **air-side convection** (low airflow, high recirculation, clogged filters) and you are trying to “material upgrade” your way out.
-- Not recommended when you cannot control mounting pressure or flatness, and the interface resistance dominates; consider **heat pipes/vapor chambers** , a different enclosure airflow strategy, or a **liquid cold plate** instead.
+- Not recommended when you cannot control mounting pressure or flatness, and the interface resistance dominates; consider **heat pipes/vapor chambers**, a different enclosure airflow strategy, or a **liquid cold plate** instead.
 
 ### FAQ on RFQ Specifications for Copper Heat Sinks
 

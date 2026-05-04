@@ -5,6 +5,7 @@ excerpt: 'Component-level analysis of real copper 3D printed parts in production
 category: Engineering Guide
 tags: ['COPPER 3DP', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
+image: ~/assets/images/generated/copper-production-components-screening.webp
 metadata:
   title: 'Copper 3D Printed Components in Production'
   description: 'Component-level analysis of real copper 3D printed parts in production. Covers cold plates, heat sinks, busbars, injectors, and clear go/no-go boundaries.'
@@ -14,15 +15,15 @@ metadata:
 ### Why This List Exists (and What It Is Not)
 
 Copper additive manufacturing has moved past the “is it possible” phase.
-By 2026, the real question is no longer**whether copper can be printed**, but**which copper components actually justify additive manufacturing under real engineering constraints**.
+By 2026, the real question is no longer **whether copper can be printed**, but **which copper components actually justify additive manufacturing under real engineering constraints**.
 
 This article is not a marketing gallery.
-It is a**component-level screening list**built from recurring production patterns, thermal/electrical constraints, and cost inflection points observed across industrial, energy, aerospace, and advanced electronics systems.
+It is a **component-level screening list** built from recurring production patterns, thermal/electrical constraints, and cost inflection points observed across industrial, energy, aerospace, and advanced electronics systems.
 
 **Inclusion criteria for this list:**
 
-- The component has **entered real production or functional qualification** , not a one-off demo.
-- Additive manufacturing provides a **structural, thermal, or assembly advantage** , not just shape novelty.
+- The component has **entered real production or functional qualification**, not a one-off demo.
+- Additive manufacturing provides a **structural, thermal, or assembly advantage**, not just shape novelty.
 - There is a **clear failure boundary** where AM should *not* be used.
 
 ---
@@ -44,7 +45,7 @@ High-power AI accelerators and dense server racks have pushed cold plate design 
 - Non-planar manifolds optimized for uneven heat flux maps
 
 **Why AM Wins**
-Additive manufacturing enables**true 3D fluid routing**, aligning coolant flow with localized heat density instead of board geometry.
+Additive manufacturing enables **true 3D fluid routing**, aligning coolant flow with localized heat density instead of board geometry.
 
 **Hidden Failure Boundary**
 
@@ -72,7 +73,7 @@ Power electronics modules increasingly demand compact, leak-resistant thermal as
 - Elimination of brazed joints and stacked assemblies
 
 **Why AM Wins**
-AM collapses multiple components into**one pressure-tested body**, reducing leak risk and assembly variation.
+AM collapses multiple components into **one pressure-tested body**, reducing leak risk and assembly variation.
 
 **Hidden Failure Boundary**
 
@@ -100,7 +101,7 @@ Used in propulsion development programs, test engines, and experimental aerospac
 - Regenerative cooling paths wrapped around combustion zones
 
 **Why AM Wins**
-Additive manufacturing allows**injector and cooling geometry to be co-designed**, which is nearly impossible with subtractive methods.
+Additive manufacturing allows **injector and cooling geometry to be co-designed**, which is nearly impossible with subtractive methods.
 
 **Hidden Failure Boundary**
 
@@ -128,7 +129,7 @@ Power distribution in EVs, grid equipment, and high-current industrial systems.
 - Complex cross-sections balancing electrical resistance and thermal dissipation
 
 **Why AM Wins**
-AM enables**thermal management inside the conductor itself**, not around it.
+AM enables **thermal management inside the conductor itself**, not around it.
 
 **Hidden Failure Boundary**
 
@@ -156,7 +157,7 @@ Radar systems, communication equipment, and high-frequency RF platforms.
 - Integrated mounting and alignment features
 
 **Why AM Wins**
-AM enables**monolithic RF structures**with fewer joints and alignment errors.
+AM enables **monolithic RF structures** with fewer joints and alignment errors.
 
 **Hidden Failure Boundary**
 
@@ -184,7 +185,7 @@ Direct bonded copper (DBC) substrates used in power electronics.
 - Internal flow paths beneath localized heat sources
 
 **Why AM Wins**
-AM aligns thermal pathways with**electrical layout reality**, not manufacturing convenience.
+AM aligns thermal pathways with **electrical layout reality**, not manufacturing convenience.
 
 **Hidden Failure Boundary**
 
@@ -267,7 +268,7 @@ Satellite and aerospace thermal management assemblies.
 - Internal heat pipes and routing within structural panels
 
 **Why AM Wins**
-AM integrates**thermal control and structure**, reducing mass and interfaces.
+AM integrates **thermal control and structure**, reducing mass and interfaces.
 
 **Hidden Failure Boundary**
 
@@ -295,7 +296,7 @@ Power electronics, wireless charging, and experimental electromagnetic systems.
 - Integrated cooling or mounting features
 
 **Why AM Wins**
-AM enables**electromagnetic optimization beyond planar coils**.
+AM enables **electromagnetic optimization beyond planar coils**.
 
 **Hidden Failure Boundary**
 
@@ -329,19 +330,19 @@ Using AM in these cases adds cost without adding value.
 
 ### Final Screening Rule (Use This Before Any RFQ)
 
-If a copper component does**not**meet at least one of the following, it should not be additively manufactured:
+If a copper component does **not** meet at least one of the following, it should not be additively manufactured:
 
 - Internal geometry impossible to machine
 - Performance limited by heat flow or current density
 - Assembly count reduction has measurable value
 
-If none apply,**do not print it**.
+If none apply, **do not print it**.
 
 ---
 
 #### About Scope and Industry References
 
-Some examples above reference aerospace and defense environments strictly to illustrate**engineering constraints and qualification logic**.
+Some examples above reference aerospace and defense environments strictly to illustrate **engineering constraints and qualification logic**.
 They do not imply service scope, regulatory coverage, or business focus.
 
 ---
