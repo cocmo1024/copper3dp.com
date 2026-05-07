@@ -156,68 +156,198 @@ Astro processes source images from `src/assets/images/`. Build output should be 
 
 ## Image Prompt Protocol
 
-For new SEO articles, reuse the accepted TITAN industrial visual logic instead of writing casual prompts. The goal is not decoration. Each image should help the reader understand a real copper AM decision, failure mode, process limit, RFQ input, inspection requirement, or application fit.
+Use the TITAN industrial visual logic for every new SEO article image. The goal is not decoration. Each image must help the reader understand a real copper AM decision, failure mode, process limit, RFQ input, inspection requirement, or application fit.
 
-Start by deciding the visual role:
+This protocol is the project-local version of the TITAN visual manifest workflow. Apply it before generating images for any new article.
+
+### 1. Analyze The Article Before Prompting
+
+Do not start with a generic product render. First extract:
+
+- Primary constraint: cost, time, safety, precision, cleaning, pressure, thermal density, electrical current, RF performance, vacuum service, or manufacturing complexity.
+- Audience role: engineer, buyer, operations team, R&D team, thermal engineer, electrical engineer, RF engineer, or semiconductor equipment team.
+- Evidence level: physical part evidence, inspection data, process comparison, or RFQ guidance.
+- Decision stage: research, comparison, feasibility review, implementation, troubleshooting, or quotation.
+
+The image must support those signals. If the article is about RFQ inputs, show the hardware and review context. If the article is about failure, show the failure evidence. If the article is about process selection, show a comparison or route decision.
+
+### 2. Select The Visual Narrative
+
+Match image type to the article's narrative flow:
+
+- Problem-first: show failure evidence first, then solution or corrected route.
+- Gate-first: show inspection points, acceptance criteria, compliance surfaces, CT, leak, pressure, or cleanliness evidence.
+- Cost-ledger: show cost drivers, process trade-offs, or comparative manufacturing routes.
+- Process-window: show parameters, geometry limits, tolerances, process windows, or manufacturability boundaries.
+- Comparison-ladder: show alternatives side by side, such as LPBF vs CNC, monolithic vs brazed, pure copper vs CuCrZr.
+- Myth-buster: show the contrast between a common assumption and the real engineering constraint.
+
+Avoid repeating the same visual structure across consecutive articles. Do not make every article a dark product hero with the same composition.
+
+### 3. Decide The Visual Role
+
+Choose only the visuals that are genuinely useful:
 
 - Evidence visual: physical proof of a part, failure, inspection result, or successful geometry.
-- Explanation visual: a mechanism, internal channel, build constraint, thermal path, electrical path, or process window.
+- Explanation visual: a mechanism, internal channel, thermal path, current path, RF cavity, cleaning path, build constraint, or process window.
 - Data visual: a comparison, decision matrix, acceptance zone, or measurable trade-off.
 
-Choose image count by article length and actual need:
+Placement rules:
 
-- Under 1200 words: 1 to 2 images.
-- 1200 to 2500 words: 2 to 4 images.
-- Over 2500 words: 3 to 5 images.
+- Evidence visual goes immediately after the failure, success, or part scenario it proves.
+- Explanation visual goes after the paragraph that introduces the complex mechanism.
+- Data visual goes after the table, comparison, or quantitative claim it supports.
 
-Do not place images in the same percentage position in every article. Insert each image where it helps: after the failure or success it proves, after the concept it explains, or after the table/comparison it supports.
+Image count:
 
-Every generated article image prompt should include:
+- Under 1200 words: 1 to 2 visuals.
+- 1200 to 2500 words: 2 to 4 visuals.
+- Over 2500 words: 3 to 5 visuals.
+
+Do not place visuals at the same percentage position in every article. Place them where they earn their space.
+
+### 4. Build Every Prompt From The Same Engineering Checklist
+
+Every generated article image prompt must define:
 
 - Subject and engineering action.
-- Camera or view: macro, tilt-shift overview, isometric, cross-section, or product cutout.
-- Composition: rule of thirds, knolling, symmetry, cross-section, exploded view, or compact hero cluster.
-- Lighting: clean industrial product lighting, controlled reflections, readable geometry.
-- Material physics: copper or CuCrZr tone, LPBF texture, machined faces, sealing lands, threads, ports, channels, tool marks, rough-to-polished contrast.
-- Text policy: avoid baked-in text for hero/product cutouts; allow concise readable labels only when the image is explicitly an article thumbnail, comparison diagram, or technical documentation visual.
+- Camera or view: 100mm macro, 24mm tilt-shift overview, isometric, cross-section, exploded view, or three-quarter product view.
+- Composition: rule of thirds, knolling, symmetry, cross-section, exploded view, compact hero cluster, or side-by-side comparison.
+- Lighting: clean industrial product lighting, controlled reflections, readable geometry, no decorative smoke or theatrical effects.
+- Material physics: copper or CuCrZr tone, LPBF texture, machined faces, sealing lands, datum pads, threads, ports, channels, tool marks, rough-to-polished contrast.
+- Functional plausibility: every port, channel, seal, bolt pattern, contact pad, RF interface, or inspection feature must have an engineering reason.
+- Text policy: no baked-in text for standard product covers or hero images. Allow concise readable labels only for article thumbnails, comparison diagrams, inspection visuals, or technical documentation style images.
 - Render style: photorealistic, premium B2B engineering, physically plausible, not fantasy CGI.
-- Aspect ratio and intended usage.
+- Aspect ratio and intended use.
 - Negative prompt.
 - SEO alt text.
 - Engineering caption.
 
-Use this reusable manifest format when planning article visuals:
+### 5. Camera, Composition, And Ratio Selection
+
+Use the view that matches the visual role:
+
+- 100mm macro: defects, porosity, surface roughness, seal faces, threads, contact pads, small inspection evidence.
+- 24mm tilt-shift overview: machine setup, inspection bench, RFQ review desk, process route overview.
+- Isometric: exploded views, cross-sections, internal channels, comparison diagrams.
+- Three-quarter product view: blog cover images, application overviews, product clusters.
+- Cross-section: internal channels, cooling paths, regenerative passages, wall thickness, blocked powder routes.
+
+Composition:
+
+- Rule of thirds: natural editorial product scene.
+- Knolling: organized component display or RFQ package.
+- Symmetry: balanced comparison or inspection view.
+- Cross-section: internal structure explanation.
+- Compact hero cluster: broad capability or application family cover.
+
+Aspect ratio:
+
+- 16:9: default article cover and wide engineering scene.
+- 3:2: tighter process or inspection scene.
+- 1:1: thumbnail or compact component cluster.
+- Transparent PNG/WebP cutout: hero product subject only, with real alpha or verified clean background removal.
+
+### 6. Copper AM Prompt Requirements
+
+For `copper3dp.com`, prompts should make the copper AM value obvious:
+
+- AI accelerator and server cooling: cold plates, microchannels, manifolds, sealing faces, O-ring grooves, leak/pressure/flow inspection context.
+- Data center power and cooling: busbars, liquid-cooled conductors, manifolds, contact pads, insulation and mounting constraints.
+- RF and vacuum hardware: waveguides, cavities, flanges, sealing surfaces, conductive internal geometry, leak and cleaning logic.
+- Semiconductor equipment: cold plates, RF/vacuum copper parts, high-current conductors, clean interfaces, precision datums, cleanliness and leak-test context.
+- High heat flux parts: heat sinks, regenerative cooling channels, lattice heat exchangers, CuCrZr or pure copper material choices.
+- RFQ process visuals: CAD, drawings, quantity and inspection notes, but only when they support the inquiry logic.
+
+Avoid images that could apply to any generic 3D printing site. A good image should immediately read as copper AM hardware for thermal, electrical, RF, vacuum, or fluid-system use.
+
+### 7. Reusable Visual Manifest Format
+
+Use this format when planning article visuals:
 
 ```text
 --- VISUAL MANIFEST (COPY TO AI) ---
 
 [Figure X]
 Subject:
-[One sentence describing the engineering scene or object.]
+[One sentence describing the engineering scene, mechanism, comparison, or object.]
 
 Prompt:
-[Subject/Action]: A photorealistic [view type] of [specific copper AM subject], showing [functional geometry, interfaces, channels, ports, inspection points, or failure evidence].
-[Camera/Lens]: [100mm macro / 24mm tilt-shift / isometric / three-quarter product view], deep focus, sharp readable details.
-[Composition]: [rule of thirds / knolling / symmetry / cross-section / exploded view / compact hero cluster], with the engineering feature as the visual priority.
-[Lighting]: Clean industrial product lighting, controlled softbox reflections, crisp edge highlights, no dramatic smoke or decorative effects.
-[Material Physics]: Realistic copper or CuCrZr, warm red-orange metallic tone, visible LPBF micro-pitted texture on as-built surfaces, CNC-machined sealing faces and datum pads, realistic threads, bolt holes, internal channels, and functional ports.
-[Text Rendering]: [No text / concise readable technical labels only if needed].
-[Render Style]: Ultra-realistic industrial product photography or high-end PBR render, 8k detail, premium B2B engineering website quality.
+[Subject/Action]: A photorealistic [view type] of [specific copper AM subject], showing [functional geometry, interfaces, channels, ports, inspection points, failure evidence, or trade-off].
+[Camera/Lens]: [100mm macro / 24mm tilt-shift / isometric / cross-section / three-quarter product view], deep focus, sharp readable details.
+[Composition]: [rule of thirds / knolling / symmetry / cross-section / exploded view / compact hero cluster / side-by-side comparison], with the engineering feature as the visual priority.
+[Lighting]: Clean industrial product lighting, controlled softbox reflections, crisp copper edge highlights, no dramatic smoke, no sparks, no decorative effects.
+[Material Physics]: Realistic pure copper or CuCrZr, warm red-orange metallic tone, visible LPBF micro-pitted texture on as-built surfaces, CNC-machined sealing faces and datum pads, realistic threads, bolt holes, internal channels, contact pads, and functional ports.
+[Functional Plausibility]: Every visible channel, port, seal, bolt pattern, RF interface, contact pad, or inspection feature must connect to a believable engineering purpose.
+[Text Rendering]: [No text / concise readable technical labels only if this is a diagram or inspection visual].
+[Render Style]: Ultra-realistic industrial product photography or high-end PBR render, 8k detail, premium B2B engineering website quality, physically plausible.
 Aspect Ratio: [16:9 / 3:2 / 1:1 / transparent PNG cutout].
-Negative Prompt: text artifacts, watermark, logo, fake checkerboard, generic factory, stock photo, decorative copper objects, fantasy machinery, impossible channels, disconnected ports, gold, brass, bronze, plastic, rust, patina, dirty surfaces, blurry render, shallow depth of field, cartoon, anime, low-poly, excessive bloom, lens flare, large empty margins, mismatched page topic.
+Negative Prompt: text artifacts, watermark, logo, fake checkerboard, generic factory, stock photo, decorative copper objects, fantasy machinery, impossible channels, disconnected ports, random holes, gold, brass, bronze, plastic, rust, patina, dirty surfaces, blurry render, shallow depth of field hiding details, cartoon, anime, low-poly, excessive bloom, lens flare, large empty margins, mismatched page topic.
 Alt Text: [Search-friendly alt text tied to the article keyword and visible engineering subject.]
 Caption: [Short engineering caption explaining what decision or requirement the image supports.]
 ```
 
-For `copper3dp.com`, prefer prompts that show copper AM value clearly:
+### 8. Storage And Reuse Rules
 
-- AI accelerator and server cooling: cold plates, microchannels, manifolds, sealing faces, O-ring grooves, leak/pressure/flow inspection context.
-- Data center power and cooling: busbars, liquid-cooled conductors, manifolds, contact pads, insulation and mounting constraints.
-- RF and vacuum hardware: waveguides, cavities, flanges, sealing surfaces, conductive internal geometry.
-- High heat flux parts: heat sinks, regenerative cooling channels, lattice heat exchangers, CuCrZr or pure copper material choices.
-- RFQ process visuals: CAD, drawings, quantity and inspection notes, but only when they support the article's inquiry logic.
+Do not reuse existing article images for new SEO posts unless the same image is uniquely correct for that exact topic.
 
-Do not reuse existing article images for new SEO posts unless the same image is uniquely correct for that exact topic. New articles should normally receive new topic-specific images stored under `src/assets/images/generated/`, optimized to a practical WebP size before commit.
+New SEO articles should normally receive new topic-specific images stored under:
+
+```text
+src/assets/images/generated/
+```
+
+Use descriptive kebab-case filenames, for example:
+
+```text
+semiconductor-copper-am-rfq-cover.webp
+```
+
+Optimize to a practical WebP size before commit. Build output should be checked for responsive variants and file size.
+
+### 9. Example For The Latest Article
+
+Article:
+
+```text
+Copper AM Parts for Semiconductor Equipment
+```
+
+Recommended visual role:
+
+```text
+Evidence + explanation visual.
+```
+
+Reason:
+
+```text
+The article connects semiconductor thermal management, RF/vacuum copper hardware, high-current conductors, cleanliness, leak testing, and precision interfaces. A single wide cover should show a credible group of semiconductor equipment copper AM parts rather than a generic copper object.
+```
+
+Copy-ready prompt:
+
+```text
+--- VISUAL MANIFEST (COPY TO AI) ---
+
+[Figure 1]
+Subject:
+Semiconductor equipment copper AM RFQ review cover image showing functional copper cold plate, RF/vacuum hardware, high-current conductor, and clean precision interfaces.
+
+Prompt:
+[Subject/Action]: A photorealistic three-quarter product view of precision copper LPBF / copper additive manufacturing components for semiconductor equipment, arranged as a cohesive engineering RFQ review scene. Show a copper microchannel cold plate with CNC-machined sealing face, O-ring groove, bolt-hole pattern, threaded inlet and outlet ports, and a small visible internal channel cutaway; a compact copper RF waveguide or cavity part with rectangular ports, flange faces, bolt holes, and polished conductive internal surfaces; a vacuum-compatible copper manifold with clean threaded interfaces and sealing lands; and a high-current copper conductor/contact part with polished contact pads and rounded current-flow transitions.
+[Camera/Lens]: Three-quarter product view with a slight top-down engineering angle, 50-70mm product lens feel, deep focus, all parts sharp and readable.
+[Composition]: Compact hero cluster on a clean dark graphite engineering surface, controlled overlap, strong copper silhouette, the cold plate as the central anchor, RF/vacuum part on one side, high-current conductor in the foreground, enough negative space only around the cluster for a 16:9 article cover.
+[Lighting]: Clean industrial product lighting, large softbox reflections, crisp copper edge highlights, subtle self-shadowing between parts, no dramatic smoke, no sparks, no flames, no decorative effects.
+[Material Physics]: Realistic pure copper and CuCrZr, warm red-orange metallic tone, visible LPBF micro-pitted texture on as-built surfaces, CNC-machined sealing faces, datum pads, contact pads, thread details, bolt holes, internal channels, O-ring groove, and polished RF interface surfaces. Maintain clear contrast between matte printed surfaces and machined functional surfaces.
+[Functional Plausibility]: Every port must align with a believable flow path. Every sealing face, RF flange, contact pad, bolt pattern, thread, and channel must have a practical engineering purpose. Avoid random decorative channels, impossible holes, disconnected interfaces, and nonfunctional geometry.
+[Text Rendering]: No text, no labels, no annotations, no logo, no watermark.
+[Render Style]: Ultra-realistic industrial product photography or high-end PBR render, 8k detail, premium B2B engineering website quality, physically plausible, serious semiconductor equipment tone.
+Aspect Ratio: 16:9.
+Negative Prompt: text, letters, numbers, labels, callouts, arrows, logo, watermark, fake UI, fake transparent checkerboard, generic factory background, stock photo, human, hands, tools dominating the scene, ordinary plumbing fittings, household pipes, decorative copper objects, jewelry, brass, gold, bronze, orange plastic, steampunk, fantasy machinery, weapons, missiles, impossible geometry, disconnected channels, random holes, broken fins, dirty rust, green patina, heavy oxidation, soot, oil stains, blurry render, shallow depth of field hiding details, cartoon, anime, low-poly, noisy render, excessive bloom, lens flare, large empty margins, subject too small, mismatched page topic.
+Alt Text: Copper AM parts for semiconductor equipment including cold plate, RF vacuum component, manifold, and high-current conductor.
+Caption: Semiconductor copper AM RFQs should separate thermal, RF/vacuum, electrical, cleanliness, and inspection requirements before quotation.
+```
 
 ## Google Tracking
 
