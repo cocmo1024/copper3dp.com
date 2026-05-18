@@ -26,7 +26,7 @@ const categoryHref = post.category
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
     <header class={post.image ? 'intersect-once intersect-quarter' : 'intersect-once intersect-quarter'}>
-      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
+      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-6 sm:px-6 sm:items-center">
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 text-muted" />
           <time datetime={post.publishDate.toISOString()} class="inline-block"
@@ -63,11 +63,11 @@ const categoryHref = post.category
       </div>
 
       <h1
-        class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        class="px-6 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
       >
         {post.title}
       </h1>
-      <p class="max-w-3xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted text-justify">
+      <p class="max-w-3xl mx-auto mt-4 mb-8 px-6 sm:px-6 text-xl md:text-2xl text-muted text-justify">
         {post.excerpt}
       </p>
 
@@ -87,7 +87,7 @@ const categoryHref = post.category
             />
           </div>
         ) : (
-          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+          <div class="max-w-3xl mx-auto px-6 sm:px-6">
             <div class="border-t border-page-border" />
           </div>
         )
