@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 import Image from '~/components/common/Image.astro';
+import CopperAmEquipmentCta from '~/components/blog/CopperAmEquipmentCta.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
 
@@ -102,5 +103,6 @@ const categoryHref = post.category
       <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-muted" />
     </div>
+    <CopperAmEquipmentCta />
   </article>
 </section>
