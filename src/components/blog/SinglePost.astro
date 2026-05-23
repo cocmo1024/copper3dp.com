@@ -22,12 +22,13 @@ const categoryHref = post.category
     ? getBlogPermalink()
     : getPermalink(post.category.slug, 'category')
   : '';
+const articleContainerClass = 'mx-auto max-w-5xl px-4 md:px-6';
 ---
 
-<section class="py-8 sm:py-16 lg:py-20 mx-auto">
+<section class="mx-auto py-8 sm:py-16 lg:py-20">
   <article>
     <header class={post.image ? 'intersect-once intersect-quarter' : 'intersect-once intersect-quarter'}>
-      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-6 sm:px-6 sm:items-center">
+      <div class:list={[articleContainerClass, 'mt-0 mb-2 flex flex-col justify-between sm:flex-row sm:items-center']}>
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 text-muted" />
           <time datetime={post.publishDate.toISOString()} class="inline-block"
@@ -64,42 +65,48 @@ const categoryHref = post.category
       </div>
 
       <h1
-        class="px-6 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        class:list={[
+          articleContainerClass,
+          'text-4xl font-bold leading-tighter tracking-tighter font-heading md:text-5xl',
+        ]}
       >
         {post.title}
       </h1>
-      <p class="max-w-3xl mx-auto mt-4 mb-8 px-6 sm:px-6 text-xl md:text-2xl text-muted text-justify">
+      <p class:list={[articleContainerClass, 'mt-4 mb-8 text-xl text-muted text-justify md:text-2xl']}>
         {post.excerpt}
       </p>
 
       {
         post.image ? (
-          <div class="max-w-3xl mx-auto px-6 sm:px-6">
+          <div class={articleContainerClass}>
             <Image
               src={post.image}
               class="w-full mb-6 rounded-md bg-surface-raised"
-              widths={[400, 720, 1024]}
-              sizes="(max-width: 768px) calc(100vw - 3rem), 720px"
+              widths={[400, 720, 1024, 1280]}
+              sizes="(max-width: 768px) calc(100vw - 2rem), 976px"
               alt={post.title}
-              width={1024}
-              height={576}
+              width={1280}
+              height={720}
               loading="eager"
               decoding="async"
             />
           </div>
         ) : (
-          <div class="max-w-3xl mx-auto px-6 sm:px-6">
+          <div class={articleContainerClass}>
             <div class="border-t border-page-border" />
           </div>
         )
       }
     </header>
     <div
-      class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-heading prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-link prose-img:rounded-md prose-img:border prose-img:border-page-border prose-img:shadow-none mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0"
+      class:list={[
+        articleContainerClass,
+        'prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-heading prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-link prose-img:rounded-md prose-img:border prose-img:border-page-border prose-img:shadow-none mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0',
+      ]}
     >
       <slot />
     </div>
-    <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
+    <div class:list={[articleContainerClass, 'mt-8 flex flex-col justify-between sm:flex-row']}>
       <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-muted" />
     </div>
