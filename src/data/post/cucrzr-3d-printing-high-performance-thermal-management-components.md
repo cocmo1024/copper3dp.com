@@ -174,7 +174,7 @@ The shortest version is this:
 - Review CuCr1Zr as a supplier-specific or standard-specific route when the project requires that alloy naming, data sheet, or qualification path.
 - Do not choose an alloy by keyword alone. Choose it by service condition and acceptance criteria.
 
-For a more direct material comparison, see [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/). For material availability and project framing, the [copper 3D printing materials page](/materials/) gives the site-level overview.
+For a more direct material comparison, see [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/). For material availability and project framing, the [copper 3D printing materials page](/materials/) gives the site-level overview.
 
 ## RFQ Inputs for CuCrZr Thermal Components
 
