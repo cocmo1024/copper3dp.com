@@ -55,6 +55,11 @@ const coreLinks: LinkItem[] = [
     description: 'Compare LPBF, CNC machining, brazing, and hybrid manufacturing routes before locking the design.',
   },
   {
+    href: '/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/',
+    title: 'When copper 3D printing beats CNC',
+    description: 'Use this route gate when CNC tool access, joints, channels, or assembly risk drive the decision.',
+  },
+  {
     href: '/posts/EngineeringGuide/copper-additive-manufacturing-components-2026/',
     title: 'Copper 3D printed components in production',
     description:
@@ -484,7 +489,7 @@ const relatedSourceLinks = matchedGroups.length
   ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
   : [...priorityBridgeLinks, ...fallbackLinks];
 const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 10);
-const decisionLinks = uniqueLinks(coreLinks).slice(0, 5);
+const decisionLinks = uniqueLinks(coreLinks).slice(0, 6);
 const actionLinks = uniqueLinks(nextStepLinks);
 ---
 
