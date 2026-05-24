@@ -1,0 +1,550 @@
+---
+import type { Post } from '~/types';
+
+export interface Props {
+  post: Post;
+}
+
+type LinkItem = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+type LinkGroup = {
+  title: string;
+  matches: string[];
+  links: LinkItem[];
+};
+
+const { post } = Astro.props;
+
+const normalizePath = (href: string) => {
+  const path = href.split('#')[0].split('?')[0];
+  if (path === '/') return path;
+  return path.endsWith('/') ? path : `${path}/`;
+};
+
+const postPath = normalizePath(`/${post.permalink}/`);
+const tagTokens = (post.tags || []).flatMap((tag) => [tag.slug, tag.title]);
+const haystack = [post.slug, post.title, post.excerpt, post.category?.slug, post.category?.title, ...tagTokens]
+  .filter(Boolean)
+  .join(' ')
+  .toLowerCase();
+
+const coreLinks: LinkItem[] = [
+  {
+    href: '/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/',
+    title: 'Copper 3D printed part quotation checklist',
+    description:
+      'Use this when drawings, operating limits, inspection scope, and quote readiness need to be organized.',
+  },
+  {
+    href: '/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/',
+    title: 'Copper LPBF design rules',
+    description: 'Review channel access, supports, machining stock, material route, and validation before quoting.',
+  },
+  {
+    href: '/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/',
+    title: 'Pure Cu vs CuCrZr vs CuCr1Zr',
+    description: 'Compare conductivity, strength, heat treatment, documentation, and finished-component risk.',
+  },
+  {
+    href: '/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/',
+    title: 'Copper AM process selection',
+    description: 'Compare LPBF, CNC machining, brazing, and hybrid manufacturing routes before locking the design.',
+  },
+  {
+    href: '/posts/EngineeringGuide/copper-additive-manufacturing-components-2026/',
+    title: 'Copper 3D printed components in production',
+    description:
+      'Broad production-oriented guide for copper AM applications, acceptance scope, and manufacturing limits.',
+  },
+];
+
+const clusterGroups: LinkGroup[] = [
+  {
+    title: 'Thermal And Liquid Cooling Paths',
+    matches: [
+      'cold',
+      'plate',
+      'plates',
+      'microchannel',
+      'heat exchanger',
+      'thermal',
+      'liquid',
+      'cooling',
+      'server',
+      'ai accelerator',
+    ],
+    links: [
+      {
+        href: '/copper-cold-plates/',
+        title: 'Copper cold plate RFQ page',
+        description: 'Fixed page for cold plate fit, inputs, pressure data, and inspection expectations.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-3d-printing-microchannel-cold-plates-thermal-management/',
+        title: 'Microchannel cold plates in thermal management',
+        description: 'Start here when the value comes from compact channels, manifolds, and thermal density.',
+      },
+      {
+        href: '/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/',
+        title: 'Liquid cooling plate design with copper AM',
+        description: 'Review how routing, channel integration, and machining scope change the design.',
+      },
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/',
+        title: '3D printed copper heat exchanger limits',
+        description: 'Review where additive geometry helps and where cleaning, walls, and finishing create limits.',
+      },
+      {
+        href: '/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/',
+        title: 'RFQ checklist for custom copper cold plates',
+        description: 'Use this when coolant, pressure, channels, flatness, and inspection requirements must be quoted.',
+      },
+      {
+        href: '/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/',
+        title: 'CT and leak test criteria for copper cold plates',
+        description: 'Use this when pressure boundaries, internal channels, and acceptance tests matter.',
+      },
+      {
+        href: '/posts/EngineeringGuide/monolithic-vs-brazed-copper-cold-plates/',
+        title: 'Monolithic vs brazed copper cold plates',
+        description: 'Compare one-piece copper AM routes with brazed assemblies, leak risk, and validation scope.',
+      },
+    ],
+  },
+  {
+    title: 'Server, Data Center, And Power Electronics',
+    matches: [
+      'server',
+      'data center',
+      'ai accelerator',
+      'power electronics',
+      'power module',
+      'thermal',
+      'cooling',
+      'liquid-cooled',
+      'liquid cooled',
+      'battery',
+    ],
+    links: [
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-cold-plates-ai-accelerators/',
+        title: '3D printed copper cold plates for AI accelerators',
+        description: 'Review compact cooling, microchannels, heat flux, and validation for accelerator hardware.',
+      },
+      {
+        href: '/posts/EngineeringGuide/data-center-copper-busbars-cooling-manifolds/',
+        title: 'Data center copper busbars and cooling manifolds',
+        description: 'Review combined current delivery, liquid cooling, packaging, and quote inputs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/',
+        title: 'Liquid-cooled server copper hardware',
+        description: 'Use this for server cooling, high-current hardware, manifolds, and validation planning.',
+      },
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        title: 'Copper busbars and induction coils RFQ guide',
+        description: 'Prepare current, duty cycle, contact, cooling, and insulation requirements for review.',
+      },
+    ],
+  },
+  {
+    title: 'Heat Sink And Air-Cooled Hardware',
+    matches: ['heat sink', 'heat sinks', 'fin', 'fins', 'airflow', 'interface', 'thermal performance'],
+    links: [
+      {
+        href: '/copper-heat-sinks/',
+        title: 'Copper heat sink RFQ page',
+        description: 'Fixed page for heat sink applications, geometry fit, and quotation inputs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/',
+        title: '3D printed copper heat sink feasibility',
+        description: 'Evaluate when AM makes sense for fins, pins, airflow paths, and compact thermal hardware.',
+      },
+      {
+        href: '/posts/EngineeringGuide/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/',
+        title: 'Copper heat sink fin thickness and spacing',
+        description: 'Review manufacturable fin geometry before relying on thermal simulation results.',
+      },
+      {
+        href: '/posts/EngineeringGuide/rfq-specification-copper-heat-sinks/',
+        title: 'RFQ specification for custom copper heat sinks',
+        description: 'Convert heat load, airflow, interface, and validation needs into quotable inputs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/cnc-vs-3d-printed-copper-heat-sinks/',
+        title: 'CNC vs 3D printed copper heat sinks',
+        description: 'Compare manufacturability, feature density, cost drivers, and thermal design freedom.',
+      },
+      {
+        href: '/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/',
+        title: 'Pure copper vs CuCrZr heat sinks',
+        description: 'Review material trade-offs for heat sinks where conductivity and mechanical stability interact.',
+      },
+      {
+        href: '/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/',
+        title: 'Copper heat sink interface failures',
+        description: 'Review flatness, roughness, contact pressure, and mounting risks before acceptance testing.',
+      },
+      {
+        href: '/posts/EngineeringGuide/underperformance-copper-heat-sinks/',
+        title: 'Why copper heat sinks underperform',
+        description: 'Check airflow, mounting, interface resistance, geometry limits, and validation mistakes.',
+      },
+      {
+        href: '/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/',
+        title: 'Copper heat sink thermal test methods',
+        description: 'Use this when thermal performance needs fixture, interface, and test-condition clarity.',
+      },
+    ],
+  },
+  {
+    title: 'Material And Heat Treatment Decisions',
+    matches: ['material', 'materials', 'pure copper', 'pure cu', 'cucrzr', 'cucr1zr', 'alloy', 'heat treatment'],
+    links: [
+      {
+        href: '/materials/',
+        title: 'Copper AM materials overview',
+        description: 'Site-level overview for pure copper, CuCrZr, and high-temperature copper alloy review.',
+      },
+      {
+        href: '/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/',
+        title: 'Pure copper vs CuCrZr for heat transfer parts',
+        description: 'Compare the finished thermal component, not only the nominal conductivity number.',
+      },
+      {
+        href: '/posts/EngineeringGuide/cucrzr-3d-printing-high-performance-thermal-management-components/',
+        title: 'CuCrZr 3D printing for thermal components',
+        description: 'Use this when strength, threads, pressure, and heat treatment affect the thermal result.',
+      },
+      {
+        href: '/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/',
+        title: 'Pure copper vs CuCrZr heat sinks',
+        description: 'Review material trade-offs for heat sinks where conductivity and mechanical stability interact.',
+      },
+    ],
+  },
+  {
+    title: 'Inspection, Cleaning, And Finishing',
+    matches: [
+      'inspection',
+      'quality',
+      'ct',
+      'leak',
+      'pressure',
+      'post-processing',
+      'plating',
+      'surface',
+      'powder',
+      'cleaning',
+      'channels',
+    ],
+    links: [
+      {
+        href: '/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/',
+        title: 'Powder removal in copper internal channels',
+        description: 'Review channel access, flushing, drying, trapped powder, and inspection strategy.',
+      },
+      {
+        href: '/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/',
+        title: 'Plating and finishing copper AM parts',
+        description: 'Plan machining, polishing, plating, surface finish, and acceptance scope before pricing.',
+      },
+      {
+        href: '/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/',
+        title: 'Copper heat sink thermal test methods',
+        description: 'Use this when thermal performance needs fixture, interface, and test-condition clarity.',
+      },
+      {
+        href: '/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/',
+        title: 'Copper heat sink interface failures',
+        description: 'Review flatness, roughness, contact pressure, and mounting risks before acceptance testing.',
+      },
+    ],
+  },
+  {
+    title: 'Electrical, Power, And Conductive Parts',
+    matches: [
+      'busbar',
+      'busbars',
+      'induction',
+      'coil',
+      'coils',
+      'electrical',
+      'current',
+      'conductive',
+      'conductivity',
+      'power',
+      'electrode',
+      'rfq',
+      'quotation',
+    ],
+    links: [
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        title: 'Copper busbars and induction coils RFQ guide',
+        description: 'Prepare current, duty cycle, contact, cooling, and insulation requirements for review.',
+      },
+      {
+        href: '/posts/EngineeringGuide/data-center-copper-busbars-cooling-manifolds/',
+        title: 'Data center copper busbars and cooling manifolds',
+        description: 'Review combined current delivery, liquid cooling, packaging, and quote inputs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/',
+        title: 'Liquid-cooled server copper hardware',
+        description: 'Use this for server cooling, high-current hardware, manifolds, and validation planning.',
+      },
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/',
+        title: '3D printed copper high-voltage electrodes',
+        description: 'Review feasibility, surface quality, wear, accuracy, and acceptance requirements.',
+      },
+      {
+        href: '/posts/EngineeringGuide/wear-accuracy-failures-3d-printed-copper-edm-electrodes/',
+        title: '3D printed copper EDM electrode failures',
+        description: 'Review wear, accuracy, surface condition, and acceptance risks for copper electrode projects.',
+      },
+    ],
+  },
+  {
+    title: 'RF, Vacuum, And Semiconductor Hardware',
+    matches: ['rf', 'waveguide', 'vacuum', 'semiconductor', 'wafer', 'high-frequency', 'microwave'],
+    links: [
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/',
+        title: '3D printed copper RF waveguide and vacuum parts',
+        description: 'Review RF geometry, surface finish, sealing, cleaning, and inspection risk.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/',
+        title: 'Copper AM parts for semiconductor equipment',
+        description: 'Use this for thermal, RF/vacuum, high-current, cleanliness, and precision interface RFQs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/',
+        title: '3D printed copper microchannel heat exchangers',
+        description: 'Review compact heat exchange routes where internal geometry and validation control the quote.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/',
+        title: 'Copper AM conformal cooling mold inserts',
+        description: 'Review conformal cooling, tooling interfaces, finishing, and process-selection trade-offs.',
+      },
+    ],
+  },
+];
+
+const fallbackLinks: LinkItem[] = [
+  {
+    href: '/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/',
+    title: '3D printed copper heat exchangers',
+    description: 'Review where copper AM helps and where channels, cleaning, or finishing create limits.',
+  },
+  {
+    href: '/posts/EngineeringGuide/copper-additive-manufacturing-components-2026/',
+    title: 'Copper 3D printed components in production',
+    description: 'Broad production-oriented guide for copper AM applications and manufacturing boundaries.',
+  },
+  {
+    href: '/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/',
+    title: 'Copper 3D printing service RFQ guide',
+    description: 'Use this broad service guide when the part type is still being scoped.',
+  },
+];
+
+const nextStepLinks: LinkItem[] = [
+  {
+    href: '/rfq/',
+    title: 'Prepare RFQ inputs',
+    description: 'Send CAD, drawing, quantity, material preference, operating limits, and inspection needs.',
+  },
+  {
+    href: '/contact/',
+    title: 'Contact COPPER 3DP',
+    description: 'Use the email-first contact route when drawings and requirements are ready.',
+  },
+];
+
+const hasAny = (terms: string[]) => terms.some((term) => haystack.includes(term));
+const priorityBridgeLinks: LinkItem[] = [];
+
+if (hasAny(['cold', 'plate', 'microchannel', 'liquid', 'cooling', 'heat exchanger'])) {
+  priorityBridgeLinks.push(
+    {
+      href: '/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/',
+      title: 'RFQ checklist for custom copper cold plates',
+      description: 'Use this when coolant, pressure, channels, flatness, and inspection requirements must be quoted.',
+    },
+    {
+      href: '/posts/EngineeringGuide/monolithic-vs-brazed-copper-cold-plates/',
+      title: 'Monolithic vs brazed copper cold plates',
+      description: 'Compare one-piece copper AM routes with brazed assemblies, leak risk, and validation scope.',
+    },
+    {
+      href: '/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/',
+      title: 'CT and leak test criteria for copper cold plates',
+      description: 'Use this when pressure boundaries, internal channels, and acceptance tests matter.',
+    }
+  );
+}
+
+if (hasAny(['heat sink', 'heat sinks', 'fin', 'fins', 'airflow', 'interface', 'thermal performance'])) {
+  priorityBridgeLinks.push(
+    {
+      href: '/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/',
+      title: 'Pure copper vs CuCrZr heat sinks',
+      description: 'Review material trade-offs for heat sinks where conductivity and mechanical stability interact.',
+    },
+    {
+      href: '/posts/EngineeringGuide/rfq-specification-copper-heat-sinks/',
+      title: 'RFQ specification for custom copper heat sinks',
+      description: 'Convert heat load, airflow, interface, and validation needs into quotable inputs.',
+    },
+    {
+      href: '/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/',
+      title: 'Copper heat sink interface failures',
+      description: 'Review flatness, roughness, contact pressure, and mounting risks before acceptance testing.',
+    }
+  );
+}
+
+if (hasAny(['busbar', 'induction', 'coil', 'electrical', 'current', 'conductive', 'power', 'electrode'])) {
+  priorityBridgeLinks.push(
+    {
+      href: '/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/',
+      title: '3D printed copper high-voltage electrodes',
+      description: 'Review feasibility, surface quality, wear, accuracy, and acceptance requirements.',
+    },
+    {
+      href: '/posts/EngineeringGuide/wear-accuracy-failures-3d-printed-copper-edm-electrodes/',
+      title: '3D printed copper EDM electrode failures',
+      description: 'Review wear, accuracy, surface condition, and acceptance risks for copper electrode projects.',
+    }
+  );
+}
+
+if (hasAny(['rfq', 'quotation', 'failure', 'wear', 'accuracy', 'surface', 'inspection', 'plating'])) {
+  priorityBridgeLinks.push(
+    {
+      href: '/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/',
+      title: 'RFQ checklist for custom copper cold plates',
+      description: 'Use this when coolant, pressure, channels, flatness, and inspection requirements must be quoted.',
+    },
+    {
+      href: '/posts/EngineeringGuide/rfq-specification-copper-heat-sinks/',
+      title: 'RFQ specification for custom copper heat sinks',
+      description: 'Convert heat load, airflow, interface, and validation needs into quotable inputs.',
+    },
+    {
+      href: '/posts/EngineeringGuide/wear-accuracy-failures-3d-printed-copper-edm-electrodes/',
+      title: '3D printed copper EDM electrode failures',
+      description: 'Review wear, accuracy, surface condition, and acceptance risks for copper electrode projects.',
+    }
+  );
+}
+
+const isSelf = (link: LinkItem) => normalizePath(link.href) === postPath;
+const interleaveLinks = (groups: LinkGroup[], maxRounds = 4) => {
+  const links: LinkItem[] = [];
+
+  for (let index = 0; index < maxRounds; index += 1) {
+    let found = false;
+
+    groups.forEach((group) => {
+      const link = group.links[index];
+      if (link) {
+        links.push(link);
+        found = true;
+      }
+    });
+
+    if (!found) break;
+  }
+
+  return links;
+};
+const uniqueLinks = (links: LinkItem[]) => {
+  const seen = new Set<string>();
+  return links.filter((link) => {
+    const key = normalizePath(link.href);
+    if (seen.has(key) || isSelf(link)) return false;
+    seen.add(key);
+    return true;
+  });
+};
+
+const matchedGroups = clusterGroups.filter((group) => group.matches.some((term) => haystack.includes(term)));
+const relatedSourceLinks = matchedGroups.length
+  ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
+  : [...priorityBridgeLinks, ...fallbackLinks];
+const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 10);
+const decisionLinks = uniqueLinks(coreLinks).slice(0, 5);
+const actionLinks = uniqueLinks(nextStepLinks);
+---
+
+<section class="mx-auto mt-10 max-w-5xl px-4 md:px-6" aria-label="Engineering guide internal pathways">
+  <div class="border-y border-page-border py-8">
+    <div class="mb-6 max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-primary">Engineering Pathways</p>
+      <h2 class="mt-2 font-heading text-2xl font-bold leading-tight tracking-tight text-heading">
+        Continue the copper AM review
+      </h2>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-3">
+      <div>
+        <h3 class="font-heading text-lg font-semibold text-heading">Core decision pages</h3>
+        <ul class="mt-4 space-y-4">
+          {
+            decisionLinks.map((link) => (
+              <li>
+                <a class="font-semibold text-link hover:underline" href={link.href}>
+                  {link.title}
+                </a>
+                <p class="mt-1 text-sm leading-6 text-muted">{link.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-lg font-semibold text-heading">Related technical pages</h3>
+        <ul class="mt-4 space-y-4">
+          {
+            relatedLinks.map((link) => (
+              <li>
+                <a class="font-semibold text-link hover:underline" href={link.href}>
+                  {link.title}
+                </a>
+                <p class="mt-1 text-sm leading-6 text-muted">{link.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-lg font-semibold text-heading">RFQ next step</h3>
+        <ul class="mt-4 space-y-4">
+          {
+            actionLinks.map((link) => (
+              <li>
+                <a class="font-semibold text-link hover:underline" href={link.href}>
+                  {link.title}
+                </a>
+                <p class="mt-1 text-sm leading-6 text-muted">{link.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
