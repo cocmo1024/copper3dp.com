@@ -45,6 +45,11 @@ const coreLinks: LinkItem[] = [
     description: 'Review machine time, material route, supports, machining, cleaning, inspection, and RFQ uncertainty.',
   },
   {
+    href: '/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/',
+    title: 'Prepare CAD files for copper AM',
+    description: 'Organize STEP files, drawings, channels, machining stock, material route, and inspection scope.',
+  },
+  {
     href: '/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/',
     title: 'Copper LPBF design rules',
     description: 'Review channel access, supports, machining stock, material route, and validation before quoting.',
@@ -494,7 +499,7 @@ const relatedSourceLinks = matchedGroups.length
   ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
   : [...priorityBridgeLinks, ...fallbackLinks];
 const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 10);
-const decisionLinks = uniqueLinks(coreLinks).slice(0, 7);
+const decisionLinks = uniqueLinks(coreLinks).slice(0, 8);
 const actionLinks = uniqueLinks(nextStepLinks);
 ---
 
