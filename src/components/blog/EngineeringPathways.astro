@@ -55,6 +55,11 @@ const coreLinks: LinkItem[] = [
     description: 'Avoid thin walls, trapped powder, missing stock, weak ports, broad tolerances, and acceptance gaps.',
   },
   {
+    href: '/posts/EngineeringGuide/why-copper-is-difficult-to-3d-print-with-standard-infrared-lasers/',
+    title: 'Why infrared lasers struggle with copper',
+    description: 'Review reflectivity, heat conduction, process-window limits, material route, and validation scope.',
+  },
+  {
     href: '/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/',
     title: 'Copper LPBF design rules',
     description: 'Review channel access, supports, machining stock, material route, and validation before quoting.',
@@ -504,7 +509,7 @@ const relatedSourceLinks = matchedGroups.length
   ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
   : [...priorityBridgeLinks, ...fallbackLinks];
 const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 10);
-const decisionLinks = uniqueLinks(coreLinks).slice(0, 9);
+const decisionLinks = uniqueLinks(coreLinks).slice(0, 10);
 const actionLinks = uniqueLinks(nextStepLinks);
 ---
 
