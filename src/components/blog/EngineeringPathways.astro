@@ -50,6 +50,11 @@ const coreLinks: LinkItem[] = [
     description: 'Organize STEP files, drawings, channels, machining stock, material route, and inspection scope.',
   },
   {
+    href: '/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/',
+    title: 'Copper AM tolerances and dimensional accuracy',
+    description: 'Separate as-built geometry, machined datums, internal channels, inspection, and acceptance tests.',
+  },
+  {
     href: '/posts/EngineeringGuide/common-design-mistakes-in-3d-printed-copper-parts/',
     title: 'Copper AM design mistakes',
     description: 'Avoid thin walls, trapped powder, missing stock, weak ports, broad tolerances, and acceptance gaps.',
@@ -509,7 +514,7 @@ const relatedSourceLinks = matchedGroups.length
   ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
   : [...priorityBridgeLinks, ...fallbackLinks];
 const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 10);
-const decisionLinks = uniqueLinks(coreLinks).slice(0, 10);
+const decisionLinks = uniqueLinks(coreLinks).slice(0, 11);
 const actionLinks = uniqueLinks(nextStepLinks);
 ---
 
