@@ -135,6 +135,11 @@ const clusterGroups: LinkGroup[] = [
         description: 'Review where additive geometry helps and where cleaning, walls, and finishing create limits.',
       },
       {
+        href: '/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/',
+        title: 'Copper AM conformal cooling mold inserts',
+        description: 'Review tooling inserts where internal cooling channels, interfaces, and route choice matter.',
+      },
+      {
         href: '/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/',
         title: 'RFQ checklist for custom copper cold plates',
         description: 'Use this when coolant, pressure, channels, flatness, and inspection requirements must be quoted.',
@@ -164,6 +169,10 @@ const clusterGroups: LinkGroup[] = [
       'liquid-cooled',
       'liquid cooled',
       'battery',
+      'sic',
+      'inverter',
+      'charger',
+      'drive',
     ],
     links: [
       {
@@ -246,6 +255,46 @@ const clusterGroups: LinkGroup[] = [
     ],
   },
   {
+    title: 'Internal Channels, Manifolds, And Fluid Parts',
+    matches: [
+      'manifold',
+      'manifolds',
+      'fluid',
+      'flow',
+      'channel',
+      'channels',
+      'internal',
+      'liquid',
+      'coolant',
+      'leak',
+      'pressure',
+      'server',
+      'data center',
+    ],
+    links: [
+      {
+        href: '/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/',
+        title: 'Powder removal in copper internal channels',
+        description: 'Review channel access, flushing, drying, trapped powder, and inspection strategy.',
+      },
+      {
+        href: '/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/',
+        title: 'Liquid-cooled server copper hardware',
+        description: 'Use this for server cooling, high-current hardware, manifolds, and validation planning.',
+      },
+      {
+        href: '/posts/EngineeringGuide/data-center-copper-busbars-cooling-manifolds/',
+        title: 'Data center copper busbars and cooling manifolds',
+        description: 'Review combined current delivery, liquid cooling, packaging, and quote inputs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/',
+        title: 'CT and leak test criteria for copper cold plates',
+        description: 'Use this when pressure boundaries, internal channels, and acceptance tests matter.',
+      },
+    ],
+  },
+  {
     title: 'Material And Heat Treatment Decisions',
     matches: ['material', 'materials', 'pure copper', 'pure cu', 'cucrzr', 'cucr1zr', 'alloy', 'heat treatment'],
     links: [
@@ -298,6 +347,11 @@ const clusterGroups: LinkGroup[] = [
         description: 'Plan machining, polishing, plating, surface finish, and acceptance scope before pricing.',
       },
       {
+        href: '/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/',
+        title: 'CT and leak test criteria for copper cold plates',
+        description: 'Use this when pressure boundaries, internal channels, and acceptance tests matter.',
+      },
+      {
         href: '/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/',
         title: 'Copper heat sink thermal test methods',
         description: 'Use this when thermal performance needs fixture, interface, and test-condition clarity.',
@@ -306,6 +360,11 @@ const clusterGroups: LinkGroup[] = [
         href: '/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/',
         title: 'Copper heat sink interface failures',
         description: 'Review flatness, roughness, contact pressure, and mounting risks before acceptance testing.',
+      },
+      {
+        href: '/posts/EngineeringGuide/underperformance-copper-heat-sinks/',
+        title: 'Why copper heat sinks underperform',
+        description: 'Check airflow, mounting, interface resistance, geometry limits, and validation mistakes.',
       },
     ],
   },
@@ -356,7 +415,19 @@ const clusterGroups: LinkGroup[] = [
   },
   {
     title: 'RF, Vacuum, And Semiconductor Hardware',
-    matches: ['rf', 'waveguide', 'vacuum', 'semiconductor', 'wafer', 'high-frequency', 'microwave'],
+    matches: [
+      'rf',
+      'waveguide',
+      'vacuum',
+      'semiconductor',
+      'wafer',
+      'clean',
+      'cleanliness',
+      'high-frequency',
+      'microwave',
+      'surface',
+      'plating',
+    ],
     links: [
       {
         href: '/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/',
@@ -377,6 +448,37 @@ const clusterGroups: LinkGroup[] = [
         href: '/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/',
         title: 'Copper AM conformal cooling mold inserts',
         description: 'Review conformal cooling, tooling interfaces, finishing, and process-selection trade-offs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/',
+        title: 'Plating and finishing copper AM parts',
+        description: 'Plan contact pads, RF surfaces, sealing faces, plating, cleaning, and masking before pricing.',
+      },
+    ],
+  },
+  {
+    title: 'Mold, Tooling, And Conformal Cooling',
+    matches: ['mold', 'tooling', 'insert', 'inserts', 'conformal', 'die', 'casting', 'plastic', 'hot spot'],
+    links: [
+      {
+        href: '/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/',
+        title: 'Copper AM conformal cooling mold inserts',
+        description: 'Review conformal cooling, tooling interfaces, finishing, and process-selection trade-offs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/cucrzr-3d-printing-high-performance-thermal-management-components/',
+        title: 'CuCrZr thermal management components',
+        description: 'Use this when strength, threads, pressure, and heat treatment affect the thermal result.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/',
+        title: 'Powder removal in copper internal channels',
+        description: 'Review channel access, flushing, drying, trapped powder, and inspection strategy.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/',
+        title: 'Copper AM process selection',
+        description: 'Compare LPBF, CNC machining, brazing, and hybrid manufacturing routes before locking the design.',
       },
     ],
   },
@@ -525,7 +627,7 @@ const matchedGroups = clusterGroups.filter((group) => group.matches.some((term) 
 const relatedSourceLinks = matchedGroups.length
   ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
   : [...priorityBridgeLinks, ...fallbackLinks];
-const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 10);
+const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 12);
 const decisionLinks = uniqueLinks(coreLinks).slice(0, 11);
 const actionLinks = uniqueLinks(nextStepLinks);
 ---

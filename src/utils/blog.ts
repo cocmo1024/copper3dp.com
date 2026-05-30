@@ -321,6 +321,11 @@ const topicFamilies = [
   ['material', 'materials', 'copper', 'cucrzr', 'pure', 'lpbf'],
   ['process', 'selection', 'cnc', 'brazing', 'skiving', 'manufacturing'],
   ['test', 'inspection', 'failure', 'failures', 'porosity', 'density'],
+  ['semiconductor', 'wafer', 'vacuum', 'cleanliness', 'clean'],
+  ['rf', 'waveguide', 'microwave', 'frequency', 'cavity'],
+  ['server', 'data', 'center', 'liquid', 'cooled', 'manifold', 'manifolds'],
+  ['sic', 'power', 'module', 'modules', 'inverter', 'charger'],
+  ['mold', 'tooling', 'conformal', 'insert', 'inserts'],
 ];
 
 const getPostTokens = (post: Post): Set<string> => {
