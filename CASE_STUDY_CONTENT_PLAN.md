@@ -90,6 +90,15 @@ Avoid:
 29. Copper 3D Printed Thermal Strap Case Study for Precision Heat Transfer
 30. Copper AM Quotation Case Study: How Missing Requirements Delayed Pricing
 
+## Published Case Studies
+
+- 2026-05-31: Copper 3D Printed Cooling Manifold Case Study for Liquid-Cooled AI Servers
+- 2026-05-31: Copper AM Cold Plate Case Study for Dual-GPU AI Accelerator Modules
+
+## Next Daily Direction
+
+After the two AI/liquid-cooling cases, the next incremental case should move to a different buyer intent so the site does not look like duplicate cold plate content. The next highest-value lane is semiconductor equipment cooling, then RF/vacuum hardware, then mold cooling inserts.
+
 ## Internal Link Pattern
 
 Every new case article should link to:
