@@ -94,10 +94,11 @@ Avoid:
 
 - 2026-05-31: Copper 3D Printed Cooling Manifold Case Study for Liquid-Cooled AI Servers
 - 2026-05-31: Copper AM Cold Plate Case Study for Dual-GPU AI Accelerator Modules
+- 2026-06-02: Copper 3D Printed Cooling Block Case Study for Semiconductor Wafer Processing Equipment
 
 ## Next Daily Direction
 
-After the two AI/liquid-cooling cases, the next incremental case should move to a different buyer intent so the site does not look like duplicate cold plate content. The next highest-value lane is semiconductor equipment cooling, then RF/vacuum hardware, then mold cooling inserts.
+After the AI/liquid-cooling cases and the first semiconductor equipment cooling case, the next incremental case should move to RF/vacuum hardware, then mold cooling inserts, then liquid-cooled power distribution. This keeps daily publishing useful without making the site look like repeated cold plate content.
 
 ## Internal Link Pattern
 
