@@ -96,10 +96,11 @@ Avoid:
 - 2026-05-31: Copper AM Cold Plate Case Study for Dual-GPU AI Accelerator Modules
 - 2026-06-02: Copper 3D Printed Cooling Block Case Study for Semiconductor Wafer Processing Equipment
 - 2026-06-06: Copper AM Vacuum Manifold Case Study for RF and Semiconductor Hardware
+- 2026-06-06: CuCrZr Cooling Insert Case Study for Injection Mold Hot Spots
 
 ## Next Daily Direction
 
-After the AI/liquid-cooling cases, the first semiconductor equipment cooling case, and the RF/vacuum manifold case, the next incremental case should move to mold cooling inserts, then liquid-cooled power distribution, then induction coils or laser cooling. This keeps daily publishing useful without making the site look like repeated cold plate content.
+After the AI/liquid-cooling cases, the first semiconductor equipment cooling case, the RF/vacuum manifold case, and the CuCrZr mold insert case, the next incremental case should move to liquid-cooled power distribution, then induction coils or laser cooling. This keeps daily publishing useful without making the site look like repeated cold plate content.
 
 ## Internal Link Pattern
 
