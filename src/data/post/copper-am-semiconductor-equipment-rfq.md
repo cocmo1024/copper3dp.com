@@ -127,6 +127,8 @@ Use inspection only where it matches the failure mode. A prototype may need flow
 
 Material choice should follow the controlling requirement. Pure copper may be reviewed when conductivity dominates and mechanical load is controlled. CuCrZr may be reviewed when strength, thread stability, clamping, or service temperature matters.
 
+If the RFQ asks for pure copper, use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) as the route gate. Semiconductor equipment parts often need conductivity, but they can also need vacuum cleaning, sealing lands, RF surfaces, internal cooling, and documented inspection evidence.
+
 Post-processing may include:
 
 - Stress relief or heat treatment.

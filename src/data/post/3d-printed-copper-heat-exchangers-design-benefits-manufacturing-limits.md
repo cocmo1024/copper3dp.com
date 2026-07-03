@@ -191,7 +191,7 @@ For a 3D printed copper heat exchanger quote, send:
 
 If some values are unknown, state the current assumptions. A basic review can start from CAD and quantity, but a serious heat exchanger quote needs operating and acceptance context.
 
-Related reading: [3D Printed Copper Microchannel Heat Exchangers](/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/), [How Copper Additive Manufacturing Improves Liquid Cooling Plate Design](/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
+Related reading: [3D Printed Copper Microchannel Heat Exchangers](/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/), [How Copper Additive Manufacturing Improves Liquid Cooling Plate Design](/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/). When material choice or finishing controls the quote, also review [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/), [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), and [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/).
 
 ## FAQ
 

@@ -130,6 +130,12 @@ Copper AM may not be the best first route when:
 
 These points should be addressed before the RFQ becomes a price comparison. Additive manufacturing should be selected because it changes the cooling result, not because it sounds advanced.
 
+### Related Tooling and Validation Guides
+
+For a deeper mold example, review the [CuCrZr cooling insert case study for injection mold hot spots](/posts/EngineeringGuide/cucrzr-cooling-insert-case-study-injection-mold-hot-spots/). If the insert is likely to use CuCrZr, pair the RFQ with the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) so hardness, conductivity, and aging condition are not left implicit.
+
+Conformal cooling inserts also depend on [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), [tolerances and dimensional accuracy](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/), and [post-processing methods for 3D printed copper parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). These guides help separate printed cooling geometry from the machined tooling surfaces that control the mold.
+
 ### Practical RFQ Checklist
 
 Send:
@@ -145,4 +151,3 @@ Send:
 9. Pressure, leak, flow, CMM, hardness, conductivity, or CT inspection needs.
 
 Send files to [info@szcomo.com](mailto:info@szcomo.com). If the channel concept is not final, send the current model and the molding problem it is meant to solve. The review can then compare additive manufacturing with conventional machining, drilling, brazing, or redesign.
-

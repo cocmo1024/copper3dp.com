@@ -340,6 +340,12 @@ If none apply, **do not print it**.
 
 ---
 
+### Related Application Paths
+
+Use [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) for busbars, conductors, induction coils, electrodes, and contact surfaces. Use [Copper 3D Printing for Microchannel Cold Plates](/posts/EngineeringGuide/copper-3d-printing-microchannel-cold-plates-thermal-management/) for thermal management parts, [3D Printed Copper RF Waveguide and Vacuum Parts](/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/) for RF or vacuum hardware, and [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/) for clean, thermal, RF/vacuum, and high-current semiconductor applications.
+
+---
+
 #### About Scope and Industry References
 
 Some examples above reference aerospace and defense environments strictly to illustrate **engineering constraints and qualification logic**.

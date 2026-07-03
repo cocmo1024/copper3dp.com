@@ -111,6 +111,8 @@ If the design is high-voltage sensitive, review the separate guide on [3D printe
 
 Pure copper may be preferred for conductivity, but CuCrZr may be useful when strength, threaded features, clamp stability, or temperature exposure matter. The material choice should follow the operating condition, not only the word "copper" on the drawing.
 
+Use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) when the first question is whether pure copper AM is the right route for the conductor, coil, or contact block before comparing alloys.
+
 Post-processing can include:
 
 - Stress relief or heat treatment.
@@ -138,6 +140,12 @@ Use the [materials overview](/materials/) when the alloy is not fixed.
 - Contact faces cannot be machined or plated as required.
 - Internal cooling paths have no cleaning or leak-test plan.
 - Electrical acceptance is undefined.
+
+### Related Electrical and Finishing Guides
+
+For the baseline electrical decision, start with [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) before defining current path, contact resistance, surface finish, and testing. If the buyer is specifically asking for pure copper, review [pure copper 3D printing applications and limits](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) before locking the route. For material review, use [Copper Alloy Selection for Metal 3D Printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) and [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/) when conductivity, strength, and thermal cycling compete. If the conductor uses internal cooling, review [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/) before finalizing channel size and port access.
+
+For functional surfaces, use [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/) to define contact pads, masking, plating, and inspection. High-voltage designs should also be checked against the [3D printed copper high-voltage electrode feasibility guide](/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/).
 
 ### Practical RFQ Email
 

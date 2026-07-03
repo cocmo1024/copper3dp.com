@@ -129,7 +129,7 @@ Post-processing may include:
 - Polishing, plating, coating, or cleaning.
 - Conductivity testing, CMM, pressure testing, leak testing, or flow checks.
 
-Use the [materials overview](/materials/) when the alloy is open, and see the [copper busbars and induction coils RFQ guide](/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/) for more detail on high-current copper hardware.
+Use [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) when current path, contact pads, plating, and testing need to be specified before quote. Use the [materials overview](/materials/) when the alloy is open, see the [copper busbars and induction coils RFQ guide](/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/) for high-current copper hardware, and compare the broader [liquid-cooled server copper hardware RFQ guide](/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/) when the electrical part also carries coolant.
 
 ### What a Strong Data Center Copper RFQ Looks Like
 

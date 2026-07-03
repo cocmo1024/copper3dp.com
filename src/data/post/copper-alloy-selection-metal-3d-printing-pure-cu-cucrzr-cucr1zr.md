@@ -84,6 +84,8 @@ The RFQ should therefore separate the material goal from the component goal:
 
 Those are not always the same decision.
 
+For a deeper route-level review of pure copper itself, use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/). That page focuses on when pure copper is the right first choice, why pure copper LPBF needs a qualified process window, and what evidence buyers should ask for before RFQ.
+
 ## CuCrZr: Use It When Strength Protects the Thermal Result
 
 CuCrZr is usually reviewed when the part must conduct heat or electricity while also carrying mechanical risk.
@@ -293,6 +295,6 @@ Pure Cu is the right first review when conductivity dominates and the part is me
 
 Do not select the alloy by keyword alone. Select it by function, geometry, process window, post-processing, and acceptance criteria. Send CAD, drawings, operating limits, material preference, heat-treatment expectations, critical surfaces, and inspection requirements to [info@szcomo.com](mailto:info@szcomo.com), or use the [RFQ guidance page](/rfq/) to organize the first review.
 
-Related reading: [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/), [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/), and [CuCrZr 3D Printing for High-Performance Thermal Management Components](/posts/EngineeringGuide/cucrzr-3d-printing-high-performance-thermal-management-components/).
+Related reading: [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/), [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/), [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/), and [CuCrZr 3D Printing for High-Performance Thermal Management Components](/posts/EngineeringGuide/cucrzr-3d-printing-high-performance-thermal-management-components/).
 
 > _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

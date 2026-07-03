@@ -130,6 +130,10 @@ Avoid these patterns:
 
 These mistakes do not always make the part impossible. They make the route unclear.
 
+### Related Conductivity and Surface Guides
+
+If the plated area carries current, start with [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) so contact resistance, surface finish, and testing are not treated as cosmetic notes. For upstream route planning, use [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). For RF or vacuum-facing copper hardware, compare the [3D printed copper RF waveguide and vacuum parts guide](/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/).
+
 ### Practical RFQ Checklist
 
 Send:
@@ -145,4 +149,3 @@ Send:
 9. Inspection evidence required for acceptance.
 
 Send files to [info@szcomo.com](mailto:info@szcomo.com). If the plating requirement is still open, send the mating assembly and service condition. The review can then separate geometry, machining, cleaning, plating, and inspection into a route that can actually be quoted.
-

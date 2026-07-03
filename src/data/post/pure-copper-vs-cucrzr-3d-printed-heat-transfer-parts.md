@@ -60,6 +60,8 @@ For pure copper AM, process stability also deserves attention. Copper reflects e
 
 In other words, pure copper is attractive, but it is not a free pass. The RFQ still needs machine capability, powder route, geometry review, and acceptance criteria.
 
+For a broader pure copper route decision across thermal, electrical, RF, and semiconductor parts, use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/). This heat-transfer article compares pure copper and CuCrZr; the broader guide explains when pure copper is worth quoting at all and what evidence should be requested.
+
 ## CuCrZr: When Strength Protects Heat Transfer
 
 CuCrZr deserves review when the part must conduct heat and also remain dimensionally stable after manufacturing, machining, heat treatment, and use.
@@ -176,6 +178,12 @@ Before asking for a quote on pure copper vs CuCrZr heat transfer parts, prepare 
 - Quantity, prototype or production stage, and target lead time.
 
 If the team does not know the correct alloy yet, say so. "Please review pure copper vs CuCrZr" is better than forcing a material that conflicts with the geometry. Send the package to [info@szcomo.com](mailto:info@szcomo.com), or use the [RFQ guidance page](/rfq/) to organize the first review.
+
+## Related Material and Process Decisions
+
+Use the [pure copper 3D printing guide](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) when the buyer needs to decide whether pure copper is an appropriate AM route before comparing alloys. Use the [copper alloy selection guide](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) when the choice includes pure copper, CuCrZr, and CuCr1Zr rather than only two routes. If CuCrZr is selected for strength or thermal cycling stability, the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) explains why property state and inspection evidence should be part of the quote.
+
+For finished heat transfer components, material choice also depends on [surface finish requirements](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), [post-processing scope](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/), and [tolerances in copper metal 3D printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/). These pages help keep the RFQ focused on the usable part, not only the printed alloy.
 
 ## FAQ
 

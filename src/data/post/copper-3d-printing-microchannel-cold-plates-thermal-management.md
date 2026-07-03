@@ -206,6 +206,12 @@ For early-stage microchannel cold plates, we usually recommend:
 
 The tool limit is important: CT can help identify internal blockage or trapped powder risk, but it does not automatically prove thermal performance, leak tightness, or cleanliness. Flow and pressure tests still matter because they test the function directly.
 
+### Related Decision Paths
+
+If this is the first cold plate review, use the broader [liquid cooling plate design guide](/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/) to compare routing, manifolds, and assembly risk before focusing only on microchannels. For larger cores, the [3D printed copper heat exchanger guide](/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/) explains where pressure drop, cleaning, and leakage change the manufacturing route.
+
+For quotation details, pair this page with [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), [CT and leak test criteria for copper cold plates](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/), and the [3D printed copper cold plate RFQ checklist](/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/). Those pages help turn a thermal concept into a quote-ready package.
+
 ### FAQ
 
 <details>

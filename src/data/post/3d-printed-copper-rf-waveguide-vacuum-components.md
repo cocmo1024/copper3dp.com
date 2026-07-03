@@ -95,6 +95,8 @@ See the [microchannel heat exchanger RFQ guide](/posts/EngineeringGuide/3d-print
 
 Pure copper is often considered when electrical or thermal conductivity is the main driver. CuCrZr may be reviewed when strength, thread stability, clamp load, or temperature exposure matters. Material choice should follow the functional requirement, not only the phrase "copper part" on the drawing.
 
+If pure copper is the preferred route, review [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) before quote release. RF and vacuum parts can be conductivity-driven, but pure copper still needs a qualified process route, reachable finishing surfaces, and acceptance evidence.
+
 Post-processing may include:
 
 - Stress relief or heat treatment.
@@ -138,6 +140,12 @@ Review these issues before treating a copper RF or vacuum component as a straigh
 - A simple CNC route would meet the function with less risk.
 
 These points do not mean the part is a poor candidate. They mean the RFQ needs engineering review before a reliable quote.
+
+### Related RF, Vacuum, and Post-Processing Guides
+
+For semiconductor tools, pair this page with [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/) and the [RF vacuum manifold case study](/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/). Those pages show how RF, vacuum, cleanliness, thermal control, and inspection requirements often overlap.
+
+When the material decision is open, use [pure copper 3D printing applications and limits](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) and the [copper alloy selection guide](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) before locking pure copper, CuCrZr, or CuCr1Zr. When surface condition controls performance, review [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/), and [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). If the part includes internal cooling or trapped passages, also review [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
 
 ### Practical RFQ Email
 

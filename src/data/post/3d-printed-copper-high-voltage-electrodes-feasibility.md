@@ -100,6 +100,10 @@ Not recommended when any of the following are true:
 >   - Are the **field-critical surfaces** explicitly defined with a measurable roughness target (Ra) and a minimum edge radius (e.g., **≥1.0 mm** )?
 >     - Can every one of those surfaces be **accessed** for machining/polishing and then verified using IEC-aligned HV withstand + PD measurement (IEC 60060-1 / IEC 60270)? ( [webstore.iec.ch](https://webstore.iec.ch/en/publication/65088) )
 
+### Related Conductivity and Finishing Guides
+
+Before quoting a printed copper electrode, separate bulk conductivity from the finished electrical interface. Use [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) for current path, material state, contact resistance, and testing logic. Use [Copper Alloy Selection for Metal 3D Printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) when pure copper, CuCrZr, or CuCr1Zr may change the feasible route. Then use [Copper AM Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/) when the field-critical surface cannot remain as-built.
+
 ### FAQ: 3D Printed Copper High-Voltage Electrodes
 
 **What is the single biggest failure driver for AM copper HV electrodes?**

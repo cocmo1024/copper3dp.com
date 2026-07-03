@@ -110,6 +110,10 @@ Not recommended when:
 >   - Can you certify conductivity (ASTM B193) and near-surface porosity (microCT or equivalent) for every electrode lot?
 >     - What is the post-processing plan to guarantee **Ra ≤ 1.6 µm** and datum true position **≤ 0.02 mm** after stress relief/plating?
 
+### Related Conductivity and Electrode Guides
+
+For printed copper electrodes, conductivity, porosity, contact quality, and surface finish must be reviewed together. Start with [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) for material state and test planning, then compare [3D Printed Copper High-Voltage Electrodes](/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/) when the failure mode is electric field concentration instead of EDM wear. Use [Copper AM Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/) when machining, plating, or inspection scope controls repeatability.
+
 ### FAQ: 3D Printed Copper EDM Electrode Failures (Wear + Accuracy)
 
 **What is the fastest way to diagnose whether porosity is causing wear instability?**

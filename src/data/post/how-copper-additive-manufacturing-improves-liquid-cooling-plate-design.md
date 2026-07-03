@@ -182,6 +182,12 @@ Avoid forcing copper AM when:
 
 This is not a rejection of AM. It is route discipline. Copper AM is strongest when geometry freedom has a measurable job.
 
+## Related Copper Cooling Guides
+
+Use [microchannel cold plates in thermal management](/posts/EngineeringGuide/copper-3d-printing-microchannel-cold-plates-thermal-management/) when the design is driven by dense channels near a localized heat source. Use [3D printed copper heat exchangers](/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/) when the core behaves more like a distributed exchanger with flow distribution, pressure drop, and cleaning risk.
+
+For RFQ planning, combine this page with [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), [tolerances and dimensional accuracy in copper metal 3D printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/), and [post-processing methods for 3D printed copper parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). Those guides help define finishing, inspection, and acceptance before price comparison.
+
 ## FAQ
 
 <details>
