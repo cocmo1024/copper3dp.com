@@ -110,6 +110,8 @@ That is the hidden cost. If the project chooses CuCrZr because strength and cond
 
 For broader context on CuCrZr thermal parts, see [CuCrZr 3D Printing for High-Performance Thermal Management Components](/posts/EngineeringGuide/cucrzr-3d-printing-high-performance-thermal-management-components/) and [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/).
 
+If the question is no longer a general alloy comparison but a strength-led decision, use [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) to review threads, pressure boundaries, clamp load, thin walls, machining stability, and heat-treated evidence before locking the RFQ route.
+
 ## CuCr1Zr: Use It When the Standard or Supplier Route Matters
 
 CuCr1Zr often appears in RFQs where the buyer is working from a material standard, qualified data sheet, or supplier-specific additive route.

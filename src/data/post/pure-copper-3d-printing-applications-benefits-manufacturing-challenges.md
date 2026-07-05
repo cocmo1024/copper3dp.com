@@ -151,6 +151,8 @@ The important point is not that CuCrZr or CuCr1Zr is always superior. It is that
 
 For the full material gate, use [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) and [Heat Treatment for CuCrZr 3D Printed Components](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/).
 
+If the design already shows strength-driven risks such as threaded ports, clamp-loaded faces, thin pressure walls, repeated assembly, or coupon-based material evidence, review [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) before insisting on pure copper.
+
 ## Application Review By Part Type
 
 ### High-Current Conductors And Busbars

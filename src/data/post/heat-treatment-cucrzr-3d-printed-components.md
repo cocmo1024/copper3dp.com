@@ -70,6 +70,8 @@ Suppliers such as [Eplus3D](https://www.eplus3d.com/products/3d-printing-materia
 
 For material choice before heat treatment, see [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) and [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/).
 
+If the project is still deciding whether CuCrZr is justified at all, start with [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/). That route gate belongs before the detailed aging route because it asks whether threads, pressure, clamp load, thin walls, or repeated assembly are the real acceptance risks.
+
 ## The Heat-Treatment Route Should Follow the Failure Mode
 
 In a real quotation review, "heat treat CuCrZr" branches into at least three routes.

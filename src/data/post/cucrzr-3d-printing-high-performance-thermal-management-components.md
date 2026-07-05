@@ -69,6 +69,8 @@ The value appears when additive manufacturing enables internal geometry and CuCr
 
 For broader cooling-plate design context, see [How Copper Additive Manufacturing Improves Liquid Cooling Plate Design](/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/) and [3D Printed Copper Heat Exchangers: Design Benefits and Manufacturing Limits](/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/). This article is narrower: it focuses on when the CuCrZr alloy route is justified.
 
+If the part is not only a thermal component but also a threaded, pressure-loaded, clamp-loaded, or fatigue-sensitive structure, pair this page with [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/). That guide covers the strength-first route gate before the detailed thermal design review.
+
 ## The Process Window Is Still Copper LPBF
 
 CuCrZr does not make laser powder bed fusion behave like stainless steel.

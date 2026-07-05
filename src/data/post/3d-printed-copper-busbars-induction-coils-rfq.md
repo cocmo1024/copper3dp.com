@@ -113,6 +113,8 @@ Pure copper may be preferred for conductivity, but CuCrZr may be useful when str
 
 Use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) when the first question is whether pure copper AM is the right route for the conductor, coil, or contact block before comparing alloys.
 
+If a busbar, coil, or contact block has clamped pads, threaded terminals, internal cooling channels, pressure boundaries, or repeated assembly requirements, review [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) before locking the material to pure copper. In those projects, a slightly lower-conductivity route can be safer if it protects contact geometry and assembly reliability.
+
 Post-processing can include:
 
 - Stress relief or heat treatment.

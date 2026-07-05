@@ -183,6 +183,8 @@ If the team does not know the correct alloy yet, say so. "Please review pure cop
 
 Use the [pure copper 3D printing guide](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) when the buyer needs to decide whether pure copper is an appropriate AM route before comparing alloys. Use the [copper alloy selection guide](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) when the choice includes pure copper, CuCrZr, and CuCr1Zr rather than only two routes. If CuCrZr is selected for strength or thermal cycling stability, the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) explains why property state and inspection evidence should be part of the quote.
 
+For projects where the material decision is driven less by thermal comparison and more by threads, pressure, clamp load, thin walls, or machining stability, use [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) as the strength-first route gate.
+
 For finished heat transfer components, material choice also depends on [surface finish requirements](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), [post-processing scope](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/), and [tolerances in copper metal 3D printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/). These pages help keep the RFQ focused on the usable part, not only the printed alloy.
 
 ## FAQ
