@@ -36,9 +36,9 @@ References:
 
 ## Publishing Priority Decision
 
-Articles 1-21 are already published in source order and should remain locked in their current order.
+Articles 1-22 are already published in source order and should remain locked in their current order.
 
-The local source now has 52 engineering articles as of 2026-07-05. The strongest cluster is thermal management, especially cold plates, heat exchangers, heat sinks, AI accelerator cooling, SiC power module cooling, and copper AM post-processing. That cluster should keep receiving internal links, but it should not absorb every new article.
+The local source now has 53 engineering articles as of 2026-07-05. The strongest cluster is thermal management, especially cold plates, heat exchangers, heat sinks, AI accelerator cooling, SiC power module cooling, and copper AM post-processing. That cluster should keep receiving internal links, but it should not absorb every new article.
 
 The next content phase should do two things at the same time:
 
@@ -83,9 +83,9 @@ Every new article should help a buyer decide whether to send CAD, drawings, quan
 
 ## Existing Content Audit Summary
 
-Local source inventory as of 2026-07-03:
+Local source inventory as of 2026-07-05:
 
-- 51 engineering posts.
+- 53 engineering posts.
 - Strongest cluster: thermal management, cold plates, heat exchangers, AI/server cooling, SiC power module cooling, and heat sink performance.
 - Strong foundation cluster: RFQ checklist, CAD preparation, cost drivers, LPBF design rules, powder removal, tolerances, surface finish, post-processing, CuCrZr heat treatment.
 - Growing cluster: semiconductor, RF, vacuum, cleaning, leak testing, and precision interfaces.
@@ -290,11 +290,20 @@ New increment:
 - The article is intentionally written as a strength-first route gate rather than a duplicate CuCrZr heat treatment or CuCrZr thermal management page. It covers threaded features, pressure boundaries, clamp load, thin walls, repeated assembly, machining stability, heat-treated material evidence, and RFQ inputs.
 - Backlinks added from alloy selection, pure copper, CuCrZr heat treatment, CuCrZr thermal management, pure copper vs CuCrZr heat transfer, busbar/coil, and conformal cooling mold insert pages.
 
+## 2026-07-05 Incremental Article Sprint - Topic 22
+
+New increment:
+
+- Topic 22 published in source: `CuCr1Zr Copper Alloy 3D Printing for Industrial Components`.
+- New visual asset added: `src/assets/images/generated/cucr1zr-copper-alloy-industrial-components-cover.webp`.
+- The article is intentionally written as a documentation-driven CuCr1Zr material route rather than another CuCrZr strength article or broad alloy comparison. It covers material designation, C18150 / CW106C context, supplier data-sheet expectations, heat-treatment state, accepted equivalents, substitution policy, witness coupons, conductivity and hardness evidence, and RFQ inputs.
+- Backlinks added from alloy selection, pure copper, CuCrZr strength route, heat exchanger limits, infrared-laser difficulty, busbar / induction coil RFQ, materials page, and engineering topic modules.
+
 Next publishing number:
 
-- Topic 22: `CuCr1Zr Copper Alloy 3D Printing for Industrial Components`.
+- Topic 23: `Pure Copper Additive Manufacturing for Conductive Components`.
 
-Topic 22 should not repeat the CuCrZr strength-first route gate or the broad alloy selection guide. It should focus on CuCr1Zr as a specified industrial copper alloy route: naming, standards/data-sheet expectations, documentation, heat-treatment state, supplier qualification, and when a buyer should request CuCr1Zr instead of generic CuCrZr.
+Topic 23 should not repeat the broad pure copper route guide or the general electrical-conductivity hub. It should focus on pure copper additive manufacturing for conductive components: contact pads, current path geometry, connector bodies, electrodes, simple busbar blocks, contact resistance, surface finish, plating, conductivity evidence, and when pure copper is better than CuCrZr or CuCr1Zr.
 
 ## Topic List
 
@@ -403,8 +412,8 @@ Topic 22 should not repeat the CuCrZr strength-first route gate or the broad all
 
 | Priority band                | Topic range | Purpose                                                                                             |
 | ---------------------------- | ----------: | --------------------------------------------------------------------------------------------------- |
-| Published and locked         |        1-21 | Existing live article sequence; do not renumber retrospectively                                     |
-| Copper Alloy / Electrical    |       22-31 | Fill under-covered CuCr1Zr, conductive parts, busbars, connectors, electrodes, and high-current RFQ |
+| Published and locked         |        1-22 | Existing live article sequence; do not renumber retrospectively                                     |
+| Copper Alloy / Electrical    |       23-31 | Fill under-covered conductive parts, busbars, connectors, electrodes, and high-current RFQ          |
 | RF & Microwave               |       32-41 | Build depth for waveguides, RF cavities, microwave filters, surfaces, and housings                  |
 | Semiconductor Equipment      |       42-51 | Capture wafer equipment, chip packaging, lithography, clean equipment, RF/vacuum, and thermal parts |
 | Thermal Management Expansion |       52-68 | Expand only into specific unmet search intent, not duplicate existing cold plate pages              |
@@ -417,9 +426,9 @@ Topic 22 should not repeat the CuCrZr strength-first route gate or the broad all
 
 Future article publishing should follow the new sequence unless a sales lead, paid ads campaign, or time-sensitive keyword gives a specific reason to override it.
 
-When the user says "publish topic 22", use the current reordered topic 22:
+When the user says "publish topic 23", use the current reordered topic 23:
 
-> CuCr1Zr Copper Alloy 3D Printing for Industrial Components
+> Pure Copper Additive Manufacturing for Conductive Components
 
 When publishing any new topic:
 

@@ -39,9 +39,9 @@ const materialShowcases = [
 ];
 
 const metadata = {
-  title: 'Copper AM Materials | Pure Copper & CuCrZr',
+  title: 'Copper AM Materials | Pure Copper, CuCrZr & CuCr1Zr',
   description:
-    'Material selection for LPBF copper AM: pure copper, CuCrZr, and GRCop-42 for thermal, electrical, aerospace, and high-temperature parts.',
+    'Material selection for LPBF copper AM: pure copper, CuCrZr, CuCr1Zr, and GRCop-42 for thermal, electrical, aerospace, and high-temperature parts.',
   openGraph: {
     images: [
       {
@@ -69,6 +69,12 @@ const metadata = {
         url: '/materials/',
       },
       {
+        name: 'CuCr1Zr',
+        description:
+          'Reviewed when the drawing, standard, supplier data sheet, or qualification route requires a documented copper-chromium-zirconium alloy path.',
+        url: '/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/',
+      },
+      {
         name: 'GRCop-42',
         description:
           'Reviewed for high-temperature aerospace and thermal hardware where qualification documentation matters.',
@@ -83,7 +89,7 @@ const metadata = {
   <Hero
     tagline="Materials"
     title="Copper material options for 3D printing"
-    subtitle="If you know the material, send it. If not, send operating requirements so we can discuss pure copper, CuCrZr, or GRCop-42 as needed."
+    subtitle="If you know the material, send it. If not, send operating requirements so we can discuss pure copper, CuCrZr, CuCr1Zr, or GRCop-42 as needed."
     actions={[
       {
         variant: 'primary',
@@ -102,7 +108,7 @@ const metadata = {
   <Features2
     title="Common material paths"
     subtitle="The right route is selected against the function of the part, not by material name alone."
-    columns={3}
+    columns={4}
     items={[
       {
         title: 'Pure copper',
@@ -115,6 +121,12 @@ const metadata = {
         description:
           'Useful when the part needs more strength, clamp-load stability, or softening resistance while retaining useful conductivity after heat treatment.',
         icon: 'tabler:atom',
+      },
+      {
+        title: 'CuCr1Zr',
+        description:
+          'Important when a drawing, supplier route, or quality plan requires a documented copper-chromium-zirconium alloy designation and evidence package.',
+        icon: 'tabler:file-certificate',
       },
       {
         title: 'GRCop-42',

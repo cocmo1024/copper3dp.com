@@ -239,7 +239,7 @@ Use the [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/Engi
 | CuCr1Zr | Drawing, standard, or supplier qualification requires that designation | The team treats it as a generic synonym for CuCrZr |
 | Open supplier review | The function is known but the alloy is not fixed | The RFQ includes only CAD and no service conditions |
 
-The best early answer is often conditional. Pure copper may be preferred if the part remains mechanically calm. CuCrZr should be reviewed if pressure, ports, clamp load, thin walls, or repeated assembly control acceptance. CuCr1Zr should be used when the drawing or qualification route requires that designation.
+The best early answer is often conditional. Pure copper may be preferred if the part remains mechanically calm. CuCrZr should be reviewed if pressure, ports, clamp load, thin walls, or repeated assembly control acceptance. CuCr1Zr should be used when the drawing or qualification route requires that designation. For that narrower documentation-driven route, review [CuCr1Zr Copper Alloy 3D Printing for Industrial Components](/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/).
 
 ## FAQ
 
@@ -282,12 +282,12 @@ The main mistake is requesting "CuCrZr" as a keyword while leaving heat treatmen
 
 CuCrZr 3D printing is the right conversation when copper's function depends on more than conductivity.
 
-Use pure copper when maximum heat or current transfer is the dominant requirement and the geometry is mechanically forgiving. Review CuCrZr when the copper part must also survive pressure, threads, clamp load, thin walls, machining, repeated assembly, thermal cycling, or qualification evidence. Review CuCr1Zr when a drawing, standard, or supplier-qualified route requires that exact material designation.
+Use pure copper when maximum heat or current transfer is the dominant requirement and the geometry is mechanically forgiving. Review CuCrZr when the copper part must also survive pressure, threads, clamp load, thin walls, machining, repeated assembly, thermal cycling, or qualification evidence. Review [CuCr1Zr](/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/) when a drawing, standard, or supplier-qualified route requires that exact material designation.
 
 The practical recommendation is simple: select the alloy by the failure mode of the finished component. If the failure mode is insufficient heat or current transfer, pure copper may win. If the failure mode is leaking, stripping threads, losing flatness, distorting during finishing, or lacking material-state evidence, CuCrZr may be the stronger route.
 
 Send CAD, drawings, material preference, operating limits, pressure or current requirements, critical surfaces, heat-treatment expectations, and inspection needs to [info@szcomo.com](mailto:info@szcomo.com), or use the [RFQ guidance page](/rfq/) to prepare a structured review.
 
-Related reading: [Pure Copper 3D Printing Guide](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/), [Copper Alloy Selection for Metal 3D Printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), [Heat Treatment for CuCrZr 3D Printed Components](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/), [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/), and [Copper AM Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/).
+Related reading: [Pure Copper 3D Printing Guide](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/), [Copper Alloy Selection for Metal 3D Printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), [CuCr1Zr Copper Alloy 3D Printing for Industrial Components](/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/), [Heat Treatment for CuCrZr 3D Printed Components](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/), [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/), and [Copper AM Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/).
 
 > _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._
