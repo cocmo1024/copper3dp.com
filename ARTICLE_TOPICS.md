@@ -36,9 +36,9 @@ References:
 
 ## Publishing Priority Decision
 
-Articles 1-22 are already published in source order and should remain locked in their current order.
+Articles 1-23 are already published in source order and should remain locked in their current order.
 
-The local source now has 53 engineering articles as of 2026-07-05. The strongest cluster is thermal management, especially cold plates, heat exchangers, heat sinks, AI accelerator cooling, SiC power module cooling, and copper AM post-processing. That cluster should keep receiving internal links, but it should not absorb every new article.
+The local source now has 54 engineering articles as of 2026-07-08. The strongest cluster is thermal management, especially cold plates, heat exchangers, heat sinks, AI accelerator cooling, SiC power module cooling, and copper AM post-processing. That cluster should keep receiving internal links, but it should not absorb every new article.
 
 The next content phase should do two things at the same time:
 
@@ -83,14 +83,14 @@ Every new article should help a buyer decide whether to send CAD, drawings, quan
 
 ## Existing Content Audit Summary
 
-Local source inventory as of 2026-07-05:
+Local source inventory as of 2026-07-08:
 
-- 53 engineering posts.
+- 54 engineering posts.
 - Strongest cluster: thermal management, cold plates, heat exchangers, AI/server cooling, SiC power module cooling, and heat sink performance.
 - Strong foundation cluster: RFQ checklist, CAD preparation, cost drivers, LPBF design rules, powder removal, tolerances, surface finish, post-processing, CuCrZr heat treatment.
 - Growing cluster: semiconductor, RF, vacuum, cleaning, leak testing, and precision interfaces.
 - Under-covered clusters: high-current electrical conductors, RF/microwave component families, detailed semiconductor equipment subtypes, mold/tooling variants, fluid manifolds, aerospace/propulsion.
-- Current local post count by broad signal is heavily weighted toward thermal and foundation guides. Electrical, mold/tooling, fluid manifold, and aerospace content need more depth before the site can capture inquiries across the full copper AM application range.
+- Current local post count by broad signal is heavily weighted toward thermal and foundation guides. The electrical cluster now has a stronger pure-copper conductive-component page, but busbars, connectors, power distribution blocks, induction coils, RF/microwave hardware, mold/tooling, fluid manifold, and aerospace content still need more depth before the site can capture inquiries across the full copper AM application range.
 
 Do not duplicate these already covered angles:
 
@@ -299,11 +299,20 @@ New increment:
 - The article is intentionally written as a documentation-driven CuCr1Zr material route rather than another CuCrZr strength article or broad alloy comparison. It covers material designation, C18150 / CW106C context, supplier data-sheet expectations, heat-treatment state, accepted equivalents, substitution policy, witness coupons, conductivity and hardness evidence, and RFQ inputs.
 - Backlinks added from alloy selection, pure copper, CuCrZr strength route, heat exchanger limits, infrared-laser difficulty, busbar / induction coil RFQ, materials page, and engineering topic modules.
 
+## 2026-07-08 Incremental Article Sprint - Topic 23
+
+New increment:
+
+- Topic 23 published in source: `Pure Copper Additive Manufacturing for Conductive Components`.
+- New visual asset added: `src/assets/images/generated/pure-copper-additive-manufacturing-conductive-components-cover.webp`.
+- The article is intentionally written as a component-level pure copper AM guide rather than another broad pure copper route article or general electrical-conductivity hub. It covers contact pads, connector bodies, 3D busbar transitions, power distribution blocks, electrodes, induction coil segments, surface finish, plating, current path geometry, conductivity evidence, contact resistance, and RFQ acceptance scope.
+- Backlinks added from the pure copper guide, electrical conductivity guide, busbar / induction coil RFQ guide, and engineering topic modules so the new article is connected to both material and electrical clusters.
+
 Next publishing number:
 
-- Topic 23: `Pure Copper Additive Manufacturing for Conductive Components`.
+- Topic 24: `Copper 3D Printing for Busbars and High-Current Conductors`.
 
-Topic 23 should not repeat the broad pure copper route guide or the general electrical-conductivity hub. It should focus on pure copper additive manufacturing for conductive components: contact pads, current path geometry, connector bodies, electrodes, simple busbar blocks, contact resistance, surface finish, plating, conductivity evidence, and when pure copper is better than CuCrZr or CuCr1Zr.
+Topic 24 should not repeat the pure copper conductive-components page or the existing busbar / induction coil RFQ guide. It should focus specifically on busbars and high-current conductors: current rating, temperature rise, contact pad geometry, insulation, cooled conductors, laminated or bent alternatives, manufacturability, inspection, and when copper AM beats machined or fabricated copper bar.
 
 ## Topic List
 
@@ -412,8 +421,8 @@ Topic 23 should not repeat the broad pure copper route guide or the general elec
 
 | Priority band                | Topic range | Purpose                                                                                             |
 | ---------------------------- | ----------: | --------------------------------------------------------------------------------------------------- |
-| Published and locked         |        1-22 | Existing live article sequence; do not renumber retrospectively                                     |
-| Copper Alloy / Electrical    |       23-31 | Fill under-covered conductive parts, busbars, connectors, electrodes, and high-current RFQ          |
+| Published and locked         |        1-23 | Existing live article sequence; do not renumber retrospectively                                     |
+| Copper Alloy / Electrical    |       24-31 | Fill under-covered busbars, connectors, electrodes, induction coils, and high-current RFQ           |
 | RF & Microwave               |       32-41 | Build depth for waveguides, RF cavities, microwave filters, surfaces, and housings                  |
 | Semiconductor Equipment      |       42-51 | Capture wafer equipment, chip packaging, lithography, clean equipment, RF/vacuum, and thermal parts |
 | Thermal Management Expansion |       52-68 | Expand only into specific unmet search intent, not duplicate existing cold plate pages              |
@@ -426,9 +435,9 @@ Topic 23 should not repeat the broad pure copper route guide or the general elec
 
 Future article publishing should follow the new sequence unless a sales lead, paid ads campaign, or time-sensitive keyword gives a specific reason to override it.
 
-When the user says "publish topic 23", use the current reordered topic 23:
+When the user says "publish topic 24", use the current reordered topic 24:
 
-> Pure Copper Additive Manufacturing for Conductive Components
+> Copper 3D Printing for Busbars and High-Current Conductors
 
 When publishing any new topic:
 

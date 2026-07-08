@@ -84,7 +84,7 @@ Use pure copper when:
 - Contact pads and datums can be machined after printing.
 - The supplier has a validated pure copper route and inspection evidence.
 
-When the RFQ is specifically about pure copper rather than the broader conductivity problem, use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) to review applications, LPBF process limits, validation evidence, and when CuCrZr or CuCr1Zr may reduce finished-part risk.
+When the RFQ is specifically about pure copper rather than the broader conductivity problem, use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) to review applications, LPBF process limits, validation evidence, and when CuCrZr or CuCr1Zr may reduce finished-part risk. If the request has already narrowed to connector bodies, contact blocks, busbar transitions, electrodes, or machined contact pads, use [Pure Copper Additive Manufacturing for Conductive Components](/posts/EngineeringGuide/pure-copper-additive-manufacturing-conductive-components/) to define the component-level current path and acceptance scope.
 
 ### CuCrZr
 
