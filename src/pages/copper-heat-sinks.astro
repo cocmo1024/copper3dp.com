@@ -1,5 +1,6 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
@@ -19,9 +20,9 @@ const heatSinkShowcases = [
       src: '~/assets/images/copper/copper-heat-sinks.webp',
       alt: 'Copper heat sink RFQ review',
     },
-    title: 'What to send for a heat sink quote',
+    title: 'What to send for a custom copper heat sink quote',
     description:
-      'A simple drawing can support a basic quotation. Complex thermal parts need enough boundary conditions to avoid quoting a geometry that cannot be accepted later.',
+      'A simple custom copper heatsink drawing can support a basic quotation. Complex thermal parts need enough boundary conditions to avoid quoting a geometry that cannot be accepted later.',
     points: [
       {
         title: 'Geometry and mounting',
@@ -43,9 +44,9 @@ const heatSinkShowcases = [
 ];
 
 const metadata = {
-  title: '3D Printed Copper Heat Sinks | LPBF RFQ',
+  title: 'Custom Copper Heat Sink RFQ | 3D Printed Copper Heat Sinks',
   description:
-    'LPBF copper heat sink RFQ review for fin geometry, thermal targets, interface flatness, material choice, post-processing, and test requirements.',
+    'Custom copper heat sink and 3D printed copper heatsink RFQ review for fin geometry, thermal targets, interface flatness, material choice, post-processing, and test requirements.',
   openGraph: {
     images: [
       {
@@ -64,16 +65,16 @@ const metadata = {
     ]),
     createCopperApplicationServiceSchema({
       id: 'copper-heat-sinks',
-      name: '3D Printed Copper Heat Sink RFQ Review',
-      serviceType: 'LPBF copper heat sink additive manufacturing',
+      name: 'Custom Copper Heat Sink RFQ Review',
+      serviceType: 'Custom copper heat sink and LPBF copper heat sink additive manufacturing review',
       description:
-        'RFQ review for printed copper heat sinks with fin geometry, thermal targets, interface flatness, material selection, post-processing, and test requirements.',
+        'RFQ review for custom copper heat sinks and printed copper heat sinks with fin geometry, thermal targets, interface flatness, material selection, post-processing, and test requirements.',
       url: '/copper-heat-sinks/',
       audienceType: 'Thermal, power electronics, RF, aerospace, and purchasing teams',
     }),
     createItemListSchema('Copper heat sink RFQ inputs', [
       {
-        name: 'Geometry package',
+        name: 'Custom heat sink geometry package',
         description: 'CAD and drawings for base, fins, channels, datum faces, mounting holes, and critical interfaces.',
         url: '/copper-heat-sinks/#rfq-inputs',
       },
@@ -97,8 +98,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Copper heat sinks"
-    title="3D printed copper heat sinks for RFQ review"
-    subtitle="Send CAD, drawings, quantity, thermal target, material preference if known, and any interface or inspection requirements. We review the part and quote or clarify based on the information provided."
+    title="Custom copper heat sinks and 3D printed copper heatsinks"
+    subtitle="Send CAD, drawings, quantity, thermal target, material preference if known, and any interface or inspection requirements. We review whether the copper heat sink should be CNC machined, skived, brazed, or quoted as LPBF copper additive manufacturing."
     actions={[
       {
         variant: 'primary',
@@ -116,8 +117,8 @@ const metadata = {
   />
 
   <Features2
-    title="When a printed copper heat sink is worth reviewing"
-    subtitle="Printed copper is useful when the geometry solves a real thermal or packaging constraint. It is not automatically better than CNC."
+    title="When a custom copper heat sink is worth AM review"
+    subtitle="Printed copper is useful when the geometry solves a real thermal or packaging constraint. It is not automatically better than CNC, skiving, or brazed copper construction."
     columns={3}
     items={[
       {
@@ -137,6 +138,32 @@ const metadata = {
         description:
           'Copper AM may help when thermal surfaces, mounting features, and routing need to fit into a compact envelope.',
         icon: 'tabler:box-seam',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Choose the copper heat sink route before quoting"
+    subtitle="The strongest RFQs separate the heat sink function from the manufacturing route. This avoids forcing LPBF onto a part that should be machined, skived, brazed, or converted into a cold plate."
+    columns={3}
+    items={[
+      {
+        title: 'CNC, skived, or fabricated copper',
+        description:
+          'Often better for flat bases, simple fins, drilled holes, rectangular envelopes, and custom copper heat sinks where the main value is machining accuracy.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: '3D printed copper heat sink',
+        description:
+          'Worth reviewing for dense pins, curved airflow paths, integrated manifolds, internal passages, unusual mounting, or low-volume thermal hardware.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Copper cold plate instead',
+        description:
+          'When airflow cannot meet the thermal target, the right answer may be a liquid cold plate rather than a more aggressive copper heatsink.',
+        icon: 'tabler:droplet',
       },
     ]}
   />
@@ -190,7 +217,7 @@ const metadata = {
 
   <Features2
     title="Related engineering notes"
-    subtitle="Use these before adding unnecessary requirements to a heat sink RFQ."
+    subtitle="Use these before adding unnecessary requirements to a custom copper heat sink RFQ."
     columns={3}
     items={[
       {
@@ -226,10 +253,38 @@ const metadata = {
     ]}
   />
 
+  <FAQs
+    title="Custom copper heat sink RFQ questions"
+    subtitle="Use these checks before requesting pricing for a copper heatsink, 3D printed copper heat sink, or liquid-cooled thermal part."
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Can you quote a custom copper heatsink from a CAD file?',
+        description:
+          'Yes, if the CAD and drawing define the geometry, quantity, interface surfaces, mounting method, and thermal target. For a serious quote, include heat load, airflow or coolant conditions, flatness, surface finish, and validation requirements.',
+      },
+      {
+        title: 'When is a 3D printed copper heat sink better than CNC machining?',
+        description:
+          'LPBF copper AM is most useful when the heat sink needs complex airflow paths, internal channels, integrated mounting, dense features, or geometry that would require many machined or brazed pieces.',
+      },
+      {
+        title: 'When should a copper heat sink become a copper cold plate?',
+        description:
+          'If airflow, fan power, noise, or available volume cannot meet the thermal target, a liquid cold plate may be the better copper thermal hardware route. The RFQ should compare thermal resistance and pressure drop, not only material conductivity.',
+      },
+      {
+        title: 'What causes custom copper heat sinks to miss performance?',
+        description:
+          'Common causes are weak thermal boundary conditions, poor contact flatness, excessive TIM thickness, fin spacing that starves airflow, blocked internal channels, and acceptance tests that do not match the final assembly.',
+      },
+    ]}
+  />
+
   <CallToAction
     classes={{ container: sectionContainerClass }}
-    title="Send drawings, quantity, and heat sink requirements."
-    subtitle="Email the CAD package and the requirements that matter. We will review the information and respond with a quote or clarification questions."
+    title="Send drawings, quantity, and copper heat sink requirements."
+    subtitle="Email the CAD package and the thermal requirements that matter. We will review whether the part fits custom copper machining, skiving, brazing, LPBF copper AM, or a cold plate route, then respond with a quote or clarification questions."
     actions={[
       {
         variant: 'primary',

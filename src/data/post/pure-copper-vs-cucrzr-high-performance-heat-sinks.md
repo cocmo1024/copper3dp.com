@@ -20,6 +20,8 @@ We repeatedly see the same RFQ pattern: “We need the best thermal performance�
 
 The mismatch usually appears later, during execution: the heat sink is not just a thermal block—it is also a **structural interface** that must survive **clamp load, thermal cycling, thread torque, and rework**. In practice, a 10–20% gain in bulk conductivity can be erased by **contact resistance**, while a 3×–6× loss in yield strength shows up immediately as bowed bases, stripped threads, distorted fins, or shifting flatness after brazing.
 
+For commercial review, pair this material decision with the [custom copper heat sink RFQ page](/copper-heat-sinks/) so the quote covers the manufacturing route, interface flatness, machining stock, surface finish, and validation method instead of only the alloy name.
+
 ### Pure Copper Is a Type of High-Conductivity Base Metal
 
 Pure copper (typical heat-sink grades such as C101/C102/C110 variants) is a type of **high-conductivity copper** optimized for heat flow. In finished heat sinks, we usually see room-temperature thermal conductivity on the order of **~390–400 W/m·K** when purity and processing are controlled.

@@ -22,6 +22,8 @@ The manufacturing review was less forgiving.
 
 Copper additive manufacturing can place channels close to the heat source, merge manifolds into one body, and remove brazed interfaces that would otherwise become leak or thermal-resistance risks. But the printed route is not a shortcut around physics. It moves the project into a different ledger: build orientation, minimum wall thickness, trapped powder, internal roughness, post-machining, leak testing, and flow verification all become part of the quote.
 
+If the project is already ready for supplier review, use the [3D printed copper cold plate RFQ page](/copper-cold-plates/) as the commercial entry point, then use this article to refine microchannel geometry, powder removal, pressure drop, leak testing, and acceptance criteria.
+
 ![Copper 3D printed microchannel cold plate cross-section with inlet, outlet, and machined sealing face](../../assets/images/generated/copper-3d-printing-microchannel-cold-plate-cross-section.webp)
 
 _Figure 1. Internal channel geometry is the main reason to consider copper AM, but it also controls powder removal, pressure drop, and inspection scope._

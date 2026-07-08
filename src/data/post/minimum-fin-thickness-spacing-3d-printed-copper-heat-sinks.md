@@ -19,6 +19,8 @@ metadata:
 
 Define **minimum fin thickness (t)** and **minimum fin spacing (s)** for **3D printed copper heat sinks** that remain **repeatably manufacturable**, **inspectable**, and **serviceable** across common copper AM routes.
 
+If the drawing is ready for supplier review, use the [custom copper heat sink RFQ page](/copper-heat-sinks/) first, then use this article to decide whether the fin pitch, spacing, inspection plan, and process route are realistic.
+
 ### Constraints
 
 - **Manufacturing constraint**: Copper’s high thermal conductivity and reflectivity increase local melt-pool instability and distortion sensitivity versus common AM alloys, pushing minimum printable thin features upward in production. ( [MDPI](https://www.mdpi.com/2075-4701/15/10/1114) )

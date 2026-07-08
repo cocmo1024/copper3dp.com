@@ -18,6 +18,8 @@ metadata:
 
 We regularly see RFQs that say “copper heat sink, highest conductivity, smallest size,” but omit the two numbers that drive everything: **heat load (W)** and **allowable temperature rise (°C)**. In copper, the material is rarely the bottleneck; the bottleneck is typically **contact resistance at the interface**, **air-side convection**, or **coolant-side pressure drop**.
 
+If the request is primarily for supplier review rather than specification writing, start from the [custom copper heat sink RFQ page](/copper-heat-sinks/) and then use this guide to define the thermal target, interface requirements, process route, and acceptance tests.
+
 A usable RFQ frames the requirement as **system performance in a defined test condition**, not as a generic “best possible” part.
 
 **Minimum RFQ scope (non-negotiable inputs):**
