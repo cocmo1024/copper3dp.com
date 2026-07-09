@@ -106,6 +106,18 @@ export const createItemListSchema = (
   })),
 });
 
+export const createFaqSchema = (items: Array<{ title: string; description: string }>): JsonLdNode => ({
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.title,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.description,
+    },
+  })),
+});
+
 export const createArticleSchema = ({
   post,
   url,

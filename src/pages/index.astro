@@ -11,11 +11,39 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { createCopperServiceSchema, createItemListSchema } from '~/utils/structured-data';
+import { createCopperServiceSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
 const rfqEmailHref = 'mailto:info@szcomo.com';
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const homeFaqs = [
+  {
+    title: 'What makes a review move quickly?',
+    description:
+      'Drawings, quantity, material if known, target lead time, critical surfaces, and operating or inspection requirements help us quote faster.',
+  },
+  {
+    title: 'Which copper materials can be reviewed?',
+    description:
+      'Most RFQs start with pure copper, CuCrZr, or GRCop-42. Final selection depends on conductivity, strength, temperature, and post-processing needs.',
+  },
+  {
+    title: 'What files should I send?',
+    description:
+      'Send CAD, drawings, target quantity, lead time, functional surfaces, sealing interfaces, service environment, and required inspection notes.',
+  },
+  {
+    title: 'Can internal channels be inspected?',
+    description:
+      'CT scanning, pressure testing, leak testing, and flow checks can be considered when the requirement is stated early.',
+  },
+  {
+    title: 'When is copper AM not a good fit?',
+    description:
+      'Simple plates, very large parts, features that are easier to machine, or parts with undefined testing requirements may be better routed elsewhere.',
+  },
+];
 
 const metadata = {
   title: 'Copper 3D Printing Service | Custom LPBF Copper Parts RFQ',
@@ -35,6 +63,12 @@ const metadata = {
   structuredData: [
     createCopperServiceSchema(),
     createItemListSchema('Typical copper additive manufacturing application cases', [
+      {
+        name: 'Copper 3D printing applications',
+        description:
+          'Application map for cold plates, heat sinks, heat exchangers, busbars, RF, semiconductor, and tooling.',
+        url: '/applications/',
+      },
       {
         name: 'Copper cold plates',
         description: 'LPBF copper cold plates with internal channels, manifolds, leak testing, and CT review.',
@@ -56,9 +90,10 @@ const metadata = {
         name: 'RF and waveguide copper parts',
         description:
           'RF, vacuum, and semiconductor copper parts reviewed for tolerance, surface condition, and sealing.',
-        url: '/#applications',
+        url: '/applications/',
       },
     ]),
+    createFaqSchema(homeFaqs),
   ],
 };
 
@@ -315,6 +350,65 @@ const requirementShowcases = [
     description="Send CAD or drawings, quantity, material preference if known, target lead time, and any critical surfaces, pressure, thermal, electrical, or inspection requirements."
   />
 
+  <Features2
+    title="Choose the right RFQ path"
+    subtitle="Google traffic often arrives with a specific application intent. These pages keep each high-value search path focused on the buyer's next engineering decision."
+    tagline="Commercial search paths"
+    columns={4}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Copper 3D printing applications',
+        description:
+          'Start here for cold plates, heat sinks, heat exchangers, busbars, RF parts, semiconductor hardware, and tooling.',
+        icon: 'tabler:route',
+        callToAction: {
+          text: 'Applications overview',
+          href: '/applications/',
+        },
+      },
+      {
+        title: '3D printed copper cold plates',
+        description:
+          'For microchannels, manifolds, sealing lands, pressure drop, leak targets, CT inspection, and liquid cooling plates.',
+        icon: 'tabler:droplet',
+        callToAction: {
+          text: 'Cold plate RFQ',
+          href: '/copper-cold-plates/',
+        },
+      },
+      {
+        title: 'Custom copper heat sinks',
+        description:
+          'For air-cooled or hybrid thermal hardware with fin geometry, interface flatness, airflow, and validation needs.',
+        icon: 'tabler:temperature',
+        callToAction: {
+          text: 'Heat sink RFQ',
+          href: '/copper-heat-sinks/',
+        },
+      },
+      {
+        title: 'Copper AM materials',
+        description: 'For pure copper, CuCrZr, CuCr1Zr, and high-temperature copper alloy selection before quoting.',
+        icon: 'tabler:atom',
+        callToAction: {
+          text: 'Material routes',
+          href: '/materials/',
+        },
+      },
+      {
+        title: 'General copper AM quotation',
+        description:
+          'For CAD package review, quantity, lead time, operating limits, post-processing, and inspection scope.',
+        icon: 'tabler:clipboard-list',
+        callToAction: {
+          text: 'Prepare RFQ',
+          href: '/rfq/',
+        },
+      },
+    ]}
+  />
+
   <section class:list={['relative not-prose', sectionContainerClass]}>
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="grid gap-6 md:grid-cols-2">
@@ -481,33 +575,7 @@ const requirementShowcases = [
     subtitle="Common questions before quoting copper LPBF parts."
     tagline="FAQs"
     classes={{ container: sectionContainerClass }}
-    items={[
-      {
-        title: 'What makes a review move quickly?',
-        description:
-          'Drawings, quantity, material if known, target lead time, critical surfaces, and operating or inspection requirements help us quote faster.',
-      },
-      {
-        title: 'Which copper materials can be reviewed?',
-        description:
-          'Most RFQs start with pure copper, CuCrZr, or GRCop-42. Final selection depends on conductivity, strength, temperature, and post-processing needs.',
-      },
-      {
-        title: 'What files should I send?',
-        description:
-          'Send CAD, drawings, target quantity, lead time, functional surfaces, sealing interfaces, service environment, and required inspection notes.',
-      },
-      {
-        title: 'Can internal channels be inspected?',
-        description:
-          'CT scanning, pressure testing, leak testing, and flow checks can be considered when the requirement is stated early.',
-      },
-      {
-        title: 'When is copper AM not a good fit?',
-        description:
-          'Simple plates, very large parts, features that are easier to machine, or parts with undefined testing requirements may be better routed elsewhere.',
-      },
-    ]}
+    items={homeFaqs}
   />
 
   <Stats

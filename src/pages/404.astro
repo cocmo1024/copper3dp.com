@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import { getBlogPermalink, getHomePermalink, getPermalink } from '~/utils/permalinks';
 
 const title = `Error 404`;
 ---
@@ -17,7 +17,12 @@ const title = `Error 404`;
         <p class="mt-4 mb-8 text-lg text-muted">
           Start from the homepage, applications, engineering guide, or RFQ contact page.
         </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a rel="noopener noreferrer" href={getHomePermalink()} class="btn">Homepage</a>
+          <a rel="noopener noreferrer" href={getPermalink('/applications')} class="btn">Applications</a>
+          <a rel="noopener noreferrer" href={getPermalink('/rfq')} class="btn">RFQ inputs</a>
+          <a rel="noopener noreferrer" href={getBlogPermalink()} class="btn">Engineering Guide</a>
+        </div>
       </div>
     </div>
   </section>

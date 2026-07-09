@@ -7,7 +7,24 @@ export const headerData = {
   links: [
     {
       text: 'Applications',
-      href: getPermalink('/#applications'),
+      links: [
+        {
+          text: 'Applications overview',
+          href: getPermalink('/applications'),
+        },
+        {
+          text: 'Copper cold plates',
+          href: getPermalink('/copper-cold-plates'),
+        },
+        {
+          text: 'Copper heat sinks',
+          href: getPermalink('/copper-heat-sinks'),
+        },
+        {
+          text: 'RF and semiconductor parts',
+          href: getPermalink('/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq'),
+        },
+      ],
     },
     {
       text: 'Engineering',
@@ -19,6 +36,10 @@ export const headerData = {
         {
           text: 'Process selection',
           href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
+        },
+        {
+          text: 'Quotation checklist',
+          href: getPermalink('/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation'),
         },
       ],
     },
@@ -43,7 +64,9 @@ export const footerData = {
     {
       title: 'Start',
       links: [
-        { text: 'Applications', href: getPermalink('/#applications') },
+        { text: 'Applications overview', href: getPermalink('/applications') },
+        { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
+        { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
         { text: 'RFQ inputs', href: getPermalink('/rfq') },
         { text: 'Engineering resources', href: getBlogPermalink() },
       ],
@@ -51,6 +74,10 @@ export const footerData = {
     {
       title: 'Engineering notes',
       links: [
+        {
+          text: 'Copper AM materials',
+          href: getPermalink('/materials'),
+        },
         {
           text: 'Copper service RFQ guide',
           href: getPermalink('/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide'),

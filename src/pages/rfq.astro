@@ -5,7 +5,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
 const rfqEmailHref = 'mailto:info@szcomo.com';
@@ -29,6 +29,39 @@ Post-processing expected:
 Notes:
 
 Best regards,`;
+
+const rfqFaqs = [
+  {
+    title: 'Will every RFQ receive the same response?',
+    description:
+      'No. If the drawing and quantity are clear, the reply may be a basic quote. If key requirements are missing, we ask clarification questions first.',
+  },
+  {
+    title: 'Can I send an early concept?',
+    description:
+      'Yes. Early CAD is useful for a first review, but quotation usually needs material, quantity, lead time, and any critical requirements.',
+  },
+  {
+    title: 'Do you need a drawing if CAD is available?',
+    description:
+      'Drawings are recommended for critical dimensions, datum faces, flatness, sealing lands, thread notes, surface finish, and inspection scope.',
+  },
+  {
+    title: 'What if the material is not decided?',
+    description:
+      'Send the service temperature, conductivity target, mechanical load, and environment so pure copper, CuCrZr, or GRCop-42 can be reviewed.',
+  },
+  {
+    title: 'How are internal channels accepted?',
+    description:
+      'Internal passages should define CT scope, pressure or leak targets, flow rate, pressure drop, cleaning method, and allowable blockage risk.',
+  },
+  {
+    title: 'What affects lead time most?',
+    description:
+      'Geometry review, build orientation, post-machining, heat treatment, CT or leak testing, surface requirements, and material availability.',
+  },
+];
 
 const rfqShowcases = [
   {
@@ -122,6 +155,7 @@ const metadata = {
         url: '/rfq/',
       },
     ]),
+    createFaqSchema(rfqFaqs),
   ],
 };
 ---
@@ -176,42 +210,50 @@ const metadata = {
     classes={{ container: sectionContainerClass }}
   />
 
+  <Features3
+    title="Application RFQ paths"
+    subtitle="Use the application page when the project already fits a clear copper AM search intent."
+    columns={3}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: '3D printed copper cold plates',
+        description:
+          'Best for microchannels, manifolds, pressure data, leak targets, CT inspection, sealing lands, and liquid cooling requirements.',
+        icon: 'tabler:droplet',
+        callToAction: {
+          text: 'Open cold plate RFQ page',
+          href: '/copper-cold-plates/',
+        },
+      },
+      {
+        title: 'Custom copper heat sinks',
+        description:
+          'Best for fin geometry, interface flatness, contact resistance, airflow, thermal testing, and route comparison.',
+        icon: 'tabler:temperature',
+        callToAction: {
+          text: 'Open heat sink RFQ page',
+          href: '/copper-heat-sinks/',
+        },
+      },
+      {
+        title: 'Copper AM material route',
+        description:
+          'Best when pure copper, CuCrZr, CuCr1Zr, conductivity, strength, or heat treatment controls the quote.',
+        icon: 'tabler:atom',
+        callToAction: {
+          text: 'Review material routes',
+          href: '/materials/',
+        },
+      },
+    ]}
+  />
+
   <FAQs
     title="RFQ FAQs"
     subtitle="These questions usually determine whether a copper AM quote can move quickly."
     columns={1}
-    items={[
-      {
-        title: 'Will every RFQ receive the same response?',
-        description:
-          'No. If the drawing and quantity are clear, the reply may be a basic quote. If key requirements are missing, we ask clarification questions first.',
-      },
-      {
-        title: 'Can I send an early concept?',
-        description:
-          'Yes. Early CAD is useful for a first review, but quotation usually needs material, quantity, lead time, and any critical requirements.',
-      },
-      {
-        title: 'Do you need a drawing if CAD is available?',
-        description:
-          'Drawings are recommended for critical dimensions, datum faces, flatness, sealing lands, thread notes, surface finish, and inspection scope.',
-      },
-      {
-        title: 'What if the material is not decided?',
-        description:
-          'Send the service temperature, conductivity target, mechanical load, and environment so pure copper, CuCrZr, or GRCop-42 can be reviewed.',
-      },
-      {
-        title: 'How are internal channels accepted?',
-        description:
-          'Internal passages should define CT scope, pressure or leak targets, flow rate, pressure drop, cleaning method, and allowable blockage risk.',
-      },
-      {
-        title: 'What affects lead time most?',
-        description:
-          'Geometry review, build orientation, post-machining, heat treatment, CT or leak testing, surface requirements, and material availability.',
-      },
-    ]}
+    items={rfqFaqs}
   />
 
   <Features3

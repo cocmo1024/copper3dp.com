@@ -1,5 +1,6 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
@@ -7,10 +8,34 @@ import Layout from '~/layouts/PageLayout.astro';
 import {
   createBreadcrumbSchema,
   createCopperApplicationServiceSchema,
+  createFaqSchema,
   createItemListSchema,
 } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const coldPlateFaqs = [
+  {
+    title: 'When is a 3D printed copper cold plate better than a machined or brazed cold plate?',
+    description:
+      'LPBF copper AM is strongest when the design needs compact internal channels, integrated manifolds, fewer joints, unusual port routing, or thermal geometry that is hard to machine and braze reliably. A monolithic copper cold plate can reduce joint risk, but it still needs clear pressure, leak, and inspection requirements.',
+  },
+  {
+    title: 'What information is needed for a copper cold plate quote?',
+    description:
+      'Send CAD, drawings, quantity, material preference if known, heat load, coolant, flow rate, pressure drop target, working pressure, proof pressure, leak target, and critical sealing or machining surfaces.',
+  },
+  {
+    title: 'Can microchannels and internal passages be inspected?',
+    description:
+      'CT inspection, pressure testing, leak testing, flow checks, and cleaning evidence can be considered when the requirement is defined before quotation. Channel size and access strongly affect the inspection route.',
+  },
+  {
+    title: 'What usually makes a copper cold plate RFQ slow or risky?',
+    description:
+      'Missing pressure targets, unclear leak criteria, trapped-powder risk, undefined sealing surfaces, no machining allowance, and thermal simulations that omit pressure drop or test conditions are common causes.',
+  },
+];
 
 const coldPlateShowcases = [
   {
@@ -88,6 +113,7 @@ const metadata = {
         url: '/copper-cold-plates/#review-points',
       },
     ]),
+    createFaqSchema(coldPlateFaqs),
   ],
 };
 ---
@@ -114,7 +140,7 @@ const metadata = {
   />
 
   <Features2
-    title="When copper AM is worth reviewing"
+    title="When copper AM is worth reviewing for cold plate design"
     subtitle="A printed cold plate is strongest when the internal flow path, packaging, or assembly risk cannot be handled cleanly by conventional routing."
     columns={3}
     items={[
@@ -222,6 +248,13 @@ const metadata = {
         },
       },
     ]}
+  />
+
+  <FAQs
+    title="3D printed copper cold plate RFQ questions"
+    subtitle="Use these checks before requesting pricing for a copper cold plate, microchannel cold plate, or liquid-cooled copper part."
+    classes={{ container: sectionContainerClass }}
+    items={coldPlateFaqs}
   />
 
   <CallToAction

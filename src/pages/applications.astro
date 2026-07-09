@@ -1,0 +1,259 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createCopperServiceSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const applicationPaths = [
+  {
+    title: '3D printed copper cold plates',
+    description:
+      'For liquid cooling plates, microchannels, integrated manifolds, pressure boundaries, CT inspection, and leak testing.',
+    icon: 'tabler:droplet',
+    href: '/copper-cold-plates/',
+    cta: 'Open cold plate RFQ',
+  },
+  {
+    title: 'Custom copper heat sinks',
+    description:
+      'For copper heatsinks, dense fins, interface flatness, airflow paths, contact resistance, and thermal validation.',
+    icon: 'tabler:temperature',
+    href: '/copper-heat-sinks/',
+    cta: 'Open heat sink RFQ',
+  },
+  {
+    title: 'Copper heat exchangers',
+    description:
+      'For compact heat exchanger cores where channel cleaning, pressure drop, walls, and finishing decide feasibility.',
+    icon: 'tabler:arrows-exchange',
+    href: '/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/',
+    cta: 'Read heat exchanger guide',
+  },
+  {
+    title: 'Busbars and induction coils',
+    description:
+      'For high-current conductors, integrated cooling, contact faces, duty cycle, insulation, plating, and conductivity tests.',
+    icon: 'tabler:bolt',
+    href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+    cta: 'Read electrical RFQ guide',
+  },
+  {
+    title: 'RF and waveguide copper parts',
+    description:
+      'For waveguide bodies, cavities, RF surfaces, vacuum sealing, polishing, plating, cleaning, and inspection planning.',
+    icon: 'tabler:antenna',
+    href: '/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/',
+    cta: 'Read RF guide',
+  },
+  {
+    title: 'Semiconductor equipment hardware',
+    description:
+      'For wafer equipment cooling blocks, clean internal passages, precision copper interfaces, sealing, and leak testing.',
+    icon: 'tabler:cpu',
+    href: '/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/',
+    cta: 'Read semiconductor guide',
+  },
+  {
+    title: 'Mold inserts and conformal cooling',
+    description:
+      'For CuCrZr tooling inserts, hot-spot control, conformal channels, cavity finishing, pressure testing, and validation.',
+    icon: 'tabler:hexagons',
+    href: '/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/',
+    cta: 'Read tooling guide',
+  },
+  {
+    title: 'AI server and power electronics cooling',
+    description:
+      'For GPU cold plates, SiC power modules, liquid-cooled server manifolds, compact copper routing, and quote inputs.',
+    icon: 'tabler:server',
+    href: '/posts/EngineeringGuide/copper-am-cold-plate-case-study-dual-gpu-ai-accelerator-modules/',
+    cta: 'Read AI cooling case',
+  },
+];
+
+const applicationShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+      alt: '3D printed copper thermal management applications',
+    },
+    title: 'Thermal management is the strongest commercial search path',
+    description:
+      'Most qualified copper AM inquiries start with thermal density, liquid cooling, internal channels, or interface control rather than the material name alone.',
+    points: [
+      {
+        title: 'Cold plates and heat exchangers',
+        description:
+          'Use copper AM when channel routing, manifold integration, pressure boundary reduction, or compact heat transfer is the real value.',
+      },
+      {
+        title: 'Heat sinks and hybrid cooling',
+        description:
+          'A printed copper heat sink needs realistic fin spacing, airflow or coolant data, flatness requirements, and a validation method.',
+      },
+      {
+        title: 'Buyer next step',
+        description:
+          'Send CAD, heat load, coolant or airflow, pressure limits, quantity, and inspection requirements for RFQ review.',
+        callToAction: {
+          text: 'Prepare RFQ inputs',
+          href: '/rfq/',
+        },
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/rf-waveguide-copper-parts.webp',
+      alt: 'Copper RF waveguide and semiconductor applications',
+    },
+    title: 'RF, semiconductor, and electrical pages capture specialized intent',
+    description:
+      'These searches are lower volume than broad copper 3D printing terms, but the buyer usually has a real drawing, qualification need, or purchasing path.',
+    points: [
+      {
+        title: 'RF and vacuum copper parts',
+        description:
+          'Surface condition, plating, leak testing, cleaning, and machined sealing faces usually decide whether the route is quotable.',
+      },
+      {
+        title: 'High-current conductors',
+        description:
+          'Busbars, coils, and electrodes should define current, duty cycle, contact faces, temperature rise, insulation, and conductivity evidence.',
+      },
+      {
+        title: 'Semiconductor copper hardware',
+        description:
+          'Clean passages, thermal stability, leak targets, and precision interfaces should be stated before price is treated as meaningful.',
+      },
+    ],
+  },
+];
+
+const metadata = {
+  title: 'Copper 3D Printing Applications | Cold Plates, Heat Sinks & RFQ',
+  ignoreTitleTemplate: true,
+  description:
+    'Industrial copper 3D printing applications for RFQs: cold plates, heat sinks, heat exchangers, busbars, induction coils, RF waveguides, semiconductor equipment, and conformal cooling.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/copper/micro-channel-heat-exchangers.webp',
+        width: 1200,
+        height: 675,
+        alt: 'Copper 3D printing applications for industrial RFQs',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+    ]),
+    createCopperServiceSchema(),
+    createItemListSchema(
+      'Copper 3D printing application paths',
+      applicationPaths.map((item) => ({
+        name: item.title,
+        description: item.description,
+        url: item.href,
+      }))
+    ),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Applications"
+    title="Copper 3D printing applications for engineering RFQs"
+    subtitle="Use this application map to decide where copper additive manufacturing may create real value: thermal management, current delivery, RF and vacuum hardware, semiconductor equipment, tooling inserts, and compact fluid routing."
+    callToAction={{
+      text: 'Prepare RFQ inputs',
+      href: '/rfq/',
+    }}
+    callToAction2={{
+      text: 'Email info@szcomo.com',
+      href: 'mailto:info@szcomo.com',
+    }}
+  />
+
+  <Features2
+    title="High-value copper AM application paths"
+    subtitle="Each path links to a focused page or guide so search traffic can move from research intent to a practical RFQ without passing through thin category pages."
+    tagline="Application map"
+    columns={4}
+    classes={{ container: sectionContainerClass }}
+    items={applicationPaths.map((item) => ({
+      title: item.title,
+      description: item.description,
+      icon: item.icon,
+      callToAction: {
+        text: item.cta,
+        href: item.href,
+      },
+    }))}
+  />
+
+  <SplitShowcase
+    title="Where copper additive manufacturing usually earns its cost"
+    subtitle="The best applications are not generic copper parts. They combine conductivity with geometry, validation, and manufacturing-route constraints."
+    items={applicationShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <section class:list={['relative not-prose', sectionContainerClass]} aria-labelledby="application-rfq-fit">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-md border border-page-border bg-surface p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-primary">Good search fit</p>
+          <h2 id="application-rfq-fit" class="mt-2 text-2xl font-bold tracking-tight text-heading">
+            Geometry-driven copper parts
+          </h2>
+          <p class="mt-4 text-muted">
+            Internal channels, manifolds, thin thermal features, RF surfaces, sealing lands, or compact current paths
+            can justify copper AM review.
+          </p>
+        </div>
+        <div class="rounded-md border border-page-border bg-surface p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-primary">Needs evidence</p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Validation-sensitive parts</h2>
+          <p class="mt-4 text-muted">
+            CT inspection, leak testing, pressure proof, conductivity tests, flatness, roughness, cleaning, and
+            post-machining requirements should be defined before quoting.
+          </p>
+        </div>
+        <div class="rounded-md border border-page-border bg-surface p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-muted">Usually weak fit</p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Commodity copper requests</h2>
+          <p class="mt-4 text-muted">
+            Plain copper plates, bars, wire, tubes, powder supply, hobby printer requests, and simple fabricated copper
+            parts are usually better handled through conventional routes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    classes={{ container: sectionContainerClass }}
+    title="Send the application, CAD, and operating requirement."
+    subtitle="For a practical copper AM quote, include drawings, quantity, material preference if known, heat load or current, pressure or leak targets, critical interfaces, and inspection needs."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com',
+        icon: 'tabler:mail',
+      },
+      { text: 'Review RFQ checklist', href: '/rfq/' },
+    ]}
+  />
+</Layout>

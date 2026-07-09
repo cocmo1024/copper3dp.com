@@ -8,10 +8,39 @@ import Layout from '~/layouts/PageLayout.astro';
 import {
   createBreadcrumbSchema,
   createCopperApplicationServiceSchema,
+  createFaqSchema,
   createItemListSchema,
 } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const heatSinkFaqs = [
+  {
+    title: 'Can you quote a custom copper heatsink from a CAD file?',
+    description:
+      'Yes, if the CAD and drawing define the geometry, quantity, interface surfaces, mounting method, and thermal target. For a serious quote, include heat load, airflow or coolant conditions, flatness, surface finish, and validation requirements.',
+  },
+  {
+    title: 'When is a 3D printed copper heat sink better than CNC machining?',
+    description:
+      'LPBF copper AM is most useful when the heat sink needs complex airflow paths, internal channels, integrated mounting, dense features, or geometry that would require many machined or brazed pieces.',
+  },
+  {
+    title: 'When should fabricated copper heat sinks stay conventional?',
+    description:
+      'Fabricated copper heat sinks are often the better route for simple plates, straight fins, drilled holes, skived geometries, or brazed assemblies where the main value is cost, flatness, or straightforward machining rather than hidden internal geometry.',
+  },
+  {
+    title: 'When should a copper heat sink become a copper cold plate?',
+    description:
+      'If airflow, fan power, noise, or available volume cannot meet the thermal target, a liquid cold plate may be the better copper thermal hardware route. The RFQ should compare thermal resistance and pressure drop, not only material conductivity.',
+  },
+  {
+    title: 'What causes custom copper heat sinks to miss performance?',
+    description:
+      'Common causes are weak thermal boundary conditions, poor contact flatness, excessive TIM thickness, fin spacing that starves airflow, blocked internal channels, and acceptance tests that do not match the final assembly.',
+  },
+];
 
 const heatSinkShowcases = [
   {
@@ -91,6 +120,7 @@ const metadata = {
         url: '/copper-heat-sinks/#review-points',
       },
     ]),
+    createFaqSchema(heatSinkFaqs),
   ],
 };
 ---
@@ -150,7 +180,7 @@ const metadata = {
       {
         title: 'CNC, skived, or fabricated copper',
         description:
-          'Often better for flat bases, simple fins, drilled holes, rectangular envelopes, and custom copper heat sinks where the main value is machining accuracy.',
+          'Often better for flat bases, simple fins, drilled holes, rectangular envelopes, and fabricated copper heat sinks where the main value is machining accuracy.',
         icon: 'tabler:tool',
       },
       {
@@ -257,28 +287,7 @@ const metadata = {
     title="Custom copper heat sink RFQ questions"
     subtitle="Use these checks before requesting pricing for a copper heatsink, 3D printed copper heat sink, or liquid-cooled thermal part."
     classes={{ container: sectionContainerClass }}
-    items={[
-      {
-        title: 'Can you quote a custom copper heatsink from a CAD file?',
-        description:
-          'Yes, if the CAD and drawing define the geometry, quantity, interface surfaces, mounting method, and thermal target. For a serious quote, include heat load, airflow or coolant conditions, flatness, surface finish, and validation requirements.',
-      },
-      {
-        title: 'When is a 3D printed copper heat sink better than CNC machining?',
-        description:
-          'LPBF copper AM is most useful when the heat sink needs complex airflow paths, internal channels, integrated mounting, dense features, or geometry that would require many machined or brazed pieces.',
-      },
-      {
-        title: 'When should a copper heat sink become a copper cold plate?',
-        description:
-          'If airflow, fan power, noise, or available volume cannot meet the thermal target, a liquid cold plate may be the better copper thermal hardware route. The RFQ should compare thermal resistance and pressure drop, not only material conductivity.',
-      },
-      {
-        title: 'What causes custom copper heat sinks to miss performance?',
-        description:
-          'Common causes are weak thermal boundary conditions, poor contact flatness, excessive TIM thickness, fin spacing that starves airflow, blocked internal channels, and acceptance tests that do not match the final assembly.',
-      },
-    ]}
+    items={heatSinkFaqs}
   />
 
   <CallToAction

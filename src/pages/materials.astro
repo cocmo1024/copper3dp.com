@@ -139,6 +139,45 @@ const metadata = {
 
   <SplitShowcase items={materialShowcases} classes={{ container: sectionContainerClass }} />
 
+  <Features2
+    title="Material decision guides"
+    subtitle="Use these guides when the material name alone is not enough to quote the finished copper AM part."
+    columns={3}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Pure copper AM',
+        description:
+          'For conductive components, heat spreaders, busbars, and thermal parts where final conductivity evidence matters.',
+        icon: 'tabler:hexagon-letter-c',
+        callToAction: {
+          text: 'Read pure copper guide',
+          href: '/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/',
+        },
+      },
+      {
+        title: 'CuCrZr AM',
+        description:
+          'For thermal hardware with clamp loads, threads, pressure boundaries, thin walls, or strength after heat treatment.',
+        icon: 'tabler:atom',
+        callToAction: {
+          text: 'Read CuCrZr guide',
+          href: '/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/',
+        },
+      },
+      {
+        title: 'CuCr1Zr AM',
+        description:
+          'For industrial drawings, supplier data sheets, or qualification routes that require documented CuCr1Zr evidence.',
+        icon: 'tabler:file-certificate',
+        callToAction: {
+          text: 'Read CuCr1Zr guide',
+          href: '/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/',
+        },
+      },
+    ]}
+  />
+
   <CallToAction
     classes={{ container: sectionContainerClass }}
     title="Not sure which copper alloy fits the part?"

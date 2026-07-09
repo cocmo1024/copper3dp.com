@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://copper3dp.com/sitemap-index.xml

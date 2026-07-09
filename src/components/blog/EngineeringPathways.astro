@@ -32,6 +32,39 @@ const haystack = [post.slug, post.title, post.excerpt, post.category?.slug, post
   .join(' ')
   .toLowerCase();
 
+const landingLinks: LinkItem[] = [
+  {
+    href: '/',
+    title: 'Copper 3D printing service',
+    description: 'Main RFQ page for custom LPBF copper parts, drawings, materials, and application fit.',
+  },
+  {
+    href: '/applications/',
+    title: 'Copper 3D printing applications',
+    description: 'Application map for cold plates, heat sinks, busbars, RF parts, semiconductor hardware, and tooling.',
+  },
+  {
+    href: '/copper-cold-plates/',
+    title: '3D printed copper cold plate RFQ',
+    description: 'Use this path for microchannels, manifolds, pressure data, leak targets, CT, and sealing surfaces.',
+  },
+  {
+    href: '/copper-heat-sinks/',
+    title: 'Custom copper heat sink RFQ',
+    description: 'Use this path for heat sinks, interface flatness, airflow, fin geometry, and thermal validation.',
+  },
+  {
+    href: '/materials/',
+    title: 'Copper AM materials',
+    description: 'Compare pure copper, CuCrZr, CuCr1Zr, and high-temperature copper alloy routes before quoting.',
+  },
+  {
+    href: '/rfq/',
+    title: 'Prepare RFQ inputs',
+    description: 'Send CAD, drawing, quantity, material preference, operating limits, and inspection needs.',
+  },
+];
+
 const coreLinks: LinkItem[] = [
   {
     href: '/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/',
@@ -851,7 +884,7 @@ const relatedSourceLinks = matchedGroups.length
   ? [...priorityBridgeLinks, ...interleaveLinks(matchedGroups, 8)]
   : [...priorityBridgeLinks, ...fallbackLinks];
 const relatedLinks = uniqueLinks(relatedSourceLinks).slice(0, 12);
-const decisionLinks = uniqueLinks(coreLinks).slice(0, 11);
+const decisionLinks = uniqueLinks([...landingLinks, ...coreLinks]).slice(0, 11);
 const actionLinks = uniqueLinks(nextStepLinks);
 ---
 
@@ -866,7 +899,7 @@ const actionLinks = uniqueLinks(nextStepLinks);
 
     <div class="grid gap-8 lg:grid-cols-3">
       <div>
-        <h3 class="font-heading text-lg font-semibold text-heading">Core decision pages</h3>
+        <h3 class="font-heading text-lg font-semibold text-heading">Primary RFQ and decision pages</h3>
         <ul class="mt-4 space-y-4">
           {
             decisionLinks.map((link) => (

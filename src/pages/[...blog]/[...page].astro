@@ -42,6 +42,43 @@ const metadata = {
       { name: 'Home', item: '/' },
       { name: 'Engineering Guide', item: getBlogPermalink() },
     ]),
+    ...(currentPage === 1
+      ? [
+          createItemListSchema('Primary copper AM RFQ landing pages', [
+            {
+              name: 'Copper 3D printing service',
+              description: 'Main RFQ page for custom LPBF copper parts and application fit.',
+              url: '/',
+            },
+            {
+              name: 'Copper 3D printing applications',
+              description:
+                'Application map for cold plates, heat sinks, heat exchangers, busbars, RF, semiconductor, and tooling.',
+              url: '/applications/',
+            },
+            {
+              name: '3D printed copper cold plate RFQ',
+              description: 'RFQ page for cold plates, microchannels, manifolds, pressure data, and leak testing.',
+              url: '/copper-cold-plates/',
+            },
+            {
+              name: 'Custom copper heat sink RFQ',
+              description: 'RFQ page for heat sinks, interface flatness, airflow, fin geometry, and validation.',
+              url: '/copper-heat-sinks/',
+            },
+            {
+              name: 'Copper AM materials',
+              description: 'Material route page for pure copper, CuCrZr, CuCr1Zr, and high-temperature copper alloys.',
+              url: '/materials/',
+            },
+            {
+              name: 'Copper AM RFQ checklist',
+              description: 'RFQ inputs page for drawings, quantity, material, operating limits, and inspection scope.',
+              url: '/rfq/',
+            },
+          ]),
+        ]
+      : []),
     createItemListSchema(
       `Engineering Guide articles${currentPage > 1 ? ` page ${currentPage}` : ''}`,
       page.data.map((post) => ({
