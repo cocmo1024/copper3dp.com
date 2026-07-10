@@ -13,6 +13,8 @@ import {
 } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%20cold%20plate%20RFQ.';
 
 const coldPlateFaqs = [
   {
@@ -126,11 +128,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Send cold plate CAD',
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Review RFQ inputs', href: '/rfq/' },
+      {
+        text: 'Discuss on WhatsApp',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
@@ -161,6 +171,35 @@ const metadata = {
         description:
           'Copper AM may fit cooling closer to heat sources when the drawing defines keep-outs, datum faces, and sealing surfaces.',
         icon: 'tabler:temperature',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Confirm the manufacturing and acceptance route"
+    subtitle="Review the green-laser LPBF envelope, material options, finishing, pressure-boundary evidence, and inspection scope before issuing the RFQ."
+    columns={2}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Copper AM capabilities',
+        description:
+          'Representative build envelope, pure copper and CuCrZr routes, machining, cleaning, CT, pressure, and leak-test scope.',
+        icon: 'tabler:settings',
+        callToAction: {
+          text: 'Review capabilities',
+          href: '/capabilities/',
+        },
+      },
+      {
+        title: 'Cold plate RFQ package',
+        description:
+          'CAD, thermal load, coolant, flow, pressure drop, working and proof pressure, leak target, interfaces, quantity, and documentation.',
+        icon: 'tabler:clipboard-list',
+        callToAction: {
+          text: 'Prepare RFQ inputs',
+          href: '/rfq/',
+        },
       },
     ]}
   />
@@ -264,11 +303,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Send cold plate CAD',
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Prepare RFQ inputs', href: '/rfq/' },
+      {
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
     ]}
   />
 </Layout>

@@ -145,7 +145,7 @@ For example:
 
 The better RFQ uses a surface map. Mark which regions remain as-built, which are machined, which are polished or lapped, which are plated, and which internal surfaces are accepted by cleaning and functional testing. The #16 page, [Copper 3D Printing Surface Finish: As-Built, Machined, and Polished Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), is the detailed surface guide for that decision.
 
-For heat sinks and contact hardware, surface finish often controls interface resistance. A copper heat sink can have useful fin geometry and still underperform if the mounting face is rough or warped. Use [Thermal Interface Failures in Copper Heat Sinks](/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/) when the part depends on a flat thermal face.
+For heat sinks and contact hardware, surface finish often controls interface resistance. A copper heat sink can have useful fin geometry and still underperform if the mounting face is rough or warped. Use [Thermal Interface Failures in Copper Heat Sinks](/copper-heat-sinks/#review-points) when the part depends on a flat thermal face.
 
 ## Method 5: Plating, Coating, And Masking
 
@@ -335,5 +335,3 @@ Use depowdering and cleaning because internal copper geometry must be cleared. U
 The most useful RFQ does not ask for "best finish." It defines the route from printed blank to accepted copper component.
 
 Send CAD, drawings, quantity, material preference, post-processing expectations, critical surfaces, operating pressure or current, cleanliness needs, and inspection requirements to [info@szcomo.com](mailto:info@szcomo.com). If the route is still open, start with the [RFQ guidance page](/rfq/) and state which functions must be protected.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

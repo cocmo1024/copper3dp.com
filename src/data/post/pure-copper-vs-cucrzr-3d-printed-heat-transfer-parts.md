@@ -231,5 +231,3 @@ Pure copper is the right direction when the heat transfer part is mainly a condu
 CuCrZr is the right direction when the heat transfer part is also a mechanical component: pressure boundary, threaded body, thin internal structure, clamp-loaded interface, repeated assembly, or thermal cycling requirement.
 
 The practical recommendation is to quote the finished component, not just the printed material. Define the alloy, internal channels, heat treatment, machining stock, critical surfaces, inspection method, and acceptance criteria together. That is how pure copper and CuCrZr stop being abstract material names and become usable 3D printed heat transfer parts.
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*

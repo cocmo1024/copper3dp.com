@@ -282,5 +282,3 @@ No. Pure copper and CuCrZr have different metallurgy and different property rout
 Include material designation, target property, operating pressure or temperature, critical surfaces, machining stock, heat-treatment route or supplier standard, coupon requirements, inspection methods, leak or pressure test needs, flow or cleaning evidence, and whether the quote is for a printed blank or a finished component.
 
 </details>
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

@@ -234,5 +234,3 @@ It is a weak route when the geometry is simple, the pressure-drop budget is unde
 The practical recommendation is clear: use copper AM for the geometry it uniquely enables, then budget for the finishing and verification that make the part usable. That means CNC machining, flatness inspection, cleaning, pressure testing, leak testing, and flow verification.
 
 Send CAD, drawings, quantity, heat load, coolant, flow target, pressure limits, material preference, critical surfaces, and inspection needs to [info@szcomo.com](mailto:info@szcomo.com). A basic review can start from geometry and quantity, but a serious liquid cooling plate quote needs the operating and acceptance context.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

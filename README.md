@@ -70,6 +70,7 @@ astro.config.ts            Build integrations, sitemap filtering, markdown plugi
 Primary public pages:
 
 - `/` is the main landing page for SEO and Google Ads.
+- `/capabilities/` documents the copper LPBF equipment class, materials, finishing, inspection, and project-delivery model.
 - `/rfq/` explains what to send for quotation.
 - `/contact/` is the email-first contact route.
 - `/materials/`, `/copper-cold-plates/`, and `/copper-heat-sinks/` support focused search and user intent.
@@ -78,8 +79,9 @@ Primary public pages:
 
 Consolidated legacy pages:
 
-- `/applications/` and `/capabilities/` are kept for compatibility but are redirected on production and excluded from sitemap indexing.
+- `/applications/` is a curated application hub and should remain indexable.
 - Legacy `/tags/.../` pages are static fallbacks with `noindex, follow`.
+- Older heat-sink articles marked `draft: true` are preserved in source but consolidated by 301 into `/copper-heat-sinks/` or the stronger heat-sink feasibility guide.
 
 ## SEO Rules
 

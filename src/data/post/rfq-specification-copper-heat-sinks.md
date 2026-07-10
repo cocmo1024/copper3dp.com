@@ -1,6 +1,7 @@
 ---
 title: 'RFQ Specification Guide for Custom Copper Heat Sinks'
 publishDate: 2025-12-22
+draft: true
 excerpt: 'A practical RFQ checklist for copper heat sinks: thermal targets, interface tolerances, process limits, and acceptance tests to prevent redesign loops.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'rfq-specification', 'engineering-guide']
@@ -216,5 +217,3 @@ At minimum: material certification, base flatness, interface surface roughness, 
 When airflow is constrained and the required °C/W is below what forced-air can achieve in the available volume, or when noise/power limits prevent higher airflow. In those cases, specify R_th and ΔP vs flow, plus filtration and coolant requirements.
 
 ---
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*

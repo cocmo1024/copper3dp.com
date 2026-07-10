@@ -127,5 +127,3 @@ For dielectric withstand and general HV test requirements, IEC 60060-1 is the co
 ISO 4287 remains widely referenced historically for profile roughness parameters, but industry guidance notes migration toward ISO 21920 for newer drawing practices. If you specify Ra, explicitly state the evaluation method and instrument settings to avoid argument-by-interpretation.
 
 ---
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*

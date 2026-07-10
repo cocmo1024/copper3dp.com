@@ -15,6 +15,8 @@ import { createCopperServiceSchema, createFaqSchema, createItemListSchema } from
 
 const rfqEmail = 'info@szcomo.com';
 const rfqEmailHref = 'mailto:info@szcomo.com';
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
 
 const homeFaqs = [
@@ -22,6 +24,11 @@ const homeFaqs = [
     title: 'What makes a review move quickly?',
     description:
       'Drawings, quantity, material if known, target lead time, critical surfaces, and operating or inspection requirements help us quote faster.',
+  },
+  {
+    title: 'Who operates COPPER 3DP?',
+    description:
+      'COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. The company coordinates qualified copper additive manufacturing, finishing, inspection, and export routes according to the requirements defined in the quotation.',
   },
   {
     title: 'Which copper materials can be reviewed?',
@@ -46,10 +53,10 @@ const homeFaqs = [
 ];
 
 const metadata = {
-  title: 'Copper 3D Printing Service | Custom LPBF Copper Parts RFQ',
+  title: 'Copper 3D Printing Service | Pure Copper & CuCrZr LPBF',
   ignoreTitleTemplate: true,
   description:
-    'Copper 3D printing service for custom LPBF copper parts. Send CAD for cold plates, custom copper heat sinks, busbars, induction coils, RF waveguide parts, and semiconductor hardware.',
+    'Copper 3D printing service for pure copper and CuCrZr LPBF parts. Send CAD for cold plates, heat exchangers, heat sinks, busbars, induction coils, RF, and semiconductor hardware.',
   openGraph: {
     images: [
       {
@@ -63,6 +70,11 @@ const metadata = {
   structuredData: [
     createCopperServiceSchema(),
     createItemListSchema('Typical copper additive manufacturing application cases', [
+      {
+        name: 'Copper 3D printing capabilities',
+        description: 'Green-laser LPBF market capability, materials, finishing, inspection, and quotation scope.',
+        url: '/capabilities/',
+      },
       {
         name: 'Copper 3D printing applications',
         description:
@@ -316,47 +328,69 @@ const requirementShowcases = [
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Send CAD by email',
         href: rfqEmailHref,
         icon: 'tabler:mail',
       },
-      { text: 'Prepare RFQ inputs', href: '/rfq/' },
+      {
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
-      alt: 'Transparent copper additive manufacturing parts',
+      alt: 'Pure copper and CuCrZr additive manufacturing parts',
       class: 'mx-auto w-full',
     }}
   >
     <Fragment slot="title">
-      Custom copper 3D printing service for <span class="text-accent">LPBF copper parts</span>
+      Copper 3D printing service for <span class="text-accent">high-conductivity functional parts</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Send drawings, quantity, material preference, and requirements for copper cold plates, custom copper heat sinks,
-      high-current conductors, RF parts, and semiconductor copper hardware. We review the part, ask focused questions
-      when needed, and quote according to the project information provided.
+      Pure copper and CuCrZr LPBF routes for cold plates, heat exchangers, heat sinks, busbars, induction coils, RF,
+      vacuum, and semiconductor hardware. One RFQ path can cover DfAM review, printing, finishing, and inspection
+      coordination.
     </Fragment>
 
     <Fragment slot="content">
-      <p class="mt-4 text-sm text-muted">
-        Send files to <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a>
+      <p class="mt-4 text-sm leading-6 text-muted">
+        Operated by <a class="font-semibold underline underline-offset-4" href="https://www.szcomo.com/"
+          >Suzhou Como Precision Materials Co., Ltd.</a
+        > · <a class="font-semibold underline underline-offset-4" href="/capabilities/">Review capabilities</a> · Send files
+        to
+        <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a>
       </p>
     </Fragment>
   </Hero>
 
   <Note
-    title="For a faster quote:"
-    description="Send CAD or drawings, quantity, material preference if known, target lead time, and any critical surfaces, pressure, thermal, electrical, or inspection requirements."
+    title="A practical quotation starts with the accepted component, not only the printed blank."
+    description="Send CAD or drawings, quantity, material preference if known, target lead time, critical surfaces, operating conditions, finishing, and inspection requirements."
   />
 
   <Features2
     title="Choose the right RFQ path"
-    subtitle="Google traffic often arrives with a specific application intent. These pages keep each high-value search path focused on the buyer's next engineering decision."
-    tagline="Commercial search paths"
-    columns={4}
+    subtitle="Start with the page that matches the part. Each path explains fit, constraints, evidence, and the inputs needed for quotation."
+    tagline="Project routes"
+    columns={3}
     classes={{ container: sectionContainerClass }}
     items={[
+      {
+        title: 'Copper AM capabilities',
+        description:
+          'Green-laser LPBF market capability, material routes, post-processing, inspection, and project responsibility without implying equipment ownership.',
+        icon: 'tabler:settings',
+        callToAction: {
+          text: 'Review capabilities',
+          href: '/capabilities/',
+        },
+      },
       {
         title: 'Copper 3D printing applications',
         description:
@@ -579,12 +613,15 @@ const requirementShowcases = [
   />
 
   <Stats
+    title="Published green-laser copper LPBF capability"
+    subtitle="Public market references for initial screening, not equipment owned by COPPER 3DP. The quotation confirms the supplier, material, geometry, finishing, and acceptance route."
+    tagline="Capability snapshot"
     classes={{ container: sectionContainerClass }}
     stats={[
-      { title: 'Typical case groups', amount: '6' },
-      { title: 'Core copper alloys', amount: '3' },
-      { title: 'Quote inputs reviewed', amount: '8+' },
-      { title: 'Inspection routes', amount: '3+' },
+      { title: 'Green laser', amount: '532 nm' },
+      { title: 'Reference build class', amount: 'Up to 350 x 350 x 500 mm' },
+      { title: 'Layer range', amount: '20-120 um' },
+      { title: 'Material routes', amount: 'Pure Cu / CuCrZr' },
     ]}
   />
 
@@ -593,17 +630,27 @@ const requirementShowcases = [
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Send CAD by email',
         href: rfqEmailHref,
         icon: 'tabler:mail',
       },
+      {
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
     ]}
   >
-    <Fragment slot="title"> Send drawings, quantity, and requirements. </Fragment>
+    <Fragment slot="title"> Send the drawing and define what must be accepted. </Fragment>
 
     <Fragment slot="subtitle">
       Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with the drawing, quantity,
-      and requirements. We respond with a quote or clarification questions based on the project information provided.
+      material, operating conditions, finishing, and inspection requirements. We respond with a quotation route or focused
+      clarification questions.
     </Fragment>
   </CallToAction>
 </Layout>

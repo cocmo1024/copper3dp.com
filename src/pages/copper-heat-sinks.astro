@@ -13,6 +13,8 @@ import {
 } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20custom%20copper%20heat%20sink%20RFQ.';
 
 const heatSinkFaqs = [
   {
@@ -133,11 +135,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Send heat sink CAD',
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Review RFQ inputs', href: '/rfq/' },
+      {
+        text: 'Discuss on WhatsApp',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
@@ -198,6 +208,35 @@ const metadata = {
     ]}
   />
 
+  <Features2
+    title="Confirm the copper AM route before issuing the RFQ"
+    subtitle="Use the published capability boundary to decide whether the part should stay CNC, skived, fabricated, brazed, or move to LPBF copper AM."
+    columns={2}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Copper AM capabilities',
+        description:
+          'Representative green-laser build envelope, material routes, finishing, machining, inspection, and quotation responsibility.',
+        icon: 'tabler:settings',
+        callToAction: {
+          text: 'Review capabilities',
+          href: '/capabilities/',
+        },
+      },
+      {
+        title: 'Heat sink RFQ inputs',
+        description:
+          'CAD, heat load, airflow or coolant, interface flatness, mounting, material, quantity, finishing, and validation method.',
+        icon: 'tabler:clipboard-list',
+        callToAction: {
+          text: 'Prepare RFQ inputs',
+          href: '/rfq/',
+        },
+      },
+    ]}
+  />
+
   <SplitShowcase id="rfq-inputs" items={heatSinkShowcases} classes={{ container: sectionContainerClass }} />
 
   <Features2
@@ -251,13 +290,13 @@ const metadata = {
     columns={3}
     items={[
       {
-        title: 'Heat sink RFQ specification',
+        title: '3D printed copper heat sink feasibility',
         description:
-          'A practical guide for thermal targets, interface tolerances, process limits, and acceptance tests in copper heat sink RFQs.',
-        icon: 'tabler:clipboard-list',
+          'Use this before committing to LPBF when fins, pins, internal channels, airflow, finishing, and cost need a go or no-go decision.',
+        icon: 'tabler:route',
         callToAction: {
-          text: 'Read RFQ guide',
-          href: '/posts/EngineeringGuide/rfq-specification-copper-heat-sinks/',
+          text: 'Read feasibility guide',
+          href: '/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/',
         },
       },
       {
@@ -271,13 +310,13 @@ const metadata = {
         },
       },
       {
-        title: 'Thermal performance testing',
+        title: 'Pure copper vs CuCrZr heat sinks',
         description:
-          'Useful when acceptance depends on measured thermal resistance, airflow control, interface control, or calorimetry.',
-        icon: 'tabler:gauge',
+          'Compare conductivity, strength, softening behavior, heat treatment, interfaces, and finished-component evidence.',
+        icon: 'tabler:atom',
         callToAction: {
-          text: 'Read test methods',
-          href: '/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/',
+          text: 'Compare material routes',
+          href: '/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/',
         },
       },
     ]}
@@ -297,11 +336,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Send heat sink CAD',
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Prepare RFQ inputs', href: '/rfq/' },
+      {
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
     ]}
   />
 </Layout>

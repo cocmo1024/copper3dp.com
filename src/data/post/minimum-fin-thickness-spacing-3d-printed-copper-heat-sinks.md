@@ -197,5 +197,3 @@ Those values often refer to controlled coupons, different alloys, or “printabl
 Yes. Service-bureau guidance for LPBF copper cites larger minimum wall and channel sizes than vendor CuCrZr parameter sets; treat pure copper as requiring wider process margins unless the supplier demonstrates stable coupons. ([DTI](https://www.dti.dk/_/media/94397_2025_Pulvertyper%20-%20kobber_EN.pdf))
 
 ---
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*

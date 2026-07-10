@@ -1,6 +1,7 @@
 ---
 title: 'Copper Heat Sink Interface Failures'
 publishDate: 2026-01-10
+draft: true
 excerpt: 'Diagnose and prevent copper heat sink interface failures: TCR drivers, TIM pump-out, oxidation, clamp-load loss, and spec controls with trade-offs.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'thermal-management', 'engineering-guide']
@@ -152,7 +153,5 @@ Consider alternatives:
 - A thicker interface pad (accept higher bondline but stable behavior).
 - A redesigned clamp architecture (springs, frame clamps).
 - A different surface system (Ni-plated copper, or compatible coating stack).
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*
 
 ---

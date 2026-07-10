@@ -3,9 +3,12 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
 
 const contactShowcases = [
   {
@@ -63,9 +66,9 @@ const contactShowcases = [
 ];
 
 const metadata = {
-  title: 'Copper AM RFQ Contact | Send CAD for Quote',
+  title: 'Copper 3D Printing RFQ | Email or WhatsApp',
   description:
-    'Email copper 3D printing RFQ details with drawings, quantity, material target, lead time, operating constraints, and inspection requirements.',
+    'Send a copper 3D printing RFQ by email or WhatsApp with CAD, quantity, material, lead time, operating conditions, finishing, and inspection requirements.',
   openGraph: {
     images: [
       {
@@ -86,8 +89,65 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="Project RFQ"
-    title="Email your drawing, quantity, and requirements"
-    subtitle="We quote copper 3D printing projects from the information you send. If the drawing and requirements are clear, we quote; if key details are unclear, we ask before quoting."
+    title="Send CAD for a copper 3D printing quotation"
+    subtitle="COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. Send the drawing and requirements by email, or use WhatsApp for the first project discussion."
+    callToAction={{
+      text: 'Email CAD files',
+      href: 'mailto:info@szcomo.com',
+      icon: 'tabler:mail',
+    }}
+    callToAction2={{
+      text: 'WhatsApp project review',
+      href: whatsappHref,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      icon: 'tabler:brand-whatsapp',
+      'data-aw-instant-contact-link': true,
+      'data-aw-contact-channel': 'whatsapp',
+    }}
+  />
+
+  <Features2
+    title="Choose the contact route that fits the project stage"
+    subtitle="CAD and drawings should go by email. WhatsApp is useful for an initial scope check or to confirm what information is needed."
+    columns={3}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Email the RFQ package',
+        description:
+          'Best for STEP files, drawings, quantities, material requirements, acceptance criteria, and commercial notes.',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: 'Email info@szcomo.com',
+          href: 'mailto:info@szcomo.com',
+        },
+      },
+      {
+        title: 'Discuss on WhatsApp',
+        description:
+          'Best for the first scope check, confirming file requirements, or following up on a submitted quotation package.',
+        icon: 'tabler:brand-whatsapp',
+        callToAction: {
+          text: '+86 153 0154 1312',
+          href: whatsappHref,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          'data-aw-instant-contact-link': true,
+          'data-aw-contact-channel': 'whatsapp',
+        },
+      },
+      {
+        title: 'Review capabilities first',
+        description:
+          'Check the public green-laser LPBF market range, material routes, finishing, inspection, and published limitations before sending an RFQ.',
+        icon: 'tabler:settings',
+        callToAction: {
+          text: 'Open capabilities',
+          href: '/capabilities/',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -98,13 +158,18 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Email CAD files',
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
       {
-        text: 'Review RFQ inputs',
-        href: '/rfq/',
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
       },
     ]}
   />

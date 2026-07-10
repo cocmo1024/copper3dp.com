@@ -1,0 +1,343 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import capabilityImage from '~/assets/images/generated/copper-production-components-screening.webp';
+import {
+  createBreadcrumbSchema,
+  createCopperServiceSchema,
+  createFaqSchema,
+  createItemListSchema,
+} from '~/utils/structured-data';
+
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+const m160ReferenceUrl = 'https://www.addireen.com/proInfo-118.html';
+const m350ReferenceUrl = 'https://www.addireen.com/proInfo-18.html';
+
+const capabilityFaqs = [
+  {
+    title: 'How is a copper 3D printing project produced?',
+    description:
+      'COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We coordinate the appropriate qualified manufacturing, finishing, and inspection route against the drawing and acceptance requirements. The quotation defines the proposed scope for the specific project.',
+  },
+  {
+    title: 'Are the listed equipment values guaranteed part specifications?',
+    description:
+      'No. They are public market-reference values from green-laser LPBF platform literature, not a quotation or an unconditional finished-part guarantee. Achievable walls, channels, tolerances, density, conductivity, surface finish, and lead time depend on alloy, geometry, orientation, parameter set, heat treatment, machining, and inspection scope.',
+  },
+  {
+    title: 'Does COPPER 3DP own the equipment shown on this page?',
+    description:
+      'No equipment ownership is represented by this page. The equipment image is illustrative. Como Precision reviews the project and coordinates a suitable qualified manufacturing route; the quotation identifies the proposed production, finishing, inspection, and responsibility scope for that project.',
+  },
+  {
+    title: 'Which copper materials can be reviewed?',
+    description:
+      'Typical routes include commercially pure copper and copper-chromium-zirconium alloys such as CuCrZr or CuCr1Zr. Final material availability, powder specification, heat treatment, and property evidence are confirmed during quotation.',
+  },
+  {
+    title: 'Can machining and inspection be included?',
+    description:
+      'Yes, when required. Quotations can include defined machining, heat treatment, cleaning, polishing or plating, dimensional inspection, pressure testing, leak testing, flow checks, CT review, and material documentation according to the drawing and acceptance plan.',
+  },
+];
+
+const processShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/rfq-review-workspace.webp',
+      alt: 'Copper 3D printing drawing and RFQ review',
+    },
+    title: '1. Drawing and requirement review',
+    description:
+      'The first decision is whether additive manufacturing creates enough value to justify the route. Simple copper geometry may be better machined, skived, fabricated, or brazed.',
+    points: [
+      {
+        title: 'Geometry package',
+        description:
+          'STEP, X_T, native CAD, and drawings for critical dimensions, datum faces, ports, sealing lands, contact pads, and machining stock.',
+      },
+      {
+        title: 'Operating requirement',
+        description:
+          'Heat load, coolant, pressure, current, RF band, vacuum environment, service temperature, and cleanliness requirements when applicable.',
+      },
+      {
+        title: 'Commercial inputs',
+        description:
+          'Prototype and batch quantity, delivery target, documentation, packaging, and export requirements.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/copper/copper-cold-plate-channels.webp',
+      alt: 'Copper LPBF internal channel and post-processing review',
+    },
+    title: '2. LPBF route and finishing plan',
+    description:
+      'Build orientation, supports, powder removal, heat treatment, and CNC finishing are planned as one route because the accepted component is more than an as-built print.',
+    points: [
+      {
+        title: 'Build and powder removal',
+        description:
+          'Walls, channels, overhangs, drain paths, support access, and trapped-powder risk are reviewed before pricing.',
+      },
+      {
+        title: 'Material condition',
+        description:
+          'Pure copper or CuCrZr-family routes are matched to conductivity, mechanical load, temperature, and heat-treatment needs.',
+      },
+      {
+        title: 'Finished interfaces',
+        description:
+          'Datum faces, sealing lands, threads, contact pads, RF surfaces, and coating masks are defined for machining or finishing.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/copper/copper-cold-plates.webp',
+      alt: 'Finished copper additive manufacturing parts for inspection',
+    },
+    title: '3. Inspection matched to the failure risk',
+    description:
+      'Inspection is selected from the function of the part. A pressure boundary, current path, RF surface, and general prototype do not need the same evidence package.',
+    points: [
+      {
+        title: 'Dimensional evidence',
+        description:
+          'Critical dimensions, flatness, position, threads, sealing geometry, and machined datum relationships can be defined on the drawing.',
+      },
+      {
+        title: 'Internal and fluid evidence',
+        description:
+          'CT review, pressure testing, helium or pressure-decay leak testing, flow checks, and cleaning evidence can be scoped where relevant.',
+      },
+      {
+        title: 'Material and surface evidence',
+        description:
+          'Material certificates, density or conductivity evidence, roughness, plating, and heat-treatment records can be discussed before quotation.',
+      },
+    ],
+  },
+];
+
+const metadata = {
+  title: 'Copper 3D Printing Capabilities | Green-Laser LPBF',
+  description:
+    'Copper 3D printing capability references for pure copper and CuCrZr parts: 532 nm green-laser LPBF, builds up to the 350 mm class, finishing, machining, CT, leak testing, and RFQ review.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/generated/copper-production-components-screening.webp',
+        width: 1600,
+        height: 900,
+        alt: 'Illustrative green-laser copper LPBF platform',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Capabilities', item: '/capabilities/' },
+    ]),
+    createCopperServiceSchema(),
+    createItemListSchema('Copper additive manufacturing capability scope', [
+      {
+        name: 'Green-laser LPBF copper printing',
+        description:
+          'Public market references include 532 nm platforms with 500-1000 W laser options for pure copper and copper alloys.',
+        url: '/capabilities/',
+      },
+      {
+        name: 'Copper AM post-processing',
+        description: 'Heat treatment, CNC machining, cleaning, polishing, plating, and interface finishing.',
+        url: '/capabilities/',
+      },
+      {
+        name: 'Copper part inspection',
+        description: 'Dimensional, CT, pressure, leak, flow, surface, and material evidence when specified.',
+        url: '/capabilities/',
+      },
+    ]),
+    createFaqSchema(capabilityFaqs),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Copper AM capabilities"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Send CAD by email',
+        href: 'mailto:info@szcomo.com',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Discuss on WhatsApp',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
+    ]}
+    image={{
+      src: capabilityImage,
+      alt: 'Copper additive manufacturing parts for thermal, electrical, and fluid applications',
+      class: 'mx-auto w-full',
+    }}
+  >
+    <Fragment slot="title"
+      >Green-laser LPBF copper parts from CAD to <span class="text-accent">inspected hardware</span></Fragment
+    >
+    <Fragment slot="subtitle">
+      COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We coordinate qualified copper additive
+      manufacturing, finishing, and inspection routes for thermal, electrical, RF, vacuum, tooling, and semiconductor
+      components.
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mt-4 text-sm text-muted">
+        COPPER 3DP does not present the illustrated machine as company-owned equipment. The values below are public
+        market capability references used for initial screening. Your quotation confirms the actual supplier, process
+        route, and acceptance scope.
+      </p>
+    </Fragment>
+  </Hero>
+
+  <Stats
+    title="Published green-laser copper LPBF range"
+    subtitle="Reference range drawn from Addireen M160G and M350G literature. It describes what qualified market platforms can achieve, not equipment owned by COPPER 3DP."
+    tagline="Market capability reference"
+    classes={{ container: sectionContainerClass }}
+    stats={[
+      { title: 'Laser options', amount: '532 nm / 500-1000 W' },
+      { title: 'Build range', amount: '160 x 160 x 200 to 350 x 350 x 500 mm' },
+      { title: 'Layer range', amount: '20-120 um' },
+      { title: 'Process gas', amount: 'N2 / Ar' },
+    ]}
+  />
+
+  <section class="pb-10 md:pb-12 lg:pb-14" aria-labelledby="published-capability-reference">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="border-y border-page-border py-8">
+        <h2 id="published-capability-reference" class="font-heading text-2xl font-bold text-heading md:text-3xl">
+          What the published numbers can and cannot establish
+        </h2>
+        <div class="mt-5 grid gap-6 text-sm leading-7 text-muted md:grid-cols-2">
+          <p>
+            The manufacturer literature reports 10-30 cm3/h for the M160G and up to 20-55 cm3/h for a dual-laser M350G
+            route. It also reports, for annealed pure copper under its stated test conditions, density of at least
+            99.8%, electrical conductivity around 101% IACS, and thermal conductivity around 390 W/(m K).
+          </p>
+          <p>
+            These are platform and material reference results, not promises for every geometry. The same literature
+            shows application examples including 0.5 mm heat-transfer fins and 2.0 mm microchannels with 1.0 mm walls;
+            those examples must not be treated as universal design minima without a project-specific build review.
+          </p>
+        </div>
+        <p class="mt-5 text-sm leading-7 text-muted">
+          Technical reference basis:
+          <a
+            class="font-semibold text-link underline underline-offset-4"
+            href={m160ReferenceUrl}
+            target="_blank"
+            rel="noopener noreferrer">Addireen M160G</a
+          > and
+          <a
+            class="font-semibold text-link underline underline-offset-4"
+            href={m350ReferenceUrl}
+            target="_blank"
+            rel="noopener noreferrer">Addireen M350G</a
+          > public product pages. This citation does not claim equipment ownership, supplier authorization, or a commercial
+          partnership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Features2
+    title="What can be included in a copper AM quotation"
+    subtitle="The final scope is built around the accepted component, not only the printed blank."
+    columns={4}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'Materials',
+        description:
+          'Commercially pure copper, CuCrZr, CuCr1Zr, and other copper alloy routes subject to powder, process, and evidence requirements.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'LPBF production',
+        description:
+          'Build orientation, supports, witness coupons, internal channels, depowdering access, and process-route review.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Finished component',
+        description:
+          'Heat treatment, CNC machining, cleaning, polishing, plating, threads, sealing faces, and contact interfaces.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Acceptance evidence',
+        description:
+          'Dimensional inspection, CT, pressure or leak testing, flow checks, roughness, conductivity, and documentation as specified.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
+  />
+
+  <SplitShowcase
+    title="One RFQ path from geometry to acceptance"
+    subtitle="The quotation route stays practical: define what the part must do, then select only the manufacturing and evidence steps needed to accept it."
+    items={processShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <FAQs
+    title="Copper 3D printing capability questions"
+    subtitle="These answers define what the published capability information does and does not mean."
+    items={capabilityFaqs}
+    columns={1}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <CallToAction
+    classes={{ container: sectionContainerClass }}
+    title="Send the drawing before locking the manufacturing route."
+    subtitle="Include quantity, material preference, critical dimensions, operating conditions, finishing, and inspection requirements. We will respond with a quotation path or focused clarification questions."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
+      },
+    ]}
+  />
+</Layout>

@@ -17,6 +17,31 @@
     { "source": "/Terms/", "destination": "/terms/", "permanent": true },
     { "source": "/Terms", "destination": "/terms/", "permanent": true },
     { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true },
+    {
+      "source": "/posts/EngineeringGuide/underperformance-copper-heat-sinks/",
+      "destination": "/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/",
+      "destination": "/copper-heat-sinks/#review-points",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/",
+      "destination": "/copper-heat-sinks/#review-points",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/rfq-specification-copper-heat-sinks/",
+      "destination": "/copper-heat-sinks/#rfq-inputs",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/cnc-vs-3d-printed-copper-heat-sinks/",
+      "destination": "/copper-heat-sinks/",
+      "permanent": true
+    },
     { "source": "/tags/multifunctional-copper-parts/", "destination": "/applications/", "permanent": true },
     { "source": "/tags/multifunctional-copper-parts", "destination": "/applications/", "permanent": true },
     { "source": "/tags/copper-busbars/", "destination": "/applications/#electrical", "permanent": true },

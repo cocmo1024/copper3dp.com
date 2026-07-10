@@ -1,6 +1,8 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 const rfqEmailHref = 'mailto:info@szcomo.com';
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
 const currentYear = new Date().getFullYear();
 
 export const headerData = {
@@ -27,6 +29,10 @@ export const headerData = {
       ],
     },
     {
+      text: 'Capabilities',
+      href: getPermalink('/capabilities'),
+    },
+    {
       text: 'Engineering',
       links: [
         {
@@ -38,8 +44,8 @@ export const headerData = {
           href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
         },
         {
-          text: 'Quotation checklist',
-          href: getPermalink('/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation'),
+          text: 'Engineering Guide',
+          href: getBlogPermalink(),
         },
       ],
     },
@@ -48,63 +54,54 @@ export const headerData = {
       href: getPermalink('/rfq'),
     },
     {
-      text: 'Resources',
-      href: getBlogPermalink(),
-    },
-    {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Email RFQ', href: rfqEmailHref, title: 'Email info@szcomo.com' }],
+  actions: [{ text: 'Email RFQ', href: rfqEmailHref, title: 'Email CAD and RFQ files to info@szcomo.com' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Start',
+      title: 'Start a project',
       links: [
+        { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Applications overview', href: getPermalink('/applications') },
         { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
         { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
-        { text: 'RFQ inputs', href: getPermalink('/rfq') },
-        { text: 'Engineering resources', href: getBlogPermalink() },
+        { text: 'Prepare an RFQ', href: getPermalink('/rfq') },
       ],
     },
     {
-      title: 'Engineering notes',
+      title: 'Engineering',
       links: [
+        { text: 'Copper AM materials', href: getPermalink('/materials') },
         {
-          text: 'Copper AM materials',
-          href: getPermalink('/materials'),
-        },
-        {
-          text: 'Copper service RFQ guide',
-          href: getPermalink('/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide'),
+          text: 'Copper LPBF design rules',
+          href: getPermalink('/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts'),
         },
         {
           text: 'Process selection',
           href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
         },
-        {
-          text: 'CT and leak criteria',
-          href: getPermalink('/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates'),
-        },
+        { text: 'Engineering Guide', href: getBlogPermalink() },
       ],
     },
     {
       title: 'Company',
       links: [
-        { text: 'About', href: getPermalink('/about') },
+        { text: 'About COPPER 3DP', href: getPermalink('/about') },
         { text: 'Contact', href: getPermalink('/contact') },
+        { text: 'Como Precision', href: 'https://www.szcomo.com/' },
         { text: 'Privacy', href: getPermalink('/privacy') },
         { text: 'Terms', href: getPermalink('/terms') },
       ],
     },
     {
-      title: 'Related sites',
+      title: 'Related platforms',
       links: [
-        { text: 'Como Precision', href: 'https://szcomo.com/' },
+        { text: 'Metal AM powders', href: 'https://metal3dpowder.com/' },
         { text: 'Titanium Alloy AM', href: 'https://titanium3dp.com/' },
         { text: 'Precision Ceramics', href: 'https://ceramiccnc.com/' },
       ],
@@ -115,10 +112,15 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Email', icon: 'tabler:mail', href: 'mailto:info@szcomo.com' },
+    { ariaLabel: 'Email', icon: 'tabler:mail', href: rfqEmailHref },
+    {
+      ariaLabel: 'WhatsApp',
+      icon: 'tabler:brand-whatsapp',
+      href: whatsappHref,
+    },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    © ${currentYear} COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
+    &copy; ${currentYear} COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
   `,
 };

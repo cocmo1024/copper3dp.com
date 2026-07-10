@@ -177,7 +177,7 @@ For air-cooled heat sinks, smaller features do not automatically improve perform
 
 If the design uses thin fins, pins, lattice, or turbulators, include the functional reason and test method. Thermal load, airflow or coolant flow, interface pressure, allowable pressure drop, and test fixture conditions matter more than a beautiful render.
 
-For heat sink-specific issues, see [3D Printed Copper Heat Sinks for Power Electronics Cooling](/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/), [Minimum Fin Thickness and Spacing for 3D Printed Copper Heat Sinks](/posts/EngineeringGuide/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/), and [Thermal Performance Test Methods for Copper Heat Sinks](/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/).
+For heat sink-specific issues, see [3D Printed Copper Heat Sinks for Power Electronics Cooling](/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/), [Minimum Fin Thickness and Spacing for 3D Printed Copper Heat Sinks](/posts/EngineeringGuide/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/), and [Thermal Performance Test Methods for Copper Heat Sinks](/copper-heat-sinks/#review-points).
 
 ## Mistake 7: Choosing Pure Copper When the Part Needs Mechanical Margin
 
@@ -342,5 +342,3 @@ Copper AM is strongest when it solves a real geometry problem: compact channels,
 Before locking the model, ask whether the part can be printed, depowdered, machined, cleaned, inspected, and accepted. If the answer is visible in the CAD package and RFQ notes, the design is ready for a serious quote. If the answer is hidden, the next step is not production. It is design review.
 
 Related reading: [Design Rules for Copper Laser Powder Bed Fusion Parts](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/), [How to Prepare CAD Files for Copper Metal 3D Printing](/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/), [Cost Drivers in Copper 3D Printing Projects](/posts/EngineeringGuide/cost-drivers-in-copper-3d-printing-projects/), [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

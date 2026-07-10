@@ -136,7 +136,7 @@ The drawing therefore separated:
 
 This prevented a common quotation mistake: asking the print process to deliver finished thermal-interface quality everywhere. The realistic route was to print near-net geometry, then machine the critical surfaces after stress relief or heat treatment as required by the selected process.
 
-For dimensional planning, use [Tolerances and Dimensional Accuracy in Copper Metal 3D Printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/). For interface risk, [Thermal Interface Failures in Copper Heat Sinks](/posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/) is also relevant even though the part here is liquid cooled.
+For dimensional planning, use [Tolerances and Dimensional Accuracy in Copper Metal 3D Printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/). For interface risk, [Thermal Interface Failures in Copper Heat Sinks](/copper-heat-sinks/#review-points) is also relevant even though the part here is liquid cooled.
 
 ## Powder Removal Was Designed In
 
@@ -173,7 +173,7 @@ The validation plan used this structure:
 
 Not every prototype needs a full qualification package. But if the buyer wants a cold plate for a real AI accelerator module, the RFQ should not stop at visual appearance. Pressure, leak, flow, and interface checks are part of the product definition.
 
-For test planning, use [CT and Leak Test Criteria for Copper Cold Plates](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/) and [Thermal Performance Test Methods for Copper Heat Sinks](/posts/EngineeringGuide/thermal-performance-test-copper-heat-sinks/). The second article is about heat sinks, but its fixture and interface logic still applies to thermal hardware.
+For test planning, use [CT and Leak Test Criteria for Copper Cold Plates](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/) and [Thermal Performance Test Methods for Copper Heat Sinks](/copper-heat-sinks/#review-points). The second article is about heat sinks, but its fixture and interface logic still applies to thermal hardware.
 
 ## What Changed After Review
 

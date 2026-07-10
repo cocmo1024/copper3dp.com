@@ -146,5 +146,3 @@ Property drift from thermal exposure: if the part sees high-temperature processe
 **How do we decide quickly without running a full simulation?**
 
 Use a two-check shortcut: (1) estimate whether interface resistance is the dominant term (TIM thickness/quality sensitivity), and (2) compute whether assembly loads require a yield strength reserve. If interface dominates and loads are high, CuCrZr usually wins on system performance repeatability.
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*

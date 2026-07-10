@@ -234,5 +234,3 @@ Send the CAD, drawing, quantity, material preference, flow path, port details, p
 Use copper 3D printing for internal channels when the geometry solves a real thermal, fluid, RF, vacuum, electrical, or packaging problem. Do not use it only because the CAD looks sophisticated. The part must still be depowdered, cleaned, machined where required, inspected, and accepted.
 
 Send CAD, drawings, quantity, material preference, channel function, ports, pressure or flow requirements, cleanliness expectations, and inspection needs to [info@szcomo.com](mailto:info@szcomo.com). You can also start from the [RFQ guidance page](/rfq/). A simple geometry may be reviewed quickly. A dense internal-channel part may need focused clarification before final quotation.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

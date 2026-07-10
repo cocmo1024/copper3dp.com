@@ -1,6 +1,7 @@
 ---
 title: 'CNC Machined vs 3D Printed Copper Heat Sinks'
 publishDate: 2026-01-18
+draft: true
 excerpt: 'Compare CNC and 3D-printed copper heat sinks: tolerances, roughness, density, post-processing, cost drivers, and feasibility zones.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'process-selection', 'engineering-guide']
@@ -121,7 +122,5 @@ Sometimes, but it depends on channel diameter, curvature, and access. If you can
 **What is the safest hybrid approach?**
 
 Print for geometry, machine for interfaces. Use AM to create the internal network or lattice, then CNC machine the TIM interface, seal faces, and ports to tolerance. This hybrid is often the only way to combine geometric freedom with assembly-grade surfaces.
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*
 
 ---

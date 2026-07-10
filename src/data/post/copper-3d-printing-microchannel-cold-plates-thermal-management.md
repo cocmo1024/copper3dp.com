@@ -260,5 +260,3 @@ It is a weak route when the design is simple, the pressure-drop budget is unclea
 The practical recommendation is straightforward: use copper AM for the geometry it uniquely enables, then budget for the finishing and verification that make the cold plate usable.
 
 Send CAD, drawings, quantity, thermal requirements, coolant condition, pressure limits, material preference, critical surfaces, and inspection needs to [info@szcomo.com](mailto:info@szcomo.com). A basic review may be possible from geometry and quantity alone, but serious microchannel cold plate quotes need flow, pressure, cleaning, and acceptance context.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

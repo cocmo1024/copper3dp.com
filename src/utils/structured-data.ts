@@ -39,7 +39,7 @@ export const createBreadcrumbSchema = (items: Array<{ name: string; item?: strin
 export const createCopperServiceSchema = (): JsonLdNode => ({
   '@type': 'Service',
   '@id': `${siteUrl}/#copper-additive-manufacturing-service`,
-  name: 'Copper 3D Printing Services',
+  name: 'Copper 3D Printing Service',
   serviceType: 'Copper additive manufacturing and LPBF copper 3D printing',
   provider: { '@id': organizationId },
   areaServed: {
@@ -51,7 +51,7 @@ export const createCopperServiceSchema = (): JsonLdNode => ({
     audienceType: 'Engineering, purchasing, thermal, electrical, RF, aerospace, and semiconductor teams',
   },
   description:
-    'Industrial copper additive manufacturing support for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and function-critical copper components.',
+    'Copper additive manufacturing project delivery coordinated by Suzhou Como Precision Materials Co., Ltd. for cold plates, heat sinks, heat exchangers, busbars, induction coils, RF, vacuum, semiconductor, and other function-critical copper components.',
   url: toAbsoluteUrl('/'),
 });
 

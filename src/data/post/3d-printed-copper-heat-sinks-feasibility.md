@@ -170,6 +170,4 @@ At minimum: the mounting plane and any datum features used for assembly alignmen
 
 A correlation between coupon metrics (density/porosity and, if available, conductivity proxy) and system-level thermal resistance (Rθ) under representative boundary conditions, plus dimensional verification of the mounting plane and critical interfaces.
 
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*
-
 ---

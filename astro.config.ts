@@ -17,7 +17,12 @@ import rehypeKatex from 'rehype-katex';
 
 import astrowind from './vendor/integration';
 
-import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
+import {
+  readingTimeRemarkPlugin,
+  stripRepeatedSeoBoilerplateRemarkPlugin,
+  responsiveTablesRehypePlugin,
+  lazyImagesRehypePlugin,
+} from './src/utils/frontmatter';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -142,7 +147,12 @@ export default defineConfig({
   },
 
   markdown: {
-    remarkPlugins: [remarkGfm, [remarkMath, { singleDollarTextMath: false }], readingTimeRemarkPlugin],
+    remarkPlugins: [
+      remarkGfm,
+      [remarkMath, { singleDollarTextMath: false }],
+      stripRepeatedSeoBoilerplateRemarkPlugin,
+      readingTimeRemarkPlugin,
+    ],
     rehypePlugins: [rehypeKatex, responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
   },
 

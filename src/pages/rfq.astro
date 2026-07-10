@@ -9,6 +9,8 @@ import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~
 
 const rfqEmail = 'info@szcomo.com';
 const rfqEmailHref = 'mailto:info@szcomo.com';
+const whatsappHref =
+  'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20RFQ.';
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
 const rfqTemplate = `Subject: Copper 3D printing RFQ - [part name]
 
@@ -118,7 +120,7 @@ const rfqShowcases = [
 ];
 
 const metadata = {
-  title: 'Copper AM RFQ Checklist | Drawings',
+  title: 'Copper 3D Printing RFQ Checklist | Send CAD',
   description:
     'Copper AM RFQ checklist for CAD, drawings, quantity, material, lead time, heat load, current, RF band, CT, leak testing, and other requirements.',
   openGraph: {
@@ -163,8 +165,22 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="RFQ inputs"
-    title="Send enough information for a practical copper AM quote"
-    subtitle="A simple drawing and quantity can be enough for a first quote. For complex thermal, electrical, or fluid parts, include the requirements that affect material, post-processing, and testing."
+    title="Send enough information for a practical copper 3D printing quote"
+    subtitle="A simple drawing and quantity can be enough for a first quote. For complex thermal, electrical, RF, vacuum, or fluid parts, include the requirements that affect material, finishing, and acceptance."
+    callToAction={{
+      text: 'Email CAD files',
+      href: rfqEmailHref,
+      icon: 'tabler:mail',
+    }}
+    callToAction2={{
+      text: 'WhatsApp project review',
+      href: whatsappHref,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      icon: 'tabler:brand-whatsapp',
+      'data-aw-instant-contact-link': true,
+      'data-aw-contact-channel': 'whatsapp',
+    }}
   />
 
   <section class="relative not-prose py-10 md:py-14">
@@ -212,7 +228,7 @@ const metadata = {
 
   <Features3
     title="Application RFQ paths"
-    subtitle="Use the application page when the project already fits a clear copper AM search intent."
+    subtitle="Use the application page when the project already fits a clear copper AM part family."
     columns={3}
     classes={{ container: sectionContainerClass }}
     items={[
@@ -244,6 +260,16 @@ const metadata = {
         callToAction: {
           text: 'Review material routes',
           href: '/materials/',
+        },
+      },
+      {
+        title: 'Capabilities and acceptance scope',
+        description:
+          'Use this before quoting when equipment envelope, materials, machining, CT, leak testing, or documentation controls the project.',
+        icon: 'tabler:settings',
+        callToAction: {
+          text: 'Review capabilities',
+          href: '/capabilities/',
         },
       },
     ]}
@@ -299,9 +325,18 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
+        text: 'Email CAD files',
         href: rfqEmailHref,
         icon: 'tabler:mail',
+      },
+      {
+        text: 'WhatsApp project review',
+        href: whatsappHref,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        icon: 'tabler:brand-whatsapp',
+        'data-aw-instant-contact-link': true,
+        'data-aw-contact-channel': 'whatsapp',
       },
     ]}
   >

@@ -278,5 +278,3 @@ Use copper AM where geometry creates value: internal channels, integrated manifo
 The best copper AM tolerance package does not ask every feature to be perfect. It tells the supplier what must be printed, what must be finished, what must be measured, and what must be tested.
 
 Send CAD, drawings, quantity, material preference, tolerance requirements, and acceptance scope to [info@szcomo.com](mailto:info@szcomo.com). If the tolerance strategy is uncertain, send the current drawing anyway and mark the critical interfaces. A targeted review is faster than forcing a global tolerance note that hides the real manufacturing work.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

@@ -1,6 +1,7 @@
 ---
 title: 'Why Printed Copper Heat Sinks Underperform'
 publishDate: 2026-01-07
+draft: true
 excerpt: 'Printed copper heat sinks often lose performance due to lower k, rough interfaces, and channel ΔP. See failure modes, fixes, and feasibility zones.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'failure-analysis', 'engineering-guide']
@@ -180,7 +181,5 @@ Treat additive as a preform, not a finished part: plan for machining/lapping of 
 **When is CNC copper still the better engineering choice?**
 
 When the required geometry is achievable with machining/brazing and you need predictable conductivity, low interface risk, and controlled coolant hydraulics at production cost. CNC also makes it easier to guarantee Ra/flatness without the additive variability stack.
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*
 
 ---

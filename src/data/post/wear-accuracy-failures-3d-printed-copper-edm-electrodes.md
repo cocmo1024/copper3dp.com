@@ -137,5 +137,3 @@ Only in loose-tolerance tooling where ±0.05 mm drift is acceptable and the cavi
 At minimum: conductivity per ASTM B193 (target ≥95% IACS for critical work), surface finish on working faces (Ra ≤1.6 µm after finishing), dimensional tolerance on datums (≤±0.01–0.02 mm depending on cavity), and a defined sealing strategy (plating thickness 15–30 µm or equivalent). Require pre/post wear measurement on a qualification burn using scan-based volumetrics.
 
 ---
-
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*

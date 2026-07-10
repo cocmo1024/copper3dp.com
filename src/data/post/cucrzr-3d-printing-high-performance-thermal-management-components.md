@@ -240,5 +240,3 @@ CuCrZr 3D printing is a strong route for high-performance thermal management com
 It is a weak route when the part only needs a simple copper shape, when the finishing requirements are undefined, or when the buyer expects heat treatment and inspection to be free details outside the quote.
 
 The practical recommendation is to treat CuCrZr as a material-process-acceptance package. Define the alloy route, heat treatment, machining stock, critical surfaces, channel cleaning, pressure or leak test, and property checks before quotation. That discipline is what turns CuCrZr from an attractive keyword into a usable thermal component.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

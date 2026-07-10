@@ -174,7 +174,7 @@ CNC machining is still the better route when:
 - The part must use wrought copper stock with known material route and documentation.
 - The design does not benefit from part consolidation.
 
-For many [copper heat sinks](/copper-heat-sinks/), the decision is not broad AM versus CNC. It depends on the fin field, airflow, base thickness, interface flatness, quantity, and whether the heat sink needs internal liquid paths. For that narrower comparison, see [CNC vs 3D Printed Copper Heat Sinks](/posts/EngineeringGuide/cnc-vs-3d-printed-copper-heat-sinks/).
+For many [copper heat sinks](/copper-heat-sinks/), the decision is not broad AM versus CNC. It depends on the fin field, airflow, base thickness, interface flatness, quantity, and whether the heat sink needs internal liquid paths. For that narrower comparison, see [CNC vs 3D Printed Copper Heat Sinks](/copper-heat-sinks/).
 
 The most common mistake is using copper AM to replace a good CNC design without changing the functional geometry. That usually raises cost without improving acceptance.
 
@@ -253,5 +253,3 @@ If the AM route removes a bigger constraint than it creates, it deserves a quote
 Related reading: [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/), [Design Rules for Copper Laser Powder Bed Fusion Parts](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/), [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
 
 Send CAD, drawing, quantity, material preference, operating limits, and acceptance requirements to [info@szcomo.com](mailto:info@szcomo.com) when the route is unclear. We can review whether CNC, brazing, copper AM, or a hybrid path is the more practical way to quote the finished component.
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._

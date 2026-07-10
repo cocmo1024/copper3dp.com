@@ -239,6 +239,4 @@ Only when the geometry risk is high (thin ligaments, complex port transitions) o
 
 Use an escalation ladder: re-scan ROI at tighter settings (evidence gate), then apply leak test escalation. If you cannot prove interpretability, treat it as an evidence failure and re-scan rather than arguing about the part.
 
-> *Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation.*
-
 ---

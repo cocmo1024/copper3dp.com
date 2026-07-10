@@ -290,5 +290,3 @@ The practical sequence is straightforward: choose the material route, protect cr
 For RFQ review, send CAD, drawing, function, material preference, operating limits, channel section views, critical surface requirements, and validation expectations to [info@szcomo.com](mailto:info@szcomo.com), or use the [RFQ guidance page](/rfq/) to organize the package.
 
 Related reading: [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/), [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
-
-> _Disclaimer: All scenarios described are based on real or closely analogous executed projects. If you choose to implement any of the examples described in this article, please conduct a careful evaluation first. This site assumes no responsibility for losses resulting from implementations made without prior evaluation._
