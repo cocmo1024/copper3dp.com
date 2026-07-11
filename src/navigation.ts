@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getBlogPermalink } from './utils/permalinks';
 
 const rfqEmailHref = 'mailto:info@szcomo.com';
 const whatsappHref =
@@ -57,7 +57,6 @@ export const footerData = {
         { text: 'Engineering Guides', href: getBlogPermalink() },
         { text: 'About COPPER 3DP', href: getPermalink('/about') },
         { text: 'Editorial policy', href: getPermalink('/editorial-policy') },
-        { text: 'Contact', href: getPermalink('/contact') },
         { text: 'Como Precision', href: 'https://www.szcomo.com/' },
       ],
     },
@@ -73,7 +72,6 @@ export const footerData = {
       icon: 'tabler:brand-whatsapp',
       href: whatsappHref,
     },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
     &copy; ${currentYear} COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.

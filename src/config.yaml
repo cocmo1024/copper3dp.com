@@ -52,7 +52,7 @@ apps:
         index: false
 
     tag:
-      isEnabled: true
+      isEnabled: false
       pathname: 'blog/tag'
       robots:
         index: false
