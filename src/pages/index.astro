@@ -75,16 +75,21 @@ const applicationLinks = [
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative min-h-[500px] overflow-hidden border-b border-page-border bg-surface sm:min-h-[600px]">
-    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 sm:inset-y-0 sm:left-auto sm:h-full sm:w-[46%]">
+  <section
+    class="relative min-h-[500px] overflow-hidden border-b border-page-border bg-surface sm:min-h-[600px] min-[2200px]:min-h-[800px]"
+  >
+    <div
+      class="pointer-events-none absolute inset-x-0 bottom-0 h-44 sm:inset-y-0 sm:left-auto sm:h-full sm:w-[48%] min-[2200px]:w-[54%]"
+    >
       <Image
         src={heroImage}
         alt="Pure copper and CuCrZr additive manufacturing parts"
         class="h-full w-full object-contain object-bottom sm:object-right"
-        widths={[640, 960, 1280]}
-        sizes="(max-width: 639px) 100vw, 46vw"
-        width={1200}
-        height={675}
+        style="object-fit: contain;"
+        widths={[640, 960, 1280, 1600, 1920]}
+        sizes="(max-width: 639px) 100vw, (min-width: 2200px) 1500px, 52vw"
+        width={2048}
+        height={1152}
         loading="eager"
         decoding="async"
       />
