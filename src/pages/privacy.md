@@ -1,6 +1,6 @@
 ---
 title: 'Privacy Policy'
-description: 'COPPER 3DP privacy policy for RFQ inquiries, CAD files, drawings, project notes, technical requirements, and contact information submitted through the website.'
+description: 'COPPER 3DP privacy policy for website analytics and project information sent directly by email or instant messaging.'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
@@ -10,7 +10,7 @@ This privacy policy explains the basic information COPPER 3DP may receive when v
 
 ## Information You Provide
 
-When you submit an RFQ inquiry or email us, you may provide your name, company, email address, project description, drawings, CAD files, material targets, quantities, and technical requirements.
+This website does not provide an online RFQ submission form or upload facility. When you contact us directly by email or instant messaging, you may provide your name, company, email address, project description, drawings, CAD files, material targets, quantities, and technical requirements.
 
 ## How Information Is Used
 

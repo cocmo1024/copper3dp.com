@@ -16,7 +16,7 @@ export const headerData = {
       links: [
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
-        { text: 'Prepare an RFQ', href: getPermalink('/rfq') },
+        { text: 'RFQ by email', href: getPermalink('/rfq') },
       ],
     },
     {
@@ -35,7 +35,7 @@ export const footerData = {
         { text: 'Applications overview', href: getPermalink('/applications') },
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
-        { text: 'Prepare an RFQ', href: getPermalink('/rfq') },
+        { text: 'RFQ by email', href: getPermalink('/rfq') },
       ],
     },
     {

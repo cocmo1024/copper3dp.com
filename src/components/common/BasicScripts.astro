@@ -348,7 +348,7 @@ import { UI } from 'astrowind:config';
               getTrackingPayload(elem, {
                 email,
                 method: 'email',
-                event_category: 'lead',
+                event_category: 'contact_intent',
               }),
               {
                 eventCallback: function () {
@@ -368,7 +368,7 @@ import { UI } from 'astrowind:config';
                     getTrackingPayload(elem, {
                       email,
                       method: 'email_copy',
-                      event_category: 'lead',
+                      event_category: 'contact_intent',
                     })
                   );
                   showEmailToast(`Email copied: ${email}`);
@@ -393,7 +393,7 @@ import { UI } from 'astrowind:config';
               'instant_contact_click',
               getTrackingPayload(elem, {
                 method: channel,
-                event_category: 'lead',
+                event_category: 'contact_intent',
               }),
               {
                 conversionKey: `instant_contact_${channel}`,
