@@ -35,10 +35,6 @@ A printed copper busbar can have a high-conductivity alloy and still run hot bec
 
 For that reason, conductivity should be treated as a finished-part requirement, not a powder specification alone.
 
-![3D printed copper electrical conductivity parts including busbar, induction coil, connector, and conductivity inspection tools](../../assets/images/generated/electrical-conductivity-3d-printed-copper-parts-cover.webp)
-
-_Figure 1. Electrical copper AM projects should connect the material route, current path, contact surfaces, cooling features, and inspection method before quotation._
-
 ## Why Conductivity Questions Are Increasing
 
 Electrical and thermal hardware are becoming more compact. AI servers, power electronics, semiconductor tools, RF systems, battery hardware, and industrial power modules are all pushing copper parts toward higher current density, tighter packaging, and more integrated cooling.

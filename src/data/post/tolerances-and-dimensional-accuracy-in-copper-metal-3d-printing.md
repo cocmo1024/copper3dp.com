@@ -37,10 +37,6 @@ That note may be normal for a small machined copper plate. It becomes weak for a
 
 The issue matters more in 2026 because copper additive manufacturing is being reviewed for denser thermal, electrical, RF, and semiconductor hardware. [EOS positions copper AM](https://www.eos.info/metal-solutions/metal-materials/copper) around conductivity-driven applications such as heat exchangers, electronics, motors, inductors, and power electronics heat sinks. Those applications do not fail only because the outer envelope is off by 0.2 mm. They fail when a seal land leaks, a contact pad does not sit flat, a port thread cuts too close to a channel, or an internal passage cannot be verified.
 
-![3D printed copper part on a metrology bench with CMM probe checking machined datum pads and dimensional accuracy](../../assets/images/generated/copper-am-tolerances-metrology-bench-cover.webp)
-
-_Figure 1. Copper AM tolerances should be reviewed as a finished-component route: printed blank, machined datums, critical surfaces, and inspection evidence._
-
 ## The Tolerance Question Is Not One Number
 
 The useful question is not "what tolerance can copper 3D printing hold?"

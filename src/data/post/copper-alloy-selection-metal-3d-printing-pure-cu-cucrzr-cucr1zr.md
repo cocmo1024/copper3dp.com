@@ -34,10 +34,6 @@ That is why alloy selection is not a branding exercise. It is an engineering gat
 
 As of 2026, industrial copper AM material pages from suppliers such as [EOS](https://www.eos.info/metal-solutions/metal-materials/copper), [Eplus3D](https://www.eplus3d.com/products/3d-printing-materials-copper/), and [3D Systems](https://www.3dsystems.com/materials/cucr1zr-a) point toward the same broad application families: heat exchangers, power electronics cooling, electrical conductors, induction coils, high-frequency electronics, tooling, and compact thermal hardware. Those pages are useful because they show where copper AM is commercially relevant. They do not remove the need to match the alloy to geometry, post-processing, and acceptance criteria.
 
-![Pure Cu, CuCrZr, and CuCr1Zr metal 3D printed samples arranged for copper alloy selection review](../../assets/images/generated/copper-alloy-selection-metal-3d-printing-cover.webp)
-
-_Figure 1. Alloy selection should compare the finished component route, not only the printed material: conductivity, strength, heat treatment, machining, channels, and validation all move together._
-
 ## First Gate: What Property Must Not Fail?
 
 Before comparing pure Cu, CuCrZr, and CuCr1Zr, define the property that cannot be sacrificed.

@@ -1,0 +1,90 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Engineering Content and Editorial Policy',
+  description:
+    'How COPPER 3DP prepares, reviews, sources, labels, and updates engineering content about copper additive manufacturing.',
+  structuredData: createBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Engineering content policy', item: '/editorial-policy/' },
+  ]),
+};
+---
+
+<Layout metadata={metadata}>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <header class="max-w-3xl">
+      <p class="text-sm font-semibold text-primary">Trust and methodology</p>
+      <h1 class="mt-3 font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">
+        Engineering content and editorial policy
+      </h1>
+      <p class="mt-5 text-lg leading-8 text-muted">
+        COPPER 3DP publishes practical guidance for engineers and buyers evaluating copper additive manufacturing. The
+        purpose is to support a better process, material, inspection, or RFQ decision before files are submitted.
+      </p>
+    </header>
+
+    <div class="prose mt-10 max-w-none dark:prose-invert dark:prose-headings:text-heading prose-a:text-link">
+      <h2>Who prepares the content</h2>
+      <p>
+        Articles are published under <strong>COPPER 3DP Engineering</strong>. Content is prepared from project-review
+        requirements, supplier process capability, manufacturing constraints, and public technical sources relevant to
+        copper LPBF and finished copper components. Commercial inquiries and production coordination are handled by
+        Suzhou Como Precision Materials Co., Ltd.
+      </p>
+
+      <h2>How technical claims are handled</h2>
+      <ul>
+        <li>
+          Material and process claims should be tied to a named material route, condition, or source where practical.
+        </li>
+        <li>
+          Property values are not presented as universal guarantees for every machine, build, orientation, or finished
+          part.
+        </li>
+        <li>
+          Application pages separate printable geometry from post-processing, inspection, and functional acceptance.
+        </li>
+        <li>
+          External sources are selected for technical context; customer-specific acceptance still comes from the drawing
+          and RFQ.
+        </li>
+      </ul>
+
+      <h2>Cases, scenarios, and evidence</h2>
+      <p>
+        A named customer result is only described as a customer case when publication rights and supporting evidence are
+        available. Otherwise, a page may use an <strong>illustrative design-review scenario</strong> to explain a common engineering
+        decision. Those scenarios are labeled and must not be read as claims about a specific customer, machine run, measured
+        result, or production program.
+      </p>
+
+      <h2>Images</h2>
+      <p>
+        Images are used when they identify a real component type, expose internal geometry, explain a failure mode, or
+        clarify an inspection decision. Decorative image count is not a publishing target. A page may use one
+        representative image or no additional diagrams when text and tables answer the search task more clearly.
+      </p>
+
+      <h2>Updates and corrections</h2>
+      <p>
+        Substantive revisions receive an updated date. Dates are not changed merely to make content appear fresh. Pages
+        may be consolidated or redirected when several URLs answer the same search intent, when a newer page is more
+        complete, or when an old page no longer supports a reliable engineering decision.
+      </p>
+
+      <h2>What the content does not replace</h2>
+      <p>
+        Website guidance is not a manufacturing guarantee, certified material report, simulation, safety assessment, or
+        acceptance plan for a specific part. A quotation requires the CAD model, drawing, quantity, operating
+        requirements, material preference if known, and the inspection or documentation scope that matters.
+      </p>
+
+      <p>
+        Corrections and technical questions can be sent to <a href="mailto:info@szcomo.com">info@szcomo.com</a>.
+      </p>
+    </div>
+  </article>
+</Layout>

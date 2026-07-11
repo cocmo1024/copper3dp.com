@@ -41,10 +41,6 @@ Then the drawing or quality plan introduces a stricter question:
 
 That question is different from "Can you print a copper alloy?" It asks whether the supplier can support a specific copper alloy designation, a qualified powder and machine route, a heat-treatment condition, and evidence that the final part is not just copper-colored, but acceptable for the program.
 
-![CuCr1Zr copper alloy additive manufactured industrial components with heat exchanger channels, induction coil geometry, contact pads, and witness coupons on a metrology bench](../../assets/images/generated/cucr1zr-copper-alloy-industrial-components-cover.webp)
-
-_Figure 1. CuCr1Zr AM projects usually need both functional geometry and documentation discipline: material designation, heat-treatment state, machining plan, coupons, conductivity checks, hardness checks, and finished-part inspection._
-
 This guide focuses on CuCr1Zr as a specified industrial material route. For the broader material comparison, use [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/). For the strength-first route gate, use [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/). This page is narrower: it helps buyers decide when CuCr1Zr should be named and documented in the RFQ.
 
 ## What CuCr1Zr Means In A Copper AM RFQ

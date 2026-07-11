@@ -24,11 +24,19 @@ const articleContainerClass = 'mx-auto max-w-4xl px-4 sm:px-6';
     </a>
 
     <div class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
-      <time datetime={post.publishDate.toISOString()}>{getFormattedDate(post.publishDate)}</time>
+      <time datetime={(post.updateDate || post.publishDate).toISOString()}>
+        {post.updateDate ? 'Updated ' : ''}{getFormattedDate(post.updateDate || post.publishDate)}
+      </time>
       {post.readingTime && <span aria-hidden="true">·</span>}
       {post.readingTime && <span>{post.readingTime} min read</span>}
       {post.author && <span aria-hidden="true">·</span>}
-      {post.author && <span>{post.author.replaceAll('-', ' ')}</span>}
+      {
+        post.author && (
+          <a class="hover:text-link hover:underline" href="/editorial-policy/">
+            {post.author.replaceAll('-', ' ')}
+          </a>
+        )
+      }
     </div>
 
     <h1 class="mt-4 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl lg:text-5xl">

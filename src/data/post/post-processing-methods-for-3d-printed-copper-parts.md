@@ -40,10 +40,6 @@ That difference is why a buyer should not ask only, "Can you print this copper p
 
 [ISO/ASTM 52908:2023](https://www.iso.org/standard/81779.html) is useful context because it treats powder bed fusion metal parts through finished-part properties, post-processing, inspection, and testing. That mindset fits copper especially well. Copper's value comes from conductivity and geometry, but the accepted part is usually a hybrid of AM, machining, cleaning, finishing, and proof.
 
-![Post-processing methods for 3D printed copper parts with machined sealing lands, internal channels, coupons, and inspection tools](../../assets/images/generated/post-processing-3d-printed-copper-parts-cover.webp)
-
-_Figure 1. A 3D printed copper part is rarely finished at the end of the build. The practical route includes support removal, cleaning, heat treatment where needed, machining, surface finishing, and acceptance checks._
-
 ## Start With The Acceptance Gates
 
 Do not start a post-processing plan by listing every possible method.

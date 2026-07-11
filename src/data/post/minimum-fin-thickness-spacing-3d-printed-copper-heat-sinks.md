@@ -1,6 +1,7 @@
 ---
 title: 'Copper Heat Sink Fin Thickness and Spacing'
 publishDate: 2026-01-03
+updateDate: 2026-07-11
 excerpt: 'Minimum fin thickness and spacing guidance for 3D printed copper heat sinks, with process limits, failure modes, inspection checks, and RFQ inputs.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'design-limits', 'engineering-guide']
@@ -45,7 +46,6 @@ The rest of this article targets **repeatable** and **inspectable** minima.
 
 When **s** approaches the scale where partially fused particles and downskin roughness intrude, the gap becomes a **tortuous porous channel**, not a clean fin passage; airflow drops and pressure rise increases, often undetected in visual inspection.
 
-![AdditiveManufacturing copper heat sink fin geometry showing powder bridging and blocked spacing.](../../assets/images/online-posts/minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks/01-minimum-fin-thickness-spacing-3d-printed-copper-heat-sinks-1-6743e1c6.webp)
 
 **Root cause chain**: small **s**→ higher probability of local fusion/adhesion → incomplete depowdering → flow blockage → thermal performance regression.
 
@@ -127,17 +127,13 @@ A fin that is slightly too thin often breaks visibly; a gap that is too tight of
 
 **Regret/trade-off**: This geometry is heavier and reduces surface area density; it buys yield and predictable lead time.
 
-### Execution log (failure → fix → tax)
+### Illustrative fin-array failure and redesign
 
-**Failure**: A CuCrZr PBF heat sink with **t = 0.5 mm** and **s = 0.6 mm** produced fins that looked complete at the perimeter, but mid-array gaps were partially bridged; bead blasting broke multiple fin tips. [Figure 1]
+This is a manufacturability scenario, not a claimed production result. A dense CuCrZr fin array with sub-millimeter fins and gaps may look complete around its perimeter while containing bridged gaps or fragile tips inside the field. Aggressive blasting can then damage features that survived the build.
 
-**Fix**: Increase to **t = 0.9 mm**, **s = 1.5 mm**, add root fillets, and orient the fin field to reduce recoater interaction; require CT sampling on first article.
+A safer first-article route is to increase fin thickness and spacing, add root fillets, align the build and recoater strategy with the fin field, and validate a representative coupon before releasing the full component. Exact dimensions must come from the supplier's demonstrated capability at the relevant aspect ratio.
 
-**Tax ledger**:
-
-- **Material/geometry tax**: higher mass and lower surface area density.
-- **Process tax**: CT screening and fin coupons consume machine time and inspection bandwidth.
-- **Coordination tax (domain friction)**: aligning build orientation, support strategy, and depowder method across supplier and QA extends iteration cycles.
+The trade-off is higher mass and lower nominal surface-area density, plus added coupon and inspection work. That cost buys a more repeatable part instead of relying on an isolated minimum-wall claim.
 
 ### Decision matrix: choose minima by what you are optimizing
 

@@ -32,10 +32,6 @@ We usually see the real cost appear in the work around the print: process setup,
 
 That is not a reason to avoid copper AM. It is a reason to quote it correctly.
 
-![Copper additive manufacturing cost review scene with copper cold plate, CAD model, inspection probe, coupons, and RFQ documents](../../assets/images/generated/copper-3d-printing-cost-drivers-cover.webp)
-
-_Figure 1. Copper AM project cost is a finished-component ledger: print setup, material, machining, cleaning, validation, and RFQ clarity all affect the final quote._
-
 ## Cost Driver 1: Why the Part Is Being Printed
 
 The first cost driver is strategic: does additive manufacturing remove a real constraint?

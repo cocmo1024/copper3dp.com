@@ -2,7 +2,7 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
+import IntentLibrary from '~/components/blog/IntentLibrary.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
@@ -23,7 +23,7 @@ const currentPage = page.currentPage ?? 1;
 const metadata = {
   title: `Engineering Library${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
   description:
-    'Engineering articles for copper additive manufacturing: cold plates, heat sinks, CT inspection, leak testing, DfAM, material selection, and RFQ preparation.',
+    'Find copper additive manufacturing guidance by engineering intent: thermal management, electrical and RF parts, semiconductor equipment, tooling, materials, inspection, and RFQ preparation.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -66,6 +66,17 @@ const metadata = {
               url: '/copper-heat-sinks/',
             },
             {
+              name: '3D printed copper induction coils',
+              description: 'Application page for shaped inductors, internal cooling, terminals, and test requirements.',
+              url: '/copper-induction-coils/',
+            },
+            {
+              name: '3D printed copper busbars',
+              description:
+                'Application page for compact current routing, contact pads, cooling, and conductivity evidence.',
+              url: '/copper-busbars/',
+            },
+            {
               name: 'Copper AM materials',
               description: 'Material route page for pure copper, CuCrZr, CuCr1Zr, and high-temperature copper alloys.',
               url: '/materials/',
@@ -96,8 +107,8 @@ const metadata = {
       <p class="text-sm font-semibold text-primary">Technical content</p>
       <h1 class="mt-3 font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">Engineering Library</h1>
       <p class="mt-5 text-lg leading-8 text-muted">
-        Practical copper additive manufacturing articles for design, material, process, inspection, and quotation
-        decisions. These pages support specific engineering questions; the main business path remains the RFQ.
+        Choose the engineering task first, then open the page that answers it. The library separates application,
+        material, process, inspection, and quotation intent so similar articles do not compete for the same job.
       </p>
     </header>
 
@@ -108,52 +119,12 @@ const metadata = {
       <a class="font-semibold text-link hover:underline" href="/capabilities/">Capabilities</a>
       <a class="font-semibold text-link hover:underline" href="/applications/">Applications</a>
       <a class="font-semibold text-link hover:underline" href="/materials/">Materials</a>
+      <a class="font-semibold text-link hover:underline" href="/copper-induction-coils/">Induction coils</a>
+      <a class="font-semibold text-link hover:underline" href="/copper-rf-waveguides/">RF waveguides</a>
       <a class="font-semibold text-link hover:underline" href="/rfq/">Prepare an RFQ</a>
     </nav>
 
-    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <label class="relative block w-full max-w-md" for="article-search">
-        <span class="sr-only">Search engineering articles</span>
-        <input
-          id="article-search"
-          type="search"
-          placeholder="Search topics, parts, or materials"
-          class="w-full rounded-md border border-page-border bg-surface px-4 py-3 text-sm text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-          autocomplete="off"
-        />
-      </label>
-      <p id="article-count" class="text-sm text-muted">{page.data.length} articles</p>
-    </div>
-
-    <div class="mt-6">
-      <BlogList posts={page.data} />
-    </div>
+    <IntentLibrary posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
-
-  <script is:inline>
-    (() => {
-      const input = document.getElementById('article-search');
-      const count = document.getElementById('article-count');
-      const entries = Array.from(document.querySelectorAll('[data-article-entry]'));
-
-      if (!(input instanceof HTMLInputElement) || !count) return;
-
-      const update = () => {
-        const query = input.value.trim().toLowerCase();
-        let visible = 0;
-
-        entries.forEach((entry) => {
-          const match = !query || (entry.getAttribute('data-article-search') || '').includes(query);
-          const listItem = entry.closest('li');
-          if (listItem instanceof HTMLElement) listItem.hidden = !match;
-          if (match) visible += 1;
-        });
-
-        count.textContent = `${visible} article${visible === 1 ? '' : 's'}`;
-      };
-
-      input.addEventListener('input', update);
-    })();
-  </script>
 </Layout>

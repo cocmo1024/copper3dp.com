@@ -31,10 +31,6 @@ This guide is intentionally narrow.
 
 It is not a general introduction to [pure copper 3D printing](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/). It is also not a broad explanation of [electrical conductivity in 3D printed copper parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/). This page focuses on conductive components as quoted hardware: where current enters, where it leaves, how the current path changes shape, what surfaces must be machined or plated, how contact resistance is controlled, and what evidence should be requested before the part is accepted.
 
-![Pure copper AM conductive components including connector body, busbar block, contact coupons, electrode, and conductivity inspection tools](../../assets/images/generated/pure-copper-additive-manufacturing-conductive-components-cover.webp)
-
-_Figure 1. Conductive copper AM parts should be reviewed as finished components: current path geometry, machined contact faces, surface finish, plating, inspection coupons, and acceptance tests all affect the RFQ._
-
 ## Why Pure Copper AM Appears In Conductive Component RFQs
 
 Pure copper is attractive because it offers high electrical conductivity and high thermal conductivity. That makes it a natural material to review for conductors, contact blocks, electrodes, induction hardware, RF surfaces, and compact power components.

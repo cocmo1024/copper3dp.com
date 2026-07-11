@@ -37,10 +37,6 @@ The useful question is:
 
 "Can this specific pure copper component be printed, cleaned, machined, tested, and accepted with the conductivity, geometry, surface, and inspection evidence we need?"
 
-![Pure copper 3D printed busbar, induction coil, cold plate cutaway, RF waveguide, and inspection coupons on an engineering bench](../../assets/images/generated/pure-copper-3d-printing-applications-benefits-challenges-cover.webp)
-
-_Figure 1. Pure copper AM should be reviewed as a finished-component route: conductive geometry, internal channels, machined contact pads, RF surfaces, witness coupons, and inspection evidence all matter._
-
 ## Where Pure Copper 3D Printing Creates Real Value
 
 Pure copper additive manufacturing is strongest when conductivity and geometry need to work together.

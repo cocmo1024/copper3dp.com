@@ -47,10 +47,6 @@ This representative case focuses on a CuCrZr cooling insert for an injection mol
 
 The site already has a broad guide for [Copper AM Conformal Cooling Mold Inserts](/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/). This article does not replace it. It shows how that guide applies to one case-style RFQ.
 
-![CuCrZr copper AM cooling insert for injection mold hot spots with machined cavity face and coolant ports](../../assets/images/generated/cucrzr-mold-insert-hot-spot-case-cover.webp)
-
-_Figure 1. A CuCrZr copper AM cooling insert is worth reviewing when local hot spots, ribs, bosses, and constrained tool geometry cannot be cooled by straight drilled channels alone._
-
 ## Starting Requirement
 
 The representative RFQ involved a small mold insert for a plastic enclosure with ribs, screw bosses, and a deeper pocket near one corner. The molded part could be filled, but the process window was narrow.

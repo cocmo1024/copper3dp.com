@@ -30,10 +30,6 @@ That request is reasonable, but it is not complete. A cold plate, heat exchanger
 
 CuCrZr changes the conversation. It is a precipitation-hardenable copper alloy used when thermal or electrical conductivity must be balanced against mechanical stability. [EOS lists copper and CuCrZr additive manufacturing materials](https://www.eos.info/en/3d-printing-materials/metals/copper) for applications where conductivity matters, while suppliers such as [Eplus3D position Pure Cu and CuCrZr](https://www.eplus3d.com/products/3d-printing-materials-copper/) for heat exchangers, electronics, and electrical hardware. The material is not a shortcut around engineering review. It is a route for parts where the finished assembly needs both heat flow and mechanical reserve.
 
-![CuCrZr 3D printed thermal management components including cold plate, heat sink, and cooling manifold](../../assets/images/generated/cucrzr-3d-printing-thermal-management-cover.webp)
-
-_Figure 1. CuCrZr is most useful when a thermal component also needs stable threads, machined sealing lands, pressure integrity, and repeatable assembly surfaces._
-
 ## Start With the Selection Gate
 
 The first question is not "Can we print CuCrZr?" The useful question is "What failure mode are we trying to prevent?"

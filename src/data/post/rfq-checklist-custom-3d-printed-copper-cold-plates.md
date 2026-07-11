@@ -1,6 +1,7 @@
 ---
 title: '3D Printed Copper Cold Plate RFQ Checklist'
 publishDate: 2026-01-25
+updateDate: 2026-07-11
 excerpt: 'A practical RFQ checklist for custom 3D printed copper cold plates: leak test criteria, pressure drop specs, GD&T, materials, and documentation.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'rfq-specification', 'engineering-guide']
@@ -18,7 +19,6 @@ A custom 3D printed copper cold plate RFQ is not a request for a price; it is a 
 
 What changes the outcome is not “more detail” in general. It is the right detail: interfaces, coolant conditions, channel intent, and verification. Below is the RFQ checklist we use internally when we want the quotation to be a commitment rather than a guess.
 
-![Cross-section of 3D printed copper cold plate showing internal channels, ports, and sealing datums.](../../assets/images/online-posts/rfq-checklist-custom-3d-printed-copper-cold-plates/01-rfq-checklist-custom-3d-printed-copper-cold-plates-1-9ecc8f7f.webp)
 
 #### Why copper cold plate RFQs go sideways (and how to prevent it)
 
@@ -188,17 +188,17 @@ Most teams request additive copper because channels are complex. Sometimes CNC o
 
 Interpretation rule: if the sealing interface is the highest risk (large gasket face, high clamp load sensitivity), hybrid often reduces the “unknowns” by forcing datums and surface finishes into machining where inspection is straightforward (Ra and flatness are measurable in minutes).
 
-#### Execution log: what changed when the RFQ got specific
+#### Illustrative example: how a specific RFQ changes the quote
 
-In one project, we initially received only a model and an operating pressure note. We quoted conservatively because we could not bound the leak acceptance method or the ΔP limit. The first clarification call changed three lines in the RFQ, and the quote changed materially.
+An RFQ that contains only a model and operating-pressure note forces the supplier to add assumptions for leak acceptance, pressure drop, sealing faces, and test fixtures. Replacing those assumptions with numeric requirements can materially change the quote.
 
-- We added a helium leak criterion of ≤ 1×10⁻⁶ mbar·L/s at 6 bar with a 10-minute hold. That allowed us to price one defined test rather than a generic “no leak” guarantee.
-- We set allowable pressure drop to ≤ 35 kPa at 10 L/min (water, 25°C). That forced channel strategy: we avoided a too-small lattice-like path that looked elegant on CAD but would have violated ΔP.
-- We defined sealing face flatness ≤ 0.05 mm and Ra ≤ 0.8 µm on the gasket region. That triggered an explicit lapping step (added ~0.5 day) but removed the downstream risk of thermal contact complaints.
+- A numeric leak criterion turns “no leaks” into one quotable test.
+- A pressure-drop limit at a stated flow, coolant, and temperature prevents an elegant but overly restrictive channel network.
+- Defined sealing-face flatness and roughness make lapping or grinding visible in the quote instead of appearing as late rework.
 
-Hidden cost signal: the fixture and lapping setup saved roughly 2 hours per part in assembly debugging, but added about $2,000 in upfront tooling and inspection setup. We would rather pay that once than pay in field failures where root cause is ambiguous.
+The hidden cost is fixture and finishing setup. It increases first-article cost but can reduce ambiguous assembly and leak troubleshooting later.
 
-Tool + limit signal: we used CT scanning to verify internal continuity, but CT alone could not certify leak-tightness; the leak test still carried the final gate because micro-porosity and machining-induced openings do not always correlate cleanly with CT grayscale thresholds.
+CT can support internal-continuity review, but it does not certify leak tightness by itself. Keep the functional leak test as the acceptance gate when leakage is the actual failure risk.
 
 #### Readiness check: what to include before you send the RFQ
 

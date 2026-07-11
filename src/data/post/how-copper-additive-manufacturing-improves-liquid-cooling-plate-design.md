@@ -21,10 +21,6 @@ We see this in power electronics, laser modules, RF hardware, semiconductor equi
 
 That is where copper additive manufacturing earns a serious review. It can create a monolithic copper body with curved channels, integrated inlet and outlet manifolds, and local channel density changes under hot zones. It does not remove the need for CNC finishing or testing. It changes the design problem from "How do we machine this path?" to "Can this internal path be printed, cleaned, machined, tested, and accepted?"
 
-![Copper additive manufacturing liquid cooling plate design comparison with conventional copper cooling plate](../../assets/images/generated/copper-am-liquid-cooling-plate-design-comparison-2026.webp)
-
-_Figure 1. Copper AM is most valuable when internal channel geometry and manifold integration solve a thermal or packaging constraint that a straight machined route cannot handle cleanly._
-
 ## Why Liquid Cooling Plates Hit a Geometry Limit
 
 Conventional copper cooling plates are strong when the design is flat, the channels are straight, and the cover plate or brazed joint is easy to inspect. We still recommend conventional machining and brazing for many simple plates because the process is familiar, cost-efficient, and easy to qualify.

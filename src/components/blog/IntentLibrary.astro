@@ -1,0 +1,205 @@
+---
+import ListItem from '~/components/blog/ListItem.astro';
+import type { Post } from '~/types';
+
+export interface Props {
+  posts: Post[];
+}
+
+type Group = {
+  id: string;
+  title: string;
+  description: string;
+  terms: string[];
+  posts: Post[];
+};
+
+const { posts } = Astro.props;
+
+const groupDefinitions: Omit<Group, 'posts'>[] = [
+  {
+    id: 'thermal-cooling',
+    title: 'Thermal management and liquid cooling',
+    description: 'Cold plates, heat sinks, heat exchangers, internal channels, data-center cooling, and power modules.',
+    terms: [
+      'cold plate',
+      'heat sink',
+      'heat exchanger',
+      'thermal',
+      'liquid-cooled',
+      'liquid cooling',
+      'cooling manifold',
+      'microchannel',
+      'sic power',
+      'gpu',
+      'data center',
+    ],
+  },
+  {
+    id: 'electrical-rf',
+    title: 'Electrical, induction, RF, and vacuum parts',
+    description:
+      'Busbars, coils, conductive parts, electrodes, waveguides, cavities, RF surfaces, and vacuum hardware.',
+    terms: [
+      'busbar',
+      'induction',
+      'conductiv',
+      'electrode',
+      'electrical',
+      'waveguide',
+      'vacuum',
+      'rf ',
+      'rf-',
+      'high-voltage',
+      'edm',
+    ],
+  },
+  {
+    id: 'semiconductor-tooling',
+    title: 'Semiconductor equipment and tooling',
+    description: 'Wafer equipment, clean thermal hardware, mold inserts, conformal cooling, and tooling hot spots.',
+    terms: ['semiconductor', 'wafer', 'mold', 'tooling', 'conformal', 'insert', 'hot spot'],
+  },
+  {
+    id: 'materials-process',
+    title: 'Materials, LPBF, and design rules',
+    description:
+      'Pure copper, CuCrZr, CuCr1Zr, laser processing, geometry limits, CAD, heat treatment, and post-processing.',
+    terms: [
+      'pure copper',
+      'cucr',
+      'alloy',
+      'laser',
+      'lpbf',
+      'design rule',
+      'cad file',
+      'post-processing',
+      'surface finish',
+      'heat treatment',
+      'cnc machining',
+      'process selection',
+    ],
+  },
+  {
+    id: 'rfq-inspection',
+    title: 'RFQ, cost, inspection, and acceptance',
+    description: 'Quotation inputs, tolerances, cleaning, CT, leak testing, cost drivers, and acceptance evidence.',
+    terms: [
+      'rfq',
+      'quotation',
+      'cost',
+      'tolerance',
+      'accuracy',
+      'cleaning',
+      'powder removal',
+      'ct ',
+      'leak test',
+      'checklist',
+      'failure',
+    ],
+  },
+];
+
+const groups: Group[] = groupDefinitions.map((group) => ({ ...group, posts: [] }));
+const fallback: Group = {
+  id: 'production-applications',
+  title: 'Production applications and route selection',
+  description:
+    'Broader application reviews and manufacturing-route decisions that cross several engineering disciplines.',
+  terms: [],
+  posts: [],
+};
+
+for (const post of posts) {
+  const haystack = [post.slug, post.title, post.excerpt, ...(post.tags || []).flatMap((tag) => [tag.slug, tag.title])]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+  const group = groups.find((candidate) => candidate.terms.some((term) => haystack.includes(term)));
+  (group || fallback).posts.push(post);
+}
+
+const visibleGroups = [...groups, fallback].filter((group) => group.posts.length > 0);
+---
+
+<nav class="mt-10 border-y border-page-border py-5" aria-label="Engineering topic groups">
+  <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+    {
+      visibleGroups.map((group) => (
+        <li>
+          <a class="font-semibold text-link hover:underline" href={`#${group.id}`}>
+            {group.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+  <label class="relative block w-full max-w-md" for="article-search">
+    <span class="sr-only">Search engineering articles</span>
+    <input
+      id="article-search"
+      type="search"
+      placeholder="Search parts, materials, or requirements"
+      class="w-full rounded-md border border-page-border bg-surface px-4 py-3 text-sm text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+      autocomplete="off"
+    />
+  </label>
+  <p id="article-count" class="text-sm text-muted">{posts.length} engineering pages</p>
+</div>
+
+<div class="mt-12 space-y-14">
+  {
+    visibleGroups.map((group) => (
+      <section id={group.id} class="scroll-mt-24" data-intent-group>
+        <div class="max-w-3xl">
+          <h2 class="font-heading text-2xl font-bold text-heading sm:text-3xl">{group.title}</h2>
+          <p class="mt-2 leading-7 text-muted">{group.description}</p>
+        </div>
+        <ul class="mt-5 border-t border-page-border">
+          {group.posts.map((post) => (
+            <li>
+              <ListItem post={post} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<script is:inline>
+  (() => {
+    const input = document.getElementById('article-search');
+    const count = document.getElementById('article-count');
+    const entries = Array.from(document.querySelectorAll('[data-article-entry]'));
+    const groups = Array.from(document.querySelectorAll('[data-intent-group]'));
+
+    if (!(input instanceof HTMLInputElement) || !count) return;
+
+    const update = () => {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+
+      entries.forEach((entry) => {
+        const match = !query || (entry.getAttribute('data-article-search') || '').includes(query);
+        const listItem = entry.closest('li');
+        if (listItem instanceof HTMLElement) listItem.hidden = !match;
+        if (match) visible += 1;
+      });
+
+      groups.forEach((group) => {
+        const hasVisibleEntry = Array.from(group.querySelectorAll('[data-article-entry]')).some(
+          (entry) => !(entry.closest('li') instanceof HTMLElement) || !entry.closest('li').hidden
+        );
+        if (group instanceof HTMLElement) group.hidden = !hasVisibleEntry;
+      });
+
+      count.textContent = `${visible} engineering page${visible === 1 ? '' : 's'}`;
+    };
+
+    input.addEventListener('input', update);
+  })();
+</script>

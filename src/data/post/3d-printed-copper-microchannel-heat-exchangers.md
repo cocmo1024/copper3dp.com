@@ -26,8 +26,6 @@ Copper additive manufacturing is strongest when channel routing is the reason fo
 
 The practical question is not only whether the geometry can be printed. The practical question is whether the flow path can be depowdered, cleaned, sealed, and verified after printing.
 
-![3D printed copper microchannel heat exchanger for compact thermal management](../../assets/images/generated/copper-microchannel-heat-exchanger-rfq.webp)
-
 ### Start the RFQ With the Thermal and Flow Problem
 
 A useful RFQ does not need a full thermal report, but it should tell the supplier what the part is trying to solve. A STEP file alone can show geometry; it does not show operating risk.

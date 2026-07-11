@@ -32,8 +32,6 @@ SiC power electronics are attractive because they support high-efficiency, high-
 
 For background on the broader cold plate design logic, start with [Copper 3D Printing for Microchannel Cold Plates in Thermal Management](/posts/EngineeringGuide/copper-3d-printing-microchannel-cold-plates-thermal-management/) and [How Copper Additive Manufacturing Improves Liquid Cooling Plate Design](/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/). This article narrows the discussion to a SiC power module case.
 
-![3D printed copper cold plate for SiC power module liquid cooling on validation bench](../../assets/images/generated/copper-am-sic-power-module-cold-plate-case-cover.webp)
-
 _A representative copper AM cold plate case starts with thermal footprint, sealing lands, ports, and validation requirements, not only the exterior envelope._
 
 ## The Starting Requirement

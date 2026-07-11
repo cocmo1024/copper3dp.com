@@ -47,6 +47,8 @@ export const footerData = {
       links: [
         { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
         { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
+        { text: 'Copper induction coils', href: getPermalink('/copper-induction-coils') },
+        { text: 'Copper RF waveguides', href: getPermalink('/copper-rf-waveguides') },
         { text: 'Engineering Library', href: getBlogPermalink() },
       ],
     },
@@ -54,6 +56,7 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About COPPER 3DP', href: getPermalink('/about') },
+        { text: 'Editorial policy', href: getPermalink('/editorial-policy') },
         { text: 'Contact', href: getPermalink('/contact') },
         { text: 'Como Precision', href: 'https://www.szcomo.com/' },
       ],

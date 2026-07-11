@@ -24,8 +24,6 @@ The useful first question is:
 
 If the RFQ only says "nickel plate all over" or "polish surface," the quote may include the wrong scope. Some surfaces need machining before plating. Some should be masked. Some internal surfaces may not be reachable. Some plating choices are driven by the mating assembly, not by the printed part itself.
 
-![Copper AM RFQ review workspace](../../assets/images/copper/rfq-review-workspace.webp)
-
 ### Common Reasons To Plate Copper AM Parts
 
 Plating may be reviewed for several different reasons:

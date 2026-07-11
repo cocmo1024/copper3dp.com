@@ -4,8 +4,6 @@ description: 'COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-# About COPPER 3DP
-
 COPPER 3DP is the copper additive manufacturing platform operated by **Suzhou Como Precision Materials Co., Ltd.**, also presented internationally as [Como Precision](https://www.szcomo.com/).
 
 The platform is built for engineers and purchasing teams sourcing function-critical copper parts. Typical projects include cold plates, heat exchangers, heat sinks, busbars, induction coils, RF and vacuum hardware, semiconductor equipment parts, and tooling inserts with internal cooling.

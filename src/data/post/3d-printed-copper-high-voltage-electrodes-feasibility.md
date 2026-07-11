@@ -1,6 +1,7 @@
 ---
 title: '3D Printed Copper High-Voltage Electrodes'
 publishDate: 2025-12-21
+updateDate: 2026-07-11
 excerpt: 'When AM copper electrodes work for high voltage, what breaks, and the post-processing + IEC testing needed to pass PD and withstand.'
 category: Engineering Guide
 tags: ['high-voltage-electrodes', 'feasibility', 'engineering-guide']
@@ -28,7 +29,6 @@ For AM copper, the first problem is surface condition. Published powder bed fusi
 
 The second problem is defect topology. Even when density is high, pores and lack-of-fusion features can act like embedded field concentrators. Electron beam melting of copper can reach **>99% relative density** under suitable conditions, but “high density” is not the same as “HV-stable surface and subsurface.” ([MDPI](https://www.mdpi.com/2079-6412/11/6/740))
 
-![Electric field concentration caused by surface roughness on 3D printed copper high-voltage electrodes versus polished copper.](../../assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/01-3d-printed-copper-high-voltage-electrodes-feasibility-1-bd8b56b5.webp)
 
 ### Copper AM Reality: Conductivity, Heat Treatment, and What It Means for Electrodes
 
@@ -36,22 +36,22 @@ Electrical conductivity matters for electrodes because resistive heating can cha
 
 This creates an immediate feasibility constraint: if your electrode design assumes “near-OFHC behavior,” you cannot accept a process route that lands at **<80% IACS** without explicitly modeling the thermal and electrical consequences.
 
-### Execution Log: A 60 kV Class Electrode That Failed at 18 kV Until We Paid the “Surface Tax”
+### Illustrative Failure Analysis: Rough Down-Skin Surface on a High-Voltage Electrode
 
-Client context: a compact test fixture needed a copper electrode with internal cooling, targeting **60 kV DC** in air with intermittent duty. The client chose AM to integrate coolant paths and reduce assembly interfaces.
+This is a design-review scenario, not a named customer test result. Consider a compact internally cooled electrode intended for high-voltage intermittent service.
 
-What we tried first: printed copper, stress relief, and a cosmetic external bead blast. The first HV step test showed audible corona and unstable current starting around **~18 kV** near a down-skin edge, well below the target.
+If the route stops after printing, stress relief, and cosmetic bead blasting, a rough down-skin edge can create local field enhancement and corona well before the nominal geometry reaches its intended withstand level.
 
-Pivot point (failure mode): the down-skin region had orientation-driven roughness and micro-edges; local field enhancement dominated the behavior. This was not a “material strength” failure; it was a “field geometry at the micron scale” failure.
+The failure is not primarily a bulk-strength problem. It is a field-geometry and surface-condition problem.
 
-Resolution (and the tax): we reworked the plan into an HV-grade finishing stack:
+A defensible corrective route would expose every field-critical surface to controlled finishing and define the final verification method before the part is quoted:
 
 - CNC skim all field-critical faces; enforce minimum edge radii of **≥1.0 mm** on exposed transitions.
 - Buffered chemical polish + electropolish to drive Ra toward **<0.2 μm** where geometry allowed (material removal on the order of **~25–125 μm** is common across polishing steps). ( [FinishingandCoating.com](https://finishingandcoating.com/index.php/mass-finishing/1901-a-pulse-pulse-reverse-electrolytic-approach-to-electropolishing-and-through-mask-electroetching) )
 - Add a plated finish on the field surfaces (application-specific; the key is defect masking + stable surface chemistry).
 - Re-test using standardized HV withstand + PD measurement practices (see standards below).
 
-Net result: corona inception shifted upward and behavior stabilized, but the electrode was no longer “printed and done.” The finishing stack added **multiple process steps** and forced design changes to expose surfaces that polishing chemistry could actually reach.
+The important trade-off is that the electrode is no longer “printed and done.” The finishing stack adds several process steps and may force design changes so machining and polishing can reach the surfaces that control electric field concentration.
 
 ![Corona onset at a rough down-skin edge on a 3D printed copper high-voltage electrode.](../../assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/02-3d-printed-copper-high-voltage-electrodes-feasibility-2-b510d6ed.webp)
 

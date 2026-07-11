@@ -36,10 +36,6 @@ For CuCrZr additive manufacturing, heat treatment is one of the reasons to choos
 
 We treat heat treatment as a process-window decision. The question is not only "What temperature and time?" The better question is "Which finished property protects the part from its most likely failure?"
 
-![CuCrZr heat treatment workflow for 3D printed copper components with furnace tray, coupons, and inspection tools](../../assets/images/generated/cucrzr-heat-treatment-3d-printed-components-cover.webp)
-
-_Figure 1. Heat treatment should be planned with the printed part, witness coupons, machining stock, conductivity checks, and hardness or dimensional inspection in the same manufacturing route._
-
 ## Start With the Property Target
 
 CuCrZr is often selected when pure copper looks attractive but the finished component also needs mechanical reserve. That reserve may be needed around M5 or M6 ports, thin walls near 1.0-1.8 mm internal channels, clamped thermal faces, pressure boundaries, or tooling inserts that see repeated assembly.

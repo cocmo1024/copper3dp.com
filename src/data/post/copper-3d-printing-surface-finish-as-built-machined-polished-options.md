@@ -34,10 +34,6 @@ The second mistake goes the other direction: assuming copper additive manufactur
 
 [EOS positions copper additive manufacturing](https://www.eos.info/metal-solutions/metal-materials/copper) around thermal and electrical conductivity applications such as heat exchangers, electronics, coils, power electronics heat sinks, and propulsion hardware. Those applications are surface-sensitive. A part can have strong bulk conductivity and still fail because one contact pad is too rough, one seal land leaks, one RF path has the wrong finish, or one internal passage traps powder.
 
-![Copper 3D printing surface finish options showing as-built, machined, and polished copper additive manufacturing parts](../../assets/images/generated/copper-3d-printing-surface-finish-options-cover.webp)
-
-_Figure 1. Copper AM surface finish should be scoped by function: as-built geometry where acceptable, machined interfaces where needed, and polished surfaces only where the application justifies them._
-
 ## Start With Surface Classes, Not A Single Finish Note
 
 The useful question is not "what surface finish does copper 3D printing have?"

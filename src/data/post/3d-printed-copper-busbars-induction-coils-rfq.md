@@ -14,6 +14,8 @@ metadata:
 
 > 3D printed copper busbars and induction coils are worth reviewing when current path, thermal control, compact routing, or integrated cooling cannot be handled cleanly by flat copper, bent bar, tube, brazed parts, or CNC machining. The RFQ should define the electrical function and acceptance requirements first, then the geometry.
 
+If the project is already defined, use the dedicated [3D printed copper busbar RFQ page](/copper-busbars/) or [3D printed copper induction coil RFQ page](/copper-induction-coils/). This guide explains the shared electrical, cooling, surface, and inspection decisions behind both part types.
+
 ### Why Electrical Copper Parts Need a Different RFQ
 
 Electrical copper hardware is not only a shape. The quote depends on current path, contact resistance, heat generation, insulation distance, surface finish, plating, cooling, and inspection.
@@ -21,8 +23,6 @@ Electrical copper hardware is not only a shape. The quote depends on current pat
 For busbars, the risk often sits at joints and contact planes. For induction coils, the risk often sits in local overheating, cooling path reliability, and spacing between turns. For high-voltage or RF hardware, surface condition and field concentration may become the dominant issue.
 
 That is why a STEP file alone is often not enough for a confident quote.
-
-![3D printed copper busbars and electrical copper hardware](../../assets/images/copper/high-current-busbars.webp)
 
 ### When Copper AM Is Useful for Busbars
 

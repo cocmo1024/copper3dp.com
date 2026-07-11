@@ -21,7 +21,6 @@ We routinely receive the same request: “We want a copper heat sink with intern
 
 The surprise comes later—when the printed sink is installed into a real stack-up (TIM, clamp load, lid flatness, coolant fittings, contamination, vibration). In those environments, **the heat sink is not a standalone part**. It is one element inside a thermal-mechanical system, and that system amplifies the weaknesses of printed copper.
 
-![Comparison of printed copper porosity versus wrought copper density affecting effective thermal conductivity.](../../assets/images/online-posts/underperformance-copper-heat-sinks/01-underperformance-copper-heat-sinks-1-3ec667ad.webp)
 
 ### Copper Thermal Conductivity Loss in Additively Manufactured Microstructures
 

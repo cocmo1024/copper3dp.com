@@ -34,10 +34,6 @@ But CNC has a geometry tax. Straight tools need access. Deep pockets create chip
 
 That does not make copper LPBF cheap. It changes what the buyer is paying for.
 
-![Copper CNC machining block compared with copper additive manufacturing part with integrated internal channels](../../assets/images/generated/copper-3d-printing-vs-cnc-machining-cover.webp)
-
-_Figure 1. CNC machining works best when copper features are tool-accessible. Copper additive manufacturing becomes valuable when integrated channels, ports, manifolds, and sealing faces reduce assembly or performance compromises._
-
 ## The First Gate: Is CNC Being Asked to Do 3D Work?
 
 CNC machining is strongest when the part can be made by removing material from the outside. Milling, drilling, boring, turning, tapping, and EDM all have practical strengths. They also have access limits.

@@ -32,8 +32,6 @@ The answer usually falls into one of these categories:
 
 If none of those are true, copper 3D printing may still be possible, but it may not be the best quote route.
 
-![Copper AM process selection for micro-channel copper hardware](../../assets/images/copper/micro-channel-heat-exchangers.webp)
-
 ### Quick Process Selection Table
 
 | Route | Strong fit | Main risk | What to send in the RFQ |

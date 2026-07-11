@@ -1,0 +1,155 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Cooling Parts for Semiconductor Equipment',
+  description:
+    'RFQ review for copper AM cooling blocks, manifolds, heat spreaders, RF and vacuum hardware used in semiconductor equipment with clean channels, sealing, machining, leak testing, and traceability.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+      { name: 'Semiconductor copper cooling', item: '/copper-semiconductor-cooling/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-semiconductor-cooling',
+      name: 'Copper AM Semiconductor Cooling Part RFQ Review',
+      serviceType: 'Copper cooling and thermal hardware additive manufacturing review for semiconductor equipment',
+      description:
+        'RFQ review for printed copper cooling blocks, manifolds, heat spreaders, RF and vacuum hardware with clean internal passages, sealing, machining, leak testing, and traceability.',
+      url: '/copper-semiconductor-cooling/',
+      audienceType:
+        'Semiconductor equipment, wafer processing, test, inspection, RF, vacuum, thermal, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="Semiconductor equipment"
+    title="3D printed copper cooling parts for semiconductor process and test equipment"
+    intro="Copper AM can place compact cooling passages, manifolds, RF-facing geometry, and thermal interfaces inside a constrained semiconductor tool assembly. The useful scope is not a generic copper part: it is a controlled component with cleanable channels, machined datums, sealing lands, pressure integrity, material evidence, and an agreed inspection package."
+    verdict="Use copper AM for semiconductor equipment when thermal uniformity, compact routing, integrated manifolds, RF or vacuum interfaces, or reduced assembly joints justify the route. Cleanliness, leak performance, critical surfaces, documentation, and service conditions must be defined before a meaningful quote can be issued."
+    useCases={[
+      {
+        title: 'Wafer-stage and chamber cooling blocks',
+        description:
+          'Compact thermal-control components with local channels, machined mounting faces, seal lands, and controlled flow distribution.',
+      },
+      {
+        title: 'Laser and inspection-system thermal hardware',
+        description:
+          'Copper heat spreaders, cooled mounts, manifolds, and precision interfaces used near high-power optical or measurement assemblies.',
+      },
+      {
+        title: 'RF and vacuum copper components',
+        description:
+          'Waveguide, cavity, absorber, manifold, or cooled vacuum hardware combining conductive surfaces with sealing and cleanliness requirements.',
+      },
+      {
+        title: 'Test and packaging equipment',
+        description:
+          'Low-volume thermal blocks, current-carrying fixtures, cold plates, and local cooling hardware for qualification and high-power device testing.',
+      },
+    ]}
+    additiveFit={[
+      'Cooling channels need to follow a circular, curved, or tightly packaged thermal zone.',
+      'Manifolds, ports, and mounting features can be consolidated while reducing joints.',
+      'RF, vacuum, thermal, and mechanical functions overlap in one low-volume component.',
+      'The design includes a practical route for cleaning, machining, inspection, and replacement.',
+    ]}
+    conventionalFit={[
+      'Straight drilled passages and a simple machined copper block meet the requirement.',
+      'The component is a commodity plate, bar, electrode blank, or standard heat spreader.',
+      'Internal geometry has no defined powder-removal, cleaning, flow-test, or leak-test route.',
+      'The requested cleanliness or surface evidence cannot be produced for inaccessible features.',
+    ]}
+    requirements={[
+      {
+        input: 'Thermal-control objective',
+        why: 'Provide heat load, uniformity target, source footprint, temperature range, coolant, flow, and pressure-drop limit where known.',
+      },
+      {
+        input: 'Cleanliness and media compatibility',
+        why: 'Define process media, particle or residue concerns, flushing, drying, passivation, packaging, and any customer-specific cleanliness standard.',
+      },
+      {
+        input: 'Vacuum and leak requirements',
+        why: 'State service environment, sealing method, working and proof pressure, leak test method, threshold, hold time, and bake or thermal exposure.',
+      },
+      {
+        input: 'Precision interfaces',
+        why: 'Identify machined datums, flat thermal faces, ports, threads, seal lands, RF surfaces, alignment features, and their inspection method.',
+      },
+      {
+        input: 'Material and traceability',
+        why: 'Define pure copper or CuCrZr preference, accepted equivalents, heat-treatment state, certificates, coupons, and property evidence.',
+      },
+      {
+        input: 'First-article evidence',
+        why: 'Decide whether CMM, CT, flow, pressure, helium leak, roughness, conductivity, cleaning evidence, or functional thermal testing is required.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Cleanliness specified after design release',
+        description:
+          'A passage that is manufacturable may still be difficult to depowder, flush, dry, inspect, and package. Cleanliness must influence channel shape, ports, and build orientation.',
+      },
+      {
+        title: 'General tolerances on functional interfaces',
+        description:
+          'Separate as-built geometry from machined datums, seal lands, RF surfaces, threaded ports, and thermal faces. Each needs a realistic finishing and inspection route.',
+      },
+      {
+        title: 'CT treated as proof of every requirement',
+        description:
+          'CT can support internal review, but flow, leak, pressure, cleanliness, thermal, and dimensional functions require their own acceptance evidence.',
+      },
+      {
+        title: 'Material selected from conductivity alone',
+        description:
+          'Pure copper maximizes conductivity; CuCrZr may protect threads, thin pressure boundaries, clamped interfaces, or repeated assembly. Select the finished-component risk, not only a data-sheet value.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP file and controlled drawing',
+      'Heat load, temperature, and uniformity target',
+      'Coolant, flow, pressure, and leak criteria',
+      'Cleanliness, media, drying, and packaging',
+      'Machined datums, seals, ports, and surfaces',
+      'Material, heat treatment, and traceability',
+      'Prototype, qualification, and batch quantities',
+      'CMM, CT, flow, leak, and functional tests',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/',
+        title: 'Copper AM parts for semiconductor equipment',
+        description: 'Detailed application guide for thermal, RF, vacuum, electrical, and precision hardware.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-3d-printed-cooling-block-case-study-semiconductor-wafer-processing-equipment/',
+        title: 'Semiconductor cooling block design scenario',
+        description:
+          'Representative engineering review for thermal zones, clean channels, sealing, machining, and leak testing.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/',
+        title: 'Copper AM internal-channel cleaning',
+        description: 'Depowdering, flushing, drying, inspection, and acceptance planning for hidden passages.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12236252/',
+        title: 'AM copper thermal hardware with conformal cooling',
+        description: 'Peer-reviewed process and validation context for high-control copper thermal hardware.',
+      },
+    ]}
+    emailSubject="Copper AM semiconductor cooling part RFQ"
+  />
+</Layout>

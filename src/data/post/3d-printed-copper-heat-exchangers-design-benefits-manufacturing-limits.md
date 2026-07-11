@@ -33,10 +33,6 @@ In that situation, copper additive manufacturing can change the design. It can p
 
 It also changes the risk ledger. Internal surfaces are no longer visible. Powder removal becomes part of the design. CNC finishing remains necessary on sealing faces and datums. Flow and leak testing become quote items, not afterthoughts.
 
-![3D printed copper heat exchanger with integrated manifolds and machined sealing lands](../../assets/images/generated/3d-printed-copper-heat-exchanger-design-benefits-cover.webp)
-
-_Figure 1. 3D printed copper heat exchangers are strongest when internal geometry, manifold integration, and reduced assembly interfaces solve a real packaging or thermal constraint._
-
 ## What 3D Printing Can Improve in a Copper Heat Exchanger
 
 The useful design benefits are specific. They are not universal.

@@ -34,10 +34,6 @@ As of 2026, industrial material pages from [EOS](https://www.eos.info/metal-solu
 
 That is why copper LPBF design needs a separate rule set. The design must respect both the value of copper and the cost of making copper behave.
 
-![Copper laser powder bed fusion parts arranged for design rule review with cold plate, manifold, support surfaces, witness coupons, and drawings](../../assets/images/generated/copper-lpbf-design-rules-cover.webp)
-
-_Figure 1. Copper LPBF design rules should be reviewed as a finished-component route: printability, support removal, machining stock, channels, material state, and validation all affect the quote._
-
 ## Rule 1: Define the Finished Component Before the Printed Body
 
 The first design rule is to decide what the buyer is actually purchasing.

@@ -36,8 +36,6 @@ The timing supports the topic. [SEMI forecasted global front-end fab equipment s
 
 For the broad RFQ background, start with [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/), [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/). This article narrows the problem to one cooling block case.
 
-![Copper 3D printed cooling block for semiconductor wafer processing equipment](../../assets/images/generated/copper-am-semiconductor-wafer-cooling-block-case-cover.webp)
-
 _A semiconductor cooling block case starts with the thermal-control face, seal land, port location, cleanliness requirement, and acceptance method, not only the outside copper volume._
 
 ## The Starting Requirement

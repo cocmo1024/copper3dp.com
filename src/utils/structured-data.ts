@@ -143,7 +143,7 @@ export const createArticleSchema = ({
     author: {
       '@type': 'Organization',
       name: post.author || SITE.name,
-      url: siteUrl,
+      url: toAbsoluteUrl('/editorial-policy/'),
     },
     publisher: { '@id': organizationId },
     ...(post.category?.title ? { articleSection: post.category.title } : {}),

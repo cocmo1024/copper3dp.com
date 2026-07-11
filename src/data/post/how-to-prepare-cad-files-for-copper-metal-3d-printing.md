@@ -32,10 +32,6 @@ The shape may still be printable. The quote is not ready.
 
 Copper metal 3D printing, especially laser powder bed fusion, is used because copper can combine thermal conductivity, electrical conductivity, compact internal channels, and part consolidation. That value only becomes useful when the CAD files describe the finished component route: print, depowder, heat treat if required, machine critical faces, clean, inspect, and test.
 
-![Copper metal 3D printing CAD preparation workspace with copper AM cold plate, CAD model, drawings, inspection tools, and witness coupons](../../assets/images/generated/copper-metal-3d-printing-cad-files-cover.webp)
-
-_Figure 1. A useful CAD package for copper metal 3D printing combines geometry, drawings, material direction, critical surfaces, inspection intent, and RFQ context._
-
 ## Start With the Right File Package
 
 For copper metal 3D printing review, send the best available editable geometry first.

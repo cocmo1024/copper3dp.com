@@ -24,8 +24,6 @@ For copper additive manufacturing, the useful first question is:
 
 The answer may be a dense internal cooling path, restricted port position, integrated RF or vacuum geometry, a high-current path with local heat removal, or a prototype geometry that still needs design iteration.
 
-![Copper AM parts for semiconductor equipment RFQ review](../../assets/images/copper/semiconductor-copper-parts.webp)
-
 ### Parts That May Be Worth Reviewing
 
 Copper AM should not be treated as a default process for every semiconductor copper part. It becomes more relevant when the design value is inside the geometry or when several functions must be combined.

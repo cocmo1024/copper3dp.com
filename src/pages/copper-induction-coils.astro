@@ -1,0 +1,159 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Induction Coils | Custom RFQ',
+  description:
+    'RFQ review for 3D printed copper induction coils with integrated cooling, repeatable coil geometry, current and duty cycle, pressure testing, machining, and conductivity requirements.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+      { name: 'Copper induction coils', item: '/copper-induction-coils/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-induction-coils',
+      name: '3D Printed Copper Induction Coil RFQ Review',
+      serviceType: 'Custom copper induction coil additive manufacturing review',
+      description:
+        'RFQ review for printed copper induction coils with complex current paths, internal cooling, machined interfaces, pressure testing, and conductivity requirements.',
+      url: '/copper-induction-coils/',
+      audienceType: 'Induction heating, brazing, hardening, power electronics, R&D, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="Copper induction coils"
+    title="3D printed copper induction coils for complex, repeatable heating geometry"
+    intro="Copper additive manufacturing can consolidate a shaped inductor and its cooling path when bent tube, brazed joints, or hand-formed coils cannot hold the required geometry. The coil still has to be treated as an electrical, thermal, fluid, and dimensional component at the same time."
+    verdict="Use copper AM for an induction coil when a controlled three-dimensional current path, integrated liquid cooling, or repeatable geometry creates value that formed tube cannot provide. Keep conventional tube or machined copper when the coil is simple, accessible, and economical to fabricate."
+    useCases={[
+      {
+        title: 'Induction hardening coils',
+        description:
+          'Contoured coils for shafts, gears, races, or local hardening zones where coil-to-part distance must remain consistent around complex surfaces.',
+      },
+      {
+        title: 'Brazing and joining inductors',
+        description:
+          'Compact multi-turn or shaped coils that need repeatable heat distribution, local cooling, and stable mounting interfaces.',
+      },
+      {
+        title: 'Research and prototype coils',
+        description:
+          'Low-volume inductors used to compare field geometry, cooling routes, or process windows without dedicated forming tools.',
+      },
+      {
+        title: 'Integrated coil assemblies',
+        description:
+          'Copper bodies that combine current path, coolant routing, terminals, sensor features, and mounting references in one manufactured component.',
+      },
+    ]}
+    additiveFit={[
+      'The coil-to-workpiece gap changes in three dimensions and repeatability matters.',
+      'Internal cooling must follow a compact or variable-section current path.',
+      'Brazed joints or hand forming create unacceptable variation or maintenance effort.',
+      'A low-volume program needs geometry iteration before production tooling is justified.',
+    ]}
+    conventionalFit={[
+      'Round copper tube can be bent to the required geometry with acceptable repeatability.',
+      'The cooling path is straight, accessible, and easy to pressure-test.',
+      'The design is a high-volume standard coil where established forming is already qualified.',
+      'The requested internal passages cannot be cleaned, inspected, or connected to a practical test fixture.',
+    ]}
+    requirements={[
+      {
+        input: 'Frequency, power, and duty cycle',
+        why: 'These inputs influence current distribution, heating, cooling demand, and the importance of surface condition.',
+      },
+      {
+        input: 'Workpiece and target heat zone',
+        why: 'Send the workpiece model, required heated area, coil gap, motion, and any magnetic flux concentrator assumptions.',
+      },
+      {
+        input: 'Coolant, flow, and pressure',
+        why: 'Internal channels must be sized for heat removal, cleanability, pressure drop, working pressure, and proof testing.',
+      },
+      {
+        input: 'Terminal and mounting interfaces',
+        why: 'Contact pads, bolt patterns, datums, sealing features, and alignment surfaces normally require machining and inspection.',
+      },
+      {
+        input: 'Material and conductivity evidence',
+        why: 'Pure copper is usually the starting route for conductivity; alloy selection depends on strength, temperature, and interface requirements.',
+      },
+      {
+        input: 'Quantity and replacement strategy',
+        why: 'Prototype quantity, expected service life, repair approach, and repeat order volume affect the manufacturing and inspection route.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Uncleanable cooling channels',
+        description:
+          'A printable passage is not automatically a production passage. Channel shape, build orientation, outlets, flushing access, and residual-powder acceptance need a defined route.',
+      },
+      {
+        title: 'Hot terminals and contact loss',
+        description:
+          'Printed terminals still need controlled contact area, machining, flatness, fastening, and surface finish. Bulk conductivity does not compensate for a poor joint.',
+      },
+      {
+        title: 'Pressure-boundary uncertainty',
+        description:
+          'Working pressure, proof pressure, hold time, leak method, and acceptance threshold must be stated before the coil is treated as a qualified fluid component.',
+      },
+      {
+        title: 'Geometry without field validation',
+        description:
+          'AM can reproduce a complex shape, but electromagnetic and thermal performance still depend on the actual power supply, workpiece, gap, motion, and cooling condition.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP file for the coil and workpiece',
+      'Drawing with critical gaps and datums',
+      'Frequency, power, current, and duty cycle',
+      'Coolant, flow, temperature, and pressure',
+      'Terminal, mounting, and sealing details',
+      'Material preference and conductivity target',
+      'Prototype and production quantities',
+      'Pressure, leak, flow, and dimensional tests',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        title: 'Copper busbar and induction coil RFQ guide',
+        description: 'Electrical requirements, contact faces, cooling, insulation, plating, and inspection inputs.',
+      },
+      {
+        href: '/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/',
+        title: 'Electrical conductivity in 3D printed copper',
+        description:
+          'How material route, density, heat treatment, contact surfaces, and testing affect the finished component.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/',
+        title: 'Powder removal from copper AM channels',
+        description: 'Design and acceptance issues for small internal cooling passages.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://www.jtekt.co.jp/e/engineering-journal/1021/1021-24.html',
+        title: 'JTEKT: Development of IH Coil Modeling Technology Using a 3D Printer',
+        description: 'Manufacturer engineering report on LPBF induction-coil development.',
+      },
+      {
+        href: 'https://ghinduction.com/products-services/inductors/3d-inductors/',
+        title: 'GH Induction: 3D inductors',
+        description: 'Industrial application context for additively manufactured copper inductors.',
+      },
+    ]}
+    emailSubject="3D printed copper induction coil RFQ"
+  />
+</Layout>

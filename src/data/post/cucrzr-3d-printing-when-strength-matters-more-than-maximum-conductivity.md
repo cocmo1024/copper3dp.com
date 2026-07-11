@@ -35,10 +35,6 @@ But many industrial copper AM parts are not only conductors. They are also press
 
 That is the practical role of CuCrZr. It is not a magic upgrade and it is not always better than pure copper. It is a copper alloy route for projects where mechanical reliability, heat-treated material state, and inspection evidence matter enough to justify a conductivity trade-off.
 
-![CuCrZr 3D printed copper alloy components on a metrology bench with threaded ports, internal channels, contact pads, and witness coupons](../../assets/images/generated/cucrzr-3d-printing-strength-over-conductivity-cover.webp)
-
-_Figure 1. CuCrZr becomes useful when a printed copper component must conduct heat or current while also surviving threaded ports, pressure boundaries, clamp load, machining, heat treatment, and inspection._
-
 ## Why Strength Can Protect Conductivity
 
 Copper is chosen because it conducts heat and electricity well. That part is simple.

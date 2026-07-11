@@ -29,8 +29,6 @@ Copper additive manufacturing can be useful when the part needs:
 
 It is usually not the first route for simple straight waveguides, open machined cavities, or flat copper parts that can be made more directly by CNC machining.
 
-![3D printed copper RF waveguide and vacuum hardware](../../assets/images/generated/copper-rf-waveguide-vacuum-parts.webp)
-
 ### Define the Function Before the Manufacturing Route
 
 The same copper geometry can be reviewed very differently depending on whether the part is RF-critical, vacuum-critical, thermally loaded, or mainly structural. A useful RFQ starts with the function.

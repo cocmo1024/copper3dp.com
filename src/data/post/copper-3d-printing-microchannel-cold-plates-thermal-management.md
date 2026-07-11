@@ -1,6 +1,7 @@
 ---
 title: 'Copper 3D Printing for Microchannel Cold Plates in Thermal Management'
 publishDate: 2026-05-12
+updateDate: 2026-07-11
 excerpt: 'How to review copper 3D printing for microchannel cold plates: thermal value, process limits, pressure drop, cleaning, leak testing, and RFQ inputs.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'thermal-management', 'micro-channel-heat-exchangers', 'rfq-specification', 'quality-inspection', 'engineering-guide']
@@ -23,10 +24,6 @@ The manufacturing review was less forgiving.
 Copper additive manufacturing can place channels close to the heat source, merge manifolds into one body, and remove brazed interfaces that would otherwise become leak or thermal-resistance risks. But the printed route is not a shortcut around physics. It moves the project into a different ledger: build orientation, minimum wall thickness, trapped powder, internal roughness, post-machining, leak testing, and flow verification all become part of the quote.
 
 If the project is already ready for supplier review, use the [3D printed copper cold plate RFQ page](/copper-cold-plates/) as the commercial entry point, then use this article to refine microchannel geometry, powder removal, pressure drop, leak testing, and acceptance criteria.
-
-![Copper 3D printed microchannel cold plate cross-section with inlet, outlet, and machined sealing face](../../assets/images/generated/copper-3d-printing-microchannel-cold-plate-cross-section.webp)
-
-_Figure 1. Internal channel geometry is the main reason to consider copper AM, but it also controls powder removal, pressure drop, and inspection scope._
 
 ### The Process Window: What Actually Controls the Design
 
@@ -99,9 +96,9 @@ That trade-off is project-specific. The right value depends on coolant, flow rat
 
 The regret case is familiar: a team optimizes the channel network only for thermal simulation, then discovers that the cold plate needs extra flushing, CT review, and redesign because the printed passages are difficult to depowder. The thermal model was not wrong; it was incomplete.
 
-### Case Pattern: Dense Cold Plate for a Power Electronics Module
+### Illustrative Design-Review Scenario: Dense Cold Plate for a Power Electronics Module
 
-A representative project involved a copper cold plate for a compact power electronics module. The target was not exotic: reduce local hot spots while keeping the plate inside a limited envelope. The proposed design used a curved microchannel field under the heat source and a compact internal manifold.
+The following scenario is an engineering example, not a named customer project. Consider a copper cold plate for a compact power electronics module where the objective is to reduce local hot spots inside a limited envelope. The proposed design uses a curved microchannel field under the heat source and a compact internal manifold.
 
 Initial assumptions:
 
@@ -116,7 +113,7 @@ The first printed geometry met the outside dimensions after machining, but flow 
 
 The fix was not simply "print better."
 
-We changed the design ledger:
+A manufacturable revision could change the design ledger as follows:
 
 - Increased the tightest channel sections by about 0.3 mm.
 - Reduced one branch count in a low-value region.
@@ -125,9 +122,9 @@ We changed the design ledger:
 - Machined the inlet and outlet regions after printing.
 - Added a first-article flow check before thermal testing.
 
-This improved the inspection path and reduced pressure-drop uncertainty, but it had a cost. The redesign reduced the theoretical surface area by about 8-12%, and the added machining and test steps increased the prototype cost. The final cold plate was more manufacturable, but less elegant than the original CFD geometry.
+This type of revision improves the inspection path and reduces pressure-drop uncertainty, but it has a cost. It may reduce theoretical surface area and add machining and test steps. The resulting cold plate can be more manufacturable even when it is less aggressive than the original CFD geometry.
 
-That is often the price of success.
+The lesson is to optimize the accepted component, not only the simulated channel network.
 
 ### The Cost Ledger: Where the Quote Actually Changes
 

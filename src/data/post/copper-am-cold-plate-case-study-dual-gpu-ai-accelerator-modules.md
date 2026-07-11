@@ -38,8 +38,6 @@ That does not mean every AI accelerator cold plate should be printed. The useful
 
 For broader context, use [3D Printed Copper Cold Plates for AI Accelerators](/posts/EngineeringGuide/3d-printed-copper-cold-plates-ai-accelerators/), [Liquid-Cooled Server Copper Hardware RFQ Guide](/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/), and [Copper 3D Printed Cooling Manifold Case Study for Liquid-Cooled AI Servers](/posts/EngineeringGuide/copper-3d-printed-cooling-manifold-case-study-liquid-cooled-ai-servers/). This article narrows the problem to one cold plate serving two accelerator packages on one compact module.
 
-![Copper additive manufactured cold plate for dual GPU AI accelerator module](../../assets/images/generated/copper-am-dual-gpu-cold-plate-case-cover.webp)
-
 _A dual-GPU cold plate case starts with two heat-source zones, contact flatness, port location, seal lands, and validation scope, not only the external envelope._
 
 ## The Starting Requirement

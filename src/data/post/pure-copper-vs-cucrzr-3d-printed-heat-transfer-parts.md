@@ -30,10 +30,6 @@ The useful answer is less simple. A 3D printed cold plate, heat exchanger core, 
 
 That is why the material choice should start with the dominant failure mode, not the best-looking conductivity number.
 
-![Pure copper and CuCrZr 3D printed heat transfer parts shown as a side-by-side material comparison](../../assets/images/generated/pure-copper-vs-cucrzr-heat-transfer-cover.webp)
-
-_Figure 1. Pure copper usually earns its place through maximum conductivity; CuCrZr earns its place when heat transfer must survive pressure, threads, clamp load, and thin internal geometry._
-
 ## The First Gate: What Is the Thermal Part Also Doing?
 
 If the part is a simple heat spreader, a broad contact plate, or a low-pressure thermal block with modest assembly load, pure copper may be the cleanest candidate. Copper's value is direct: high thermal conductivity and high electrical conductivity. The [Copper Information Center](https://help.copper.fyi/hc/en-us/articles/360021017340-Copper) notes thermal conductivity around 394 W/m-K and high-conductivity copper at about 101% IACS in electrical applications. That is why engineers reach for copper first.

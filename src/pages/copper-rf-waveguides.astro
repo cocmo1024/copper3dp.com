@@ -1,0 +1,154 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper RF Waveguides and Cavities | RFQ',
+  description:
+    'RFQ review for 3D printed copper RF waveguides, cavities, resonators, and vacuum hardware with internal surface, machining, plating, sealing, cleaning, and RF test requirements.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+      { name: 'Copper RF waveguides', item: '/copper-rf-waveguides/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-rf-waveguides',
+      name: '3D Printed Copper RF Waveguide RFQ Review',
+      serviceType: 'Copper RF waveguide and cavity additive manufacturing review',
+      description:
+        'RFQ review for printed copper waveguides, cavities, resonators, and vacuum hardware with critical internal surfaces, machining, plating, sealing, cleaning, and RF acceptance.',
+      url: '/copper-rf-waveguides/',
+      audienceType: 'RF, microwave, accelerator, vacuum, semiconductor, R&D, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="RF and microwave copper"
+    title="3D printed copper RF waveguides, cavities, and integrated vacuum hardware"
+    intro="Copper AM can reduce joints and enable curved passages, compact manifolds, cooling jackets, and consolidated RF geometry. RF performance depends on the finished internal surface and dimensional state, so the build route must include access, machining, polishing or plating, cleaning, sealing, and test planning where required."
+    verdict="Use copper AM when the RF or vacuum geometry cannot be produced cleanly as a small number of machined parts. Do not select it only because copper is conductive: internal surface roughness, dimensional deviation, joints, plating, and verification can dominate insertion loss, resonance, power handling, and vacuum performance."
+    useCases={[
+      {
+        title: 'Waveguide bodies and transitions',
+        description:
+          'Curved or compact waveguides, twists, splitters, feeds, and transitions that would otherwise require multiple sections and joints.',
+      },
+      {
+        title: 'RF cavities and resonators',
+        description:
+          'Low-volume cavity hardware with integrated ports, cooling, supports, or complex outer packaging, followed by controlled finishing and tuning where needed.',
+      },
+      {
+        title: 'RF vacuum manifolds',
+        description:
+          'Copper structures combining RF-facing surfaces, vacuum sealing lands, internal cooling, ports, and mechanical interfaces.',
+      },
+      {
+        title: 'Accelerator and high-power RF hardware',
+        description:
+          'Photon absorbers, cavity components, couplers, and thermal structures where conductivity, cooling geometry, vacuum compatibility, and inspection interact.',
+      },
+    ]}
+    additiveFit={[
+      'Curved RF passages or integrated transitions eliminate several joints.',
+      'Cooling channels or vacuum ports must be integrated around the RF geometry.',
+      'Low-volume development needs geometry iteration before dedicated tooling.',
+      'Critical surfaces remain accessible to the required finishing or plating route.',
+    ]}
+    conventionalFit={[
+      'Straight waveguide or simple cavity geometry is easy to machine and join.',
+      'The RF-critical internal surface cannot be reached, finished, or inspected.',
+      'The tolerance and roughness requirement depends on as-built surfaces beyond the qualified process capability.',
+      'A plated lightweight substrate provides a lower-risk route than a fully printed copper body.',
+    ]}
+    requirements={[
+      {
+        input: 'Frequency band and RF function',
+        why: 'Provide band, mode, power, insertion-loss or Q target, tuning approach, and the surfaces that are electromagnetically critical.',
+      },
+      {
+        input: 'Critical internal geometry',
+        why: 'Identify guide dimensions, transitions, cavity surfaces, coupling features, edges, and areas that need machining, polishing, or plating.',
+      },
+      {
+        input: 'Surface and plating route',
+        why: 'State roughness, coating material, thickness, masking, adhesion, continuity, and whether the requirement applies before or after final tuning.',
+      },
+      {
+        input: 'Vacuum and sealing',
+        why: 'Define flange standard, sealing land, flatness, surface finish, cleanliness, bake or service temperature, and leak-test method.',
+      },
+      {
+        input: 'Cooling and thermal load',
+        why: 'For high-power hardware, provide heat load, coolant, flow, pressure, leak target, and the relationship between cooling passages and RF surfaces.',
+      },
+      {
+        input: 'RF and dimensional acceptance',
+        why: 'State CMM, CT, roughness, coating, leak, network-analyzer, tuning, or other evidence that must be included in the quote.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'As-built roughness on RF surfaces',
+        description:
+          'A printable cavity is not necessarily an acceptable RF cavity. Identify the skin-current path and decide where machining, polishing, chemical finishing, or plating is feasible.',
+      },
+      {
+        title: 'Hidden geometry without finishing access',
+        description:
+          'Consolidation can remove joints while also removing access. Split lines, sacrificial access, orientation, and post-processing need to be decided before the body becomes monolithic.',
+      },
+      {
+        title: 'Vacuum cleanliness and trapped powder',
+        description:
+          'Blind channels, lattice features, and rough internal surfaces complicate depowdering, cleaning, drying, and evidence. Vacuum hardware needs an explicit cleanliness route.',
+      },
+      {
+        title: 'Dimensional drift changes RF response',
+        description:
+          'RF-critical dimensions may need machining stock, tuning allowance, metrology, and measured RF acceptance rather than a broad general print tolerance.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP file and RF-critical drawing',
+      'Frequency band, mode, and power level',
+      'Insertion loss, Q, or tuning requirement',
+      'Critical internal dimensions and surfaces',
+      'Machining, polish, and plating scope',
+      'Vacuum, sealing, and cleanliness criteria',
+      'Cooling and pressure data if applicable',
+      'Dimensional, leak, coating, and RF tests',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/',
+        title: '3D printed copper RF waveguide and vacuum parts',
+        description: 'Detailed guide to RF surfaces, sealing, cleaning, plating, inspection, and route selection.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/',
+        title: 'RF vacuum manifold design scenario',
+        description:
+          'Representative engineering review for combined RF, vacuum, cooling, sealing, and inspection requirements.',
+      },
+      {
+        href: '/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/',
+        title: 'Copper AM surface finish options',
+        description: 'Separate as-built, machined, polished, and plated surfaces according to function.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12236252/',
+        title: 'Diamond Light Source: AM copper photon absorber with conformal cooling',
+        description: 'Peer-reviewed application and process study for copper accelerator thermal hardware.',
+      },
+    ]}
+    emailSubject="3D printed copper RF waveguide RFQ"
+  />
+</Layout>

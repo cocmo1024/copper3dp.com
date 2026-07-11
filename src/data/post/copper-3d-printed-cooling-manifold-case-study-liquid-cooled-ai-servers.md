@@ -34,8 +34,6 @@ The timing matters. [NVIDIA describes the GB200 NVL72](https://www.nvidia.com/en
 
 For the broader background, start with [Liquid-Cooled Server Copper Hardware RFQ Guide](/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/), [Data Center Copper Busbars and Cooling Manifolds](/posts/EngineeringGuide/data-center-copper-busbars-cooling-manifolds/), and [3D Printed Copper Cold Plates for AI Accelerators](/posts/EngineeringGuide/3d-printed-copper-cold-plates-ai-accelerators/). This article narrows the discussion to one case pattern: a copper cooling manifold that had too many functional requirements to be treated as a simple plumbing block.
 
-![Copper 3D printed cooling manifold for liquid-cooled AI server validation](../../assets/images/generated/copper-am-ai-server-cooling-manifold-case-cover.webp)
-
 _A representative AI server manifold case starts with branch count, port location, seal lands, pressure boundary, and validation scope, not only the exterior envelope._
 
 ## The Starting Requirement

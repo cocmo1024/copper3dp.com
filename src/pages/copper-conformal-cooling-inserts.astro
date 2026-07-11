@@ -1,0 +1,154 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Conformal Cooling Inserts | RFQ',
+  description:
+    'RFQ review for CuCrZr and copper conformal cooling inserts with channels near mold hot spots, machined cavity surfaces, pressure testing, polishing, heat treatment, and tooling interfaces.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+      { name: 'Copper conformal cooling inserts', item: '/copper-conformal-cooling-inserts/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-conformal-cooling-inserts',
+      name: 'Copper Conformal Cooling Insert RFQ Review',
+      serviceType: 'CuCrZr and copper mold insert additive manufacturing review',
+      description:
+        'RFQ review for printed copper and CuCrZr tooling inserts with conformal channels, machined cavity surfaces, pressure testing, polishing, heat treatment, and mold interfaces.',
+      url: '/copper-conformal-cooling-inserts/',
+      audienceType: 'Injection molding, die casting, tooling, process engineering, moldmaking, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="Mold and tooling inserts"
+    title="3D printed copper conformal cooling inserts for mold hot spots"
+    intro="Copper AM is most useful in tooling when cooling has to follow a cavity, rib, boss, core, or local hot spot that cannot be reached by drilled passages. The printed insert is still a tool component: cavity stock, support, heat treatment, pressure integrity, polishing, wear, and replacement strategy must be defined with the cooling geometry."
+    verdict="Choose a copper or CuCrZr conformal cooling insert when local thermal control improves cycle stability, part quality, or access to a persistent hot spot. Keep drilled steel, beryllium-copper, or conventional copper inserts when the cooling path is simple or the printed insert cannot meet tooling strength, surface, wear, and service requirements."
+    useCases={[
+      {
+        title: 'Injection mold hot-spot inserts',
+        description:
+          'Local inserts around deep ribs, bosses, thick sections, cores, or asymmetric geometry where straight drilled channels leave a stagnant thermal zone.',
+      },
+      {
+        title: 'Core and cavity thermal balancing',
+        description:
+          'Conformal circuits used to reduce temperature variation between regions while preserving cavity stock and mold interfaces.',
+      },
+      {
+        title: 'Prototype and bridge tooling',
+        description:
+          'Low-volume tooling where thermal behavior needs to be evaluated before committing to a final production insert route.',
+      },
+      {
+        title: 'Hybrid copper tooling',
+        description:
+          'Printed thermal insert combined with a steel holder, replaceable wear surface, machined cavity region, or conventional mold base.',
+      },
+    ]}
+    additiveFit={[
+      'A measured or repeatable hot spot cannot be reached by straight drilling.',
+      'Channels need to follow a curved cavity or core at a controlled offset.',
+      'A replaceable insert can isolate thermal function from the larger mold structure.',
+      'Cycle-time or part-quality value justifies added heat treatment, machining, and testing.',
+    ]}
+    conventionalFit={[
+      'Straight drilled passages already control the thermal problem.',
+      'The insert is primarily a wear component with little geometry-driven cooling value.',
+      'Required cavity finish, hardness, pressure, or service life cannot be supported by the selected copper route.',
+      'The expected production volume does not justify an insert replacement and qualification plan.',
+    ]}
+    requirements={[
+      {
+        input: 'Mold geometry and hot-spot evidence',
+        why: 'Send the mold insert, part, cooling circuit, measured temperature, defect, or simulation context that explains why local cooling is needed.',
+      },
+      {
+        input: 'Channel and coolant conditions',
+        why: 'Define coolant, inlet temperature, flow, pressure, circuit layout, fittings, scale or corrosion concerns, and available cleaning access.',
+      },
+      {
+        input: 'Cavity and shutoff surfaces',
+        why: 'Identify final machining stock, polish, texture, EDM, shutoff, vent, gate, and witness surfaces that cannot remain as-built.',
+      },
+      {
+        input: 'Loads and service temperature',
+        why: 'Injection pressure, clamp conditions, thermal cycling, support area, threads, and peak temperature guide the pure-copper versus CuCrZr route.',
+      },
+      {
+        input: 'Heat treatment and material state',
+        why: 'For CuCrZr, the specified aging condition, machining sequence, hardness or conductivity evidence, and thermal exposure need one controlled route.',
+      },
+      {
+        input: 'Acceptance and maintenance',
+        why: 'State pressure or leak test, dimensional inspection, cavity finish, expected tool life, repair limits, and replacement strategy.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Channels too close to the cavity',
+        description:
+          'Thermal benefit must be balanced against pressure boundary, cavity stock, local stress, machining allowance, and the risk of opening a channel during finishing or repair.',
+      },
+      {
+        title: 'Copper insert without structural support',
+        description:
+          'High conductivity does not remove the need for adequate backing, load transfer, thread design, and a realistic strength and heat-treatment condition.',
+      },
+      {
+        title: 'Cooling circuit that cannot be serviced',
+        description:
+          'Small passages can collect powder, scale, debris, or corrosion products. Include flushing, filtration, drying, access, and replacement in the tool plan.',
+      },
+      {
+        title: 'No before-and-after process metric',
+        description:
+          'Define the defect, local temperature, cooling time, cycle stability, or part-quality measure used to judge whether the insert solved the intended problem.',
+      },
+    ]}
+    rfqChecklist={[
+      'Insert, mold, and molded-part CAD',
+      'Drawing with cavity stock and datums',
+      'Hot-spot data or thermal objective',
+      'Coolant, flow, pressure, and fittings',
+      'Injection and service conditions',
+      'Material and heat-treatment preference',
+      'Machining, polish, EDM, or texture scope',
+      'Pressure, leak, dimensional, and tool tests',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/',
+        title: 'Copper AM conformal cooling mold inserts',
+        description: 'Detailed process-selection and RFQ guide for printed copper tooling inserts.',
+      },
+      {
+        href: '/posts/EngineeringGuide/cucrzr-cooling-insert-case-study-injection-mold-hot-spots/',
+        title: 'CuCrZr mold hot-spot design scenario',
+        description:
+          'Representative engineering route for channel layout, cavity finishing, pressure testing, and validation.',
+      },
+      {
+        href: '/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/',
+        title: 'Heat treatment for printed CuCrZr',
+        description: 'Coordinate aging, machining, coupons, hardness, conductivity, and final acceptance.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://www.renishaw.com/media/pdf/en/148eca166cc842e18df0275a48bd0f3e.pdf',
+        title: 'Renishaw conformal cooling case study',
+        description: 'Manufacturer case material on additively manufactured tooling inserts and thermal control.',
+      },
+    ]}
+    emailSubject="Copper conformal cooling insert RFQ"
+  />
+</Layout>

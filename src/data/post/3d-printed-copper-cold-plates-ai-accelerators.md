@@ -29,8 +29,6 @@ For copper 3D printing, the best candidates usually have at least one hard const
 
 If the cold plate is a flat part with open milled channels and a simple cover, conventional manufacturing may be the stronger first route. Copper AM becomes more relevant when internal geometry is the main value.
 
-![3D printed copper cold plate for AI accelerator liquid cooling](../../assets/images/generated/ai-accelerator-copper-cold-plate.webp)
-
 ### Start With the Heat-Flux Map, Not Only the STEP File
 
 A STEP file shows shape. It does not explain why a cold plate must exist. For AI accelerator and GPU cooling hardware, the RFQ becomes much clearer when the thermal problem is stated early.

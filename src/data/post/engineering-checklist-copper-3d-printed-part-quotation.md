@@ -32,10 +32,6 @@ That does not mean the part is impossible. It means the supplier cannot price th
 
 Copper additive manufacturing is different from ordering a simple machined bracket. Copper is chosen because it conducts heat or electricity, but the finished part often also has to work as a pressure boundary, RF surface, current path, thermal interface, vacuum component, or compact fluid manifold. The quote has to cover the full ledger: printing, heat treatment, support removal, machining, cleaning, leak testing, conductivity checks, dimensional inspection, packaging, and scrap risk.
 
-![Copper 3D printed part quotation checklist with CAD model, drawing, copper cold plate, inspection tools, and pressure fittings](../../assets/images/generated/copper-3d-printed-part-quotation-checklist-cover.webp)
-
-_Figure 1. A useful copper AM RFQ is not just a model. It is CAD plus function, material route, critical surfaces, operating limits, inspection expectations, and quantity._
-
 ## Start With the Function, Not the File
 
 The first gate is simple: what must the copper part do that a conventional route cannot do cleanly?

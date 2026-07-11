@@ -24,8 +24,6 @@ For copper additive manufacturing, the most useful first question is:
 
 The answer may be thermal density, routing, leakage risk, part count, prototype speed, or package height. If the answer is only "we want it printed," the quote may not be strong.
 
-![Liquid-cooled server copper hardware RFQ review](../../assets/images/generated/liquid-cooled-server-copper-rfq.webp)
-
 ### Server Copper Parts That May Be Worth Reviewing
 
 Common liquid-cooled server hardware candidates include:

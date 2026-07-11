@@ -31,7 +31,6 @@ A usable RFQ frames the requirement as **system performance in a defined test co
 - Envelope constraints: **L × W × H = ___ mm**, keep-out zones, weight limit (g)
 - Interface definition: **TIM type**, mounting torque (N·m), contact area (mm²)
 
-![RFQ inputs needed to specify a custom copper heat sink thermal target](../../assets/images/online-posts/rfq-specification-copper-heat-sinks/01-rfq-specification-copper-heat-sinks-1-72b62930.webp)
 
 ### Thermal Requirement Definition for Copper Heat Sink Performance
 

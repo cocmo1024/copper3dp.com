@@ -45,10 +45,6 @@ This representative case focuses on a vacuum manifold for RF and semiconductor h
 
 It also avoids repeating the existing cold plate case studies. The part still uses copper's thermal and electrical value, but the buyer decision is controlled by sealing, RF surface condition, trapped-volume risk, and quote evidence.
 
-![Copper AM vacuum manifold for RF and semiconductor hardware with machined sealing lands and ports](../../assets/images/generated/copper-am-rf-vacuum-manifold-case-cover.webp)
-
-_Figure 1. A copper AM vacuum manifold becomes quotable only when the RF-facing surfaces, sealing lands, ports, cleaning route, and inspection scope are visible in the RFQ._
-
 ## Starting Requirement
 
 The representative RFQ started as a compact copper manifold for an RF and vacuum subassembly used near semiconductor process equipment. The customer did not need a generic copper block. The target part had to combine several functions in a small envelope:

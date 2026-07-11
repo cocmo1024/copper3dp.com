@@ -31,8 +31,6 @@ Useful AM review cases include:
 
 It is usually not the first route for simple flat busbars, straight bars, open manifolds, or low-complexity copper plates.
 
-![Data center copper busbar and cooling manifold RFQ hardware](../../assets/images/generated/data-center-copper-busbar-manifold.webp)
-
 ### Separate Electrical, Thermal, and Mechanical Requirements
 
 A data center copper part can fail in several ways. The quote should not treat it as only "a copper shape." State which function matters most.

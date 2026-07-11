@@ -26,8 +26,6 @@ Copper 3D printing service is not only a build-price question. For custom copper
 
 This is why the same drawing can produce two very different quote routes. A simple copper bracket with light machining may be treated as a basic part. A copper cold plate with buried channels and a leak target needs a different review, even if the outside dimensions look similar.
 
-![Copper 3D printing service for custom copper parts](../../assets/images/copper/hero-2.webp)
-
 ### When Copper 3D Printing Is Worth Quoting
 
 LPBF copper and copper alloy printing is most useful when additive manufacturing changes the engineering outcome, not when it only replaces machining.

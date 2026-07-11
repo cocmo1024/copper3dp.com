@@ -36,10 +36,6 @@ None of those issues made the part imaginary. They made the quote incomplete and
 
 Copper additive manufacturing is valuable because copper can carry heat, current, RF energy, and fluid paths through compact geometry. That same value creates stricter design discipline. Copper conducts heat away from the melt zone quickly, reflects common laser energy, and often needs finished surfaces after printing. A good design should account for the route from CAD to accepted part: print, depowder, heat treat if required, machine critical faces, clean, inspect, and test.
 
-![Common design mistakes in 3D printed copper parts shown on a copper AM review bench with cold plate, heat sink, manifold, inspection markers, calipers, probe, fittings, and witness coupons](../../assets/images/generated/common-design-mistakes-copper-3d-printed-parts-cover.webp)
-
-_Figure 1. Copper AM design review should expose geometry risk early: port strength, internal-channel access, unsupported fins, machining stock, surface requirements, and inspection scope._
-
 ## Mistake 1: Copying Generic Metal AM Rules Into Copper
 
 Copper is not stainless steel with a different color.

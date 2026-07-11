@@ -1,148 +1,148 @@
 ---
 title: 'Pure Copper vs CuCrZr Heat Sinks'
 publishDate: 2026-01-01
-excerpt: 'Compare pure copper and CuCrZr heat sinks using thermal conductivity, strength, softening temperature, and real build trade-offs.'
+updateDate: 2026-07-11
+excerpt: 'Choose pure copper or CuCrZr for a 3D printed heat sink by comparing conductivity, clamp stability, thin features, heat treatment, finishing, and acceptance requirements.'
 category: Engineering Guide
-tags: ['copper-heat-sinks', 'material-selection', 'engineering-guide']
+tags: ['copper-heat-sinks', 'material-selection', 'pure-copper', 'cucrzr', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/01-pure-copper-vs-cucrzr-high-performance-heat-sinks-1-9707fcce.webp
 metadata:
   title: 'Pure Copper vs CuCrZr Heat Sinks'
-  description: 'Compare pure copper and CuCrZr heat sinks using thermal conductivity, strength, softening temperature, and real build trade-offs.'
+  description: 'Compare pure copper and CuCrZr for 3D printed heat sinks by conductivity, strength, flatness, thin features, heat treatment, machining, and test requirements.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/
 ---
 
-> **Pure Copper vs CuCrZr for high-performance heat sinks is conditionally feasible** depending on whether your dominant constraint is **bulk conduction (W/m·K)** or **mechanical integrity under load/temperature (MPa, °C)**. While pure copper maximizes thermal conductivity (~390–400 W/m·K), engineering teams must account for its low yield strength and rapid softening above ~150–200°C, which often makes CuCrZr (typically ~320–360 W/m·K) the more reliable choice for thin features, high clamp loads, and repeatable assembly in production.
+Pure copper is usually the first material to review when a heat sink is limited by heat spreading or electrical conductivity. CuCrZr is often the safer route when the same part must also hold threads, thin fins, pressure boundaries, clamped interfaces, or dimensional stability through manufacturing and service.
 
-### Pure Copper vs CuCrZr Heat Sinks in High-Power Builds
+The correct choice is not the alloy with the best single data-sheet value. It is the material and post-processing route that produces the lowest thermal resistance **after** printing, heat treatment, machining, assembly, and testing.
 
-We repeatedly see the same RFQ pattern: “We need the best thermal performance—use pure copper.” The intent is rational: when heat flux is high, every °C matters, and copper’s headline conductivity looks like the obvious lever.
+For a commercial project, start with the [3D printed copper heat sink RFQ page](/copper-heat-sinks/) and use this guide to decide which material states should remain open in the quotation.
 
-The mismatch usually appears later, during execution: the heat sink is not just a thermal block—it is also a **structural interface** that must survive **clamp load, thermal cycling, thread torque, and rework**. In practice, a 10–20% gain in bulk conductivity can be erased by **contact resistance**, while a 3×–6× loss in yield strength shows up immediately as bowed bases, stripped threads, distorted fins, or shifting flatness after brazing.
+## Quick material decision
 
-For commercial review, pair this material decision with the [custom copper heat sink RFQ page](/copper-heat-sinks/) so the quote covers the manufacturing route, interface flatness, machining stock, surface finish, and validation method instead of only the alloy name.
+| Dominant requirement | Material to review first | Why |
+| --- | --- | --- |
+| Maximum heat spreading with low mechanical load | Pure copper | Prioritizes thermal and electrical conductivity |
+| Thin fins, pins, bosses, or threaded features | CuCrZr | Adds strength and handling stability |
+| Tight interface flatness under clamp load | CuCrZr or a structurally supported pure-copper design | Base distortion can increase thermal interface resistance |
+| Internal liquid channels with pressure and ports | CuCrZr often deserves review | Pressure boundaries and machined ports add mechanical requirements |
+| High-current thermal hardware | Pure copper first, then compare CuCrZr | Current path, contact pads, temperature, and structure must be evaluated together |
+| Elevated-temperature or repeated thermal exposure | CuCrZr with a controlled heat-treatment route | Finished properties depend on the complete thermal history |
 
-### Pure Copper Is a Type of High-Conductivity Base Metal
+This table is a route-selection starting point. The actual decision still depends on the qualified material data, part geometry, heat-treatment state, and acceptance plan.
 
-Pure copper (typical heat-sink grades such as C101/C102/C110 variants) is a type of **high-conductivity copper** optimized for heat flow. In finished heat sinks, we usually see room-temperature thermal conductivity on the order of **~390–400 W/m·K** when purity and processing are controlled.
+## Why the highest conductivity does not always produce the best heat sink
 
-Where pure copper becomes fragile is mechanical performance in the exact conditions heat sinks live in:
+A heat sink is a thermal system, not a material coupon. Its temperature rise can include:
 
-- **Low yield strength** in annealed or stress-relieved conditions (commonly **< ~100 MPa** class, depending on temper and product form).
-- **Fast softening**: copper’s strength drops sharply as temperature rises; by **~150–200°C**, many assemblies start to lose dimensional stability if they rely on copper’s strength rather than geometry.
+- spreading resistance through the base;
+- resistance across the device, TIM, coating, and mounting interface;
+- conduction through fins, pins, walls, or internal structures;
+- convection to air or coolant;
+- flow maldistribution and pressure-drop losses;
+- dimensional change that alters contact pressure or bond-line thickness.
 
-![Pure copper vs CuCrZr heat sink cross-section showing deflection under clamp load](../../assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/01-pure-copper-vs-cucrzr-high-performance-heat-sinks-1-9707fcce.webp)
+Pure copper can improve the bulk-conduction part of that stack. It cannot correct a warped base, an excessive TIM layer, a blocked channel, weak airflow, or a poorly machined contact pad. A lower-conductivity CuCrZr body may perform more consistently if it preserves flatness and feature geometry under assembly load.
 
-### CuCrZr Is a Type of Precipitation-Hardened Copper Alloy
+That is why the material review should happen after the thermal boundary conditions are defined. Send heat-source footprint, heat load, contact area, mounting method, airflow or coolant condition, and the acceptance test. Without those inputs, a conductivity comparison is incomplete.
 
-CuCrZr (commonly designated as C18150 family) is a type of **precipitation-hardened copper alloy**. It trades some thermal conductivity for major gains in mechanical robustness:
+## What pure copper offers
 
-- Typical thermal conductivity used in real designs: **~320–360 W/m·K** (processing dependent).
-- Typical yield strength after proper solution + aging: often **~350–500 MPa** class (product form and heat-treat dependent).
-- Better strength retention at elevated temperature: many builds remain mechanically stable through **~250–300°C** exposure where pure copper starts to behave like a soft gasket.
+Pure copper is attractive for high-heat-flux components because it can provide the highest thermal and electrical conductivity among the commonly requested copper AM routes. It is a strong candidate for:
 
-That “strength reserve” is what makes thin fins, dense pins, threaded features, press-fits, and repeatable clamping viable without turning your drawing into a “do not touch” artifact.
+- heat spreaders and bases where bulk conduction dominates;
+- compact air-cooled structures with limited mechanical loading;
+- conductive thermal parts that also carry current;
+- cold plates where thermal performance has priority and the geometry can support the pressure and interface requirements;
+- RF or high-current hardware where surface and bulk conductivity both matter.
 
-### Engineering Reality: The Dominant Bottleneck Is Often Not Bulk Copper k
+The engineering trade-off is mechanical reserve. Printed and heat-treated pure copper may require thicker load paths, separate inserts, supported threads, conservative handling, or a stiff backing structure. Critical faces normally need machining after the build and any required thermal processing.
 
-When a heat sink underperforms, the root cause is frequently one of these:
+The RFQ should not assume that wrought-copper handbook values automatically describe the printed part. Ask which property data applies to the proposed machine, powder, build orientation, heat treatment, and test method. The [electrical conductivity guide](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) explains the difference between material data, witness coupons, contact resistance, and finished-component evidence.
 
-- **Interface resistance** (TIM thickness, voiding, pump-out, surface roughness): a few microns of TIM can dominate more than the k difference between 400 and 330 W/m·K.
-- **Spreading resistance vs geometry**: base thickness and heat-source footprint drive gradients more than alloy choice once k is “high enough.”
-- **Mechanical distortion**: warped bases or bowed mounts increase TIM thickness, which can destroy the theoretical advantage of pure copper.
+## What CuCrZr offers
 
-Rule we use during design reviews: if the stack-up includes **high clamp load** or **tight flatness** plus **thermal cycling**, then “maximum k” is rarely the highest-leverage variable.
+CuCrZr is a precipitation-hardening copper alloy. Compared with pure copper, it generally sacrifices some conductivity to gain strength, feature stability, and better resistance to mechanical damage. It is often worth reviewing when the heat sink includes:
 
-### Execution Log: Where Pure Copper Failed, and What We Paid to Fix It
+- thin fins or pins that must survive depowdering, cleaning, machining, handling, and assembly;
+- threaded ports, bosses, fastener features, or repeated torque cycles;
+- pressure boundaries or internal liquid channels;
+- a thin base under meaningful clamp load;
+- sealing lands, O-ring grooves, or precision datums;
+- service or manufacturing temperatures that make pure-copper softening a concern.
 
-We ran a program for a compact high-power module with an aggressive target: minimize junction temperature while keeping Z-height low. The initial prototype used **machined pure copper** with a thin base and dense fin field. Early thermal data looked promising on the bench.
+CuCrZr only provides this benefit when the heat-treatment state is controlled. Solution treatment, aging, stress relief, brazing, soldering, coating, and later thermal exposure can interact. The drawing and purchase requirement should state the required condition and evidence rather than requesting “CuCrZr” with no finished-property definition.
 
-The failure appeared during assembly trials:
+Use the [CuCrZr heat-treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) when hardness, conductivity, strength, or coupon evidence must be included in the quote.
 
-- After repeated torque cycles, the **mounting face lost flatness** and the base started to “dish.”
-- The distortion increased TIM thickness and shifted thermal performance by **multiple °C**, eclipsing the conductivity advantage we thought we had bought.
+## Five design checks that decide the material route
 
-**Pivot point:** we stopped treating the heat sink as “just a thermal conductor” and treated it as a **precision structural member**.
+### 1. Is the thermal bottleneck in the copper body?
 
-**Resolution:** we migrated the part to **CuCrZr with controlled heat treatment** and tightened the process window around post-machining stress relief and final surfacing.
+If simulation or test shows that base spreading dominates, pure copper may provide a meaningful advantage. If the largest resistance sits at the TIM, contact face, airflow, or coolant boundary, changing alloy may have less impact than improving the interface or geometry.
 
-**The tax we paid (Price of Success):**
+### 2. What loads act on the finished heat sink?
 
-- Added heat treatment steps (solution + aging) and control coupons, increasing lead time by **~3–7 days** depending on queue and validation.
-- Accepted a bulk conductivity reduction of roughly **~10–20%** in exchange for significantly higher yield strength and assembly repeatability.
-- Increased QA scope: hardness verification and flatness after thermal exposure became mandatory gate checks.
+Define clamp force, bolt torque, thread engagement, unsupported span, pressure, vibration, shock, and handling. A heat sink that also acts as a manifold or structural mount needs more than a conductivity target.
 
-![Bowed pure copper heat sink base increases TIM thickness and thermal resistance](../../assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/02-pure-copper-vs-cucrzr-high-performance-heat-sinks-2-80cf0157.webp)
+### 3. Which features remain as-built?
 
-### Data Forensics Table: What Actually Moves the Needle
+Thin fins, lattice surfaces, internal channels, and inaccessible regions inherit the qualified AM surface and dimensional capability. Contact faces, holes, ports, seal lands, and datums should normally be separated into a machining and inspection plan.
 
-| Parameter | Standard Approach | Advanced Approach | The Trade-off |
-| --- | --- | --- | --- |
-| Bulk thermal conductivity (W/m·K) | Pure copper: ~390–400 | CuCrZr: ~320–360 | CuCrZr gives up ~10–20% k for major strength reserve |
-| Yield strength (MPa, typical class) | Pure copper: often <~100 (annealed/stress-relieved) | CuCrZr: often ~350–500 (properly aged) | Pure copper needs geometry to carry loads; CuCrZr carries loads intrinsically |
-| Softening / strength retention | Copper softens rapidly above ~150–200°C | Better retention through ~250–300°C range | CuCrZr tolerates thermal soak and cycling with less distortion |
-| Threaded features / inserts | Risk of stripping or creep under torque | More robust threads; better torque repeatability | CuCrZr reduces assembly fallout, but demands heat-treat discipline |
-| Thin fins / pins | Fins deform during handling and ultrasonic cleaning | Fins survive handling; less “fin smear” | CuCrZr improves yield in manufacturing lines |
-| Joining / brazing exposure | Copper tolerates heat but distorts easily | CuCrZr properties can shift if over-aged | You must manage brazing/thermal cycles to avoid property drift |
-| Cost & lead time | Lower process complexity | Extra heat treat + verification | Typically +10–25% cost and schedule risk if not planned early |
+### 4. What thermal history follows printing?
 
-*Test method: thermal conductivity per ASTM E1225 (or equivalent), tensile per ASTM E8, hardness per ASTM E92/E384; verify on your actual product form and temper.*
+Heat treatment, stress relief, HIP where applicable, brazing, soldering, plating bake, and service temperature can change material state and distortion. Sequence these steps before final machining and acceptance testing.
 
-![Data comparison chart for pure copper vs CuCrZr thermal conductivity and yield strength](../../assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/03-pure-copper-vs-cucrzr-high-performance-heat-sinks-3-84822d53.webp)
+### 5. What evidence accepts the part?
 
-### Feasibility Verdict: Pure Copper vs CuCrZr Heat Sinks
+Useful evidence may include material certificates, witness-coupon density, conductivity, hardness, CMM inspection, flatness, roughness, flow, pressure, leak, and functional thermal testing. Select the evidence that controls the real failure risk.
 
-#### Clearly Feasible: Pure Copper Heat Sinks
+## Do not compare materials without comparing manufacturing routes
 
-Go ahead if all conditions below are true:
+Material selection and process selection are linked. A pure-copper printed body with heavy machining may compete against a machined or skived copper heat sink. A CuCrZr printed manifold with integrated cooling may compete against a brazed multi-piece assembly. The quote should compare accepted finished components, not printed blanks.
 
-- Your dominant bottleneck is **bulk spreading**, not interface resistance (measurably low TIM sensitivity).
-- Clamp loads are modest, or load is carried by a separate stiffener.
-- Operating temperature stays mostly below **~150°C at the heat sink** and flatness stability is not a yield-limiting requirement.
-- No thin threaded features are load-bearing, or inserts/standoffs isolate torque from copper.
+Keep a conventional route when the heat sink is a simple base with straight fins, drilled holes, or an accessible channel network. Consider AM when the design needs internal flow paths, non-line-of-sight geometry, part consolidation, variable fins, or compact routing that cannot be manufactured cleanly by cutting, skiving, extrusion, or brazing.
 
-#### Conditionally Feasible (High-Cost Route): “Pure Copper, But With Structural Compensation”
+The [3D printed copper heat sink feasibility guide](/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/) covers that route decision in more detail.
 
-Possible, but expect added cost/complexity when any are true:
+## RFQ inputs for a defensible material comparison
 
-- You require tight flatness after thermal cycling, or you torque directly into copper.
-- You run thin bases, microfins, or fragile fin geometries that see handling and cleaning.
-- You must survive rework, multiple assembly cycles, or field servicing.
+Send these inputs before asking a supplier to choose pure copper or CuCrZr:
 
-In this zone, we typically pay the “bill” using at least one: thicker bases, steel backplates, helicoils/inserts, process controls for stress relief, and post-assembly flatness control. Those mitigations can erase the simplicity that motivated pure copper in the first place.
+1. STEP file and controlled drawing.
+2. Heat-source location, footprint, and heat load.
+3. Maximum component or interface temperature.
+4. Airflow, coolant, flow rate, pressure drop, and pressure requirements.
+5. Clamp load, fasteners, torque, threads, and structural loads.
+6. Critical flatness, roughness, thickness, and machined surfaces.
+7. Material condition, heat treatment, and accepted equivalents.
+8. Required conductivity, hardness, dimensional, leak, flow, or thermal tests.
+9. Prototype, qualification, and production quantities.
 
-#### Structurally Mismatched: Pure Copper Where Mechanics Dominate
+Do not specify a tight value for every property by default. Each added acceptance requirement changes coupons, test methods, sampling, cost, and lead time. Define the properties that control the application.
 
-Not recommended when:
+## Frequently asked questions
 
-- High clamp load + tight flatness + thermal cycling are simultaneous requirements.
-- The part must function as a precision structural interface with repeated torque cycles.
-- You have elevated soak temperatures in the **~200°C+** regime where softening becomes the governing failure mode.
+### Is pure copper always better for a heat sink?
 
-**Alternative:** CuCrZr (with verified heat treat state) or a hybrid architecture (Cu base + structural frame) when both k and stiffness are critical.
+No. Pure copper usually offers higher conductivity, but system performance can be limited by interface resistance, geometry, airflow or coolant, flatness, and mechanical stability. The finished assembly decides the result.
 
-> **Project Readiness Check:** Before committing, ask yourself (or your supplier):
->   - What is the maximum clamp load and torque cycle count, and what flatness change (µm) is acceptable after thermal cycling?
->     - What is your worst-case thermal exposure (°C × hours) including brazing, soldering, burn-in, and field fault conditions?
+### Is CuCrZr strong enough to replace structural material?
 
-### FAQ: Pure Copper vs CuCrZr for Heat Sinks
+That cannot be assumed from the alloy name. Strength depends on composition, build route, orientation, heat treatment, geometry, temperature, and acceptance evidence. Treat it as a copper alloy with useful mechanical reserve, not as a universal structural substitute.
 
-**When does pure copper actually outperform CuCrZr in the real product?**
+### Can pure copper and CuCrZr be quoted as alternatives?
 
-When the thermal stack is dominated by bulk spreading (large heat flux into a relatively thick base) and interface resistance is already minimized. If your TIM and contact plan are not controlled, the ~10–20% k advantage is commonly consumed by thicker/less stable interface layers.
+Yes, when the drawing states the critical thermal, mechanical, and inspection requirements instead of locking an alloy without explaining why. An alternative quote can compare material availability, process risk, post-processing, and evidence.
 
-**Is CuCrZr “always better” because it is stronger?**
+### Which material is better for a liquid-cooled heat sink?
 
-No. If you do not need mechanical reserve (low clamp loads, stable geometry, minimal handling risk), pure copper can deliver lower thermal gradients. CuCrZr is selected when mechanical stability is the constraint that destroys thermal repeatability.
+Pure copper may favor heat spreading. CuCrZr may favor pressure boundaries, ports, thin walls, and assembly stability. The decision depends on channel geometry, working and proof pressure, sealing, machining, and the thermal target.
 
-**What is the most common failure mode when teams pick pure copper for a high-performance heat sink?**
+## Technical context
 
-Loss of flatness and distortion under torque and thermal exposure, which increases effective TIM thickness. The thermal penalty from interface growth can exceed the k benefit of pure copper.
+- [EOS copper materials for industrial 3D printing](https://www.eos.info/metal-solutions/metal-materials/copper) describes pure-copper and copper-alloy application directions and material-specific routes.
+- [Copper alloy selection for metal 3D printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) compares pure Cu, CuCrZr, and CuCr1Zr across a broader range of components.
 
-**What is the main process risk with CuCrZr?**
-
-Property drift from thermal exposure: if the part sees high-temperature processes (brazing, soldering, uncontrolled stress relief), CuCrZr can over-age or otherwise shift hardness/strength state. You manage this by locking the process sequence and verifying hardness/strength on witness coupons.
-
-**How do we decide quickly without running a full simulation?**
-
-Use a two-check shortcut: (1) estimate whether interface resistance is the dominant term (TIM thickness/quality sensitivity), and (2) compute whether assembly loads require a yield strength reserve. If interface dominates and loads are high, CuCrZr usually wins on system performance repeatability.
+For a quote, send the drawing, quantity, thermal conditions, interface requirements, and required evidence to [info@szcomo.com](mailto:info@szcomo.com).

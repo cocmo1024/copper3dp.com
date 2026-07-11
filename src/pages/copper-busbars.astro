@@ -1,0 +1,155 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Busbars | Custom Busbar RFQ',
+  description:
+    'RFQ review for 3D printed copper busbars and high-current conductors with complex routing, integrated cooling, machined contacts, plating, conductivity, and acceptance requirements.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+      { name: 'Copper busbars', item: '/copper-busbars/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-busbars',
+      name: '3D Printed Copper Busbar RFQ Review',
+      serviceType: 'Custom copper busbar additive manufacturing review',
+      description:
+        'RFQ review for printed copper busbars with three-dimensional routing, integrated cooling, machined contact pads, plating, conductivity, and dimensional requirements.',
+      url: '/copper-busbars/',
+      audienceType: 'Power electronics, energy storage, EV, data center, R&D, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="Copper busbars"
+    title="3D printed copper busbars for compact current routing and integrated cooling"
+    intro="Most busbars should remain cut, bent, laminated, forged, or machined. Copper AM becomes relevant when a three-dimensional conductor has to route around dense hardware, consolidate several joints, integrate cooling, or combine electrical and structural features in a low-volume part."
+    verdict="A printed copper busbar is justified by routing, consolidation, or thermal integration, not by the material alone. The finished quote must control current path, contact resistance, temperature rise, machined pads, insulation clearances, material condition, and inspection."
+    useCases={[
+      {
+        title: 'Power-module interconnects',
+        description:
+          'Compact conductors around inverters, converters, chargers, and test hardware where flat sheet creates too many bends or joints.',
+      },
+      {
+        title: 'Liquid-cooled busbars',
+        description:
+          'High-current copper bodies with internal coolant passages, local heat spreading, and machined electrical contacts.',
+      },
+      {
+        title: 'Battery and energy-storage hardware',
+        description:
+          'Low-volume or prototype current-routing components with unusual terminals, sensor features, mounting geometry, or package constraints.',
+      },
+      {
+        title: 'Data-center power hardware',
+        description:
+          'Copper transitions, current-distribution blocks, and combined electrical-thermal components near accelerators, power shelves, or liquid-cooling systems.',
+      },
+    ]}
+    additiveFit={[
+      'The current path must move in three dimensions around fixed keep-outs.',
+      'Integrated cooling or local thermal spreading removes joints and packaging volume.',
+      'Several terminals, mounts, and conductor sections can be consolidated into one part.',
+      'Prototype or low-volume quantity makes hard tooling unattractive.',
+    ]}
+    conventionalFit={[
+      'The conductor is a flat or simply bent bar with standard holes and pads.',
+      'Laminated construction is required to control inductance or insulation architecture.',
+      'The part is large and simple, making printed machine time uneconomic.',
+      'Contact surfaces, plating masks, or internal channels cannot be finished and verified.',
+    ]}
+    requirements={[
+      {
+        input: 'Current, voltage, and duty cycle',
+        why: 'Steady, peak, transient, and fault conditions establish cross-section, heating, insulation, and test requirements.',
+      },
+      {
+        input: 'Allowed temperature rise',
+        why: 'State ambient, cooling condition, maximum conductor temperature, and the test or simulation basis used for acceptance.',
+      },
+      {
+        input: 'Contact pads and joints',
+        why: 'Pad size, flatness, roughness, hole pattern, clamp load, fastener stack, plating, and joint resistance can dominate system performance.',
+      },
+      {
+        input: 'Insulation and spacing',
+        why: 'Voltage class, creepage, clearance, adjacent grounded surfaces, sleeves, coating, or potting must be reviewed with the final geometry.',
+      },
+      {
+        input: 'Cooling requirements',
+        why: 'For cooled conductors, provide coolant, flow, pressure drop, working pressure, proof pressure, leak target, cleaning, and drying expectations.',
+      },
+      {
+        input: 'Conductivity and material state',
+        why: 'Define whether acceptance is based on material certificate, coupon testing, finished-part resistance, or a combination.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Complex geometry with no electrical benefit',
+        description:
+          'A three-dimensional shape can add cost without lowering resistance, improving packaging, or reducing joints. Compare the printed route with bent sheet and machined copper first.',
+      },
+      {
+        title: 'Contact resistance at machined pads',
+        description:
+          'Printed bulk material, pad machining, cleanliness, plating, clamp load, and fastener design must work together. A high-conductivity alloy does not rescue a weak interface.',
+      },
+      {
+        title: 'Unverified current distribution',
+        description:
+          'Changing cross-section, sharp transitions, proximity to other conductors, and AC effects can create local heating that a simple DC resistance value will not reveal.',
+      },
+      {
+        title: 'Cooling channels without acceptance',
+        description:
+          'Internal cooling adds pressure-boundary, cleaning, leakage, corrosion, and flow-distribution requirements to what would otherwise be an electrical part.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP file and controlled drawing',
+      'Continuous, peak, and fault current',
+      'Voltage and insulation architecture',
+      'Temperature-rise limit and environment',
+      'Contact pads, holes, and clamp method',
+      'Plating, masking, and surface requirements',
+      'Cooling and pressure data if applicable',
+      'Resistance, conductivity, and inspection plan',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/',
+        title: 'Copper busbar and induction coil RFQ guide',
+        description: 'Combined engineering guide for electrical inputs, cooling, contacts, insulation, and testing.',
+      },
+      {
+        href: '/posts/EngineeringGuide/pure-copper-additive-manufacturing-conductive-components/',
+        title: 'Pure copper AM conductive components',
+        description:
+          'Material and finished-component decisions for contact blocks, connectors, busbars, and electrodes.',
+      },
+      {
+        href: '/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/',
+        title: 'Electrical conductivity in printed copper parts',
+        description:
+          'A practical distinction between material data, coupons, contact resistance, and component-level evidence.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://www.protiq.com/en/3d-printing/areas-of-application/busbars/',
+        title: 'PROTIQ: 3D printed busbars',
+        description: 'Industrial application examples for additively manufactured pure-copper busbars.',
+      },
+    ]}
+    emailSubject="3D printed copper busbar RFQ"
+  />
+</Layout>

@@ -34,10 +34,6 @@ That is why copper is more demanding than many steels or nickel alloys in LPBF. 
 
 For buyers, the important question is not whether someone can print a copper coupon. The better question is whether the supplier can print the actual part route: material, density, conductivity, heat treatment, channel cleaning, machining, inspection, and testing.
 
-![Copper laser powder bed fusion chamber showing standard infrared laser processing difficulty with copper powder bed, reflected energy, uneven melt tracks, copper cold plate sample, and witness coupons](../../assets/images/generated/copper-infrared-laser-lpbf-difficulty-cover.webp)
-
-_Figure 1. Copper LPBF difficulty starts at energy coupling, but the quote should cover the full route: stable tracks, density, geometry, cleaning, machining, and validation._
-
 ## The Core Physics: Reflectivity Plus Heat Conduction
 
 Copper is valuable because it moves heat and electricity efficiently. Those same properties make infrared laser printing difficult.

@@ -24,8 +24,6 @@ The useful first question is:
 
 The answer may be cycle time, hot spots, warpage, sink marks, local crystallinity, short shots, tool temperature stability, or difficult heat removal around ribs, cores, pins, or deep pockets.
 
-![Copper AM conformal cooling mold inserts](../../assets/images/copper/conformal-cooling-mold-inserts.webp)
-
 ### When Copper AM May Be Worth Reviewing
 
 Copper additive manufacturing can be useful when the insert needs copper-level thermal conductivity and a channel path that conventional drilling cannot place close enough to the heat source.

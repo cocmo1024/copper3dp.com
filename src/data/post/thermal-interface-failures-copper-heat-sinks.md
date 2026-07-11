@@ -30,7 +30,6 @@ Two factors dominate TCR in production:
 - **Surface topography**: Typical milled copper surfaces land around **Ra 0.8–3.2 µm** unless specified; lapped surfaces can reach **Ra 0.1–0.4 µm**.
 - **Contact pressure**: Many TIMs and bare-metal contacts show large TCR improvement as pressure rises from **~0.1 MPa to 1.0 MPa**, then diminishing returns above that range.
 
-![Copper heat sink interface stack with TIM bondline and clamp force arrows highlighting thermal contact resistance.](../../assets/images/online-posts/thermal-interface-failures-copper-heat-sinks/01-thermal-interface-failures-copper-heat-sinks-1-25c6b48b.webp)(Interface stack concept with resistances and pressure path)
 
 ### Copper Interface Failure Modes: What Actually Breaks in the Field
 

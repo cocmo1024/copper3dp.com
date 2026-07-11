@@ -31,10 +31,6 @@ The cost is just as real. Every hidden passage becomes part of the production ro
 
 This is especially important for copper. Industrial material pages from [EOS](https://www.eos.info/metal-solutions/metal-materials/copper) and [Eplus3D](https://www.eplus3d.com/products/3d-printing-materials-copper/) both position copper AM around thermal, electrical, heat exchanger, high-frequency electronic, and tooling applications. Those are exactly the applications where hidden channels often matter. At the same time, copper LPBF is not a casual process. [NIST research on LPBF for highly reflective metals](https://www.nist.gov/publications/ultra-high-speed-printing-regime-laser-powder-bed-fusion-highly-reflective-metals) is a useful reminder that copper's optical and thermal behavior affects process stability before post-processing even starts.
 
-![3D printed copper internal channel component on inspection bench with powder removal evidence and cleaning tools](../../assets/images/generated/copper-am-internal-channel-powder-removal-cover.webp)
-
-_Figure 1. Powder removal should be reviewed with the internal channel design, not treated as a final cosmetic cleaning step._
-
 ## The Hidden Risk: Printable Does Not Mean Cleanable
 
 The common RFQ mistake is simple: the CAD model shows a copper cold plate, heat exchanger, manifold, or cooled conductor with internal passages, but the drawing only dimensions the outside. The buyer asks whether the part can be printed. The better question is whether the part can be printed, depowdered, cleaned, dried, tested, and accepted.

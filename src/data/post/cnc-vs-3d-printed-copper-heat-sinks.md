@@ -25,7 +25,6 @@ Where projects get stuck is not the headline thermal conductivity number; it is 
 
 A copper heat sink is a type of thermal resistor network: conduction through the base, spreading into fins (or internal walls), and convection into air or liquid. In practice, the interface dominates earlier than teams expect—an extra 20–60 µm of flatness error or a surface finish mismatch can add measurable contact resistance when clamping pressure is limited (e.g., <1 MPa on fragile modules).
 
-![CNC machined vs 3D printed copper heat sink thermal path cutaway comparison.](../../assets/images/online-posts/cnc-vs-3d-printed-copper-heat-sinks/01-cnc-vs-3d-printed-copper-heat-sinks-1-a7e835d3.webp)
 
 CNC machining keeps the “contact layer” controllable: base flatness in the 0.02–0.05 mm range and planar Ra <1.6 µm are achievable without heroic steps, which makes thermal interface material (TIM) thickness more predictable (often 30–100 µm in real assemblies). The upside is repeatability; the downside is geometry: you are mostly constrained to open fins, drilled galleries, or brazed stacks once you need internal complexity.
 

@@ -27,7 +27,6 @@ Most “heat sink performance” disputes trace back to boundary conditions, not
 
 **A copper heat sink test is a type of boundary-condition replication problem**: if the product lives in a 1U chassis at **2.5–4.0 m/s** ducted flow, an open-bench fan test at **0.8 m/s** is not “conservative”—it is often non-correlated.
 
-![Ducted wind tunnel setup for copper heat sink thermal resistance testing with velocity grid and pressure taps.](../../assets/images/online-posts/thermal-performance-test-copper-heat-sinks/01-thermal-performance-test-copper-heat-sinks-1-9e76c6e6.webp)
 
 ### Wind Tunnel Airflow Test Setup for Copper Heat Sinks
 

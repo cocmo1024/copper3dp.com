@@ -1,6 +1,7 @@
 ---
 title: 'CT and Leak Test Criteria for Copper Cold Plates'
 publishDate: 2026-02-01
+updateDate: 2026-07-11
 excerpt: 'Practical CT scan and leak test acceptance criteria for copper cold plates, including defect thresholds, escalation logic, and cost trade-offs.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'quality-inspection', 'engineering-guide']
@@ -18,7 +19,6 @@ When a copper cold plate fails in the field, it rarely fails because “copper i
 
 This article provides an engineering-grade acceptance framework you can adapt to your specific cold plate design (machined + bonded, brazed stack, vacuum-brazed, or 3D printed copper). It is intentionally explicit about what criteria cost to enforce, what they miss, and how we structure escalation when results are ambiguous.
 
-![CT cross-section of a copper cold plate highlighting minimum wall thickness and a void near the pressure boundary.](../../assets/images/online-posts/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/01-ct-scan-leak-test-acceptance-criteria-copper-cold-plates-1-1c3947f1.webp)
 
 1. What you are actually trying to guarantee
 
@@ -189,18 +189,17 @@ Use this table to convert “CT results” into “ship / rework / scrap.” It 
 | Pressure decay fail | Leak test | Diagnose; re-test after stabilization | Diagnose; helium confirm | Fixture check, seal replacement, cleaning |
 | Helium leak fail | Leak test | Reject or localized repair if proven external | Reject | Local braze repair (rare), scrap |
 
-8. Execution log: what goes wrong in real projects
+8. Illustrative acceptance conflict: pressure decay, helium leak, and CT disagree
 
-Project example (closely analogous to repeated patterns we have executed):
-A 3D printed copper cold plate passed a pressure decay test at 6 bar but failed helium at 1×10⁻⁶ mbar·L/s. CT initially looked “clean” at a coarse voxel size; the channel walls were thin but within nominal. When we tightened voxel size and re-scanned only the port transition region, we found a small lack-of-fusion indication aligned with the port thread root.
+Consider a cold plate that passes a pressure-decay screen but fails a more sensitive helium leak criterion. A coarse CT scan may not resolve the defect responsible for that leak, particularly near a threaded port transition where wall thickness, machining, and image artifacts interact.
 
-Fix path:
+A defensible response is to:
 
-- We added a minimum ligament rule around the port transition zone (t_min margin increased by +0.25 mm).
-- We changed the leak test sequence: thermal soak (to stabilize temperature), then helium chamber test.
-- The change reduced false passes but increased inspection cycle time by ~20–30% and required a better fixture seal design (tooling cost increased by several thousand dollars). The net result was fewer “mystery failures” after integration.
+- Review the minimum ligament around the port transition.
+- Confirm that CT resolution is appropriate for the defect class.
+- Stabilize temperature before leak testing and validate the fixture seal.
 
-The honest trade-off: the new criteria improved containment confidence, but it also forced an earlier design-for-inspection conversation. Without that, we would have spent the same money later as warranty and schedule slip.
+This route can increase inspection time and fixture cost, but it prevents CT, pressure decay, and helium testing from being treated as interchangeable evidence. The actual thresholds and sampling plan must come from application risk.
 
 9. Readiness check before you publish acceptance criteria
 
