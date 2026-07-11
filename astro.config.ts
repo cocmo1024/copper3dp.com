@@ -24,6 +24,8 @@ import {
   lazyImagesRehypePlugin,
 } from './src/utils/frontmatter';
 
+import cloudflare from "@astrojs/cloudflare";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const siteUrl = 'https://copper3dp.com';
@@ -163,4 +165,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare()
 });
