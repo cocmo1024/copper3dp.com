@@ -3,13 +3,8 @@ import { Icon } from 'astro-icon/components';
 
 import Image from '~/components/common/Image.astro';
 import CopperAmEquipmentCta from '~/components/blog/CopperAmEquipmentCta.astro';
-import EngineeringPathways from '~/components/blog/EngineeringPathways.astro';
-import PostTags from '~/components/blog/Tags.astro';
-import SocialShare from '~/components/common/SocialShare.astro';
-
-import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
+import { getBlogPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
-
 import type { Post } from '~/types';
 
 export interface Props {
@@ -17,101 +12,57 @@ export interface Props {
   url: string | URL;
 }
 
-const { post, url } = Astro.props;
-const categoryHref = post.category
-  ? post.category.slug === 'engineering-guide'
-    ? getBlogPermalink()
-    : getPermalink(post.category.slug, 'category')
-  : '';
-const articleContainerClass = 'mx-auto max-w-5xl px-4 md:px-6';
+const { post } = Astro.props;
+const articleContainerClass = 'mx-auto max-w-4xl px-4 sm:px-6';
 ---
 
-<section class="mx-auto py-8 sm:py-16 lg:py-20">
-  <article>
-    <header class={post.image ? 'intersect-once intersect-quarter' : 'intersect-once intersect-quarter'}>
-      <div class:list={[articleContainerClass, 'mt-0 mb-2 flex flex-col justify-between sm:flex-row sm:items-center']}>
-        <p>
-          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 text-muted" />
-          <time datetime={post.publishDate.toISOString()} class="inline-block"
-            >{getFormattedDate(post.publishDate)}</time
-          >
-          {
-            post.author && (
-              <>
-                {' '}
-                - <Icon name="tabler:user" class="w-4 h-4 inline-block -mt-0.5 text-muted" />
-                <span class="inline-block">{post.author}</span>
-              </>
-            )
-          }
-          {
-            post.category && (
-              <>
-                {' '}
-                -{' '}
-                <a class="hover:underline inline-block" href={categoryHref}>
-                  {post.category.title}
-                </a>
-              </>
-            )
-          }
-          {
-            post.readingTime && (
-              <>
-                &nbsp;- <span>{post.readingTime}</span> min read
-              </>
-            )
-          }
-        </p>
-      </div>
+<article class="py-10 sm:py-14 lg:py-16">
+  <header class={articleContainerClass}>
+    <a class="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-link" href={getBlogPermalink()}>
+      <Icon name="tabler:arrow-left" class="h-4 w-4" />
+      Engineering Library
+    </a>
 
-      <h1
-        class:list={[
-          articleContainerClass,
-          'text-4xl font-bold leading-tighter tracking-tighter font-heading md:text-5xl',
-        ]}
-      >
-        {post.title}
-      </h1>
-      <p class:list={[articleContainerClass, 'mt-4 mb-8 text-xl text-muted text-justify md:text-2xl']}>
-        {post.excerpt}
-      </p>
+    <div class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+      <time datetime={post.publishDate.toISOString()}>{getFormattedDate(post.publishDate)}</time>
+      {post.readingTime && <span aria-hidden="true">·</span>}
+      {post.readingTime && <span>{post.readingTime} min read</span>}
+      {post.author && <span aria-hidden="true">·</span>}
+      {post.author && <span>{post.author.replaceAll('-', ' ')}</span>}
+    </div>
 
-      {
-        post.image ? (
-          <div class={articleContainerClass}>
-            <Image
-              src={post.image}
-              class="w-full mb-6 rounded-md bg-surface-raised"
-              widths={[400, 720, 1024, 1280]}
-              sizes="(max-width: 768px) calc(100vw - 2rem), 976px"
-              alt={post.title}
-              width={1280}
-              height={720}
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        ) : (
-          <div class={articleContainerClass}>
-            <div class="border-t border-page-border" />
-          </div>
-        )
-      }
-    </header>
-    <div
-      class:list={[
-        articleContainerClass,
-        'prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-heading prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-link prose-img:rounded-md prose-img:border prose-img:border-page-border prose-img:shadow-none mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0',
-      ]}
-    >
-      <slot />
-    </div>
-    <EngineeringPathways post={post} />
-    <div class:list={[articleContainerClass, 'mt-8 flex flex-col justify-between sm:flex-row']}>
-      <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
-      <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-muted" />
-    </div>
-    <CopperAmEquipmentCta />
-  </article>
-</section>
+    <h1 class="mt-4 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl lg:text-5xl">
+      {post.title}
+    </h1>
+    <p class="mt-5 max-w-3xl text-lg leading-8 text-muted sm:text-xl">{post.excerpt}</p>
+
+    {
+      post.image ? (
+        <Image
+          src={post.image}
+          class="mt-8 aspect-[16/9] w-full rounded-md border border-page-border bg-surface-raised object-cover"
+          widths={[480, 720, 960, 1200]}
+          sizes="(max-width: 768px) calc(100vw - 2rem), 848px"
+          alt={post.title}
+          width={1200}
+          height={675}
+          loading="eager"
+          decoding="async"
+        />
+      ) : (
+        <div class="mt-8 border-t border-page-border" />
+      )
+    }
+  </header>
+
+  <div
+    class:list={[
+      articleContainerClass,
+      'prose mt-10 max-w-4xl prose-base dark:prose-invert sm:prose-lg dark:prose-headings:text-heading prose-headings:font-heading prose-headings:font-bold prose-headings:leading-tight prose-a:text-link prose-img:w-full prose-img:rounded-md prose-img:border prose-img:border-page-border prose-img:shadow-none prose-headings:scroll-mt-[80px] prose-li:my-0',
+    ]}
+  >
+    <slot />
+  </div>
+
+  <CopperAmEquipmentCta />
+</article>

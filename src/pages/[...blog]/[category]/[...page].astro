@@ -6,7 +6,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-import EngineeringTopicClusters from '~/components/blog/EngineeringTopicClusters.astro';
 import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
 
@@ -42,7 +41,6 @@ const metadata = {
     <Headline subtitle="Copper additive manufacturing articles grouped by engineering topic.">
       {category.title}
     </Headline>
-    {currentPage === 1 && <EngineeringTopicClusters />}
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>

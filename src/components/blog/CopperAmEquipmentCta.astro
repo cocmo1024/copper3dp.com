@@ -1,65 +1,48 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 import Image from '~/components/common/Image.astro';
 import capabilityImage from '~/assets/images/generated/copper-production-components-screening.webp';
-
-const equipmentSpecs = ['532 nm market routes', 'Up to 350 x 350 x 500 mm reference', 'Pure Cu / CuCrZr routes'];
 ---
 
 <section
-  class="mx-auto mt-10 max-w-5xl px-4 md:px-6"
+  class="mx-auto mt-12 max-w-4xl px-4 sm:px-6"
   aria-label="Copper additive manufacturing production inquiry"
   data-nosnippet
 >
-  <div class="relative min-h-[420px] overflow-hidden rounded-md border border-page-border bg-[#050814] text-white">
+  <div
+    class="overflow-hidden rounded-md border border-page-border bg-surface md:grid md:grid-cols-[minmax(0,1fr)_18rem]"
+  >
+    <div class="px-5 py-7 sm:px-7 sm:py-8">
+      <p class="text-sm font-semibold text-primary">Copper AM project review</p>
+      <h2 class="mt-2 font-heading text-2xl font-bold leading-tight text-heading">Have a copper part to evaluate?</h2>
+      <p class="mt-3 max-w-xl text-sm leading-6 text-muted sm:text-base">
+        Send CAD, quantity, material preference, operating conditions, and acceptance requirements. We will review a
+        suitable production route before quoting.
+      </p>
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a
+          href="mailto:info@szcomo.com"
+          class="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
+          aria-label="Email a copper additive manufacturing RFQ"
+        >
+          <Icon name="tabler:mail" class="h-4 w-4" />
+          Email CAD and RFQ
+        </a>
+        <a class="text-sm font-semibold text-link hover:underline" href="/capabilities/">Review capabilities</a>
+      </div>
+    </div>
+
     <Image
       src={capabilityImage}
       alt="Copper additive manufacturing parts for production review"
-      class="absolute inset-0 h-full w-full object-cover"
-      widths={[640, 960, 1280, 1600]}
-      sizes="(max-width: 768px) calc(100vw - 2rem), 976px"
-      width={1600}
-      height={900}
+      class="h-48 w-full border-t border-page-border object-cover md:h-full md:border-l md:border-t-0"
+      widths={[480, 720]}
+      sizes="(max-width: 767px) calc(100vw - 2rem), 288px"
+      width={720}
+      height={540}
       loading="lazy"
       decoding="async"
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-[#050814] via-[#050814]/88 to-[#050814]/18"></div>
-
-    <div class="relative flex min-h-[420px] max-w-xl flex-col justify-center px-5 py-7 sm:px-8">
-      <p
-        class="mb-3 inline-flex w-fit items-center gap-2 rounded border border-emerald-300/35 bg-emerald-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-100"
-      >
-        <span class="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true"></span>
-        Green-Laser Copper AM
-      </p>
-
-      <h2 class="font-heading text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
-        Need Qualified Copper AM Capacity?
-      </h2>
-
-      <p class="mt-3 max-w-md text-sm leading-6 text-slate-200 sm:text-base">
-        Send the target material, build size, sample geometry, quantity, and acceptance requirements. We will screen a
-        suitable green-laser LPBF production route without representing the illustrated equipment as company-owned.
-      </p>
-
-      <ul class="mt-5 grid max-w-md gap-2 text-sm text-slate-100 sm:grid-cols-3">
-        {
-          equipmentSpecs.map((spec) => (
-            <li class="rounded border border-white/14 bg-white/8 px-3 py-2 leading-snug backdrop-blur-sm">{spec}</li>
-          ))
-        }
-      </ul>
-
-      <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a
-          href="mailto:info@szcomo.com"
-          class="inline-flex items-center justify-center gap-2 rounded bg-white px-4 py-2.5 text-sm font-semibold text-[#050814] transition hover:bg-emerald-100"
-          aria-label="Request copper additive manufacturing production by email"
-        >
-          Send a Production RFQ
-        </a>
-        <span class="text-xs leading-5 text-slate-300">Include material, quantity, geometry, and acceptance goals.</span
-        >
-      </div>
-    </div>
   </div>
 </section>

@@ -9,49 +9,19 @@ export const headerData = {
   links: [
     {
       text: 'Applications',
-      links: [
-        {
-          text: 'Applications overview',
-          href: getPermalink('/applications'),
-        },
-        {
-          text: 'Copper cold plates',
-          href: getPermalink('/copper-cold-plates'),
-        },
-        {
-          text: 'Copper heat sinks',
-          href: getPermalink('/copper-heat-sinks'),
-        },
-        {
-          text: 'RF and semiconductor parts',
-          href: getPermalink('/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq'),
-        },
-      ],
+      href: getPermalink('/applications'),
     },
     {
       text: 'Capabilities',
       href: getPermalink('/capabilities'),
     },
     {
-      text: 'Engineering',
-      links: [
-        {
-          text: 'Materials',
-          href: getPermalink('/materials'),
-        },
-        {
-          text: 'Process selection',
-          href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
-        },
-        {
-          text: 'Engineering Guide',
-          href: getBlogPermalink(),
-        },
-      ],
+      text: 'Materials',
+      href: getPermalink('/materials'),
     },
     {
-      text: 'RFQ',
-      href: getPermalink('/rfq'),
+      text: 'Engineering Library',
+      href: getBlogPermalink(),
     },
     {
       text: 'Contact',
@@ -64,28 +34,20 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Start a project',
+      title: 'Project review',
       links: [
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Applications overview', href: getPermalink('/applications') },
-        { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
-        { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
+        { text: 'Copper AM materials', href: getPermalink('/materials') },
         { text: 'Prepare an RFQ', href: getPermalink('/rfq') },
       ],
     },
     {
-      title: 'Engineering',
+      title: 'Applications',
       links: [
-        { text: 'Copper AM materials', href: getPermalink('/materials') },
-        {
-          text: 'Copper LPBF design rules',
-          href: getPermalink('/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts'),
-        },
-        {
-          text: 'Process selection',
-          href: getPermalink('/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing'),
-        },
-        { text: 'Engineering Guide', href: getBlogPermalink() },
+        { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
+        { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
+        { text: 'Engineering Library', href: getBlogPermalink() },
       ],
     },
     {
@@ -94,16 +56,6 @@ export const footerData = {
         { text: 'About COPPER 3DP', href: getPermalink('/about') },
         { text: 'Contact', href: getPermalink('/contact') },
         { text: 'Como Precision', href: 'https://www.szcomo.com/' },
-        { text: 'Privacy', href: getPermalink('/privacy') },
-        { text: 'Terms', href: getPermalink('/terms') },
-      ],
-    },
-    {
-      title: 'Related platforms',
-      links: [
-        { text: 'Metal AM powders', href: 'https://metal3dpowder.com/' },
-        { text: 'Titanium Alloy AM', href: 'https://titanium3dp.com/' },
-        { text: 'Precision Ceramics', href: 'https://ceramiccnc.com/' },
       ],
     },
   ],

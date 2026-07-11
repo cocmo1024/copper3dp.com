@@ -1,14 +1,9 @@
 ---
-import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
-import Image from '~/components/common/Image.astro';
-import PostTags from '~/components/blog/Tags.astro';
 
 import { APP_BLOG } from 'astrowind:config';
 import type { Post } from '~/types';
-
-import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
-import { findImage } from '~/utils/images';
+import { getPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
 
 export interface Props {
@@ -16,109 +11,47 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-const image = (await findImage(post.image)) as ImageMetadata | undefined;
-
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
-const categoryHref = post.category
-  ? post.category.slug === 'engineering-guide'
-    ? getBlogPermalink()
-    : getPermalink(post.category.slug, 'category')
-  : '';
+const searchText = [post.title, post.excerpt, ...(post.tags?.map((tag) => tag.title) || [])]
+  .filter(Boolean)
+  .join(' ')
+  .toLowerCase();
 ---
 
 <article
-  class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 intersect-once intersect-quarter ${image ? 'md:grid-cols-2' : ''}`}
+  class="group grid gap-4 border-b border-page-border py-6 sm:grid-cols-[8rem_minmax(0,1fr)_auto] sm:items-start sm:gap-7"
+  data-article-entry
+  data-article-search={searchText}
 >
-  {
-    image &&
-      (link ? (
-        <a class="relative block group" href={link}>
-          <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-surface-raised rounded-md border border-page-border">
-            {image && (
-              <Image
-                src={image}
-                class="absolute inset-0 object-cover w-full h-full mb-6 rounded-md bg-surface-raised"
-                widths={[400, 900]}
-                width={900}
-                sizes="(max-width: 900px) 400px, 900px"
-                alt={post.title}
-                aspectRatio="16:9"
-                loading="lazy"
-                decoding="async"
-              />
-            )}
-          </div>
-        </a>
-      ) : (
-        <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-surface-raised rounded-md border border-page-border">
-          {image && (
-            <Image
-              src={image}
-              class="absolute inset-0 object-cover w-full h-full mb-6 rounded-md bg-surface-raised"
-              widths={[400, 900]}
-              width={900}
-              sizes="(max-width: 900px) 400px, 900px"
-              alt={post.title}
-              aspectRatio="16:9"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-        </div>
-      ))
-  }
-  <div class="mt-2">
-    <header>
-      <div class="mb-1">
-        <span class="text-sm">
-          <Icon name="tabler:clock" class="w-3.5 h-3.5 inline-block -mt-0.5 text-muted" />
-          <time datetime={post.publishDate.toISOString()} class="inline-block"
-            >{getFormattedDate(post.publishDate)}</time
-          >
-          {
-            post.author && (
-              <>
-                {' '}
-                · <Icon name="tabler:user" class="w-3.5 h-3.5 inline-block -mt-0.5 text-muted" />
-                <span>{post.author.replaceAll('-', ' ')}</span>
-              </>
-            )
-          }
-          {
-            post.category && (
-              <>
-                {' '}
-                ·{' '}
-                <a class="hover:underline" href={categoryHref}>
-                  {post.category.title}
-                </a>
-              </>
-            )
-          }
-        </span>
-      </div>
-      <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading text-heading">
-        {
-          link ? (
-            <a class="inline-block hover:text-link dark:hover:text-accent transition ease-in duration-200" href={link}>
-              {post.title}
-            </a>
-          ) : (
-            post.title
-          )
-        }
-      </h2>
-    </header>
-
-    {post.excerpt && <p class="flex-grow text-muted text-lg">{post.excerpt}</p>}
-    {
-      post.tags && Array.isArray(post.tags) ? (
-        <footer class="mt-5">
-          <PostTags tags={post.tags} />
-        </footer>
-      ) : (
-        <Fragment />
-      )
-    }
+  <div class="text-sm leading-6 text-muted">
+    <time datetime={post.publishDate.toISOString()}>{getFormattedDate(post.publishDate)}</time>
+    {post.readingTime && <span class="block">{post.readingTime} min read</span>}
   </div>
+
+  <div class="min-w-0">
+    <h2 class="font-heading text-xl font-semibold leading-snug text-heading sm:text-2xl">
+      {
+        link ? (
+          <a class="hover:text-link" href={link}>
+            {post.title}
+          </a>
+        ) : (
+          post.title
+        )
+      }
+    </h2>
+    {post.excerpt && <p class="mt-2 max-w-3xl text-sm leading-6 text-muted sm:text-base">{post.excerpt}</p>}
+  </div>
+
+  {
+    link && (
+      <a
+        href={link}
+        class="hidden rounded-md p-2 text-muted hover:bg-surface-raised hover:text-link sm:inline-flex"
+        aria-label={`Read ${post.title}`}
+      >
+        <Icon name="tabler:arrow-right" class="h-5 w-5" />
+      </a>
+    )
+  }
 </article>

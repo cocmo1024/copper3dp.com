@@ -1,30 +1,54 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { APP_BLOG } from 'astrowind:config';
 
 import { getRelatedPosts } from '~/utils/blog';
-import BlogHighlightedPosts from '../widgets/BlogHighlightedPosts.astro';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 import type { Post } from '~/types';
-import { getBlogPermalink } from '~/utils/permalinks';
 
 export interface Props {
   post: Post;
 }
 
 const { post } = Astro.props;
-
-const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
+const relatedPosts = post.tags ? await getRelatedPosts(post, 3) : [];
 ---
 
 {
   APP_BLOG.isRelatedPostsEnabled && relatedPosts.length > 0 ? (
-    <BlogHighlightedPosts
-      classes={{
-        container: 'pt-0 lg:pt-0 md:pt-0 intersect-once intersect-quarter',
-      }}
-      title="Related Posts"
-      linkText="View All Posts"
-      linkUrl={getBlogPermalink()}
-      postIds={relatedPosts.map((post) => post.id)}
-    />
+    <section class="mx-auto max-w-4xl px-4 sm:px-6" aria-labelledby="related-articles-title">
+      <div class="border-t border-page-border py-9">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-sm font-semibold text-primary">Continue the topic</p>
+            <h2 id="related-articles-title" class="mt-2 font-heading text-2xl font-bold text-heading">
+              Related engineering articles
+            </h2>
+          </div>
+          <a class="text-sm font-semibold text-link hover:underline" href={getBlogPermalink()}>
+            Browse the library
+          </a>
+        </div>
+
+        <ul class="mt-6 border-t border-page-border">
+          {relatedPosts.map((relatedPost) => (
+            <li class="border-b border-page-border">
+              <a
+                class="group flex items-start justify-between gap-6 py-4"
+                href={getPermalink(relatedPost.permalink, 'post')}
+              >
+                <span>
+                  <span class="font-semibold leading-6 text-heading group-hover:text-link">{relatedPost.title}</span>
+                  {relatedPost.excerpt && (
+                    <span class="mt-1 block text-sm leading-6 text-muted">{relatedPost.excerpt}</span>
+                  )}
+                </span>
+                <Icon name="tabler:arrow-right" class="mt-1 h-4 w-4 shrink-0 text-muted group-hover:text-link" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   ) : null
 }
