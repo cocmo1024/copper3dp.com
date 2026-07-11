@@ -42,6 +42,7 @@ export const footerData = {
       title: 'Applications',
       links: [
         { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
+        { text: 'Copper heat exchangers', href: getPermalink('/copper-heat-exchangers') },
         { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
         { text: 'Copper induction coils', href: getPermalink('/copper-induction-coils') },
         { text: 'Copper busbars', href: getPermalink('/copper-busbars') },

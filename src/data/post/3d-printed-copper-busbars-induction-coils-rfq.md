@@ -1,20 +1,23 @@
 ---
-title: 'Copper Busbars and Induction Coils RFQ Guide'
+title: '3D Printed Copper Busbars and Induction Coils: RFQ Guide'
 publishDate: 2026-04-30
-excerpt: 'RFQ guide for 3D printed copper busbars and induction coils: current path, contact faces, cooling, insulation, plating, material, and inspection inputs.'
+updateDate: 2026-07-11
+excerpt: 'Specify 3D printed copper busbars and induction coils by current path, duty cycle, contact faces, integrated cooling, insulation, plating, conductivity, and inspection.'
 category: Engineering Guide
 tags: ['copper-busbars', 'induction-coils', 'rfq-specification', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/copper/high-current-busbars.webp
 metadata:
-  title: 'Copper Busbars and Induction Coils RFQ Guide'
-  description: 'Prepare RFQs for 3D printed copper busbars and induction coils with current, duty cycle, contact surfaces, cooling, insulation, plating, and inspection requirements.'
+  title: '3D Printed Copper Busbars & Induction Coils'
+  description: 'RFQ guide for 3D printed copper busbars and induction coils: current and duty cycle, contact pads, cooling, insulation, plating, conductivity, and testing.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/
 ---
 
 > 3D printed copper busbars and induction coils are worth reviewing when current path, thermal control, compact routing, or integrated cooling cannot be handled cleanly by flat copper, bent bar, tube, brazed parts, or CNC machining. The RFQ should define the electrical function and acceptance requirements first, then the geometry.
 
 If the project is already defined, use the dedicated [3D printed copper busbar RFQ page](/copper-busbars/) or [3D printed copper induction coil RFQ page](/copper-induction-coils/). This guide explains the shared electrical, cooling, surface, and inspection decisions behind both part types.
+
+Industrial equipment suppliers identify the same geometry-driven applications. [EOS lists induction coils among CuCrZr applications](https://www.eos.info/metal-solutions/metal-materials/copper), while [TRUMPF describes green-laser copper AM for conductive inductors and heat exchangers](https://www.trumpf.com/en_IN/newsroom/global-press-releases/press-release-detail-page/release/world-premiere-at-formnext-green-laser-from-trumpf-prints-copper-and-gold/). These examples show application feasibility, not a universal material or performance guarantee for every drawing.
 
 ### Why Electrical Copper Parts Need a Different RFQ
 

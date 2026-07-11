@@ -42,6 +42,21 @@
       "destination": "/copper-heat-sinks/",
       "permanent": true
     },
+    {
+      "source": "/posts/EngineeringGuide/copper-additive-manufacturing-components-2026/",
+      "destination": "/applications/",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/",
+      "destination": "/rfq/",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/",
+      "destination": "/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/",
+      "permanent": true
+    },
     { "source": "/tags/multifunctional-copper-parts/", "destination": "/applications/", "permanent": true },
     { "source": "/tags/multifunctional-copper-parts", "destination": "/applications/", "permanent": true },
     { "source": "/tags/copper-busbars/", "destination": "/applications/#electrical", "permanent": true },

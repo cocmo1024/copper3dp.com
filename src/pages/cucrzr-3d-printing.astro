@@ -1,0 +1,154 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'CuCrZr 3D Printing Service | Copper Alloy LPBF Parts',
+  description:
+    'CuCrZr 3D printing service review for cold plates, heat exchangers, induction coils, tooling, pressure parts, heat treatment, machining, and inspection.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials/' },
+      { name: 'CuCrZr 3D printing', item: '/cucrzr-3d-printing/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'cucrzr-3d-printing',
+      name: 'CuCrZr 3D Printing Service Review',
+      serviceType: 'CuCrZr LPBF additive manufacturing project review',
+      description:
+        'Project and RFQ review for CuCrZr parts balancing useful conductivity with strength, heat treatment, machining, and acceptance evidence.',
+      url: '/cucrzr-3d-printing/',
+      audienceType: 'Thermal, electrical, tooling, aerospace, semiconductor, R&D, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="CuCrZr copper alloy LPBF"
+    title="CuCrZr 3D printing for conductive parts that also carry load"
+    intro="CuCrZr is reviewed when a copper AM part needs useful thermal or electrical conductivity together with stronger walls, ports, threads, fins, pressure boundaries, or clamp-loaded interfaces. Finished properties depend on the qualified build and heat-treatment route."
+    verdict="Use CuCrZr when mechanical stability is part of the thermal or electrical function. Do not select it by alloy name alone: define the material standard, heat-treatment state, conductivity or strength evidence, machining sequence, and acceptance tests required for the finished component."
+    useCases={[
+      {
+        title: 'Pressure-bearing thermal hardware',
+        description:
+          'Cold plates, heat exchangers, manifolds, and cooling blocks with internal passages, machined ports, seal lands, and proof requirements.',
+      },
+      {
+        title: 'Induction coils and conductors',
+        description:
+          'Conductive parts with integrated cooling, repeatable geometry, connection pads, local loads, and handling requirements.',
+      },
+      {
+        title: 'Conformal cooling inserts',
+        description:
+          'Tooling inserts where channels approach a hot spot while the cavity face, mounting datums, and pressure boundary require stability.',
+      },
+      {
+        title: 'Aerospace and semiconductor parts',
+        description:
+          'High-value thermal structures and equipment hardware requiring controlled material state, clean passages, machining, and documented inspection.',
+      },
+    ]}
+    additiveFit={[
+      'The part needs internal channels, compact routing, or consolidation that conventional tools cannot create cleanly.',
+      'Ports, threads, thin walls, fins, or clamp-loaded faces require more strength than pure copper comfortably provides.',
+      'Pressure, handling, thermal cycling, or repeated assembly is part of the service requirement.',
+      'A controlled heat-treatment and witness-coupon route can be included in qualification.',
+    ]}
+    conventionalFit={[
+      'The geometry is a simple machined block, plate, insert, or conductor with accessible features.',
+      'Maximum conductivity is more valuable than additional mechanical reserve and the loads are controlled.',
+      'The required alloy condition or property evidence cannot be matched to a qualified supplier process.',
+      'High-volume economics favor wrought, forged, drilled, brazed, or conventionally fabricated copper alloy parts.',
+    ]}
+    requirements={[
+      {
+        input: 'Alloy designation and condition',
+        why: 'State C18150, CW106C, CuCrZr, CuCr1Zr, or supplier-equivalent rules and whether the final heat-treated state must be documented.',
+      },
+      {
+        input: 'Conductivity and strength evidence',
+        why: 'Define the required values, units, test method, specimen location, witness coupons, hardness, or component-level evidence.',
+      },
+      {
+        input: 'Heat-treatment sequence',
+        why: 'Stress relief, solution treatment, aging, brazing, plating bake, and service temperature can change strength, conductivity, and distortion.',
+      },
+      {
+        input: 'Critical interfaces',
+        why: 'Identify ports, threads, seals, clamp faces, cavity surfaces, electrical pads, datum features, and the machining stock required around them.',
+      },
+      {
+        input: 'Pressure and inspection scope',
+        why: 'For internal channels, define working and proof pressure, leak criteria, CT or flow evidence, cleaning, drying, and first-article records.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Unspecified heat-treated state',
+        description:
+          'A CuCrZr label without a final condition does not define strength, conductivity, hardness, distortion, or acceptance evidence.',
+      },
+      {
+        title: 'Final machining before thermal processing',
+        description:
+          'Machining sequence should account for stress relief and aging so seal lands, datums, and contact faces are accepted in their final state.',
+      },
+      {
+        title: 'Coupon values treated as component values',
+        description:
+          'Witness coupons can support process control, but local wall geometry, orientation, heat history, and finishing may still affect the part.',
+      },
+      {
+        title: 'Material strength masking channel risk',
+        description:
+          'A stronger alloy does not solve trapped powder, inaccessible branches, excessive pressure drop, leakage, or inadequate cleaning evidence.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP or native CAD and controlled drawing',
+      'Quantity and target timing',
+      'Alloy designation and acceptable equivalents',
+      'Heat-treatment and final material condition',
+      'Conductivity, strength, or hardness evidence',
+      'Machined faces, ports, threads, and stock',
+      'Pressure, flow, leak, or service loads',
+      'CT, CMM, cleaning, and test documentation',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/',
+        title: 'When CuCrZr strength matters more than maximum conductivity',
+        description: 'Material-selection logic for threads, pressure boundaries, clamp loads, and thin features.',
+      },
+      {
+        href: '/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/',
+        title: 'Heat treatment for CuCrZr printed parts',
+        description: 'Aging route, machining sequence, conductivity, strength, coupons, and acceptance evidence.',
+      },
+      {
+        href: '/pure-copper-3d-printing/',
+        title: 'Pure copper 3D printing service review',
+        description: 'Compare the maximum-conductivity route when mechanical loads can be controlled.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://www.eos.info/metal-solutions/metal-materials/copper',
+        title: 'EOS CopperAlloy CuCrZr',
+        description: 'Official material, heat-treatment, property, and application context for CuCrZr AM.',
+      },
+      {
+        href: 'https://www.trumpf.com/en_INT/newsroom/global-press-releases/press-release-detail-page/release/formnext-trumpf-prints-copper-in-large-format-for-the-first-time-with-a-green-laser/',
+        title: 'TRUMPF copper and copper-alloy LPBF',
+        description: 'Official process context for green-laser copper additive manufacturing.',
+      },
+    ]}
+    emailSubject="CuCrZr 3D printing RFQ"
+  />
+</Layout>

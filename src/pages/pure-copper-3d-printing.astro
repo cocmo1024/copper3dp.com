@@ -1,0 +1,155 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Pure Copper 3D Printing Service | High-Conductivity Parts',
+  description:
+    'Pure copper 3D printing service review for heat exchangers, cold plates, induction coils, busbars, RF parts, machining, conductivity evidence, and inspection.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials/' },
+      { name: 'Pure copper 3D printing', item: '/pure-copper-3d-printing/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'pure-copper-3d-printing',
+      name: 'Pure Copper 3D Printing Service Review',
+      serviceType: 'Pure copper LPBF additive manufacturing project review',
+      description:
+        'Project and RFQ review for high-conductivity pure copper parts requiring complex geometry, machining, finishing, cleaning, and acceptance evidence.',
+      url: '/pure-copper-3d-printing/',
+      audienceType: 'Thermal, electrical, RF, semiconductor, R&D, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="Pure copper LPBF"
+    title="Pure copper 3D printing for conductivity-driven functional parts"
+    intro="Pure copper AM is reviewed when thermal or electrical conductivity must be combined with internal channels, three-dimensional current paths, compact packaging, or part consolidation. The quote must still define the qualified process route, finished property evidence, machining, cleaning, and inspection."
+    verdict="Choose pure copper when conductivity is the dominant function and the design can control threads, clamp loads, pressure boundaries, thin features, and handling. Keep CuCrZr or a conventional copper route open when mechanical stability or simple geometry controls the finished part."
+    useCases={[
+      {
+        title: 'Cold plates and heat exchangers',
+        description:
+          'Monolithic thermal bodies with internal flow paths, integrated manifolds, short heat paths, and machined sealing or contact faces.',
+      },
+      {
+        title: 'Induction coils and current paths',
+        description:
+          'Three-dimensional conductors with integrated cooling, repeatable geometry, local section changes, and finished connection pads.',
+      },
+      {
+        title: 'Busbars and conductive hardware',
+        description:
+          'Compact routing, connector bodies, electrodes, and combined electrical-thermal components where bulk and contact performance both matter.',
+      },
+      {
+        title: 'RF and scientific hardware',
+        description:
+          'Waveguide, cavity, accelerator, and vacuum-facing copper parts requiring conductive surfaces, machining, cleaning, plating, or leak testing.',
+      },
+    ]}
+    additiveFit={[
+      'Internal channels or hidden geometry cannot be produced cleanly by drilling, splitting, and brazing.',
+      'A three-dimensional thermal or electrical path creates measurable package or performance value.',
+      'Part consolidation removes joints, plugs, fittings, alignment steps, or local resistance points.',
+      'Prototype or low-volume development values geometry changes more than hard tooling.',
+    ]}
+    conventionalFit={[
+      'The part is a flat plate, straight bar, simple heat spreader, or accessible machined block.',
+      'Wrought-copper properties, stock availability, or high-volume unit cost dominate the requirement.',
+      'Threads, thin walls, pressure ports, or clamp loads require more mechanical reserve than the route can document.',
+      'Internal features cannot be cleaned, inspected, or accepted after printing.',
+    ]}
+    requirements={[
+      {
+        input: 'Conductivity requirement',
+        why: 'State whether the requirement applies to a material certificate, witness coupon, finished part, electrical resistance, or thermal test.',
+      },
+      {
+        input: 'Geometry and build envelope',
+        why: 'Provide CAD, overall size, internal channels, minimum walls, ports, trapped volumes, and surfaces that require machining stock.',
+      },
+      {
+        input: 'Mechanical and service loads',
+        why: 'Pressure, clamp load, thread torque, vibration, thermal cycling, and service temperature decide whether pure copper remains practical.',
+      },
+      {
+        input: 'Finishing route',
+        why: 'Machining, polishing, plating, brazing, soldering, cleaning, and later heating can change dimensions, surfaces, and acceptance evidence.',
+      },
+      {
+        input: 'Inspection and documentation',
+        why: 'Define density or coupon data, CMM, roughness, conductivity, CT, pressure, leak, flow, cleaning, or first-article records as needed.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Assuming handbook conductivity',
+        description:
+          'The RFQ should request evidence for the proposed powder, machine, process, orientation, and final condition rather than assigning wrought values automatically.',
+      },
+      {
+        title: 'Soft features and loaded interfaces',
+        description:
+          'Threads, thin fins, clamp faces, and pressure bosses may need thicker geometry, inserts, backing structure, machining, or a CuCrZr comparison.',
+      },
+      {
+        title: 'As-built functional surfaces',
+        description:
+          'Electrical contacts, thermal faces, seals, ports, and RF interfaces normally require a defined machining, polishing, plating, and inspection route.',
+      },
+      {
+        title: 'Channels without a cleaning path',
+        description:
+          'Every internal passage needs realistic powder exit, flushing, drying, flow verification, and acceptance planning before the design is quoted.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP or native CAD and controlled drawing',
+      'Quantity and target timing',
+      'Required copper grade or open material review',
+      'Thermal load, current, RF, or service condition',
+      'Pressure, flow, leak, or vacuum requirements',
+      'Machined faces, ports, threads, and stock',
+      'Conductivity and surface evidence',
+      'CT, dimensional, cleaning, and test scope',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/',
+        title: 'Pure copper 3D printing engineering guide',
+        description: 'Applications, process limits, material evidence, design risks, and quotation gates.',
+      },
+      {
+        href: '/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/',
+        title: 'Electrical conductivity in printed copper parts',
+        description: 'Material data, witness coupons, contact resistance, finishing, and component-level acceptance.',
+      },
+      {
+        href: '/cucrzr-3d-printing/',
+        title: 'CuCrZr 3D printing service review',
+        description:
+          'Compare a stronger heat-treated copper alloy route when pressure, threads, or thin features matter.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://www.eos.info/metal-solutions/metal-materials/copper',
+        title: 'EOS copper materials',
+        description: 'Official pure copper and CuCrZr process and application context.',
+      },
+      {
+        href: 'https://www.trumpf.com/en_INT/newsroom/global-press-releases/press-release-detail-page/release/formnext-trumpf-prints-copper-in-large-format-for-the-first-time-with-a-green-laser/',
+        title: 'TRUMPF green-laser copper LPBF',
+        description: 'Official process and application context for large pure-copper components.',
+      },
+    ]}
+    emailSubject="Pure copper 3D printing RFQ"
+  />
+</Layout>

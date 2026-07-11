@@ -1,11 +1,12 @@
 ---
-title: 'Copper 3D Printed Cooling Manifold Case Study for Liquid-Cooled AI Servers'
+title: 'Copper Cooling Manifold Design Review for Liquid-Cooled AI Servers'
 publishDate: 2026-05-31
-excerpt: 'A practical copper 3D printed cooling manifold case study for liquid-cooled AI servers, covering internal flow distribution, CuCrZr review, machining, leak testing, and RFQ inputs.'
+updateDate: 2026-07-11
+excerpt: 'A representative copper AM cooling manifold design review for AI servers, covering flow distribution, CuCrZr, machining, leak testing, and RFQ inputs.'
 category: Engineering Guide
 tags:
   [
-    'case-study',
+    'design-review',
     'server-liquid-cooling',
     'ai-accelerator-cooling',
     'copper-cold-plates',
@@ -21,14 +22,14 @@ tags:
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-am-ai-server-cooling-manifold-case-cover.webp
 metadata:
-  title: 'AI Server Copper Cooling Manifold Case Study'
-  description: 'Copper 3D printed cooling manifold case study for liquid-cooled AI servers: internal flow routing, machining, leak testing, material route, and RFQ inputs.'
+  title: 'AI Server Copper Cooling Manifold Design Review'
+  description: 'Representative copper AM manifold design review for liquid-cooled AI servers: flow routing, material, machining, leakage, cleaning, and RFQ acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-3d-printed-cooling-manifold-case-study-liquid-cooled-ai-servers/
 ---
 
 > Copper 3D printing becomes worth reviewing for liquid-cooled AI server manifolds when coolant routing, port density, assembly height, leak-path reduction, or branch flow distribution cannot be handled cleanly with machined blocks, tube assemblies, or brazed plates. A strong RFQ should define the rack or tray envelope, branch count, coolant, pressure limits, pressure-drop target, sealing interfaces, material preference, machining stock, cleaning plan, and leak or flow acceptance before the supplier quotes the part.
 
-This case study is a representative engineering pattern, not a claim about a named customer program. It reflects the type of copper additive manufacturing review that appears when a data center hardware team wants to consolidate a cooling manifold for GPU trays, AI accelerator boards, direct-to-chip cold plates, or liquid-cooled power hardware.
+This is a representative engineering design review, not a claim about a named customer program or completed delivery. It reflects the type of copper additive manufacturing review that appears when a data center hardware team wants to consolidate a cooling manifold for GPU trays, AI accelerator boards, direct-to-chip cold plates, or liquid-cooled power hardware.
 
 The timing matters. [NVIDIA describes the GB200 NVL72](https://www.nvidia.com/en-us/data-center/gb200-nvl72/) as a rack-scale, liquid-cooled design, and its [GB200 technical blog](https://developer.nvidia.com/blog/nvidia-gb200-nvl72-delivers-trillion-parameter-llm-training-and-real-time-inference/) notes that compute trays include cold plates and liquid cooling connections. The [Open Compute Project ACS cold plate requirements document](https://www.opencompute.org/documents/ocp-acs-liquid-cooling-cold-plate-requirements-pdf) also frames cold plates as heat exchangers with internal channels for direct liquid cooling. These signals do not mean every AI server part should be printed in copper. They mean liquid cooling hardware is moving into tighter packages, higher port density, and more specification-driven procurement.
 

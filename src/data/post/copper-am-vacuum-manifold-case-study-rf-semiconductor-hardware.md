@@ -1,11 +1,12 @@
 ---
-title: 'Copper AM Vacuum Manifold Case Study for RF and Semiconductor Hardware'
+title: 'Copper AM Vacuum Manifold Design Review for RF and Semiconductor Hardware'
 publishDate: 2026-06-06
-excerpt: 'Representative copper AM case study for an RF and semiconductor vacuum manifold, covering sealing lands, RF-facing surfaces, internal cooling, cleaning, leak testing, material route, and RFQ inputs.'
+updateDate: 2026-07-11
+excerpt: 'Representative copper AM vacuum manifold design review covering sealing lands, RF surfaces, internal cooling, cleaning, leak testing, material route, and RFQ inputs.'
 category: Engineering Guide
 tags:
   [
-    'case-study',
+    'design-review',
     'rf-vacuum',
     'semiconductor-copper-parts',
     'rf-waveguide-copper-parts',
@@ -22,20 +23,20 @@ tags:
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-am-rf-vacuum-manifold-case-cover.webp
 metadata:
-  title: 'RF Vacuum Manifold Copper AM Case Study'
-  description: 'Case study for a copper AM RF and semiconductor vacuum manifold: sealing, RF surfaces, internal cooling, powder removal, leak testing, finishing, and RFQ checklist.'
+  title: 'RF Vacuum Manifold Copper AM Design Review'
+  description: 'Representative copper AM RF vacuum manifold design review: sealing, RF surfaces, internal cooling, cleaning, leak testing, finishing, and RFQ inputs.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/
 ---
 
 > A copper AM vacuum manifold is worth reviewing when the part is not only a block with ports. In RF and semiconductor equipment, the quote depends on sealing lands, RF-facing surfaces, internal cooling, powder removal, leak testing, cleanliness, and post-processing. The additive value is strongest when those requirements can be separated into a realistic manufacturing and acceptance route.
 
-## Why This Case Direction Matters Now
+## Why This Design Review Matters Now
 
 Semiconductor equipment investment is still tied to long-term AI, advanced packaging, memory, and regional fab expansion. [SEMI's April 2026 300 mm fab outlook](https://www.semi.org/en/semi-press-release/semi-projects-double-digit-growth-in-global-300mm-fab-equipment-spending-for-2026-and-2027) projects strong equipment spending growth in 2026 and 2027. That does not automatically mean every copper part should be printed. It does mean more engineering teams are reviewing compact thermal, RF, vacuum, and current-carrying hardware under tighter package and validation constraints.
 
 Copper additive manufacturing fits that search intent when the value comes from geometry and function, not from a broad promise that copper AM can replace machining. Industrial material pages from [EOS](https://www.eos.info/metal-solutions/metal-materials/copper) and [Eplus3D](https://www.eplus3d.com/products/3d-printing-materials-copper/) position copper materials around conductivity-driven uses such as heat exchangers, electronics, induction coils, high-frequency electronics, and tooling. The same pages also make the material route visible: pure copper and CuCrZr are different decisions.
 
-This representative case focuses on a vacuum manifold for RF and semiconductor hardware because it sits between several high-value search themes:
+This representative design review focuses on a vacuum manifold for RF and semiconductor hardware because it sits between several high-value search themes:
 
 - Copper AM for RF and microwave parts.
 - Copper AM for semiconductor equipment.

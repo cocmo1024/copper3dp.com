@@ -160,7 +160,7 @@ For high-voltage electrodes, field concentration and surface finish can matter a
 
 RF and semiconductor equipment parts often need conductivity, thermal control, cleanliness, vacuum compatibility, machined sealing lands, and surface finish at the same time. A printed RF cavity or waveguide may need polishing or plating. A semiconductor conductor may need clean interfaces, leak testing, and dimensional stability.
 
-Relevant companion pages include [3D Printed Copper RF Waveguide and Vacuum Parts](/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/), [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/), and [Copper AM Vacuum Manifold Case Study for RF Semiconductor Hardware](/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/).
+Relevant companion pages include [3D Printed Copper RF Waveguide and Vacuum Parts](/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/), [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/), and the [Copper AM Vacuum Manifold Design Review](/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/).
 
 ## How To Specify Conductivity Testing
 

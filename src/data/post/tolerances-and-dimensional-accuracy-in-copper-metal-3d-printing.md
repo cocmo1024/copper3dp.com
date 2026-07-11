@@ -1,7 +1,8 @@
 ---
 title: 'Tolerances and Dimensional Accuracy in Copper Metal 3D Printing'
 publishDate: 2026-06-08
-excerpt: 'A practical guide to tolerances and dimensional accuracy in copper metal 3D printing, covering as-built LPBF accuracy, machined datums, flatness, ports, internal channels, inspection, and RFQ inputs.'
+updateDate: 2026-07-11
+excerpt: 'Copper 3D printing tolerance guide separating as-built LPBF geometry, machined datums, flatness, ports, internal channels, and functional acceptance evidence.'
 category: Engineering Guide
 tags:
   [
@@ -18,8 +19,8 @@ tags:
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-am-tolerances-metrology-bench-cover.webp
 metadata:
-  title: 'Copper AM Tolerances and Accuracy'
-  description: 'Copper metal 3D printing tolerance guide for as-built LPBF accuracy, machined datums, flatness, ports, channels, inspection, and RFQ inputs.'
+  title: 'Copper 3D Printing Tolerances | As-Built vs Machined'
+  description: 'Starting RFQ ranges for copper LPBF: often +/-0.10 to 0.30 mm as-built and +/-0.02 to 0.05 mm on accessible machined features, subject to review.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/
 ---
 
@@ -207,7 +208,7 @@ Different copper AM applications spend tolerance in different places.
 | Mold cooling inserts | Cavity-side machining stock, mounting datums, pressure-tested cooling channels, tooling interfaces |
 | Heat sinks | Interface flatness, fin acceptance, damaged-feature criteria, thermal test setup |
 
-For application pages, start with [Copper cold plate RFQ page](/copper-cold-plates/), [Copper heat sink RFQ page](/copper-heat-sinks/), [Copper AM Conformal Cooling Mold Inserts](/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/), or [Copper 3D Printed Cooling Block Case Study for Semiconductor Wafer Processing Equipment](/posts/EngineeringGuide/copper-3d-printed-cooling-block-case-study-semiconductor-wafer-processing-equipment/).
+For application pages, start with [Copper cold plate RFQ page](/copper-cold-plates/), [Copper heat sink RFQ page](/copper-heat-sinks/), [Copper AM Conformal Cooling Mold Inserts](/posts/EngineeringGuide/copper-am-conformal-cooling-mold-inserts/), or the [Copper Cooling Block Design Review for Semiconductor Wafer Equipment](/posts/EngineeringGuide/copper-3d-printed-cooling-block-case-study-semiconductor-wafer-processing-equipment/).
 
 ## RFQ Checklist For Copper AM Tolerances
 

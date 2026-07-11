@@ -5,6 +5,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
 import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
@@ -120,9 +121,9 @@ const rfqShowcases = [
 ];
 
 const metadata = {
-  title: 'Copper 3D Printing RFQ Checklist | Send CAD',
+  title: 'Copper 3D Printing RFQ | Send CAD for Review',
   description:
-    'Copper AM RFQ checklist for CAD, drawings, quantity, material, lead time, heat load, current, RF band, CT, leak testing, and other requirements.',
+    'Prepare a copper 3D printing RFQ with CAD, quantity, material, application, operating conditions, finishing, and inspection requirements, then open a structured email.',
   openGraph: {
     images: [
       {
@@ -168,8 +169,8 @@ const metadata = {
     title="Send enough information for a practical copper 3D printing quote"
     subtitle="A simple drawing and quantity can be enough for a first quote. For complex thermal, electrical, RF, vacuum, or fluid parts, include the requirements that affect material, finishing, and acceptance."
     callToAction={{
-      text: 'Email CAD files',
-      href: rfqEmailHref,
+      text: 'Build an RFQ email',
+      href: '#rfq-builder',
       icon: 'tabler:mail',
     }}
     callToAction2={{
@@ -182,6 +183,116 @@ const metadata = {
       'data-aw-contact-channel': 'whatsapp',
     }}
   />
+
+  <section id="rfq-builder" class="scroll-mt-24 border-y border-page-border bg-surface py-12 md:py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Structured project handoff</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">Build a reviewable RFQ email</h2>
+        <p class="mt-4 leading-7 text-muted">
+          Complete the fields you know. The button opens a prepared email in your mail application; attach the CAD and
+          controlled drawing there before sending.
+        </p>
+      </div>
+
+      <form class="mt-8 grid gap-6" data-aw-rfq-builder>
+        <div class="grid gap-6 md:grid-cols-2">
+          <label class="grid gap-2 text-sm font-semibold text-heading">
+            Your name
+            <input
+              class="rounded-md border border-page-border bg-page px-4 py-3 font-normal text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              name="contact_name"
+              autocomplete="name"
+              required
+            />
+          </label>
+          <label class="grid gap-2 text-sm font-semibold text-heading">
+            Company
+            <input
+              class="rounded-md border border-page-border bg-page px-4 py-3 font-normal text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              name="company"
+              autocomplete="organization"
+              required
+            />
+          </label>
+          <label class="grid gap-2 text-sm font-semibold text-heading">
+            Business email
+            <input
+              class="rounded-md border border-page-border bg-page px-4 py-3 font-normal text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              type="email"
+              name="contact_email"
+              autocomplete="email"
+              required
+            />
+          </label>
+          <label class="grid gap-2 text-sm font-semibold text-heading">
+            Part or application
+            <select
+              class="rounded-md border border-page-border bg-page px-4 py-3 font-normal text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              name="application"
+              required
+            >
+              <option value="">Select the closest fit</option>
+              <option>Cold plate or heat exchanger</option>
+              <option>Heat sink or heat spreader</option>
+              <option>Busbar or conductive component</option>
+              <option>Induction coil</option>
+              <option>RF, waveguide, or vacuum part</option>
+              <option>Semiconductor equipment part</option>
+              <option>Tooling or conformal cooling insert</option>
+              <option>Other copper component</option>
+            </select>
+          </label>
+          <label class="grid gap-2 text-sm font-semibold text-heading">
+            Material preference
+            <select
+              class="rounded-md border border-page-border bg-page px-4 py-3 font-normal text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              name="material"
+            >
+              <option>Supplier to recommend</option>
+              <option>Pure copper</option>
+              <option>CuCrZr</option>
+              <option>CuCr1Zr</option>
+              <option>GRCop or another copper alloy</option>
+            </select>
+          </label>
+          <label class="grid gap-2 text-sm font-semibold text-heading">
+            Quantity and target timing
+            <input
+              class="rounded-md border border-page-border bg-page px-4 py-3 font-normal text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              name="quantity_timing"
+              placeholder="Example: 2 prototypes, target in 6 weeks"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="grid gap-2 text-sm font-semibold text-heading">
+          Operating and acceptance requirements
+          <textarea
+            class="min-h-40 rounded-md border border-page-border bg-page px-4 py-3 font-normal leading-6 text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+            name="requirements"
+            placeholder="Heat load, current, coolant, flow, pressure, RF band, vacuum, critical surfaces, machining, CT, leak testing, conductivity, or other requirements."
+            required></textarea>
+        </label>
+
+        <div
+          class="flex flex-col gap-4 border-t border-page-border pt-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p class="max-w-2xl text-sm leading-6 text-muted">
+            No files are uploaded to this website. Attach STEP, native CAD, and drawings in the email window that opens.
+          </p>
+          <button
+            type="submit"
+            class="inline-flex shrink-0 items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+          >
+            <Icon name="tabler:mail-forward" class="h-4 w-4" />
+            Open prepared email
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
 
   <section class="relative not-prose py-10 md:py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
@@ -346,3 +457,88 @@ const metadata = {
     </Fragment>
   </CallToAction>
 </Layout>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector('[data-aw-rfq-builder]');
+    if (!(form instanceof HTMLFormElement)) return;
+
+    let started = false;
+    const value = (name) => {
+      const field = form.elements.namedItem(name);
+      return field && 'value' in field ? String(field.value).trim() : '';
+    };
+    const track = (name, payload = {}, options = {}) => {
+      window.COPPER3DP_TRACK_EVENT?.(
+        name,
+        {
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          form_name: 'copper_am_rfq_builder',
+          ...payload,
+        },
+        options
+      );
+    };
+
+    form.addEventListener('input', () => {
+      if (started) return;
+      started = true;
+      track('rfq_form_start', { event_category: 'lead_intent' });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const application = value('application');
+      const material = value('material');
+      const subject = `Copper 3D printing RFQ - ${application || 'custom part'}`;
+      const body = [
+        'Hello COPPER 3DP,',
+        '',
+        'Please review this copper additive manufacturing project.',
+        '',
+        `Name: ${value('contact_name')}`,
+        `Company: ${value('company')}`,
+        `Reply email: ${value('contact_email')}`,
+        `Part/application: ${application}`,
+        `Material preference: ${material}`,
+        `Quantity and timing: ${value('quantity_timing')}`,
+        '',
+        'Operating and acceptance requirements:',
+        value('requirements'),
+        '',
+        `Source page: ${window.location.href}`,
+        '',
+        'I will attach the CAD and drawings to this email before sending.',
+      ].join('\n');
+      const href = `mailto:info@szcomo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      let opened = false;
+      const openEmail = () => {
+        if (opened) return;
+        opened = true;
+        window.location.href = href;
+      };
+      const timer = window.setTimeout(openEmail, 700);
+
+      track(
+        'rfq_form_email_handoff',
+        {
+          application,
+          material,
+          method: 'structured_email_handoff',
+          event_category: 'qualified_lead_intent',
+        },
+        {
+          adsConversion: true,
+          conversionKey: 'rfq_form_email_handoff',
+          eventCallback: () => {
+            window.clearTimeout(timer);
+            openEmail();
+          },
+          eventTimeout: 700,
+        }
+      );
+    });
+  })();
+</script>

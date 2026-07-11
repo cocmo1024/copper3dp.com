@@ -1,11 +1,12 @@
 ---
-title: 'Copper AM Cold Plate Case Study for Dual-GPU AI Accelerator Modules'
+title: 'Copper AM Cold Plate Design Review for Dual-GPU AI Modules'
 publishDate: 2026-05-31
-excerpt: 'A practical copper additive manufacturing cold plate case study for dual-GPU AI accelerator modules, covering split flow, flatness, CuCrZr review, leak testing, and RFQ inputs.'
+updateDate: 2026-07-11
+excerpt: 'A representative copper AM cold plate design review for dual-GPU modules, covering split flow, flatness, CuCrZr, leak testing, and RFQ inputs.'
 category: Engineering Guide
 tags:
   [
-    'case-study',
+    'design-review',
     'ai-accelerator-cooling',
     'dual-gpu-cooling',
     'copper-cold-plates',
@@ -21,14 +22,14 @@ tags:
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-am-dual-gpu-cold-plate-case-cover.webp
 metadata:
-  title: 'Dual-GPU AI Cold Plate Copper AM Case Study'
-  description: 'Copper AM cold plate case study for dual-GPU AI accelerator modules: split flow, contact flatness, CuCrZr review, leak testing, and RFQ inputs.'
+  title: 'Dual-GPU Copper AM Cold Plate Design Review'
+  description: 'Representative copper AM cold plate design review for dual-GPU modules: split flow, contact flatness, CuCrZr, leakage, and RFQ acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-am-cold-plate-case-study-dual-gpu-ai-accelerator-modules/
 ---
 
 > Copper additive manufacturing becomes worth reviewing for dual-GPU AI accelerator cold plates when heat-source spacing, port routing, contact flatness, pressure drop, or leak-path risk cannot be handled cleanly by a simple machined plate and cover. A quote-ready RFQ should define the module footprint, heat load, coolant, pressure limits, pressure-drop target, machined contact pads, cleaning method, leak test, and acceptance plan before treating the part as a production candidate.
 
-This is a representative engineering case pattern, not a claim about a named customer program. It reflects the type of review that appears when an AI hardware team is trying to cool two high-power accelerator packages on one compact liquid-cooled module.
+This is a representative engineering design review, not a claim about a named customer program or completed delivery. It reflects the type of review that appears when an AI hardware team is trying to cool two high-power accelerator packages on one compact liquid-cooled module.
 
 The timing is not accidental. [NVIDIA describes GB300 NVL72](https://www.nvidia.com/en-us/data-center/gb300-nvl72/?ncid=no-ncid) as a fully liquid-cooled rack-scale architecture with 72 Blackwell Ultra GPUs and 36 Grace CPUs. Its [NVL72 AI Factory reference architecture](https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html) describes each compute tray as a liquid-cooled block with 4 GPUs and 2 Grace CPUs. Microsoft has also discussed microfluidic chip cooling as AI chips run hotter, while noting that cold plates are already deployed in datacenters. The signal for copper AM is clear: dense AI modules are making liquid-cooling hardware more constrained, more specified, and less tolerant of vague RFQs.
 
@@ -36,9 +37,9 @@ That does not mean every AI accelerator cold plate should be printed. The useful
 
 **Does copper AM remove enough routing, sealing, flow-distribution, or package-height risk to justify print cost, machining, cleaning, and validation?**
 
-For broader context, use [3D Printed Copper Cold Plates for AI Accelerators](/posts/EngineeringGuide/3d-printed-copper-cold-plates-ai-accelerators/), [Liquid-Cooled Server Copper Hardware RFQ Guide](/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/), and [Copper 3D Printed Cooling Manifold Case Study for Liquid-Cooled AI Servers](/posts/EngineeringGuide/copper-3d-printed-cooling-manifold-case-study-liquid-cooled-ai-servers/). This article narrows the problem to one cold plate serving two accelerator packages on one compact module.
+For broader context, use [3D Printed Copper Cold Plates for AI Accelerators](/posts/EngineeringGuide/3d-printed-copper-cold-plates-ai-accelerators/), [Liquid-Cooled Server Copper Hardware RFQ Guide](/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/), and the [Copper Cooling Manifold Design Review for Liquid-Cooled AI Servers](/posts/EngineeringGuide/copper-3d-printed-cooling-manifold-case-study-liquid-cooled-ai-servers/). This article narrows the problem to one cold plate serving two accelerator packages on one compact module.
 
-_A dual-GPU cold plate case starts with two heat-source zones, contact flatness, port location, seal lands, and validation scope, not only the external envelope._
+_A dual-GPU cold plate design review starts with two heat-source zones, contact flatness, port location, seal lands, and validation scope, not only the external envelope._
 
 ## The Starting Requirement
 

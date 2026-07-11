@@ -213,10 +213,12 @@ import { UI } from 'astrowind:config';
         }
       }
 
-      if (options.adsConversion && sendTo && !isDuplicate) {
+      if (options.adsConversion && sendTo && !isDuplicate && typeof window.gtag !== 'function') {
         sendGoogleAdsConversionScript(sendTo);
       }
     }
+
+    window.COPPER3DP_TRACK_EVENT = trackCopperEvent;
 
     function showEmailToast(message) {
       let toast = document.getElementById('email-copy-toast');
@@ -244,7 +246,7 @@ import { UI } from 'astrowind:config';
 
       if (!email) return { href: originalHref, email: '' };
 
-      const href = `mailto:${email}`;
+      const href = originalHref;
       elem.setAttribute('href', href);
 
       return { href, email };
@@ -349,9 +351,6 @@ import { UI } from 'astrowind:config';
                 event_category: 'lead',
               }),
               {
-                generateLead: true,
-                adsConversion: true,
-                conversionKey: 'rfq_email',
                 eventCallback: function () {
                   window.clearTimeout(mailtoTimer);
                   openMailto();
@@ -397,8 +396,6 @@ import { UI } from 'astrowind:config';
                 event_category: 'lead',
               }),
               {
-                generateLead: true,
-                adsConversion: true,
                 conversionKey: `instant_contact_${channel}`,
               }
             );

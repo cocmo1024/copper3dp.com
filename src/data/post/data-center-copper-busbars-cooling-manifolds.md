@@ -1,18 +1,21 @@
 ---
-title: 'Data Center Copper Busbars and Cooling Manifolds'
+title: '3D Printed Copper Busbars and Cooling Manifolds for Data Centers'
 publishDate: 2026-05-04
-excerpt: 'RFQ guide for data center copper busbars, liquid-cooled conductors, rack power hardware, and compact copper cooling manifolds.'
+updateDate: 2026-07-11
+excerpt: 'RFQ guide for 3D printed data center copper busbars, liquid-cooled conductors, rack power hardware, and compact cooling manifolds with electrical and fluid acceptance.'
 category: Engineering Guide
 tags: ['data-center-power', 'copper-busbars', 'thermal-management', 'rfq-specification', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/data-center-copper-busbar-manifold.webp
 metadata:
-  title: 'Data Center Copper Busbars and Cooling Manifolds'
-  description: 'Prepare an RFQ for data center copper busbars, liquid-cooled conductors, rack power parts, and compact copper manifolds.'
+  title: '3D Printed Copper Busbars & Data Center Manifolds'
+  description: 'Specify 3D printed copper busbars, liquid-cooled conductors, and compact data center manifolds by current, contacts, coolant, pressure, leakage, and testing.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/data-center-copper-busbars-cooling-manifolds/
 ---
 
 > Data center copper busbars and cooling manifolds are worth reviewing for additive manufacturing when current density, heat removal, package routing, contact geometry, or part consolidation creates a real constraint. Send CAD, drawings, quantity, current and thermal requirements, material preference, insulation or plating needs, critical surfaces, and inspection requirements.
+
+The [Open Compute Project cold plate workstream](https://www.opencompute.org/wiki/Cooling_Environments/Cold_Plate) is developing vendor-neutral requirements around fluids, interfaces, leakage, serviceability, and qualification for direct liquid cooling. Those system requirements should be carried into any additively manufactured manifold or liquid-cooled conductor rather than treated as printing details.
 
 ### Why Data Center Copper Hardware Is Becoming More Integrated
 

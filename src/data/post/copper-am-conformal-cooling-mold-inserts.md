@@ -132,7 +132,7 @@ These points should be addressed before the RFQ becomes a price comparison. Addi
 
 ### Related Tooling and Validation Guides
 
-For a deeper mold example, review the [CuCrZr cooling insert case study for injection mold hot spots](/posts/EngineeringGuide/cucrzr-cooling-insert-case-study-injection-mold-hot-spots/). If the insert is likely to use CuCrZr, pair the RFQ with the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) so hardness, conductivity, and aging condition are not left implicit.
+For a deeper mold example, review the [CuCrZr cooling insert design review for injection mold hot spots](/posts/EngineeringGuide/cucrzr-cooling-insert-case-study-injection-mold-hot-spots/). If the insert is likely to use CuCrZr, pair the RFQ with the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) so hardness, conductivity, and aging condition are not left implicit.
 
 Conformal cooling inserts also depend on [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), [tolerances and dimensional accuracy](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/), and [post-processing methods for 3D printed copper parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). These guides help separate printed cooling geometry from the machined tooling surfaces that control the mold.
 

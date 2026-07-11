@@ -1,11 +1,12 @@
 ---
-title: 'Copper 3D Printed Cold Plate Case Study for SiC Power Module Cooling'
+title: 'Copper Cold Plate Design Review for SiC Power Module Cooling'
 publishDate: 2026-05-30
-excerpt: 'A practical copper 3D printed cold plate case study for SiC power module cooling, covering internal channels, material route, machining, leak testing, flow validation, and RFQ inputs.'
+updateDate: 2026-07-11
+excerpt: 'A representative copper AM cold plate design review for SiC power modules, covering internal channels, material route, machining, leak testing, flow validation, and RFQ inputs.'
 category: Engineering Guide
 tags:
   [
-    'case-study',
+    'design-review',
     'sic-power-modules',
     'copper-cold-plates',
     'liquid-cooling',
@@ -19,14 +20,14 @@ tags:
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-am-sic-power-module-cold-plate-case-cover.webp
 metadata:
-  title: 'SiC Power Module Copper Cold Plate Case Study'
-  description: 'Copper 3D printed cold plate case study for SiC power module cooling: channels, material route, machining, leak testing, flow, and RFQ inputs.'
+  title: 'SiC Power Module Copper Cold Plate Design Review'
+  description: 'Representative copper AM cold plate design review for SiC power modules: channels, material route, machining, leakage, flow, and RFQ acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-3d-printed-cold-plate-case-study-sic-power-module-cooling/
 ---
 
 > Copper 3D printing becomes worth reviewing for SiC power module cooling when the cold plate is constrained by heat-source placement, package height, port routing, leak paths, or assembly risk. A strong RFQ should define the module footprint, heat load, coolant, pressure limit, pressure-drop target, critical flatness, machined interfaces, and inspection plan before the supplier quotes the part.
 
-This case study is a representative engineering pattern, not a claim about a named customer program. It reflects the kind of copper additive manufacturing review that appears when a power electronics team is trying to cool compact SiC modules inside an inverter, fast charger, industrial drive, or test platform.
+This is a representative engineering design review, not a claim about a named customer program or completed delivery. It reflects the kind of copper additive manufacturing review that appears when a power electronics team is trying to cool compact SiC modules inside an inverter, fast charger, industrial drive, or test platform.
 
 SiC power electronics are attractive because they support high-efficiency, high-power-density systems. Suppliers such as [Wolfspeed](https://www.wolfspeed.com/knowledge-center/article/silicon-carbide-modules-unlock-higher-power-density-in-motor-drives/) discuss SiC modules in the context of higher power density, and [Infineon](https://www.infineon.com/cms/en/product/power/sic-mosfet/) positions CoolSiC devices for high-efficiency power conversion. That trend is a useful signal for copper AM: when electrical packages become denser, the cold plate is no longer a simple metal slab. It becomes a pressure boundary, a thermal interface, a flow distributor, a cleaning challenge, and an inspection item.
 

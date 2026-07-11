@@ -16,7 +16,7 @@ const relatedPosts = post.tags ? await getRelatedPosts(post, 3) : [];
 
 {
   APP_BLOG.isRelatedPostsEnabled && relatedPosts.length > 0 ? (
-    <section class="mx-auto max-w-4xl px-4 sm:px-6" aria-labelledby="related-articles-title">
+    <section class="mx-auto max-w-4xl px-4 sm:px-6" aria-labelledby="related-articles-title" data-nosnippet>
       <div class="border-t border-page-border py-9">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>

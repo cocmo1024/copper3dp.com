@@ -1,15 +1,15 @@
 ---
-title: 'Copper 3D Printing for Microchannel Cold Plates in Thermal Management'
+title: '3D Printed Copper Microchannel Cold Plates: Design Guide'
 publishDate: 2026-05-12
 updateDate: 2026-07-11
-excerpt: 'How to review copper 3D printing for microchannel cold plates: thermal value, process limits, pressure drop, cleaning, leak testing, and RFQ inputs.'
+excerpt: 'When 3D printed copper microchannel cold plates beat machined or brazed routes, and how to specify channels, pressure drop, cleaning, leak testing, and RFQ acceptance.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'thermal-management', 'micro-channel-heat-exchangers', 'rfq-specification', 'quality-inspection', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-3d-printing-microchannel-cold-plate-cross-section.webp
 metadata:
-  title: 'Copper 3D Printing for Microchannel Cold Plates'
-  description: 'Copper 3D printing for microchannel cold plates: design limits, pressure drop, cleaning, leak testing, and RFQ inputs for thermal management.'
+  title: '3D Printed Copper Microchannel Cold Plates'
+  description: 'Design 3D printed copper microchannel cold plates around channel access, pressure drop, powder removal, machined interfaces, leak testing, and first-article acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-3d-printing-microchannel-cold-plates-thermal-management/
 ---
 
@@ -22,6 +22,8 @@ We have seen RFQs where the thermal target looked reasonable in simulation: a co
 The manufacturing review was less forgiving.
 
 Copper additive manufacturing can place channels close to the heat source, merge manifolds into one body, and remove brazed interfaces that would otherwise become leak or thermal-resistance risks. But the printed route is not a shortcut around physics. It moves the project into a different ledger: build orientation, minimum wall thickness, trapped powder, internal roughness, post-machining, leak testing, and flow verification all become part of the quote.
+
+The [Open Compute Project cold plate workstream](https://www.opencompute.org/wiki/Cooling_Environments/Cold_Plate) treats coolant compatibility, interfaces, leakage, qualification, and serviceability as system-level requirements. Copper AM changes how the internal body can be manufactured; it does not remove those cold plate requirements.
 
 If the project is already ready for supplier review, use the [3D printed copper cold plate RFQ page](/copper-cold-plates/) as the commercial entry point, then use this article to refine microchannel geometry, powder removal, pressure drop, leak testing, and acceptance criteria.
 

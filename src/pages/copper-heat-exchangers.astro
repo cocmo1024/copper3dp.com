@@ -1,0 +1,156 @@
+---
+import ApplicationIntentPage from '~/components/seo/ApplicationIntentPage.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: '3D Printed Copper Heat Exchangers | Custom LPBF RFQ',
+  description:
+    'Custom 3D printed copper heat exchanger review for compact channels, manifolds, pressure drop, powder removal, machining, leak testing, flow, and inspection.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+      { name: 'Copper heat exchangers', item: '/copper-heat-exchangers/' },
+    ]),
+    createCopperApplicationServiceSchema({
+      id: 'copper-heat-exchangers',
+      name: '3D Printed Copper Heat Exchanger RFQ Review',
+      serviceType: 'Custom copper heat exchanger additive manufacturing review',
+      description:
+        'RFQ review for compact printed copper heat exchangers with internal channels, manifolds, pressure boundaries, machining, cleaning, and acceptance testing.',
+      url: '/copper-heat-exchangers/',
+      audienceType: 'Thermal, data center, power electronics, semiconductor, aerospace, R&D, and purchasing teams',
+    }),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <ApplicationIntentPage
+    eyebrow="Copper heat exchangers"
+    title="3D printed copper heat exchangers for compact internal flow geometry"
+    intro="Copper AM is worth reviewing when a heat exchanger needs internal surface area, integrated manifolds, short thermal paths, unusual port routing, or fewer brazed joints inside a restricted envelope. The finished quote must include powder removal, machining, pressure, leakage, flow, and cleanliness."
+    verdict="Print a copper heat exchanger only when internal geometry creates measurable thermal, packaging, or reliability value. Use a machined, brazed, skived, folded-fin, or tube-based route when the core is accessible and conventional manufacturing meets the pressure and cost target."
+    useCases={[
+      {
+        title: 'Compact liquid heat exchangers',
+        description:
+          'Internal channel networks, lattice or TPMS concepts, and integrated headers where envelope and heat-transfer area are tightly constrained.',
+      },
+      {
+        title: 'Cold plate and manifold cores',
+        description:
+          'Monolithic bodies combining local heat extraction, distribution, ports, and sealing interfaces near electronics or semiconductor hardware.',
+      },
+      {
+        title: 'Power and data-center cooling hardware',
+        description:
+          'Cooling blocks and liquid distribution components requiring compact routing, controlled pressure drop, clean passages, and leak evidence.',
+      },
+      {
+        title: 'Aerospace and scientific thermal structures',
+        description:
+          'High-value parts where copper conductivity, internal cooling, reduced joints, and first-article inspection justify a demanding route.',
+      },
+    ]}
+    additiveFit={[
+      'Curved, branching, or conformal channels must follow the heat source or package envelope.',
+      'Integrated manifolds and headers remove fittings, plugs, covers, or brazed joints.',
+      'The thermal core needs geometry that cannot be reached by straight tools or assembled cleanly.',
+      'Prototype or low-volume performance value is greater than the additional AM validation cost.',
+    ]}
+    conventionalFit={[
+      'Straight drilled channels, milled plates, tubes, fins, or brazed layers meet the thermal requirement.',
+      'High production volume favors stamped, skived, extruded, folded-fin, tube, or brazed construction.',
+      'The internal network has blind pockets, unsupported traps, or passages that cannot be cleaned and verified.',
+      'The buyer cannot define coolant, pressure, leakage, flow, surfaces, or acceptance requirements.',
+    ]}
+    requirements={[
+      {
+        input: 'Thermal duty and boundary conditions',
+        why: 'Provide heat load, heat-source map, inlet temperature, allowable outlet temperature, ambient condition, and target thermal performance.',
+      },
+      {
+        input: 'Coolant and flow target',
+        why: 'Fluid chemistry, viscosity, corrosion compatibility, flow rate, distribution, pressure drop, and erosion concerns control channel decisions.',
+      },
+      {
+        input: 'Pressure and leakage',
+        why: 'State working, transient, and proof pressure plus leak method, threshold, dwell time, and consequence of leakage.',
+      },
+      {
+        input: 'Channel and cleaning access',
+        why: 'Define minimum passages, branch count, powder exits, flushing, drying, allowable blockage, CT scope, and cleanliness evidence.',
+      },
+      {
+        input: 'Interfaces and material route',
+        why: 'Identify pure copper or CuCrZr review, machined thermal faces, ports, threads, seal lands, coatings, plating, and dimensional datums.',
+      },
+    ]}
+    risks={[
+      {
+        title: 'Optimizing heat transfer without pressure drop',
+        description:
+          'More internal area can increase pumping power and flow maldistribution. Thermal and hydraulic targets must be evaluated together.',
+      },
+      {
+        title: 'Unremovable powder and contamination',
+        description:
+          'Small branches, dead legs, lattice cores, and abrupt transitions need an explicit depowdering, flushing, drying, and verification route.',
+      },
+      {
+        title: 'Leak testing without a defined threshold',
+        description:
+          '“No leaks” is not an acceptance criterion. The RFQ should identify method, pressure, medium, threshold, dwell, and test stage.',
+      },
+      {
+        title: 'Machining stock too close to channels',
+        description:
+          'Seal lands, ports, flat thermal faces, and datums need enough wall and stock for finishing without opening or weakening the pressure boundary.',
+      },
+    ]}
+    rfqChecklist={[
+      'STEP or native CAD and controlled drawing',
+      'Heat load and heat-source map',
+      'Coolant, inlet temperature, and compatibility',
+      'Flow target and pressure-drop limit',
+      'Working, proof, and leak requirements',
+      'Material preference and service temperature',
+      'Machined faces, ports, seals, and stock',
+      'Cleaning, CT, flow, and first-article scope',
+    ]}
+    related={[
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/',
+        title: 'Copper heat exchanger design benefits and limits',
+        description: 'Detailed engineering guide for channels, materials, powder removal, finishing, and validation.',
+      },
+      {
+        href: '/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/',
+        title: 'Copper microchannel heat exchanger RFQ guide',
+        description:
+          'Channel geometry, pressure drop, cleaning, machining, and inspection inputs for smaller passages.',
+      },
+      {
+        href: '/copper-cold-plates/',
+        title: '3D printed copper cold plates',
+        description:
+          'Commercial RFQ path for heat-source interfaces, manifolds, sealing, pressure, CT, and leak testing.',
+      },
+    ]}
+    references={[
+      {
+        href: 'https://www.eos.info/metal-solutions/metal-materials/copper',
+        title: 'EOS copper AM materials',
+        description: 'Official copper and CuCrZr application context including heat exchangers.',
+      },
+      {
+        href: 'https://www.opencompute.org/wiki/Cooling_Environments/Cold_Plate',
+        title: 'Open Compute Project cold plate workstream',
+        description: 'Industry requirements context for liquid cooling fluids, interfaces, leakage, and qualification.',
+      },
+    ]}
+    emailSubject="3D printed copper heat exchanger RFQ"
+  />
+</Layout>

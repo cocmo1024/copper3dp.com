@@ -8,14 +8,16 @@ tags: ['copper-heat-sinks', 'material-selection', 'pure-copper', 'cucrzr', 'engi
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/pure-copper-vs-cucrzr-high-performance-heat-sinks/01-pure-copper-vs-cucrzr-high-performance-heat-sinks-1-9707fcce.webp
 metadata:
-  title: 'Pure Copper vs CuCrZr Heat Sinks'
-  description: 'Compare pure copper and CuCrZr for 3D printed heat sinks by conductivity, strength, flatness, thin features, heat treatment, machining, and test requirements.'
+  title: 'Pure Copper vs CuCrZr Heat Sinks: Which to Choose?'
+  description: 'Choose pure copper for maximum conductivity or CuCrZr for stronger fins, threads, pressure features, and clamp stability in a 3D printed heat sink.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/pure-copper-vs-cucrzr-high-performance-heat-sinks/
 ---
 
 Pure copper is usually the first material to review when a heat sink is limited by heat spreading or electrical conductivity. CuCrZr is often the safer route when the same part must also hold threads, thin fins, pressure boundaries, clamped interfaces, or dimensional stability through manufacturing and service.
 
 The correct choice is not the alloy with the best single data-sheet value. It is the material and post-processing route that produces the lowest thermal resistance **after** printing, heat treatment, machining, assembly, and testing.
+
+[EOS describes pure copper](https://www.eos.info/metal-solutions/metal-materials/copper) for conductivity-driven applications and CuCrZr as a heat-treated route balancing conductivity with mechanical properties. The drawing still needs project-specific property and acceptance requirements because supplier data is process- and condition-dependent.
 
 For a commercial project, start with the [3D printed copper heat sink RFQ page](/copper-heat-sinks/) and use this guide to decide which material states should remain open in the quotation.
 

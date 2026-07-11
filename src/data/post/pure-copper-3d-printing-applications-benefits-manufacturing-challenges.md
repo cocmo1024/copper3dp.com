@@ -177,7 +177,7 @@ Use [Microchannel Cold Plates in Thermal Management](/posts/EngineeringGuide/cop
 
 Semiconductor equipment can combine several copper AM drivers: thermal control, RF surfaces, vacuum sealing, high-current hardware, cleanliness, and compact packaging. Pure copper may be useful when conductivity dominates, but final cleaning, leak testing, sealing lands, and inspection evidence often decide whether the part can be accepted.
 
-Use [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/) and [RF Vacuum Manifold Case Study for Semiconductor Hardware](/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/) when the part also carries cleanliness, vacuum, or RF requirements.
+Use [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/) and the [RF Vacuum Manifold Design Review](/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/) when the part also carries cleanliness, vacuum, or RF requirements.
 
 ## Validation Evidence Buyers Should Request
 
