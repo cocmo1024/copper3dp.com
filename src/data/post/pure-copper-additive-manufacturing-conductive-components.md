@@ -59,7 +59,7 @@ Good candidates include:
 
 The common value is not simply "copper conducts electricity." The value is that pure copper can carry current through a shape that also solves packaging, cooling, assembly, or interface problems.
 
-If the part is a flat punched conductor, a straight bar with drilled holes, or a simple rectangular contact plate, conventional copper machining, stamping, bending, or lamination may be the better route. Use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/) before forcing an additive route.
+If the part is a flat punched conductor, a straight bar with drilled holes, or a simple rectangular contact plate, conventional copper machining, stamping, bending, or lamination may be the better route. Use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) before forcing an additive route.
 
 ## Conductive Component Fit Table
 

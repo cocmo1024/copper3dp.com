@@ -191,7 +191,7 @@ That changed the discussion. Instead of arguing over a single general tolerance 
 
 The part did not become simpler. The quote became clearer.
 
-This is the same logic used in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/): use additive manufacturing where geometry creates value, then use machining and inspection where the finished interface demands it.
+This is the same logic used in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/): use additive manufacturing where geometry creates value, then use machining and inspection where the finished interface demands it.
 
 ## Application-Specific Tolerance Priorities
 

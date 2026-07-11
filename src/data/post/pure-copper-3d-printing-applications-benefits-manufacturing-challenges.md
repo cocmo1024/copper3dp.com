@@ -54,7 +54,7 @@ Good pure copper 3D printing candidates often include:
 
 The common pattern is not "make every copper part with AM." It is "use AM where the copper function and the geometry are both valuable."
 
-If the part is a flat copper plate, simple busbar, rectangular heat spreader, or drilled block, conventional machining may be lower risk. Use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/) before forcing an additive route.
+If the part is a flat copper plate, simple busbar, rectangular heat spreader, or drilled block, conventional machining may be lower risk. Use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) before forcing an additive route.
 
 ## Benefit 1: Conductivity Where The Geometry Is Complex
 

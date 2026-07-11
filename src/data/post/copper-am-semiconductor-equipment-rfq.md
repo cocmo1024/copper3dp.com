@@ -135,7 +135,7 @@ Post-processing may include:
 - Cleaning, drying, and protected packaging.
 - Conductivity, CMM, pressure, leak, flow, CT, or material documentation when needed.
 
-Use the [materials overview](/materials/) when the alloy is open, and the [process selection guide](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/) when the part may also be a CNC, brazed, or assembled candidate.
+Use the [materials overview](/materials/) when the alloy is open, and the [process selection guide](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) when the part may also be a CNC, brazed, or assembled candidate.
 
 ### When Copper AM May Not Be the Right First Route
 

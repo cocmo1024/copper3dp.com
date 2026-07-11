@@ -239,7 +239,7 @@ It becomes weaker when:
 - The buyer compares only the printed blank price against a finished CNC or brazed assembly.
 - The part is a simple copper block, plate, heat spreader, or busbar that CNC can make cleanly.
 
-For route selection, use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/).
+For route selection, use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/).
 
 ## What to Ask Before Sending an RFQ
 

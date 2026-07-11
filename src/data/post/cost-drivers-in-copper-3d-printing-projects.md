@@ -40,7 +40,7 @@ Copper 3D printing is easier to justify when the part needs internal cooling cha
 
 If the only requirement is a flat copper shape with holes, CNC machining may give a cleaner cost structure. If the design needs a curved coolant path, a monolithic pressure boundary, or a manifold that would otherwise require plugs and brazed covers, copper AM can compete because it reduces assembly risk.
 
-For route selection, start with [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/). Cost only makes sense after the route has a reason.
+For route selection, start with [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/). Cost only makes sense after the route has a reason.
 
 ## Cost Driver 2: Build Time and Machine Occupancy
 

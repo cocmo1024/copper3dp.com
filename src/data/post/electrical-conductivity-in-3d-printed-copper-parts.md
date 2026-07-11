@@ -61,7 +61,7 @@ For copper AM, bulk conductivity is affected by:
 | Geometry | Narrow necks, sharp bends, thin walls, and small radii concentrate current and heat | Review current density through the real cross-section, not nominal area |
 | Temperature | Copper resistance rises with operating temperature | Provide steady-state and transient current/thermal data |
 
-If the part is a simple flat conductor, CNC machining from copper bar may be the lower-risk route. Copper AM becomes more interesting when geometry creates value: integrated cooling, compact routing, part consolidation, complex busbar paths, conformal coils, internal channels, or combined thermal and electrical functions. For the broader route decision, see [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/).
+If the part is a simple flat conductor, CNC machining from copper bar may be the lower-risk route. Copper AM becomes more interesting when geometry creates value: integrated cooling, compact routing, part consolidation, complex busbar paths, conformal coils, internal channels, or combined thermal and electrical functions. For the broader route decision, see [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/).
 
 ## Choose Material By Failure Mode
 

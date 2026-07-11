@@ -74,7 +74,7 @@ Third, the cooling path had to avoid the RF cavity, bolt pattern, and sealing fa
 
 Fourth, the part count increased. Every cover, plug, fitting adapter, and brazed interface created another tolerance stack or acceptance step.
 
-This did not mean the CNC route was wrong. It meant the project deserved a process comparison. For the same screening logic, see [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/).
+This did not mean the CNC route was wrong. It meant the project deserved a process comparison. For the same screening logic, see [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/).
 
 ## Why Copper AM Was Reviewed
 
@@ -266,7 +266,7 @@ For a buyer researching this type of component, the most useful path is:
 2. If the part goes into tool hardware, read [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/).
 3. If the part has hidden cooling or vacuum paths, read [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
 4. If sealing, contact, or RF surfaces need finishing, read [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/).
-5. If the route is still open, compare [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/).
+5. If the route is still open, compare [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/).
 6. Before sending files, use [How to Prepare CAD Files for Copper Metal 3D Printing](/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/) and the [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/).
 
 ## RFQ Checklist For A Copper AM Vacuum Manifold

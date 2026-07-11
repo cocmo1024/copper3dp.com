@@ -63,7 +63,7 @@ Treating those as one vague instruction such as "clean thoroughly" usually delay
 | Pressure or leak | Does the pressure boundary hold? | Pressure test, leak test, helium leak where required | Passing leak does not prove particulate cleanliness |
 | Internal geometry | Can hidden passages be reviewed? | CT on first article, sectioned coupon, borescope where accessible | CT resolution, copper density, and cost matter |
 
-For detailed route comparison before locking the process, use [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/). For drawing and acceptance scope, pair this page with [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/) and [How to Prepare CAD Files for Copper Metal 3D Printing](/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/).
+For detailed route comparison before locking the process, use [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/). For drawing and acceptance scope, pair this page with [Engineering Checklist for Copper 3D Printed Part Quotation](/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/) and [How to Prepare CAD Files for Copper Metal 3D Printing](/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/).
 
 ## A Useful Design Review Starts With Channel Geometry
 

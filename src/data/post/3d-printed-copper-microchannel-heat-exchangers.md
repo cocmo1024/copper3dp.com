@@ -104,7 +104,7 @@ If the material is not fixed, provide the service condition:
 - Required conductivity or strength data, if any.
 - Corrosion, plating, or compatibility concerns.
 
-Use the [materials overview](/materials/) when the alloy choice is open, and see the [process selection guide](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/) if the part may also be a CNC or brazed candidate.
+Use the [materials overview](/materials/) when the alloy choice is open, and see the [process selection guide](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) if the part may also be a CNC or brazed candidate.
 
 ### Inspection Should Match the Failure Mode
 

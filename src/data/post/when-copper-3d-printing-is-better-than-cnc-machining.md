@@ -72,7 +72,7 @@ Copper additive manufacturing can win when geometry changes the function or redu
 
 The table does not say copper AM is always superior. It says the decision should be based on the failure mode. If the only benefit is "it looks advanced," CNC will usually be better. If the benefit is a smaller channel network, fewer joints, shorter thermal path, or a cleaner acceptance route, copper AM becomes worth quoting.
 
-For a broader route comparison, see [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/).
+The same comparison should include brazing, skiving, EDM, stamping, extrusion, or a hybrid route whenever those processes can meet the functional requirement with lower validation risk.
 
 ## The Hidden CNC Costs That Make AM Competitive
 
@@ -246,6 +246,6 @@ The decision should not be emotional. Write down what CNC forces the design to a
 
 If the AM route removes a bigger constraint than it creates, it deserves a quote. If it does not, use CNC.
 
-Related reading: [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/), [Design Rules for Copper Laser Powder Bed Fusion Parts](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/), [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
+Related reading: [Design Rules for Copper Laser Powder Bed Fusion Parts](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/), [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), and [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
 
 Send CAD, drawing, quantity, material preference, operating limits, and acceptance requirements to [info@szcomo.com](mailto:info@szcomo.com) when the route is unclear. We can review whether CNC, brazing, copper AM, or a hybrid path is the more practical way to quote the finished component.

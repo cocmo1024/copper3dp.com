@@ -54,7 +54,7 @@ The first useful design question is not "Can copper 3D printing make this cold p
 
 **Does additive manufacturing solve a real packaging, channel-routing, or leak-path problem that CNC machining, gun drilling, brazing, or a bolted cover cannot solve cleanly?**
 
-If the answer is no, a conventional route may be better. Use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/) before locking the process.
+If the answer is no, a conventional route may be better. Use [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) before locking the process.
 
 ## Why SiC Power Modules Create A Different Cold Plate Problem
 
@@ -227,7 +227,7 @@ Send the following information when requesting a quotation:
 - Cleaning, CT, borescope, pressure, leak, flow, and dimensional inspection needs.
 - Quantity, prototype schedule, and whether the part is for test, pilot build, or production review.
 
-If you are still organizing the package, the broad [Copper 3D Printing Service RFQ Guide](/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/) and the fixed [RFQ page](/rfq/) are the fastest next steps.
+If you are still organizing the package, use the fixed [copper AM RFQ page](/rfq/) to assemble the drawing, quantity, material preference, operating conditions, and acceptance requirements.
 
 ## FAQ
 

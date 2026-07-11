@@ -72,7 +72,7 @@ The initial manufacturing routes were conventional: CNC machine open channels an
 
 The additive route was not selected because it looked advanced. It was reviewed because it gave the design team control over internal flow paths that were difficult to drill, while keeping the outside envelope compact.
 
-The same route gate appears in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/). If CNC, brazing, or a two-piece plate solves the requirement with lower risk, copper AM may not be the right route.
+The same route gate appears in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/). If CNC, brazing, or a two-piece plate solves the requirement with lower risk, copper AM may not be the right route.
 
 ## The Design Decision That Changed The Case
 

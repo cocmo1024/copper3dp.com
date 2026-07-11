@@ -51,7 +51,7 @@ The useful question was not "Can this manifold be 3D printed?" The useful questi
 
 **Does copper AM remove enough joints, routing compromises, and branch-flow uncertainty to justify print cost, machining, cleaning, and inspection?**
 
-That is the same process-selection logic used in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/).
+That is the same process-selection logic used in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/).
 
 ## RFQ Inputs That Changed The Review
 

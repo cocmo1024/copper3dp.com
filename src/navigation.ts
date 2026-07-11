@@ -13,19 +13,15 @@ export const headerData = {
     },
     {
       text: 'Capabilities',
-      href: getPermalink('/capabilities'),
+      links: [
+        { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
+        { text: 'Copper AM materials', href: getPermalink('/materials') },
+        { text: 'Prepare an RFQ', href: getPermalink('/rfq') },
+      ],
     },
     {
-      text: 'Materials',
-      href: getPermalink('/materials'),
-    },
-    {
-      text: 'Engineering Library',
+      text: 'Engineering Guides',
       href: getBlogPermalink(),
-    },
-    {
-      text: 'Contact',
-      href: getPermalink('/contact'),
     },
   ],
   actions: [{ text: 'Email RFQ', href: rfqEmailHref, title: 'Email CAD and RFQ files to info@szcomo.com' }],
@@ -34,10 +30,10 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Project review',
+      title: 'Start a project',
       links: [
-        { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Applications overview', href: getPermalink('/applications') },
+        { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
         { text: 'Prepare an RFQ', href: getPermalink('/rfq') },
       ],
@@ -48,13 +44,16 @@ export const footerData = {
         { text: 'Copper cold plates', href: getPermalink('/copper-cold-plates') },
         { text: 'Copper heat sinks', href: getPermalink('/copper-heat-sinks') },
         { text: 'Copper induction coils', href: getPermalink('/copper-induction-coils') },
+        { text: 'Copper busbars', href: getPermalink('/copper-busbars') },
         { text: 'Copper RF waveguides', href: getPermalink('/copper-rf-waveguides') },
-        { text: 'Engineering Library', href: getBlogPermalink() },
+        { text: 'Semiconductor cooling', href: getPermalink('/copper-semiconductor-cooling') },
+        { text: 'Conformal cooling inserts', href: getPermalink('/copper-conformal-cooling-inserts') },
       ],
     },
     {
-      title: 'Company',
+      title: 'Resources',
       links: [
+        { text: 'Engineering Guides', href: getBlogPermalink() },
         { text: 'About COPPER 3DP', href: getPermalink('/about') },
         { text: 'Editorial policy', href: getPermalink('/editorial-policy') },
         { text: 'Contact', href: getPermalink('/contact') },

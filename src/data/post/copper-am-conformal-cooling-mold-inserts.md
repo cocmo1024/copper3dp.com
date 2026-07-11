@@ -85,7 +85,7 @@ The RFQ should state which property is more important:
 
 Do not select an alloy only from a generic conductivity table. The insert has to survive machining, installation, pressure, thermal cycling, and production handling.
 
-Use the [materials page](/materials/) when alloy choice is still open, and use the [process selection guide](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/) when the insert may also be drilled, brazed, or assembled.
+Use the [materials page](/materials/) when alloy choice is still open, and use the [process selection guide](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) when the insert may also be drilled, brazed, or assembled.
 
 When the insert decision is mainly about thread strength, pressure boundaries, clamp load, thin walls near conformal channels, or heat-treated evidence, use [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) as the material route gate before comparing mold cooling performance.
 

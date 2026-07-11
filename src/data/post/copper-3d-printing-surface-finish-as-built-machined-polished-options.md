@@ -216,7 +216,7 @@ Before sending a copper 3D printing project for quotation, prepare a surface map
 
 If the surface plan is not ready, send the CAD anyway and say which functions matter. A surface note can be developed during DFM review. A vague "best finish possible" note usually slows the quote.
 
-For process-level design, pair this page with [Copper LPBF Design Rules](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/). For cost planning, use [Cost Drivers in Copper 3D Printing Projects](/posts/EngineeringGuide/cost-drivers-in-copper-3d-printing-projects/).
+For process-level design, pair this page with [Copper LPBF Design Rules](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/). For cost planning, use [Cost Drivers in Copper 3D Printing Projects](/posts/EngineeringGuide/cost-drivers-in-copper-3d-printing-projects/).
 
 ![Copper AM surface finish inspection route with machined sealing lands, polished contact surfaces, roughness tester, CMM probe, and leak-test fittings](../../assets/images/generated/copper-am-surface-finish-inspection-route.webp)
 

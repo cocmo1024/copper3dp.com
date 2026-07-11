@@ -1,5 +1,6 @@
 ---
 title: 'Copper AM Process Selection: LPBF vs CNC and Brazing'
+draft: true
 publishDate: 2026-04-30
 excerpt: 'How to decide whether a copper part should be quoted as LPBF copper AM, CNC machining, brazing, skiving, or another manufacturing route.'
 category: Engineering Guide
@@ -9,7 +10,7 @@ image: ~/assets/images/copper/micro-channel-heat-exchangers.webp
 metadata:
   title: 'Copper AM Process Selection: LPBF vs CNC and Brazing'
   description: 'Choose between LPBF copper AM, CNC machining, brazing, skiving, and other routes using geometry, performance, inspection, and volume drivers.'
-  canonical: https://copper3dp.com/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/
+  canonical: https://copper3dp.com/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/
 ---
 
 > Copper additive manufacturing is valuable when it solves a geometry, thermal, fluid, electrical, or assembly problem that conventional manufacturing cannot solve cleanly. It is not automatically the best route for every copper part. A strong RFQ states the function first, then lets the process route be reviewed against cost, risk, and acceptance criteria.
@@ -124,4 +125,3 @@ If the process is not fixed, say so. A clear requirement with an open process ca
 Use copper 3D printing when the design needs internal geometry, compact integration, or part consolidation that changes performance or risk. Use conventional routes when they satisfy the requirement with fewer steps.
 
 Send the drawing, quantity, requirements, and any known route preference to [info@szcomo.com](mailto:info@szcomo.com). If the route is uncertain, ask for a review of the practical manufacturing path before requesting a final price.
-

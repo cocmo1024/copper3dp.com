@@ -122,7 +122,7 @@ Machining requires allowance. In early copper AM review, 0.4-1.0 mm of stock on 
 
 This is where [Tolerances and Dimensional Accuracy in Copper Metal 3D Printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/) becomes directly relevant. A good drawing separates as-built geometry from post-machined geometry. It does not apply one tight general tolerance to every printed wall and hidden channel.
 
-For route selection, compare [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) and [Copper AM Process Selection: LPBF vs CNC and Brazing](/posts/EngineeringGuide/copper-am-process-selection-lpbf-cnc-brazing/). A printed part with heavy finishing may still be correct when internal geometry or reduced joints create real value. It should not be priced as if machining disappeared.
+For route selection, compare [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/). A printed part with heavy finishing may still be correct when internal geometry or reduced joints create real value. It should not be priced as if machining disappeared.
 
 ## Method 4: Surface Finishing, Polishing, And Local Lapping
 

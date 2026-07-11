@@ -1,5 +1,6 @@
 ---
 title: 'Copper 3D Printing Service RFQ Guide'
+draft: true
 publishDate: 2026-04-30
 excerpt: 'How to prepare a useful RFQ for copper 3D printing service: drawings, quantity, material, operating requirements, post-processing, and inspection scope.'
 category: Engineering Guide
@@ -9,7 +10,7 @@ image: ~/assets/images/copper/hero-2.webp
 metadata:
   title: 'Copper 3D Printing Service RFQ Guide'
   description: 'Prepare a copper 3D printing service RFQ with CAD, drawings, quantity, material, operating requirements, post-processing, and inspection scope.'
-  canonical: https://copper3dp.com/posts/EngineeringGuide/copper-3d-printing-service-rfq-guide/
+  canonical: https://copper3dp.com/rfq/
 ---
 
 > A useful copper 3D printing service RFQ does not need to be overprepared. Send the CAD or drawing, quantity, material preference if known, lead time, and the requirements that affect acceptance. A simple part can be quoted with basic assumptions; a demanding thermal, fluid, electrical, or RF part usually needs a focused engineering review before the quote is reliable.
@@ -126,4 +127,3 @@ Use this short structure:
 7. Inspection or documentation required for acceptance.
 
 Send the drawing and requirements to [info@szcomo.com](mailto:info@szcomo.com). If the request is clear, it can move toward quote. If key requirements are missing, we will ask focused questions before quoting.
-
