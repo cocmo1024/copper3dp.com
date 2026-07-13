@@ -310,7 +310,7 @@ No. Copper AM creates the near-net internal and external geometry, but functiona
 <details>
 <summary>How can procurement compare quotes from different suppliers?</summary>
 
-Compare the scope, not only the price. Check whether each quote includes material route, heat treatment, machining, cleaning, pressure or leak testing, flow testing, CMM, CT, conductivity or hardness checks, packaging, and documentation. A low quote for only the printed body may not be comparable to a quote for a finished and accepted component.
+Compare the scope, not only the price. Check whether each quote includes material route, heat treatment, machining, cleaning, pressure or leak testing, flow testing, CMM, CT, conductivity or hardness checks, packaging, and documentation. A low quote for only the printed body may not be comparable to a quote for a finished and accepted component. Use the [copper 3D printing supplier audit](/posts/EngineeringGuide/how-to-audit-copper-3d-printing-supplier/) to verify process and change-control evidence, then use the [service capability matrix](/posts/EngineeringGuide/copper-3d-printing-service-capability-matrix/) to compare thermal, electrical, and RF requirements.
 
 </details>
 
