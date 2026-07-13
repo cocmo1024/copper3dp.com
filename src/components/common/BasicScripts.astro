@@ -69,48 +69,88 @@ import { UI } from 'astrowind:config';
       }
     }
 
-    function readStoredAttribution() {
+    const attributionStorageKey = 'copper3dp_attribution';
+    const attributionTtlMs = 90 * 24 * 60 * 60 * 1000;
+
+    function getAvailableAttributionStorage() {
+      const storageCandidates = [];
       try {
-        return JSON.parse(sessionStorage.getItem('copper3dp_attribution') || '{}');
+        storageCandidates.push(localStorage);
       } catch {
-        return {};
+        // Browser privacy settings may block local storage.
       }
+      try {
+        storageCandidates.push(sessionStorage);
+      } catch {
+        // Browser privacy settings may block session storage.
+      }
+      return storageCandidates;
+    }
+
+    function readStoredAttribution() {
+      for (const storage of getAvailableAttributionStorage()) {
+        try {
+          const attribution = JSON.parse(storage.getItem(attributionStorageKey) || '{}');
+          if (attribution.expires_at && Number(attribution.expires_at) < Date.now()) {
+            storage.removeItem(attributionStorageKey);
+            continue;
+          }
+          if (Object.keys(attribution).length) return attribution;
+        } catch {
+          // Try the next storage option when browser privacy settings block one.
+        }
+      }
+
+      return {};
+    }
+
+    function persistAttribution(attribution) {
+      getAvailableAttributionStorage().forEach((storage) => {
+        try {
+          storage.setItem(attributionStorageKey, JSON.stringify(attribution));
+        } catch {
+          // Attribution must never block page use or RFQ submission.
+        }
+      });
     }
 
     function captureAttribution() {
       const params = new URLSearchParams(window.location.search);
       const keys = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
       const attribution = readStoredAttribution();
-      let changed = false;
 
       keys.forEach((key) => {
         const value = params.get(key);
         if (value && attribution[key] !== value) {
           attribution[key] = value;
-          changed = true;
         }
       });
 
-      if (changed || !attribution.landing_page) {
-        attribution.landing_page = attribution.landing_page || window.location.href;
-        attribution.updated_at = new Date().toISOString();
-        try {
-          sessionStorage.setItem('copper3dp_attribution', JSON.stringify(attribution));
-        } catch {
-          // Attribution improves reporting but should never block the page.
-        }
-      }
+      attribution.first_landing_page = attribution.first_landing_page || window.location.href;
+      attribution.last_landing_page = window.location.href;
+      attribution.captured_at = attribution.captured_at || new Date().toISOString();
+      attribution.updated_at = new Date().toISOString();
+      attribution.expires_at = Date.now() + attributionTtlMs;
+      persistAttribution(attribution);
 
       return attribution;
     }
 
     function getAttributionFields() {
-      const attribution = readStoredAttribution();
+      const attribution = captureAttribution();
       return Object.fromEntries(Object.entries(attribution).filter(([, value]) => Boolean(value)));
     }
 
-    function getTrackingPayload(elem, extra = {}) {
+    function getAnalyticsAttributionFields() {
       const attribution = getAttributionFields();
+      const analyticsKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+      return Object.fromEntries(
+        analyticsKeys.map((key) => [key, attribution[key]]).filter(([, value]) => Boolean(value))
+      );
+    }
+
+    function getTrackingPayload(elem, extra = {}) {
+      const attribution = getAnalyticsAttributionFields();
       return {
         page_location: window.location.href,
         page_path: window.location.pathname,
@@ -143,8 +183,6 @@ import { UI } from 'astrowind:config';
 
       const url = new URL(`https://www.googleadservices.com/pagead/conversion/${match[1]}/`);
       url.searchParams.set('label', match[2]);
-      url.searchParams.set('value', '1.0');
-      url.searchParams.set('currency_code', 'CNY');
       url.searchParams.set('guid', 'ON');
       url.searchParams.set('script', '0');
       url.searchParams.set('random', String(Date.now()));
@@ -163,8 +201,6 @@ import { UI } from 'astrowind:config';
 
       window.google_conversion_id = Number(match[1]);
       window.google_conversion_label = match[2];
-      window.google_conversion_value = 1.0;
-      window.google_conversion_currency = 'CNY';
       window.google_remarketing_only = false;
 
       const script = document.createElement('script');
@@ -178,7 +214,10 @@ import { UI } from 'astrowind:config';
 
     function trackCopperEvent(eventName, payload = {}, options = {}) {
       const isDuplicate = isDuplicateConversion(options.conversionKey);
-      const sendTo = window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
+      const sendTo =
+        options.adsConversion === 'rfq_submit'
+          ? window.COPPER3DP_TRACKING?.googleAdsRfqSubmitSendTo
+          : window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: eventName, ...payload });
@@ -191,18 +230,22 @@ import { UI } from 'astrowind:config';
         window.gtag('event', eventName, { transport_type: 'beacon', ...payload });
 
         if (options.generateLead && !isDuplicate) {
-          window.gtag('event', 'generate_lead', { method: 'email', transport_type: 'beacon', ...payload });
+          window.gtag('event', 'generate_lead', {
+            method: payload.method || 'rfq',
+            transport_type: 'beacon',
+            ...payload,
+          });
         }
 
         if (options.adsConversion && sendTo && !isDuplicate) {
           const conversionPayload = {
             send_to: sendTo,
-            value: 1.0,
-            currency: 'CNY',
             transport_type: 'beacon',
             event_category: 'lead',
-            event_label: payload.link_text || 'RFQ email',
+            event_label: payload.application || payload.link_text || 'RFQ submission',
           };
+
+          if (payload.submission_id) conversionPayload.transaction_id = payload.submission_id;
 
           if (typeof options.eventCallback === 'function') {
             conversionPayload.event_callback = options.eventCallback;
@@ -219,6 +262,8 @@ import { UI } from 'astrowind:config';
     }
 
     window.COPPER3DP_TRACK_EVENT = trackCopperEvent;
+    window.COPPER3DP_GET_ATTRIBUTION = getAttributionFields;
+    captureAttribution();
 
     function showEmailToast(message) {
       let toast = document.getElementById('email-copy-toast');

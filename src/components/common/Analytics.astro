@@ -15,8 +15,13 @@ const googleAdsRfqConversionLabel =
   import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL ||
   import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_LABEL ||
   defaultGoogleAdsRfqConversionLabel;
+const googleAdsRfqSubmitConversionLabel = import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL || '';
 const googleAdsRfqSendTo =
   googleAdsConversionId && googleAdsRfqConversionLabel ? `${googleAdsConversionId}/${googleAdsRfqConversionLabel}` : '';
+const googleAdsRfqSubmitSendTo =
+  googleAdsConversionId && googleAdsRfqSubmitConversionLabel
+    ? `${googleAdsConversionId}/${googleAdsRfqSubmitConversionLabel}`
+    : '';
 const tagIds = Array.from(new Set([googleTagId, googleAnalyticsId, googleAdsConversionId].filter(Boolean)));
 const primaryTagId = tagIds[0];
 const googleTagSrc = primaryTagId ? `https://www.googletagmanager.com/gtag/js?id=${primaryTagId}` : '';
@@ -28,6 +33,7 @@ const googleTagManagerSrc = googleTagManagerId
 <script
   is:inline
   data-google-ads-rfq-send-to={googleAdsRfqSendTo}
+  data-google-ads-rfq-submit-send-to={googleAdsRfqSubmitSendTo}
   data-google-analytics-id={googleAnalyticsId}
   data-google-ads-conversion-id={googleAdsConversionId}
   data-google-tag-manager-id={googleTagManagerId}
@@ -38,6 +44,7 @@ const googleTagManagerSrc = googleTagManagerId
     googleAnalyticsId: trackingConfig.googleAnalyticsId || '',
     googleAdsConversionId: trackingConfig.googleAdsConversionId || '',
     googleAdsRfqSendTo: trackingConfig.googleAdsRfqSendTo || '',
+    googleAdsRfqSubmitSendTo: trackingConfig.googleAdsRfqSubmitSendTo || '',
     googleTagManagerId: trackingConfig.googleTagManagerId || '',
   };
 </script>

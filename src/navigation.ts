@@ -1,5 +1,6 @@
 import { getPermalink, getBlogPermalink } from './utils/permalinks';
 
+const rfqFormHref = '/rfq/#rfq-form';
 const rfqEmailHref = 'mailto:info@szcomo.com';
 const whatsappHref =
   'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
@@ -24,7 +25,7 @@ export const headerData = {
       href: getBlogPermalink(),
     },
   ],
-  actions: [{ text: 'Email RFQ', href: rfqEmailHref, title: 'Email CAD and RFQ files to info@szcomo.com' }],
+  actions: [{ text: 'Submit RFQ', href: rfqFormHref, title: 'Submit CAD and RFQ details for engineering review' }],
 };
 
 export const footerData = {

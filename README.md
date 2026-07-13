@@ -361,16 +361,29 @@ PUBLIC_GOOGLE_TAG_MANAGER_ID=
 PUBLIC_GA_MEASUREMENT_ID=
 PUBLIC_GOOGLE_ADS_CONVERSION_ID=
 PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL=
+PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL=
 PUBLIC_GOOGLE_SITE_VERIFICATION_ID=
+PUBLIC_TURNSTILE_SITE_KEY=
 ```
 
-Current primary measurement:
+Current measurement:
 
 - GA4 stream: `G-6HD15CRLMQ`
-- Main conversion intent: email RFQ click
-- Main event names: `rfq_email_click`, `generate_lead`
+- Micro intent event: `rfq_email_click` (do not use as the primary bidding conversion)
+- Confirmed form events: `rfq_form_submit_success`, `generate_lead`
+- Direct Google Ads submission conversion fires only when `PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL` is configured and the mail service accepts the RFQ.
 
-The site intentionally uses email-first RFQ actions because CAD and requirement files are the natural qualification mechanism.
+The secure RFQ form preserves Google Ads click IDs and UTM parameters for 90 days. It never sends contact details to analytics; only non-personal project categories and a submission reference are measured.
+
+### Secure RFQ runtime variables
+
+The production form is handled by the Cloudflare Worker entry point at `functions/api/rfq.ts`. `wrangler.jsonc` routes `/api/*` through the Worker and serves all other requests from the Astro `dist` asset binding. Configure the following as an encrypted runtime secret, never in source control:
+
+```bash
+TURNSTILE_SECRET_KEY=
+```
+
+`PUBLIC_TURNSTILE_SITE_KEY` is a Workers Builds variable available to Astro at build time and must be paired with `TURNSTILE_SECRET_KEY`. The `RFQ_EMAIL` binding can send only to the verified destination `info@szcomo.com`, and the Worker rate-limits `/api/rfq`. If the security key or email binding is missing, the endpoint fails closed and asks the visitor to use email; no conversion is recorded.
 
 ## Google Ads Landing Page Notes
 
@@ -383,7 +396,7 @@ Keep the first screen focused on:
 - Email RFQ CTA
 - Clear fit / not-a-fit guidance
 
-Do not introduce forms, chat widgets, lead popups, or extra claims unless they are proven to improve qualified RFQs without increasing low-quality leads.
+Keep the secure RFQ form focused on engineering qualification. Do not add generic lead popups or weaken its company, application, quantity, timing, requirements, security, or consent gates merely to increase conversion count.
 
 ## Deployment
 

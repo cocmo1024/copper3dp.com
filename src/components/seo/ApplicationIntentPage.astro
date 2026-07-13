@@ -49,7 +49,7 @@ const {
   emailSubject,
 } = Astro.props;
 
-const emailHref = `mailto:info@szcomo.com?subject=${encodeURIComponent(emailSubject)}`;
+const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
 ---
 
 <article>
@@ -61,10 +61,10 @@ const emailHref = `mailto:info@szcomo.com?subject=${encodeURIComponent(emailSubj
       <div class="mt-7 flex flex-wrap gap-3">
         <a
           class="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
-          href={emailHref}
+          href={rfqHref}
         >
-          <Icon name="tabler:mail" class="h-4 w-4" />
-          Send CAD for review
+          <Icon name="tabler:file-upload" class="h-4 w-4" />
+          Start secure RFQ
         </a>
         <a
           class="inline-flex items-center gap-2 rounded-md border border-page-border px-5 py-3 text-sm font-semibold text-heading hover:bg-surface-raised"
@@ -291,7 +291,7 @@ const emailHref = `mailto:info@szcomo.com?subject=${encodeURIComponent(emailSubj
       </div>
       <a
         class="inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
-        href={emailHref}><Icon name="tabler:mail" class="h-4 w-4" />Email info@szcomo.com</a
+        href={rfqHref}><Icon name="tabler:file-upload" class="h-4 w-4" />Submit project for review</a
       >
     </div>
   </section>
