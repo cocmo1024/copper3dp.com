@@ -202,6 +202,8 @@ Compare:
 
 Confirm that every mandatory row has reached C2 project-ready status. Move to C3 only after the accepted first article, record review, and change-control agreement.
 
+Plan the evidence for C2 with the [copper AM prototype build planning guide](/posts/EngineeringGuide/copper-am-prototype-build-planning/). For C3, use the [prototype-to-low-volume control guide](/posts/EngineeringGuide/prototype-to-low-volume-copper-am-production-controls/) to freeze the accepted baseline and approve changes.
+
 For a deeper review of process evidence, subcontractor control, nonconformance, and repeat-build readiness, use [How to Audit a Copper 3D Printing Supplier](/posts/EngineeringGuide/how-to-audit-copper-3d-printing-supplier/).
 
 ## FAQ
@@ -241,4 +243,3 @@ A credible copper 3D printing capability statement connects material, geometry, 
 Use the matrix to identify mandatory rows for the actual application. If a row lacks evidence, classify it as development work and plan a targeted pilot. If all mandatory rows are project-ready, the RFQ can move from “can you print copper?” to a defined finished-component quotation.
 
 Email CAD, drawing, quantity, material preference, operating limits, critical surfaces, and acceptance requirements to [info@szcomo.com](mailto:info@szcomo.com). COPPER 3DP will review the required supply route and quotation scope; feasibility and lead time depend on the drawing and production schedule.
-

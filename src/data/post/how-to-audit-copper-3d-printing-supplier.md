@@ -125,6 +125,8 @@ Minimum desktop outputs should be:
 
 The first article should test the risky parts of the route, not merely produce an attractive sample. Include witness coupons or test artifacts only when they answer a defined question.
 
+Use the [copper AM prototype build planning guide](/posts/EngineeringGuide/copper-am-prototype-build-planning/) to connect each coupon, machining allowance, process record, and part-level test to a specific release decision.
+
 [NIST's AM Part Qualification project](https://www.nist.gov/programs-projects/additive-manufacturing-part-qualification) highlights the measurement challenges created by complex surfaces, internal geometry, defects, residual stress, anisotropy, and post-processing. It also distinguishes machine capability reports, test coupons, surface finish, dimensional metrology, NDE, heat treatment, and production builds. A pilot plan should make the same distinctions.
 
 For a cold plate, the pilot may emphasize channel cleaning, CT feasibility, flatness after machining, pressure hold, leak testing, and flow balance. For a conductor, it may emphasize material state, contact-face machining, plating, conductivity, and temperature rise. For RF hardware, it may emphasize internal dimensions, surface condition, plating, and functional RF test data supplied by the customer or a qualified lab.
@@ -140,6 +142,8 @@ A successful first article does not prove that a repeat build will be equivalent
 - Whether acceptance tests remain identical or move to an approved sampling plan.
 
 This is where supplier qualification becomes production control instead of a one-time sample review.
+
+The [prototype-to-low-volume copper AM control guide](/posts/EngineeringGuide/prototype-to-low-volume-copper-am-production-controls/) provides the baseline and change-impact framework for this stage.
 
 ## Application-Specific Mandatory Gates
 

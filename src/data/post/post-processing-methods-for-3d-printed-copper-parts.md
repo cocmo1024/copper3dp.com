@@ -232,6 +232,8 @@ The expensive mistake is using the simple-prototype route for a production-risk 
 
 The opposite mistake also happens. Some early prototypes are overburdened with production-level inspection before the geometry has been tested. For first learning builds, it may be enough to print, clean, machine key faces, and test one or two critical functions. Once the design stabilizes, the post-processing and inspection route can become stricter.
 
+The [copper AM prototype build planning guide](/posts/EngineeringGuide/copper-am-prototype-build-planning/) shows how to stage that evidence. When the route moves into repeat orders, the [prototype-to-low-volume control guide](/posts/EngineeringGuide/prototype-to-low-volume-copper-am-production-controls/) identifies which post-processing variables should remain frozen or require approval before change.
+
 This distinction matters for cost. The [Cost Drivers in Copper 3D Printing Projects](/posts/EngineeringGuide/cost-drivers-in-copper-3d-printing-projects/) page explains why the printed body and the accepted component can have very different price structures.
 
 ## Case Pattern: The Printed Copper Part Was Not The Deliverable

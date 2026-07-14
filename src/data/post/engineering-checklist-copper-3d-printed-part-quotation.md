@@ -245,6 +245,8 @@ If the deadline is fixed, say so. The supplier may recommend a staged approach:
 
 That sequence is usually more realistic than asking a first prototype to carry the full burden of production qualification.
 
+For the first build, use the [copper AM prototype planning guide](/posts/EngineeringGuide/copper-am-prototype-build-planning/) to decide which questions belong to coupons, machining stock, process records, and part-level acceptance. After the first article is accepted, use the [prototype-to-low-volume production control guide](/posts/EngineeringGuide/prototype-to-low-volume-copper-am-production-controls/) to define the repeat-build baseline and change controls.
+
 ## Quote Readiness Score
 
 Use this quick scoring method before sending the package.
