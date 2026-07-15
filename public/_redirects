@@ -8,6 +8,8 @@
 /contact /rfq/ 301
 /Terms/ /terms/ 301
 /Terms /terms/ 301
+/sitemap.xml /sitemap-index.xml 301
+/rss.xml /category/EngineeringGuide/ 301
 /posts/EngineeringGuide/underperformance-copper-heat-sinks/ /posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/ 301
 /posts/EngineeringGuide/underperformance-copper-heat-sinks /posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/ 301
 /posts/EngineeringGuide/thermal-interface-failures-copper-heat-sinks/ /copper-heat-sinks/#review-points 301
@@ -38,4 +40,3 @@
 /tags/high-voltage-electrodes /posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/ 301
 /tags/* /category/EngineeringGuide/ 301
 /blog/tag/* /category/EngineeringGuide/ 301
-/rss.xml /category/EngineeringGuide/ 301
