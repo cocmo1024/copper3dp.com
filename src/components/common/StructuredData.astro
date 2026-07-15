@@ -1,6 +1,6 @@
 ---
 import { I18N, METADATA, SITE } from 'astrowind:config';
-import appleTouchIcon from '~/assets/favicons/apple-touch-icon.png';
+import businessLogo from '~/assets/brand/copper3dp-business-logo.png';
 import type { MetaData, JsonLdNode } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
@@ -16,7 +16,7 @@ const pageTitle = metadata.title || METADATA?.title?.default || SITE.name;
 const pageDescription = metadata.description || METADATA?.description;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
-const logoUrl = String(new URL(appleTouchIcon.src, `${siteUrl}/`));
+const logoUrl = String(new URL(businessLogo.src, `${siteUrl}/`));
 
 const normalizeStructuredData = (item: JsonLdNode): JsonLdNode => {
   const node = { ...item };
@@ -44,8 +44,8 @@ const graph: JsonLdNode[] = [
     logo: {
       '@type': 'ImageObject',
       url: logoUrl,
-      width: 180,
-      height: 180,
+      width: 1200,
+      height: 1200,
     },
     description: METADATA?.description,
     knowsAbout: [

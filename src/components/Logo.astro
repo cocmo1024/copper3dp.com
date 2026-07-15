@@ -1,7 +1,17 @@
 ---
 import { SITE } from 'astrowind:config';
+import businessLogo from '~/assets/brand/copper3dp-business-logo.png';
 ---
 
+<img
+  src={businessLogo.src}
+  width="1200"
+  height="1200"
+  alt="COPPER 3DP logo"
+  class="h-10 w-10 flex-none rounded-full"
+  loading="eager"
+  decoding="async"
+/>
 <span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-heading whitespace-nowrap">
-  Cu {SITE?.name}
+  {SITE?.name}
 </span>

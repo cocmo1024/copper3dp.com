@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">COPPER 3DP</title>
+  <desc id="desc">Cu 3DP brand mark for COPPER 3DP</desc>
+  <circle cx="600" cy="600" r="540" fill="#0f1117" />
+  <circle cx="600" cy="600" r="532" fill="none" stroke="#2b2f39" stroke-width="16" />
+  <text
+    x="600"
+    y="625"
+    fill="#f2c190"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="470"
+    font-weight="800"
+    letter-spacing="-18"
+    text-anchor="middle"
+  >Cu</text>
+  <path d="M340 716h520" stroke="#b87333" stroke-width="34" stroke-linecap="round" />
+  <text
+    x="600"
+    y="925"
+    fill="#f8fafc"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="205"
+    font-weight="800"
+    letter-spacing="18"
+    text-anchor="middle"
+  >3DP</text>
+</svg>
