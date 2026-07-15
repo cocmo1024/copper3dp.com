@@ -15,7 +15,7 @@ const materialShowcases = [
       src: '~/assets/images/copper/induction-heating-coils.webp',
       alt: 'Copper induction coil material review',
     },
-    title: 'Material decision inputs that speed review',
+    title: 'Material inputs that support a faster decision',
     description:
       'The same alloy can behave differently depending on wall thickness, heat treatment, machining allowance, inspection scope, and operating environment.',
     points: [
@@ -60,24 +60,24 @@ const metadata = {
     createItemListSchema('Copper AM material paths', [
       {
         name: 'Pure copper',
-        description: 'Reviewed when electrical or thermal conductivity is the dominant requirement.',
+        description: 'Best suited to parts where electrical or thermal conductivity is the dominant requirement.',
         url: '/pure-copper-3d-printing/',
       },
       {
         name: 'CuCrZr',
-        description: 'Reviewed when strength and softening resistance matter alongside conductivity.',
+        description: 'Best suited to parts where strength and softening resistance matter alongside conductivity.',
         url: '/cucrzr-3d-printing/',
       },
       {
         name: 'CuCr1Zr',
         description:
-          'Reviewed when the drawing, standard, supplier data sheet, or qualification route requires a documented copper-chromium-zirconium alloy path.',
+          'Relevant when the drawing, standard, supplier data sheet, or qualification route requires a documented copper-chromium-zirconium alloy path.',
         url: '/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/',
       },
       {
         name: 'GRCop-42',
         description:
-          'Reviewed for high-temperature aerospace and thermal hardware where qualification documentation matters.',
+          'Considered for high-temperature aerospace and thermal hardware where qualification documentation matters.',
         url: '/materials/',
       },
     ]),
@@ -88,15 +88,15 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Materials"
-    title="Copper material options for 3D printing"
-    subtitle="If you know the material, send it. If not, send operating requirements so we can discuss pure copper, CuCrZr, CuCr1Zr, or GRCop-42 as needed."
+    title="Copper materials for additive manufacturing"
+    subtitle="If the alloy is specified, include it with the drawing. If not, send the operating conditions so we can compare pure copper, CuCrZr, CuCr1Zr, or a specialized copper alloy route."
     actions={[
       {
         variant: 'primary',
-        text: 'Email material review',
+        text: 'Email material requirements',
         href: 'mailto:info@szcomo.com',
       },
-      { text: 'RFQ inputs', href: '/rfq/' },
+      { text: 'Quotation checklist', href: '/rfq/' },
     ]}
     image={{
       src: '~/assets/images/copper/hero-copper-parts-transparent.webp',
@@ -113,7 +113,7 @@ const metadata = {
       {
         title: 'Pure copper',
         description:
-          'Best reviewed when electrical or thermal conductivity is dominant, mechanical loads are controlled, and final conductivity is more important than strength.',
+          'Best suited to parts where electrical or thermal conductivity is dominant, mechanical loads are controlled, and final conductivity matters more than strength.',
         icon: 'tabler:hexagon-letter-c',
       },
       {
@@ -141,7 +141,7 @@ const metadata = {
 
   <Features2
     title="Material decision guides"
-    subtitle="Use these guides when the material name alone is not enough to quote the finished copper AM part."
+    subtitle="Use these guides when material designation alone is not enough to define the finished copper AM part."
     columns={3}
     classes={{ container: sectionContainerClass }}
     items={[
@@ -151,7 +151,7 @@ const metadata = {
           'For conductive components, heat spreaders, busbars, and thermal parts where final conductivity evidence matters.',
         icon: 'tabler:hexagon-letter-c',
         callToAction: {
-          text: 'Review pure copper service',
+          text: 'View pure copper service',
           href: '/pure-copper-3d-printing/',
         },
       },
@@ -161,7 +161,7 @@ const metadata = {
           'For thermal hardware with clamp loads, threads, pressure boundaries, thin walls, or strength after heat treatment.',
         icon: 'tabler:atom',
         callToAction: {
-          text: 'Review CuCrZr service',
+          text: 'View CuCrZr service',
           href: '/cucrzr-3d-printing/',
         },
       },
@@ -181,11 +181,11 @@ const metadata = {
   <CallToAction
     classes={{ container: sectionContainerClass }}
     title="Not sure which copper alloy fits the part?"
-    subtitle="Send the CAD package, quantity, operating conditions, and critical requirements so the material route can be reviewed as needed."
+    subtitle="Send the CAD package, quantity, operating conditions, and critical requirements so we can recommend a suitable material and production route."
     actions={[
       {
         variant: 'primary',
-        text: 'Email drawing for review',
+        text: 'Email CAD and requirements',
         href: 'mailto:info@szcomo.com',
       },
     ]}

@@ -6,7 +6,7 @@ import { createBreadcrumbSchema, createCopperApplicationServiceSchema } from '~/
 const metadata = {
   title: 'CuCrZr 3D Printing Service | Copper Alloy LPBF Parts',
   description:
-    'CuCrZr 3D printing service review for cold plates, heat exchangers, induction coils, tooling, pressure parts, heat treatment, machining, and inspection.',
+    'CuCrZr 3D printing service for cold plates, heat exchangers, induction coils, tooling, pressure parts, heat treatment, machining, and inspection.',
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
@@ -15,10 +15,10 @@ const metadata = {
     ]),
     createCopperApplicationServiceSchema({
       id: 'cucrzr-3d-printing',
-      name: 'CuCrZr 3D Printing Service Review',
-      serviceType: 'CuCrZr LPBF additive manufacturing project review',
+      name: 'CuCrZr 3D Printing Service',
+      serviceType: 'CuCrZr LPBF additive manufacturing',
       description:
-        'Project and RFQ review for CuCrZr parts balancing useful conductivity with strength, heat treatment, machining, and acceptance evidence.',
+        'Quotation and production coordination for CuCrZr parts balancing useful conductivity with strength, heat treatment, machining, and acceptance evidence.',
       url: '/cucrzr-3d-printing/',
       audienceType: 'Thermal, electrical, tooling, aerospace, semiconductor, R&D, and purchasing teams',
     }),
@@ -30,7 +30,7 @@ const metadata = {
   <ApplicationIntentPage
     eyebrow="CuCrZr copper alloy LPBF"
     title="CuCrZr 3D printing for conductive parts that also carry load"
-    intro="CuCrZr is reviewed when a copper AM part needs useful thermal or electrical conductivity together with stronger walls, ports, threads, fins, pressure boundaries, or clamp-loaded interfaces. Finished properties depend on the qualified build and heat-treatment route."
+    intro="CuCrZr is a strong candidate when a copper AM part needs useful thermal or electrical conductivity together with stronger walls, ports, threads, fins, pressure boundaries, or clamp-loaded interfaces. Finished properties depend on the qualified build and heat-treatment route."
     verdict="Use CuCrZr when mechanical stability is part of the thermal or electrical function. Do not select it by alloy name alone: define the material standard, heat-treatment state, conductivity or strength evidence, machining sequence, and acceptance tests required for the finished component."
     useCases={[
       {

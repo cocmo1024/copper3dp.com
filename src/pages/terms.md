@@ -6,7 +6,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Last updated_: July 13, 2026
 
-These terms apply to use of the COPPER 3DP website and to preliminary project discussions initiated through this site.
+These terms apply to the COPPER 3DP website and to preliminary project discussions initiated through it.
 
 ## Website Use
 
@@ -14,7 +14,7 @@ The information on this website is provided for general engineering and commerci
 
 ## RFQ Information
 
-Visitors may submit project notes, CAD files, or drawings through the secure RFQ form or by email. Any manufacturability comments, lead-time estimates, or quotation notes provided before a formal quote are preliminary and depend on final geometry, material availability, post-processing, inspection scope, and acceptance requirements.
+Visitors may submit project notes, CAD files, or drawings through the secure RFQ form or by email. Manufacturability comments, lead-time estimates, and pricing guidance provided before a formal quotation are preliminary. They depend on final geometry, material availability, post-processing, inspection scope, and acceptance requirements.
 
 ## Technical Content
 

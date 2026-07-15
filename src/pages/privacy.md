@@ -6,7 +6,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Last updated_: July 16, 2026
 
-This privacy policy explains the basic information COPPER 3DP may receive when visitors use this website or contact us about a project.
+This policy explains what information COPPER 3DP may receive when visitors use this website or contact us about a project, and how that information is handled.
 
 ## Information You Provide
 
@@ -14,7 +14,7 @@ When you use the secure RFQ form, email, or instant messaging, you may provide y
 
 ## How Information Is Used
 
-Project information is used to respond to inquiries, review manufacturability, prepare quotations, discuss post-processing, and clarify inspection requirements when needed.
+Project information is used to respond to inquiries, evaluate manufacturability, prepare quotations, discuss post-processing, and clarify inspection requirements.
 
 The secure RFQ form transmits the information to our business email and confirms success only after the mail service accepts the submission. A security challenge is used to reduce automated spam. Service providers used to host the website, perform the security check, and process email handle the submission only to provide those services.
 
@@ -24,7 +24,7 @@ CAD files, drawings, and project notes may contain confidential engineering info
 
 ## Cookies and Analytics
 
-The website may use basic analytics or server logs to understand website performance and visitor activity. These records help maintain the site and improve content.
+The website may use analytics and server logs to understand site performance and visitor activity. These records support site maintenance, content improvement, and advertising measurement.
 
 When analytics or advertising measurement is configured, the site may record page views, RFQ preparation actions, and a completed RFQ event only after the mail service successfully accepts the secure form. Advertising click or campaign parameters, such as Google Ads click IDs or UTM parameters, may be stored in the visitor's browser for up to 90 days and included with a submitted RFQ so the inquiry can be attributed to its source. These parameters do not replace the contact and project details you choose to provide.
 
@@ -32,7 +32,7 @@ When the secure RFQ form has been accepted and you have given the consent shown 
 
 ## Sharing
 
-Project information is not sold. It may be shared with internal engineering, manufacturing, quality, or commercial staff when needed to review or quote the inquiry.
+Project information is not sold. It may be shared with the engineering, manufacturing, quality, commercial, or service-provider personnel needed to evaluate and quote the inquiry.
 
 Project information and attached files are retained only as reasonably needed to review the request, prepare or support a quotation, maintain business records, and meet legal obligations. You may ask us to delete information that is no longer required, subject to applicable recordkeeping obligations.
 

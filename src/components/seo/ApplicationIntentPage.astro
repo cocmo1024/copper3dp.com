@@ -64,20 +64,20 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
           href={rfqHref}
         >
           <Icon name="tabler:file-upload" class="h-4 w-4" />
-          Start secure RFQ
+          Submit project RFQ
         </a>
         <a
           class="inline-flex items-center gap-2 rounded-md border border-page-border px-5 py-3 text-sm font-semibold text-heading hover:bg-surface-raised"
           href="/rfq/"
         >
-          Review RFQ inputs
+          View quotation checklist
           <Icon name="tabler:arrow-right" class="h-4 w-4" />
         </a>
       </div>
     </div>
 
     <div class="mt-10 border-y border-page-border py-6">
-      <p class="text-sm font-semibold uppercase text-primary">Short answer</p>
+      <p class="text-sm font-semibold text-primary">Short answer</p>
       <p class="mt-2 max-w-4xl text-lg leading-8 text-default">{verdict}</p>
     </div>
   </header>
@@ -87,7 +87,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
       <div class="max-w-3xl">
         <p class="text-sm font-semibold text-primary">Application intent</p>
         <h2 id="application-use-cases" class="mt-2 font-heading text-3xl font-bold text-heading">
-          Parts and problems this page covers
+          Parts and engineering problems covered
         </h2>
       </div>
       <div class="mt-8 grid border-t border-page-border md:grid-cols-2">
@@ -113,7 +113,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
       </div>
       <div class="mt-8 grid gap-10 md:grid-cols-2">
         <div>
-          <h3 class="font-heading text-xl font-semibold text-heading">Copper AM is worth reviewing when</h3>
+          <h3 class="font-heading text-xl font-semibold text-heading">Copper AM is a strong candidate when</h3>
           <ul class="mt-4 space-y-3 text-muted">
             {
               additiveFit.map((item) => (
@@ -128,7 +128,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
           </ul>
         </div>
         <div>
-          <h3 class="font-heading text-xl font-semibold text-heading">Keep a conventional route when</h3>
+          <h3 class="font-heading text-xl font-semibold text-heading">A conventional route is usually better when</h3>
           <ul class="mt-4 space-y-3 text-muted">
             {
               conventionalFit.map((item) => (
@@ -151,7 +151,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
       <div class="max-w-3xl">
         <p class="text-sm font-semibold text-primary">Engineering inputs</p>
         <h2 id="requirements-table" class="mt-2 font-heading text-3xl font-bold text-heading">
-          Requirements that change feasibility and price
+          Inputs that affect feasibility, cost, and lead time
         </h2>
       </div>
       <div class="mt-8 overflow-x-auto border-y border-page-border">
@@ -184,7 +184,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
       <div class="max-w-3xl">
         <p class="text-sm font-semibold text-primary">Risk control</p>
         <h2 id="application-risks" class="mt-2 font-heading text-3xl font-bold text-heading">
-          Failure modes to resolve before quotation
+          Risks to resolve before quotation
         </h2>
       </div>
       <div class="mt-8 grid gap-x-10 gap-y-7 md:grid-cols-2">
@@ -206,10 +206,12 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
     <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
         <p class="text-sm font-semibold text-primary">Quotation</p>
-        <h2 id="application-rfq" class="mt-2 font-heading text-3xl font-bold text-heading">Send a reviewable RFQ</h2>
+        <h2 id="application-rfq" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Send enough detail for a useful quotation
+        </h2>
         <p class="mt-4 leading-7 text-muted">
-          A STEP file starts the geometry review. The operating and acceptance requirements prevent the quote from being
-          based on assumptions that later become rework.
+          A STEP file starts the geometry review. Operating conditions and acceptance criteria keep the quotation
+          grounded in the finished part rather than unverified assumptions.
         </p>
       </div>
       <ul class="grid gap-x-8 gap-y-3 sm:grid-cols-2">
@@ -229,7 +231,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
 
   <section class="py-12 sm:py-14" aria-labelledby="related-engineering">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <h2 id="related-engineering" class="font-heading text-2xl font-bold text-heading">Related engineering pages</h2>
+      <h2 id="related-engineering" class="font-heading text-2xl font-bold text-heading">Related engineering guides</h2>
       <ul class="mt-5 border-t border-page-border">
         {
           related.map((link) => (
@@ -257,7 +259,7 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
               <h2 class="font-heading text-xl font-bold text-heading">Technical references</h2>
               <p class="mt-2 text-sm leading-6 text-muted">
                 External references are provided for process and application context. Project acceptance values must
-                still be defined from the drawing and operating requirement.
+                still be defined from the drawing and operating conditions.
               </p>
               <ul class="mt-4 space-y-2 text-sm">
                 {references.map((link) => (
@@ -286,12 +288,12 @@ const rfqHref = `/rfq/?project=${encodeURIComponent(emailSubject)}#rfq-form`;
       <div class="max-w-2xl">
         <p class="text-sm font-semibold text-primary">Start with the part</p>
         <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
-          Send the drawing and the requirements that matter.
+          Send the drawing and the requirements that matter
         </h2>
       </div>
       <a
         class="inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
-        href={rfqHref}><Icon name="tabler:file-upload" class="h-4 w-4" />Submit project for review</a
+        href={rfqHref}><Icon name="tabler:file-upload" class="h-4 w-4" />Submit project RFQ</a
       >
     </div>
   </section>

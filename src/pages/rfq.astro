@@ -37,7 +37,7 @@ const rfqFaqs = [
   {
     title: 'Will every RFQ receive the same response?',
     description:
-      'No. If the drawing and quantity are clear, the reply may be a basic quote. If key requirements are missing, we ask clarification questions first.',
+      'No. If the drawing and quantity are clear, the reply may be a straightforward quotation. If key requirements are missing, we ask focused clarification questions first.',
   },
   {
     title: 'Can I send an early concept?',
@@ -73,12 +73,12 @@ const rfqShowcases = [
       src: '~/assets/images/copper/rfq-review-workspace.webp',
       alt: 'Copper AM RFQ review workspace',
     },
-    title: 'How we handle different RFQs',
-    description: 'The response depends on the part and the information provided.',
+    title: 'How we handle different quotation requests',
+    description: 'The response depends on part complexity and the information available.',
     points: [
       {
-        title: 'Simple drawing quote',
-        description: 'If geometry and quantity are clear, we can provide a basic quote with normal assumptions.',
+        title: 'Straightforward quotation',
+        description: 'If geometry and quantity are clear, we can quote against a concise set of stated assumptions.',
       },
       {
         title: 'Clarification needed',
@@ -86,7 +86,7 @@ const rfqShowcases = [
           'If material, tolerance, pressure, current, thermal load, or inspection needs are unclear, we ask focused questions before quoting.',
       },
       {
-        title: 'Complex project review',
+        title: 'Complex engineering review',
         description:
           'For demanding parts, we discuss process route, post-processing, inspection, and lead-time drivers as needed.',
       },
@@ -98,7 +98,7 @@ const rfqShowcases = [
       src: '~/assets/images/copper/high-current-busbars.webp',
       alt: 'Copper AM RFQ review inputs',
     },
-    title: 'Information that helps quotation',
+    title: 'Information that supports an accurate quotation',
     description: 'Do not overprepare if the project is simple; send what you have and note what is critical.',
     points: [
       {
@@ -166,15 +166,15 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="RFQ inputs"
-    title="Send enough information for a practical copper 3D printing quote"
-    subtitle="A simple drawing and quantity can be enough for a first quote. For complex thermal, electrical, RF, vacuum, or fluid parts, include the requirements that affect material, finishing, and acceptance."
+    title="What to send for a useful copper AM quotation"
+    subtitle="A drawing and quantity can be enough for an initial quotation. For complex thermal, electrical, RF, vacuum, or fluid parts, include the requirements that affect material, finishing, inspection, and acceptance."
     callToAction={{
       text: 'Submit secure RFQ',
       href: '#rfq-form',
       icon: 'tabler:file-upload',
     }}
     callToAction2={{
-      text: 'WhatsApp project review',
+      text: 'Discuss on WhatsApp',
       href: whatsappHref,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -188,11 +188,11 @@ const metadata = {
 
   <section class="relative not-prose py-10 md:py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="rounded-md border border-page-border bg-surface p-6 md:p-8">
+      <div class="rounded-md border border-page-border bg-surface p-6 shadow-panel md:p-8">
         <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-wide text-primary">Email format</p>
-            <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Optional email template</h2>
+            <p class="text-sm font-semibold text-primary">Email option</p>
+            <h2 class="mt-2 text-2xl font-bold text-heading">Optional email template</h2>
             <p class="mt-3 max-w-3xl text-muted">
               Copy this into your own email if useful. Send the drawing and what you know; leave unknown fields blank.
             </p>
@@ -207,7 +207,7 @@ const metadata = {
 
         <pre
           id="rfq-email-template"
-          class="mt-6 overflow-x-auto whitespace-pre-wrap rounded-md border border-page-border bg-[#050814] p-5 text-sm leading-6 text-[#f7f8f4]">{rfqTemplate}</pre>
+          class="mt-6 overflow-x-auto whitespace-pre-wrap rounded-md border border-page-border bg-[#070a10] p-5 text-sm leading-6 text-[#f6f7f4]">{rfqTemplate}</pre>
 
         <button
           type="button"
@@ -222,7 +222,7 @@ const metadata = {
   </section>
 
   <SplitShowcase
-    title="RFQ review flow"
+    title="How quotation works"
     tagline="Practical inputs"
     subtitle="Send the drawing first. Add the requirements that affect quotation and acceptance."
     items={rfqShowcases}
@@ -230,8 +230,8 @@ const metadata = {
   />
 
   <Features3
-    title="Application RFQ paths"
-    subtitle="Use the application page when the project already fits a clear copper AM part family."
+    title="Application-specific quotation guides"
+    subtitle="Use the relevant application page when the project fits a defined copper AM part family."
     columns={3}
     classes={{ container: sectionContainerClass }}
     items={[
@@ -241,7 +241,7 @@ const metadata = {
           'Best for microchannels, manifolds, pressure data, leak targets, CT inspection, sealing lands, and liquid cooling requirements.',
         icon: 'tabler:droplet',
         callToAction: {
-          text: 'Open cold plate RFQ page',
+          text: 'Open cold plate guide',
           href: '/copper-cold-plates/',
         },
       },
@@ -251,7 +251,7 @@ const metadata = {
           'Best for fin geometry, interface flatness, contact resistance, airflow, thermal testing, and route comparison.',
         icon: 'tabler:temperature',
         callToAction: {
-          text: 'Open heat sink RFQ page',
+          text: 'Open heat sink guide',
           href: '/copper-heat-sinks/',
         },
       },
@@ -261,7 +261,7 @@ const metadata = {
           'Best when pure copper, CuCrZr, CuCr1Zr, conductivity, strength, or heat treatment controls the quote.',
         icon: 'tabler:atom',
         callToAction: {
-          text: 'Review material routes',
+          text: 'Compare material routes',
           href: '/materials/',
         },
       },
@@ -271,7 +271,7 @@ const metadata = {
           'Use this before quoting when equipment envelope, materials, machining, CT, leak testing, or documentation controls the project.',
         icon: 'tabler:settings',
         callToAction: {
-          text: 'Review capabilities',
+          text: 'View capabilities',
           href: '/capabilities/',
         },
       },
@@ -279,7 +279,7 @@ const metadata = {
   />
 
   <FAQs
-    title="RFQ FAQs"
+    title="Quotation FAQs"
     subtitle="These questions usually determine whether a copper AM quote can move quickly."
     columns={1}
     items={rfqFaqs}
@@ -333,7 +333,7 @@ const metadata = {
         icon: 'tabler:mail',
       },
       {
-        text: 'WhatsApp project review',
+        text: 'Discuss on WhatsApp',
         href: whatsappHref,
         target: '_blank',
         rel: 'noopener noreferrer',

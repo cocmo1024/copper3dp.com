@@ -72,7 +72,7 @@ const coldPlateShowcases = [
 const metadata = {
   title: '3D Printed Copper Cold Plate Service | Custom RFQ',
   description:
-    'Custom 3D printed copper cold plate RFQ review for microchannels, integrated manifolds, pressure and leak requirements, CT, machining, cleaning, and sealing interfaces.',
+    'Custom 3D printed copper cold plate service for microchannels, integrated manifolds, pressure and leak requirements, CT inspection, machining, cleaning, and sealing interfaces.',
   openGraph: {
     images: [
       {
@@ -91,10 +91,10 @@ const metadata = {
     ]),
     createCopperApplicationServiceSchema({
       id: 'copper-cold-plates',
-      name: '3D Printed Copper Cold Plate RFQ Review',
+      name: '3D Printed Copper Cold Plate Service',
       serviceType: 'LPBF copper cold plate additive manufacturing',
       description:
-        'RFQ review for custom copper cold plates with internal channels, manifolds, pressure or leak requirements, CT inspection, machining, and sealing interfaces.',
+        'Quotation and production coordination for custom copper cold plates with internal channels, manifolds, pressure or leak requirements, CT inspection, machining, and sealing interfaces.',
       url: '/copper-cold-plates/',
       audienceType: 'Thermal, power electronics, semiconductor, aerospace, and purchasing teams',
     }),
@@ -124,11 +124,11 @@ const metadata = {
   <Hero
     tagline="Copper cold plates"
     title="3D printed copper cold plate service for complex liquid cooling"
-    subtitle="Send CAD, drawings, quantity, material preference if known, pressure or leak targets, thermal requirements, and inspection needs. We review the information provided and quote or ask focused questions."
+    subtitle="Send CAD, quantity, material preference if known, pressure or leak targets, thermal requirements, and inspection needs. We will provide a quotation or ask focused clarification questions."
     actions={[
       {
         variant: 'primary',
-        text: 'Start cold plate RFQ',
+        text: 'Submit cold plate RFQ',
         href: '/rfq/?project=Copper%20cold%20plate#rfq-form',
         icon: 'tabler:file-upload',
       },
@@ -150,7 +150,7 @@ const metadata = {
   />
 
   <Features2
-    title="When copper AM is worth reviewing for cold plate design"
+    title="When copper AM creates value in a cold plate"
     subtitle="A printed cold plate is strongest when the internal flow path, packaging, or assembly risk cannot be handled cleanly by conventional routing."
     columns={3}
     items={[
@@ -177,7 +177,7 @@ const metadata = {
 
   <Features2
     title="Confirm the manufacturing and acceptance route"
-    subtitle="Review the green-laser LPBF envelope, material options, finishing, pressure-boundary evidence, and inspection scope before issuing the RFQ."
+    subtitle="Confirm the green-laser LPBF envelope, material options, finishing, pressure-boundary evidence, and inspection scope before issuing the RFQ."
     columns={2}
     classes={{ container: sectionContainerClass }}
     items={[
@@ -187,7 +187,7 @@ const metadata = {
           'Representative build envelope, pure copper and CuCrZr routes, machining, cleaning, CT, pressure, and leak-test scope.',
         icon: 'tabler:settings',
         callToAction: {
-          text: 'Review capabilities',
+          text: 'View capabilities',
           href: '/capabilities/',
         },
       },
@@ -197,7 +197,7 @@ const metadata = {
           'CAD, thermal load, coolant, flow, pressure drop, working and proof pressure, leak target, interfaces, quantity, and documentation.',
         icon: 'tabler:clipboard-list',
         callToAction: {
-          text: 'Prepare RFQ inputs',
+          text: 'View quotation checklist',
           href: '/rfq/',
         },
       },
@@ -208,8 +208,8 @@ const metadata = {
 
   <Features2
     id="review-points"
-    title="Review points before quoting"
-    subtitle="These are the practical constraints that usually decide whether the quote is simple, needs clarification, or requires a higher-control route."
+    title="Decision points before quotation"
+    subtitle="These constraints usually determine whether the quotation is straightforward, needs clarification, or requires a higher-control route."
     columns={3}
     items={[
       {
@@ -252,8 +252,8 @@ const metadata = {
   />
 
   <Features2
-    title="Related engineering notes"
-    subtitle="These articles help define a clearer cold plate RFQ without adding unnecessary requirements."
+    title="Related engineering guides"
+    subtitle="Use these guides to define a clear cold plate RFQ without adding unnecessary requirements."
     columns={3}
     items={[
       {
@@ -298,17 +298,17 @@ const metadata = {
 
   <CallToAction
     classes={{ container: sectionContainerClass }}
-    title="Send drawings, quantity, and cold plate requirements."
-    subtitle="Email the CAD package and the requirements that matter. We will review the information and respond with a quote or clarification questions."
+    title="Send drawings, quantity, and cold plate requirements"
+    subtitle="Submit the CAD package and critical requirements. We will respond with a quotation or focused clarification questions."
     actions={[
       {
         variant: 'primary',
-        text: 'Start cold plate RFQ',
+        text: 'Submit cold plate RFQ',
         href: '/rfq/?project=Copper%20cold%20plate#rfq-form',
         icon: 'tabler:file-upload',
       },
       {
-        text: 'WhatsApp project review',
+        text: 'Discuss on WhatsApp',
         href: whatsappHref,
         target: '_blank',
         rel: 'noopener noreferrer',

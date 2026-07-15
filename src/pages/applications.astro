@@ -15,7 +15,7 @@ const applicationPaths = [
       'For liquid cooling plates, microchannels, integrated manifolds, pressure boundaries, CT inspection, and leak testing.',
     icon: 'tabler:droplet',
     href: '/copper-cold-plates/',
-    cta: 'Open cold plate RFQ',
+    cta: 'Open cold plate guide',
   },
   {
     title: 'Custom copper heat sinks',
@@ -23,7 +23,7 @@ const applicationPaths = [
       'For copper heatsinks, dense fins, interface flatness, airflow paths, contact resistance, and thermal validation.',
     icon: 'tabler:temperature',
     href: '/copper-heat-sinks/',
-    cta: 'Open heat sink RFQ',
+    cta: 'Open heat sink guide',
   },
   {
     title: 'Copper heat exchangers',
@@ -31,7 +31,7 @@ const applicationPaths = [
       'For compact heat exchanger cores where channel cleaning, pressure drop, walls, and finishing decide feasibility.',
     icon: 'tabler:arrows-exchange',
     href: '/copper-heat-exchangers/',
-    cta: 'Open heat exchanger RFQ',
+    cta: 'Open heat exchanger guide',
   },
   {
     title: 'Busbars and induction coils',
@@ -39,7 +39,7 @@ const applicationPaths = [
       'For high-current conductors, integrated cooling, contact faces, duty cycle, insulation, plating, and conductivity tests.',
     icon: 'tabler:bolt',
     href: '/copper-induction-coils/',
-    cta: 'Review induction coil RFQs',
+    cta: 'Open induction coil guide',
   },
   {
     title: 'Copper busbars and conductors',
@@ -47,7 +47,7 @@ const applicationPaths = [
       'For compact three-dimensional current routing, liquid cooling, machined contact pads, plating, and conductivity evidence.',
     icon: 'tabler:plug-connected',
     href: '/copper-busbars/',
-    cta: 'Review copper busbar RFQs',
+    cta: 'Open busbar guide',
   },
   {
     title: 'RF and waveguide copper parts',
@@ -55,7 +55,7 @@ const applicationPaths = [
       'For waveguide bodies, cavities, RF surfaces, vacuum sealing, polishing, plating, cleaning, and inspection planning.',
     icon: 'tabler:antenna',
     href: '/copper-rf-waveguides/',
-    cta: 'Review RF component RFQs',
+    cta: 'Open RF component guide',
   },
   {
     title: 'Semiconductor equipment hardware',
@@ -63,7 +63,7 @@ const applicationPaths = [
       'For wafer equipment cooling blocks, clean internal passages, precision copper interfaces, sealing, and leak testing.',
     icon: 'tabler:cpu',
     href: '/copper-semiconductor-cooling/',
-    cta: 'Review semiconductor RFQs',
+    cta: 'Open semiconductor guide',
   },
   {
     title: 'Mold inserts and conformal cooling',
@@ -71,7 +71,7 @@ const applicationPaths = [
       'For CuCrZr tooling inserts, hot-spot control, conformal channels, cavity finishing, pressure testing, and validation.',
     icon: 'tabler:hexagons',
     href: '/copper-conformal-cooling-inserts/',
-    cta: 'Review tooling insert RFQs',
+    cta: 'Open tooling insert guide',
   },
   {
     title: 'AI server and power electronics cooling',
@@ -107,7 +107,7 @@ const applicationShowcases = [
       {
         title: 'Buyer next step',
         description:
-          'Send CAD, heat load, coolant or airflow, pressure limits, quantity, and inspection requirements for RFQ review.',
+          'Send CAD, heat load, coolant or airflow, pressure limits, quantity, and inspection requirements for a quotation.',
         callToAction: {
           text: 'Prepare RFQ inputs',
           href: '/rfq/',
@@ -121,7 +121,7 @@ const applicationShowcases = [
       src: '~/assets/images/copper/rf-waveguide-copper-parts.webp',
       alt: 'Copper RF waveguide and semiconductor applications',
     },
-    title: 'RF, semiconductor, and electrical pages capture specialized intent',
+    title: 'Specialized parts need application-specific acceptance criteria',
     description:
       'These searches are lower volume than broad copper 3D printing terms, but the buyer usually has a real drawing, qualification need, or purchasing path.',
     points: [
@@ -181,8 +181,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="Applications"
-    title="Copper 3D printing applications for engineering RFQs"
-    subtitle="Use this application map to decide where copper additive manufacturing may create real value: thermal management, current delivery, RF and vacuum hardware, semiconductor equipment, tooling inserts, and compact fluid routing."
+    title="Copper 3D printing applications for functional parts"
+    subtitle="Use this application map to identify where copper additive manufacturing may create measurable value: thermal management, current delivery, RF and vacuum hardware, semiconductor equipment, tooling inserts, and compact fluid routing."
     callToAction={{
       text: 'Prepare RFQ inputs',
       href: '/rfq/',
@@ -194,8 +194,8 @@ const metadata = {
   />
 
   <Features2
-    title="High-value copper AM application paths"
-    subtitle="Choose the application closest to the part so the geometry, operating limits, finishing, inspection, and RFQ inputs can be reviewed together."
+    title="High-value copper AM applications"
+    subtitle="Choose the application closest to the part so geometry, operating limits, finishing, inspection, and quotation inputs can be considered together."
     tagline="Application map"
     columns={4}
     classes={{ container: sectionContainerClass }}
@@ -220,27 +220,25 @@ const metadata = {
   <section class:list={['relative not-prose', sectionContainerClass]} aria-labelledby="application-rfq-fit">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="grid gap-6 md:grid-cols-3">
-        <div class="rounded-md border border-page-border bg-surface p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-primary">Good project fit</p>
-          <h2 id="application-rfq-fit" class="mt-2 text-2xl font-bold tracking-tight text-heading">
-            Geometry-driven copper parts
-          </h2>
+        <div class="rounded-md border border-page-border bg-surface p-6 shadow-panel">
+          <p class="text-sm font-semibold text-primary">Strong project fit</p>
+          <h2 id="application-rfq-fit" class="mt-2 text-2xl font-bold text-heading">Geometry-driven copper parts</h2>
           <p class="mt-4 text-muted">
             Internal channels, manifolds, thin thermal features, RF surfaces, sealing lands, or compact current paths
-            can justify copper AM review.
+            can justify an additive route.
           </p>
         </div>
-        <div class="rounded-md border border-page-border bg-surface p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-primary">Needs evidence</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Validation-sensitive parts</h2>
+        <div class="rounded-md border border-page-border bg-surface p-6 shadow-panel">
+          <p class="text-sm font-semibold text-primary">Evidence required</p>
+          <h2 class="mt-2 text-2xl font-bold text-heading">Validation-sensitive parts</h2>
           <p class="mt-4 text-muted">
             CT inspection, leak testing, pressure proof, conductivity tests, flatness, roughness, cleaning, and
             post-machining requirements should be defined before quoting.
           </p>
         </div>
-        <div class="rounded-md border border-page-border bg-surface p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-muted">Usually weak fit</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Commodity copper requests</h2>
+        <div class="rounded-md border border-page-border bg-surface p-6 shadow-panel">
+          <p class="text-sm font-semibold text-muted">Usually a weak fit</p>
+          <h2 class="mt-2 text-2xl font-bold text-heading">Commodity copper requests</h2>
           <p class="mt-4 text-muted">
             Plain copper plates, bars, wire, tubes, powder supply, hobby printer requests, and simple fabricated copper
             parts are usually better handled through conventional routes.
@@ -252,8 +250,8 @@ const metadata = {
 
   <CallToAction
     classes={{ container: sectionContainerClass }}
-    title="Send the application, CAD, and operating requirement."
-    subtitle="For a practical copper AM quote, include drawings, quantity, material preference if known, heat load or current, pressure or leak targets, critical interfaces, and inspection needs."
+    title="Send the CAD and operating requirements"
+    subtitle="For a useful copper AM quotation, include drawings, quantity, material preference if known, heat load or current, pressure or leak targets, critical interfaces, and inspection needs."
     actions={[
       {
         variant: 'primary',
@@ -261,7 +259,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
         icon: 'tabler:mail',
       },
-      { text: 'Review RFQ checklist', href: '/rfq/' },
+      { text: 'View quotation checklist', href: '/rfq/' },
     ]}
   />
 </Layout>

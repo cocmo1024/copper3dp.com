@@ -10,7 +10,7 @@ metadata:
   title:
     default: COPPER 3DP | Copper 3D Printing Services
     template: '%s | COPPER 3DP'
-  description: 'Industrial LPBF copper 3D printing services for custom cold plates, heat sinks, busbars, induction coils, RF waveguide parts, and high-precision copper components.'
+  description: 'Copper additive manufacturing for custom cold plates, heat exchangers, busbars, induction coils, RF hardware, tooling inserts, and other function-critical copper components.'
   robots:
     index: true
     follow: true

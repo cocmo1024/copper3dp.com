@@ -9,13 +9,13 @@ const labelClass = 'block text-sm font-semibold text-heading';
 <section id="rfq-form" class="scroll-mt-24 border-y border-page-border bg-surface py-12 md:py-16">
   <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
     <div>
-      <p class="text-sm font-semibold uppercase tracking-wide text-primary">Secure RFQ submission</p>
+      <p class="text-sm font-semibold text-primary">Secure RFQ submission</p>
       <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
-        Send a reviewable project, not just a contact click
+        Submit the files needed for an engineering review
       </h2>
       <p class="mt-4 leading-7 text-muted">
-        The site confirms success only after the secure mail service accepts the request. Include enough detail to
-        screen process fit, material route, and quotation scope. Unknown items can be marked as not decided.
+        Include enough detail to evaluate process fit, material options, and quotation scope. Unknown items can be
+        marked as not decided. A confirmation appears only after the secure submission service accepts the request.
       </p>
       <ul class="mt-6 grid gap-3 text-sm leading-6 text-muted">
         <li><strong class="text-heading">Useful files:</strong> STEP/STP, X_T/X_B, IGES, STL, or PDF drawings.</li>
@@ -31,7 +31,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
       </p>
     </div>
 
-    <div class="rounded-lg border border-page-border bg-page p-5 shadow-sm sm:p-7">
+    <div class="rounded-md border border-page-border bg-page p-5 shadow-panel sm:p-7">
       <form
         action="/api/rfq"
         method="post"
@@ -94,7 +94,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
               type="text"
               inputmode="text"
               maxlength="80"
-              placeholder="Example: 2 prototypes, then 50/year"
+              placeholder="Example: 2 prototypes; 50/year"
               required
             />
           </label>
@@ -177,8 +177,8 @@ const labelClass = 'block text-sm font-semibold text-heading';
             required
           />
           <span>
-            I confirm that this information may be used to review and respond to my RFQ and, where permitted, to measure
-            advertising conversions under the
+            I confirm that this information may be used to evaluate and respond to my RFQ and, where permitted, to
+            measure advertising conversions under the
             <a
               class="font-semibold text-link hover:underline"
               href="/privacy/"
@@ -204,10 +204,8 @@ const labelClass = 'block text-sm font-semibold text-heading';
       </form>
 
       <div class="hidden rounded-md border border-emerald-500/40 bg-emerald-500/10 p-5" role="status" data-rfq-success>
-        <p class="text-sm font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">RFQ accepted</p>
-        <h3 class="mt-2 font-heading text-2xl font-bold text-heading">
-          Your project was accepted for engineering review.
-        </h3>
+        <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400">RFQ submitted</p>
+        <h3 class="mt-2 font-heading text-2xl font-bold text-heading">Your project is ready for engineering review</h3>
         <p class="mt-3 leading-7 text-muted">
           A reference is shown below. Keep it for follow-up, and check your inbox for replies from info@szcomo.com.
         </p>

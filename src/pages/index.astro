@@ -22,7 +22,7 @@ const metadata = {
   title: 'Copper 3D Printing Service | Pure Copper & CuCrZr Parts',
   ignoreTitleTemplate: true,
   description:
-    'Copper 3D printing service for pure copper, CuCrZr, and CuCr1Zr parts with LPBF, machining, finishing, and inspection coordination. Send CAD for an international RFQ review.',
+    'Copper 3D printing for pure copper, CuCrZr, and CuCr1Zr parts, with LPBF production, machining, finishing, and inspection coordination. Email CAD for a quotation.',
   openGraph: {
     images: [
       {
@@ -38,7 +38,7 @@ const metadata = {
     createItemListSchema('Copper additive manufacturing service scope', [
       {
         name: 'Pure copper 3D printing',
-        description: 'Green-laser LPBF project review for high-conductivity thermal and electrical parts.',
+        description: 'Green-laser LPBF production for high-conductivity thermal and electrical parts.',
         url: '/pure-copper-3d-printing/',
       },
       {
@@ -53,7 +53,7 @@ const metadata = {
       },
       {
         name: 'Copper AM quotation',
-        description: 'CAD, drawing, quantity, operating requirements, finishing, inspection, and delivery review.',
+        description: 'CAD, quantity, operating requirements, finishing, inspection, and delivery inputs.',
         url: '/rfq/',
       },
     ]),
@@ -62,8 +62,8 @@ const metadata = {
 
 const coordinationScope = [
   {
-    title: 'AM route and supplier selection',
-    description: 'Match material, part size, geometry, and quantity to an appropriate qualified production route.',
+    title: 'Process and supplier selection',
+    description: 'Match material, part size, geometry, and quantity to qualified production resources.',
     icon: 'tabler:binary-tree',
   },
   {
@@ -78,7 +78,7 @@ const coordinationScope = [
   },
   {
     title: 'Commercial delivery',
-    description: 'Keep quotation scope, production status, export packaging, and delivery communication in one place.',
+    description: 'Keep quotation scope, production status, export packaging, and delivery communication coordinated.',
     icon: 'tabler:package-export',
   },
 ];
@@ -89,7 +89,7 @@ const materialPaths = [
     title: 'Commercially pure copper',
     href: '/pure-copper-3d-printing/',
     description:
-      'Reviewed when thermal or electrical conductivity is the dominant requirement and mechanical loads can be controlled.',
+      'Best suited to parts where thermal or electrical conductivity is the primary requirement and mechanical loads are controlled.',
     bestFor: 'Cold plates, heat exchangers, heat spreaders, induction coils, electrodes, and conductive hardware.',
   },
   {
@@ -97,7 +97,7 @@ const materialPaths = [
     title: 'CuCrZr and CuCr1Zr',
     href: '/cucrzr-3d-printing/',
     description:
-      'Reviewed when the part needs useful conductivity together with greater strength, clamp-load stability, or softening resistance.',
+      'Best suited to parts that need useful conductivity with greater strength, clamp-load stability, or softening resistance.',
     bestFor:
       'Pressure hardware, thermal structures, tooling inserts, threaded parts, and mechanically loaded components.',
   },
@@ -174,15 +174,15 @@ const quoteSteps = [
   },
   {
     number: '02',
-    title: 'Review the route',
+    title: 'Confirm the production route',
     description:
-      'We assess AM fit, material, build strategy, powder removal, machining, finishing, and inspection scope.',
+      'We assess AM fit, material, build strategy, powder removal, machining, finishing, and inspection requirements.',
   },
   {
     number: '03',
     title: 'Receive a scoped quotation',
     description:
-      'The quote identifies the proposed manufacturing route, included operations, evidence, price, and exclusions.',
+      'The quotation identifies the proposed production route, included operations, acceptance evidence, price, and exclusions.',
   },
   {
     number: '04',
@@ -199,14 +199,14 @@ const quoteSteps = [
       class="mx-auto grid min-h-[500px] max-w-5xl items-center gap-8 px-4 py-12 sm:min-h-[600px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] sm:px-6 sm:py-20"
     >
       <div class="max-w-[34rem]">
-        <p class="text-sm font-semibold text-primary">COPPER AM SERVICE | SUZHOU, CHINA</p>
+        <p class="text-sm font-semibold text-primary">Copper additive manufacturing | Suzhou, China</p>
         <h1 class="mt-4 font-heading text-4xl font-bold leading-[1.08] text-heading sm:text-5xl">
-          Copper 3D printing from CAD to finished part
+          Copper 3D printing, from CAD to finished hardware
         </h1>
         <p class="mt-6 max-w-xl text-lg leading-8 text-muted sm:text-xl">
-          An experienced industrial 3D printing service team backed by qualified Chinese manufacturing, machining,
-          finishing, and inspection resources. Email the part files; we will review the route and quote the complete
-          scope.
+          COPPER 3DP coordinates qualified copper AM production, machining, finishing, and inspection through an
+          established Chinese manufacturing network. Email the part files and critical requirements for a scoped
+          quotation.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button
@@ -229,7 +229,7 @@ const quoteSteps = [
           />
         </div>
         <p class="mt-5 text-sm leading-6 text-muted">
-          Operated by Suzhou Como Precision Materials Co., Ltd. | International project support
+          A service of Suzhou Como Precision Materials Co., Ltd. | International project support
         </p>
       </div>
 
@@ -256,15 +256,15 @@ const quoteSteps = [
       class="mx-auto grid max-w-5xl divide-y divide-page-border px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6"
     >
       <div class="py-6 sm:pr-8">
-        <p class="font-semibold text-heading">Copper AM focus</p>
-        <p class="mt-1 text-sm leading-6 text-muted">Pure copper, CuCrZr, CuCr1Zr, and special alloy review.</p>
+        <p class="font-semibold text-heading">Copper AM specialization</p>
+        <p class="mt-1 text-sm leading-6 text-muted">Pure copper, CuCrZr, CuCr1Zr, and selected copper alloys.</p>
       </div>
       <div class="py-6 sm:px-8">
-        <p class="font-semibold text-heading">One coordinated scope</p>
+        <p class="font-semibold text-heading">Coordinated production</p>
         <p class="mt-1 text-sm leading-6 text-muted">Printing, heat treatment, machining, finishing, and inspection.</p>
       </div>
       <div class="py-6 sm:pl-8">
-        <p class="font-semibold text-heading">Built around the requirement</p>
+        <p class="font-semibold text-heading">Requirements-led quotation</p>
         <p class="mt-1 text-sm leading-6 text-muted">
           Thermal, electrical, RF, pressure, vacuum, or mechanical acceptance.
         </p>
@@ -277,15 +277,16 @@ const quoteSteps = [
       <div>
         <p class="text-sm font-semibold text-primary">01 | Who we are</p>
         <h2 id="who-we-are" class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl">
-          A service team with a manufacturing network behind it
+          One project team, supported by a qualified manufacturing network
         </h2>
         <p class="mt-5 text-base leading-7 text-muted">
-          COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We combine engineering review with a
-          qualified Chinese supply network for metal AM and the downstream work needed to deliver a usable part.
+          COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We combine application engineering with a
+          qualified Chinese supply network for metal AM and the downstream operations needed to deliver finished
+          hardware.
         </p>
         <p class="mt-4 text-base leading-7 text-muted">
-          You work with one commercial and technical contact from initial feasibility through quotation, production,
-          inspection, and shipment.
+          One commercial and technical contact coordinates feasibility, quotation, production, inspection, and
+          international shipment.
         </p>
       </div>
 
@@ -309,12 +310,12 @@ const quoteSteps = [
         <div>
           <p class="text-sm font-semibold text-primary">02 | What we print</p>
           <h2 id="what-we-print" class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl">
-            Copper materials selected around the job
+            Choose the copper grade around the function
           </h2>
         </div>
         <p class="text-base leading-7 text-muted">
-          Material names are the start of the decision. Conductivity, strength, temperature, pressure, heat treatment,
-          machining, and evidence requirements determine the practical route.
+          Material designation is only the starting point. Conductivity, strength, temperature, pressure, heat
+          treatment, machining, and acceptance evidence determine the practical production route.
         </p>
       </div>
 
@@ -368,7 +369,7 @@ const quoteSteps = [
       <div class="order-1 lg:order-2">
         <p class="text-sm font-semibold text-primary">03 | How we print copper</p>
         <h2 id="how-we-print" class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl">
-          Qualified green-laser LPBF routes
+          Green-laser LPBF for copper and copper alloys
         </h2>
         <p class="mt-5 text-base leading-7 text-muted">
           Copper reflects much of the energy from conventional infrared systems and conducts heat away quickly. Green
@@ -381,7 +382,7 @@ const quoteSteps = [
             <dd class="leading-6 text-muted">Industrial green-laser LPBF processing for copper and copper alloys.</dd>
           </div>
           <div class="grid grid-cols-[8rem_1fr] gap-4 border-b border-page-border py-4">
-            <dt class="font-semibold text-heading">Build range</dt>
+            <dt class="font-semibold text-heading">Build envelope</dt>
             <dd class="leading-6 text-muted">
               Build envelope is matched to part size, geometry, material, and production requirements.
             </dd>
@@ -394,7 +395,7 @@ const quoteSteps = [
           </div>
         </dl>
         <a class="mt-7 inline-flex items-center gap-2 font-semibold text-link hover:underline" href="/capabilities/">
-          Review process and inspection capabilities
+          View process and inspection capabilities
           <Icon name="tabler:arrow-right" class="h-4 w-4" />
         </a>
       </div>
@@ -412,8 +413,8 @@ const quoteSteps = [
           Where copper and complex geometry create real value
         </h2>
         <p class="mt-5 text-base leading-7 text-muted">
-          These public industry references show established copper AM application logic. They are not presented as
-          COPPER 3DP customer deliveries. Your part still requires project-specific feasibility and acceptance review.
+          Public industry references illustrate established copper AM applications; they are not presented as COPPER 3DP
+          customer work. Every inquiry still requires part-specific feasibility and acceptance criteria.
         </p>
       </div>
 
@@ -481,7 +482,7 @@ const quoteSteps = [
             id="quote-and-lead-time"
             class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl"
           >
-            Start with the drawing, not a generic price
+            Pricing starts with the drawing
           </h2>
         </div>
         <p class="text-base leading-7 text-muted">
@@ -507,11 +508,11 @@ const quoteSteps = [
       >
         <div class="max-w-2xl">
           <h3 class="font-heading text-2xl font-bold text-heading">
-            Send the part and the requirement that matters most
+            Send the drawing and the requirements that matter most
           </h3>
           <p class="mt-3 text-base leading-7 text-muted">
-            A useful first inquiry can be short: CAD, quantity, material preference, operating condition, and target
-            date. We will identify the missing inputs before quoting.
+            A useful first inquiry can be concise: CAD, quantity, material preference, operating conditions, and target
+            date. We will identify any missing inputs before pricing.
           </p>
         </div>
         <div class="flex shrink-0 flex-col gap-3 sm:flex-row">

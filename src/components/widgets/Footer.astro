@@ -33,10 +33,10 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
   >
     <div class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,2fr)] lg:gap-14">
       <div class="max-w-sm">
-        <a class="inline-block text-lg font-bold tracking-tight text-heading" href={getHomePermalink()}>{SITE?.name}</a>
+        <a class="inline-block text-lg font-bold text-heading" href={getHomePermalink()}>{SITE?.name}</a>
         <p class="mt-4 text-sm leading-6 text-muted">
-          Copper additive manufacturing review for CAD-based RFQs. Send drawings, quantity, material, and project
-          requirements.
+          Copper additive manufacturing sourcing and production coordination for functional parts. Send CAD, quantity,
+          and critical requirements for a quotation.
         </p>
         <a
           class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-heading underline underline-offset-4 hover:text-link dark:hover:text-accent"
@@ -87,7 +87,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       </nav>
     </div>
     <div
-      class="mt-10 flex flex-col gap-4 border-t border-page-border pt-6 text-sm sm:flex-row sm:items-center sm:justify-between"
+      class="mt-10 flex flex-col gap-4 border-t border-page-border pt-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:text-sm"
     >
       <div class="text-muted">
         <Fragment set:html={footNote} />

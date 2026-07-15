@@ -24,7 +24,7 @@ const capabilityFaqs = [
   {
     title: 'How is a copper 3D printing project produced?',
     description:
-      'COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We coordinate the appropriate qualified manufacturing, finishing, and inspection route against the drawing and acceptance requirements. The quotation defines the proposed scope for the specific project.',
+      'COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We coordinate qualified manufacturing, finishing, and inspection resources against the drawing and acceptance requirements. Each quotation defines the proposed production scope for that project.',
   },
   {
     title: 'Are the listed equipment values guaranteed part specifications?',
@@ -34,7 +34,7 @@ const capabilityFaqs = [
   {
     title: 'Does COPPER 3DP own the equipment shown on this page?',
     description:
-      'No equipment ownership is represented by this page. The equipment image is illustrative. Como Precision reviews the project and coordinates a suitable qualified manufacturing route; the quotation identifies the proposed production, finishing, inspection, and responsibility scope for that project.',
+      'No equipment ownership is represented by this page. The equipment image is illustrative. Como Precision evaluates the project and coordinates suitable qualified manufacturing resources; the quotation identifies the proposed production, finishing, inspection, and responsibility scope.',
   },
   {
     title: 'Which copper materials can be reviewed?',
@@ -55,7 +55,7 @@ const processShowcases = [
       src: '~/assets/images/copper/rfq-review-workspace.webp',
       alt: 'Copper 3D printing drawing and RFQ review',
     },
-    title: '1. Drawing and requirement review',
+    title: '1. Drawing and requirements review',
     description:
       'The first decision is whether additive manufacturing creates enough value to justify the route. Simple copper geometry may be better machined, skived, fabricated, or brazed.',
     points: [
@@ -65,7 +65,7 @@ const processShowcases = [
           'STEP, X_T, native CAD, and drawings for critical dimensions, datum faces, ports, sealing lands, contact pads, and machining stock.',
       },
       {
-        title: 'Operating requirement',
+        title: 'Operating conditions',
         description:
           'Heat load, coolant, pressure, current, RF band, vacuum environment, service temperature, and cleanliness requirements when applicable.',
       },
@@ -135,7 +135,7 @@ const processShowcases = [
 const metadata = {
   title: 'Copper 3D Printing Capabilities | Green-Laser LPBF',
   description:
-    'Copper 3D printing capability references for pure copper and CuCrZr parts: 532 nm green-laser LPBF, builds up to the 350 mm class, finishing, machining, CT, leak testing, and RFQ review.',
+    'Copper 3D printing capabilities for pure copper and CuCrZr parts, including green-laser LPBF, machining, finishing, CT inspection, leak testing, and quotation support.',
   openGraph: {
     images: [
       {
@@ -203,25 +203,23 @@ const metadata = {
     }}
   >
     <Fragment slot="title"
-      >Green-laser LPBF copper parts from CAD to <span class="text-accent">inspected hardware</span></Fragment
+      >Copper LPBF capability, from CAD to <span class="text-accent">inspected hardware</span></Fragment
     >
     <Fragment slot="subtitle">
-      COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We coordinate qualified copper additive
-      manufacturing, finishing, and inspection routes for thermal, electrical, RF, vacuum, tooling, and semiconductor
-      components.
+      We coordinate qualified copper additive manufacturing, heat treatment, machining, finishing, and inspection for
+      thermal, electrical, RF, vacuum, tooling, and semiconductor components.
     </Fragment>
     <Fragment slot="content">
       <p class="mt-4 text-sm text-muted">
-        COPPER 3DP does not present the illustrated machine as company-owned equipment. The values below are public
-        market capability references used for initial screening. Your quotation confirms the actual supplier, process
-        route, and acceptance scope.
+        Equipment imagery and numerical values are market references, not claims of ownership. The quotation identifies
+        the selected production resources, process sequence, and acceptance plan.
       </p>
     </Fragment>
   </Hero>
 
   <Stats
-    title="Published green-laser copper LPBF range"
-    subtitle="Reference range drawn from Addireen M160G and M350G literature. It describes what qualified market platforms can achieve, not equipment owned by COPPER 3DP."
+    title="Published green-laser copper LPBF platform range"
+    subtitle="Reference values from published industrial platform literature indicate a practical screening range. Final capability depends on the selected supplier, material, geometry, and acceptance requirements."
     tagline="Market capability reference"
     classes={{ container: sectionContainerClass }}
     stats={[
@@ -236,7 +234,7 @@ const metadata = {
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="border-y border-page-border py-8">
         <h2 id="published-capability-reference" class="font-heading text-2xl font-bold text-heading md:text-3xl">
-          What the published numbers can and cannot establish
+          How to interpret published platform values
         </h2>
         <div class="mt-5 grid gap-6 text-sm leading-7 text-muted md:grid-cols-2">
           <p>
@@ -245,9 +243,9 @@ const metadata = {
             99.8%, electrical conductivity around 101% IACS, and thermal conductivity around 390 W/(m K).
           </p>
           <p>
-            These are platform and material reference results, not promises for every geometry. The same literature
-            shows application examples including 0.5 mm heat-transfer fins and 2.0 mm microchannels with 1.0 mm walls;
-            those examples must not be treated as universal design minima without a project-specific build review.
+            These are platform and material reference results, not guarantees for every geometry. The same literature
+            shows application examples including 0.5 mm heat-transfer fins and 2.0 mm microchannels with 1.0 mm walls.
+            Those examples are not universal design minima and still require part-specific evaluation.
           </p>
         </div>
         <p class="mt-5 text-sm leading-7 text-muted">
@@ -271,8 +269,8 @@ const metadata = {
   </section>
 
   <Features2
-    title="What can be included in a copper AM quotation"
-    subtitle="The final scope is built around the accepted component, not only the printed blank."
+    title="What a copper AM quotation can include"
+    subtitle="The production scope is built around the finished component, not only the as-printed blank."
     columns={4}
     classes={{ container: sectionContainerClass }}
     items={[
@@ -304,8 +302,8 @@ const metadata = {
   />
 
   <SplitShowcase
-    title="One RFQ path from geometry to acceptance"
-    subtitle="The quotation route stays practical: define what the part must do, then select only the manufacturing and evidence steps needed to accept it."
+    title="A practical route from geometry to acceptance"
+    subtitle="Define what the part must do, then select the manufacturing and evidence steps needed to produce and accept it."
     items={processShowcases}
     classes={{ container: sectionContainerClass }}
   />
@@ -320,8 +318,8 @@ const metadata = {
 
   <CallToAction
     classes={{ container: sectionContainerClass }}
-    title="Send the drawing before locking the manufacturing route."
-    subtitle="Include quantity, material preference, critical dimensions, operating conditions, finishing, and inspection requirements. We will respond with a quotation path or focused clarification questions."
+    title="Send the drawing before selecting the production route"
+    subtitle="Include quantity, material preference, critical dimensions, operating conditions, finishing, and inspection requirements. We will respond with a scoped quotation or focused clarification questions."
     actions={[
       {
         variant: 'primary',
@@ -330,7 +328,7 @@ const metadata = {
         icon: 'tabler:mail',
       },
       {
-        text: 'WhatsApp project review',
+        text: 'Discuss on WhatsApp',
         href: whatsappHref,
         target: '_blank',
         rel: 'noopener noreferrer',

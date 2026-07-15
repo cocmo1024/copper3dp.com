@@ -17,7 +17,7 @@ export const headerData = {
       links: [
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
-        { text: 'RFQ by email', href: getPermalink('/rfq') },
+        { text: 'Quotation checklist', href: getPermalink('/rfq') },
       ],
     },
     {
@@ -25,18 +25,18 @@ export const headerData = {
       href: getBlogPermalink(),
     },
   ],
-  actions: [{ text: 'Submit RFQ', href: rfqFormHref, title: 'Submit CAD and RFQ details for engineering review' }],
+  actions: [{ text: 'Submit RFQ', href: rfqFormHref, title: 'Submit CAD files and quotation requirements' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Start a project',
+      title: 'Plan a project',
       links: [
-        { text: 'Applications overview', href: getPermalink('/applications') },
+        { text: 'Application guide', href: getPermalink('/applications') },
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
-        { text: 'RFQ by email', href: getPermalink('/rfq') },
+        { text: 'Quotation checklist', href: getPermalink('/rfq') },
       ],
     },
     {
@@ -53,7 +53,7 @@ export const footerData = {
       ],
     },
     {
-      title: 'Resources',
+      title: 'Company & resources',
       links: [
         { text: 'Engineering Guides', href: getBlogPermalink() },
         { text: 'About COPPER 3DP', href: getPermalink('/about') },
@@ -75,6 +75,6 @@ export const footerData = {
     },
   ],
   footNote: `
-    &copy; ${currentYear} COPPER 3DP - Suzhou Como Precision Materials Co., Ltd. - All rights reserved.
+    &copy; ${currentYear} COPPER 3DP, a service of Suzhou Como Precision Materials Co., Ltd. All rights reserved.
   `,
 };

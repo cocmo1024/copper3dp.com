@@ -22,11 +22,11 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border border-page-border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-primary focus:ring-offset-[#f7f8fa] focus:ring-2 focus:ring-offset-2 hover:bg-surface-raised hover:border-accent dark:text-page dark:hover:bg-surface-raised dark:focus:ring-accent dark:focus:ring-offset-[#050814] cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-md border border-page-border bg-transparent px-5 py-3 text-center text-sm font-semibold leading-snug text-page transition duration-200 ease-in hover:border-accent hover:bg-surface-raised focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#f5f6f8] dark:text-page dark:hover:bg-surface-raised dark:focus:ring-accent dark:focus:ring-offset-[#070a10] md:px-6 cursor-pointer;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn border-primary bg-primary text-white shadow-[0_1px_2px_rgb(0_0_0/20%)] hover:border-secondary hover:bg-secondary hover:text-white dark:border-primary dark:bg-primary dark:text-white dark:hover:border-secondary dark:hover:bg-secondary;
   }
 
   .btn-secondary {
@@ -50,13 +50,13 @@
 }
 
 #header.scroll > div:first-child {
-  @apply bg-page md:bg-[rgba(247,248,250,0.9)] md:backdrop-blur-md border-b border-page-border;
-  box-shadow: 0 1px 0 rgb(15 23 42 / 4%);
+  @apply border-b border-page-border bg-page md:bg-[rgba(245,246,248,0.92)] md:backdrop-blur-md;
+  box-shadow: 0 1px 0 rgb(15 23 42 / 5%);
 }
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
-  @apply bg-page md:bg-[rgba(5,8,20,0.9)] border-b border-page-border;
-  box-shadow: none;
+  @apply border-b border-page-border bg-page md:bg-[rgba(7,10,16,0.92)];
+  box-shadow: 0 1px 0 rgb(255 255 255 / 2%);
 }
 /* #header.scroll > div:last-child {
   @apply py-3;

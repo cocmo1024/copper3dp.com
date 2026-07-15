@@ -2,26 +2,26 @@
 import Layout from '~/layouts/Layout.astro';
 import { getBlogPermalink, getHomePermalink, getPermalink } from '~/utils/permalinks';
 
-const title = `Error 404`;
+const title = `Page not found`;
 ---
 
 <Layout metadata={{ title, robots: { index: false, follow: true } }}>
-  <section class="flex items-center h-full p-16">
-    <div class="flex max-w-5xl flex-col items-center justify-center px-4 md:px-6 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
+  <section class="flex min-h-[70vh] items-center px-4 py-16 sm:px-6">
+    <div class="mx-auto flex max-w-5xl flex-col items-center justify-center">
+      <div class="max-w-xl text-center">
+        <h1 class="mb-7 font-heading text-7xl font-bold leading-none sm:text-8xl">
           <span class="sr-only">Error</span>
           <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this copper AM page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted">
-          Start from the homepage, applications, engineering guide, or RFQ contact page.
+        </h1>
+        <h2 class="font-heading text-3xl font-bold text-heading">This page is no longer available</h2>
+        <p class="mb-8 mt-4 text-base leading-7 text-muted sm:text-lg">
+          Use the links below to continue with copper AM applications, quotation requirements, or engineering guidance.
         </p>
-        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <a rel="noopener noreferrer" href={getHomePermalink()} class="btn">Homepage</a>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+          <a rel="noopener noreferrer" href={getHomePermalink()} class="btn">Home</a>
           <a rel="noopener noreferrer" href={getPermalink('/applications')} class="btn">Applications</a>
-          <a rel="noopener noreferrer" href={getPermalink('/rfq')} class="btn">RFQ inputs</a>
-          <a rel="noopener noreferrer" href={getBlogPermalink()} class="btn">Engineering Guide</a>
+          <a rel="noopener noreferrer" href={getPermalink('/rfq')} class="btn">Quotation checklist</a>
+          <a rel="noopener noreferrer" href={getBlogPermalink()} class="btn">Engineering Library</a>
         </div>
       </div>
     </div>

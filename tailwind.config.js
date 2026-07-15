@@ -25,6 +25,10 @@ export default {
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
       },
 
+      boxShadow: {
+        panel: '0 1px 2px rgb(0 0 0 / 0.14), 0 12px 32px rgb(0 0 0 / 0.1)',
+      },
+
       animation: {
         fade: 'fadeInUp 1s both',
       },

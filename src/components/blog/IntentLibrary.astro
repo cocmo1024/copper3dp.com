@@ -138,16 +138,16 @@ const visibleGroups = [...groups, fallback].filter((group) => group.posts.length
 
 <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
   <label class="relative block w-full max-w-md" for="article-search">
-    <span class="sr-only">Search engineering articles</span>
+    <span class="sr-only">Search engineering guides</span>
     <input
       id="article-search"
       type="search"
-      placeholder="Search parts, materials, or requirements"
+      placeholder="Search applications, materials, or requirements"
       class="w-full rounded-md border border-page-border bg-surface px-4 py-3 text-sm text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
       autocomplete="off"
     />
   </label>
-  <p id="article-count" class="text-sm text-muted">{posts.length} engineering pages</p>
+  <p id="article-count" class="text-sm text-muted">{posts.length} engineering guides</p>
 </div>
 
 <div class="mt-12 space-y-14">
@@ -197,7 +197,7 @@ const visibleGroups = [...groups, fallback].filter((group) => group.posts.length
         if (group instanceof HTMLElement) group.hidden = !hasVisibleEntry;
       });
 
-      count.textContent = `${visible} engineering page${visible === 1 ? '' : 's'}`;
+      count.textContent = `${visible} engineering guide${visible === 1 ? '' : 's'}`;
     };
 
     input.addEventListener('input', update);
