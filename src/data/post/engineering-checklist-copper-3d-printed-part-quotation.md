@@ -236,6 +236,8 @@ The third bucket is CNC finishing and cleaning. Sealing lands, thermal faces, co
 
 The fourth bucket is validation. Leak testing, pressure testing, flow checks, CMM, roughness, conductivity, hardness, CT, or cleanliness records can add time. Some checks are quick. Others depend on fixture availability or third-party lab schedules.
 
+For a stage-by-stage critical path from requirements through release, use [Copper 3D Printing Lead-Time Planning from Prototype to Repeat Builds](/posts/EngineeringGuide/copper-3d-printing-lead-time-planning/). It separates processing duration, capacity waiting time, buyer hold points, and schedule-reset triggers.
+
 If the deadline is fixed, say so. The supplier may recommend a staged approach:
 
 1. Design-for-quotation review.

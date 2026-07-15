@@ -168,6 +168,8 @@ The test method should match the risk.
 
 For early feasibility, a coupon tested with the same material route may be enough. For qualification-sensitive hardware, the coupon should match build orientation, heat treatment, and post-processing. For contact-critical parts, coupon conductivity does not prove joint performance. You may need contact resistance checks, temperature-rise testing, or a functional current test.
 
+When conductivity is a supplier-approval gate rather than only a design input, use the [copper LPBF supplier qualification guide for conductivity-critical parts](/posts/EngineeringGuide/copper-lpbf-supplier-qualification-conductivity-critical-parts/) to connect the exact process route, measurement method, coupon pedigree, finished interfaces, and repeat-build controls.
+
 Useful test inputs:
 
 - Required conductivity target and test method.

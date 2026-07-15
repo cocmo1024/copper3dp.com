@@ -214,4 +214,6 @@ Send the approved part revision, quantity, requested delivery window, first-buil
 
 The point of low-volume control is not paperwork for its own sake. It is to preserve the material state, geometry, finishing, and evidence that made the first part acceptable while allowing controlled improvement.
 
+Once that baseline is defined, the [copper 3D printing lead-time planning guide](/posts/EngineeringGuide/copper-3d-printing-lead-time-planning/) shows how prototype, first-article, pilot, and repeat-build gates affect the critical path and delivery assumptions.
+
 For project review, email CAD, drawing, quantity, development stage, first-build evidence if available, material direction, critical features, operating limits, and acceptance requirements to [info@szcomo.com](mailto:info@szcomo.com). COPPER 3DP coordinates drawing, supplier-route, and quotation review; feasibility and delivery depend on the part requirements and production schedule.

@@ -63,6 +63,8 @@ Use gates rather than a single weighted score. A supplier should not compensate 
 
 Ask which material designation, machine class, parameter set, layer thickness, atmosphere, and heat-treatment condition support the quoted properties. Do not accept a number copied from a different alloy or heat-treatment state.
 
+For parts where electrical or thermal conductivity is an explicit acceptance requirement, the general audit should be extended with the [conductivity-critical copper LPBF qualification framework](/posts/EngineeringGuide/copper-lpbf-supplier-qualification-conductivity-critical-parts/). It separates bulk-property evidence from contact, thermal-interface, and functional-part evidence.
+
 For example, the current [EOS CuCrZr material data sheet](https://www.eos.info/metal-solutions/data-sheets/all-processes-and-materials?id=eos-copperalloy-cucrzr) publishes different electrical-conductivity results for as-manufactured and heat-treated material and describes separate heat treatments optimized for conductivity or tensile properties. The audit implication is straightforward: “CuCrZr” is not a complete property specification. The finished state and test method matter.
 
 Useful evidence can include:

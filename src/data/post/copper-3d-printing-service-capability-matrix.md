@@ -119,6 +119,8 @@ Use the [3D printed copper heat sink feasibility guide](/copper-heat-sinks/) to 
 
 Electrical parts need a capability statement tied to current path and interfaces, not only bulk conductivity.
 
+If conductivity determines supplier approval, use the [copper LPBF qualification guide for conductivity-critical parts](/posts/EngineeringGuide/copper-lpbf-supplier-qualification-conductivity-critical-parts/) to define the material state, test method, coupon transfer, finished-interface evidence, and change triggers behind this matrix row.
+
 ### Busbars and conductive structures
 
 Ask for:
