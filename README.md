@@ -2,6 +2,8 @@
 
 Official Astro static site for `copper3dp.com`.
 
+> **更新文章、页面、内容内链或文章图片前，必须先阅读 [`CONTENT_UPDATE_GUIDE.md`](./CONTENT_UPDATE_GUIDE.md)。** 该指南定义选题去重、技术声明、URL/canonical、RFQ 保护区以及发布验收要求。
+
 This repository is the operating manual for a B2B lead-generation website focused on copper additive manufacturing RFQs. The site is built to support two channels at the same time:
 
 - Google Ads traffic that needs a fast, clear inquiry path.
@@ -435,12 +437,7 @@ Current static redirects live in `public/_redirects`.
 
 Keep redirects simple and relative. Cloudflare rejects incompatible `_redirects` rules such as absolute destinations and duplicate path rules.
 
-Important production redirects:
-
-```text
-/applications/ -> /
-/capabilities/ -> /
-```
+`public/_redirects` is the source of truth for current production redirects. `/applications/` and `/capabilities/` are active standalone pages and must not be described or treated as homepage redirects.
 
 If a page is consolidated into the homepage, either redirect it or mark it `noindex, follow`; do not leave both pages competing in search.
 
