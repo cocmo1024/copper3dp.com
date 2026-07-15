@@ -4,7 +4,7 @@ description: 'COPPER 3DP privacy policy for website analytics, secure RFQ submis
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: July 13, 2026
+_Last updated_: July 16, 2026
 
 This privacy policy explains the basic information COPPER 3DP may receive when visitors use this website or contact us about a project.
 
@@ -27,6 +27,8 @@ CAD files, drawings, and project notes may contain confidential engineering info
 The website may use basic analytics or server logs to understand website performance and visitor activity. These records help maintain the site and improve content.
 
 When analytics or advertising measurement is configured, the site may record page views, RFQ preparation actions, and a completed RFQ event only after the mail service successfully accepts the secure form. Advertising click or campaign parameters, such as Google Ads click IDs or UTM parameters, may be stored in the visitor's browser for up to 90 days and included with a submitted RFQ so the inquiry can be attributed to its source. These parameters do not replace the contact and project details you choose to provide.
+
+When the secure RFQ form has been accepted and you have given the consent shown on the form, your work email may be normalized and sent through the Google tag for enhanced conversion measurement where permitted. The Google tag hashes this contact detail for privacy-safe matching. It is not included in ordinary analytics event details, and it is used to improve conversion attribution rather than to replace the project information you submit.
 
 ## Sharing
 

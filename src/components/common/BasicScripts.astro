@@ -177,6 +177,13 @@ import { UI } from 'astrowind:config';
       return false;
     }
 
+    function getEnhancedConversionUserData(userData) {
+      const email = typeof userData?.email === 'string' ? userData.email.trim().toLowerCase() : '';
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
+
+      return { email };
+    }
+
     function sendGoogleAdsConversionPixel(sendTo) {
       const match = /^AW-(\d+)\/([^/?#]+)$/.exec(sendTo || '');
       if (!match) return;
@@ -250,6 +257,12 @@ import { UI } from 'astrowind:config';
           if (typeof options.eventCallback === 'function') {
             conversionPayload.event_callback = options.eventCallback;
             conversionPayload.event_timeout = options.eventTimeout || 1000;
+          }
+
+          const enhancedConversionUserData =
+            options.adsConversion === 'rfq_submit' ? getEnhancedConversionUserData(options.userData) : null;
+          if (enhancedConversionUserData) {
+            window.gtag('set', 'user_data', enhancedConversionUserData);
           }
 
           window.gtag('event', 'conversion', conversionPayload);
