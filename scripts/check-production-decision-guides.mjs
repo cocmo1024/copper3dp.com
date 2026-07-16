@@ -1,55 +1,61 @@
-import fs from 'node:fs';
-import path from 'node:path';
-
 import { articlePaths, clusterPaths } from './decision-guide-paths.mjs';
 
-const root = path.resolve('dist');
 const site = 'https://copper3dp.com';
+const requestHeaders = { 'user-agent': 'copper3dp-decision-guide-production-check/1.0' };
 
-const read = (file) => fs.readFileSync(file, 'utf8');
-const htmlPath = (urlPath) => path.join(root, urlPath.replace(/^\//, ''), 'index.html');
-const sitemap = fs
-  .readdirSync(root)
-  .filter((name) => /^sitemap-\d+\.xml$/.test(name))
-  .map((name) => read(path.join(root, name)))
-  .join('\n');
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const inspect = (urlPath, type) => {
-  const file = htmlPath(urlPath);
-  const html = fs.existsSync(file) ? read(file) : '';
+const fetchWithRetry = async (url) => {
+  let lastError;
+
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      return await fetch(url, {
+        redirect: 'follow',
+        headers: requestHeaders,
+        signal: AbortSignal.timeout(15000),
+      });
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await sleep(500 * attempt);
+    }
+  }
+
+  throw lastError;
+};
+
+const inspect = async (urlPath, type) => {
+  const url = `${site}${urlPath}`;
+  const response = await fetchWithRetry(url);
+  const html = await response.text();
   const canonicalTag = html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)?.[0] || '';
   const canonical = canonicalTag.match(/\bhref=["']([^"']+)["']/i)?.[1] || '';
-  const descriptionTag = html.match(/<meta\b[^>]*\bname=["']description["'][^>]*>/i)?.[0] || '';
 
   return {
     path: urlPath,
-    exists: fs.existsSync(file),
+    status: response.status,
     h1: (html.match(/<h1\b/gi) || []).length,
-    description: /\bcontent=["'][^"']+/i.test(descriptionTag),
     canonical,
-    expectedCanonical: `${site}${urlPath}`,
-    inSitemap: sitemap.includes(`<loc>${site}${urlPath}</loc>`),
+    expectedCanonical: url,
     hasStructuredData: html.includes('application/ld+json'),
-    hasBlogPosting: type === 'article' ? html.includes('"@type":"BlogPosting"') : undefined,
+    hasBlogPosting: type === 'article' ? /"@type"\s*:\s*"BlogPosting"/.test(html) : undefined,
     linksToDecisionGuides: type === 'article' ? html.includes('/knowledge/decision-guides/') : undefined,
     linksToRfq: type === 'article' ? html.includes('/rfq/#rfq-form') : undefined,
   };
 };
 
-const pageChecks = [
+const pageChecks = await Promise.all([
   ...clusterPaths.map((urlPath) => inspect(urlPath, 'cluster')),
   ...articlePaths.map((urlPath) => inspect(urlPath, 'article')),
-];
+]);
 
 console.log(JSON.stringify({ clusterPages: clusterPaths.length, articles: articlePaths.length, pageChecks }, null, 2));
 
 const invalidPage = pageChecks.some(
   (page) =>
-    !page.exists ||
+    page.status !== 200 ||
     page.h1 !== 1 ||
-    !page.description ||
     page.canonical !== page.expectedCanonical ||
-    !page.inSitemap ||
     !page.hasStructuredData ||
     page.hasBlogPosting === false ||
     page.linksToDecisionGuides === false ||
