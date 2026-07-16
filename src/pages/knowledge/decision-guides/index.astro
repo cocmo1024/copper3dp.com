@@ -1,0 +1,95 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import { decisionClusters } from '~/data/decision-clusters';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper AM Engineering Decision Guides | COPPER 3DP',
+  ignoreTitleTemplate: true,
+  description:
+    'Copper additive manufacturing decision guides for materials, cold plates, heat exchangers, RF, power electronics, semiconductor equipment, and finished-part acceptance.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Decision Guides', item: '/knowledge/decision-guides/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing decision clusters',
+      decisionClusters.map((cluster) => ({
+        name: cluster.name,
+        description: cluster.description,
+        url: `/knowledge/decision-guides/${cluster.slug}/`,
+      }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/decision-guides/"
+  eyebrow="Engineering decision guides"
+  title="Six decision paths from copper AM evidence to a quotable part"
+  introduction="These clusters organize the highest-value technical records around decisions engineers and buyers must close: material state, thermal and fluid duty, RF surfaces, electrical safety, semiconductor cleanliness, and finished-part acceptance."
+  stats={[
+    { value: decisionClusters.length, label: 'Decision clusters' },
+    { value: decisionClusters.reduce((sum, cluster) => sum + cluster.guides.length, 0), label: 'Focused guides' },
+    { value: '78', label: 'Evidence records screened' },
+    { value: 'RFQ', label: 'Decision endpoint' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="decision-clusters">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Commercial engineering priorities</p>
+        <h2 id="decision-clusters" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Select the requirement that controls the project
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Each cluster has one canonical job. Service pages explain what can be quoted; knowledge pages preserve
+          evidence; these decision guides close a bounded engineering or purchasing choice without creating keyword
+          variants of the same answer.
+        </p>
+      </div>
+      <div class="mt-8 grid border-t border-page-border md:grid-cols-2">
+        {
+          decisionClusters.map((cluster, index) => (
+            <a
+              class="group border-b border-page-border py-7 md:odd:pr-8 md:even:border-l md:even:pl-8"
+              href={`/knowledge/decision-guides/${cluster.slug}/`}
+            >
+              <p class="text-xs font-semibold uppercase text-primary">{String(index + 1).padStart(2, '0')}</p>
+              <h3 class="mt-2 font-heading text-xl font-semibold text-heading group-hover:text-link">{cluster.name}</h3>
+              <p class="mt-3 leading-7 text-muted">{cluster.description}</p>
+              <p class="mt-4 text-sm font-semibold text-link">Open decision cluster</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="coverage-policy">
+    <div class="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 md:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-semibold text-primary">Coverage policy</p>
+        <h2 id="coverage-policy" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Depth without page inflation
+        </h2>
+      </div>
+      <div class="space-y-4 leading-7 text-muted">
+        <p>
+          The 78 technical records are not published as 78 isolated pages. Records are grouped where they support the
+          same decision and expanded only where a distinct specification, failure mode, or acceptance method requires
+          its own answer.
+        </p>
+        <p>
+          The guides use route-specific public data as reference evidence. A supplier value becomes a project
+          requirement only after the material, final state, geometry, test method, acceptance rule, and responsibility
+          are agreed for the real part.
+        </p>
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

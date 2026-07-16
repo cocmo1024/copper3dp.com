@@ -142,7 +142,59 @@ const contextualLinks: Array<{ pattern: RegExp; links: KnowledgeLink[] }> = [
   },
 ];
 
+const decisionClusters: Array<{ pattern: RegExp; link: KnowledgeLink }> = [
+  {
+    pattern: /semiconductor|wafer|plasma|chip|metrology|lithography|photonics|advanced packaging/,
+    link: {
+      title: 'Semiconductor equipment decision center',
+      description: 'Connect thermal, RF, vacuum, cleanliness, metrology, and traceability requirements.',
+      href: '/knowledge/decision-guides/semiconductor-equipment/',
+    },
+  },
+  {
+    pattern: /sic|power electronics|onboard charger|dc-to-dc|dc-dc|igbt|inverter|battery test|busbar/,
+    link: {
+      title: 'Power electronics decision center',
+      description: 'Coordinate current, cooling, isolation, coolant, interfaces, and system validation.',
+      href: '/knowledge/decision-guides/power-electronics/',
+    },
+  },
+  {
+    pattern: /rf|microwave|waveguide|antenna|resonator|cavity|filter|accelerator/,
+    link: {
+      title: 'RF component decision center',
+      description: 'Plan RF surfaces, tolerances, plating, cooling, vacuum, and final measurement.',
+      href: '/knowledge/decision-guides/rf-components/',
+    },
+  },
+  {
+    pattern: /cold plate|heat exchanger|microchannel|cooling manifold|cooling jacket/,
+    link: {
+      title: 'Cold plate and heat exchanger decision center',
+      description: 'Connect thermal duty, flow distribution, cleaning, pressure, leakage, and acceptance.',
+      href: '/knowledge/decision-guides/cold-plates-heat-exchangers/',
+    },
+  },
+  {
+    pattern: /pure copper|cucrzr|cucr1zr|alloy selection|material specification|heat treatment|iacs/,
+    link: {
+      title: 'Pure copper and CuCrZr decision center',
+      description: 'Select the delivered material state from conductivity, strength, temperature, and load.',
+      href: '/knowledge/decision-guides/materials-selection/',
+    },
+  },
+  {
+    pattern: /acceptance|qualification|relative density|proof pressure|helium leak|inspection|quality|test method/,
+    link: {
+      title: 'Quality and acceptance decision center',
+      description: 'Match material, dimensional, NDE, pressure, leak, flow, and functional tests to failure risk.',
+      href: '/knowledge/decision-guides/quality-acceptance/',
+    },
+  },
+];
+
 const matched = contextualLinks.find((item) => item.pattern.test(context));
+const decisionCluster = decisionClusters.find((item) => item.pattern.test(context));
 const fallback: KnowledgeLink[] = [
   {
     title: 'Copper AM process selection',
@@ -155,7 +207,8 @@ const fallback: KnowledgeLink[] = [
     href: '/knowledge/quality-and-qualification/',
   },
 ];
-const links = [overview, ...(matched?.links ?? fallback)];
+const contextual = matched?.links ?? fallback;
+const links = decisionCluster ? [overview, decisionCluster.link, contextual[0]] : [overview, ...contextual];
 ---
 
 <aside class="mx-auto mt-10 max-w-4xl px-4 sm:px-6" aria-labelledby="knowledge-pathways-title">

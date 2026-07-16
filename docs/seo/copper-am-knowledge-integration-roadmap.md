@@ -83,6 +83,19 @@ Every file is recorded by path, byte size and SHA-256 in `src/data/knowledge/gen
 - Knowledge pages link back to commercial application pages, material services, detailed engineering articles and the secure RFQ form.
 - The RFQ path remains `/rfq/#rfq-form`; email and WhatsApp remain parallel contact options.
 
+## High-value decision layer
+
+The 2026-07-16 decision-layer release converts the most commercial technical evidence into six bounded clusters without adding homepage modules:
+
+- Pure copper and CuCrZr material selection.
+- Copper cold plates and heat exchangers.
+- RF and microwave components.
+- Power electronics cooling and conductors.
+- Semiconductor equipment.
+- Finished-part quality and acceptance.
+
+Each cluster owns a navigation hub under `/knowledge/decision-guides/` and two independent decision pages selected from the 200-topic backlog. The release map and anti-duplication decisions are recorded in `docs/seo/high-value-decision-clusters-2026-07-16.md`.
+
 ## Publishing governance
 
 The daily automation continues to select two qualified topics from the 200-topic workbook. Before publishing, it must compare the topic against all fixed pages, 52 existing articles, the public knowledge center and the publication log. A topic is skipped when the search intent is already adequately covered or primary evidence is insufficient.
