@@ -22,6 +22,8 @@ This append-only record prevents the 200-topic publishing plan from selecting th
 | T096     | Flatness, Cleanliness, and Traceability for Copper Metrology Components            | https://copper3dp.com/posts/EngineeringGuide/flatness-cleanliness-traceability-copper-metrology-components/               | 2026-07-16   | `24f8a551` | HTTP 200; canonical, BlogPosting, cluster links, RFQ path, and sitemap verified |
 | T035     | Why Relative Density Alone Cannot Predict Copper AM Conductivity                   | https://copper3dp.com/posts/EngineeringGuide/why-relative-density-alone-cannot-predict-copper-am-conductivity/            | 2026-07-16   | `24f8a551` | HTTP 200; canonical, BlogPosting, cluster links, RFQ path, and sitemap verified |
 | T038     | Proof Pressure, Helium Leak, or Flow Test: Choosing Copper AM Acceptance Methods   | https://copper3dp.com/posts/EngineeringGuide/proof-pressure-helium-leak-flow-test-copper-am-acceptance/                   | 2026-07-16   | `24f8a551` | HTTP 200; canonical, BlogPosting, cluster links, RFQ path, and sitemap verified |
+| T009     | Copper AM DFM Review Workflow for Parts with Hidden Internal Channels              | https://copper3dp.com/posts/EngineeringGuide/copper-am-dfm-review-workflow-for-parts-with-hidden-internal-channels/       | 2026-07-17   | `9f85259e` | HTTP 200; canonical, BlogPosting, parent links, RFQ path, and sitemap verified  |
+| T010     | When a Copper Part Should Be Rejected for LPBF Before Quotation                    | https://copper3dp.com/posts/EngineeringGuide/when-a-copper-part-should-be-rejected-for-lpbf-before-quotation/             | 2026-07-17   | `9f85259e` | HTTP 200; canonical, BlogPosting, parent links, RFQ path, and sitemap verified  |
 
 ## Skipped Topic Reviews
 
