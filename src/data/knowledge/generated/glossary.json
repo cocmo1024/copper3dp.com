@@ -1,0 +1,152 @@
+[
+  {
+    "term": "AM",
+    "english": "Additive Manufacturing",
+    "definition": "增材制造；按数字模型逐层或逐道堆积材料。"
+  },
+  {
+    "term": "PBF",
+    "english": "Powder Bed Fusion",
+    "definition": "粉末床熔融技术族，包含激光束和电子束路线。"
+  },
+  {
+    "term": "LPBF / PBF-LB/M",
+    "english": "Laser Powder Bed Fusion",
+    "definition": "激光束金属粉末床熔融。"
+  },
+  {
+    "term": "E-PBF / PBF-EB/M",
+    "english": "Electron Beam Powder Bed Fusion",
+    "definition": "电子束金属粉末床熔融。"
+  },
+  {
+    "term": "DED",
+    "english": "Directed Energy Deposition",
+    "definition": "材料送入能量焦点并同步熔化沉积。"
+  },
+  {
+    "term": "WAAM",
+    "english": "Wire Arc Additive Manufacturing",
+    "definition": "以电弧和金属丝为核心的大型定向能量沉积路线。"
+  },
+  {
+    "term": "Binder Jetting",
+    "english": "Binder Jetting",
+    "definition": "喷射粘结剂形成绿件，随后脱脂与烧结。"
+  },
+  {
+    "term": "Cold Spray",
+    "english": "Cold Spray Additive",
+    "definition": "颗粒高速撞击实现固态沉积，热影响较低。"
+  },
+  {
+    "term": "UAM",
+    "english": "Ultrasonic Additive Manufacturing",
+    "definition": "以超声塑性变形连接金属箔层。"
+  },
+  {
+    "term": "Cu-ETP",
+    "english": "Electrolytic Tough-Pitch Copper",
+    "definition": "电解韧铜，常见高导电铜牌号；氧含量和氢脆风险需关注。"
+  },
+  {
+    "term": "Cu-OF / OFHC",
+    "english": "Oxygen-Free High-Conductivity Copper",
+    "definition": "无氧高导铜；牌号与纯度应按具体规范确认。"
+  },
+  {
+    "term": "CuCrZr",
+    "english": "Copper-Chromium-Zirconium",
+    "definition": "析出强化铜合金，在强度与导热/导电之间折中。"
+  },
+  {
+    "term": "GRCop-42",
+    "english": "Cu-Cr-Nb alloy",
+    "definition": "NASA 开发的铜-铬-铌高温铜合金，面向火箭热结构。"
+  },
+  {
+    "term": "GRCop-84",
+    "english": "Cu-Cr-Nb alloy",
+    "definition": "较高 Cr/Nb 含量的 GRCop 系铜合金。"
+  },
+  {
+    "term": "IACS",
+    "english": "International Annealed Copper Standard",
+    "definition": "以标准退火铜电导率为基准的相对电导率表达；报告需写明温度和方法。"
+  },
+  {
+    "term": "PSD",
+    "english": "Particle Size Distribution",
+    "definition": "粉末粒度分布，如 D10/D50/D90。"
+  },
+  {
+    "term": "Hatch spacing",
+    "english": "Hatch spacing",
+    "definition": "相邻填充扫描道的中心间距。"
+  },
+  {
+    "term": "Layer thickness",
+    "english": "Layer thickness",
+    "definition": "单层名义铺粉/沉积厚度。"
+  },
+  {
+    "term": "Scan speed",
+    "english": "Scan speed",
+    "definition": "光斑沿路径运动速度；不能脱离功率、光斑和轨迹解读。"
+  },
+  {
+    "term": "VED",
+    "english": "Volumetric Energy Density",
+    "definition": "常见简化指标 P/(v·h·t)，不能表征全部热物理过程。"
+  },
+  {
+    "term": "Keyhole",
+    "english": "Keyhole mode",
+    "definition": "高能量密度下的深熔汽化空腔模式，塌陷可形成孔隙。"
+  },
+  {
+    "term": "Lack of fusion",
+    "english": "Lack-of-fusion",
+    "definition": "熔池搭接或熔化不足导致的不规则缺陷。"
+  },
+  {
+    "term": "Recoater",
+    "english": "Recoater",
+    "definition": "粉末床设备的铺粉机构。"
+  },
+  {
+    "term": "Build plate",
+    "english": "Build plate",
+    "definition": "承载首层并导热/约束零件的基板。"
+  },
+  {
+    "term": "As-built",
+    "english": "As-built condition",
+    "definition": "未经后处理的打印态。"
+  },
+  {
+    "term": "Stress relief",
+    "english": "Stress relief",
+    "definition": "降低残余应力的热处理。"
+  },
+  {
+    "term": "HIP",
+    "english": "Hot Isostatic Pressing",
+    "definition": "热等静压，用高温高压气体降低内部孔隙。"
+  },
+  {
+    "term": "CT",
+    "english": "Computed Tomography",
+    "definition": "工业 X 射线计算机断层扫描，用于内部缺陷与流道检查。"
+  },
+  {
+    "term": "Witness coupon",
+    "english": "Witness coupon",
+    "definition": "随构建件制造并用于过程/性能确认的见证试样。"
+  },
+  {
+    "term": "Relative density",
+    "english": "Relative density",
+    "definition": "相对于理论密度的比例；方法和阈值必须说明。"
+  }
+]

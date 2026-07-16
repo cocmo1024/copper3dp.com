@@ -1,0 +1,226 @@
+{
+  "version": "2026-07-16",
+  "source": "Copper AM Industry Knowledge Base",
+  "counts": {
+    "technical": 78,
+    "equipment": 51,
+    "applications": 13,
+    "cases": 41,
+    "topics": 104,
+    "schedule": 36,
+    "sources": 196,
+    "rfq": 18,
+    "defects": 15,
+    "glossary": 30,
+    "leadMagnets": 10,
+    "cadence": 12
+  },
+  "normalizedEvidenceTiers": ["A", "B", "C", "D", "U"],
+  "sourceIntegrity": {
+    "uniqueSourceIds": 196,
+    "uniqueSourceUrls": 196,
+    "unresolvedReferences": {
+      "technical": [],
+      "equipment": [],
+      "cases": [],
+      "topics": [],
+      "schedule": []
+    }
+  },
+  "libraryInventory": {
+    "fileCount": 36,
+    "files": [
+      {
+        "path": "CSV/01_技术知识点与参数.csv",
+        "bytes": 40744,
+        "sha256": "c270cbebac8db140a4ee14ac515b87ddc60dead654c8d4a334cc56643adffb0c"
+      },
+      {
+        "path": "CSV/02_设备与材料系统.csv",
+        "bytes": 31490,
+        "sha256": "db7b1771d99c1e1b9b930bdcdb024ad6eedb2347b520a06bc2c7d39ecbe6ecc8"
+      },
+      {
+        "path": "CSV/03_应用领域.csv",
+        "bytes": 50569,
+        "sha256": "2bf717e9c4adfecf31dda0b3d0a2414a51b882c1c2f685af11eb10e8227e3f0f"
+      },
+      {
+        "path": "CSV/04_官方案例.csv",
+        "bytes": 33620,
+        "sha256": "5d11d06d6c6bff006ed4cfd9d37fd91413bd75fc332b4c8677d3c80d0d89d783"
+      },
+      {
+        "path": "CSV/05_内容选题.csv",
+        "bytes": 251209,
+        "sha256": "3a8130b3842a022ede39f21af79b2e1b27dbd68e57386aabdb2c5363c488d4f7"
+      },
+      {
+        "path": "CSV/06_十二周详细排期.csv",
+        "bytes": 23397,
+        "sha256": "61dfa3245393d6737ad844da18080460a0bca75a7de637c7353a02499123b29d"
+      },
+      {
+        "path": "CSV/07_来源总表.csv",
+        "bytes": 62370,
+        "sha256": "8931958b68591405eb1757c5a73fa6492f72069f267b659520d5311bf6e814a9"
+      },
+      {
+        "path": "CSV/08_RFQ清单.csv",
+        "bytes": 1643,
+        "sha256": "3e2f9882ec3754770a2efe4da352a3b8ff67cc28f4ea53e84757c6bdb236a759"
+      },
+      {
+        "path": "CSV/09_难点诊断.csv",
+        "bytes": 3413,
+        "sha256": "fef28a15ba48fab082f79cceeca85d030b737c7fa6fb3d57f8d4f579a8bff881"
+      },
+      {
+        "path": "CSV/10_术语表.csv",
+        "bytes": 2660,
+        "sha256": "0bff862fbc1c1f059baf318b10a4b00440ebc8ed44d1140d41c0da77149b0999"
+      },
+      {
+        "path": "CSV/11_Lead_Magnets.csv",
+        "bytes": 2468,
+        "sha256": "674b97e2246688b3c862445a54f6ab5430b171bb04abcdc10a748f46374b4787"
+      },
+      {
+        "path": "CSV/12_十二周主题节奏.csv",
+        "bytes": 1488,
+        "sha256": "ec7aa8bdf7be11fbd160afc936453543123bd2f1ffbac1c35091779619d47126"
+      },
+      {
+        "path": "manifest.json",
+        "bytes": 319,
+        "sha256": "6055909aad334198a5ab4e372d54a0162884f09f8a699cf85a8bb2402c92fea6"
+      },
+      {
+        "path": "NotebookLM_sources/00_使用说明与NotebookLM导入指南.md",
+        "bytes": 5659,
+        "sha256": "c68ed6c957a498fb196b6fb46f9b7b0cacfa0471482d677192906a3bfd16a5a3"
+      },
+      {
+        "path": "NotebookLM_sources/01_范围术语与证据分级.md",
+        "bytes": 4967,
+        "sha256": "29262ac3f04eb044a97b322d30eeb1376e98a560639ca9be8ab729348370a4bb"
+      },
+      {
+        "path": "NotebookLM_sources/02_铜材料谱系粉末与性能.md",
+        "bytes": 36615,
+        "sha256": "970cf4eec8e8fa9687e88f845ad38ca843e510d2cf49049c1778ce3fdfe2913c"
+      },
+      {
+        "path": "NotebookLM_sources/03_工艺地图与选型.md",
+        "bytes": 37370,
+        "sha256": "5c877f560bda6c35e9861d7f44a00503367c38efbf3477fab3b01df4754eb434"
+      },
+      {
+        "path": "NotebookLM_sources/04_参数窗口实验设计与DfAM.md",
+        "bytes": 39963,
+        "sha256": "c4fe49491e4dc3b488deafe3b8a5774a558c47a0a0741f0bb5728c516bed7404"
+      },
+      {
+        "path": "NotebookLM_sources/05_难点缺陷诊断与解决路线.md",
+        "bytes": 17856,
+        "sha256": "9d0b291e5efa3735944eda5a91cdd087e49fc0e9e0a16ab26e78a10a5588a6c5"
+      },
+      {
+        "path": "NotebookLM_sources/06_设备材料系统与供应商证据.md",
+        "bytes": 33365,
+        "sha256": "794cc9cee4ba1e5966b6dbbd4477b6391d77ca67a8496397dd3a26cec7240d31"
+      },
+      {
+        "path": "NotebookLM_sources/07_应用行业买方角色与案例.md",
+        "bytes": 58962,
+        "sha256": "d8c4145ba1eb2c9f0df32e8c64f9d94fa78d1a0d74e672dcb4d950c73b5cd8f6"
+      },
+      {
+        "path": "NotebookLM_sources/08_质量标准测试与资格认证.md",
+        "bytes": 29283,
+        "sha256": "afc7f825fbb12a8c89fb19fbd422f0f4488f45e769beada69684a38f522f0791"
+      },
+      {
+        "path": "NotebookLM_sources/09_后处理表面连接与检验.md",
+        "bytes": 20791,
+        "sha256": "d8da10c153a83e0c9556211e84775485d56e29f29bb6c58ede8c97cafd7e2fdd"
+      },
+      {
+        "path": "NotebookLM_sources/10_商业化询盘开发与报价.md",
+        "bytes": 4828,
+        "sha256": "b5344d60f5a742c80b4b1d5c909401ee9fb44f714624408f51dc73fb4138ed0d"
+      },
+      {
+        "path": "NotebookLM_sources/11_LinkedIn内容选题库.md",
+        "bytes": 51882,
+        "sha256": "8dbd62df0669532f5917b4f2c22cb0f05fbae4014a6ac4f6e5e30c6d3910fd8b"
+      },
+      {
+        "path": "NotebookLM_sources/12_YouTube与Shorts内容选题库.md",
+        "bytes": 32238,
+        "sha256": "62ee26562991423fce6b18cff41735310b669bdd9d637dcf4d6572d9e6ba2192"
+      },
+      {
+        "path": "NotebookLM_sources/13_十二周发布计划.md",
+        "bytes": 15268,
+        "sha256": "077db84f1c9efe66778ef186491f4240ac5f0e2e46f2d2b8293d5336e06541d8"
+      },
+      {
+        "path": "NotebookLM_sources/14_Lead_Magnet与询盘转化资产.md",
+        "bytes": 3302,
+        "sha256": "1440503f4644ce9e9eb94fd8e3ca97d73331e36d6d25623676335fe239ae1b11"
+      },
+      {
+        "path": "NotebookLM_sources/15_来源索引与更新清单.md",
+        "bytes": 39390,
+        "sha256": "4e9b8c4116245aee192bd9e2b219819bed37418d85bfe9f82438a0534052af88"
+      },
+      {
+        "path": "Research_briefs/equipment_notes.md",
+        "bytes": 11636,
+        "sha256": "a450c509d75a1987e5a5728e65e7f24c4bc4f3deef751cf41f30f44a10dd3e74"
+      },
+      {
+        "path": "Research_briefs/market_brief.md",
+        "bytes": 41490,
+        "sha256": "0650c745f2b6d634a16c4e52b40e40f62be1055580f30aaedd8dcfad197cb16e"
+      },
+      {
+        "path": "Research_briefs/tech_brief.md",
+        "bytes": 26981,
+        "sha256": "79aecb53f3da0254fcac7902ff8ffdc4e11c4ea8a9391da459e05caed3e1e7d3"
+      },
+      {
+        "path": "请先读_交付与NotebookLM导入说明.md",
+        "bytes": 2515,
+        "sha256": "072a5bcd12c90d029bcb642f51e98a2d82e1e7c1ee7d36230cc79ec906e4d479"
+      },
+      {
+        "path": "铜3D打印行业数据库_2026-07-16.xlsx",
+        "bytes": 216079,
+        "sha256": "878a6073accda1cdca9f108348956b515bbe866758411183f669411753f1fff7"
+      },
+      {
+        "path": "铜3D打印行业知识库_2026-07-16.docx",
+        "bytes": 93289,
+        "sha256": "2eb672e9ee027a47ec39281ba4a9acf0a6ad1c831c8ec426e5baa49ca552cb0c"
+      },
+      {
+        "path": "铜3D打印行业知识库_2026-07-16.pdf",
+        "bytes": 1518196,
+        "sha256": "03fadacb3cec711dbf93184d24d80ab3e475aa729b93143ba0dc025b2150c861"
+      }
+    ]
+  },
+  "publicDestinations": {
+    "technical": "/knowledge/materials-and-properties/ and /knowledge/process-selection/",
+    "equipment": "/knowledge/equipment/",
+    "applications": "/knowledge/applications/",
+    "cases": "/knowledge/case-library/",
+    "sources": "/knowledge/sources/",
+    "rfq": "/rfq/ and /knowledge/quality-and-qualification/",
+    "defects": "/knowledge/defects/",
+    "glossary": "/knowledge/glossary/",
+    "topics": "Internal SEO coverage map; not published as one page per title"
+  }
+}

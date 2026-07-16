@@ -1,0 +1,92 @@
+[
+  {
+    "module": "几何",
+    "field": "3D 文件与版本",
+    "required_information": "STEP/Parasolid/STL；单位；版本；是否允许改设计"
+  },
+  {
+    "module": "几何",
+    "field": "关键尺寸与公差",
+    "required_information": "逐项标注，区分打印态、机加工态和装配基准"
+  },
+  {
+    "module": "功能",
+    "field": "导热/导电目标",
+    "required_information": "W/(m·K)、%IACS 或电阻率；测试温度、方向和方法"
+  },
+  {
+    "module": "功能",
+    "field": "机械与温度",
+    "required_information": "屈服/抗拉/延伸/疲劳；服役温度、载荷、循环"
+  },
+  {
+    "module": "材料",
+    "field": "材料身份",
+    "required_information": "纯铜牌号或具体铜合金；禁止只写‘copper’"
+  },
+  {
+    "module": "材料",
+    "field": "成分/粉末限制",
+    "required_information": "牌号标准、杂质上限、氧含量、粉末来源与复用要求"
+  },
+  {
+    "module": "内部流道",
+    "field": "清粉与洁净度",
+    "required_information": "最小截面、长度/弯曲、排粉口、允许残粉和清洁标准"
+  },
+  {
+    "module": "内部流道",
+    "field": "流体性能",
+    "required_information": "介质、流量、入口温度/压力、压降、泄漏率"
+  },
+  {
+    "module": "工艺",
+    "field": "允许的技术路线",
+    "required_information": "LPBF/DED/烧结等；是否限定设备/波长/参数资格"
+  },
+  {
+    "module": "后处理",
+    "field": "热处理/HIP",
+    "required_information": "状态、炉次记录、气氛、温度均匀性和见证件"
+  },
+  {
+    "module": "后处理",
+    "field": "机加工与表面",
+    "required_information": "Ra/Rz、镀层、抛光、喷砂、化学处理、禁用介质"
+  },
+  {
+    "module": "质量",
+    "field": "密度与内部缺陷",
+    "required_information": "方法、抽样、CT 区域/分辨率、可接受缺陷尺寸"
+  },
+  {
+    "module": "质量",
+    "field": "NDT 与破坏性测试",
+    "required_information": "PT/CT/超声/截面；拉伸、硬度、导电/热测试"
+  },
+  {
+    "module": "质量",
+    "field": "追溯",
+    "required_information": "粉末批次、构建日志、设备、操作员、热处理炉次、序列号"
+  },
+  {
+    "module": "法规",
+    "field": "行业资格",
+    "required_information": "航天/汽车/医疗/核能等适用体系、出口管制和材料合规"
+  },
+  {
+    "module": "商业",
+    "field": "数量与节拍",
+    "required_information": "样件/小批/年需求；每批数量；交付里程碑"
+  },
+  {
+    "module": "商业",
+    "field": "报价边界",
+    "required_information": "NRE/编程/装版/测试/后处理/机加工/运输分项"
+  },
+  {
+    "module": "商务",
+    "field": "保密与数据",
+    "required_information": "NDA、数据留存、照片/案例公开权限、知识产权"
+  }
+]

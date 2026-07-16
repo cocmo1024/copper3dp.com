@@ -1,0 +1,92 @@
+[
+  {
+    "id": "LM-01",
+    "name_cn": "铜3D打印工艺选型矩阵",
+    "name_en": "Copper AM Process Selection Matrix",
+    "format": "可筛选表格 + 一页决策树",
+    "target": "研发、采购、产品经理",
+    "keyword": "MATRIX",
+    "qualification_fields": "零件尺寸；最小通道/壁厚；IACS或W/m·K目标；批量；预算/交期；是否允许烧结/HIP"
+  },
+  {
+    "id": "LM-02",
+    "name_cn": "铜及铜合金材料—性能—热处理卡",
+    "name_en": "Copper Alloy Property & Heat-Treatment Cards",
+    "format": "PDF卡片 + 数据来源表",
+    "target": "材料、工艺与质量工程师",
+    "keyword": "ALLOY",
+    "qualification_fields": "Cu牌号；导电/导热目标；强度温度；热处理；测试方向；适用标准"
+  },
+  {
+    "id": "LM-03",
+    "name_cn": "铜增材RFQ信息采集模板",
+    "name_en": "Copper AM RFQ Intake Template",
+    "format": "Excel/表单",
+    "target": "采购、项目经理、外贸销售",
+    "keyword": "RFQ",
+    "qualification_fields": "3D模型；图纸与CTQ；材料；数量；验收标准；后处理；法规/保密"
+  },
+  {
+    "id": "LM-04",
+    "name_cn": "冷板与换热器DFAM审核清单",
+    "name_en": "Cold Plate & Heat Exchanger DfAM Review",
+    "format": "设计审核清单 + 测试矩阵",
+    "target": "热设计、服务器、功率电子团队",
+    "keyword": "COOLING",
+    "qualification_fields": "热源地图；冷却液；流量/压降；入口温度；压力；泄漏等级；腐蚀寿命"
+  },
+  {
+    "id": "LM-05",
+    "name_cn": "火箭铜合金部件验证证据包目录",
+    "name_en": "Rocket Copper Hardware Qualification Evidence Index",
+    "format": "证据树 + 文档索引",
+    "target": "推进系统、航天质量与供应链",
+    "keyword": "GRCOP",
+    "qualification_fields": "推进剂；室压；热流；材料牌号；构建方向；NDE；热试车"
+  },
+  {
+    "id": "LM-06",
+    "name_cn": "3D打印感应线圈ROI计算器",
+    "name_en": "Printed Induction Coil ROI Calculator",
+    "format": "Excel计算器",
+    "target": "热处理车间、设备与工艺经理",
+    "keyword": "COIL",
+    "qualification_fields": "旧线圈寿命；停机成本；能耗；节拍；工件轮廓；冷却条件"
+  },
+  {
+    "id": "LM-07",
+    "name_cn": "铜绕组与母排DFAM工作表",
+    "name_en": "Copper Winding & Busbar DfAM Worksheet",
+    "format": "参数工作表 + 设计提示",
+    "target": "电机、电驱、功率电子工程师",
+    "keyword": "MOTOR",
+    "qualification_fields": "电压/电流；频率；槽型；填充因子；绝缘体系；冷却；局放要求"
+  },
+  {
+    "id": "LM-08",
+    "name_cn": "海事CuNi30零件资格审查清单",
+    "name_en": "Marine CuNi30 Part Qualification Checklist",
+    "format": "标准与试验清单",
+    "target": "船厂、海军供应链、船级社接口",
+    "keyword": "MARINE",
+    "qualification_fields": "介质；温度；腐蚀等级；NDE；材料规范；船级/军标；可追溯性"
+  },
+  {
+    "id": "LM-09",
+    "name_cn": "铜3D打印失效图谱",
+    "name_en": "Copper AM Failure Atlas",
+    "format": "图谱 + 根因排查流程",
+    "target": "工艺、质量、实验室与采购",
+    "keyword": "FAILURE",
+    "qualification_fields": "反射/熔池；气孔/未熔合；裂纹；氧化；收缩/变形；堵粉；泄漏；表面"
+  },
+  {
+    "id": "LM-10",
+    "name_cn": "全球铜增材设备—工艺—应用地图",
+    "name_en": "Global Copper AM Equipment–Process–Application Map",
+    "format": "可筛选数据库",
+    "target": "管理层、投资、采购与业务拓展",
+    "keyword": "MAP",
+    "qualification_fields": "国家；设备；波长/能量源；尺寸；材料；成熟度；案例；官网"
+  }
+]

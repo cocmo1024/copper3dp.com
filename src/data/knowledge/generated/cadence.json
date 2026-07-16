@@ -1,0 +1,110 @@
+[
+  {
+    "week": "1",
+    "theme_cn": "建立权威：铜为什么难、哪里最值钱",
+    "objective": "用跨行业事实建立专业定位",
+    "linkedin": "C001；C017；C049",
+    "youtube": "C026",
+    "article": "C011",
+    "primary_cta": "LM-01"
+  },
+  {
+    "week": "2",
+    "theme_cn": "AI液冷：从热点到无接头铜冷板",
+    "objective": "吸引服务器、液冷和芯片热设计线索",
+    "linkedin": "C009；C012；C015",
+    "youtube": "C010",
+    "article": "C014",
+    "primary_cta": "LM-04"
+  },
+  {
+    "week": "3",
+    "theme_cn": "火箭热端：GRCop与双金属路线",
+    "objective": "建立航天高门槛证据链",
+    "linkedin": "C004；C007；C073",
+    "youtube": "C002",
+    "article": "C006",
+    "primary_cta": "LM-05"
+  },
+  {
+    "week": "4",
+    "theme_cn": "感应线圈与模具：可量化ROI",
+    "objective": "获取工业现场改造询盘",
+    "linkedin": "C033；C036；C039",
+    "youtube": "C034",
+    "article": "C046",
+    "primary_cta": "LM-06"
+  },
+  {
+    "week": "5",
+    "theme_cn": "电机与EV：绕组、母排、冷却",
+    "objective": "连接电驱、功率电子和车企研发",
+    "linkedin": "C049；C052；C055",
+    "youtube": "C058",
+    "article": "C062",
+    "primary_cta": "LM-07"
+  },
+  {
+    "week": "6",
+    "theme_cn": "RF与微增材：粗糙度和微米极限",
+    "objective": "吸引航天RF、TWT和微波工程师",
+    "linkedin": "C025；C028；C031",
+    "youtube": "C098",
+    "article": "C102",
+    "primary_cta": "LM-03"
+  },
+  {
+    "week": "7",
+    "theme_cn": "换热器：热阻与压降必须一起看",
+    "objective": "把设计内容转成热工项目诊断",
+    "linkedin": "C017；C020；C023",
+    "youtube": "C018",
+    "article": "C022",
+    "primary_cta": "LM-04"
+  },
+  {
+    "week": "8",
+    "theme_cn": "海事：CuNi30、铸件短缺和数字库存",
+    "objective": "进入船厂、泵阀与MRO供应链",
+    "linkedin": "C065；C068；C071",
+    "youtube": "C066",
+    "article": "C070",
+    "primary_cta": "LM-08"
+  },
+  {
+    "week": "9",
+    "theme_cn": "聚变与高热流：多材料才是答案",
+    "objective": "建立科研与能源长期影响力",
+    "linkedin": "C073；C076；C079",
+    "youtube": "C074",
+    "article": "C078",
+    "primary_cta": "LM-02"
+  },
+  {
+    "week": "10",
+    "theme_cn": "反应器与抗菌：严格守住证据边界",
+    "objective": "展示科学表达和合规能力",
+    "linkedin": "C081；C084；C089",
+    "youtube": "C090",
+    "article": "C086",
+    "primary_cta": "LM-09"
+  },
+  {
+    "week": "11",
+    "theme_cn": "微电子：直接在基底上长铜",
+    "objective": "触达封装、晶圆测试和光子客户",
+    "linkedin": "C097；C100；C103",
+    "youtube": "C104",
+    "article": "C099",
+    "primary_cta": "LM-01"
+  },
+  {
+    "week": "12",
+    "theme_cn": "转化周：RFQ、验证矩阵和项目诊断",
+    "objective": "把关注转成保密技术沟通",
+    "linkedin": "C007；C039；C103",
+    "youtube": "C008",
+    "article": "C014",
+    "primary_cta": "LM-03"
+  }
+]

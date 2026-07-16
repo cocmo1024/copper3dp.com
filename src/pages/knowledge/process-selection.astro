@@ -1,0 +1,133 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import { processRoutes } from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper Additive Manufacturing Process Selection',
+  description:
+    'Compare copper LPBF, green laser, electron beam, DED, WAAM, cold spray, binder jetting, sinter-based, ECAM, and UAM routes.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Process selection', item: '/knowledge/process-selection/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing process routes',
+      processRoutes.map((item) => ({
+        name: item.name,
+        description: item.bestFor,
+        url: '/knowledge/process-selection/',
+      }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/process-selection/"
+  eyebrow="Process selection"
+  title="Choose the copper AM route from geometry, scale, material and proof burden"
+  introduction="LPBF is not the only copper additive route. Electron-beam, DED, WAAM, cold spray, binder jetting, bound-metal sintering, electrochemical micro-AM and ultrasonic foil joining occupy different scale, property and qualification windows."
+  stats={[
+    { value: processRoutes.length, label: 'Process families' },
+    { value: '3', label: 'Fusion PBF paths' },
+    { value: '3', label: 'Large-format paths' },
+    { value: '4', label: 'Sinter, micro and solid-state paths' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="route-table">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Route comparison</p>
+        <h2 id="route-table" class="mt-2 font-heading text-3xl font-bold text-heading">
+          What each process is good at, and what it must prove
+        </h2>
+      </div>
+      <div class="mt-8 overflow-x-auto border-y border-page-border">
+        <table class="w-full min-w-[72rem] text-left">
+          <thead>
+            <tr class="border-b border-page-border text-sm text-muted">
+              <th class="px-4 py-3 font-semibold text-heading">Route</th>
+              <th class="px-4 py-3 font-semibold text-heading">Scale</th>
+              <th class="px-4 py-3 font-semibold text-heading">Best fit</th>
+              <th class="px-4 py-3 font-semibold text-heading">Main limits</th>
+              <th class="px-4 py-3 font-semibold text-heading">Evidence before release</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              processRoutes.map((route) => (
+                <tr class="border-b border-page-border align-top last:border-0">
+                  <td class="px-4 py-5 font-semibold text-heading">{route.name}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{route.scale}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{route.bestFor}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{route.limits}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{route.proof}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="route-gates">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-semibold text-primary">Selection gates</p>
+      <h2 id="route-gates" class="mt-2 font-heading text-3xl font-bold text-heading">
+        Eliminate unsuitable routes in this order
+      </h2>
+      <ol class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-5">
+        {
+          [
+            ['01', 'Material identity', 'Confirm pure copper or the exact copper alloy.'],
+            ['02', 'Feature scale', 'Set walls, channels, surfaces, interfaces and overall envelope.'],
+            ['03', 'Property state', 'Define conductivity, strength, temperature and final heat treatment.'],
+            ['04', 'Inspection access', 'Confirm cleaning, machining, CT, leak and test feasibility.'],
+            ['05', 'Production case', 'Compare quantity, NRE, cycle, yield risk and supplier maturity.'],
+          ].map(([number, title, description]) => (
+            <li class="bg-page p-5">
+              <span class="text-sm font-semibold text-primary">{number}</span>
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-14" aria-labelledby="route-next-step">
+    <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold text-primary">Market evidence</p>
+        <h2 id="route-next-step" class="mt-2 font-heading text-3xl font-bold text-heading">
+          A process family is not a supplier qualification
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The equipment index records public material and platform evidence. The quotation still needs to name the
+          actual supplier, machine configuration, material, post-processing route and acceptance package.
+        </p>
+        <a class="mt-5 inline-flex text-sm font-semibold text-link hover:underline" href="/knowledge/equipment/"
+          >Review equipment evidence</a
+        >
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-primary">Part evidence</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">A printable shape is not yet a qualified part</h2>
+        <p class="mt-4 leading-7 text-muted">
+          Powder removal, heat treatment, machining, cleaning, conductivity, pressure integrity, NDE and system tests
+          may eliminate an otherwise printable route.
+        </p>
+        <a
+          class="mt-5 inline-flex text-sm font-semibold text-link hover:underline"
+          href="/knowledge/quality-and-qualification/">Build the qualification plan</a
+        >
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

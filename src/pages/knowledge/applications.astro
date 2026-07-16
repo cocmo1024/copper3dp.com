@@ -1,0 +1,170 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
+import {
+  applicationPrimaryLinks,
+  applicationsByPriority,
+  casesByApplication,
+  getSource,
+  splitKnowledgeList,
+} from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper Additive Manufacturing Application Decision Map',
+  description:
+    'Evaluate copper additive manufacturing across 13 industrial application domains using functional value, typical parts, buyer roles, evidence, and RFQ requirements.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Applications', item: '/knowledge/applications/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing application domains',
+      applicationsByPriority.map((item) => ({
+        name: item.application_en,
+        description: item.value_proposition_en,
+        url: `/knowledge/applications/#${item.slug}`,
+      }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/applications/"
+  eyebrow="Application decision map"
+  title="Where copper performance and additive geometry create defensible value"
+  introduction="Copper AM earns its place when conductivity, internal geometry, integration, package constraints and qualification requirements must be solved together. This map separates strong commercial fits from adjacent research signals and directs each application to a practical evidence path."
+  stats={[
+    { value: applicationsByPriority.length, label: 'Application domains' },
+    {
+      value: applicationsByPriority.filter((item) => item.priority.startsWith('A')).length,
+      label: 'Priority A domains',
+    },
+    {
+      value: applicationsByPriority.filter((item) => item.priority.startsWith('B')).length,
+      label: 'Research or adjacent',
+    },
+    { value: [...casesByApplication.values()].flat().length, label: 'Public case records' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="application-map">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Application map</p>
+        <h2 id="application-map" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Start from the operating duty
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Priority indicates business fit and evidence maturity in this library. It is not a certification, market-size
+          forecast or promise that every geometry is manufacturable.
+        </p>
+      </div>
+      <nav class="mt-8 grid border-t border-page-border sm:grid-cols-2 lg:grid-cols-3" aria-label="Application domains">
+        {
+          applicationsByPriority.map((application) => (
+            <a
+              class="border-b border-page-border py-4 pr-5 text-sm font-semibold text-heading hover:text-link sm:odd:pr-6 sm:even:border-l sm:even:pl-6 lg:border-l lg:first:border-l-0 lg:nth-[3n+1]:border-l-0 lg:nth-[3n+1]:pl-0"
+              href={`#${application.slug}`}
+            >
+              <span class="mr-2 text-primary">{application.priority}</span>
+              {application.application_en}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  <div class="border-t border-page-border">
+    {
+      applicationsByPriority.map((application, index) => {
+        const cases = casesByApplication.get(application.id) ?? [];
+        const source = getSource(application.representative_source_id);
+        const primaryLink = applicationPrimaryLinks[application.id];
+        const isAdjacent = application.priority.startsWith('B');
+        return (
+          <section
+            id={application.slug}
+            class:list={['scroll-mt-24 py-12 sm:py-14', index % 2 === 1 && 'border-y border-page-border bg-surface']}
+            aria-labelledby={`${application.slug}-title`}
+          >
+            <div class="mx-auto max-w-5xl px-4 sm:px-6">
+              <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
+                <div>
+                  <p class="text-sm font-semibold text-primary">Priority {application.priority}</p>
+                  <h2 id={`${application.slug}-title`} class="mt-2 font-heading text-3xl font-bold text-heading">
+                    {application.application_en}
+                  </h2>
+                  <p class="mt-4 text-sm leading-6 text-muted">
+                    {isAdjacent
+                      ? 'Research or adjacent evidence. Treat this as a discovery path, not a current production capability claim.'
+                      : 'Commercially relevant when the geometry and proof burden justify an additive route.'}
+                  </p>
+                  {primaryLink && (
+                    <a class="mt-5 inline-flex text-sm font-semibold text-link hover:underline" href={primaryLink.href}>
+                      {primaryLink.title}
+                    </a>
+                  )}
+                </div>
+                <div>
+                  <h3 class="font-heading text-xl font-semibold text-heading">Functional value</h3>
+                  <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                    {splitKnowledgeList(application.value_proposition_en).map((item) => (
+                      <li class="border-l-2 border-primary/50 pl-4 leading-7 text-muted">{item}</li>
+                    ))}
+                  </ul>
+
+                  <div class="mt-8 grid gap-8 sm:grid-cols-2">
+                    <div>
+                      <h3 class="font-heading text-lg font-semibold text-heading">Typical parts</h3>
+                      <ul class="mt-3 space-y-2 text-sm leading-6 text-muted">
+                        {splitKnowledgeList(application.typical_parts_en).map((item) => (
+                          <li>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 class="font-heading text-lg font-semibold text-heading">Who usually evaluates it</h3>
+                      <ul class="mt-3 space-y-2 text-sm leading-6 text-muted">
+                        {splitKnowledgeList(application.buyer_roles_en).map((item) => (
+                          <li>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mt-8 border-t border-page-border pt-6">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                      <h3 class="font-heading text-lg font-semibold text-heading">Representative public evidence</h3>
+                      {source && <EvidenceBadge tier={source.evidence_tier} />}
+                    </div>
+                    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                      {cases.slice(0, 4).map((item) => (
+                        <article class="border-l border-page-border pl-4">
+                          <h4 class="font-semibold text-heading">{item.case_en}</h4>
+                          <p class="mt-2 text-sm leading-6 text-muted">{item.evidence_boundary}</p>
+                          <a
+                            class="mt-3 inline-flex text-sm font-semibold text-link hover:underline"
+                            href={item.source_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Open source
+                          </a>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })
+    }
+  </div>
+</KnowledgePage>

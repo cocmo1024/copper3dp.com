@@ -3,4 +3,5 @@ node_modules
 .github
 .changeset
 .playwright-cli
+output
 src/data/post/*.md

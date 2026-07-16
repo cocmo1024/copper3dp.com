@@ -1,0 +1,120 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
+import { knowledgeSources, sourceCategories } from '~/data/knowledge';
+import { createBreadcrumbSchema } from '~/utils/structured-data';
+
+const sourceGroups = sourceCategories.map((category) => ({
+  category,
+  items: knowledgeSources.filter((source) => source.category_en === category),
+}));
+const datedCount = knowledgeSources.filter((source) => source.source_date).length;
+const primaryCount = knowledgeSources.filter((source) => source.evidence_tier === 'A').length;
+
+const metadata = {
+  title: 'Copper Additive Manufacturing Source Index',
+  description:
+    'Trace 196 copper additive manufacturing sources across standards, research, government, manufacturers, equipment, applications, quality, and process evidence.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Source index', item: '/knowledge/sources/' },
+    ]),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/sources/"
+  eyebrow="Source index"
+  title="Trace copper AM claims back to their public evidence"
+  introduction="This source register supports the knowledge center's engineering statements and evidence boundaries. It includes standards bodies, government and research institutions, peer-reviewed work, official manufacturer data, named public cases and adjacent research that remains clearly labelled."
+  stats={[
+    { value: knowledgeSources.length, label: 'Unique URLs' },
+    { value: sourceCategories.length, label: 'Source categories' },
+    { value: primaryCount, label: 'Tier A sources' },
+    { value: datedCount, label: 'Sources with dates' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="source-policy">
+    <div class="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-semibold text-primary">Source policy</p>
+        <h2 id="source-policy" class="mt-2 font-heading text-3xl font-bold text-heading">
+          A source is useful only within its published scope
+        </h2>
+      </div>
+      <div class="grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-3">
+        {
+          [
+            ['Identity', 'Retain the publishing organization, title, date, URL and source identifier.'],
+            ['Context', 'Carry the material, process, specimen, post-processing and test conditions with a value.'],
+            ['Currency', 'Revalidate equipment status and volatile product data before quotation or publication.'],
+          ].map(([title, description]) => (
+            <div class="bg-page p-5">
+              <h3 class="font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="source-register">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Evidence register</p>
+        <h2 id="source-register" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Browse all sources by evidence category
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          A missing source date is shown as undated; the verification date records when the URL was checked, not when
+          the underlying claim was first published.
+        </p>
+      </div>
+      <div class="mt-8 space-y-4">
+        {
+          sourceGroups.map(({ category, items }, index) => (
+            <details class="border-y border-page-border bg-page" open={index === 0}>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5">
+                <span class="font-heading text-xl font-semibold text-heading">{category}</span>
+                <span class="shrink-0 text-sm font-semibold text-primary">{items.length} sources</span>
+              </summary>
+              <div class="border-t border-page-border">
+                {items.map((source) => (
+                  <article class="grid gap-4 border-b border-page-border py-5 last:border-0 md:grid-cols-[7rem_1fr_auto] md:items-start">
+                    <div>
+                      <p class="text-sm font-semibold text-primary">{source.source_id}</p>
+                      <p class="mt-1 text-xs text-muted">{source.source_date || 'Undated'}</p>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-heading">{source.title}</h3>
+                      <p class="mt-1 text-sm text-muted">{source.organization || source.domain}</p>
+                      <p class="mt-2 text-xs text-muted">
+                        {source.domain} · URL checked {source.verified_date}
+                      </p>
+                    </div>
+                    <div class="flex min-w-28 items-center gap-3 md:flex-col md:items-end">
+                      <EvidenceBadge tier={source.evidence_tier} />
+                      <a
+                        class="text-sm font-semibold text-link hover:underline"
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Open source
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

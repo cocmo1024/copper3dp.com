@@ -17,6 +17,7 @@ export const headerData = {
       links: [
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
+        { text: 'Copper AM knowledge center', href: getPermalink('/knowledge') },
         { text: 'Quotation checklist', href: getPermalink('/rfq') },
       ],
     },
@@ -56,6 +57,7 @@ export const footerData = {
       title: 'Company & resources',
       links: [
         { text: 'Engineering Guides', href: getBlogPermalink() },
+        { text: 'Copper AM knowledge center', href: getPermalink('/knowledge') },
         { text: 'About COPPER 3DP', href: getPermalink('/about') },
         { text: 'Editorial policy', href: getPermalink('/editorial-policy') },
         { text: 'Como Precision', href: 'https://www.szcomo.com/' },

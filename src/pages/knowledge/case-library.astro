@@ -1,0 +1,111 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
+import { applicationsByPriority, casesByApplication, knowledgeCases } from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Public Copper Additive Manufacturing Case Evidence',
+  description:
+    'Trace 41 public copper additive manufacturing cases by application, source, evidence tier, and explicit evidence boundary.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Case library', item: '/knowledge/case-library/' },
+    ]),
+    createItemListSchema(
+      'Public copper additive manufacturing case evidence',
+      knowledgeCases.map((item) => ({
+        name: item.case_en,
+        description: item.evidence_boundary,
+        url: item.source_url,
+      }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/case-library/"
+  eyebrow="Public case evidence"
+  title="What published copper AM cases prove, and what they do not"
+  introduction="These are public third-party research, supplier and application records, not COPPER 3DP customer claims. Each entry retains a source link and a boundary statement so a prototype, laboratory result or named deployment is not silently expanded into a universal production claim."
+  stats={[
+    { value: knowledgeCases.length, label: 'Case records' },
+    { value: applicationsByPriority.length, label: 'Application domains' },
+    { value: knowledgeCases.filter((item) => item.evidence_tier === 'A').length, label: 'Tier A records' },
+    { value: knowledgeCases.filter((item) => item.evidence_tier === 'B').length, label: 'Tier B records' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="case-rules">
+    <div class="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-semibold text-primary">Reading rule</p>
+        <h2 id="case-rules" class="mt-2 font-heading text-3xl font-bold text-heading">Follow the evidence chain</h2>
+      </div>
+      <div class="grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-3">
+        {
+          [
+            ['Source', 'Who published the record, and is it primary evidence or supplier documentation?'],
+            ['Scope', 'Which material, process, geometry, test and operating condition were actually described?'],
+            ['Boundary', 'Which qualification or production conclusion remains unsupported?'],
+          ].map(([title, description]) => (
+            <div class="bg-page p-5">
+              <h3 class="font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="border-t border-page-border">
+    {
+      applicationsByPriority.map((application, index) => {
+        const cases = casesByApplication.get(application.id) ?? [];
+        if (!cases.length) return null;
+        return (
+          <section class:list={['py-12 sm:py-14', index % 2 === 1 && 'border-y border-page-border bg-surface']}>
+            <div class="mx-auto max-w-5xl px-4 sm:px-6">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p class="text-sm font-semibold text-primary">Priority {application.priority}</p>
+                  <h2 class="mt-2 font-heading text-3xl font-bold text-heading">{application.application_en}</h2>
+                </div>
+                <a
+                  class="text-sm font-semibold text-link hover:underline"
+                  href={`/knowledge/applications/#${application.slug}`}
+                >
+                  Review application decision
+                </a>
+              </div>
+              <div class="mt-8 grid border-t border-page-border lg:grid-cols-2">
+                {cases.map((item) => (
+                  <article class="border-b border-page-border py-6 lg:odd:pr-8 lg:even:border-l lg:even:pl-8">
+                    <div class="flex items-start justify-between gap-4">
+                      <h3 class="font-heading text-xl font-semibold text-heading">{item.case_en}</h3>
+                      <EvidenceBadge tier={item.evidence_tier} />
+                    </div>
+                    <p class="mt-3 text-xs font-semibold uppercase text-primary">Evidence boundary</p>
+                    <p class="mt-2 leading-7 text-muted">{item.evidence_boundary}</p>
+                    <a
+                      class="mt-4 inline-flex text-sm font-semibold text-link hover:underline"
+                      href={item.source_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open public source
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })
+    }
+  </div>
+</KnowledgePage>

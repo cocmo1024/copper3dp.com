@@ -1,0 +1,58 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import { glossary } from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const terms = [...glossary].sort((a, b) => a.term.localeCompare(b.term));
+const metadata = {
+  title: 'Copper Additive Manufacturing Glossary',
+  description:
+    'Definitions for 30 copper additive manufacturing material, process, powder, inspection, property, and qualification terms used in engineering and procurement.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Glossary', item: '/knowledge/glossary/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing glossary',
+      terms.map((item) => ({ name: item.term, description: item.definition, url: '/knowledge/glossary/' }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/glossary/"
+  eyebrow="Engineering glossary"
+  title="Consistent copper AM language for design, quality and procurement"
+  introduction="These definitions establish a common baseline for an RFQ and technical review. A term does not replace the exact material standard, test method, acceptance limit or supplier process specification required by a project."
+  stats={[
+    { value: terms.length, label: 'Defined terms' },
+    { value: '5', label: 'Topic families' },
+    { value: '1', label: 'Shared vocabulary' },
+    { value: '0', label: 'Implied guarantees' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="glossary-list">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">A-Z reference</p>
+        <h2 id="glossary-list" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Terms used across the knowledge center
+        </h2>
+      </div>
+      <dl class="mt-8 grid border-t border-page-border md:grid-cols-2">
+        {
+          terms.map((item) => (
+            <div class="border-b border-page-border py-6 md:odd:pr-8 md:even:border-l md:even:pl-8">
+              <dt class="font-heading text-xl font-semibold text-heading">{item.term}</dt>
+              <dd class="mt-3 leading-7 text-muted">{item.definition}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+</KnowledgePage>

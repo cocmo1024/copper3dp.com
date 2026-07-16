@@ -1,0 +1,144 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import { materialFamilies, technicalEvidence } from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const coverage = [
+  ['Material systems', technicalEvidence.filter((item) => item.topic === '材料体系').length],
+  ['Process fundamentals', technicalEvidence.filter((item) => item.topic === '工艺原理').length],
+  ['Testing and standards', technicalEvidence.filter((item) => item.topic === '测试与标准').length],
+  ['Defect mechanisms', technicalEvidence.filter((item) => item.topic === '缺陷机理').length],
+  ['Process parameters', technicalEvidence.filter((item) => item.topic === '工艺参数').length],
+  ['Feedstock and powder', technicalEvidence.filter((item) => item.topic === '原料与粉末').length],
+  ['Post-processing', technicalEvidence.filter((item) => item.topic === '后处理').length],
+] as const;
+
+const metadata = {
+  title: 'Copper AM Materials and Property Evidence',
+  description:
+    'Engineering selection guide for pure copper, CuCrZr, CuCr1Zr, GRCop, CuNi and other copper alloys in additive manufacturing.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Materials and properties', item: '/knowledge/materials-and-properties/' },
+    ]),
+    createItemListSchema(
+      'Copper AM material families',
+      materialFamilies.map((item) => ({
+        name: item.name,
+        description: item.chooseWhen,
+        url: '/knowledge/materials-and-properties/',
+      }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/materials-and-properties/"
+  eyebrow="Materials and properties"
+  title="Select copper by finished-part duty, not by conductivity alone"
+  introduction="Pure copper, CuCrZr, CuCr1Zr, GRCop and other copper alloys solve different combinations of conductivity, strength, temperature, corrosion and qualification. A material decision is incomplete until the final heat treatment, machining and test state are defined."
+  stats={coverage.slice(0, 4).map(([label, value]) => ({ value, label }))}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="material-families">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-semibold text-primary">Selection map</p>
+      <h2 id="material-families" class="mt-2 font-heading text-3xl font-bold text-heading">
+        Five material families and their decision boundaries
+      </h2>
+      <div class="mt-8 overflow-x-auto border-y border-page-border">
+        <table class="w-full min-w-[64rem] text-left">
+          <thead>
+            <tr class="border-b border-page-border text-sm text-muted">
+              <th class="px-4 py-3 font-semibold text-heading">Material family</th>
+              <th class="px-4 py-3 font-semibold text-heading">Common designations</th>
+              <th class="px-4 py-3 font-semibold text-heading">Choose when</th>
+              <th class="px-4 py-3 font-semibold text-heading">Evidence to lock</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              materialFamilies.map((item) => (
+                <tr class="border-b border-page-border align-top last:border-0">
+                  <td class="px-4 py-5 font-semibold text-heading">{item.name}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{item.designations}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{item.chooseWhen}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{item.watch}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="property-evidence">
+    <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-semibold text-primary">Property evidence</p>
+        <h2 id="property-evidence" class="mt-2 font-heading text-3xl font-bold text-heading">
+          A number needs its full test context
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Density, IACS, thermal conductivity and tensile properties cannot be compared safely when material identity,
+          orientation, temperature, post-processing or test method differ.
+        </p>
+      </div>
+      <div class="grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-2">
+        {
+          [
+            ['Identity', 'Grade, chemistry, powder or wire lot, oxygen and reused-feedstock proportion.'],
+            ['Build state', 'Machine/configuration, direction, layer condition, location, support and witness coupon.'],
+            ['Final state', 'Stress relief, solution/ageing, HIP, machining, polishing, plating and cleaning.'],
+            ['Test state', 'Method, temperature, direction, specimen geometry, sampling and uncertainty.'],
+          ].map(([title, description]) => (
+            <div class="bg-page p-5">
+              <h3 class="font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-14" aria-labelledby="technical-coverage">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Evidence coverage</p>
+        <h2 id="technical-coverage" class="mt-2 font-heading text-3xl font-bold text-heading">
+          What the 78-record technical base covers
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The technical dataset is used as an evidence layer, not a universal parameter recipe. Open the source index to
+          inspect the underlying standard, paper or official data page before using a value in a project specification.
+        </p>
+      </div>
+      <dl
+        class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {
+          coverage.map(([label, value]) => (
+            <div class="bg-page px-5 py-5">
+              <dt class="text-sm text-muted">{label}</dt>
+              <dd class="mt-1 font-heading text-2xl font-bold text-heading">{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="text-sm font-semibold text-link hover:underline" href="/materials/">Open material service overview</a>
+        <a class="text-sm font-semibold text-link hover:underline" href="/knowledge/sources/"
+          >Review the complete source index</a
+        >
+        <a class="text-sm font-semibold text-link hover:underline" href="/knowledge/quality-and-qualification/"
+          >Define acceptance evidence</a
+        >
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

@@ -1,0 +1,175 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import { qualityGates, rfqInputs } from '~/data/knowledge';
+import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
+
+const validationMethods = [
+  [
+    'Material and feedstock',
+    'Chemistry, oxygen, powder or wire lot, reuse history, particle distribution, certificates and traceability.',
+  ],
+  [
+    'Internal integrity',
+    'Qualified density method, metallography, CT or sectioning, pore morphology, minimum-wall and channel evidence.',
+  ],
+  [
+    'Functional properties',
+    'Electrical conductivity or resistivity, thermal diffusivity/conductivity, mechanical properties and temperature-dependent state.',
+  ],
+  [
+    'Pressure and flow',
+    'Proof or burst pressure, helium or fluid leak rate, flow distribution, pressure drop, flushing and retained-particle checks.',
+  ],
+  [
+    'Dimensions and surfaces',
+    'Datums, GD&T, sealing faces, roughness, internal-wall state, machining records and final cleanliness.',
+  ],
+  [
+    'Release documentation',
+    'Build and heat-treatment records, inspection reports, concessions, serialization, packaging and change control.',
+  ],
+] as const;
+
+const metadata = {
+  title: 'Copper AM Quality, Inspection and Qualification Guide',
+  description:
+    'Build a copper additive manufacturing qualification plan covering feedstock, process control, heat treatment, CT, conductivity, pressure, leak, flow, dimensions, and release records.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Quality and qualification', item: '/knowledge/quality-and-qualification/' },
+    ]),
+    createItemListSchema(
+      'Copper AM quality gates',
+      qualityGates.map((item) => ({
+        name: item.title,
+        description: item.description,
+        url: '/knowledge/quality-and-qualification/',
+      }))
+    ),
+    createFaqSchema([
+      {
+        title: 'Is relative density enough to accept a copper AM part?',
+        description:
+          'No. The density method and sampling location matter, and functional parts may also need pore morphology, CT, conductivity, pressure integrity, dimensional and cleanliness evidence.',
+      },
+      {
+        title: 'Should conductivity be specified before or after heat treatment and machining?',
+        description:
+          'Specify the required final state and test method. Alloy, heat treatment, orientation, temperature and finishing can change the reported result.',
+      },
+      {
+        title: 'Does CT replace leak or pressure testing for a cold plate?',
+        description:
+          'No. CT can inspect accessible internal geometry and discontinuities, while leak, proof, burst and flow tests answer different acceptance questions.',
+      },
+    ]),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/quality-and-qualification/"
+  eyebrow="Quality and qualification"
+  title="Qualify the finished copper part, not only the build"
+  introduction="A defensible release plan carries material identity, machine and process control, post-processing, inspection and functional acceptance through to the finished part. The required evidence should scale with failure consequence, geometry, service environment and production maturity."
+  stats={[
+    { value: qualityGates.length, label: 'Quality gates' },
+    { value: validationMethods.length, label: 'Evidence groups' },
+    { value: rfqInputs.length, label: 'RFQ input groups' },
+    { value: '1', label: 'Final accepted state' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="quality-gates">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-semibold text-primary">Qualification chain</p>
+      <h2 id="quality-gates" class="mt-2 font-heading text-3xl font-bold text-heading">
+        Four gates from incoming material to release
+      </h2>
+      <ol class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-4">
+        {
+          qualityGates.map((gate, index) => (
+            <li class="bg-page p-5">
+              <span class="text-sm font-semibold text-primary">{String(index + 1).padStart(2, '0')}</span>
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{gate.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{gate.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="validation-methods">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Acceptance evidence</p>
+        <h2 id="validation-methods" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Select methods by the failure mode they can detect
+        </h2>
+      </div>
+      <div class="mt-8 grid border-t border-page-border md:grid-cols-2">
+        {
+          validationMethods.map(([title, description]) => (
+            <article class="border-b border-page-border py-6 md:odd:pr-8 md:even:border-l md:even:pl-8">
+              <h3 class="font-heading text-xl font-semibold text-heading">{title}</h3>
+              <p class="mt-3 leading-7 text-muted">{description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-14" aria-labelledby="rfq-inputs">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">RFQ readiness</p>
+        <h2 id="rfq-inputs" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Inputs that prevent an incomplete quotation
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Unknown items can be marked for engineering review. Hiding an operating condition or acceptance requirement
+          until after quotation is a larger risk than stating that it is not yet defined.
+        </p>
+      </div>
+      <div class="mt-8 overflow-x-auto border-y border-page-border">
+        <table class="w-full min-w-[48rem] text-left">
+          <thead>
+            <tr class="border-b border-page-border text-sm">
+              <th class="px-4 py-3 font-semibold text-heading">Input group</th>
+              <th class="px-4 py-3 font-semibold text-heading">Information to provide or resolve</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              rfqInputs.map(([name, detail]) => (
+                <tr class="border-b border-page-border align-top last:border-0">
+                  <td class="px-4 py-5 font-semibold text-heading">{name}</td>
+                  <td class="px-4 py-5 leading-7 text-muted">{detail}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+        <a
+          class="text-link hover:underline"
+          href="/posts/EngineeringGuide/engineering-checklist-copper-3d-printed-part-quotation/"
+          >Open the detailed RFQ checklist</a
+        >
+        <a
+          class="text-link hover:underline"
+          href="/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/"
+          >Review CT and leak-test logic</a
+        >
+        <a class="text-link hover:underline" href="/posts/EngineeringGuide/how-to-audit-copper-3d-printing-supplier/"
+          >Review supplier qualification</a
+        >
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

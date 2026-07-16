@@ -1,0 +1,23 @@
+---
+import { evidenceLabels, type EvidenceTier } from '~/data/knowledge';
+
+interface Props {
+  tier?: string;
+}
+
+const tier = (['A', 'B', 'C', 'D', 'U'].includes(Astro.props.tier || '') ? Astro.props.tier : 'U') as EvidenceTier;
+const styles: Record<EvidenceTier, string> = {
+  A: 'border-emerald-500/35 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
+  B: 'border-sky-500/35 bg-sky-500/10 text-sky-700 dark:text-sky-300',
+  C: 'border-amber-500/35 bg-amber-500/10 text-amber-700 dark:text-amber-300',
+  D: 'border-rose-500/35 bg-rose-500/10 text-rose-700 dark:text-rose-300',
+  U: 'border-page-border bg-surface-raised text-muted',
+};
+---
+
+<span
+  class:list={['inline-flex rounded border px-2 py-0.5 text-xs font-semibold', styles[tier]]}
+  title={evidenceLabels[tier].description}
+>
+  {evidenceLabels[tier].label}
+</span>

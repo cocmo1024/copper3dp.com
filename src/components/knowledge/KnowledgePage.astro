@@ -1,0 +1,92 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { knowledgeSections } from '~/data/knowledge';
+import type { MetaData } from '~/types';
+
+interface Props {
+  metadata: MetaData;
+  currentPath: string;
+  eyebrow: string;
+  title: string;
+  introduction: string;
+  stats?: Array<{ value: string | number; label: string }>;
+  showCta?: boolean;
+}
+
+const { metadata, currentPath, eyebrow, title, introduction, stats = [], showCta = true } = Astro.props;
+---
+
+<Layout metadata={metadata}>
+  <article class="text-default">
+    <header class="mx-auto max-w-5xl px-4 pb-10 pt-12 sm:px-6 sm:pb-12 sm:pt-16 lg:pt-20">
+      <div class="max-w-4xl">
+        <p class="text-sm font-semibold text-primary">{eyebrow}</p>
+        <h1 class="mt-3 max-w-4xl font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">{title}</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-muted">{introduction}</p>
+        <p class="mt-4 text-sm leading-6 text-muted">
+          Evidence library version 2026-07-16. Public values remain source-specific references, not universal part
+          guarantees.
+        </p>
+      </div>
+
+      {
+        stats.length > 0 && (
+          <dl class="mt-9 grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((item) => (
+              <div class="bg-page px-4 py-5 sm:px-5">
+                <dt class="text-xs font-semibold uppercase text-muted">{item.label}</dt>
+                <dd class="mt-1 font-heading text-2xl font-bold text-heading">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+    </header>
+
+    <nav class="border-y border-page-border bg-surface" aria-label="Copper AM knowledge sections">
+      <div class="mx-auto flex max-w-5xl gap-x-5 gap-y-2 overflow-x-auto px-4 py-4 sm:flex-wrap sm:px-6">
+        {
+          knowledgeSections.map((item) => (
+            <a
+              href={item.href}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+              class:list={[
+                'shrink-0 text-sm font-semibold transition',
+                currentPath === item.href ? 'text-primary' : 'text-muted hover:text-link',
+              ]}
+            >
+              {item.title}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+
+    <slot />
+
+    {
+      showCta && (
+        <section class="border-t border-page-border py-12 sm:py-14">
+          <div class="mx-auto flex max-w-5xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
+            <div class="max-w-2xl">
+              <p class="text-sm font-semibold text-primary">Apply the evidence to a real part</p>
+              <h2 class="mt-2 font-heading text-3xl font-bold text-heading">Send the drawing and acceptance needs</h2>
+              <p class="mt-3 leading-7 text-muted">
+                A quotation is based on the actual geometry, material state, quantity, operating duty, finishing and
+                inspection scope.
+              </p>
+            </div>
+            <a
+              class="inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90"
+              href="/rfq/#rfq-form"
+            >
+              <Icon name="tabler:file-upload" class="h-4 w-4" />
+              Submit project RFQ
+            </a>
+          </div>
+        </section>
+      )
+    }
+  </article>
+</Layout>

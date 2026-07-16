@@ -1,0 +1,198 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
+import { equipmentProcessGroups, knowledgeEquipment } from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const processGroups = [...equipmentProcessGroups.entries()].sort((a, b) => b[1].length - a[1].length);
+const manufacturerCount = new Set(knowledgeEquipment.map((item) => item.manufacturer)).size;
+const pureCopperCount = knowledgeEquipment.filter((item) => item.pure_copper_supported === 'Yes').length;
+const currentCount = knowledgeEquipment.filter((item) => item.status.toLowerCase().includes('current')).length;
+
+const buildRange = (item: Record<string, string>) => {
+  const values = [item.build_x_mm, item.build_y_mm, item.build_z_mm].filter(Boolean);
+  return values.length === 3 ? `${values.join(' x ')} mm` : 'See source';
+};
+
+const energy = (item: Record<string, string>) => {
+  const values = [item.wavelength_nm ? `${item.wavelength_nm} nm` : '', item.power_w ? `${item.power_w} W` : ''].filter(
+    Boolean
+  );
+  return values.length ? values.join(' / ') : item.laser_or_energy || 'See source';
+};
+
+const metadata = {
+  title: 'Copper Additive Manufacturing Equipment Reference',
+  description:
+    'Compare 51 public copper additive manufacturing platform records by process, material evidence, build range, energy source, and commercial status.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Equipment reference', item: '/knowledge/equipment/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing equipment process families',
+      processGroups.map(([name]) => ({ name, url: '/knowledge/equipment/' }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/equipment/"
+  eyebrow="Equipment market reference"
+  title="Public copper AM platform evidence, separated from supplier qualification"
+  introduction="This index records public manufacturer and research evidence for copper-capable additive platforms. It helps screen a manufacturing route; it does not imply that COPPER 3DP owns every listed machine or that a published parameter applies to every part. Production capacity is coordinated through qualified partners."
+  stats={[
+    { value: knowledgeEquipment.length, label: 'Platform records' },
+    { value: manufacturerCount, label: 'Manufacturers' },
+    { value: pureCopperCount, label: 'Pure-copper records' },
+    { value: currentCount, label: 'Marked current' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="equipment-use">
+    <div class="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-semibold text-primary">How to use this index</p>
+        <h2 id="equipment-use" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Screen the route, then qualify the actual source
+        </h2>
+      </div>
+      <ol class="grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-3">
+        {
+          [
+            [
+              '01',
+              'Check the material',
+              'Match the exact copper grade and final property state, not a generic copper label.',
+            ],
+            [
+              '02',
+              'Check the configuration',
+              'Confirm wavelength, power, build envelope, atmosphere and qualified parameter revision.',
+            ],
+            [
+              '03',
+              'Check the evidence',
+              'Name the production supplier, post-processing route, inspection plan and acceptance data in the quotation.',
+            ],
+          ].map(([number, title, description]) => (
+            <li class="bg-page p-5">
+              <span class="text-sm font-semibold text-primary">{number}</span>
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="equipment-index">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Platform index</p>
+        <h2 id="equipment-index" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Browse by additive process family
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Product names, status and specifications can change. Records were checked on 16 July 2026 and must be
+          revalidated before quotation or route approval.
+        </p>
+      </div>
+
+      <div class="mt-8 space-y-4">
+        {
+          processGroups.map(([group, items], groupIndex) => (
+            <details class="border-y border-page-border bg-page" open={groupIndex === 0}>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5 font-heading text-xl font-semibold text-heading">
+                <span>{group}</span>
+                <span class="shrink-0 text-sm font-semibold text-primary">{items.length} records</span>
+              </summary>
+              <div class="overflow-x-auto border-t border-page-border">
+                <table class="w-full min-w-[70rem] text-left">
+                  <thead>
+                    <tr class="border-b border-page-border text-xs uppercase text-muted">
+                      <th class="px-4 py-3 font-semibold">Platform</th>
+                      <th class="px-4 py-3 font-semibold">Process and material</th>
+                      <th class="px-4 py-3 font-semibold">Public reference</th>
+                      <th class="px-4 py-3 font-semibold">Status</th>
+                      <th class="px-4 py-3 font-semibold">Evidence</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items.map((item) => (
+                      <tr class="border-b border-page-border align-top last:border-0">
+                        <td class="px-4 py-5">
+                          <p class="font-semibold text-heading">{item.manufacturer}</p>
+                          <p class="mt-1 text-sm text-muted">{item.system}</p>
+                          <p class="mt-1 text-xs text-muted">{item.country}</p>
+                        </td>
+                        <td class="px-4 py-5">
+                          <p class="font-medium text-heading">{item.process}</p>
+                          <p class="mt-2 max-w-xs text-sm leading-6 text-muted">
+                            {item.copper_materials || 'Material evidence in source'}
+                          </p>
+                          <p class="mt-2 text-xs font-semibold text-primary">
+                            Pure copper: {item.pure_copper_supported || 'Not stated'}
+                          </p>
+                        </td>
+                        <td class="px-4 py-5 text-sm leading-6 text-muted">
+                          <p>{buildRange(item)}</p>
+                          <p>{energy(item)}</p>
+                        </td>
+                        <td class="px-4 py-5 text-sm leading-6 text-muted">{item.status || 'Revalidate before use'}</td>
+                        <td class="px-4 py-5">
+                          <EvidenceBadge tier={item.evidence_tier} />
+                          <a
+                            class="mt-3 block text-sm font-semibold text-link hover:underline"
+                            href={item.evidence_url || item.product_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Open public source
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-14">
+    <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold text-primary">Commercial boundary</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
+          The machine list is not the offered production scope
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The actual manufacturing partner, machine, material, parameter set, post-processing and inspection package are
+          selected against the drawing and stated in the scoped quotation.
+        </p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-primary">Next decision</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
+          Turn public capability into part-level evidence
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Review the acceptance gates before using a public density, conductivity or build-envelope value in a design
+          release.
+        </p>
+        <a
+          class="mt-5 inline-flex text-sm font-semibold text-link hover:underline"
+          href="/knowledge/quality-and-qualification/">Build the qualification plan</a
+        >
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

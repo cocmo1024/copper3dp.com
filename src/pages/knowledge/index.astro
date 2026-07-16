@@ -1,0 +1,200 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
+import { evidenceLabels, knowledgeManifest } from '~/data/knowledge';
+import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionDetails = [
+  {
+    href: '/knowledge/materials-and-properties/',
+    title: 'Materials and property evidence',
+    description:
+      'Separate pure copper, CuCrZr/CuCr1Zr, GRCop and other copper alloys by duty and final-state evidence.',
+    metric: `${knowledgeManifest.counts.technical} technical records`,
+  },
+  {
+    href: '/knowledge/process-selection/',
+    title: 'Copper AM process selection',
+    description: 'Compare LPBF, electron-beam PBF, DED, WAAM, cold spray, sinter-based and micro-additive routes.',
+    metric: '10 process families',
+  },
+  {
+    href: '/knowledge/applications/',
+    title: 'Application decision map',
+    description: 'Connect geometry, buyer role, qualification burden and RFQ inputs across industrial use cases.',
+    metric: `${knowledgeManifest.counts.applications} application domains`,
+  },
+  {
+    href: '/knowledge/equipment/',
+    title: 'Equipment market reference',
+    description:
+      'Review public platform and material evidence without implying equipment ownership or universal capability.',
+    metric: `${knowledgeManifest.counts.equipment} platform records`,
+  },
+  {
+    href: '/knowledge/case-library/',
+    title: 'Public case evidence library',
+    description: 'Use named public cases with an explicit statement of what each source does and does not prove.',
+    metric: `${knowledgeManifest.counts.cases} evidence records`,
+  },
+  {
+    href: '/knowledge/quality-and-qualification/',
+    title: 'Quality and qualification',
+    description: 'Build the acceptance chain from material identity and process control to final-part inspection.',
+    metric: '4 quality gates',
+  },
+  {
+    href: '/knowledge/defects/',
+    title: 'Defect diagnosis',
+    description: 'Connect observable evidence to plausible mechanisms and bounded corrective actions.',
+    metric: `${knowledgeManifest.counts.defects} diagnostic paths`,
+  },
+  {
+    href: '/knowledge/glossary/',
+    title: 'Copper AM glossary',
+    description: 'Use consistent process, material, powder, inspection and property terminology.',
+    metric: `${knowledgeManifest.counts.glossary} defined terms`,
+  },
+  {
+    href: '/knowledge/sources/',
+    title: 'Source index',
+    description:
+      'Trace technical statements to standards, research institutions, peer-reviewed work and official supplier data.',
+    metric: `${knowledgeManifest.counts.sources} unique URLs`,
+  },
+] as const;
+
+const metadata = {
+  title: 'Copper Additive Manufacturing Knowledge Center | COPPER 3DP',
+  ignoreTitleTemplate: true,
+  description:
+    'Evidence-based copper additive manufacturing knowledge center covering materials, processes, equipment, applications, defects, quality, public cases, and 196 sources.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing knowledge center',
+      sectionDetails.map((item) => ({ name: item.title, description: item.description, url: item.href }))
+    ),
+    createFaqSchema([
+      {
+        title: 'Does a published material value apply to every copper AM part?',
+        description:
+          'No. Material grade, machine configuration, orientation, heat treatment, specimen location, temperature and test method must travel with the value.',
+      },
+      {
+        title: 'Does this equipment reference mean COPPER 3DP owns every listed platform?',
+        description:
+          'No. The index summarizes public market evidence used for supplier-route evaluation. The actual supplier, equipment, material and inspection scope are confirmed in the quotation.',
+      },
+      {
+        title: 'How should the knowledge center be used for an RFQ?',
+        description:
+          'Start with the application and material decision, review the process and qualification constraints, then submit CAD, quantity, operating conditions and acceptance requirements through the RFQ page.',
+      },
+    ]),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/"
+  eyebrow="Copper AM knowledge center"
+  title="A traceable engineering map for copper additive manufacturing"
+  introduction="Use this library to move from a functional requirement to a material, manufacturing route, validation plan, and quotable project scope. It consolidates public technical evidence without turning supplier values or research samples into universal capability claims."
+  stats={[
+    { value: knowledgeManifest.counts.sources, label: 'Unique sources' },
+    { value: knowledgeManifest.counts.technical, label: 'Technical records' },
+    { value: knowledgeManifest.counts.equipment, label: 'Equipment records' },
+    { value: knowledgeManifest.counts.cases, label: 'Public cases' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="knowledge-map">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Knowledge map</p>
+        <h2 id="knowledge-map" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Start with a decision, not a keyword
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Each section has a distinct job. Application pages frame the engineering need; material and process pages
+          compare routes; evidence pages preserve source boundaries; the RFQ path converts the result into a project
+          review.
+        </p>
+      </div>
+      <div class="mt-8 grid border-t border-page-border md:grid-cols-2">
+        {
+          sectionDetails.map((item) => (
+            <a
+              class="group border-b border-page-border py-6 md:odd:pr-8 md:even:border-l md:even:pl-8"
+              href={item.href}
+            >
+              <p class="text-xs font-semibold uppercase text-primary">{item.metric}</p>
+              <h3 class="mt-2 font-heading text-xl font-semibold text-heading group-hover:text-link">{item.title}</h3>
+              <p class="mt-2 leading-7 text-muted">{item.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="evidence-policy">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Evidence policy</p>
+        <h2 id="evidence-policy" class="mt-2 font-heading text-3xl font-bold text-heading">
+          What each evidence tier can support
+        </h2>
+      </div>
+      <div class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-2">
+        {
+          (['A', 'B', 'C', 'D'] as const).map((tier) => (
+            <div class="bg-page p-6">
+              <EvidenceBadge tier={tier} />
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{evidenceLabels[tier].label}</h3>
+              <p class="mt-2 leading-7 text-muted">{evidenceLabels[tier].description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-14" aria-labelledby="decision-sequence">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-semibold text-primary">Engineering sequence</p>
+      <h2 id="decision-sequence" class="mt-2 font-heading text-3xl font-bold text-heading">
+        Five questions before a copper AM quotation
+      </h2>
+      <ol class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-5">
+        {
+          [
+            ['01', 'Function', 'What thermal, electrical, RF, fluid or structural job must the finished part perform?'],
+            [
+              '02',
+              'Material',
+              'Which grade and final state balance conductivity, strength, temperature and qualification?',
+            ],
+            ['03', 'Geometry', 'Which channels, interfaces or integrated features create measurable additive value?'],
+            ['04', 'Evidence', 'What test methods, coupons, NDE and part-level acceptance are required?'],
+            [
+              '05',
+              'Commercial scope',
+              'What quantity, schedule, documentation and supplier route make the project viable?',
+            ],
+          ].map(([number, title, description]) => (
+            <li class="bg-page p-5">
+              <span class="text-sm font-semibold text-primary">{number}</span>
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</KnowledgePage>

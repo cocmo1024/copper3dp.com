@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 
 import Image from '~/components/common/Image.astro';
 import CopperAmEquipmentCta from '~/components/blog/CopperAmEquipmentCta.astro';
+import KnowledgePathways from '~/components/blog/KnowledgePathways.astro';
 import { getBlogPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
 import type { Post } from '~/types';
@@ -72,5 +73,6 @@ const articleContainerClass = 'mx-auto max-w-4xl px-4 sm:px-6';
     <slot />
   </div>
 
+  <KnowledgePathways post={post} />
   <CopperAmEquipmentCta />
 </article>

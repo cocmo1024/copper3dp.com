@@ -1,0 +1,178 @@
+---
+import type { Post } from '~/types';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const context = [post.title, post.category?.title, ...(post.tags?.map((tag) => tag.title) ?? [])]
+  .filter(Boolean)
+  .join(' ')
+  .toLowerCase();
+
+type KnowledgeLink = { title: string; description: string; href: string };
+const overview: KnowledgeLink = {
+  title: 'Copper AM knowledge center',
+  description: 'Trace materials, processes, applications, quality and public evidence from one engineering map.',
+  href: '/knowledge/',
+};
+
+const contextualLinks: Array<{ pattern: RegExp; links: KnowledgeLink[] }> = [
+  {
+    pattern: /cold plate|heat exchanger|heat sink|thermal|cooling|microchannel|manifold|battery|server|data center/,
+    links: [
+      {
+        title: 'Thermal application decision map',
+        description: 'Compare cold plates, heat exchangers and high-heat-flux routes by duty and proof burden.',
+        href: '/knowledge/applications/#heat-exchangers-cold-plates',
+      },
+      {
+        title: 'Quality and pressure integrity',
+        description: 'Plan CT, cleaning, leak, pressure, flow and finished-part acceptance.',
+        href: '/knowledge/quality-and-qualification/',
+      },
+    ],
+  },
+  {
+    pattern: /rf|microwave|waveguide|antenna|resonator|cavity|filter/,
+    links: [
+      {
+        title: 'RF and waveguide application evidence',
+        description: 'Connect conductivity, RF surfaces, vacuum interfaces, finishing and validation.',
+        href: '/knowledge/applications/#rf-waveguides-accelerators',
+      },
+      {
+        title: 'Finished-part qualification',
+        description: 'Define dimensional, surface, plating, leak and inspection requirements.',
+        href: '/knowledge/quality-and-qualification/',
+      },
+    ],
+  },
+  {
+    pattern: /induction|coil|busbar|electrical|conductivity|conductor|electrode|power electronics|motor|drive/,
+    links: [
+      {
+        title: 'Electrical application decision map',
+        description: 'Review coils, conductors, motors and power-electronics duties with the relevant acceptance path.',
+        href: '/knowledge/applications/#motors-drives-power-electronics',
+      },
+      {
+        title: 'Materials and property evidence',
+        description: 'Separate pure copper and copper alloys by conductivity, strength and final material state.',
+        href: '/knowledge/materials-and-properties/',
+      },
+    ],
+  },
+  {
+    pattern: /aerospace|space|rocket|propulsion|injector|grcop/,
+    links: [
+      {
+        title: 'Space and propulsion evidence',
+        description: 'Review public GRCop, bimetallic, regenerative-cooling and qualification evidence.',
+        href: '/knowledge/applications/#space-launch-propulsion',
+      },
+      {
+        title: 'Public case evidence library',
+        description: 'See what named research and application records prove and what remains project-specific.',
+        href: '/knowledge/case-library/',
+      },
+    ],
+  },
+  {
+    pattern: /semiconductor|wafer|chip|packaging|photonics|laser|optic/,
+    links: [
+      {
+        title: 'Semiconductor and photonics applications',
+        description: 'Connect thermal control, clean passages, interfaces and qualification for precision equipment.',
+        href: '/knowledge/applications/#semiconductor-advanced-packaging',
+      },
+      {
+        title: 'Quality and cleanliness planning',
+        description: 'Define material, internal integrity, dimensions, cleanliness and release evidence.',
+        href: '/knowledge/quality-and-qualification/',
+      },
+    ],
+  },
+  {
+    pattern: /mold|tooling|conformal|die casting|insert/,
+    links: [
+      {
+        title: 'Tooling and conformal cooling evidence',
+        description: 'Review geometry, material state, cavity finishing, pressure and thermal validation.',
+        href: '/knowledge/applications/#tooling-conformal-cooling',
+      },
+      {
+        title: 'Defect diagnosis',
+        description: 'Connect channels, distortion, surfaces and post-processing to a controlled verification path.',
+        href: '/knowledge/defects/',
+      },
+    ],
+  },
+  {
+    pattern: /pure copper|cucrzr|cucr1zr|alloy|material|heat treatment|iacs|property|properties/,
+    links: [
+      {
+        title: 'Materials and property evidence',
+        description: 'Compare pure copper, CuCrZr, CuCr1Zr, GRCop and other copper alloy paths.',
+        href: '/knowledge/materials-and-properties/',
+      },
+      {
+        title: 'Source index',
+        description: 'Trace material and process claims to standards, research and official data.',
+        href: '/knowledge/sources/',
+      },
+    ],
+  },
+  {
+    pattern:
+      /rfq|quote|cost|supplier|qualification|inspection|tolerance|accuracy|surface|post-processing|testing|cad|design rule|mistake/,
+    links: [
+      {
+        title: 'Quality and qualification',
+        description: 'Build the acceptance chain from incoming material to finished-part release.',
+        href: '/knowledge/quality-and-qualification/',
+      },
+      {
+        title: 'Process selection',
+        description: 'Compare copper additive routes by feature scale, material state and evidence burden.',
+        href: '/knowledge/process-selection/',
+      },
+    ],
+  },
+];
+
+const matched = contextualLinks.find((item) => item.pattern.test(context));
+const fallback: KnowledgeLink[] = [
+  {
+    title: 'Copper AM process selection',
+    description: 'Compare LPBF, DED, cold spray, sinter-based, micro-additive and other routes.',
+    href: '/knowledge/process-selection/',
+  },
+  {
+    title: 'Quality and qualification',
+    description: 'Plan material, process, post-processing, inspection and acceptance evidence.',
+    href: '/knowledge/quality-and-qualification/',
+  },
+];
+const links = [overview, ...(matched?.links ?? fallback)];
+---
+
+<aside class="mx-auto mt-10 max-w-4xl px-4 sm:px-6" aria-labelledby="knowledge-pathways-title">
+  <div class="border-y border-page-border py-7">
+    <p class="text-sm font-semibold text-primary">Continue the engineering decision</p>
+    <h2 id="knowledge-pathways-title" class="mt-2 font-heading text-2xl font-bold text-heading">
+      Related knowledge pathways
+    </h2>
+    <div class="mt-5 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-3">
+      {
+        links.map((item) => (
+          <a class="group bg-page p-5" href={item.href}>
+            <h3 class="font-heading text-base font-semibold text-heading group-hover:text-link">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</aside>

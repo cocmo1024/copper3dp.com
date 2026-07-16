@@ -1,0 +1,114 @@
+---
+import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
+import { defectGuides } from '~/data/knowledge';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Copper Additive Manufacturing Defect Diagnosis',
+  description:
+    'Diagnose 15 copper additive manufacturing defect pathways using mechanism, observable evidence, bounded controls, and explicit interpretation limits.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+      { name: 'Defect diagnosis', item: '/knowledge/defects/' },
+    ]),
+    createItemListSchema(
+      'Copper additive manufacturing defect pathways',
+      defectGuides.map((item) => ({
+        name: item.title,
+        description: item.mechanism,
+        url: `/knowledge/defects/#${item.id}`,
+      }))
+    ),
+  ],
+};
+---
+
+<KnowledgePage
+  metadata={metadata}
+  currentPath="/knowledge/defects/"
+  eyebrow="Defect diagnosis"
+  title="Move from observed evidence to a bounded copper AM corrective action"
+  introduction="Copper AM defects rarely have a single universal parameter fix. Classify the evidence, connect it to plausible mechanisms, test the process and geometry together, and verify the finished-part response before releasing a corrective action."
+  stats={[
+    { value: defectGuides.length, label: 'Diagnostic paths' },
+    { value: '5', label: 'Evidence fields per path' },
+    { value: '0', label: 'Universal parameter fixes' },
+    { value: '1', label: 'Required root-cause chain' },
+  ]}
+>
+  <section class="py-12 sm:py-14" aria-labelledby="diagnostic-method">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <p class="text-sm font-semibold text-primary">Diagnostic method</p>
+      <h2 id="diagnostic-method" class="mt-2 font-heading text-3xl font-bold text-heading">
+        Do not diagnose from a single photograph or scalar value
+      </h2>
+      <ol class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-4">
+        {
+          [
+            ['01', 'Observe', 'Record morphology, location, orientation, build context and test method.'],
+            ['02', 'Classify', 'Separate optical, thermal, powder, gas-flow, geometry and post-process mechanisms.'],
+            ['03', 'Test', 'Change controlled variables through a machine- and geometry-specific experiment.'],
+            ['04', 'Verify', 'Repeat inspection and functional acceptance in the final material state.'],
+          ].map(([number, title, description]) => (
+            <li class="bg-page p-5">
+              <span class="text-sm font-semibold text-primary">{number}</span>
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="defect-paths">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Diagnostic library</p>
+        <h2 id="defect-paths" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Mechanism, evidence, control and boundary
+        </h2>
+      </div>
+      <div class="mt-8 space-y-4">
+        {
+          defectGuides.map((item, index) => (
+            <details id={item.id} class="scroll-mt-24 border-y border-page-border bg-page" open={index === 0}>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5">
+                <span class="font-heading text-xl font-semibold text-heading">{item.title}</span>
+                <span class="shrink-0 text-sm font-semibold text-primary">{String(index + 1).padStart(2, '0')}</span>
+              </summary>
+              <div class="grid border-t border-page-border md:grid-cols-2">
+                {[
+                  ['Plausible mechanism', item.mechanism],
+                  ['Observable evidence', item.evidence],
+                  ['Bounded controls', item.controls],
+                  ['Interpretation boundary', item.boundary],
+                ].map(([label, value]) => (
+                  <div class="border-b border-page-border py-5 md:odd:pr-8 md:even:border-l md:even:pl-8">
+                    <h3 class="text-sm font-semibold text-heading">{label}</h3>
+                    <p class="mt-2 leading-7 text-muted">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+      <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+        <a
+          class="text-link hover:underline"
+          href="/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/">Review powder removal</a
+        >
+        <a
+          class="text-link hover:underline"
+          href="/posts/EngineeringGuide/common-design-mistakes-in-3d-printed-copper-parts/"
+          >Review common design mistakes</a
+        >
+        <a class="text-link hover:underline" href="/knowledge/quality-and-qualification/">Build the verification plan</a
+        >
+      </div>
+    </div>
+  </section>
+</KnowledgePage>

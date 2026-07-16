@@ -18,6 +18,7 @@
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
     "check:links": "node scripts/check-local-links.mjs",
+    "check:knowledge": "node scripts/check-knowledge-pages.mjs",
     "check:production": "node scripts/check-production-pages.mjs",
     "fix": "npm run fix:eslint && npm run fix:prettier",
     "fix:eslint": "eslint --fix .",
