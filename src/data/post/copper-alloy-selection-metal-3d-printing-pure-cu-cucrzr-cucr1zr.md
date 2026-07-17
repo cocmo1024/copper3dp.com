@@ -223,6 +223,8 @@ Prepare:
 
 If the correct material is unknown, state the uncertainty. "Please review pure Cu vs CuCrZr vs CuCr1Zr" is a useful RFQ request when the function and acceptance criteria are included. It is not useful when the CAD file is the only input.
 
+When both conductivity and a mechanical property will be contractual acceptance gates, use [Writing a Copper AM Material Specification When Strength and Conductivity Both Matter](/posts/EngineeringGuide/writing-a-copper-am-material-specification-when-strength-and-conductivity-both-matter/) to define one final material state, test methods, coupon transfer, part-level evidence, and change control before comparing suppliers.
+
 ## Validation Should Follow the Alloy Route
 
 The validation plan should be different for each material route.

@@ -146,6 +146,8 @@ The safest RFQ language is conditional:
 
 That gives the manufacturer room to choose a workable route while protecting the surfaces that matter.
 
+For thin walls and enclosed passages, use the dedicated [copper AM support-strategy guide](/posts/EngineeringGuide/support-strategy-for-copper-am-parts-with-thin-walls-and-enclosed-flow-paths/) to separate external removable supports from inaccessible flow paths, review orientation trade-offs, and define feature-level verification.
+
 ## Rule 6: Give Threads and Ports More Structure Than the CAD Suggests
 
 Threaded ports are often underestimated in copper LPBF parts.
