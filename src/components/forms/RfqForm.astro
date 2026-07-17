@@ -63,15 +63,16 @@ const labelClass = 'block text-sm font-semibold text-heading';
 
           <label class={labelClass}>
             Application <span class="text-primary" aria-hidden="true">*</span>
+            <!-- Keep every option value explicit: browser translation may rewrite labels, never submitted values. -->
             <select class={fieldClass} name="application" required>
               <option value="">Select the closest fit</option>
-              <option>Cold plate or liquid cooling</option>
-              <option>Heat sink or heat exchanger</option>
-              <option>Busbar or electrical conductor</option>
-              <option>Induction coil</option>
-              <option>RF, waveguide, or vacuum component</option>
-              <option>Conformal cooling insert</option>
-              <option>Other copper AM part</option>
+              <option value="Cold plate or liquid cooling">Cold plate or liquid cooling</option>
+              <option value="Heat sink or heat exchanger">Heat sink or heat exchanger</option>
+              <option value="Busbar or electrical conductor">Busbar or electrical conductor</option>
+              <option value="Induction coil">Induction coil</option>
+              <option value="RF, waveguide, or vacuum component">RF, waveguide, or vacuum component</option>
+              <option value="Conformal cooling insert">Conformal cooling insert</option>
+              <option value="Other copper AM part">Other copper AM part</option>
             </select>
           </label>
 
@@ -79,10 +80,10 @@ const labelClass = 'block text-sm font-semibold text-heading';
             Material status <span class="text-primary" aria-hidden="true">*</span>
             <select class={fieldClass} name="material" required>
               <option value="Not decided">Not decided</option>
-              <option>Pure copper</option>
-              <option>CuCrZr / CuCr1Zr</option>
-              <option>GRCop-42</option>
-              <option>Other</option>
+              <option value="Pure copper">Pure copper</option>
+              <option value="CuCrZr / CuCr1Zr">CuCrZr / CuCr1Zr</option>
+              <option value="GRCop-42">GRCop-42</option>
+              <option value="Other">Other</option>
             </select>
           </label>
 
@@ -102,10 +103,10 @@ const labelClass = 'block text-sm font-semibold text-heading';
           <label class={labelClass}>
             Project timing <span class="text-primary" aria-hidden="true">*</span>
             <select class={fieldClass} name="timing" required>
-              <option>Exploring feasibility</option>
-              <option>Quote needed within 2 weeks</option>
-              <option>Prototype needed within 1–2 months</option>
-              <option>Production planning</option>
+              <option value="Exploring feasibility">Exploring feasibility</option>
+              <option value="Quote needed within 2 weeks">Quote needed within 2 weeks</option>
+              <option value="Prototype needed within 1–2 months">Prototype needed within 1–2 months</option>
+              <option value="Production planning">Production planning</option>
             </select>
           </label>
         </div>

@@ -266,11 +266,15 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
     return jsonResponse(400, { ok: false, message: 'Please refresh the page and try again.' });
   }
 
-  if (!name || !isValidEmail(email) || !company || !allowedApplications.has(application)) {
+  if (!name || !isValidEmail(email) || !company) {
     return jsonResponse(400, {
       ok: false,
-      message: 'Please complete your name, work email, company, and application.',
+      message: 'Please complete your name, work email, and company.',
     });
+  }
+
+  if (!allowedApplications.has(application)) {
+    return jsonResponse(400, { ok: false, message: 'Please select a valid application and submit again.' });
   }
 
   if (!allowedMaterials.has(material) || !allowedTimings.has(timing) || !quantity || requirements.length < 30) {
