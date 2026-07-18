@@ -68,6 +68,8 @@ Second, copper AM parts are normally selected for difficult geometry. The value 
 
 That is why the tolerance plan should follow the finished part, not the print model alone.
 
+Two narrower decisions often need their own review. Use the [channel-to-port tolerance stack guide](/posts/EngineeringGuide/tolerance-stack-up-for-copper-am-parts-with-printed-channels-and-machined-ports/) when a machined port, bore, thread, counterbore, or face approaches a hidden channel. Use the [copper LPBF datum and inspection-feature guide](/posts/EngineeringGuide/allocating-datums-and-inspection-features-on-copper-lpbf-drawings/) when the open question is how the functional datum system will survive build, thermal processing, plate removal, machining, and final inspection.
+
 ## Practical Starting Ranges For RFQ Discussion
 
 The numbers below are not universal guarantees. They are starting ranges for discussion before a supplier reviews the actual material route, machine, geometry, orientation, post-processing, and inspection plan.
