@@ -96,6 +96,8 @@ As channel size drops, the risk of powder retention, roughness penalty, pressure
 
 That trade-off is project-specific. The right value depends on coolant, flow rate, heat flux, pressure budget, alloy, build orientation, and acceptance method.
 
+Manufacturing cleanliness is only the first gate. If the installed loop can introduce corrosion products, seal debris, hose particles, biological material, or service contamination, use the [microchannel cold plate clogging and filtration guide](/posts/EngineeringGuide/copper-microchannel-cold-plate-clogging-channel-size-filtration-and-cleaning/) to connect the vulnerable passage, filter performance, commissioning flush, hydraulic baseline, and maintenance trigger.
+
 The regret case is familiar: a team optimizes the channel network only for thermal simulation, then discovers that the cold plate needs extra flushing, CT review, and redesign because the printed passages are difficult to depowder. The thermal model was not wrong; it was incomplete.
 
 ### Illustrative Design-Review Scenario: Dense Cold Plate for a Power Electronics Module

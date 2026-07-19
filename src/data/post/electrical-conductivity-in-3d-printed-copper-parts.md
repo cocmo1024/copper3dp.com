@@ -170,6 +170,8 @@ For early feasibility, a coupon tested with the same material route may be enoug
 
 When conductivity is a supplier-approval gate rather than only a design input, use the [copper LPBF supplier qualification guide for conductivity-critical parts](/posts/EngineeringGuide/copper-lpbf-supplier-qualification-conductivity-critical-parts/) to connect the exact process route, measurement method, coupon pedigree, finished interfaces, and repeat-build controls.
 
+For a build-specific witness strategy, the [copper AM qualification coupon guide](/posts/EngineeringGuide/copper-am-qualification-coupons-placement-orientation-and-measurements/) separates specimen placement, orientation, heat-treatment state, conductivity method, traceability, and the part-level evidence that a passing coupon cannot replace.
+
 Useful test inputs:
 
 - Required conductivity target and test method.

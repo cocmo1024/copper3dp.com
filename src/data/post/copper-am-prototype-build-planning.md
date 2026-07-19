@@ -79,6 +79,8 @@ The coupon plan should state:
 - Acceptance value and disposition after failure.
 - Traceability to the prototype build.
 
+When the open issue is how to allocate those specimens across the build, use the [copper AM qualification coupon planning guide](/posts/EngineeringGuide/copper-am-qualification-coupons-placement-orientation-and-measurements/) to define placement, machine-coordinate references, property direction, final processing state, test method, and transfer limits to the finished part.
+
 ### 3. Process-record evidence
 
 Use process records for variables that cannot be verified efficiently from the finished part alone:
