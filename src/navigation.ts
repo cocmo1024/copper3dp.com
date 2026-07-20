@@ -66,7 +66,7 @@ export const footerData = {
   ],
   partnerLinks: {
     title: 'Media Partners',
-    links: [{ text: 'ADDITIV', href: 'https://www.3dnatives.com/en/', ariaLabel: 'Visit ADDITIV' }],
+    links: [{ text: '3DNATIVES', href: 'https://www.3dnatives.com/en/', ariaLabel: 'Visit 3DNATIVES' }],
   },
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
