@@ -64,6 +64,10 @@ export const footerData = {
       ],
     },
   ],
+  partnerLinks: {
+    title: 'Media Partners',
+    links: [{ text: 'ADDITIV', href: 'https://www.3dnatives.com/en/', ariaLabel: 'Visit ADDITIV' }],
+  },
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
@@ -77,6 +81,6 @@ export const footerData = {
     },
   ],
   footNote: `
-    &copy; ${currentYear} COPPER 3DP, a service of Suzhou Como Precision Materials Co., Ltd. All rights reserved.
+    &copy; ${currentYear} COPPER 3DP &middot; Suzhou Como Precision Materials Co., Ltd.
   `,
 };

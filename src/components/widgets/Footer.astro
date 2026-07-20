@@ -17,13 +17,14 @@ interface Links {
 
 export interface Props {
   links: Array<Links>;
+  partnerLinks?: Links;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
   footNote?: string;
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { socialLinks = [], secondaryLinks = [], links = [], partnerLinks, footNote = '', theme = 'light' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-page-border not-prose']} data-nosnippet>
@@ -38,28 +39,28 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           Copper additive manufacturing sourcing and production coordination for functional parts. Send CAD, quantity,
           and critical requirements for a quotation.
         </p>
-        <a
-          class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-heading underline underline-offset-4 hover:text-link dark:hover:text-accent"
-          href="mailto:info@szcomo.com"
-          aria-label="Email CAD drawings and RFQ requirements to info@szcomo.com"
-        >
-          <Icon name="tabler:mail" class="h-4 w-4" />
-          info@szcomo.com
-        </a>
-        <div class="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-sm text-muted">
-          {
-            secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? <span class="text-page-border">/</span> : ''}
-                <a
-                  class="text-muted transition duration-150 ease-in-out hover:text-link hover:underline dark:hover:text-accent"
-                  href={href}
-                  set:html={text}
-                />
-              </>
-            ))
-          }
-        </div>
+        {
+          partnerLinks?.links?.length ? (
+            <div class="mt-6">
+              <div class="mb-3 text-sm font-semibold text-heading">{partnerLinks.title}</div>
+              <ul class="space-y-2.5 text-sm leading-6">
+                {partnerLinks.links.map(({ text, href, ariaLabel }) => (
+                  <li>
+                    <a
+                      class="text-muted transition duration-150 ease-in-out hover:text-link hover:underline dark:hover:text-accent"
+                      href={href}
+                      aria-label={ariaLabel}
+                    >
+                      <Fragment set:html={text} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            ''
+          )
+        }
       </div>
       <nav class="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-3 lg:gap-x-10" aria-label="Footer navigation">
         {
@@ -89,8 +90,20 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     <div
       class="mt-10 flex flex-col gap-4 border-t border-page-border pt-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:text-sm"
     >
-      <div class="text-muted">
-        <Fragment set:html={footNote} />
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted">
+        <span><Fragment set:html={footNote} /></span>
+        {
+          secondaryLinks.map(({ text, href }, index) => (
+            <>
+              {index !== 0 ? <span class="text-page-border">/</span> : ''}
+              <a
+                class="text-muted transition duration-150 ease-in-out hover:text-link hover:underline dark:hover:text-accent"
+                href={href}
+                set:html={text}
+              />
+            </>
+          ))
+        }
       </div>
 
       {
