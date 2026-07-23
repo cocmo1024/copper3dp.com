@@ -22,7 +22,7 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-md border border-page-border bg-transparent px-5 py-3 text-center text-sm font-semibold leading-snug text-page transition duration-200 ease-in hover:border-accent hover:bg-surface-raised focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#f5f6f8] dark:text-page dark:hover:bg-surface-raised dark:focus:ring-accent dark:focus:ring-offset-[#070a10] md:px-6 cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-md border border-page-border bg-transparent px-5 py-3 text-center text-sm font-semibold leading-snug text-page transition duration-200 ease-in hover:border-primary hover:bg-surface-raised focus:ring-2 focus:ring-focus focus:ring-offset-2 focus:ring-offset-[#f5f6f8] dark:text-page dark:hover:bg-surface-raised dark:focus:ring-offset-[#070a10] md:px-6 cursor-pointer;
   }
 
   .btn-primary {

@@ -71,6 +71,7 @@ export const footerData = {
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Reference Notice', href: getPermalink('/media-credits') },
   ],
   socialLinks: [
     { ariaLabel: 'Email', icon: 'tabler:mail', href: rfqEmailHref },

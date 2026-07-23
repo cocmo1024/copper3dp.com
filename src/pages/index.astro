@@ -3,26 +3,33 @@ import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
 import Image from '~/components/common/Image.astro';
+import RfqForm from '~/components/forms/RfqForm.astro';
 import Button from '~/components/ui/Button.astro';
 import heroImage from '~/assets/images/copper/hero-copper-parts-transparent.webp';
-import equipmentImage from '~/assets/images/reference/addireen-xh-m350g-green-laser-lpbf.webp';
-import heatExchangerImage from '~/assets/images/reference/addireen-copper-heat-exchanger-reference.webp';
-import nozzleImage from '~/assets/images/reference/addireen-copper-nozzle-reference.webp';
-import nasaLinerImage from '~/assets/images/reference/nasa-grcop-combustion-liner.webp';
+import partsImage from '~/assets/images/partner/bj-tech/copper-am-reference-parts.webp';
+import honeycombImage from '~/assets/images/partner/bj-tech/copper-honeycomb-reference.webp';
+import coilsImage from '~/assets/images/partner/bj-tech/copper-induction-coils-reference.webp';
+import nozzleImage from '~/assets/images/partner/bj-tech/copper-nozzle-reference.webp';
+import pureCopperPowderImage from '~/assets/images/partner/bj-tech/pure-copper-powder.webp';
+import cuCrNbPowderImage from '~/assets/images/partner/bj-tech/cucrnb-powder.webp';
+import cuCrZrPowderImage from '~/assets/images/partner/bj-tech/cucrzr-powder.webp';
+import videoPoster from '~/assets/images/partner/bj-tech/copper-am-video-poster.webp';
 import { createCopperServiceSchema, createItemListSchema } from '~/utils/structured-data';
 
-const rfqEmail = 'info@szcomo.com';
-const rfqEmailHref = `mailto:${rfqEmail}`;
 const whatsappHref =
   'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
-const addireenM350Url = 'https://www.addireen.com/proInfo-18.html';
-const nasaGrcopUrl = 'https://www.nasa.gov/technology/nasa-3-d-prints-first-full-scale-copper-rocket-engine-part/';
+
+const homepageServiceSchema = {
+  ...createCopperServiceSchema(),
+  description:
+    'Copper 3D printing service for functional pure copper and copper alloy parts, including engineering review, green-laser LPBF production, machining, finishing, inspection, and delivery.',
+};
 
 const metadata = {
   title: 'Copper 3D Printing Service | Pure Copper & CuCrZr Parts',
   ignoreTitleTemplate: true,
   description:
-    'Copper 3D printing for pure copper, CuCrZr, and CuCr1Zr parts, with LPBF production, machining, finishing, and inspection coordination. Email CAD for a quotation.',
+    'Copper 3D printing service for pure copper, CuCrZr, and CuCr1Zr parts. Green-laser LPBF production with machining, finishing, inspection, and secure CAD quotation.',
   openGraph: {
     images: [
       {
@@ -34,8 +41,13 @@ const metadata = {
     type: 'website',
   },
   structuredData: [
-    createCopperServiceSchema(),
+    homepageServiceSchema,
     createItemListSchema('Copper additive manufacturing service scope', [
+      {
+        name: 'Copper AM engineering review',
+        description: 'Drawing review, material selection, build strategy, finishing, and acceptance planning.',
+        url: '/capabilities/',
+      },
       {
         name: 'Pure copper 3D printing',
         description: 'Green-laser LPBF production for high-conductivity thermal and electrical parts.',
@@ -43,182 +55,198 @@ const metadata = {
       },
       {
         name: 'CuCrZr 3D printing',
-        description: 'Copper alloy routes for parts requiring conductivity with greater strength and stability.',
+        description: 'Copper alloy production for parts requiring conductivity with greater mechanical strength.',
         url: '/cucrzr-3d-printing/',
       },
       {
-        name: 'Copper AM applications',
-        description: 'Cold plates, heat exchangers, induction coils, RF parts, tooling, and aerospace hardware.',
-        url: '/applications/',
-      },
-      {
         name: 'Copper AM quotation',
-        description: 'CAD, quantity, operating requirements, finishing, inspection, and delivery inputs.',
+        description: 'Secure submission of CAD, quantity, operating requirements, finishing, and inspection scope.',
         url: '/rfq/',
       },
     ]),
   ],
 };
 
-const coordinationScope = [
+const serviceScope = [
   {
-    title: 'Process and supplier selection',
-    description: 'Match material, part size, geometry, and quantity to qualified production resources.',
-    icon: 'tabler:binary-tree',
+    title: 'Engineering and DfAM',
+    description:
+      'Review geometry, internal channels, material route, supports, powder removal, datums, and acceptance risk.',
+    icon: 'tabler:ruler-measure',
+  },
+  {
+    title: 'Green-laser LPBF',
+    description: 'Produce commercially pure copper and copper alloy parts on a platform matched to the geometry.',
+    icon: 'tabler:layers-subtract',
   },
   {
     title: 'Finishing and machining',
-    description: 'Coordinate heat treatment, CNC datums, sealing faces, threads, polishing, and plating as required.',
+    description: 'Define heat treatment, support removal, CNC features, sealing faces, threads, polishing, or plating.',
     icon: 'tabler:tool',
   },
   {
-    title: 'Inspection and validation',
-    description: 'Define dimensional, CT, pressure, leak, flow, conductivity, or surface evidence around part risk.',
+    title: 'Inspection and delivery',
+    description: 'Agree dimensional, CT, pressure, leak, flow, conductivity, surface, and documentation requirements.',
     icon: 'tabler:microscope',
   },
-  {
-    title: 'Commercial delivery',
-    description: 'Keep quotation scope, production status, export packaging, and delivery communication coordinated.',
-    icon: 'tabler:package-export',
-  },
 ];
 
-const materialPaths = [
-  {
-    number: '01',
-    title: 'Commercially pure copper',
-    href: '/pure-copper-3d-printing/',
-    description:
-      'Best suited to parts where thermal or electrical conductivity is the primary requirement and mechanical loads are controlled.',
-    bestFor: 'Cold plates, heat exchangers, heat spreaders, induction coils, electrodes, and conductive hardware.',
-  },
-  {
-    number: '02',
-    title: 'CuCrZr and CuCr1Zr',
-    href: '/cucrzr-3d-printing/',
-    description:
-      'Best suited to parts that need useful conductivity with greater strength, clamp-load stability, or softening resistance.',
-    bestFor:
-      'Pressure hardware, thermal structures, tooling inserts, threaded parts, and mechanically loaded components.',
-  },
-  {
-    number: '03',
-    title: 'Special copper alloy routes',
-    href: '/materials/',
-    description:
-      'CuCrNb, GRCop-42/84, and CuSn10 can be assessed when the application, drawing, qualification plan, and supply route justify them.',
-    bestFor:
-      'High-temperature propulsion hardware, aerospace thermal parts, and application-specific copper components.',
-  },
-];
-
-const referenceCases = [
-  {
-    image: heatExchangerImage,
-    alt: 'Green-laser additively manufactured copper heat exchanger reference sample',
-    title: 'Liquid cooling and heat exchange',
-    description:
-      'Monolithic cold plates, TPMS or lattice cores, compact heat exchangers, cooling blocks, and integrated manifolds.',
-    sourceLabel: 'Addireen application reference',
-    sourceUrl: addireenM350Url,
-    imageClass: 'aspect-[4/3] w-full object-contain',
-    imageStyle: 'object-fit: contain;',
-  },
-  {
-    image: nasaLinerImage,
-    alt: 'NASA additively manufactured GRCop copper alloy combustion chamber liner',
-    title: 'Aerospace high-heat-flux hardware',
-    description:
-      'Copper alloy combustion liners and thermal structures show why conductivity and integral cooling channels are paired.',
-    sourceLabel: 'NASA GRCop public reference',
-    sourceUrl: nasaGrcopUrl,
-    imageClass: 'aspect-[4/3] w-full object-cover',
-    imageStyle: 'object-fit: cover;',
-  },
-  {
-    image: nozzleImage,
-    alt: 'Green-laser additively manufactured copper nozzle reference sample',
-    title: 'Compact flow and propulsion parts',
-    description:
-      'Nozzles, flow distributors, manifolds, injectors, and consolidated parts with internal passages and fewer joints.',
-    sourceLabel: 'Addireen application reference',
-    sourceUrl: addireenM350Url,
-    imageClass: 'aspect-[4/3] w-full object-contain',
-    imageStyle: 'object-fit: contain;',
-  },
-];
-
-const applicationLinks = [
+const applicationCapabilities = [
   {
     title: 'Thermal management',
-    description: 'Cold plates, heat exchangers, heat sinks, cooling blocks, manifolds, and semiconductor hardware.',
-    href: '/copper-cold-plates/',
+    description: 'Cold plates, compact heat exchangers, heat sinks, cooling blocks, and integrated manifolds.',
+    icon: 'tabler:temperature',
   },
   {
-    title: 'Electrical and RF',
-    description: 'Induction coils, busbars, electrodes, waveguides, RF cavities, and conductive structures.',
-    href: '/applications/',
+    title: 'Semiconductor cooling',
+    description: 'Cooling plates, heat spreaders, compact manifolds, and hardware for power electronics.',
+    icon: 'tabler:cpu',
   },
   {
-    title: 'Tooling and high-temperature structures',
-    description: 'Conformal-cooling inserts, aerospace thermal hardware, and application-specific copper alloy parts.',
-    href: '/applications/',
+    title: 'Electrical and induction',
+    description: 'Induction coils, busbars, electrodes, shaped current paths, and high-current components.',
+    icon: 'tabler:bolt',
+  },
+  {
+    title: 'RF and vacuum',
+    description: 'Waveguides, RF cavities, conductive structures, and vacuum-facing copper hardware.',
+    icon: 'tabler:wave-sine',
+  },
+  {
+    title: 'Flow and nozzle hardware',
+    description: 'Nozzles, injectors, manifolds, flow distributors, and parts with integral cooling passages.',
+    icon: 'tabler:droplet',
+  },
+  {
+    title: 'Tooling and high-heat hardware',
+    description: 'Conformal-cooling inserts, thermal tooling, and copper-alloy structures for demanding environments.',
+    icon: 'tabler:flame',
   },
 ];
 
-const quoteSteps = [
+const materialRoutes = [
+  {
+    name: 'Commercially pure copper',
+    description: 'Selected when thermal or electrical conductivity is the primary design driver.',
+    image: pureCopperPowderImage,
+    alt: 'Commercially pure copper powder used as LPBF process feedstock',
+  },
+  {
+    name: 'CuCrZr / CuCr1Zr',
+    description: 'Selected when conductivity must be balanced with strength and thermal stability.',
+    image: cuCrZrPowderImage,
+    alt: 'CuCrZr copper alloy powder used as LPBF process feedstock',
+  },
+  {
+    name: 'CuCrNb',
+    description: 'Assessed for application-specific copper alloy and elevated-temperature requirements.',
+    image: cuCrNbPowderImage,
+    alt: 'CuCrNb copper alloy powder used as LPBF process feedstock',
+  },
+];
+
+const productionEnvelopes = [
+  { label: 'Compact', value: 'Ø100 × 100 mm' },
+  { label: 'Precision', value: '160 × 160 × 200 mm' },
+  { label: 'Mid-format', value: '350 × 350 × 500 mm' },
+  { label: 'Multi-laser', value: '400 × 400 × 400 mm' },
+  { label: 'Large-format', value: '660 × 660 × 1300 mm' },
+];
+
+const processSteps = [
   {
     number: '01',
-    title: 'Send the drawing',
-    description: 'STEP or native CAD, drawing, material preference, quantity, target date, and critical requirements.',
+    title: 'Review the part',
+    description:
+      'Send CAD, drawing, quantity, operating conditions, and the dimensions or surfaces that control acceptance.',
   },
   {
     number: '02',
-    title: 'Confirm the production route',
+    title: 'Lock the route',
     description:
-      'We assess AM fit, material, build strategy, powder removal, machining, finishing, and inspection requirements.',
+      'We define the material, orientation, supports, powder-removal strategy, machining, finishing, and test scope.',
   },
   {
     number: '03',
-    title: 'Receive a scoped quotation',
+    title: 'Print and finish',
     description:
-      'The quotation identifies the proposed production route, included operations, acceptance evidence, price, and exclusions.',
+      'The part moves through green-laser LPBF, support removal, heat treatment, CNC, and specified finishing.',
   },
   {
     number: '04',
-    title: 'Confirm the production slot',
+    title: 'Inspect and deliver',
     description:
-      'Lead time is confirmed against the accepted scope, material availability, and current production schedule.',
+      'Inspection evidence is produced against the agreed scope before packaging and international delivery.',
+  },
+];
+
+const applicationExamples = [
+  {
+    image: honeycombImage,
+    alt: 'Copper honeycomb and lattice heat-exchange geometry',
+    title: 'Heat-exchange structures',
+    description: 'Dense surface area, compact flow paths, and monolithic thermal cores.',
+    className: 'lg:col-span-7',
+  },
+  {
+    image: coilsImage,
+    alt: 'Additively manufactured copper induction coils and conductive paths',
+    title: 'Induction and conductive paths',
+    description: 'Integrated cooling, shaped current paths, and repeatable coil geometry.',
+    className: 'lg:col-span-5',
+  },
+  {
+    image: nozzleImage,
+    alt: 'Additively manufactured copper nozzle with fine external flow features',
+    title: 'Nozzles and flow hardware',
+    description: 'Internal passages, consolidated bodies, and heat-flux-focused geometry.',
+    className: 'lg:col-span-5',
+  },
+  {
+    image: partsImage,
+    alt: 'Copper additive manufacturing parts with fins, lattices, channels, and thin walls',
+    title: 'Fins, lattices, and integrated features',
+    description: 'Geometry that combines thermal, structural, and fluid functions in fewer pieces.',
+    className: 'lg:col-span-7',
   },
 ];
 ---
 
 <Layout metadata={metadata}>
-  <section class="border-b border-page-border bg-surface">
+  <section class="relative overflow-hidden border-b border-page-border bg-surface">
     <div
-      class="mx-auto grid min-h-[500px] max-w-5xl items-center gap-8 px-4 py-12 sm:min-h-[600px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] sm:px-6 sm:py-20"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(194,104,58,0.16),transparent_34%),linear-gradient(to_bottom,transparent,rgba(0,0,0,0.08))]"
+      aria-hidden="true"
     >
-      <div class="max-w-[34rem]">
-        <p class="text-sm font-semibold text-primary">Copper additive manufacturing | Suzhou, China</p>
-        <h1 class="mt-4 font-heading text-4xl font-bold leading-[1.08] text-heading sm:text-5xl">
-          Copper 3D printing, from CAD to finished hardware
-        </h1>
-        <p class="mt-6 max-w-xl text-lg leading-8 text-muted sm:text-xl">
-          COPPER 3DP coordinates qualified copper AM production, machining, finishing, and inspection through an
-          established Chinese manufacturing network. Email the part files and critical requirements for a scoped
-          quotation.
+    </div>
+
+    <div
+      class="relative mx-auto grid min-h-[650px] max-w-5xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[0.96fr_1.04fr] lg:gap-14"
+    >
+      <div class="max-w-[37rem]">
+        <p class="flex items-center gap-3 text-xs font-semibold text-accent sm:text-sm">
+          <span class="h-2 w-2 rounded-full bg-accent shadow-[0_0_18px_rgba(194,104,58,0.9)]"></span>
+          Copper additive manufacturing | Suzhou, China
         </p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <h1 class="mt-5 font-heading text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-heading sm:text-5xl">
+          Copper 3D printing for functional parts
+        </h1>
+        <p class="mt-7 max-w-xl text-base leading-7 text-muted sm:text-lg">
+          We manufacture pure copper and copper-alloy parts from your CAD, including green-laser LPBF, machining,
+          finishing, and inspection. Send the drawing for an engineering review and scoped quotation.
+        </p>
+
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button
             variant="primary"
-            text="Submit an RFQ"
-            href="/rfq/#rfq-form"
+            text="Upload CAD for review"
+            href="#rfq-form"
             icon="tabler:file-upload"
             class="w-full justify-center px-5 py-3 sm:w-auto"
           />
           <Button
             variant="secondary"
-            text="WhatsApp"
+            text="Discuss on WhatsApp"
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
@@ -228,25 +256,63 @@ const quoteSteps = [
             data-aw-contact-channel="whatsapp"
           />
         </div>
-        <p class="mt-5 text-sm leading-6 text-muted">
-          A service of Suzhou Como Precision Materials Co., Ltd. | International project support
-        </p>
+
+        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm leading-6 text-muted">
+          <span class="inline-flex items-center gap-2">
+            <Icon name="tabler:check" class="h-4 w-4 text-accent" />
+            Pure copper and copper alloys
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <Icon name="tabler:check" class="h-4 w-4 text-accent" />
+            Prototype and production
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <Icon name="tabler:check" class="h-4 w-4 text-accent" />
+            Finished-part delivery
+          </span>
+        </div>
       </div>
 
-      <div class="pointer-events-none flex w-full items-center justify-center sm:justify-end">
-        <Image
-          src={heroImage}
-          alt="Pure copper and copper alloy additive manufacturing parts"
-          class="h-auto w-full object-contain"
-          style="object-fit: contain;"
-          widths={[480, 640, 960, 1280]}
-          sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1199px) 48vw, 620px"
-          width={2048}
-          height={1152}
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
+      <div class="relative">
+        <div
+          class="relative overflow-hidden rounded-xl border border-page-border bg-page/70 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.28)] sm:p-7"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:32px_32px]"
+            aria-hidden="true"
+          >
+          </div>
+          <Image
+            src={heroImage}
+            alt="Pure copper and copper alloy additive manufacturing parts"
+            class="relative h-auto w-full object-contain"
+            style="object-fit: contain;"
+            widths={[480, 640, 960, 1280]}
+            sizes="(max-width: 1023px) calc(100vw - 3rem), 480px"
+            width={2048}
+            height={1152}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+
+        <div
+          class="relative -mt-6 ml-4 grid max-w-[92%] grid-cols-3 divide-x divide-page-border rounded-md border border-page-border bg-surface/95 shadow-panel backdrop-blur sm:ml-8"
+        >
+          <div class="px-3 py-4 sm:px-4">
+            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">Process</p>
+            <p class="mt-1 text-sm font-semibold leading-5 text-heading">Green-laser LPBF</p>
+          </div>
+          <div class="px-3 py-4 sm:px-4">
+            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">Materials</p>
+            <p class="mt-1 text-sm font-semibold leading-5 text-heading">Pure Cu · CuCrZr</p>
+          </div>
+          <div class="px-3 py-4 sm:px-4">
+            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">Output</p>
+            <p class="mt-1 text-sm font-semibold leading-5 text-heading">Inspected parts</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -256,247 +322,246 @@ const quoteSteps = [
       class="mx-auto grid max-w-5xl divide-y divide-page-border px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6"
     >
       <div class="py-6 sm:pr-8">
-        <p class="font-semibold text-heading">Copper AM specialization</p>
-        <p class="mt-1 text-sm leading-6 text-muted">Pure copper, CuCrZr, CuCr1Zr, and selected copper alloys.</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Service</p>
+        <p class="mt-2 font-semibold text-heading">Copper AM production</p>
       </div>
       <div class="py-6 sm:px-8">
-        <p class="font-semibold text-heading">Coordinated production</p>
-        <p class="mt-1 text-sm leading-6 text-muted">Printing, heat treatment, machining, finishing, and inspection.</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Scope</p>
+        <p class="mt-2 font-semibold text-heading">Print · machine · inspect</p>
       </div>
       <div class="py-6 sm:pl-8">
-        <p class="font-semibold text-heading">Requirements-led quotation</p>
-        <p class="mt-1 text-sm leading-6 text-muted">
-          Thermal, electrical, RF, pressure, vacuum, or mechanical acceptance.
-        </p>
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Start</p>
+        <p class="mt-2 font-semibold text-heading">CAD-led engineering review</p>
       </div>
     </div>
   </section>
 
-  <section class="bg-page py-14 sm:py-20" aria-labelledby="who-we-are">
-    <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+  <section class="bg-page py-16 sm:py-24" aria-labelledby="who-we-are">
+    <div class="mx-auto grid max-w-5xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
       <div>
-        <p class="text-sm font-semibold text-primary">01 | Who we are</p>
-        <h2 id="who-we-are" class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl">
-          One project team, supported by a qualified manufacturing network
+        <p class="text-sm font-semibold text-accent">01 | Who we are</p>
+        <h2
+          id="who-we-are"
+          class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
+        >
+          A copper AM service built around finished parts
         </h2>
-        <p class="mt-5 text-base leading-7 text-muted">
-          COPPER 3DP is operated by Suzhou Como Precision Materials Co., Ltd. We combine application engineering with a
-          qualified Chinese supply network for metal AM and the downstream operations needed to deliver finished
-          hardware.
+        <p class="mt-6 text-base leading-7 text-muted">
+          COPPER 3DP is the copper additive manufacturing service of Suzhou Como Precision Materials Co., Ltd. We review
+          the drawing, manufacture the part, complete downstream operations, and supply the agreed inspection evidence.
         </p>
         <p class="mt-4 text-base leading-7 text-muted">
-          One commercial and technical contact coordinates feasibility, quotation, production, inspection, and
-          international shipment.
+          The engineering discussion stays focused on the part: function, geometry, material state, downstream
+          operations, acceptance evidence, quantity, and timing.
         </p>
+        <a class="mt-7 inline-flex items-center gap-2 font-semibold text-link hover:underline" href="#rfq-form">
+          Send your drawing
+          <Icon name="tabler:arrow-down" class="h-4 w-4" />
+        </a>
       </div>
 
       <div class="grid border-t border-page-border sm:grid-cols-2">
         {
-          coordinationScope.map((item) => (
-            <div class="border-b border-page-border py-6 sm:odd:pr-7 sm:even:pl-7 sm:even:border-l">
-              <Icon name={item.icon} class="h-5 w-5 text-primary" />
-              <h3 class="mt-4 font-heading text-lg font-semibold text-heading">{item.title}</h3>
+          serviceScope.map((item) => (
+            <article class="border-b border-page-border py-7 sm:odd:pr-7 sm:even:border-l sm:even:pl-7">
+              <div class="flex h-10 w-10 items-center justify-center rounded-md border border-page-border bg-surface">
+                <Icon name={item.icon} class="h-5 w-5 text-accent" />
+              </div>
+              <h3 class="mt-5 font-heading text-lg font-semibold text-heading">{item.title}</h3>
               <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
-            </div>
+            </article>
           ))
         }
       </div>
     </div>
   </section>
 
-  <section class="border-y border-page-border bg-surface py-14 sm:py-20" aria-labelledby="what-we-print">
+  <section class="border-y border-page-border bg-surface py-16 sm:py-24" aria-labelledby="what-we-print">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end lg:gap-16">
+      <div class="grid gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
         <div>
-          <p class="text-sm font-semibold text-primary">02 | What we print</p>
-          <h2 id="what-we-print" class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl">
-            Choose the copper grade around the function
+          <p class="text-sm font-semibold text-accent">02 | What we make</p>
+          <h2
+            id="what-we-print"
+            class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
+          >
+            Functional copper parts for heat, current, flow, and tooling
           </h2>
         </div>
         <p class="text-base leading-7 text-muted">
-          Material designation is only the starting point. Conductivity, strength, temperature, pressure, heat
-          treatment, machining, and acceptance evidence determine the practical production route.
+          We manufacture prototypes and production parts when internal channels, compact heat-transfer area, shaped
+          current paths, or part consolidation make conventional fabrication inefficient.
         </p>
       </div>
 
-      <div class="mt-10 grid border-y border-page-border lg:grid-cols-3">
+      <div
+        class="mt-12 grid gap-px overflow-hidden rounded-md border border-page-border bg-page-border sm:grid-cols-2 lg:grid-cols-3"
+      >
         {
-          materialPaths.map((item) => (
-            <div class="border-b border-page-border py-7 last:border-b-0 lg:border-b-0 lg:border-r lg:px-7 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
-              <span class="text-sm font-semibold text-primary">{item.number}</span>
-              <h3 class="mt-3 font-heading text-xl font-semibold text-heading">
-                <a class="hover:text-link hover:underline" href={item.href}>
-                  {item.title}
-                </a>
-              </h3>
-              <p class="mt-3 text-sm leading-6 text-muted">{item.description}</p>
-              <p class="mt-4 text-sm leading-6 text-muted">
-                <strong class="font-semibold text-heading">Typical fit:</strong> {item.bestFor}
-              </p>
-            </div>
+          applicationCapabilities.map((item) => (
+            <article class="bg-page p-6 sm:p-8">
+              <span class="flex h-11 w-11 items-center justify-center rounded-md border border-page-border bg-surface">
+                <Icon name={item.icon} class="h-5 w-5 text-accent" />
+              </span>
+              <h3 class="mt-7 font-heading text-xl font-semibold text-heading">{item.title}</h3>
+              <p class="mt-3 max-w-md text-sm leading-6 text-muted">{item.description}</p>
+            </article>
           ))
         }
       </div>
-
-      <a class="mt-7 inline-flex items-center gap-2 font-semibold text-link hover:underline" href="/materials/">
-        Compare copper material routes
-        <Icon name="tabler:arrow-right" class="h-4 w-4" />
-      </a>
     </div>
   </section>
 
-  <section class="bg-page py-14 sm:py-20" aria-labelledby="how-we-print">
-    <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-16">
-      <figure class="order-2 lg:order-1">
-        <div class="overflow-hidden rounded-md border border-page-border bg-surface">
-          <Image
-            src={equipmentImage}
-            alt="Industrial green-laser metal LPBF platform"
-            class="aspect-[4/3] w-full object-cover"
-            widths={[640, 960, 1280, 1600]}
-            sizes="(max-width: 1023px) calc(100vw - 2rem), 620px"
-            width={1440}
-            height={1080}
-            loading="lazy"
-            decoding="async"
-          />
+  <section id="production-capability" class="scroll-mt-20 bg-page py-16 sm:py-24" aria-labelledby="how-we-print">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-accent">03 | Production capability</p>
+        <h2
+          id="how-we-print"
+          class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
+        >
+          Green-laser LPBF matched to your drawing
+        </h2>
+        <p class="mt-5 text-base leading-7 text-muted">
+          The drawing determines the material route, build class, orientation, supports, powder-removal strategy, and
+          downstream operations. The quotation records the route selected for that part.
+        </p>
+      </div>
+
+      <figure class="mt-12">
+        <div
+          class="overflow-hidden rounded-xl border border-page-border bg-black shadow-[0_28px_80px_rgba(0,0,0,0.28)]"
+        >
+          <video
+            class="aspect-video w-full object-cover"
+            controls
+            preload="metadata"
+            playsinline
+            poster={videoPoster.src}
+            aria-label="Copper green-laser LPBF process and finished part footage"
+          >
+            <source src="/media/partner/bj-tech/copper-am-capability.mp4" type="video/mp4" />
+            Your browser does not support HTML video.
+          </video>
         </div>
         <figcaption class="mt-3 text-xs leading-5 text-muted">
-          Equipment image provided by a manufacturing partner.
+          Copper LPBF process, build progression, and finished-part geometry.
         </figcaption>
       </figure>
 
-      <div class="order-1 lg:order-2">
-        <p class="text-sm font-semibold text-primary">03 | How we print copper</p>
-        <h2 id="how-we-print" class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl">
-          Green-laser LPBF for copper and copper alloys
-        </h2>
-        <p class="mt-5 text-base leading-7 text-muted">
-          Copper reflects much of the energy from conventional infrared systems and conducts heat away quickly. Green
-          laser platforms improve energy coupling, helping establish a more stable process window for pure copper and
-          copper alloys.
-        </p>
-        <dl class="mt-7 border-y border-page-border text-sm">
-          <div class="grid grid-cols-[8rem_1fr] gap-4 border-b border-page-border py-4">
-            <dt class="font-semibold text-heading">Laser route</dt>
-            <dd class="leading-6 text-muted">Industrial green-laser LPBF processing for copper and copper alloys.</dd>
-          </div>
-          <div class="grid grid-cols-[8rem_1fr] gap-4 border-b border-page-border py-4">
-            <dt class="font-semibold text-heading">Build envelope</dt>
-            <dd class="leading-6 text-muted">
-              Build envelope is matched to part size, geometry, material, and production requirements.
-            </dd>
-          </div>
-          <div class="grid grid-cols-[8rem_1fr] gap-4 py-4">
-            <dt class="font-semibold text-heading">Route selection</dt>
-            <dd class="leading-6 text-muted">
-              The quotation confirms the selected production route, material, and process scope.
-            </dd>
-          </div>
-        </dl>
-        <a class="mt-7 inline-flex items-center gap-2 font-semibold text-link hover:underline" href="/capabilities/">
-          View process and inspection capabilities
-          <Icon name="tabler:arrow-right" class="h-4 w-4" />
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-y border-page-border bg-surface py-14 sm:py-20" aria-labelledby="applications-and-cases">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-primary">04 | Applications and references</p>
-        <h2
-          id="applications-and-cases"
-          class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl"
-        >
-          Where copper and complex geometry create real value
-        </h2>
-        <p class="mt-5 text-base leading-7 text-muted">
-          Public industry references illustrate established copper AM applications; they are not presented as COPPER 3DP
-          customer work. Every inquiry still requires part-specific feasibility and acceptance criteria.
-        </p>
+      <div class="mt-8 grid gap-px overflow-hidden rounded-md border border-page-border bg-page-border sm:grid-cols-3">
+        <div class="bg-surface p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Laser route</p>
+          <p class="mt-2 font-heading text-2xl font-semibold text-heading">532 nm green laser</p>
+          <p class="mt-2 text-sm leading-6 text-muted">Process route for reflective copper and copper alloy systems.</p>
+        </div>
+        <div class="bg-surface p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Build classes</p>
+          <p class="mt-2 font-heading text-2xl font-semibold text-heading">5 envelope ranges</p>
+          <p class="mt-2 text-sm leading-6 text-muted">From compact development work to large-format production.</p>
+        </div>
+        <div class="bg-surface p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Largest build class</p>
+          <p class="mt-2 font-heading text-2xl font-semibold text-heading">660 × 660 × 1300 mm</p>
+          <p class="mt-2 text-sm leading-6 text-muted">Final fit still depends on orientation, supports, and access.</p>
+        </div>
       </div>
 
-      <div class="mt-10 grid gap-8 lg:grid-cols-3">
-        {
-          referenceCases.map((item) => (
-            <figure class="border-t border-page-border pt-5">
-              <div class="overflow-hidden rounded-md border border-page-border bg-page">
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  class={item.imageClass}
-                  style={item.imageStyle}
-                  widths={[480, 720, 960]}
-                  sizes="(max-width: 1023px) calc(100vw - 2rem), 390px"
-                  width={720}
-                  height={540}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="mt-5 font-heading text-xl font-semibold text-heading">{item.title}</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
-              <figcaption class="mt-3 text-xs leading-5 text-muted">
-                Source:
-                <a
-                  class="font-semibold text-link hover:underline"
-                  href={item.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.sourceLabel}
-                </a>
-              </figcaption>
-            </figure>
-          ))
-        }
-      </div>
-
-      <div class="mt-12 grid border-t border-page-border lg:grid-cols-3">
-        {
-          applicationLinks.map((item) => (
-            <a
-              href={item.href}
-              class="group border-b border-page-border py-6 lg:border-b-0 lg:border-r lg:px-7 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
-            >
-              <span class="flex items-center justify-between gap-4">
-                <span class="font-heading text-lg font-semibold text-heading group-hover:text-link">{item.title}</span>
-                <Icon name="tabler:arrow-right" class="h-5 w-5 shrink-0 text-muted group-hover:text-link" />
-              </span>
-              <span class="mt-2 block text-sm leading-6 text-muted">{item.description}</span>
-            </a>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-page py-14 sm:py-20" aria-labelledby="quote-and-lead-time">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end lg:gap-16">
+      <div class="mt-16 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
         <div>
-          <p class="text-sm font-semibold text-primary">05 | Quotation and lead time</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Materials processed</p>
+          <h3 class="mt-3 font-heading text-2xl font-bold text-heading">
+            Materials selected for the finished-part requirement
+          </h3>
+          <p class="mt-4 text-sm leading-6 text-muted">
+            Conductivity, strength, temperature, heat treatment, final state, and acceptance method are reviewed
+            together. Feedstock selection is one input to the finished-part manufacturing route.
+          </p>
+          <a class="mt-6 inline-flex items-center gap-2 font-semibold text-link hover:underline" href="#rfq-form">
+            Check your material and part
+            <Icon name="tabler:arrow-down" class="h-4 w-4" />
+          </a>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-3">
+          {
+            materialRoutes.map((item) => (
+              <article class="grid grid-cols-[5.5rem_1fr] gap-4 border-t border-page-border pt-5 sm:block">
+                <div class="overflow-hidden rounded-md border border-page-border bg-surface">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    class="aspect-square w-full object-cover sm:aspect-[4/3]"
+                    widths={[240, 360, 480]}
+                    sizes="(max-width: 639px) 88px, 210px"
+                    width={480}
+                    height={360}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-heading text-base font-semibold text-heading sm:mt-4">{item.name}</h4>
+                  <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="mt-16 border-t border-page-border pt-8">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Build capacity</p>
+            <h3 class="mt-2 font-heading text-2xl font-bold text-heading">
+              Build capacity from compact to large-format parts
+            </h3>
+          </div>
+          <p class="max-w-lg text-sm leading-6 text-muted">
+            The final build class is confirmed after part size, material, geometry, quantity, and current production
+            requirements are reviewed.
+          </p>
+        </div>
+
+        <dl class="mt-8 grid border-y border-page-border sm:grid-cols-2 lg:grid-cols-5">
+          {
+            productionEnvelopes.map((item) => (
+              <div class="border-b border-page-border py-5 sm:px-5 sm:odd:pl-0 sm:even:border-l lg:border-b-0 lg:border-l lg:px-5 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0">
+                <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">{item.label}</dt>
+                <dd class="mt-2 text-sm font-semibold leading-6 text-heading">{item.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-page-border bg-surface py-16 sm:py-24" aria-labelledby="how-we-work">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="grid gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
+        <div>
+          <p class="text-sm font-semibold text-accent">04 | How we work</p>
           <h2
-            id="quote-and-lead-time"
-            class="mt-3 font-heading text-3xl font-bold leading-tight text-heading sm:text-4xl"
+            id="how-we-work"
+            class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
           >
-            Pricing starts with the drawing
+            One route from drawing to delivered part
           </h2>
         </div>
         <p class="text-base leading-7 text-muted">
-          Copper AM pricing depends on material, build volume, orientation, supports, post-processing, inspection, and
-          quantity. Delivery is confirmed against the accepted scope and the current production schedule.
+          The process is locked around the drawing and acceptance criteria, so printing, post-processing, inspection,
+          and quotation describe the same deliverable.
         </p>
       </div>
 
-      <ol class="mt-10 grid border-y border-page-border sm:grid-cols-2 lg:grid-cols-4">
+      <ol class="mt-12 grid border-y border-page-border sm:grid-cols-2 lg:grid-cols-4">
         {
-          quoteSteps.map((item) => (
+          processSteps.map((item) => (
             <li class="border-b border-page-border py-7 sm:px-6 sm:odd:pl-0 sm:even:border-l lg:border-b-0 lg:border-l lg:px-6 lg:[&:nth-child(3)]:!pl-6 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0">
-              <span class="text-sm font-semibold text-primary">{item.number}</span>
-              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{item.title}</h3>
+              <span class="font-mono text-sm font-semibold text-accent">{item.number}</span>
+              <h3 class="mt-4 font-heading text-lg font-semibold text-heading">{item.title}</h3>
               <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
             </li>
           ))
@@ -504,38 +569,101 @@ const quoteSteps = [
       </ol>
 
       <div
-        class="mt-10 flex flex-col gap-6 border-t border-page-border pt-8 lg:flex-row lg:items-center lg:justify-between"
+        class="mt-10 flex flex-col gap-6 rounded-md border border-page-border bg-page p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between"
       >
-        <div class="max-w-2xl">
-          <h3 class="font-heading text-2xl font-bold text-heading">
-            Send the drawing and the requirements that matter most
-          </h3>
-          <p class="mt-3 text-base leading-7 text-muted">
-            A useful first inquiry can be concise: CAD, quantity, material preference, operating conditions, and target
-            date. We will identify any missing inputs before pricing.
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Engineering review</p>
+          <h3 class="mt-2 font-heading text-2xl font-bold text-heading">The fastest useful start is a CAD file</h3>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            Add quantity, target timing, and the operating or inspection requirements that cannot be compromised.
           </p>
         </div>
-        <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
-          <Button
-            variant="primary"
-            text={rfqEmail}
-            href={rfqEmailHref}
-            icon="tabler:mail"
-            class="justify-center px-5 py-3"
-          />
-          <Button
-            variant="secondary"
-            text="WhatsApp"
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            icon="tabler:brand-whatsapp"
-            class="justify-center px-5 py-3"
-            data-aw-instant-contact-link
-            data-aw-contact-channel="whatsapp"
-          />
-        </div>
+        <Button
+          variant="primary"
+          text="Upload CAD for review"
+          href="#rfq-form"
+          icon="tabler:arrow-down"
+          class="shrink-0 justify-center px-5 py-3"
+        />
       </div>
     </div>
   </section>
+
+  <section class="bg-page py-16 sm:py-24" aria-labelledby="applications-and-cases">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-accent">05 | Parts and applications</p>
+        <h2
+          id="applications-and-cases"
+          class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
+        >
+          Copper geometry designed around the job
+        </h2>
+        <p class="mt-5 text-base leading-7 text-muted">
+          These part forms show where copper LPBF is most useful: compact thermal structures, integrated flow features,
+          shaped current paths, and geometries that remove joints or assembly steps.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-7 lg:grid-cols-12">
+        {
+          applicationExamples.map((item) => (
+            <figure class:list={[item.className, 'group border-t border-page-border pt-5']}>
+              <div class="overflow-hidden rounded-lg border border-page-border bg-surface">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  class="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.015]"
+                  widths={[480, 720, 960, 1280]}
+                  sizes="(max-width: 1023px) calc(100vw - 2rem), 560px"
+                  width={960}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="mt-5">
+                <h3 class="font-heading text-xl font-semibold text-heading">{item.title}</h3>
+                <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 border-t border-page-border pt-7">
+        <Button
+          variant="primary"
+          text="Have a similar part? Upload CAD for review"
+          href="#rfq-form"
+          icon="tabler:file-upload"
+          class="justify-center px-5 py-3"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="quote-and-lead-time"
+    class="scroll-mt-20 border-t border-page-border bg-surface py-14 sm:py-18"
+    aria-labelledby="start-a-project"
+  >
+    <div class="mx-auto grid max-w-5xl gap-7 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
+      <div>
+        <p class="text-sm font-semibold text-accent">06 | Start a project</p>
+        <h2
+          id="start-a-project"
+          class="mt-3 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
+        >
+          Upload the drawing for engineering review
+        </h2>
+      </div>
+      <p class="text-base leading-7 text-muted">
+        Submit what is already known. CAD, quantity, material preference, operating conditions, critical dimensions,
+        post-processing, inspection, and target timing help us return a clear manufacturing scope.
+      </p>
+    </div>
+  </section>
+
+  <RfqForm />
 </Layout>

@@ -2,14 +2,14 @@
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 
 const fieldClass =
-  'mt-2 block w-full rounded-md border border-page-border bg-page px-3 py-2.5 text-default shadow-sm outline-none transition placeholder:text-muted/70 focus:border-primary focus:ring-2 focus:ring-primary/25';
+  'mt-2 block w-full rounded-md border border-control-border bg-page px-3 py-2.5 text-default shadow-sm outline-none transition placeholder:text-muted/70 focus:border-primary focus:ring-2 focus:ring-focus';
 const labelClass = 'block text-sm font-semibold text-heading';
 ---
 
 <section id="rfq-form" class="scroll-mt-24 border-y border-page-border bg-surface py-12 md:py-16">
   <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
     <div>
-      <p class="text-sm font-semibold text-primary">Secure RFQ submission</p>
+      <p class="text-sm font-semibold text-accent">Secure RFQ submission</p>
       <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
         Submit the files needed for an engineering review
       </h2>
@@ -42,17 +42,17 @@ const labelClass = 'block text-sm font-semibold text-heading';
       >
         <div class="grid gap-5 sm:grid-cols-2">
           <label class={labelClass}>
-            Your name <span class="text-primary" aria-hidden="true">*</span>
+            Your name <span class="text-accent" aria-hidden="true">*</span>
             <input class={fieldClass} name="name" type="text" autocomplete="name" maxlength="80" required />
           </label>
 
           <label class={labelClass}>
-            Work email <span class="text-primary" aria-hidden="true">*</span>
+            Work email <span class="text-accent" aria-hidden="true">*</span>
             <input class={fieldClass} name="email" type="email" autocomplete="email" maxlength="254" required />
           </label>
 
           <label class={labelClass}>
-            Company <span class="text-primary" aria-hidden="true">*</span>
+            Company <span class="text-accent" aria-hidden="true">*</span>
             <input class={fieldClass} name="company" type="text" autocomplete="organization" maxlength="120" required />
           </label>
 
@@ -62,7 +62,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
           </label>
 
           <label class={labelClass}>
-            Application <span class="text-primary" aria-hidden="true">*</span>
+            Application <span class="text-accent" aria-hidden="true">*</span>
             <!-- Keep every option value explicit: browser translation may rewrite labels, never submitted values. -->
             <select class={fieldClass} name="application" required>
               <option value="">Select the closest fit</option>
@@ -77,7 +77,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
           </label>
 
           <label class={labelClass}>
-            Material status <span class="text-primary" aria-hidden="true">*</span>
+            Material status <span class="text-accent" aria-hidden="true">*</span>
             <select class={fieldClass} name="material" required>
               <option value="Not decided">Not decided</option>
               <option value="Pure copper">Pure copper</option>
@@ -88,7 +88,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
           </label>
 
           <label class={labelClass}>
-            Prototype / production quantity <span class="text-primary" aria-hidden="true">*</span>
+            Prototype / production quantity <span class="text-accent" aria-hidden="true">*</span>
             <input
               class={fieldClass}
               name="quantity"
@@ -101,7 +101,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
           </label>
 
           <label class={labelClass}>
-            Project timing <span class="text-primary" aria-hidden="true">*</span>
+            Project timing <span class="text-accent" aria-hidden="true">*</span>
             <select class={fieldClass} name="timing" required>
               <option value="Exploring feasibility">Exploring feasibility</option>
               <option value="Quote needed within 2 weeks">Quote needed within 2 weeks</option>
@@ -112,7 +112,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
         </div>
 
         <label class={`${labelClass} mt-5`}>
-          Requirements and acceptance criteria <span class="text-primary" aria-hidden="true">*</span>
+          Requirements and acceptance criteria <span class="text-accent" aria-hidden="true">*</span>
           <textarea
             class={fieldClass}
             name="requirements"
@@ -171,7 +171,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
 
         <label class="mt-5 flex items-start gap-3 text-sm leading-6 text-muted">
           <input
-            class="mt-1 h-4 w-4 shrink-0 rounded border-page-border text-primary focus:ring-primary"
+            class="mt-1 h-4 w-4 shrink-0 rounded border-control-border text-primary focus:ring-focus"
             name="consent"
             type="checkbox"
             value="accepted"
@@ -191,7 +191,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
 
         <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <button
-            class="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+            class="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-focus disabled:cursor-not-allowed disabled:opacity-60"
             type="submit"
             data-rfq-submit
             disabled={!turnstileSiteKey}

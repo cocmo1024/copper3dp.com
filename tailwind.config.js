@@ -11,6 +11,7 @@ export default {
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
         link: 'var(--aw-color-link)',
+        focus: 'var(--aw-color-focus)',
         heading: 'var(--aw-color-text-heading)',
         page: 'var(--aw-color-text-page)',
         default: 'var(--aw-color-text-default)',
@@ -18,6 +19,7 @@ export default {
         surface: 'var(--aw-color-surface)',
         'surface-raised': 'var(--aw-color-surface-raised)',
         'page-border': 'var(--aw-color-border)',
+        'control-border': 'var(--aw-color-border-control)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
