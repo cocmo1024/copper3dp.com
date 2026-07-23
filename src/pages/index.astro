@@ -10,6 +10,7 @@ import partsImage from '~/assets/images/partner/bj-tech/copper-am-reference-part
 import honeycombImage from '~/assets/images/partner/bj-tech/copper-honeycomb-reference.webp';
 import coilsImage from '~/assets/images/partner/bj-tech/copper-induction-coils-reference.webp';
 import nozzleImage from '~/assets/images/partner/bj-tech/copper-nozzle-reference.webp';
+import videoPoster from '~/assets/images/partner/bj-tech/copper-am-video-poster.webp';
 import pureCopperPowderImage from '~/assets/images/partner/bj-tech/pure-copper-powder.webp';
 import cuCrNbPowderImage from '~/assets/images/partner/bj-tech/cucrnb-powder.webp';
 import cuCrZrPowderImage from '~/assets/images/partner/bj-tech/cucrzr-powder.webp';
@@ -461,17 +462,55 @@ const applicationExamples = [
         <div
           class="overflow-hidden rounded-xl border border-page-border bg-black shadow-[0_28px_80px_rgba(0,0,0,0.28)]"
         >
-          <iframe
-            class="aspect-video w-full"
-            src="https://www.youtube-nocookie.com/embed/PWb7rcK4dFI?rel=0"
-            title="Copper 3D Printing with Green-Laser LPBF — Process and Parts"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+          <a
+            class="group relative block aspect-video w-full overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-page"
+            href="https://youtu.be/PWb7rcK4dFI"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-youtube-facade
+            data-youtube-embed="https://www.youtube-nocookie.com/embed/PWb7rcK4dFI?autoplay=1&playsinline=1&rel=0"
+            aria-label="Play the 28-second copper green-laser LPBF process video"
+          >
+            <Image
+              src={videoPoster}
+              alt="Copper LPBF component with integrated internal passages on an inspection table"
+              class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.01]"
+              widths={[640, 960, 1280]}
+              sizes="(max-width: 1023px) calc(100vw - 2rem), 1024px"
+              width={1280}
+              height={720}
+              loading="lazy"
+              decoding="async"
+            />
+            <span
+              class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/20 transition group-hover:from-black/75"
+            ></span>
+            <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <span
+                class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-black/60 text-white shadow-2xl backdrop-blur-sm transition group-hover:scale-105 group-hover:bg-accent"
+                aria-hidden="true"
+              >
+                <Icon name="tabler:player-play-filled" class="ml-1 h-7 w-7" />
+              </span>
+            </span>
+            <span
+              class="pointer-events-none absolute bottom-4 left-4 right-4 text-sm font-semibold text-white sm:bottom-5 sm:left-5"
+            >
+              28-second process reel · Click to play
+            </span>
+          </a>
         </div>
-        <figcaption class="mt-3 text-xs leading-5 text-muted">
-          Copper LPBF process, build progression, and finished-part geometry.
+        <figcaption class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <span class="text-xs leading-5 text-muted">
+            Copper LPBF process, build progression, and finished-part geometry.
+          </span>
+          <Button
+            variant="primary"
+            text="Send your drawing for review"
+            href="#rfq-form"
+            icon="tabler:file-upload"
+            class="shrink-0 justify-center px-5 py-3"
+          />
         </figcaption>
       </figure>
 
@@ -553,7 +592,7 @@ const applicationExamples = [
         <dl class="mt-8 grid border-y border-page-border sm:grid-cols-2 lg:grid-cols-5">
           {
             productionEnvelopes.map((item) => (
-              <div class="border-b border-page-border py-5 sm:px-5 sm:odd:pl-0 sm:even:border-l lg:border-b-0 lg:border-l lg:px-5 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0">
+              <div class="border-b border-page-border py-5 text-center sm:px-5 sm:even:border-l lg:border-b-0 lg:border-l lg:px-5 lg:first:border-l-0">
                 <div class="mb-5 aspect-[4/3] overflow-hidden rounded-md border border-page-border bg-white lg:mx-auto lg:w-full lg:max-w-[9.5rem]">
                   <Image
                     src={item.image}
@@ -706,4 +745,35 @@ const applicationExamples = [
   </section>
 
   <RfqForm />
+
+  <script>
+    const youtubeFacade = document.querySelector('[data-youtube-facade]');
+
+    if (youtubeFacade instanceof HTMLAnchorElement) {
+      youtubeFacade.addEventListener(
+        'click',
+        (event) => {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+          const embedUrl = youtubeFacade.dataset.youtubeEmbed;
+          if (!embedUrl) return;
+
+          event.preventDefault();
+
+          const iframe = document.createElement('iframe');
+          iframe.className = 'aspect-video w-full';
+          iframe.src = embedUrl;
+          iframe.title = 'Copper 3D Printing with Green-Laser LPBF — Process and Parts';
+          iframe.allow =
+            'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+          iframe.allowFullscreen = true;
+
+          youtubeFacade.replaceWith(iframe);
+          iframe.focus();
+        },
+        { once: true }
+      );
+    }
+  </script>
 </Layout>
