@@ -79,6 +79,7 @@ const shouldIndexSitemapPage = (page: string) => {
   return (
     !pathname.startsWith('/blog/tag') &&
     !pathname.startsWith('/blog/category') &&
+    pathname !== '/media-credits' &&
     !isPaginatedArchive &&
     !isStaticLegacyFallback
   );

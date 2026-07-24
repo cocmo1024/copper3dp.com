@@ -1,7 +1,7 @@
 ---
 import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
 import { qualityGates, rfqInputs } from '~/data/knowledge';
-import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const validationMethods = [
   [
@@ -48,23 +48,6 @@ const metadata = {
         url: '/knowledge/quality-and-qualification/',
       }))
     ),
-    createFaqSchema([
-      {
-        title: 'Is relative density enough to accept a copper AM part?',
-        description:
-          'No. The density method and sampling location matter, and functional parts may also need pore morphology, CT, conductivity, pressure integrity, dimensional and cleanliness evidence.',
-      },
-      {
-        title: 'Should conductivity be specified before or after heat treatment and machining?',
-        description:
-          'Specify the required final state and test method. Alloy, heat treatment, orientation, temperature and finishing can change the reported result.',
-      },
-      {
-        title: 'Does CT replace leak or pressure testing for a cold plate?',
-        description:
-          'No. CT can inspect accessible internal geometry and discontinuities, while leak, proof, burst and flow tests answer different acceptance questions.',
-      },
-    ]),
   ],
 };
 ---

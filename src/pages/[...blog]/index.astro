@@ -56,7 +56,7 @@ const metadata = merge(
       article: {
         publishedTime: post.publishDate.toISOString(),
         modifiedTime: (post.updateDate || post.publishDate).toISOString(),
-        authors: [post.author || 'COPPER 3DP Engineering'],
+        authors: [String(getCanonical('/editorial-policy/'))],
         ...(post.category?.title ? { section: post.category.title } : {}),
         ...(post.tags?.length ? { tags: post.tags.map((tag) => tag.title) } : {}),
       },

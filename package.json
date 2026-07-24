@@ -17,6 +17,7 @@
     "check:astro": "astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
+    "check:seo": "node scripts/check-site-seo.mjs",
     "check:links": "node scripts/check-local-links.mjs",
     "check:knowledge": "node scripts/check-knowledge-pages.mjs",
     "check:decisions": "node scripts/check-decision-guides.mjs",

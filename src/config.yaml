@@ -20,6 +20,8 @@ metadata:
       - url: '~/assets/images/copper/hero-copper-parts-transparent.webp'
         width: 1200
         height: 675
+        alt: 'Pure copper and copper alloy additive manufacturing parts'
+    locale: en_US
     type: website
   twitter:
     cardType: summary_large_image

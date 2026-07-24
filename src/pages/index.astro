@@ -24,12 +24,6 @@ import { createCopperServiceSchema, createItemListSchema } from '~/utils/structu
 const whatsappHref =
   'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
 
-const homepageServiceSchema = {
-  ...createCopperServiceSchema(),
-  description:
-    'Copper 3D printing service for functional pure copper and copper alloy parts, including engineering review, green-laser LPBF production, machining, finishing, inspection, and delivery.',
-};
-
 const metadata = {
   title: 'Copper 3D Printing Service | Pure Copper & CuCrZr Parts',
   ignoreTitleTemplate: true,
@@ -41,12 +35,13 @@ const metadata = {
         url: '~/assets/images/copper/hero-copper-parts-transparent.webp',
         width: 2048,
         height: 1152,
+        alt: 'Pure copper and copper alloy additive manufacturing parts',
       },
     ],
     type: 'website',
   },
   structuredData: [
-    homepageServiceSchema,
+    createCopperServiceSchema(),
     createItemListSchema('Copper additive manufacturing service scope', [
       {
         name: 'Copper AM engineering review',

@@ -43,6 +43,8 @@ const {
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const mainNavigationId = 'main-navigation';
+const isCurrentPath = (href?: string) => Boolean(href && `/${trimSlash(href)}` === currentPath);
 ---
 
 <header
@@ -73,10 +75,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
-        <ToggleMenu />
+        <ToggleMenu controls={mainNavigationId} />
       </div>
     </div>
     <nav
+      id={mainNavigationId}
       class="items-center w-full md:w-auto hidden md:flex md:mx-3 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
       aria-label="Main navigation"
     >
@@ -84,26 +87,33 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         class="flex w-full flex-col text-xl font-medium md:w-auto md:flex-row md:self-center md:justify-center md:text-sm"
       >
         {
-          links.map(({ text, href, links }) => (
+          links.map(({ text, href, links }, index) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
                   <button
                     type="button"
+                    aria-haspopup="true"
+                    aria-controls={`main-navigation-submenu-${index}`}
+                    aria-expanded="false"
                     class="hover:text-link dark:hover:text-accent px-3 py-3 flex items-center whitespace-nowrap"
                   >
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu rounded-md border border-page-border bg-surface pl-4 font-medium shadow-panel md:absolute md:hidden md:min-w-[210px] md:pl-0">
+                  <ul
+                    id={`main-navigation-submenu-${index}`}
+                    class="dropdown-menu rounded-md border border-page-border bg-surface pl-4 font-medium shadow-panel md:absolute md:hidden md:min-w-[210px] md:pl-0"
+                  >
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
                           class:list={[
                             'first:rounded-t last:rounded-b md:hover:bg-surface-raised hover:text-link dark:hover:text-accent py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
+                            { 'aw-link-active': isCurrentPath(href2) },
                           ]}
                           href={href2}
+                          aria-current={isCurrentPath(href2) ? 'page' : undefined}
                         >
                           {text2}
                         </a>
@@ -115,9 +125,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 <a
                   class:list={[
                     'hover:text-link dark:hover:text-accent px-3 py-3 flex items-center whitespace-nowrap',
-                    { 'aw-link-active': href === currentPath },
+                    { 'aw-link-active': isCurrentPath(href) },
                   ]}
                   href={href}
+                  aria-current={isCurrentPath(href) ? 'page' : undefined}
                 >
                   {text}
                 </a>
@@ -127,6 +138,45 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         }
       </ul>
     </nav>
+    <noscript>
+      <style is:inline>
+        [data-aw-toggle-menu] {
+          display: none !important;
+        }
+      </style>
+      <nav class="mt-4 border-t border-page-border pt-3 md:hidden" aria-label="Main navigation without JavaScript">
+        <ul class="space-y-2 text-base font-medium">
+          {
+            links.map(({ text, href, links }) => (
+              <li>
+                {href ? (
+                  <a class="block py-2 text-link" href={href} aria-current={isCurrentPath(href) ? 'page' : undefined}>
+                    {text}
+                  </a>
+                ) : (
+                  <span class="block py-2 text-heading">{text}</span>
+                )}
+                {links?.length ? (
+                  <ul class="ml-4 space-y-1 border-l border-page-border pl-4">
+                    {links.map(({ text: text2, href: href2 }) => (
+                      <li>
+                        <a
+                          class="block py-1.5 text-link"
+                          href={href2}
+                          aria-current={isCurrentPath(href2) ? 'page' : undefined}
+                        >
+                          {text2}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </noscript>
     <div
       class:list={[
         { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },

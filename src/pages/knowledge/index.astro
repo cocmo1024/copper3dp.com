@@ -3,7 +3,7 @@ import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
 import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
 import { evidenceLabels, knowledgeManifest } from '~/data/knowledge';
 import { decisionClusters } from '~/data/decision-clusters';
-import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const sectionDetails = [
   {
@@ -79,23 +79,6 @@ const metadata = {
       'Copper additive manufacturing knowledge center',
       sectionDetails.map((item) => ({ name: item.title, description: item.description, url: item.href }))
     ),
-    createFaqSchema([
-      {
-        title: 'Does a published material value apply to every copper AM part?',
-        description:
-          'No. Material grade, machine configuration, orientation, heat treatment, specimen location, temperature and test method must travel with the value.',
-      },
-      {
-        title: 'Does this equipment reference mean COPPER 3DP owns every listed platform?',
-        description:
-          'No. The index summarizes public market evidence used for supplier-route evaluation. The actual supplier, equipment, material and inspection scope are confirmed in the quotation.',
-      },
-      {
-        title: 'How should the knowledge center be used for an RFQ?',
-        description:
-          'Start with the application and material decision, review the process and qualification constraints, then submit CAD, quantity, operating conditions and acceptance requirements through the RFQ page.',
-      },
-    ]),
   ],
 };
 ---
