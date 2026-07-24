@@ -161,7 +161,9 @@ import { UI } from 'astrowind:config';
       };
     }
 
-    function isDuplicateConversion(key) {
+    const pendingConversionKeys = new Set();
+
+    function reserveConversion(key) {
       if (!key) return false;
 
       try {
@@ -169,12 +171,28 @@ import { UI } from 'astrowind:config';
         if (sessionStorage.getItem(storageKey) === 'true') {
           return true;
         }
-        sessionStorage.setItem(storageKey, 'true');
       } catch {
-        return false;
+        // In-memory deduplication still works when session storage is unavailable.
       }
 
+      if (pendingConversionKeys.has(key)) return true;
+      pendingConversionKeys.add(key);
       return false;
+    }
+
+    function completeConversion(key) {
+      if (!key) return;
+      pendingConversionKeys.delete(key);
+
+      try {
+        sessionStorage.setItem(`copper3dp_conversion_${key}`, 'true');
+      } catch {
+        // A dispatched conversion must not block the user when storage is unavailable.
+      }
+    }
+
+    function releaseConversion(key) {
+      if (key) pendingConversionKeys.delete(key);
     }
 
     function getEnhancedConversionUserData(userData) {
@@ -219,12 +237,57 @@ import { UI } from 'astrowind:config';
       document.body.appendChild(script);
     }
 
+    function dispatchGoogleAdsConversion(sendTo, conversionPayload, enhancedConversionUserData, onDispatched) {
+      let settled = false;
+      const stateWait = { timeoutId: 0 };
+
+      const markDispatched = () => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(stateWait.timeoutId);
+        window.removeEventListener('copper3dp:google-tag-state', settleFromCurrentState);
+        onDispatched();
+      };
+
+      const sendWithGoogleTag = () => {
+        if (typeof window.gtag !== 'function') return false;
+        if (enhancedConversionUserData) {
+          window.gtag('set', 'user_data', enhancedConversionUserData);
+        }
+        window.gtag('event', 'conversion', conversionPayload);
+        markDispatched();
+        return true;
+      };
+
+      const sendWithFallback = () => {
+        sendGoogleAdsConversionScript(sendTo);
+        markDispatched();
+      };
+
+      function settleFromCurrentState() {
+        const state = window.COPPER3DP_TRACKING?.googleTagState || 'unknown';
+        if (state === 'loaded' && sendWithGoogleTag()) return;
+        sendWithFallback();
+      }
+
+      const state = window.COPPER3DP_TRACKING?.googleTagState || 'unknown';
+      if (state === 'loaded' && sendWithGoogleTag()) return;
+      if (state === 'failed' || state === 'disabled') {
+        sendWithFallback();
+        return;
+      }
+
+      window.addEventListener('copper3dp:google-tag-state', settleFromCurrentState, { once: true });
+      stateWait.timeoutId = window.setTimeout(settleFromCurrentState, 1500);
+    }
+
     function trackCopperEvent(eventName, payload = {}, options = {}) {
-      const isDuplicate = isDuplicateConversion(options.conversionKey);
       const sendTo =
         options.adsConversion === 'rfq_submit'
           ? window.COPPER3DP_TRACKING?.googleAdsRfqSubmitSendTo
           : window.COPPER3DP_TRACKING?.googleAdsRfqSendTo;
+      const shouldDeduplicate = Boolean(options.generateLead || (options.adsConversion && sendTo));
+      const isDuplicate = shouldDeduplicate ? reserveConversion(options.conversionKey) : false;
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: eventName, ...payload });
@@ -243,34 +306,33 @@ import { UI } from 'astrowind:config';
             ...payload,
           });
         }
-
-        if (options.adsConversion && sendTo && !isDuplicate) {
-          const conversionPayload = {
-            send_to: sendTo,
-            transport_type: 'beacon',
-            event_category: 'lead',
-            event_label: payload.application || payload.link_text || 'RFQ submission',
-          };
-
-          if (payload.submission_id) conversionPayload.transaction_id = payload.submission_id;
-
-          if (typeof options.eventCallback === 'function') {
-            conversionPayload.event_callback = options.eventCallback;
-            conversionPayload.event_timeout = options.eventTimeout || 1000;
-          }
-
-          const enhancedConversionUserData =
-            options.adsConversion === 'rfq_submit' ? getEnhancedConversionUserData(options.userData) : null;
-          if (enhancedConversionUserData) {
-            window.gtag('set', 'user_data', enhancedConversionUserData);
-          }
-
-          window.gtag('event', 'conversion', conversionPayload);
-        }
       }
 
-      if (options.adsConversion && sendTo && !isDuplicate && typeof window.gtag !== 'function') {
-        sendGoogleAdsConversionScript(sendTo);
+      if (options.adsConversion && sendTo && !isDuplicate) {
+        const conversionPayload = {
+          send_to: sendTo,
+          transport_type: 'beacon',
+          event_category: 'lead',
+          event_label: payload.application || payload.link_text || 'RFQ submission',
+        };
+
+        if (payload.submission_id) conversionPayload.transaction_id = payload.submission_id;
+
+        if (typeof options.eventCallback === 'function') {
+          conversionPayload.event_callback = options.eventCallback;
+          conversionPayload.event_timeout = options.eventTimeout || 1000;
+        }
+
+        const enhancedConversionUserData =
+          options.adsConversion === 'rfq_submit' ? getEnhancedConversionUserData(options.userData) : null;
+
+        dispatchGoogleAdsConversion(sendTo, conversionPayload, enhancedConversionUserData, () =>
+          completeConversion(options.conversionKey)
+        );
+      } else if (!isDuplicate && options.generateLead) {
+        completeConversion(options.conversionKey);
+      } else if (!isDuplicate && shouldDeduplicate) {
+        releaseConversion(options.conversionKey);
       }
     }
 
