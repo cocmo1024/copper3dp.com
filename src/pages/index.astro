@@ -28,7 +28,7 @@ const metadata = {
   title: 'Copper 3D Printing Service | Pure Copper & CuCrZr Parts',
   ignoreTitleTemplate: true,
   description:
-    'Copper 3D printing service for pure copper, CuCrZr, and CuCr1Zr parts. Green-laser LPBF production with machining, finishing, inspection, and secure CAD quotation.',
+    'Copper 3D printing service with thermal design support for pure copper, CuCrZr, and CuCr1Zr parts. Green-laser LPBF, machining, inspection, and CAD quotation.',
   openGraph: {
     images: [
       {
@@ -44,9 +44,10 @@ const metadata = {
     createCopperServiceSchema(),
     createItemListSchema('Copper additive manufacturing service scope', [
       {
-        name: 'Copper AM engineering review',
-        description: 'Drawing review, material selection, build strategy, finishing, and acceptance planning.',
-        url: '/capabilities/',
+        name: 'Copper AM engineering and thermal design support',
+        description:
+          'Thermal requirement review, cooling concept development, DfAM, finishing, and acceptance planning.',
+        url: '/#thermal-design-support',
       },
       {
         name: 'Pure copper 3D printing',
@@ -145,6 +146,41 @@ const materialRoutes = [
   },
 ];
 
+const thermalDesignSteps = [
+  {
+    number: '01',
+    title: 'Define the conditions',
+    description:
+      'Map heat sources, duty cycle, temperature limits, coolant, flow or pressure limits, envelope, and interfaces.',
+  },
+  {
+    number: '02',
+    title: 'Compare architectures',
+    description:
+      'Assess channels, fins or microchannels, impingement, manifolds, and topology-led structures against the constraints.',
+  },
+  {
+    number: '03',
+    title: 'Iterate the design',
+    description:
+      'Balance thermal response, uniformity, pressure drop, strength, powder removal, machining, and inspection access.',
+  },
+  {
+    number: '04',
+    title: 'Prepare validation',
+    description:
+      'Define the agreed CAD and drawing scope, manufacturing route, prototype plan, and included simulation or test evidence.',
+  },
+];
+
+const thermalDesignInputs = [
+  'Heat load, source map, and duty cycle',
+  'Temperature or thermal-resistance target',
+  'Coolant, inlet conditions, flow, and pressure limits',
+  'Envelope, ports, interfaces, and working pressure',
+  'Material preference, quantity, and validation needs',
+];
+
 const productionEnvelopes = [
   {
     label: 'Compact',
@@ -181,15 +217,15 @@ const productionEnvelopes = [
 const processSteps = [
   {
     number: '01',
-    title: 'Review the part',
+    title: 'Define the requirement',
     description:
-      'Send CAD, drawing, quantity, operating conditions, and the dimensions or surfaces that control acceptance.',
+      'Send CAD or, for thermal-design work, the governing operating requirements, envelope, interfaces, quantity, and acceptance needs.',
   },
   {
     number: '02',
     title: 'Lock the route',
     description:
-      'We define the material, orientation, supports, powder-removal strategy, machining, finishing, and test scope.',
+      'For scoped thermal-design projects, we develop and iterate cooling geometry before fixing the material, DfAM, finishing, and test route.',
   },
   {
     number: '03',
@@ -257,14 +293,15 @@ const applicationExamples = [
           Copper 3D printing for functional parts
         </h1>
         <p class="mt-7 max-w-xl text-base leading-7 text-muted sm:text-lg">
-          We manufacture pure copper and copper-alloy parts from your CAD, including green-laser LPBF, machining,
-          finishing, and inspection. Send the drawing for an engineering review and scoped quotation.
+          We manufacture pure copper and copper-alloy parts from your CAD. Design-stage cooling projects can also begin
+          with defined thermal and fluid requirements. Send the available package for an engineering review and scoped
+          quotation.
         </p>
 
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button
             variant="primary"
-            text="Upload CAD for review"
+            text="Send CAD or thermal brief"
             href="#rfq-form"
             icon="tabler:file-upload"
             class="w-full justify-center px-5 py-3 sm:w-auto"
@@ -356,7 +393,7 @@ const applicationExamples = [
       </div>
       <div class="py-6 sm:pl-8">
         <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Start</p>
-        <p class="mt-2 font-semibold text-heading">CAD-led engineering review</p>
+        <p class="mt-2 font-semibold text-heading">CAD or thermal brief review</p>
       </div>
     </div>
   </section>
@@ -437,10 +474,86 @@ const applicationExamples = [
     </div>
   </section>
 
+  <section class="border-b border-page-border bg-page py-16 sm:py-24" aria-labelledby="thermal-design-support">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="grid gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
+        <div>
+          <p class="text-sm font-semibold text-accent">03 | Thermal design support</p>
+          <h2
+            id="thermal-design-support"
+            class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
+          >
+            From thermal requirements to manufacturable copper cooling hardware
+          </h2>
+        </div>
+        <div class="space-y-4 text-base leading-7 text-muted">
+          <p>
+            A project can start with finished CAD or with heat load, temperature limits, coolant, flow or pressure-drop
+            targets, available envelope, and interfaces. We turn those inputs into a scoped design, manufacturing, and
+            validation route.
+          </p>
+          <p>
+            The selected geometry is project-specific. More surface area does not automatically mean better cooling once
+            pressure drop, flow distribution, cleanability, and printability are considered.
+          </p>
+        </div>
+      </div>
+
+      <ol class="mt-12 grid border-y border-page-border sm:grid-cols-2 lg:grid-cols-4">
+        {
+          thermalDesignSteps.map((item) => (
+            <li class="border-b border-page-border py-7 sm:px-6 sm:odd:pl-0 sm:even:border-l lg:border-b-0 lg:border-l lg:px-6 lg:[&:nth-child(3)]:!pl-6 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0">
+              <span class="font-mono text-sm font-semibold text-accent">{item.number}</span>
+              <h3 class="mt-4 font-heading text-lg font-semibold text-heading">{item.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div
+        class="mt-10 grid gap-8 rounded-md border border-page-border bg-surface p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12"
+      >
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Two valid starting points</p>
+          <h3 class="mt-3 font-heading text-2xl font-bold text-heading">
+            Bring CAD or bring the thermal boundary conditions
+          </h3>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Existing CAD moves into DfAM and production review. A thermal brief starts with concept development before
+            the prototype route is agreed. Performance targets remain tied to agreed inputs and project-specific
+            validation.
+          </p>
+          <Button
+            variant="primary"
+            text="Send thermal requirements or CAD"
+            href="#rfq-form"
+            icon="tabler:arrow-down"
+            class="mt-6 justify-center px-5 py-3"
+          />
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Useful design inputs</p>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+            {
+              thermalDesignInputs.map((item) => (
+                <li class="flex gap-3 text-sm leading-6 text-muted">
+                  <Icon name="tabler:check" class="mt-1 h-4 w-4 shrink-0 text-accent" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="production-capability" class="scroll-mt-20 bg-page py-16 sm:py-24" aria-labelledby="how-we-print">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-accent">03 | Production capability</p>
+        <p class="text-sm font-semibold text-accent">04 | Production capability</p>
         <h2
           id="how-we-print"
           class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
@@ -616,17 +729,17 @@ const applicationExamples = [
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="grid gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
         <div>
-          <p class="text-sm font-semibold text-accent">04 | How we work</p>
+          <p class="text-sm font-semibold text-accent">05 | How we work</p>
           <h2
             id="how-we-work"
             class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
           >
-            One route from drawing to delivered part
+            One route from requirements to delivered part
           </h2>
         </div>
         <p class="text-base leading-7 text-muted">
-          The process is locked around the drawing and acceptance criteria, so printing, post-processing, inspection,
-          and quotation describe the same deliverable.
+          The process is locked around the agreed inputs, drawing, and acceptance criteria, so design, printing,
+          post-processing, inspection, and quotation describe the same deliverable.
         </p>
       </div>
 
@@ -647,14 +760,15 @@ const applicationExamples = [
       >
         <div>
           <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Engineering review</p>
-          <h3 class="mt-2 font-heading text-2xl font-bold text-heading">The fastest useful start is a CAD file</h3>
+          <h3 class="mt-2 font-heading text-2xl font-bold text-heading">Start with CAD or a clear thermal brief</h3>
           <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
-            Add quantity, target timing, and the operating or inspection requirements that cannot be compromised.
+            Add quantity, target timing, heat load or operating conditions, and the requirements that cannot be
+            compromised.
           </p>
         </div>
         <Button
           variant="primary"
-          text="Upload CAD for review"
+          text="Send CAD or thermal brief"
           href="#rfq-form"
           icon="tabler:arrow-down"
           class="shrink-0 justify-center px-5 py-3"
@@ -666,7 +780,7 @@ const applicationExamples = [
   <section class="bg-page py-16 sm:py-24" aria-labelledby="applications-and-cases">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-accent">05 | Parts and applications</p>
+        <p class="text-sm font-semibold text-accent">06 | Parts and applications</p>
         <h2
           id="applications-and-cases"
           class="mt-3 scroll-mt-24 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
@@ -724,17 +838,18 @@ const applicationExamples = [
   >
     <div class="mx-auto grid max-w-5xl gap-7 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-16">
       <div>
-        <p class="text-sm font-semibold text-accent">06 | Start a project</p>
+        <p class="text-sm font-semibold text-accent">07 | Start a project</p>
         <h2
           id="start-a-project"
           class="mt-3 font-heading text-3xl font-bold leading-tight tracking-[-0.02em] text-heading sm:text-4xl"
         >
-          Upload the drawing for engineering review
+          Send CAD or thermal requirements for engineering review
         </h2>
       </div>
       <p class="text-base leading-7 text-muted">
-        Submit what is already known. CAD, quantity, material preference, operating conditions, critical dimensions,
-        post-processing, inspection, and target timing help us return a clear manufacturing scope.
+        Submit what is already known. If CAD is not yet available, provide the heat load, temperature target, coolant,
+        flow or pressure limits, available envelope, and interfaces. Quantity, material preference, inspection, and
+        target timing help us return a clear scope.
       </p>
     </div>
   </section>
