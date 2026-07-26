@@ -1,5 +1,10 @@
 ---
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+const defaultTurnstileSiteKey = '0x4AAAAAAD1IsOhMIIWtxkf6';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || defaultTurnstileSiteKey;
+const projectApplications = JSON.stringify({
+  'heat-exchanger': 'Heat sink or heat exchanger',
+  busbar: 'Busbar or electrical conductor',
+});
 
 const fieldClass =
   'mt-2 block w-full rounded-md border border-control-border bg-page px-3 py-2.5 text-default shadow-sm outline-none transition placeholder:text-muted/70 focus:border-primary focus:ring-2 focus:ring-focus';
@@ -14,8 +19,8 @@ const labelClass = 'block text-sm font-semibold text-heading';
         Submit CAD or thermal requirements for an engineering review
       </h2>
       <p class="mt-4 leading-7 text-muted">
-        Start with the part, application, quantity, and the requirements you already know. CAD is optional for
-        design-stage work, and material, timing, or location details can be added only when useful. A confirmation
+        Start with your name, work email, company, and a short project brief. CAD is optional for design-stage work, and
+        application, quantity, material, timing, or location details can be added only when useful. A confirmation
         appears only after the secure submission service accepts the request.
       </p>
       <ul class="mt-6 grid gap-3 text-sm leading-6 text-muted">
@@ -55,6 +60,8 @@ const labelClass = 'block text-sm font-semibold text-heading';
         enctype="multipart/form-data"
         data-rfq-form
         data-turnstile-site-key={turnstileSiteKey}
+        data-project-applications={projectApplications}
+        data-rfq-form-variant="rfq_short_v2"
         novalidate
       >
         <div class="grid gap-5 sm:grid-cols-2">
@@ -68,37 +75,9 @@ const labelClass = 'block text-sm font-semibold text-heading';
             <input class={fieldClass} name="email" type="email" autocomplete="email" maxlength="254" required />
           </label>
 
-          <label class={labelClass}>
+          <label class={`${labelClass} sm:col-span-2`}>
             Company <span class="text-accent" aria-hidden="true">*</span>
             <input class={fieldClass} name="company" type="text" autocomplete="organization" maxlength="120" required />
-          </label>
-
-          <label class={labelClass}>
-            Application <span class="text-accent" aria-hidden="true">*</span>
-            <!-- Keep every option value explicit: browser translation may rewrite labels, never submitted values. -->
-            <select class={fieldClass} name="application" required>
-              <option value="">Select the closest fit</option>
-              <option value="Cold plate or liquid cooling">Cold plate or liquid cooling</option>
-              <option value="Heat sink or heat exchanger">Heat sink or heat exchanger</option>
-              <option value="Busbar or electrical conductor">Busbar or electrical conductor</option>
-              <option value="Induction coil">Induction coil</option>
-              <option value="RF, waveguide, or vacuum component">RF, waveguide, or vacuum component</option>
-              <option value="Conformal cooling insert">Conformal cooling insert</option>
-              <option value="Other copper AM part">Other copper AM part</option>
-            </select>
-          </label>
-
-          <label class={labelClass}>
-            Quantity or project stage <span class="text-accent" aria-hidden="true">*</span>
-            <input
-              class={fieldClass}
-              name="quantity"
-              type="text"
-              inputmode="text"
-              maxlength="80"
-              placeholder="Example: 2 prototypes; 50/year; feasibility stage"
-              required
-            />
           </label>
         </div>
 
@@ -134,6 +113,33 @@ const labelClass = 'block text-sm font-semibold text-heading';
             Additional details — optional
           </summary>
           <div class="grid gap-5 border-t border-page-border p-4 sm:grid-cols-2">
+            <label class={labelClass}>
+              Application
+              <!-- Keep every option value explicit: browser translation may rewrite labels, never submitted values. -->
+              <select class={fieldClass} name="application">
+                <option value="">Not provided</option>
+                <option value="Cold plate or liquid cooling">Cold plate or liquid cooling</option>
+                <option value="Heat sink or heat exchanger">Heat sink or heat exchanger</option>
+                <option value="Busbar or electrical conductor">Busbar or electrical conductor</option>
+                <option value="Induction coil">Induction coil</option>
+                <option value="RF, waveguide, or vacuum component">RF, waveguide, or vacuum component</option>
+                <option value="Conformal cooling insert">Conformal cooling insert</option>
+                <option value="Other copper AM part">Other copper AM part</option>
+              </select>
+            </label>
+
+            <label class={labelClass}>
+              Quantity or project stage
+              <input
+                class={fieldClass}
+                name="quantity"
+                type="text"
+                inputmode="text"
+                maxlength="80"
+                placeholder="Example: 2 prototypes; 50/year; feasibility stage"
+              />
+            </label>
+
             <label class={labelClass}>
               Material preference
               <select class={fieldClass} name="material">
@@ -262,20 +268,36 @@ const labelClass = 'block text-sm font-semibold text-heading';
     const submissionId = form.elements.namedItem('submission_id');
     const attributionInput = form.elements.namedItem('attribution');
     const defaultSubmitText = submitButton?.textContent?.trim() || 'Submit secure RFQ';
+    const formVariant = form.dataset.rfqFormVariant || 'rfq_short_v2';
     let formStarted = false;
 
-    const applicationHints = {
-      'copper cold plate': 'Cold plate or liquid cooling',
-      'liquid cooling': 'Cold plate or liquid cooling',
-      'copper heat sink': 'Heat sink or heat exchanger',
-      'heat exchanger': 'Heat sink or heat exchanger',
-      'copper busbar': 'Busbar or electrical conductor',
-      'electrical conductor': 'Busbar or electrical conductor',
-      'induction coil': 'Induction coil',
-      waveguide: 'RF, waveguide, or vacuum component',
-      vacuum: 'RF, waveguide, or vacuum component',
-      'conformal cooling': 'Conformal cooling insert',
-    };
+    let applicationByProject = {};
+    try {
+      applicationByProject = JSON.parse(form.dataset.projectApplications || '{}');
+    } catch {
+      applicationByProject = {};
+    }
+
+    function getProjectContext(attribution = {}) {
+      const queryProject = new URLSearchParams(window.location.search).get('project')?.trim().toLowerCase() || '';
+      const storedProject = typeof attribution.project === 'string' ? attribution.project.trim().toLowerCase() : '';
+      const project = queryProject || storedProject;
+      return Object.prototype.hasOwnProperty.call(applicationByProject, project) ? project : '';
+    }
+
+    function getFunnelPayload(extra = {}) {
+      const attribution =
+        typeof window.COPPER3DP_GET_ATTRIBUTION === 'function' ? window.COPPER3DP_GET_ATTRIBUTION() : {};
+      return {
+        method: 'secure_rfq_form',
+        event_category: 'rfq_funnel',
+        form_variant: formVariant,
+        project_context: getProjectContext(attribution) || 'not_provided',
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        ...extra,
+      };
+    }
 
     function setStatus(message, isError = false) {
       if (!status) return;
@@ -284,7 +306,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
       status.classList.toggle('dark:text-red-400', isError);
     }
 
-    function refreshContext(resetStartedAt = false) {
+    function refreshContext(resetStartedAt = false, preselectApplication = false) {
       if (resetStartedAt && startedAt) startedAt.value = String(Date.now());
       if (submissionId && !submissionId.value) submissionId.value = crypto.randomUUID();
       if (sourcePage) sourcePage.value = window.location.href;
@@ -293,9 +315,10 @@ const labelClass = 'block text-sm font-semibold text-heading';
         typeof window.COPPER3DP_GET_ATTRIBUTION === 'function' ? window.COPPER3DP_GET_ATTRIBUTION() : {};
       if (attributionInput) attributionInput.value = JSON.stringify(attribution || {});
 
-      const hint = new URLSearchParams(window.location.search).get('project')?.toLowerCase() || '';
-      const match = Object.entries(applicationHints).find(([key]) => hint.includes(key));
-      if (match && applicationSelect) applicationSelect.value = match[1];
+      const projectContext = getProjectContext(attribution);
+      if (preselectApplication && projectContext && applicationSelect && !applicationSelect.value) {
+        applicationSelect.value = applicationByProject[projectContext];
+      }
     }
 
     function validateFiles() {
@@ -318,12 +341,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
     form.addEventListener('input', () => {
       if (formStarted || typeof window.COPPER3DP_TRACK_EVENT !== 'function') return;
       formStarted = true;
-      window.COPPER3DP_TRACK_EVENT('rfq_form_start', {
-        method: 'secure_rfq_form',
-        event_category: 'rfq_funnel',
-        page_location: window.location.href,
-        page_path: window.location.pathname,
-      });
+      window.COPPER3DP_TRACK_EVENT('rfq_form_start', getFunnelPayload());
     });
 
     form.addEventListener('submit', async (event) => {
@@ -331,12 +349,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
       refreshContext();
 
       if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
-        window.COPPER3DP_TRACK_EVENT('rfq_submit_attempt', {
-          method: 'secure_rfq_form',
-          event_category: 'rfq_funnel',
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-        });
+        window.COPPER3DP_TRACK_EVENT('rfq_submit_attempt', getFunnelPayload());
       }
 
       const fileError = validateFiles();
@@ -347,13 +360,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
           .map((field) => field.name)
           .join(',');
         if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
-          window.COPPER3DP_TRACK_EVENT('rfq_validation_error', {
-            method: 'secure_rfq_form',
-            event_category: 'rfq_funnel',
-            invalid_fields: invalidFields,
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-          });
+          window.COPPER3DP_TRACK_EVENT('rfq_validation_error', getFunnelPayload({ invalid_fields: invalidFields }));
         }
         form.reportValidity();
         setStatus(fileError || 'Please complete the required fields.', true);
@@ -382,9 +389,14 @@ const labelClass = 'block text-sm font-semibold text-heading';
 
         const trackingPayload = {
           method: 'secure_rfq_form',
-          application: form.elements.namedItem('application')?.value || '',
+          application: form.elements.namedItem('application')?.value || 'not_provided',
           material: form.elements.namedItem('material')?.value || 'not_provided',
           timing: form.elements.namedItem('timing')?.value || 'not_provided',
+          form_variant: formVariant,
+          project_context:
+            getProjectContext(
+              typeof window.COPPER3DP_GET_ATTRIBUTION === 'function' ? window.COPPER3DP_GET_ATTRIBUTION() : {}
+            ) || 'not_provided',
           has_attachments: Boolean(fileInput?.files?.length),
           attachment_count: fileInput?.files?.length || 0,
           submission_id: result.submissionId,
@@ -409,13 +421,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
         successPanel?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (error) {
         if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
-          window.COPPER3DP_TRACK_EVENT('rfq_submit_failure', {
-            method: 'secure_rfq_form',
-            event_category: 'rfq_funnel',
-            failure_stage: 'submission',
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-          });
+          window.COPPER3DP_TRACK_EVENT('rfq_submit_failure', getFunnelPayload({ failure_stage: 'submission' }));
         }
         setStatus(error instanceof Error ? error.message : 'The RFQ could not be accepted.', true);
         if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset();
@@ -424,6 +430,17 @@ const labelClass = 'block text-sm font-semibold text-heading';
       }
     });
 
-    refreshContext(true);
+    refreshContext(true, true);
+
+    window.addEventListener(
+      'load',
+      () => {
+        refreshContext(false, true);
+        if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
+          window.COPPER3DP_TRACK_EVENT('rfq_form_view', getFunnelPayload());
+        }
+      },
+      { once: true }
+    );
   })();
 </script>

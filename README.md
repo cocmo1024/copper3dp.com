@@ -355,7 +355,8 @@ Caption: Semiconductor copper AM RFQs should separate thermal, RF/vacuum, electr
 
 ## Google Tracking
 
-Public build variables belong in the hosting environment, not source control.
+Public build variables can override the production defaults in source. Server-side secrets still belong only in the
+hosting environment.
 
 ```bash
 PUBLIC_GOOGLE_TAG_ID=
@@ -373,9 +374,10 @@ Current measurement:
 - GA4 stream: `G-6HD15CRLMQ`
 - Engagement event: `rfq_email_click` (opening an email client is not a confirmed lead)
 - Secondary intent event: `rfq_email_copy_success` (fires only after an explicit clipboard copy succeeds)
-- Diagnostic events: `rfq_email_copy_failure`, `rfq_form_start`, `rfq_submit_attempt`, `rfq_validation_error`, `rfq_submit_failure`
+- Diagnostic events: `rfq_email_copy_failure`, `rfq_form_view`, `rfq_form_start`, `rfq_submit_attempt`, `rfq_validation_error`, `rfq_submit_failure`
 - Confirmed form events: `rfq_form_submit_success`, `generate_lead`
-- Direct Google Ads submission conversion fires only when `PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL` is configured and the mail service accepts the RFQ.
+- Direct Google Ads submission conversion uses the production RFQ Submitted label by default, can be overridden with
+  `PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL`, and fires only after the mail service accepts the RFQ.
 - `PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL` is reserved for the successful email-copy intent. Configure that
   conversion action as **Secondary**, excluded from account-default bidding goals. Copying the address does not prove
   that an email was sent.
@@ -390,11 +392,23 @@ The production form is handled by the Cloudflare Worker entry point at `function
 TURNSTILE_SECRET_KEY=
 ```
 
-`PUBLIC_TURNSTILE_SITE_KEY` is a Workers Builds variable available to Astro at build time and must be paired with `TURNSTILE_SECRET_KEY`. The `RFQ_EMAIL` binding can send only to the verified destination `info@szcomo.com`, and the Worker rate-limits `/api/rfq`. If the security key or email binding is missing, the endpoint fails closed and asks the visitor to use email; no conversion is recorded.
+The public production Turnstile site key is defined in the form and can be overridden with
+`PUBLIC_TURNSTILE_SITE_KEY`; it must be paired with `TURNSTILE_SECRET_KEY`. The `RFQ_EMAIL` binding can send only to
+the verified destination `info@szcomo.com`, and the Worker rate-limits `/api/rfq`. If the secret key or email binding
+is missing, the endpoint fails closed and asks the visitor to use email; no conversion is recorded. Run
+`npm run check:deployment-config` after the production build and before `wrangler deploy`.
 
 ## Google Ads Landing Page Notes
 
 The homepage is also the primary trial Ads landing page.
+
+Supported contextual homepage URLs:
+
+- `/?project=heat-exchanger`
+- `/?project=busbar`
+
+These exact, allowlisted values adapt the hero copy, preserve the Ads project context, and preselect the matching
+optional application in the RFQ form. Unknown values leave the generic homepage unchanged.
 
 Keep the first screen focused on:
 

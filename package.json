@@ -21,6 +21,7 @@
     "check:links": "node scripts/check-local-links.mjs",
     "check:knowledge": "node scripts/check-knowledge-pages.mjs",
     "check:decisions": "node scripts/check-decision-guides.mjs",
+    "check:deployment-config": "node scripts/check-deployment-config.mjs",
     "check:production": "node scripts/check-production-pages.mjs",
     "check:production:decisions": "node scripts/check-production-decision-guides.mjs",
     "fix": "npm run fix:eslint && npm run fix:prettier",

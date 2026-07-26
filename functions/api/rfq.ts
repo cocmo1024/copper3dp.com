@@ -147,6 +147,7 @@ const parseAttribution = (rawValue: string): Record<string, string> => {
       'utm_campaign',
       'utm_term',
       'utm_content',
+      'project',
       'first_landing_page',
       'last_landing_page',
       'captured_at',
@@ -273,7 +274,7 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
     });
   }
 
-  if (!allowedApplications.has(application)) {
+  if (application && !allowedApplications.has(application)) {
     return jsonResponse(400, { ok: false, message: 'Please select a valid application and submit again.' });
   }
 
@@ -284,10 +285,10 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
     });
   }
 
-  if (!quantity || requirements.length < 30) {
+  if (requirements.length < 30) {
     return jsonResponse(400, {
       ok: false,
-      message: 'Please provide the quantity or project stage and at least 30 characters of project detail.',
+      message: 'Please provide at least 30 characters of project detail.',
     });
   }
 
@@ -332,8 +333,8 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
 
   const receivedAt = new Date().toISOString();
   const safeSubjectCompany = company.replace(/[\r\n]/gu, ' ').slice(0, 60);
-  const safeSubjectApplication = application.replace(/[\r\n]/gu, ' ').slice(0, 60);
-  const subject = `[Copper RFQ] ${safeSubjectCompany} — ${safeSubjectApplication}`;
+  const safeSubjectApplication = (application || 'Project review').replace(/[\r\n]/gu, ' ').slice(0, 60);
+  const subject = `[Copper RFQ ${submissionId.slice(0, 8)}] ${safeSubjectCompany} — ${safeSubjectApplication}`;
   const attributionRows = Object.entries(attribution);
   const detailRows: Array<[string, string]> = [
     ['Submission ID', submissionId],
@@ -342,9 +343,9 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
     ['Work email', email],
     ['Company', company],
     ['Country / region', country || 'Not provided'],
-    ['Application', application],
+    ['Application', application || 'Not provided'],
     ['Material', material || 'Not provided'],
-    ['Quantity', quantity],
+    ['Quantity', quantity || 'Not provided'],
     ['Timing', timing || 'Not provided'],
     ['Source page', sourcePage || 'Not provided'],
     ...attributionRows,

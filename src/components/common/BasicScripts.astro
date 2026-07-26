@@ -71,6 +71,7 @@ import { UI } from 'astrowind:config';
 
     const attributionStorageKey = 'copper3dp_attribution';
     const attributionTtlMs = 90 * 24 * 60 * 60 * 1000;
+    const supportedProjectContexts = new Set(['heat-exchanger', 'busbar']);
 
     function getAvailableAttributionStorage() {
       const storageCandidates = [];
@@ -126,6 +127,11 @@ import { UI } from 'astrowind:config';
         }
       });
 
+      const projectContext = params.get('project')?.trim().toLowerCase() || '';
+      if (supportedProjectContexts.has(projectContext)) {
+        attribution.project = projectContext;
+      }
+
       attribution.first_landing_page = attribution.first_landing_page || window.location.href;
       attribution.last_landing_page = window.location.href;
       attribution.captured_at = attribution.captured_at || new Date().toISOString();
@@ -143,7 +149,7 @@ import { UI } from 'astrowind:config';
 
     function getAnalyticsAttributionFields() {
       const attribution = getAttributionFields();
-      const analyticsKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+      const analyticsKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'project'];
       return Object.fromEntries(
         analyticsKeys.map((key) => [key, attribution[key]]).filter(([, value]) => Boolean(value))
       );

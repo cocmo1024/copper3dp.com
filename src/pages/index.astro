@@ -26,6 +26,21 @@ import { createCopperServiceSchema, createItemListSchema } from '~/utils/structu
 
 const whatsappHref =
   'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20project.';
+const projectHeroContexts = {
+  'heat-exchanger': {
+    eyebrow: 'Custom copper heat exchangers | OEM engineering',
+    heading: '3D printed copper heat exchangers from your CAD',
+    description:
+      'For OEM and engineering teams. Send CAD or a thermal brief with heat load, coolant, flow and pressure limits, envelope, and ports. We review manufacturability and scope prototype or production validation.',
+  },
+  busbar: {
+    eyebrow: 'Custom copper busbars | OEM engineering',
+    heading: '3D printed copper busbars and integrated conductors',
+    description:
+      'For OEM and engineering teams. Send CAD with current, envelope, joint, conductivity, cooling, and inspection requirements. We review the manufacturing route and scope prototype or production delivery.',
+  },
+};
+const projectHeroContextsJson = JSON.stringify(projectHeroContexts);
 
 const metadata = {
   title: 'Copper 3D Printing Service | Pure Copper & CuCrZr Parts',
@@ -308,7 +323,11 @@ const applicationExamples = [
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative overflow-hidden border-b border-page-border bg-surface">
+  <section
+    class="relative overflow-hidden border-b border-page-border bg-surface"
+    data-project-hero
+    data-project-contexts={projectHeroContextsJson}
+  >
     <div
       class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(194,104,58,0.16),transparent_34%),linear-gradient(to_bottom,transparent,rgba(0,0,0,0.08))]"
       aria-hidden="true"
@@ -321,12 +340,15 @@ const applicationExamples = [
       <div class="max-w-[37rem]">
         <p class="flex items-center gap-3 text-xs font-semibold text-accent sm:text-sm">
           <span class="h-2 w-2 rounded-full bg-accent shadow-[0_0_18px_rgba(194,104,58,0.9)]"></span>
-          Copper additive manufacturing | Suzhou, China
+          <span data-project-eyebrow>Copper additive manufacturing | Suzhou, China</span>
         </p>
-        <h1 class="mt-5 font-heading text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-heading sm:text-5xl">
+        <h1
+          class="mt-5 font-heading text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-heading sm:text-5xl"
+          data-project-heading
+        >
           Copper 3D printing for functional parts
         </h1>
-        <p class="mt-7 max-w-xl text-base leading-7 text-muted sm:text-lg">
+        <p class="mt-7 max-w-xl text-base leading-7 text-muted sm:text-lg" data-project-description>
           We manufacture pure copper and copper-alloy parts from your CAD. Design-stage cooling projects can also begin
           with defined thermal and fluid requirements. Send the available package for an engineering review and scoped
           quotation.
@@ -425,6 +447,32 @@ const applicationExamples = [
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const hero = document.querySelector('[data-project-hero]');
+      if (!hero) return;
+
+      const project = new URLSearchParams(window.location.search).get('project')?.trim().toLowerCase() || '';
+      let contexts = {};
+      try {
+        contexts = JSON.parse(hero.dataset.projectContexts || '{}');
+      } catch {
+        return;
+      }
+
+      if (!Object.prototype.hasOwnProperty.call(contexts, project)) return;
+      const context = contexts[project];
+
+      const eyebrow = hero.querySelector('[data-project-eyebrow]');
+      const heading = hero.querySelector('[data-project-heading]');
+      const description = hero.querySelector('[data-project-description]');
+      if (eyebrow) eyebrow.textContent = context.eyebrow;
+      if (heading) heading.textContent = context.heading;
+      if (description) description.textContent = context.description;
+      hero.dataset.projectContext = project;
+    })();
+  </script>
 
   <section class="border-b border-page-border bg-page">
     <div
