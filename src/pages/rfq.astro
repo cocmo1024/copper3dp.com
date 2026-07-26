@@ -6,6 +6,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import RfqForm from '~/components/forms/RfqForm.astro';
+import RfqEmailTemplate from '~/components/forms/RfqEmailTemplate.astro';
 import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
@@ -13,25 +14,6 @@ const rfqEmailHref = 'mailto:info@szcomo.com?subject=Copper%20AM%20RFQ';
 const whatsappHref =
   'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20RFQ.';
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
-const rfqTemplate = `Subject: Copper 3D printing RFQ - [part name]
-
-Hello COPPER 3DP,
-
-Please review the attached CAD/drawings for quotation.
-
-Part/application:
-Attached files:
-Quantity:
-Material preference, if known:
-Target lead time:
-Critical dimensions or surfaces:
-Operating conditions:
-Inspection or test requirements:
-Post-processing expected:
-
-Notes:
-
-Best regards,`;
 
 const rfqFaqs = [
   {
@@ -189,52 +171,7 @@ const metadata = {
 
   <RfqForm />
 
-  <section class="relative not-prose py-10 md:py-14">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="rounded-md border border-page-border bg-surface p-6 shadow-panel md:p-8">
-        <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-          <div>
-            <p class="text-sm font-semibold text-primary">Email option</p>
-            <h2 class="mt-2 text-2xl font-bold text-heading">Optional email template</h2>
-            <p class="mt-3 max-w-3xl text-muted">
-              Copy this into your own email if useful. Send the drawing and what you know; leave unknown fields blank.
-            </p>
-          </div>
-          <div class="flex shrink-0 flex-wrap gap-2">
-            <button
-              class="inline-flex items-center justify-center rounded-md border border-page-border px-4 py-2 text-sm font-semibold text-heading hover:bg-surface-raised"
-              type="button"
-              data-aw-copy-email={rfqEmail}
-              data-aw-cta-location="rfq_email_template"
-            >
-              Copy email address
-            </button>
-            <a
-              class="inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-link hover:underline"
-              href={rfqEmailHref}
-              data-aw-rfq-email
-              data-aw-cta-location="rfq_email_template"
-            >
-              Open email
-            </a>
-          </div>
-        </div>
-
-        <pre
-          id="rfq-email-template"
-          class="mt-6 overflow-x-auto whitespace-pre-wrap rounded-md border border-page-border bg-[#070a10] p-5 text-sm leading-6 text-[#f6f7f4]">{rfqTemplate}</pre>
-
-        <button
-          type="button"
-          data-aw-copy-rfq-template
-          data-aw-copy-target="rfq-email-template"
-          class="mt-4 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-secondary"
-        >
-          Copy RFQ email template
-        </button>
-      </div>
-    </div>
-  </section>
+  <RfqEmailTemplate />
 
   <SplitShowcase
     title="How quotation works"

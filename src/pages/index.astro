@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
 import Image from '~/components/common/Image.astro';
 import RfqForm from '~/components/forms/RfqForm.astro';
+import RfqEmailTemplate from '~/components/forms/RfqEmailTemplate.astro';
 import Button from '~/components/ui/Button.astro';
 import heroImage from '~/assets/images/copper/hero-copper-parts-transparent.webp';
 import partsImage from '~/assets/images/partner/bj-tech/copper-am-reference-parts.webp';
@@ -993,6 +994,8 @@ const applicationExamples = [
   </section>
 
   <RfqForm />
+
+  <RfqEmailTemplate />
 
   <script>
     const youtubeFacade = document.querySelector('[data-youtube-facade]');
