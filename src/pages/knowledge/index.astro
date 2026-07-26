@@ -2,10 +2,16 @@
 import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
 import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
 import { evidenceLabels, knowledgeManifest } from '~/data/knowledge';
-import { decisionClusters } from '~/data/decision-clusters';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const sectionDetails = [
+  {
+    href: '/knowledge/decision-guides/',
+    title: 'Engineering decision guide',
+    description:
+      'Close six high-value material, thermal, RF, power-electronics, semiconductor, and acceptance decisions.',
+    metric: '6 consolidated decision paths',
+  },
   {
     href: '/knowledge/materials-and-properties/',
     title: 'Materials and property evidence',
@@ -96,37 +102,6 @@ const metadata = {
     { value: knowledgeManifest.counts.cases, label: 'Public cases' },
   ]}
 >
-  <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="decision-centers">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-primary">Engineering decision centers</p>
-        <h2 id="decision-centers" class="mt-2 font-heading text-3xl font-bold text-heading">
-          Apply the evidence to six high-value project decisions
-        </h2>
-        <p class="mt-4 leading-7 text-muted">
-          These clusters convert the technical record into specifications, trade-offs, test plans, and RFQ inputs for
-          the applications most likely to justify copper additive manufacturing.
-        </p>
-      </div>
-      <div class="mt-8 grid border-t border-page-border md:grid-cols-2">
-        {
-          decisionClusters.map((cluster) => (
-            <a
-              class="group border-b border-page-border py-5 md:odd:pr-8 md:even:border-l md:even:pl-8"
-              href={`/knowledge/decision-guides/${cluster.slug}/`}
-            >
-              <h3 class="font-heading text-lg font-semibold text-heading group-hover:text-link">{cluster.name}</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">{cluster.description}</p>
-            </a>
-          ))
-        }
-      </div>
-      <a class="mt-6 inline-flex text-sm font-semibold text-link hover:underline" href="/knowledge/decision-guides/">
-        View all engineering decision guides
-      </a>
-    </div>
-  </section>
-
   <section class="py-12 sm:py-14" aria-labelledby="knowledge-map">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="max-w-3xl">

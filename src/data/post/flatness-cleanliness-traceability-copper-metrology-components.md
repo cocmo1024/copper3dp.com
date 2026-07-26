@@ -25,7 +25,7 @@ metadata:
 
 Copper AM can integrate thermal control close to a precision surface, reducing joints and enabling hot-spot-matched channels. The metrology value still depends on geometric stability, controlled interfaces, clean passages, and a record chain that survives repeat production.
 
-This guide closes the release decision for precision semiconductor and metrology hardware. It belongs to the [semiconductor equipment decision cluster](/knowledge/decision-guides/semiconductor-equipment/). For broader project inputs, use the [semiconductor equipment RFQ guide](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/).
+This guide closes the release decision for precision semiconductor and metrology hardware. Use the [semiconductor equipment decision path](/knowledge/decision-guides/#semiconductor-equipment) for the wider release gates. For broader project inputs, use the [semiconductor equipment RFQ guide](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/).
 
 ## Define Flatness as a Measurement Condition
 

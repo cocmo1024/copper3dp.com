@@ -24,7 +24,7 @@ metadata:
 
 Additive manufacturing makes it possible to integrate headers, lattices, serial passages, parallel branches, and local heat-transfer features into one copper body. That geometric freedom also hides flow paths that cannot be inspected or instrumented directly after the part is complete.
 
-This guide closes the acceptance decision for multi-passage flow distribution. It is part of the [cold plate and heat exchanger decision cluster](/knowledge/decision-guides/cold-plates-heat-exchangers/). For broader feasibility and RFQ scope, use the [copper heat exchanger service page](/copper-heat-exchangers/).
+This guide closes the acceptance decision for multi-passage flow distribution. Use the [cold plate and heat exchanger decision path](/knowledge/decision-guides/#cold-plates-heat-exchangers) for the wider thermal, flow, cleaning, and acceptance gates, and the [copper heat exchanger service page](/copper-heat-exchangers/) for broader feasibility and RFQ scope.
 
 ## Total Pressure Drop Is Necessary but Not Sufficient
 

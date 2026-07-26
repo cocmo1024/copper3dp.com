@@ -15,12 +15,14 @@ const metadata = {
       { name: 'Decision Guides', item: '/knowledge/decision-guides/' },
     ]),
     createItemListSchema(
-      'Copper additive manufacturing decision clusters',
-      decisionClusters.map((cluster) => ({
-        name: cluster.name,
-        description: cluster.description,
-        url: `/knowledge/decision-guides/${cluster.slug}/`,
-      }))
+      'Copper additive manufacturing focused decision guides',
+      decisionClusters.flatMap((cluster) =>
+        cluster.guides.map((guide) => ({
+          name: guide.title,
+          description: guide.description,
+          url: guide.href,
+        }))
+      )
     ),
   ],
 };
@@ -57,18 +59,76 @@ const metadata = {
           decisionClusters.map((cluster, index) => (
             <a
               class="group border-b border-page-border py-7 md:odd:pr-8 md:even:border-l md:even:pl-8"
-              href={`/knowledge/decision-guides/${cluster.slug}/`}
+              href={`#${cluster.slug}`}
             >
               <p class="text-xs font-semibold uppercase text-primary">{String(index + 1).padStart(2, '0')}</p>
               <h3 class="mt-2 font-heading text-xl font-semibold text-heading group-hover:text-link">{cluster.name}</h3>
               <p class="mt-3 leading-7 text-muted">{cluster.description}</p>
-              <p class="mt-4 text-sm font-semibold text-link">Open decision cluster</p>
+              <p class="mt-4 text-sm font-semibold text-link">Open decision path</p>
             </a>
           ))
         }
       </div>
     </div>
   </section>
+
+  {
+    decisionClusters.map((cluster, index) => (
+      <section
+        id={cluster.slug}
+        class:list={[
+          'scroll-mt-24 py-12 sm:py-14',
+          index % 2 === 0 ? 'border-y border-page-border bg-surface' : 'bg-page',
+        ]}
+        aria-labelledby={`${cluster.slug}-title`}
+      >
+        <div class="mx-auto max-w-5xl px-4 sm:px-6">
+          <div class="grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="text-sm font-semibold text-primary">{cluster.eyebrow}</p>
+              <h2 id={`${cluster.slug}-title`} class="mt-2 font-heading text-3xl font-bold text-heading">
+                {cluster.name}
+              </h2>
+              <p class="mt-4 leading-7 text-muted">{cluster.description}</p>
+              <p class="mt-4 text-sm leading-6 text-muted">
+                Primary users: <span class="font-semibold text-default">{cluster.audience}</span>
+              </p>
+            </div>
+            <div class="space-y-5 leading-7 text-muted">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Decision rule</p>
+                <p class="mt-2 text-lg text-default">{cluster.decision}</p>
+              </div>
+              <p class="border-l-2 border-primary pl-4">{cluster.boundary}</p>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-2">
+            {cluster.questions.map((item, questionIndex) => (
+              <div class="bg-page p-6">
+                <p class="text-xs font-semibold text-primary">{String(questionIndex + 1).padStart(2, '0')}</p>
+                <h3 class="mt-2 font-heading text-lg font-semibold text-heading">{item.title}</h3>
+                <p class="mt-2 leading-7 text-muted">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 grid gap-5 md:grid-cols-2">
+            {cluster.guides.map((guide) => (
+              <a class="group border border-page-border bg-page p-6 hover:border-primary/60" href={guide.href}>
+                <p class="text-xs font-semibold text-primary">{guide.topicId}</p>
+                <h3 class="mt-2 font-heading text-xl font-semibold text-heading group-hover:text-link">
+                  {guide.title}
+                </h3>
+                <p class="mt-3 leading-7 text-muted">{guide.description}</p>
+                <p class="mt-5 text-sm font-semibold text-link">Read focused guide</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
 
   <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="coverage-policy">
     <div class="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 md:grid-cols-[0.8fr_1.2fr]">

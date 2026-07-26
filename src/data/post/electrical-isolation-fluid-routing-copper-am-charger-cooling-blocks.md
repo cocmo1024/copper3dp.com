@@ -25,7 +25,7 @@ metadata:
 
 Onboard chargers and DC-to-DC converters combine high voltage, switching losses, compact packaging, coolant, controls, and safety requirements. Copper AM can integrate a heat spreader, cold plate, manifold, and mounting features, but integration can also place conductive metal and fluid closer to energized nodes.
 
-This guide closes the co-design decision for electrical isolation and fluid routing. It is part of the [power electronics decision cluster](/knowledge/decision-guides/power-electronics/).
+This guide closes the co-design decision for electrical isolation and fluid routing. Use the [power electronics decision path](/knowledge/decision-guides/#power-electronics) for the wider current, cooling, isolation, and validation context.
 
 ## Define the Insulation Architecture First
 

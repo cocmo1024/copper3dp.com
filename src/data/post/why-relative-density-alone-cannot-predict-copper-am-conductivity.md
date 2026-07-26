@@ -24,7 +24,7 @@ metadata:
 
 A copper AM supplier may report a high relative density and a buyer may infer high conductivity. That inference can fail even when both numbers were measured correctly.
 
-This guide closes the test-selection decision. It belongs to the [quality and acceptance decision cluster](/knowledge/decision-guides/quality-acceptance/). For the broader property discussion, use the [electrical conductivity guide](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/).
+This guide closes the test-selection decision. Use the [quality and acceptance decision path](/knowledge/decision-guides/#quality-acceptance) for the wider evidence chain. For the broader property discussion, use the [electrical conductivity guide](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/).
 
 ## Density and Conductivity Ask Different Questions
 

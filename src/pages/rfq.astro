@@ -9,7 +9,7 @@ import RfqForm from '~/components/forms/RfqForm.astro';
 import { createBreadcrumbSchema, createFaqSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
-const rfqEmailHref = 'mailto:info@szcomo.com';
+const rfqEmailHref = 'mailto:info@szcomo.com?subject=Copper%20AM%20RFQ';
 const whatsappHref =
   'https://wa.me/8615301541312?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20copper%203D%20printing%20RFQ.';
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
@@ -173,6 +173,7 @@ const metadata = {
       text: 'Submit secure RFQ',
       href: '#rfq-form',
       icon: 'tabler:file-upload',
+      'data-aw-cta-location': 'rfq_hero',
     }}
     callToAction2={{
       text: 'Discuss on WhatsApp',
@@ -182,6 +183,7 @@ const metadata = {
       icon: 'tabler:brand-whatsapp',
       'data-aw-instant-contact-link': true,
       'data-aw-contact-channel': 'whatsapp',
+      'data-aw-cta-location': 'rfq_hero',
     }}
   />
 
@@ -198,12 +200,24 @@ const metadata = {
               Copy this into your own email if useful. Send the drawing and what you know; leave unknown fields blank.
             </p>
           </div>
-          <a
-            class="inline-flex shrink-0 items-center justify-center rounded-md border border-page-border px-4 py-2 text-sm font-semibold text-heading hover:bg-surface-raised"
-            href={rfqEmailHref}
-          >
-            Email {rfqEmail}
-          </a>
+          <div class="flex shrink-0 flex-wrap gap-2">
+            <button
+              class="inline-flex items-center justify-center rounded-md border border-page-border px-4 py-2 text-sm font-semibold text-heading hover:bg-surface-raised"
+              type="button"
+              data-aw-copy-email={rfqEmail}
+              data-aw-cta-location="rfq_email_template"
+            >
+              Copy email address
+            </button>
+            <a
+              class="inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-link hover:underline"
+              href={rfqEmailHref}
+              data-aw-rfq-email
+              data-aw-cta-location="rfq_email_template"
+            >
+              Open email
+            </a>
+          </div>
         </div>
 
         <pre

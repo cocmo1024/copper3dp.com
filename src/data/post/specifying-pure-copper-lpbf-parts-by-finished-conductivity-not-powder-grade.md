@@ -26,7 +26,7 @@ metadata:
 
 Two suppliers may start with powders carrying similar copper-purity statements and still deliver parts with different oxygen exposure, density, thermal history, surface condition, machining, and measured conductivity. Even a valid coupon result may not represent the current neck, thermal interface, plated surface, or internal feature that controls the real component.
 
-This page closes one decision: **how to convert a high-conductivity request into a quotable and testable pure-copper LPBF requirement**. It belongs to the [pure copper and CuCrZr material-selection cluster](/knowledge/decision-guides/materials-selection/). For a broad application overview, use the [pure copper 3D printing service path](/pure-copper-3d-printing/).
+This page closes one decision: **how to convert a high-conductivity request into a quotable and testable pure-copper LPBF requirement**. Use the [materials-selection decision path](/knowledge/decision-guides/#materials-selection) for the wider property gates and the [pure copper 3D printing service path](/pure-copper-3d-printing/) for commercial scope.
 
 ## Start with the Function, Not the IACS Number
 

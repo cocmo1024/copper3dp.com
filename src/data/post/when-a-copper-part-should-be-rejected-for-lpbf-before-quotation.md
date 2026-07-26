@@ -70,7 +70,7 @@ Separate three levels:
 
 [ISO/ASTM 52901](https://www.iso.org/standard/67288.html) organizes purchased AM parts around order information, part definition, feedstock, final characteristics, inspection, and acceptance. It supports a clear customer-provider agreement; it does not turn a generic alloy name into a property guarantee.
 
-Use the [pure copper and CuCrZr decision center](/knowledge/decision-guides/materials-selection/) when conductivity and strength compete. If the requirement is finished conductivity, use the [finished-property specification guide](/posts/EngineeringGuide/specifying-pure-copper-lpbf-parts-by-finished-conductivity-not-powder-grade/).
+Use the [copper material evidence library](/knowledge/materials-and-properties/) when conductivity and strength compete. If the requirement is finished conductivity, use the [finished-property specification guide](/posts/EngineeringGuide/specifying-pure-copper-lpbf-parts-by-finished-conductivity-not-powder-grade/).
 
 ## Gate 3: Reject Geometry Without a Credible Build and Depowdering Route
 

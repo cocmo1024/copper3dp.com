@@ -25,7 +25,7 @@ metadata:
 
 Monolithic copper additive manufacturing can remove brazed seams and consolidate manifolds, but the fluid still enters through a machined and assembled interface. That interface is frequently where an otherwise viable cold plate becomes difficult to manufacture or verify.
 
-This guide closes the port-and-seal decision for printed copper cold plates. It is part of the [cold plate and heat exchanger decision cluster](/knowledge/decision-guides/cold-plates-heat-exchangers/). For the wider service and application scope, use the [copper cold plate page](/copper-cold-plates/).
+This guide closes the port-and-seal decision for printed copper cold plates. Use the [cold plate and heat exchanger decision path](/knowledge/decision-guides/#cold-plates-heat-exchangers) for the wider pressure, cleaning, and acceptance gates, and the [copper cold plate page](/copper-cold-plates/) for wider service and quotation scope.
 
 ## Choose the Seal Before Finalizing the Boss
 

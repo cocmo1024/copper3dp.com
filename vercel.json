@@ -59,6 +59,66 @@
       "destination": "/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/",
       "permanent": true
     },
+    {
+      "source": "/knowledge/decision-guides/materials-selection/",
+      "destination": "/knowledge/decision-guides/#materials-selection",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/materials-selection",
+      "destination": "/knowledge/decision-guides/#materials-selection",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/cold-plates-heat-exchangers/",
+      "destination": "/knowledge/decision-guides/#cold-plates-heat-exchangers",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/cold-plates-heat-exchangers",
+      "destination": "/knowledge/decision-guides/#cold-plates-heat-exchangers",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/rf-components/",
+      "destination": "/knowledge/decision-guides/#rf-components",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/rf-components",
+      "destination": "/knowledge/decision-guides/#rf-components",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/power-electronics/",
+      "destination": "/knowledge/decision-guides/#power-electronics",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/power-electronics",
+      "destination": "/knowledge/decision-guides/#power-electronics",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/semiconductor-equipment/",
+      "destination": "/knowledge/decision-guides/#semiconductor-equipment",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/semiconductor-equipment",
+      "destination": "/knowledge/decision-guides/#semiconductor-equipment",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/quality-acceptance/",
+      "destination": "/knowledge/decision-guides/#quality-acceptance",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/decision-guides/quality-acceptance",
+      "destination": "/knowledge/decision-guides/#quality-acceptance",
+      "permanent": true
+    },
     { "source": "/tags/multifunctional-copper-parts/", "destination": "/applications/", "permanent": true },
     { "source": "/tags/multifunctional-copper-parts", "destination": "/applications/", "permanent": true },
     { "source": "/tags/copper-busbars/", "destination": "/copper-busbars/", "permanent": true },

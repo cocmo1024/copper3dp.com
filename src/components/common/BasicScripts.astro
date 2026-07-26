@@ -151,14 +151,47 @@ import { UI } from 'astrowind:config';
 
     function getTrackingPayload(elem, extra = {}) {
       const attribution = getAnalyticsAttributionFields();
+      const section = elem?.closest?.('section, header, footer');
+      const ctaLocation =
+        elem?.getAttribute?.('data-aw-cta-location') ||
+        section?.id ||
+        section?.getAttribute?.('aria-labelledby') ||
+        'sitewide';
       return {
         page_location: window.location.href,
         page_path: window.location.pathname,
         link_url: elem?.getAttribute?.('href') || '',
         link_text: elem?.textContent?.trim().replace(/\s+/g, ' ') || '',
+        cta_location: ctaLocation,
         ...attribution,
         ...extra,
       };
+    }
+
+    const contactIntentStorageKey = 'copper3dp_contact_intent_id';
+    let fallbackContactIntentId = '';
+
+    function getContactIntentId() {
+      try {
+        const storedId = sessionStorage.getItem(contactIntentStorageKey);
+        if (storedId) return storedId;
+      } catch {
+        // In-memory attribution still works when session storage is unavailable.
+      }
+
+      const contactIntentId =
+        typeof crypto?.randomUUID === 'function'
+          ? crypto.randomUUID()
+          : `contact_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+      fallbackContactIntentId = fallbackContactIntentId || contactIntentId;
+
+      try {
+        sessionStorage.setItem(contactIntentStorageKey, fallbackContactIntentId);
+      } catch {
+        // The stable in-memory value is sufficient for this page view.
+      }
+
+      return fallbackContactIntentId;
     }
 
     const pendingConversionKeys = new Set();
@@ -372,6 +405,23 @@ import { UI } from 'astrowind:config';
       return { href, email };
     }
 
+    async function copyTextToClipboard(value) {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+        return;
+      }
+
+      const temporaryInput = document.createElement('textarea');
+      temporaryInput.value = value;
+      temporaryInput.setAttribute('readonly', '');
+      temporaryInput.style.cssText = 'position:fixed;left:-9999px;top:0;';
+      document.body.appendChild(temporaryInput);
+      temporaryInput.select();
+      const copied = document.execCommand('copy');
+      temporaryInput.remove();
+      if (!copied) throw new Error('Clipboard unavailable');
+    }
+
     const onLoad = function () {
       captureAttribution();
 
@@ -467,58 +517,54 @@ import { UI } from 'astrowind:config';
         newlink.click();
       });
 
-      document.querySelectorAll('a[href^="mailto:"]').forEach((elem) => {
+      document.querySelectorAll('a[href^="mailto:info@szcomo.com"]').forEach((elem) => {
         normalizeMailtoHref(elem);
-        if (elem.dataset.awEmailCopy === 'true') return;
-        elem.dataset.awEmailCopy = 'true';
+        if (elem.dataset.awEmailTrack === 'true') return;
+        elem.dataset.awEmailTrack = 'true';
 
         elem.addEventListener(
           'click',
-          function (event) {
-            const { href, email } = normalizeMailtoHref(elem);
+          function () {
+            const { email } = normalizeMailtoHref(elem);
             if (!email) return;
-
-            event.preventDefault();
-            let mailtoOpened = false;
-            const openMailto = function () {
-              if (mailtoOpened) return;
-              mailtoOpened = true;
-              window.location.href = href;
-            };
-            const mailtoTimer = window.setTimeout(openMailto, 900);
 
             trackCopperEvent(
               'rfq_email_click',
               getTrackingPayload(elem, {
-                email,
-                method: 'email',
+                method: 'email_open',
                 event_category: 'contact_intent',
-              }),
-              {
-                eventCallback: function () {
-                  window.clearTimeout(mailtoTimer);
-                  openMailto();
-                },
-                eventTimeout: 900,
-              }
+                contact_intent_id: getContactIntentId(),
+              })
             );
+          },
+          false
+        );
+      });
 
-            if (navigator.clipboard?.writeText) {
-              navigator.clipboard
-                .writeText(email)
-                .then(() => {
-                  trackCopperEvent(
-                    'rfq_email_copy',
-                    getTrackingPayload(elem, {
-                      email,
-                      method: 'email_copy',
-                      event_category: 'contact_intent',
-                    })
-                  );
-                  showEmailToast(`Email copied: ${email}`);
-                })
-                .catch(() => showEmailToast(`Email: ${email}`));
-            } else {
+      document.querySelectorAll('[data-aw-copy-email]').forEach((elem) => {
+        if (elem.dataset.awEmailCopy === 'true') return;
+        elem.dataset.awEmailCopy = 'true';
+        elem.addEventListener(
+          'click',
+          async function () {
+            const email = elem.getAttribute('data-aw-copy-email')?.trim() || '';
+            if (!email) return;
+
+            const trackingPayload = getTrackingPayload(elem, {
+              method: 'email_copy',
+              event_category: 'contact_intent',
+              contact_intent_id: getContactIntentId(),
+            });
+
+            try {
+              await copyTextToClipboard(email);
+              trackCopperEvent('rfq_email_copy_success', trackingPayload, {
+                adsConversion: 'rfq_intent',
+                conversionKey: 'rfq_email_copy',
+              });
+              showEmailToast(`Email copied: ${email}`);
+            } catch {
+              trackCopperEvent('rfq_email_copy_failure', trackingPayload);
               showEmailToast(`Email: ${email}`);
             }
           },
@@ -556,13 +602,12 @@ import { UI } from 'astrowind:config';
           function () {
             const targetId = elem.getAttribute('data-aw-copy-target');
             const template = targetId ? document.getElementById(targetId)?.textContent?.trim() : '';
-            if (!template || !navigator.clipboard?.writeText) {
+            if (!template) {
               showEmailToast(`Email: info@szcomo.com`);
               return;
             }
 
-            navigator.clipboard
-              .writeText(template)
+            copyTextToClipboard(template)
               .then(() => {
                 trackCopperEvent(
                   'rfq_template_copy',
@@ -579,17 +624,21 @@ import { UI } from 'astrowind:config';
         );
       });
 
-      document.querySelectorAll('a[href="/rfq"], a[href="/rfq/"]').forEach((elem) => {
-        if (elem.dataset.awRfqTrack === 'true') return;
-        elem.dataset.awRfqTrack = 'true';
-        elem.addEventListener(
-          'click',
-          function () {
-            trackCopperEvent('rfq_prepare_click', getTrackingPayload(elem, { event_category: 'engagement' }));
-          },
-          false
-        );
-      });
+      document
+        .querySelectorAll(
+          'a[href="#rfq-form"], a[href="/rfq"], a[href="/rfq/"], a[href^="/rfq/#"], a[href^="/rfq?"], a[href^="/rfq/?"]'
+        )
+        .forEach((elem) => {
+          if (elem.dataset.awRfqTrack === 'true') return;
+          elem.dataset.awRfqTrack = 'true';
+          elem.addEventListener(
+            'click',
+            function () {
+              trackCopperEvent('rfq_prepare_click', getTrackingPayload(elem, { event_category: 'engagement' }));
+            },
+            false
+          );
+        });
 
       const screenSize = window.matchMedia('(max-width: 767px)');
       screenSize.addEventListener('change', function () {

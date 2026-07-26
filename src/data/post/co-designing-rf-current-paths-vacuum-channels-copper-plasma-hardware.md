@@ -24,7 +24,7 @@ metadata:
 
 Semiconductor plasma hardware can combine an RF electrode or resonant current path, vacuum or process-gas routing, temperature control, and precision assembly interfaces. Copper additive manufacturing can integrate these functions and reduce joints, but the resulting part may contain surfaces that are difficult to machine, clean, inspect, or qualify.
 
-This guide closes the co-design decision for RF and vacuum copper AM hardware. It belongs to the [semiconductor equipment decision cluster](/knowledge/decision-guides/semiconductor-equipment/). For broader application scope, use the [semiconductor copper AM service page](/copper-semiconductor-cooling/).
+This guide closes the co-design decision for RF and vacuum copper AM hardware. Use the [semiconductor equipment decision path](/knowledge/decision-guides/#semiconductor-equipment) for the wider evidence and requirement gates, and the [semiconductor copper AM service page](/copper-semiconductor-cooling/) for broader project scope.
 
 ## Build One Functional Volume Map
 

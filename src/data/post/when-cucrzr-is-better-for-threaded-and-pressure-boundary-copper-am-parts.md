@@ -25,7 +25,7 @@ metadata:
 
 Pure copper can be the right choice for maximum electrical or thermal performance. It is not automatically the best material for a ported block, manifold, cold plate, induction component, or RF/vacuum part that also carries mechanical load.
 
-This guide closes the material-selection decision for threaded and pressure-containing copper AM geometry. It is part of the [pure copper and CuCrZr material-selection cluster](/knowledge/decision-guides/materials-selection/). Use the [CuCrZr service page](/cucrzr-3d-printing/) for broader application and quotation scope.
+This guide closes the material-selection decision for threaded and pressure-containing copper AM geometry. Use the [materials-selection decision path](/knowledge/decision-guides/#materials-selection) for the wider property gates and the [CuCrZr service page](/cucrzr-3d-printing/) for broader application and quotation scope.
 
 ## Select CuCrZr When the Load Path Is Real
 

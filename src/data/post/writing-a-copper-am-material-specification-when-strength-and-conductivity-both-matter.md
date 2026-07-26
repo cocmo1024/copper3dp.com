@@ -198,7 +198,7 @@ Send the following for a focused project review:
 9. Quantity, first-article scope, repeat-build expectations, and required records.
 10. Open assumptions that the supplier must resolve in the quotation.
 
-Use the [materials decision cluster](/knowledge/decision-guides/materials-selection/) to review the alloy route, or send the package through the [secure RFQ form](/rfq/#rfq-form) for supplier coordination and a scoped manufacturing review.
+Use the [copper material evidence library](/knowledge/materials-and-properties/) to review the alloy route, or send the package through the [secure RFQ form](/rfq/#rfq-form) for supplier coordination and a scoped manufacturing review.
 
 ## FAQ
 

@@ -25,7 +25,7 @@ metadata:
 
 "Leak test required" and "pressure tested" are not complete purchase requirements. A copper AM cold plate can survive proof pressure and still leak below the sensitivity of the chosen setup. It can be leak-tight and contain a blocked channel. It can pass CT and still leak through a defect below the effective resolution or along a path not identified by image review.
 
-This guide closes the acceptance-method decision. It belongs to the [quality and acceptance decision cluster](/knowledge/decision-guides/quality-acceptance/). For cold-plate-specific context, use the [CT and leak criteria guide](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/).
+This guide closes the acceptance-method decision. Use the [quality and acceptance decision path](/knowledge/decision-guides/#quality-acceptance) for the wider evidence chain. For cold-plate-specific context, use the [CT and leak criteria guide](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/).
 
 ## Start with the Failure Question
 

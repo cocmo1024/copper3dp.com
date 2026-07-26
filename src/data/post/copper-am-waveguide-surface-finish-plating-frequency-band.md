@@ -24,7 +24,7 @@ metadata:
 
 Copper AM can consolidate bends, twists, feeds, cavities, and cooling into a geometry that is difficult to machine or assemble. The same internal complexity can make the RF surface inaccessible after printing.
 
-This guide closes the surface-finish and plating decision. It belongs to the [copper AM RF component decision cluster](/knowledge/decision-guides/rf-components/). For the commercial application scope, use the [copper RF waveguide service page](/copper-rf-waveguides/).
+This guide closes the surface-finish and plating decision. Use the [RF component decision path](/knowledge/decision-guides/#rf-components) for the wider surface and acceptance gates, and the [copper RF waveguide service page](/copper-rf-waveguides/) for commercial scope.
 
 ## Frequency Band Changes Sensitivity, Not the Need for Analysis
 

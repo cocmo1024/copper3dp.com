@@ -24,7 +24,7 @@ metadata:
 
 A single plus/minus tolerance on the waveguide cross-section cannot describe a three-dimensional bend, twist, transition, cavity, or cooled wall. It may also force expensive CT or machining without improving the actual RF decision.
 
-This guide closes the tolerance-allocation decision for complex copper AM waveguide geometry. It belongs to the [RF component decision cluster](/knowledge/decision-guides/rf-components/). Use the [copper RF waveguide service page](/copper-rf-waveguides/) for application and quotation scope.
+This guide closes the tolerance-allocation decision for complex copper AM waveguide geometry. Use the [RF component decision path](/knowledge/decision-guides/#rf-components) for the wider geometry and acceptance gates, and the [copper RF waveguide service page](/copper-rf-waveguides/) for quotation scope.
 
 ## Decompose the Geometry into Functional Zones
 

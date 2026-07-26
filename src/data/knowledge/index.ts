@@ -21,7 +21,7 @@ export const contentCandidates = topicsRaw as KnowledgeRecord[];
 
 export const knowledgeSections = [
   { title: 'Overview', href: '/knowledge/' },
-  { title: 'Decision guides', href: '/knowledge/decision-guides/' },
+  { title: 'Decision guide', href: '/knowledge/decision-guides/' },
   { title: 'Materials', href: '/knowledge/materials-and-properties/' },
   { title: 'Processes', href: '/knowledge/process-selection/' },
   { title: 'Applications', href: '/knowledge/applications/' },

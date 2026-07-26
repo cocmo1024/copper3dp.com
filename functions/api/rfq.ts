@@ -277,10 +277,17 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
     return jsonResponse(400, { ok: false, message: 'Please select a valid application and submit again.' });
   }
 
-  if (!allowedMaterials.has(material) || !allowedTimings.has(timing) || !quantity || requirements.length < 30) {
+  if ((material && !allowedMaterials.has(material)) || (timing && !allowedTimings.has(timing))) {
     return jsonResponse(400, {
       ok: false,
-      message: 'Please provide material status, quantity, timing, and at least 30 characters of project detail.',
+      message: 'Please select a valid material or timing option and submit again.',
+    });
+  }
+
+  if (!quantity || requirements.length < 30) {
+    return jsonResponse(400, {
+      ok: false,
+      message: 'Please provide the quantity or project stage and at least 30 characters of project detail.',
     });
   }
 
@@ -336,9 +343,9 @@ export const onRequestPost: WorkerHandler = async ({ request, env }) => {
     ['Company', company],
     ['Country / region', country || 'Not provided'],
     ['Application', application],
-    ['Material', material],
+    ['Material', material || 'Not provided'],
     ['Quantity', quantity],
-    ['Timing', timing],
+    ['Timing', timing || 'Not provided'],
     ['Source page', sourcePage || 'Not provided'],
     ...attributionRows,
   ];

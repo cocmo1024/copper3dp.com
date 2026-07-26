@@ -74,7 +74,7 @@ Primary public pages:
 - `/` is the main landing page for SEO and Google Ads.
 - `/capabilities/` documents the copper LPBF equipment class, materials, finishing, inspection, and project-delivery model.
 - `/rfq/` explains what to send for quotation.
-- `/contact/` is the email-first contact route.
+- `/contact/` permanently redirects to `/rfq/`; the RFQ page contains the form, email-copy fallback, email link, and WhatsApp route.
 - `/materials/`, `/copper-cold-plates/`, and `/copper-heat-sinks/` support focused search and user intent.
 - `/about/`, `/privacy/`, and `/terms/` should remain plain, restrained, and document-like.
 - `/category/EngineeringGuide/` and `/posts/EngineeringGuide/.../` serve engineering content.
@@ -371,9 +371,14 @@ PUBLIC_TURNSTILE_SITE_KEY=
 Current measurement:
 
 - GA4 stream: `G-6HD15CRLMQ`
-- Micro intent event: `rfq_email_click` (do not use as the primary bidding conversion)
+- Engagement event: `rfq_email_click` (opening an email client is not a confirmed lead)
+- Secondary intent event: `rfq_email_copy_success` (fires only after an explicit clipboard copy succeeds)
+- Diagnostic events: `rfq_email_copy_failure`, `rfq_form_start`, `rfq_submit_attempt`, `rfq_validation_error`, `rfq_submit_failure`
 - Confirmed form events: `rfq_form_submit_success`, `generate_lead`
 - Direct Google Ads submission conversion fires only when `PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL` is configured and the mail service accepts the RFQ.
+- `PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL` is reserved for the successful email-copy intent. Configure that
+  conversion action as **Secondary**, excluded from account-default bidding goals. Copying the address does not prove
+  that an email was sent.
 
 The secure RFQ form preserves Google Ads click IDs and UTM parameters for 90 days. It never sends contact details to analytics; only non-personal project categories and a submission reference are measured.
 
@@ -398,7 +403,7 @@ Keep the first screen focused on:
 - Email RFQ CTA
 - Clear fit / not-a-fit guidance
 
-Keep the secure RFQ form focused on engineering qualification. Do not add generic lead popups or weaken its company, application, quantity, timing, requirements, security, or consent gates merely to increase conversion count.
+Keep the secure RFQ form focused on engineering qualification. Do not add generic lead popups or weaken its company, application, quantity or project-stage, project-brief, security, or consent gates merely to increase conversion count.
 
 ## Deployment
 

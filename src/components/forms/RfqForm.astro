@@ -14,10 +14,9 @@ const labelClass = 'block text-sm font-semibold text-heading';
         Submit CAD or thermal requirements for an engineering review
       </h2>
       <p class="mt-4 leading-7 text-muted">
-        Include enough detail to evaluate process fit, material options, and quotation scope. For design-stage work, CAD
-        is optional: provide the known thermal and fluid conditions, envelope, interfaces, and validation needs. Unknown
-        items can be marked as not decided. A confirmation appears only after the secure submission service accepts the
-        request.
+        Start with the part, application, quantity, and the requirements you already know. CAD is optional for
+        design-stage work, and material, timing, or location details can be added only when useful. A confirmation
+        appears only after the secure submission service accepts the request.
       </p>
       <ul class="mt-6 grid gap-3 text-sm leading-6 text-muted">
         <li><strong class="text-heading">Useful files:</strong> STEP/STP, X_T/X_B, IGES, STL, or PDF drawings.</li>
@@ -27,10 +26,26 @@ const labelClass = 'block text-sm font-semibold text-heading';
           data before an approved handling agreement is in place.
         </li>
       </ul>
-      <p class="mt-6 text-sm leading-6 text-muted">
-        Prefer email? Send the package to
-        <a class="font-semibold text-link hover:underline" href="mailto:info@szcomo.com">info@szcomo.com</a>.
-      </p>
+      <p class="mt-6 text-sm font-semibold text-heading">Prefer to use your own email?</p>
+      <div class="mt-3 flex flex-wrap gap-3">
+        <button
+          class="inline-flex min-h-10 items-center justify-center rounded-md border border-page-border bg-page px-4 py-2 text-sm font-semibold text-heading hover:bg-surface-raised"
+          type="button"
+          data-aw-copy-email="info@szcomo.com"
+          data-aw-cta-location="rfq_form_intro"
+        >
+          Copy email address
+        </button>
+        <a
+          class="inline-flex min-h-10 items-center justify-center rounded-md px-2 py-2 text-sm font-semibold text-link hover:underline"
+          href="mailto:info@szcomo.com?subject=Copper%20AM%20RFQ"
+          data-aw-rfq-email
+          data-aw-cta-location="rfq_form_intro"
+        >
+          Open email
+        </a>
+      </div>
+      <p class="mt-2 text-xs leading-5 text-muted">RFQ email: info@szcomo.com</p>
     </div>
 
     <div class="rounded-md border border-page-border bg-page p-5 shadow-panel sm:p-7">
@@ -59,11 +74,6 @@ const labelClass = 'block text-sm font-semibold text-heading';
           </label>
 
           <label class={labelClass}>
-            Country or region
-            <input class={fieldClass} name="country" type="text" autocomplete="country-name" maxlength="80" />
-          </label>
-
-          <label class={labelClass}>
             Application <span class="text-accent" aria-hidden="true">*</span>
             <!-- Keep every option value explicit: browser translation may rewrite labels, never submitted values. -->
             <select class={fieldClass} name="application" required>
@@ -79,49 +89,28 @@ const labelClass = 'block text-sm font-semibold text-heading';
           </label>
 
           <label class={labelClass}>
-            Material status <span class="text-accent" aria-hidden="true">*</span>
-            <select class={fieldClass} name="material" required>
-              <option value="Not decided">Not decided</option>
-              <option value="Pure copper">Pure copper</option>
-              <option value="CuCrZr / CuCr1Zr">CuCrZr / CuCr1Zr</option>
-              <option value="GRCop-42">GRCop-42</option>
-              <option value="Other">Other</option>
-            </select>
-          </label>
-
-          <label class={labelClass}>
-            Prototype / production quantity <span class="text-accent" aria-hidden="true">*</span>
+            Quantity or project stage <span class="text-accent" aria-hidden="true">*</span>
             <input
               class={fieldClass}
               name="quantity"
               type="text"
               inputmode="text"
               maxlength="80"
-              placeholder="Example: 2 prototypes; 50/year"
+              placeholder="Example: 2 prototypes; 50/year; feasibility stage"
               required
             />
-          </label>
-
-          <label class={labelClass}>
-            Project timing <span class="text-accent" aria-hidden="true">*</span>
-            <select class={fieldClass} name="timing" required>
-              <option value="Exploring feasibility">Exploring feasibility</option>
-              <option value="Quote needed within 2 weeks">Quote needed within 2 weeks</option>
-              <option value="Prototype needed within 1–2 months">Prototype needed within 1–2 months</option>
-              <option value="Production planning">Production planning</option>
-            </select>
           </label>
         </div>
 
         <label class={`${labelClass} mt-5`}>
-          Requirements and acceptance criteria <span class="text-accent" aria-hidden="true">*</span>
+          Short project brief <span class="text-accent" aria-hidden="true">*</span>
           <textarea
             class={fieldClass}
             name="requirements"
-            rows="7"
+            rows="5"
             minlength="30"
             maxlength="4000"
-            placeholder="Describe the part, function, operating conditions, critical dimensions/surfaces, pressure or electrical requirements, post-processing, inspection, and target lead time."
+            placeholder="One useful sentence is enough to start: what is the part, what must it do, and which requirement matters most?"
             required></textarea>
         </label>
 
@@ -139,6 +128,41 @@ const labelClass = 'block text-sm font-semibold text-heading';
             Optional. Large or controlled file packages should be arranged by email first.
           </span>
         </label>
+
+        <details class="mt-5 rounded-md border border-page-border bg-surface">
+          <summary class="cursor-pointer px-4 py-3 text-sm font-semibold text-heading">
+            Additional details — optional
+          </summary>
+          <div class="grid gap-5 border-t border-page-border p-4 sm:grid-cols-2">
+            <label class={labelClass}>
+              Material preference
+              <select class={fieldClass} name="material">
+                <option value="">Not provided</option>
+                <option value="Not decided">Not decided</option>
+                <option value="Pure copper">Pure copper</option>
+                <option value="CuCrZr / CuCr1Zr">CuCrZr / CuCr1Zr</option>
+                <option value="GRCop-42">GRCop-42</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label class={labelClass}>
+              Target timing
+              <select class={fieldClass} name="timing">
+                <option value="">Not provided</option>
+                <option value="Exploring feasibility">Exploring feasibility</option>
+                <option value="Quote needed within 2 weeks">Quote needed within 2 weeks</option>
+                <option value="Prototype needed within 1–2 months">Prototype needed within 1–2 months</option>
+                <option value="Production planning">Production planning</option>
+              </select>
+            </label>
+
+            <label class={`${labelClass} sm:col-span-2`}>
+              Country or region
+              <input class={fieldClass} name="country" type="text" autocomplete="country-name" maxlength="80" />
+            </label>
+          </div>
+        </details>
 
         <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
           <label>
@@ -238,6 +262,7 @@ const labelClass = 'block text-sm font-semibold text-heading';
     const submissionId = form.elements.namedItem('submission_id');
     const attributionInput = form.elements.namedItem('attribution');
     const defaultSubmitText = submitButton?.textContent?.trim() || 'Submit secure RFQ';
+    let formStarted = false;
 
     const applicationHints = {
       'copper cold plate': 'Cold plate or liquid cooling',
@@ -290,13 +315,46 @@ const labelClass = 'block text-sm font-semibold text-heading';
       if (fileHelp) fileHelp.textContent = error || 'Optional. Up to 3 files, 5 MB each, 8 MB total.';
     });
 
+    form.addEventListener('input', () => {
+      if (formStarted || typeof window.COPPER3DP_TRACK_EVENT !== 'function') return;
+      formStarted = true;
+      window.COPPER3DP_TRACK_EVENT('rfq_form_start', {
+        method: 'secure_rfq_form',
+        event_category: 'rfq_funnel',
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+      });
+    });
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       refreshContext();
 
+      if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
+        window.COPPER3DP_TRACK_EVENT('rfq_submit_attempt', {
+          method: 'secure_rfq_form',
+          event_category: 'rfq_funnel',
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+        });
+      }
+
       const fileError = validateFiles();
       fileInput?.setCustomValidity(fileError);
       if (!form.checkValidity()) {
+        const invalidFields = Array.from(form.elements)
+          .filter((field) => field?.name && field.validity && !field.validity.valid)
+          .map((field) => field.name)
+          .join(',');
+        if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
+          window.COPPER3DP_TRACK_EVENT('rfq_validation_error', {
+            method: 'secure_rfq_form',
+            event_category: 'rfq_funnel',
+            invalid_fields: invalidFields,
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+          });
+        }
         form.reportValidity();
         setStatus(fileError || 'Please complete the required fields.', true);
         return;
@@ -325,8 +383,8 @@ const labelClass = 'block text-sm font-semibold text-heading';
         const trackingPayload = {
           method: 'secure_rfq_form',
           application: form.elements.namedItem('application')?.value || '',
-          material: form.elements.namedItem('material')?.value || '',
-          timing: form.elements.namedItem('timing')?.value || '',
+          material: form.elements.namedItem('material')?.value || 'not_provided',
+          timing: form.elements.namedItem('timing')?.value || 'not_provided',
           has_attachments: Boolean(fileInput?.files?.length),
           attachment_count: fileInput?.files?.length || 0,
           submission_id: result.submissionId,
@@ -350,6 +408,15 @@ const labelClass = 'block text-sm font-semibold text-heading';
         if (reference) reference.textContent = `Reference: ${result.submissionId}`;
         successPanel?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (error) {
+        if (typeof window.COPPER3DP_TRACK_EVENT === 'function') {
+          window.COPPER3DP_TRACK_EVENT('rfq_submit_failure', {
+            method: 'secure_rfq_form',
+            event_category: 'rfq_funnel',
+            failure_stage: 'submission',
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+          });
+        }
         setStatus(error instanceof Error ? error.message : 'The RFQ could not be accepted.', true);
         if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset();
         submitButton.disabled = false;

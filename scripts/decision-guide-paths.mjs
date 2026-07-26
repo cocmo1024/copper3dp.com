@@ -1,12 +1,4 @@
-export const clusterPaths = [
-  '/knowledge/decision-guides/',
-  '/knowledge/decision-guides/materials-selection/',
-  '/knowledge/decision-guides/cold-plates-heat-exchangers/',
-  '/knowledge/decision-guides/rf-components/',
-  '/knowledge/decision-guides/power-electronics/',
-  '/knowledge/decision-guides/semiconductor-equipment/',
-  '/knowledge/decision-guides/quality-acceptance/',
-];
+export const clusterPaths = ['/knowledge/decision-guides/'];
 
 export const articleSlugs = [
   'specifying-pure-copper-lpbf-parts-by-finished-conductivity-not-powder-grade',

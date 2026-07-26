@@ -25,7 +25,7 @@ metadata:
 
 SiC devices can create concentrated and rapidly changing heat loads. Copper AM can place coolant close to those losses and integrate manifolds into a compact package. The thermal design can still fail if coolant chemistry attacks the copper, a coating is incomplete, mixed metals form an unfavorable galvanic couple, corrosion products clog small passages, or a seal is incompatible with the fluid.
 
-This guide closes the coolant-compatibility decision for copper AM SiC cold plates. It is part of the [power electronics decision cluster](/knowledge/decision-guides/power-electronics/). For the thermal architecture, see the [SiC power-module cold plate design review](/posts/EngineeringGuide/copper-3d-printed-cold-plate-case-study-sic-power-module-cooling/).
+This guide closes the coolant-compatibility decision for copper AM SiC cold plates. Use the [power electronics decision path](/knowledge/decision-guides/#power-electronics) for the wider system context. For the thermal architecture, see the [SiC power-module cold plate design review](/posts/EngineeringGuide/copper-3d-printed-cold-plate-case-study-sic-power-module-cooling/).
 
 ## Map the Complete Wetted System
 

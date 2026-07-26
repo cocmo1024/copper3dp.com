@@ -101,7 +101,7 @@ dist/
 - 固定页面已做精简：
   - `/`：主落地页。
   - `/rfq/`：RFQ 输入说明。
-  - `/contact/`：联系方式。
+  - `/contact/`：永久跳转到 `/rfq/`；表单、复制邮箱、邮件链接和 WhatsApp 统一在 RFQ 路径。
   - `/materials/`：材料说明。
   - `/copper-cold-plates/`、`/copper-heat-sinks/`：保留为重点应用页面。
   - `/about/`、`/privacy/`、`/terms/`：保持纯文字、克制、文档式。
@@ -109,7 +109,7 @@ dist/
 - 页脚已简化，保留核心入口、品牌说明、邮件、相关站点入口。
 - 全站邮件 CTA 统一为 `info@szcomo.com`，并修复移动端复制/发邮件时邮箱后缀混入 query 参数的问题。
 - WhatsApp 入口已按用户号码配置，入口语义从复杂二级菜单简化为直接 WhatsApp 联系。
-- 已配置并维护 Google Ads / GA 相关事件挂钩，重点转化意图为 email RFQ click / lead。
+- 已配置并维护 Google Ads / GA 相关事件挂钩：在线 RFQ 接收成功是 Primary lead，邮箱复制成功仅作为 Secondary intent，mailto 点击只记录 Engagement。
 - 已建立技术 SEO 基础：
   - sitemap
   - robots
