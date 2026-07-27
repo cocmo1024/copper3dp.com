@@ -720,37 +720,37 @@ const metadata = {
           Not every project needs every test. The quotation should identify the question, observable, method, acceptance
           limit, included record, and the party responsible for final system-level thermal verification.
         </p>
-
-        <div class="mt-8 overflow-x-auto border-y border-page-border">
-          <table class="w-full min-w-[70rem] text-left lg:min-w-0">
-            <thead>
-              <tr class="border-b border-page-border text-sm text-muted">
-                <th class="w-[24%] px-4 py-3 font-semibold text-heading">Question to answer</th>
-                <th class="w-[24%] px-4 py-3 font-semibold text-heading">Observable</th>
-                <th class="w-[27%] px-4 py-3 font-semibold text-heading">Possible method</th>
-                <th class="px-4 py-3 font-semibold text-heading">Customer-facing evidence</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                validationEvidence.map((row) => (
-                  <tr class="border-b border-page-border last:border-0">
-                    <td class="px-4 py-4 align-top font-semibold text-heading">{row.question}</td>
-                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.observable}</td>
-                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.method}</td>
-                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.output}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </div>
-
-        <p class="mt-4 max-w-4xl text-xs leading-5 text-muted">
-          Methods are selected by project risk and scope. Listing a method here does not mean it is included in every
-          quotation or that the source studies constitute certification of a new part.
-        </p>
       </div>
+
+      <div class="mt-8 overflow-x-auto border-y border-page-border">
+        <table class="w-full min-w-[70rem] text-left lg:min-w-0">
+          <thead>
+            <tr class="border-b border-page-border text-sm text-muted">
+              <th class="w-[24%] px-4 py-3 font-semibold text-heading">Question to answer</th>
+              <th class="w-[24%] px-4 py-3 font-semibold text-heading">Observable</th>
+              <th class="w-[27%] px-4 py-3 font-semibold text-heading">Possible method</th>
+              <th class="px-4 py-3 font-semibold text-heading">Customer-facing evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              validationEvidence.map((row) => (
+                <tr class="border-b border-page-border last:border-0">
+                  <td class="px-4 py-4 align-top font-semibold text-heading">{row.question}</td>
+                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.observable}</td>
+                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.method}</td>
+                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.output}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-4 max-w-4xl text-xs leading-5 text-muted">
+        Methods are selected by project risk and scope. Listing a method here does not mean it is included in every
+        quotation or that the source studies constitute certification of a new part.
+      </p>
     </div>
   </section>
 
