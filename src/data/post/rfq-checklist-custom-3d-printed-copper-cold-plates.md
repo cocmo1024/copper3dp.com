@@ -20,13 +20,13 @@ A custom 3D printed copper cold plate RFQ is not a request for a price; it is a 
 What changes the outcome is not “more detail” in general. It is the right detail: interfaces, coolant conditions, channel intent, and verification. Below is the RFQ checklist we use internally when we want the quotation to be a commitment rather than a guess.
 
 
-#### Why copper cold plate RFQs go sideways (and how to prevent it)
+## Why copper cold plate RFQs go sideways (and how to prevent it)
 
 Copper additive manufacturing is unforgiving because the failure modes are coupled. A minor porosity increase can become a leak after machining; a small flatness deviation can become a contact-resistance problem; a slightly high pressure drop can force a pump change late in the system build. The most common root cause we see is that the thermal requirement is provided (e.g., heat load and inlet temperature), but the fluidic and verification requirements are not (e.g., allowable ΔP at a specified flow, and leak test method with thresholds).
 
 A practical way to think about the RFQ is that it must define three things with hard numbers: (1) what the part must do (thermal + flow), (2) how it must interface (mechanical + sealing), and (3) how success is proven (inspection + test). If one of those is missing, the project’s “price of success” becomes unpredictable—usually in rework cycles that cost days, not hours.
 
-#### Scope alignment: define the manufacturing chain you are actually buying
+## Scope alignment: define the manufacturing chain you are actually buying
 
 Before the checklist, align on scope. For copper cold plates, “3D printed” rarely means “ship as-printed.” A realistic chain often includes 4–7 operations:
 
@@ -40,9 +40,9 @@ Before the checklist, align on scope. For copper cold plates, “3D printed” r
 
 If your RFQ expects a supplier to own this entire chain, state it. If you expect to do machining, plating, or testing in-house, state that too, because it changes machining allowances and inspection strategy by millimeters, not microns.
 
-#### RFQ checklist for custom 3D printed copper cold plates
+## RFQ checklist for custom 3D printed copper cold plates
 
-##### A) Commercial and program constraints (the “quote boundary”)
+### A) Commercial and program constraints (the “quote boundary”)
 
 1. Target quantity and ramp plan
 
@@ -62,7 +62,7 @@ If your RFQ expects a supplier to own this entire chain, state it. If you expect
 
 - EXW/FCA/DAP/DDP and required carrier (DHL/FedEx/UPS). Hard metric: destination and required delivery window (e.g., “deliver by 2026-03-15”).
 
-##### B) Functional requirements (thermal + fluid)
+### B) Functional requirements (thermal + fluid)
 
 5. Heat load and allowed temperature rise
 
@@ -84,7 +84,7 @@ If your RFQ expects a supplier to own this entire chain, state it. If you expect
 
 - Upstream filtration rating (e.g., 25 µm) and particulate tolerance. Hard metric: filter micron rating; it strongly influences minimum channel feature choice.
 
-##### C) Geometry package (what the supplier must build)
+### C) Geometry package (what the supplier must build)
 
 10. Data pack completeness
 
@@ -110,7 +110,7 @@ If your RFQ expects a supplier to own this entire chain, state it. If you expect
 
 ![CT scan visualization of porosity risk zones near machined ports in a 3D printed copper cold plate.](../../assets/images/online-posts/rfq-checklist-custom-3d-printed-copper-cold-plates/02-rfq-checklist-custom-3d-printed-copper-cold-plates-2-b7b24318.webp)
 
-##### D) Material and process requirements (what “copper” means)
+### D) Material and process requirements (what “copper” means)
 
 15. Alloy selection and rationale Common RFQ options:
 
@@ -130,7 +130,7 @@ If your RFQ expects a supplier to own this entire chain, state it. If you expect
 
 - Powder spec (if you have one) and traceability expectations (lot/batch). Hard metric: require material cert and powder lot ID in the documentation pack.
 
-##### E) Acceptance criteria (where most RFQs are under-specified)
+### E) Acceptance criteria (where most RFQs are under-specified)
 
 19. Leak test method and threshold (non-negotiable to define) Choose one and state it explicitly:
 
@@ -158,7 +158,7 @@ If your RFQ expects a supplier to own this entire chain, state it. If you expect
 
 - State cleanliness expectation (e.g., “no loose particulate > 200 µm,” “bagged and sealed,” “dry nitrogen purge” if required). Hard metric: particulate limit and packaging requirement.
 
-##### F) Documentation deliverables (what procurement can audit)
+### F) Documentation deliverables (what procurement can audit)
 
 25. Minimum documentation pack
 
@@ -174,7 +174,7 @@ If your RFQ expects a supplier to own this entire chain, state it. If you expect
 
 ![RFQ checklist package for custom 3D printed copper cold plates including leak test and pressure drop requirements.](../../assets/images/online-posts/rfq-checklist-custom-3d-printed-copper-cold-plates/03-rfq-checklist-custom-3d-printed-copper-cold-plates-3-859654c9.webp)
 
-#### A decision matrix procurement can actually use
+## A decision matrix procurement can actually use
 
 Most teams request additive copper because channels are complex. Sometimes CNC or a hybrid (3D printed core + machined cover) is lower risk. Use this matrix to choose the RFQ path.
 
@@ -188,7 +188,7 @@ Most teams request additive copper because channels are complex. Sometimes CNC o
 
 Interpretation rule: if the sealing interface is the highest risk (large gasket face, high clamp load sensitivity), hybrid often reduces the “unknowns” by forcing datums and surface finishes into machining where inspection is straightforward (Ra and flatness are measurable in minutes).
 
-#### Illustrative example: how a specific RFQ changes the quote
+## Illustrative example: how a specific RFQ changes the quote
 
 An RFQ that contains only a model and operating-pressure note forces the supplier to add assumptions for leak acceptance, pressure drop, sealing faces, and test fixtures. Replacing those assumptions with numeric requirements can materially change the quote.
 
@@ -200,7 +200,7 @@ The hidden cost is fixture and finishing setup. It increases first-article cost 
 
 CT can support internal-continuity review, but it does not certify leak tightness by itself. Keep the functional leak test as the acceptance gate when leakage is the actual failure risk.
 
-#### Readiness check: what to include before you send the RFQ
+## Readiness check: what to include before you send the RFQ
 
 If you can answer these eight questions with numbers, the first quote is usually within ±10–20% of the final, and schedule risk reduces meaningfully.
 
@@ -213,7 +213,7 @@ If you can answer these eight questions with numbers, the first quote is usually
 7. Which dimensions are CTFs with explicit tolerances (±mm)?
 8. What documentation pack fields are mandatory for procurement acceptance?
 
-#### Verdict: a procurement-safe way to issue an RFQ
+## Verdict: a procurement-safe way to issue an RFQ
 
  Proceed with a “commitment-grade” RFQ if you can lock leak testing (method + threshold), ΔP at flow, and sealing surface requirements. In that case, suppliers can price a defined verification plan and avoid padding uncertainty.
 
@@ -225,7 +225,7 @@ Worst-case failure scenario (to plan around): the part passes dimensional checks
 
 Rollback plan: if the first article fails leak, do not immediately redesign channels. First, isolate whether failure is (a) process porosity (mitigate via HIP or build parameter class change), (b) machining intersection (adjust machining allowance or port geometry), or (c) sealing interface (improve flatness/finish). A controlled rework plan often recovers the program without changing the thermal design.
 
-#### FAQ (the questions we see on real RFQs)
+## FAQ (the questions we see on real RFQs)
 
 **What is a realistic first-article lead time for a custom 3D printed copper cold plate?**
 

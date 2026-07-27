@@ -14,7 +14,7 @@ metadata:
 
 > Liquid-cooled server copper hardware is worth reviewing for additive manufacturing when the cooling path, package envelope, manifold routing, or part consolidation creates value beyond a simple machined plate. Send CAD, drawings, quantity, coolant condition, pressure limits, service constraints, critical surfaces, and inspection requirements.
 
-### Server Cooling RFQs Are System RFQs
+## Server Cooling RFQs Are System RFQs
 
 Server liquid-cooling hardware does not live alone. It connects to cold plates, manifolds, ports, quick connects, service loops, rack-level cooling hardware, and sometimes power-delivery parts. A copper part that looks manageable on a desktop can become difficult when it must fit inside a server tray, avoid neighboring components, survive handling, and pass leak acceptance.
 
@@ -24,7 +24,7 @@ For copper additive manufacturing, the most useful first question is:
 
 The answer may be thermal density, routing, leakage risk, part count, prototype speed, or package height. If the answer is only "we want it printed," the quote may not be strong.
 
-### Server Copper Parts That May Be Worth Reviewing
+## Server Copper Parts That May Be Worth Reviewing
 
 Common liquid-cooled server hardware candidates include:
 
@@ -37,7 +37,7 @@ Common liquid-cooled server hardware candidates include:
 
 Conventional machining, skiving, brazing, stamping, or assembly should still be considered when the part is simple. Copper AM is most valuable when the flow path, package shape, or consolidation benefit is real.
 
-### What to Send With the First RFQ
+## What to Send With the First RFQ
 
 A liquid-cooled server RFQ should show both the part and the system constraints around it.
 
@@ -55,7 +55,7 @@ A liquid-cooled server RFQ should show both the part and the system constraints 
 
 If some values are unknown, say so. That is better than leaving the supplier to guess silently.
 
-### Additive Manufacturing Value: Routing and Consolidation
+## Additive Manufacturing Value: Routing and Consolidation
 
 Liquid-cooled server hardware often becomes crowded around ports and keep-out zones. AM may be reviewed when it helps solve:
 
@@ -68,7 +68,7 @@ Liquid-cooled server hardware often becomes crowded around ports and keep-out zo
 
 The part still needs realistic finishing access. If a sealing face, port, or flat heat-transfer surface matters, assume it needs post-machining unless the drawing clearly accepts an as-built condition.
 
-### Pressure Drop Should Be Defined Early
+## Pressure Drop Should Be Defined Early
 
 A server cold plate or manifold can be thermally attractive and still fail the system if pressure drop is too high. If the RFQ does not include a pressure-drop limit, the quote may require assumptions that later change the design.
 
@@ -82,7 +82,7 @@ Provide one of these:
 
 For internal channels, small changes in width, roughness, manifold balance, and bend geometry can strongly affect pressure drop. The quote should not treat internal channels as decorative features.
 
-### Leak Testing and Cleanliness Are Not Optional Details
+## Leak Testing and Cleanliness Are Not Optional Details
 
 Liquid-cooled server parts often sit near expensive electronics. Leak logic must be clear.
 
@@ -98,7 +98,7 @@ State:
 
 Do not write only "must not leak." Define how the part will be judged. For related acceptance planning, see [CT scan and leak test criteria for copper cold plates](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/).
 
-### Serviceability Changes the Design Review
+## Serviceability Changes the Design Review
 
 A server part may pass a bench test and still be weak in the field if it is hard to assemble, replace, or inspect. Include service constraints when they matter:
 
@@ -111,7 +111,7 @@ A server part may pass a bench test and still be weak in the field if it is hard
 
 If the server environment restricts port placement or fitting height, include an envelope model or clear keep-out information.
 
-### Material and Surface Choices
+## Material and Surface Choices
 
 Pure copper may be reviewed when conductivity is the main priority. CuCrZr may be reviewed when mechanical strength, threaded features, clamping, or service temperature matters.
 
@@ -126,7 +126,7 @@ Post-processing may include:
 
 Use the [copper cold plate page](/copper-cold-plates/) for the broader cold-plate capability view, and the [materials page](/materials/) when alloy choice is not fixed.
 
-### When Not to Use Copper AM
+## When Not to Use Copper AM
 
 Copper AM may not be the right first route when:
 
@@ -139,7 +139,7 @@ Copper AM may not be the right first route when:
 
 These are not automatic rejection points. They are signals that the design route should be reviewed before quoting.
 
-### RFQ Red Flags That Slow Server Cooling Quotes
+## RFQ Red Flags That Slow Server Cooling Quotes
 
 Some server cooling RFQs slow down because the geometry is available but the operating assumptions are missing. Check for these gaps before sending:
 
@@ -153,7 +153,7 @@ Some server cooling RFQs slow down because the geometry is available but the ope
 
 These points do not need to be fully solved before the first email. They should be visible. A clear list of unknowns is usually easier to quote than a drawing that hides the risk.
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For liquid-cooled server copper hardware, send CAD, drawing, quantity, coolant, flow or pressure-drop target, working pressure, proof pressure, material preference, critical surfaces, port requirements, and inspection or cleanliness expectations.
 

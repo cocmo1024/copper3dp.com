@@ -17,7 +17,7 @@ metadata:
 
 The [Open Compute Project cold plate workstream](https://www.opencompute.org/wiki/Cooling_Environments/Cold_Plate) is developing vendor-neutral requirements around fluids, interfaces, leakage, serviceability, and qualification for direct liquid cooling. Those system requirements should be carried into any additively manufactured manifold or liquid-cooled conductor rather than treated as printing details.
 
-### Why Data Center Copper Hardware Is Becoming More Integrated
+## Why Data Center Copper Hardware Is Becoming More Integrated
 
 High-density compute hardware places thermal and electrical problems close together. A rack, tray, power shelf, accelerator baseboard, or liquid-cooling loop may need copper parts that are not only conductive blocks. They may also need coolant routing, compact manifolds, contact faces, bolt patterns, insulation clearance, and serviceable interfaces.
 
@@ -34,7 +34,7 @@ Useful AM review cases include:
 
 It is usually not the first route for simple flat busbars, straight bars, open manifolds, or low-complexity copper plates.
 
-### Separate Electrical, Thermal, and Mechanical Requirements
+## Separate Electrical, Thermal, and Mechanical Requirements
 
 A data center copper part can fail in several ways. The quote should not treat it as only "a copper shape." State which function matters most.
 
@@ -49,7 +49,7 @@ A data center copper part can fail in several ways. The quote should not treat i
 
 If the part carries current and coolant, define both. If it is only a manifold, define pressure and flow. If it is only a busbar, define current, contact faces, and insulation logic.
 
-### When a Busbar May Be an AM Candidate
+## When a Busbar May Be an AM Candidate
 
 Many copper busbars are best made by cutting, bending, stamping, laminating, or CNC machining. Additive manufacturing should be considered only when the geometry or function justifies it.
 
@@ -71,7 +71,7 @@ Weak candidates include:
 
 If the part looks like a simple flat busbar, send it anyway if you want review, but expect the recommendation may point to a conventional route.
 
-### Liquid-Cooled Conductors Need More Than a CAD Model
+## Liquid-Cooled Conductors Need More Than a CAD Model
 
 Liquid-cooled copper conductors combine two risk categories: electrical contact and sealed cooling. That makes the RFQ more sensitive to missing information.
 
@@ -87,7 +87,7 @@ State:
 
 If internal cooling channels are present, review them like cold plate channels: they must be printable, cleanable, testable, and connected to real ports.
 
-### Cooling Manifolds Should Be Quoted by Flow Logic
+## Cooling Manifolds Should Be Quoted by Flow Logic
 
 Copper manifolds for data center or server cooling may be candidates when port placement and distribution are difficult. A useful manifold RFQ should include:
 
@@ -102,7 +102,7 @@ Copper manifolds for data center or server cooling may be candidates when port p
 
 For additive manufacturing, the manifold should not contain blind pockets unless they are intentional and accepted. Every branch should have a plausible cleaning, flow, and verification route.
 
-### Contact Surfaces and Plating Should Be Named
+## Contact Surfaces and Plating Should Be Named
 
 Electrical copper parts often need selective finishing. Do not leave this to interpretation.
 
@@ -118,7 +118,7 @@ Define:
 
 If the contact requirement is not known, say that it is open. That is better than over-specifying all surfaces.
 
-### Material Selection and Post-Processing
+## Material Selection and Post-Processing
 
 Pure copper may be reviewed when conductivity dominates. CuCrZr may be reviewed when mechanical strength, temperature stability, threads, or clamp load matter. The material route should follow service condition, not only the word "copper."
 
@@ -132,7 +132,7 @@ Post-processing may include:
 
 Use [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) when current path, contact pads, plating, and testing need to be specified before quote. Use the [materials overview](/materials/) when the alloy is open, see the [copper busbars and induction coils RFQ guide](/posts/EngineeringGuide/3d-printed-copper-busbars-induction-coils-rfq/) for high-current copper hardware, and compare the broader [liquid-cooled server copper hardware RFQ guide](/posts/EngineeringGuide/liquid-cooled-server-copper-hardware-rfq/) when the electrical part also carries coolant.
 
-### What a Strong Data Center Copper RFQ Looks Like
+## What a Strong Data Center Copper RFQ Looks Like
 
 A strong RFQ separates the electrical path, the cooling path, and the assembly interfaces. It does not ask the supplier to guess which one controls acceptance.
 
@@ -154,7 +154,7 @@ For a cooling manifold or liquid-cooled conductor, mark:
 
 For a prototype, also state what may change after the first article: current path, port location, contact area, envelope, material, or test method. That helps the quote separate prototype review from repeat production assumptions.
 
-### Red Flags Before Quoting
+## Red Flags Before Quoting
 
 Review these issues before treating a data center copper part as a straightforward print:
 
@@ -167,7 +167,7 @@ Review these issues before treating a data center copper part as a straightforwa
 
 These are not reasons to avoid sending the project. They are the points that change material choice, post-processing, test scope, and cost.
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For data center copper busbars, liquid-cooled conductors, or copper cooling manifolds, send STEP or native CAD, drawing if available, quantity, current requirement, heat or coolant requirement, pressure condition, material preference, contact or sealing surfaces, plating or insulation expectations, and inspection requirements.
 

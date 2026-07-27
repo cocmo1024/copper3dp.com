@@ -110,13 +110,46 @@ const fallback: Group = {
   posts: [],
 };
 
+const fieldWeights = {
+  title: 8,
+  tags: 6,
+  slug: 4,
+  excerpt: 2,
+} as const;
+
+const scoreGroup = (post: Post, group: Group): number => {
+  const fields = [
+    { value: post.title, weight: fieldWeights.title },
+    {
+      value: (post.tags || []).flatMap((tag) => [tag.slug, tag.title]).join(' '),
+      weight: fieldWeights.tags,
+    },
+    { value: post.slug, weight: fieldWeights.slug },
+    { value: post.excerpt, weight: fieldWeights.excerpt },
+  ];
+
+  return group.terms.reduce(
+    (score, term) =>
+      score +
+      fields.reduce(
+        (fieldScore, field) => fieldScore + (field.value?.toLowerCase().includes(term) ? field.weight : 0),
+        0
+      ),
+    0
+  );
+};
+
 for (const post of posts) {
-  const haystack = [post.slug, post.title, post.excerpt, ...(post.tags || []).flatMap((tag) => [tag.slug, tag.title])]
-    .filter(Boolean)
-    .join(' ')
-    .toLowerCase();
-  const group = groups.find((candidate) => candidate.terms.some((term) => haystack.includes(term)));
-  (group || fallback).posts.push(post);
+  const bestMatch = groups.reduce<{ group?: Group; score: number }>(
+    (best, group) => {
+      const score = scoreGroup(post, group);
+      // A strict comparison keeps the declared group order as the deterministic tie-break.
+      return score > best.score ? { group, score } : best;
+    },
+    { score: 0 }
+  );
+
+  (bestMatch.group || fallback).posts.push(post);
 }
 
 const visibleGroups = [...groups, fallback].filter((group) => group.posts.length > 0);

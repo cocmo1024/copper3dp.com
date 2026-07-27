@@ -16,6 +16,7 @@ export const headerData = {
       text: 'Capabilities',
       links: [
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
+        { text: 'Thermal design & validation', href: getPermalink('/thermal-design-validation') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
         { text: 'Copper AM knowledge center', href: getPermalink('/knowledge') },
         { text: 'Quotation checklist', href: getPermalink('/rfq') },
@@ -35,6 +36,7 @@ export const footerData = {
       title: 'Plan a project',
       links: [
         { text: 'Application guide', href: getPermalink('/applications') },
+        { text: 'Thermal design & validation', href: getPermalink('/thermal-design-validation') },
         { text: 'Copper AM capabilities', href: getPermalink('/capabilities') },
         { text: 'Copper AM materials', href: getPermalink('/materials') },
         { text: 'Quotation checklist', href: getPermalink('/rfq') },

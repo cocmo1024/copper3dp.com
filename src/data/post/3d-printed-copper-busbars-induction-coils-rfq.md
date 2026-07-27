@@ -19,7 +19,7 @@ If the project is already defined, use the dedicated [3D printed copper busbar R
 
 Industrial equipment suppliers identify the same geometry-driven applications. [EOS lists induction coils among CuCrZr applications](https://www.eos.info/metal-solutions/metal-materials/copper), while [TRUMPF describes green-laser copper AM for conductive inductors and heat exchangers](https://www.trumpf.com/en_IN/newsroom/global-press-releases/press-release-detail-page/release/world-premiere-at-formnext-green-laser-from-trumpf-prints-copper-and-gold/). These examples show application feasibility, not a universal material or performance guarantee for every drawing.
 
-### Why Electrical Copper Parts Need a Different RFQ
+## Why Electrical Copper Parts Need a Different RFQ
 
 Electrical copper hardware is not only a shape. The quote depends on current path, contact resistance, heat generation, insulation distance, surface finish, plating, cooling, and inspection.
 
@@ -27,7 +27,7 @@ For busbars, the risk often sits at joints and contact planes. For induction coi
 
 That is why a STEP file alone is often not enough for a confident quote.
 
-### When Copper AM Is Useful for Busbars
+## When Copper AM Is Useful for Busbars
 
 Most busbars should be simple. Flat, bent, stamped, laminated, or machined copper is often the right route. Copper AM becomes more interesting when the design has a real 3D constraint.
 
@@ -41,7 +41,7 @@ Useful AM drivers include:
 
 AM is weaker when the requirement is only a flat conductor with simple holes and contact faces. In that case, conventional copper fabrication is usually the cleaner quote route.
 
-### When Copper AM Is Useful for Induction Coils
+## When Copper AM Is Useful for Induction Coils
 
 Induction coils may justify copper AM when the coil needs geometry that is difficult to form from tube or machined copper.
 
@@ -55,7 +55,7 @@ Good candidates include:
 
 The main caution is that printed copper still needs a practical finishing, cleaning, and inspection route. If the cooling path cannot be cleaned or pressure-tested, the printed concept may not be a good production route.
 
-### RFQ Inputs for Copper Busbars and Coils
+## RFQ Inputs for Copper Busbars and Coils
 
 | Input | Busbar relevance | Induction coil relevance |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ The main caution is that printed copper still needs a practical finishing, clean
 
 If you do not know every value, send the known operating condition and highlight what is critical.
 
-### Contact Surfaces Drive the Quote
+## Contact Surfaces Drive the Quote
 
 For busbars, the printed geometry may be complex, but the final performance often depends on simple machined surfaces.
 
@@ -84,7 +84,7 @@ State these clearly:
 
 Do not assume an as-printed surface is acceptable for a high-current contact. Contact faces usually need machining, cleaning, and sometimes plating.
 
-### Cooling and Pressure Requirements
+## Cooling and Pressure Requirements
 
 If the part includes internal cooling, the RFQ should define:
 
@@ -96,7 +96,7 @@ If the part includes internal cooling, the RFQ should define:
 
 For a cooled busbar or coil, the cooling requirement can be more important than the outside shape. A geometry that prints successfully can still fail the project if it cannot be cleaned, sealed, or tested.
 
-### Insulation, Creepage, and Clearance
+## Insulation, Creepage, and Clearance
 
 Electrical parts need spacing information. This is especially important when copper AM is used to fit conductors into a compact volume.
 
@@ -110,7 +110,7 @@ Include:
 
 If the design is high-voltage sensitive, review the separate guide on [3D printed copper high-voltage electrodes](/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/).
 
-### Material and Post-Processing
+## Material and Post-Processing
 
 Pure copper may be preferred for conductivity, but CuCrZr may be useful when strength, threaded features, clamp stability, or temperature exposure matter. The material choice should follow the operating condition, not only the word "copper" on the drawing.
 
@@ -130,7 +130,7 @@ Post-processing can include:
 
 Use the [materials overview](/materials/) when the alloy is not fixed.
 
-### Go/No-Go Review Before Quoting
+## Go/No-Go Review Before Quoting
 
 **Good fit for copper AM:**
 
@@ -148,13 +148,13 @@ Use the [materials overview](/materials/) when the alloy is not fixed.
 - Internal cooling paths have no cleaning or leak-test plan.
 - Electrical acceptance is undefined.
 
-### Related Electrical and Finishing Guides
+## Related Electrical and Finishing Guides
 
 For the baseline electrical decision, start with [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) before defining current path, contact resistance, surface finish, and testing. If the buyer is specifically asking for pure copper, review [pure copper 3D printing applications and limits](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) and the [pure copper conductive components guide](/posts/EngineeringGuide/pure-copper-additive-manufacturing-conductive-components/) before locking the route. For material review, use [Copper Alloy Selection for Metal 3D Printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/), [CuCr1Zr Copper Alloy 3D Printing for Industrial Components](/posts/EngineeringGuide/cucr1zr-copper-alloy-3d-printing-industrial-components/), and [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/) when conductivity, strength, documentation, and thermal cycling compete. If the conductor uses internal cooling, review [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/) before finalizing channel size and port access.
 
 For functional surfaces, use [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/) to define contact pads, masking, plating, and inspection. High-voltage designs should also be checked against the [3D printed copper high-voltage electrode feasibility guide](/posts/EngineeringGuide/3d-printed-copper-high-voltage-electrodes-feasibility/).
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For a busbar or induction coil quote, send CAD, drawing, quantity, target lead time, current, duty cycle, contact faces, cooling requirement, insulation constraints, material preference if known, and inspection requirements.
 

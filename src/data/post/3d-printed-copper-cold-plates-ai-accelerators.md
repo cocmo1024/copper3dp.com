@@ -14,7 +14,7 @@ metadata:
 
 > AI accelerator cold plates are worth reviewing for copper additive manufacturing when heat density, coolant routing, package height, or manifold integration cannot be solved cleanly by CNC machining, skiving, brazing, or assembly. Send CAD, drawings, quantity, material preference, thermal requirement, coolant condition, pressure limits, critical surfaces, and inspection needs. A quote depends on the part and the information provided.
 
-### Why AI Accelerator Cold Plates Need a Different RFQ
+## Why AI Accelerator Cold Plates Need a Different RFQ
 
 AI accelerator cooling is not only a copper plate problem. It is a package, pressure, flow, flatness, serviceability, and verification problem. A cold plate that looks simple from the outside may contain the highest risk inside the flow path.
 
@@ -29,7 +29,7 @@ For copper 3D printing, the best candidates usually have at least one hard const
 
 If the cold plate is a flat part with open milled channels and a simple cover, conventional manufacturing may be the stronger first route. Copper AM becomes more relevant when internal geometry is the main value.
 
-### Start With the Heat-Flux Map, Not Only the STEP File
+## Start With the Heat-Flux Map, Not Only the STEP File
 
 A STEP file shows shape. It does not explain why a cold plate must exist. For AI accelerator and GPU cooling hardware, the RFQ becomes much clearer when the thermal problem is stated early.
 
@@ -47,7 +47,7 @@ A STEP file shows shape. It does not explain why a cold plate must exist. For AI
 
 If the heat-load values are not fixed, send the best available estimate and say which values are still open. A useful first quote can be based on stated assumptions, but hidden thermal and pressure requirements usually slow the quote.
 
-### Where Copper AM Can Add Value
+## Where Copper AM Can Add Value
 
 Copper additive manufacturing is not a universal replacement for machined cold plates. It should be reviewed where it changes the design boundary.
 
@@ -70,7 +70,7 @@ Weak candidates often include:
 
 The practical question is not "can it print?" The practical question is whether it can be printed, cleaned, machined, sealed, tested, and accepted.
 
-### Channel Geometry Must Leave a Cleaning Path
+## Channel Geometry Must Leave a Cleaning Path
 
 AI accelerator cold plates often push designers toward dense internal surfaces. Dense channels can improve thermal area, but they also add powder-removal, cleaning, and pressure-drop risk.
 
@@ -88,7 +88,7 @@ Internal roughness is not automatically a failure. In some cold plates, roughnes
 
 For more channel-specific detail, see the [3D printed copper microchannel heat exchanger guide](/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/).
 
-### Interface Quality Still Depends on Machining
+## Interface Quality Still Depends on Machining
 
 The internal geometry may be additive, but the cold plate still succeeds or fails at the interfaces. Define these features clearly:
 
@@ -101,7 +101,7 @@ The internal geometry may be additive, but the cold plate still succeeds or fail
 
 Do not specify a high finish everywhere unless every surface truly matters. Most quotes become stronger when they separate critical contact and sealing surfaces from non-critical external surfaces.
 
-### Material Review: Pure Copper or CuCrZr
+## Material Review: Pure Copper or CuCrZr
 
 Material choice should follow the operating condition. Pure copper may be reviewed when thermal conductivity dominates and mechanical load is controlled. CuCrZr may be reviewed when strength, thread stability, clamp load, or service temperature matters.
 
@@ -116,7 +116,7 @@ Include:
 
 Use the [materials overview](/materials/) if the alloy is open.
 
-### Inspection Should Match the Failure Mode
+## Inspection Should Match the Failure Mode
 
 Do not ask for maximum inspection by default. Ask for inspection that matches the real risk.
 
@@ -131,7 +131,7 @@ Do not ask for maximum inspection by default. Ask for inspection that matches th
 
 Prototype work may start with geometry, pressure, leak, and flow checks. Qualification hardware may need deeper documentation.
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For an AI accelerator copper cold plate quote, send STEP or native CAD, drawing if available, quantity, material preference, heat source map, coolant, flow rate or pressure drop limit, working pressure, critical surfaces, and inspection requirements.
 

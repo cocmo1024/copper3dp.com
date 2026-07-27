@@ -15,13 +15,13 @@ metadata:
 
 > 3D printed copper high-voltage electrodes are **conditionally feasible** for air/oil applications where **all field-critical surfaces are post-machined and polished**. While AM can integrate cooling and complex geometries, engineering teams must account for **surface roughness–driven field enhancement and partial discharge risk** to make it viable.
 
-### 3D Printed Copper High-Voltage Electrode Requests in Power and Plasma Hardware
+## 3D Printed Copper High-Voltage Electrode Requests in Power and Plasma Hardware
 
 We keep seeing the same RFQ pattern: “We want a copper electrode with integrated cooling channels, but we also need it to hold off **30–80 kV** without corona or partial discharge.” The attraction is obvious—powder bed fusion can pack features into a volume that would be expensive to machine.
 
 The conflict is also predictable: high-voltage electrodes punish microscopic defects. A surface “feature” that is irrelevant at **5 kV** can become the initiating site for corona at **20–40 kV**, especially in air at sharp edges and down-skin regions.
 
-### High-Voltage Electrode Physics: Electric Field, Surface Roughness, and PD
+## High-Voltage Electrode Physics: Electric Field, Surface Roughness, and PD
 
 A high-voltage electrode **is a type of conductor** that shapes an electric field in a defined medium (air, oil, SF₆ alternatives, vacuum). Your breakdown margin is dominated by (1) local field enhancement and (2) how the medium responds (corona inception, partial discharge, or full breakdown).
 
@@ -30,13 +30,13 @@ For AM copper, the first problem is surface condition. Published powder bed fusi
 The second problem is defect topology. Even when density is high, pores and lack-of-fusion features can act like embedded field concentrators. Electron beam melting of copper can reach **>99% relative density** under suitable conditions, but “high density” is not the same as “HV-stable surface and subsurface.” ([MDPI](https://www.mdpi.com/2079-6412/11/6/740))
 
 
-### Copper AM Reality: Conductivity, Heat Treatment, and What It Means for Electrodes
+## Copper AM Reality: Conductivity, Heat Treatment, and What It Means for Electrodes
 
 Electrical conductivity matters for electrodes because resistive heating can change temperature, outgassing, and surface conditioning over time. AM copper alloys can vary widely: one vendor datasheet for AM CuCrZr shows **~23% IACS as-built** and up to **~88% IACS after conductivity-optimized heat treatment**(measured per ASTM E1004). ([EOS GmbH](https://www.eos.info/05-datasheet-images/Assets_MDS_Metal/EOS_CopperAlloy_CuCrZr/Material_DataSheet_EOS%20_Copper_CuCrZr_en.pdf))
 
 This creates an immediate feasibility constraint: if your electrode design assumes “near-OFHC behavior,” you cannot accept a process route that lands at **<80% IACS** without explicitly modeling the thermal and electrical consequences.
 
-### Illustrative Failure Analysis: Rough Down-Skin Surface on a High-Voltage Electrode
+## Illustrative Failure Analysis: Rough Down-Skin Surface on a High-Voltage Electrode
 
 This is a design-review scenario, not a named customer test result. Consider a compact internally cooled electrode intended for high-voltage intermittent service.
 
@@ -55,7 +55,7 @@ The important trade-off is that the electrode is no longer “printed and done.�
 
 ![Corona onset at a rough down-skin edge on a 3D printed copper high-voltage electrode.](../../assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/02-3d-printed-copper-high-voltage-electrodes-feasibility-2-b510d6ed.webp)
 
-### Data Forensics for 3D Printed Copper HV Electrodes: What Changes vs CNC
+## Data Forensics for 3D Printed Copper HV Electrodes: What Changes vs CNC
 
 | Parameter | Standard Approach (CNC Copper Electrode) | Advanced Approach (AM Copper Electrode) | The Trade-off |
 | --- | --- | --- | --- |
@@ -70,9 +70,9 @@ The important trade-off is that the electrode is no longer “printed and done.�
 
 ![Comparison of surface finish and verification workflow for CNC vs 3D printed copper high-voltage electrodes.](../../assets/images/online-posts/3d-printed-copper-high-voltage-electrodes-feasibility/03-3d-printed-copper-high-voltage-electrodes-feasibility-3-4fd9d8a7.webp)
 
-### Go/No-Go Criteria for 3D Printed Copper High-Voltage Electrodes
+## Go/No-Go Criteria for 3D Printed Copper High-Voltage Electrodes
 
-#### Clearly Feasible: 3D Printed Copper Electrodes for Low Field Stress Geometry
+### Clearly Feasible: 3D Printed Copper Electrodes for Low Field Stress Geometry
 
 Go ahead if all of the following are true:
 
@@ -80,7 +80,7 @@ Go ahead if all of the following are true:
 - Every field-critical surface is reachable by CNC finishing and controlled polishing to a defined Ra target (often **≤0.2–0.8 μm**, application-specific). ( [Clarwe](https://www.clarwe.com/finishes/electropolishing.html) )
 - Acceptance includes a standardized HV withstand plan per IEC 60060-1, not an ad-hoc bench test. ( [webstore.iec.ch](https://webstore.iec.ch/en/publication/65088) )
 
-#### Conditionally Feasible: AM Copper Electrodes for Integrated Cooling and Compact Assemblies
+### Conditionally Feasible: AM Copper Electrodes for Integrated Cooling and Compact Assemblies
 
 Possible, but expect a “surface and verification bill”:
 
@@ -88,7 +88,7 @@ Possible, but expect a “surface and verification bill”:
 - You accept mandatory post-processing: machining + chemical/electropolish; and you design for polishing access (no blind HV faces).
 - You budget for PD characterization per IEC 60270 (AC/DC as applicable) and iteration cycles when PD is detected. ( [webstore.iec.ch](https://webstore.iec.ch/en/publication/65087) ) This zone is where projects succeed—but only when the RFQ locks surface finish, radii, and test methods as contractual acceptance criteria.
 
-#### Structurally Mismatched: AM Copper Electrodes for Vacuum HV, Ultra-Low PD, or Unfinishable Geometries
+### Structurally Mismatched: AM Copper Electrodes for Vacuum HV, Ultra-Low PD, or Unfinishable Geometries
 
 Not recommended when any of the following are true:
 
@@ -100,11 +100,11 @@ Not recommended when any of the following are true:
 >   - Are the **field-critical surfaces** explicitly defined with a measurable roughness target (Ra) and a minimum edge radius (e.g., **≥1.0 mm** )?
 >     - Can every one of those surfaces be **accessed** for machining/polishing and then verified using IEC-aligned HV withstand + PD measurement (IEC 60060-1 / IEC 60270)? ( [webstore.iec.ch](https://webstore.iec.ch/en/publication/65088) )
 
-### Related Conductivity and Finishing Guides
+## Related Conductivity and Finishing Guides
 
 Before quoting a printed copper electrode, separate bulk conductivity from the finished electrical interface. Use [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) for current path, material state, contact resistance, and testing logic. Use [Copper Alloy Selection for Metal 3D Printing](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) when pure copper, CuCrZr, or CuCr1Zr may change the feasible route. Then use [Copper AM Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/) when the field-critical surface cannot remain as-built.
 
-### FAQ: 3D Printed Copper High-Voltage Electrodes
+## FAQ: 3D Printed Copper High-Voltage Electrodes
 
 **What is the single biggest failure driver for AM copper HV electrodes?**
 

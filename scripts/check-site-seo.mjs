@@ -5,6 +5,8 @@ const root = path.resolve('dist');
 const siteOrigin = 'https://copper3dp.com';
 const sitemapPath = path.join(root, 'sitemap-0.xml');
 const robotsPath = path.join(root, 'robots.txt');
+const redirectsPath = path.resolve('public', '_redirects');
+const postSourceRoot = path.resolve('src', 'data', 'post');
 const errors = [];
 
 if (!fs.existsSync(root) || !fs.existsSync(sitemapPath)) {
@@ -39,6 +41,40 @@ const routeFromFile = (file) => {
 };
 
 const report = (route, message) => errors.push(`${route}: ${message}`);
+
+const findMarkdownHeadingJumps = (source) => {
+  const jumps = [];
+  let inFrontmatter = false;
+  let inFence = false;
+  let previousLevel = 1;
+
+  source.split(/\r?\n/).forEach((line, index) => {
+    if (index === 0 && line.trim() === '---') {
+      inFrontmatter = true;
+      return;
+    }
+    if (inFrontmatter) {
+      if (line.trim() === '---') inFrontmatter = false;
+      return;
+    }
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      return;
+    }
+    if (inFence) return;
+
+    const heading = line.match(/^(#{1,6})\s+/);
+    if (!heading) return;
+
+    const level = heading[1].length;
+    if (level > previousLevel + 1) {
+      jumps.push({ line: index + 1, from: previousLevel, to: level });
+    }
+    previousLevel = level;
+  });
+
+  return jumps;
+};
 
 const normalizeText = (value) =>
   value
@@ -338,6 +374,21 @@ if (!/^User-agent:[ \t]*\*/im.test(robots) || !allowsPublicSite) {
 }
 if (!/^Sitemap:\s*https:\/\/copper3dp\.com\/sitemap-index\.xml$/im.test(robots)) {
   report('/robots.txt', 'must declare the canonical sitemap index');
+}
+
+const redirects = fs.readFileSync(redirectsPath, 'utf8');
+if (/^\/(?:tags|blog\/tag)\/\*/im.test(redirects)) {
+  report('/_redirects', 'must not redirect unknown tag URLs to the generic engineering archive');
+}
+
+for (const entry of fs.readdirSync(postSourceRoot, { withFileTypes: true })) {
+  if (!entry.isFile() || !/\.(?:md|mdx)$/i.test(entry.name)) continue;
+
+  const file = path.join(postSourceRoot, entry.name);
+  const route = `/posts/EngineeringGuide/${entry.name.replace(/\.(?:md|mdx)$/i, '')}/`;
+  for (const jump of findMarkdownHeadingJumps(fs.readFileSync(file, 'utf8'))) {
+    report(route, `heading level jumps from H${jump.from} to H${jump.to} at source line ${jump.line}`);
+  }
 }
 
 const summary = {

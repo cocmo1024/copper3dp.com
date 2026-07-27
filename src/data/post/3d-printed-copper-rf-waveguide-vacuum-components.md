@@ -14,7 +14,7 @@ metadata:
 
 > 3D printed copper RF and vacuum parts are worth reviewing when geometry, consolidation, cooling, or package routing matters more than the simplicity of a conventional machined part. Send CAD, drawings, quantity, RF or vacuum requirements, critical surfaces, material preference, and inspection expectations. The quote depends on conductivity, surface condition, sealing, cleaning, and post-processing, not only on the printed shape.
 
-### Where Copper AM Can Help RF and Vacuum Hardware
+## Where Copper AM Can Help RF and Vacuum Hardware
 
 RF waveguide, cavity, and vacuum components are usually interface-sensitive parts. A small geometry error, rough conductive surface, trapped powder pocket, or sealing issue can matter more than the mass of copper in the part. This makes them different from simple copper brackets or blocks.
 
@@ -29,7 +29,7 @@ Copper additive manufacturing can be useful when the part needs:
 
 It is usually not the first route for simple straight waveguides, open machined cavities, or flat copper parts that can be made more directly by CNC machining.
 
-### Define the Function Before the Manufacturing Route
+## Define the Function Before the Manufacturing Route
 
 The same copper geometry can be reviewed very differently depending on whether the part is RF-critical, vacuum-critical, thermally loaded, or mainly structural. A useful RFQ starts with the function.
 
@@ -46,7 +46,7 @@ The same copper geometry can be reviewed very differently depending on whether t
 
 If the frequency band, leak target, or acceptance test is still open, say so. A supplier can review geometry, but the quote should identify which assumptions were used.
 
-### Conductive Surfaces Are Not All Equal
+## Conductive Surfaces Are Not All Equal
 
 For RF components, not every visible copper surface has the same importance. The RF path, mating interface, cavity wall, choke feature, flange face, or contact surface may need a different finish from non-critical outer geometry.
 
@@ -61,7 +61,7 @@ Identify:
 
 As-printed copper surfaces may be acceptable on non-critical areas, but RF-critical internal faces often need a defined post-processing route. If an internal surface is unreachable after printing, the RFQ should make that clear before pricing.
 
-### Vacuum Parts Need Cleaning and Leak Logic
+## Vacuum Parts Need Cleaning and Leak Logic
 
 Vacuum copper hardware adds a different set of risks. A part may be dimensionally correct and still be unsuitable if it traps powder, cleaning media, or contamination. For vacuum or sealed systems, state:
 
@@ -75,7 +75,7 @@ Vacuum copper hardware adds a different set of risks. A part may be dimensionall
 
 Avoid specifying "no leaks" without a test method or acceptance level. A practical RFQ should tell the supplier how leak acceptance will be judged.
 
-### Integrated Cooling Can Change the Entire Design Review
+## Integrated Cooling Can Change the Entire Design Review
 
 Many high-value RF and semiconductor copper parts are not only conductive. They also remove heat. If the component includes cooling, the quote needs the same information required for a cold plate:
 
@@ -89,7 +89,7 @@ Many high-value RF and semiconductor copper parts are not only conductive. They 
 
 See the [microchannel heat exchanger RFQ guide](/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/) when internal cooling is the main reason for additive manufacturing.
 
-### Material and Post-Processing Choices
+## Material and Post-Processing Choices
 
 Pure copper is often considered when electrical or thermal conductivity is the main driver. CuCrZr may be reviewed when strength, thread stability, clamp load, or temperature exposure matters. Material choice should follow the functional requirement, not only the phrase "copper part" on the drawing.
 
@@ -106,7 +106,7 @@ Post-processing may include:
 
 Use the [materials page](/materials/) if the alloy is open, and include service conditions so the material review has enough context.
 
-### What Makes an RFQ Strong
+## What Makes an RFQ Strong
 
 A strong RFQ separates what is critical from what is merely visible. It does not over-specify every surface; it defines the surfaces and tests that decide acceptance.
 
@@ -125,7 +125,7 @@ Include:
 
 If only CAD and quantity are ready, send them. The quote may use assumptions, and focused clarification may follow.
 
-### Red Flags Before Quoting
+## Red Flags Before Quoting
 
 Review these issues before treating a copper RF or vacuum component as a straightforward print:
 
@@ -139,13 +139,13 @@ Review these issues before treating a copper RF or vacuum component as a straigh
 
 These points do not mean the part is a poor candidate. They mean the RFQ needs engineering review before a reliable quote.
 
-### Related RF, Vacuum, and Post-Processing Guides
+## Related RF, Vacuum, and Post-Processing Guides
 
 For semiconductor tools, pair this page with [Copper AM Parts for Semiconductor Equipment](/posts/EngineeringGuide/copper-am-semiconductor-equipment-rfq/) and the [RF vacuum manifold design review](/posts/EngineeringGuide/copper-am-vacuum-manifold-case-study-rf-semiconductor-hardware/). Those pages show how RF, vacuum, cleanliness, thermal control, and inspection requirements often overlap.
 
 When the material decision is open, use [pure copper 3D printing applications and limits](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) and the [copper alloy selection guide](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) before locking pure copper, CuCrZr, or CuCr1Zr. When surface condition controls performance, review [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), [Plating and Finishing Copper AM Parts](/posts/EngineeringGuide/plating-and-finishing-copper-am-parts-rfq/), and [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). If the part includes internal cooling or trapped passages, also review [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For a 3D printed copper RF waveguide, cavity, or vacuum component quote, send CAD, drawing, quantity, RF or vacuum requirement, critical surfaces, material preference, post-processing expectation, and inspection or test requirements.
 

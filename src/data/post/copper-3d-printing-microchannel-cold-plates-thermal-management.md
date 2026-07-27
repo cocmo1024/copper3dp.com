@@ -27,7 +27,7 @@ The [Open Compute Project cold plate workstream](https://www.opencompute.org/wik
 
 If the project is already ready for supplier review, use the [3D printed copper cold plate RFQ page](/copper-cold-plates/) as the commercial entry point, then use this article to refine microchannel geometry, powder removal, pressure drop, leak testing, and acceptance criteria.
 
-### The Process Window: What Actually Controls the Design
+## The Process Window: What Actually Controls the Design
 
 For microchannel cold plates, the question is not only "Can copper 3D printing make this shape?"
 
@@ -47,7 +47,7 @@ That distinction matters because the printed geometry is only the beginning. A u
 
 A simple cold plate may be cheaper and faster as a machined and brazed assembly. Copper 3D printing earns its place when the internal geometry changes the thermal result or reduces a real assembly risk.
 
-### Why Microchannels Push Teams Toward Additive Manufacturing
+## Why Microchannels Push Teams Toward Additive Manufacturing
 
 Microchannels can increase wetted surface area and move coolant closer to the heat source. In dense electronics cooling, that can reduce temperature gradients across a base and improve local heat extraction.
 
@@ -65,7 +65,7 @@ This does not mean printed cold plates always win. We have rejected printed rout
 
 That is the honest decision point. Copper AM is strongest when geometry freedom has a measurable job.
 
-### Hard Limits That Should Be Reviewed Before Quotation
+## Hard Limits That Should Be Reviewed Before Quotation
 
 Microchannel cold plates fail quietly when the RFQ focuses on the outside envelope and hides the internal channel risk.
 
@@ -88,7 +88,7 @@ One local uncertainty we always treat seriously: without a defined flow test or 
 
 _Figure 2. A printed channel can be dimensionally plausible and still fail the project if powder removal and cleaning are not verified._
 
-#### Channel Size Is Not Only a Thermal Variable
+### Channel Size Is Not Only a Thermal Variable
 
 Thermal models often reward narrow channels because they increase surface area and local heat transfer. Manufacturing adds a second curve.
 
@@ -100,7 +100,7 @@ Manufacturing cleanliness is only the first gate. If the installed loop can intr
 
 The regret case is familiar: a team optimizes the channel network only for thermal simulation, then discovers that the cold plate needs extra flushing, CT review, and redesign because the printed passages are difficult to depowder. The thermal model was not wrong; it was incomplete.
 
-### Illustrative Design-Review Scenario: Dense Cold Plate for a Power Electronics Module
+## Illustrative Design-Review Scenario: Dense Cold Plate for a Power Electronics Module
 
 The following scenario is an engineering example, not a named customer project. Consider a copper cold plate for a compact power electronics module where the objective is to reduce local hot spots inside a limited envelope. The proposed design uses a curved microchannel field under the heat source and a compact internal manifold.
 
@@ -130,7 +130,7 @@ This type of revision improves the inspection path and reduces pressure-drop unc
 
 The lesson is to optimize the accepted component, not only the simulated channel network.
 
-### The Cost Ledger: Where the Quote Actually Changes
+## The Cost Ledger: Where the Quote Actually Changes
 
 Procurement teams sometimes compare printed copper cold plates against machined parts using only unit price. That misses the real cost structure.
 
@@ -148,7 +148,7 @@ For microchannel cold plates, the quote is usually shaped by:
 
 A hidden cost we often see is fixture work. A pressure or flow fixture can save hours across repeated builds, but the first fixture may add several thousand dollars of tooling or internal setup cost depending on port style, sealing method, and test pressure. For a one-off prototype, that cost hurts. For a qualification batch, it may be the only sensible route.
 
-### When Copper 3D Printing Is the Right Choice
+## When Copper 3D Printing Is the Right Choice
 
 Choose copper additive manufacturing for a microchannel cold plate when at least one of these conditions is true:
 
@@ -170,7 +170,7 @@ Avoid forcing the printed route when:
 
 This is not a rejection of AM. It is process discipline.
 
-### Readiness Check Before Sending the RFQ
+## Readiness Check Before Sending the RFQ
 
 Before asking for a price, check whether the RFQ package answers these questions.
 
@@ -194,7 +194,7 @@ The second request gives the supplier enough information to evaluate the part in
 
 _Figure 3. A useful RFQ defines heat load, coolant, flow, pressure, surfaces, inspection, and cleanliness before final quotation._
 
-### Practical Design Guidance
+## Practical Design Guidance
 
 Start with the thermal problem, then build the manufacturing route around it.
 
@@ -209,13 +209,13 @@ For early-stage microchannel cold plates, we usually recommend:
 
 The tool limit is important: CT can help identify internal blockage or trapped powder risk, but it does not automatically prove thermal performance, leak tightness, or cleanliness. Flow and pressure tests still matter because they test the function directly.
 
-### Related Decision Paths
+## Related Decision Paths
 
 If this is the first cold plate review, use the broader [liquid cooling plate design guide](/posts/EngineeringGuide/how-copper-additive-manufacturing-improves-liquid-cooling-plate-design/) to compare routing, manifolds, and assembly risk before focusing only on microchannels. For larger cores, the [3D printed copper heat exchanger guide](/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/) explains where pressure drop, cleaning, and leakage change the manufacturing route.
 
 For quotation details, pair this page with [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), [CT and leak test criteria for copper cold plates](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/), and the [3D printed copper cold plate RFQ checklist](/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/). Those pages help turn a thermal concept into a quote-ready package.
 
-### FAQ
+## FAQ
 
 <details>
 <summary>Is copper 3D printing always better for microchannel cold plates?</summary>
@@ -252,7 +252,7 @@ Send STEP or native CAD, a drawing if available, heat load, coolant, flow target
 
 </details>
 
-### Verdict
+## Verdict
 
 Copper 3D printing is a strong route for microchannel cold plates when the design needs compact internal geometry, integrated manifolds, reduced joints, or hot-spot cooling that conventional routes cannot provide without compromise.
 

@@ -14,7 +14,7 @@ metadata:
 
 > Semiconductor equipment copper parts are worth reviewing for additive manufacturing when thermal density, RF or vacuum geometry, current path, package envelope, or part consolidation creates a real manufacturing constraint. Send CAD, drawings, quantity, material preference, service environment, critical surfaces, and inspection requirements. The quote depends on the part and the requirements provided.
 
-### Semiconductor Copper RFQs Are Not Only Geometry RFQs
+## Semiconductor Copper RFQs Are Not Only Geometry RFQs
 
 Semiconductor equipment uses copper for several reasons at the same time: thermal conductivity, electrical conductivity, RF performance, vacuum compatibility, and compact packaging. A copper part may look like a block, manifold, conductor, or cavity from the outside, but the quote usually depends on the hidden functional requirement.
 
@@ -24,7 +24,7 @@ For copper additive manufacturing, the useful first question is:
 
 The answer may be a dense internal cooling path, restricted port position, integrated RF or vacuum geometry, a high-current path with local heat removal, or a prototype geometry that still needs design iteration.
 
-### Parts That May Be Worth Reviewing
+## Parts That May Be Worth Reviewing
 
 Copper AM should not be treated as a default process for every semiconductor copper part. It becomes more relevant when the design value is inside the geometry or when several functions must be combined.
 
@@ -39,7 +39,7 @@ Common review candidates include:
 
 Simple plates, straight busbars, open manifolds, and low-complexity copper blocks may be better made by conventional routes. A good RFQ should make that comparison possible rather than assuming printing is always the answer.
 
-### Separate the Main Function Before Asking for Price
+## Separate the Main Function Before Asking for Price
 
 A semiconductor copper part can be controlled by different requirements. If the RFQ only says "copper part," the quote may require too many assumptions.
 
@@ -55,7 +55,7 @@ A semiconductor copper part can be controlled by different requirements. If the 
 
 The strongest RFQs do not over-specify everything. They identify the surfaces and risks that control acceptance.
 
-### Thermal Hardware: Where Copper AM Can Help
+## Thermal Hardware: Where Copper AM Can Help
 
 For semiconductor equipment, copper AM can be useful when heat must move through a compact, restricted, or multi-zone part. Examples include local microchannels close to a heat source, manifold transitions around keep-out zones, or cold plates that combine several functions into one body.
 
@@ -73,7 +73,7 @@ If the part is a flat plate with simple open channels, conventional machining an
 
 For more channel-specific planning, see the [3D printed copper microchannel heat exchanger guide](/posts/EngineeringGuide/3d-printed-copper-microchannel-heat-exchangers/).
 
-### RF and Vacuum Copper Parts Need Clear Acceptance Logic
+## RF and Vacuum Copper Parts Need Clear Acceptance Logic
 
 RF and vacuum hardware can be sensitive to geometry, surface condition, joints, leak paths, and cleaning. Additive manufacturing may help when a cavity, waveguide transition, cooling feature, or port geometry is difficult to machine as a single piece.
 
@@ -90,7 +90,7 @@ Do not assume that every internal surface can be finished to the same level as a
 
 Related reading: [3D printed copper RF waveguide and vacuum parts](/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/).
 
-### High-Current Copper Parts Need Contact Details
+## High-Current Copper Parts Need Contact Details
 
 Semiconductor tools may also need compact copper current paths, conductors, busbar-like parts, or contact hardware. Copper AM may be reviewed when the current path is three-dimensional, space is limited, or thermal features must be integrated near a contact region.
 
@@ -105,7 +105,7 @@ State:
 
 If the part is a simple flat conductor, a conventional process may be more practical. If the conductor also solves thermal or packaging constraints, AM review may be more useful.
 
-### Cleanliness, Powder Removal, and Leak Testing Should Be Stated Early
+## Cleanliness, Powder Removal, and Leak Testing Should Be Stated Early
 
 For semiconductor equipment, the quote can change significantly when the part has internal passages, vacuum service, or cleanliness expectations. A print-ready model is not enough if the finished part cannot be cleaned, dried, inspected, or accepted.
 
@@ -121,7 +121,7 @@ Check for:
 
 Use inspection only where it matches the failure mode. A prototype may need flow and leak checks. A field-critical vacuum or cooling part may need deeper acceptance planning.
 
-### Material and Post-Processing Review
+## Material and Post-Processing Review
 
 Material choice should follow the controlling requirement. Pure copper may be reviewed when conductivity dominates and mechanical load is controlled. CuCrZr may be reviewed when strength, thread stability, clamping, or service temperature matters.
 
@@ -137,7 +137,7 @@ Post-processing may include:
 
 Use the [materials overview](/materials/) when the alloy is open, and the [process selection guide](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) when the part may also be a CNC, brazed, or assembled candidate.
 
-### When Copper AM May Not Be the Right First Route
+## When Copper AM May Not Be the Right First Route
 
 Copper AM may not be the best first process when:
 
@@ -150,7 +150,7 @@ Copper AM may not be the best first process when:
 
 These are not reasons to avoid sending the project. They are reasons to review the manufacturing route before assuming a quote.
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For semiconductor equipment copper AM parts, send STEP or native CAD, drawing if available, quantity, material preference, heat, current, RF, vacuum, pressure, cleanliness, critical surface, and inspection requirements.
 

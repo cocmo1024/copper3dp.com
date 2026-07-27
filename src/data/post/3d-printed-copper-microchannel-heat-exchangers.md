@@ -14,7 +14,7 @@ metadata:
 
 > A 3D printed copper microchannel heat exchanger is worth quoting when the internal flow path, thermal density, or package envelope cannot be solved cleanly by machining, skiving, brazing, or assembly. Send CAD, drawings, quantity, coolant condition, pressure requirement, and inspection expectations. The quote depends less on the outside shape than on whether the channels can be printed, cleaned, machined, tested, and accepted.
 
-### When a Copper Microchannel Heat Exchanger Is a Good AM Candidate
+## When a Copper Microchannel Heat Exchanger Is a Good AM Candidate
 
 Copper additive manufacturing is strongest when channel routing is the reason for the part. If a heat exchanger only needs straight drilled holes or an open milled channel closed by a cover plate, conventional manufacturing may be the better first route. LPBF copper becomes more relevant when the design needs:
 
@@ -26,7 +26,7 @@ Copper additive manufacturing is strongest when channel routing is the reason fo
 
 The practical question is not only whether the geometry can be printed. The practical question is whether the flow path can be depowdered, cleaned, sealed, and verified after printing.
 
-### Start the RFQ With the Thermal and Flow Problem
+## Start the RFQ With the Thermal and Flow Problem
 
 A useful RFQ does not need a full thermal report, but it should tell the supplier what the part is trying to solve. A STEP file alone can show geometry; it does not show operating risk.
 
@@ -45,7 +45,7 @@ Include these inputs when possible:
 
 If these values are not fixed, say which ones are still open. A supplier can review the part with assumptions, but unclear pressure, cleaning, and acceptance requirements usually add cost or trigger clarification before a quote.
 
-### Channel Geometry Must Be Designed for Manufacturing, Not Only CFD
+## Channel Geometry Must Be Designed for Manufacturing, Not Only CFD
 
 CFD can reward narrow passages, high surface area, and aggressive turns. Manufacturing and inspection add different constraints. The design must leave enough room for powder removal, support avoidance, post-processing, and test confidence.
 
@@ -61,7 +61,7 @@ For a first review, identify:
 
 Internal roughness is not automatically bad. In some heat exchangers, surface texture can support heat transfer. In other parts, roughness can increase pressure drop, trap particles, or make cleaning harder. The RFQ should state which effect matters more.
 
-### Powder Removal and Cleaning Are Quote-Critical
+## Powder Removal and Cleaning Are Quote-Critical
 
 For copper microchannel heat exchangers, powder removal is often more important than the visible outside geometry. A channel network that prints successfully can still be weak for RFQ if powder cannot leave the part or if cleaning cannot be verified.
 
@@ -76,7 +76,7 @@ Review the design for:
 
 If a design has very long internal channels, fine branch networks, or dead-end volumes, the RFQ should not hide that risk. State whether CT inspection, flow verification, or sectioned qualification samples are expected.
 
-### Machined Interfaces Still Decide the Hardware Quality
+## Machined Interfaces Still Decide the Hardware Quality
 
 LPBF copper can create internal geometry, but functional heat exchanger hardware usually still depends on machined surfaces. The quote should separate printed geometry from post-machined requirements.
 
@@ -91,7 +91,7 @@ Common machined features include:
 
 Do not assume that the whole part needs a high cosmetic finish. Most RFQs become clearer when they define only the surfaces that affect sealing, contact, assembly, and acceptance.
 
-### Material Selection: Pure Copper, CuCrZr, or Review Required
+## Material Selection: Pure Copper, CuCrZr, or Review Required
 
 Material choice should follow the operating requirement. Pure copper may be reviewed when conductivity dominates and mechanical or temperature loads are controlled. CuCrZr may be reviewed when strength, clamp stability, threaded features, or service temperature matter. Some high-temperature thermal hardware may require a more specific alloy and qualification route.
 
@@ -106,7 +106,7 @@ If the material is not fixed, provide the service condition:
 
 Use the [materials overview](/materials/) when the alloy choice is open, and see the [process selection guide](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/) if the part may also be a CNC or brazed candidate.
 
-### Inspection Should Match the Failure Mode
+## Inspection Should Match the Failure Mode
 
 Inspection is not a decoration. It should be connected to what could fail.
 
@@ -121,7 +121,7 @@ Inspection is not a decoration. It should be connected to what could fail.
 
 Not every project needs every test. Prototype reviews may start with geometry, leak, and basic flow checks. Qualification parts may need a tighter inspection plan. The RFQ should state the acceptance level instead of asking for maximum inspection by default.
 
-### Red Flags Before Requesting a Price
+## Red Flags Before Requesting a Price
 
 Before sending a copper microchannel heat exchanger RFQ, check whether any of these risks are present:
 
@@ -135,7 +135,7 @@ Before sending a copper microchannel heat exchanger RFQ, check whether any of th
 
 These are not automatic rejection points. They are the points that change quote route, cost, and schedule.
 
-### Practical RFQ Email
+## Practical RFQ Email
 
 For a 3D printed copper microchannel heat exchanger quote, send STEP or native CAD, a drawing if available, quantity, material preference, heat load or service condition, coolant, flow rate or pressure drop target, working pressure, critical surfaces, and inspection requirements.
 

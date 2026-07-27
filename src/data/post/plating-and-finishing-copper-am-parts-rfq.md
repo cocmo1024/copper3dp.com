@@ -14,7 +14,7 @@ metadata:
 
 > Plating and finishing should be specified as part of the copper AM manufacturing route, not added after price. The RFQ should name the surfaces that need conductivity, corrosion control, solderability, RF behavior, sealing, or wear resistance, and separate them from surfaces that can remain as-printed or only lightly cleaned.
 
-### Finishing Is A Functional Requirement
+## Finishing Is A Functional Requirement
 
 Copper additive manufacturing can produce useful geometry, but the printed part is rarely the final functional surface everywhere. A copper cold plate may need machined sealing faces. An RF part may need a defined conductive path. A current-carrying part may need flat contact pads. A vacuum or fluid part may need cleaned internal passages and protected sealing lands.
 
@@ -24,7 +24,7 @@ The useful first question is:
 
 If the RFQ only says "nickel plate all over" or "polish surface," the quote may include the wrong scope. Some surfaces need machining before plating. Some should be masked. Some internal surfaces may not be reachable. Some plating choices are driven by the mating assembly, not by the printed part itself.
 
-### Common Reasons To Plate Copper AM Parts
+## Common Reasons To Plate Copper AM Parts
 
 Plating may be reviewed for several different reasons:
 
@@ -38,7 +38,7 @@ Plating may be reviewed for several different reasons:
 
 These are different use cases. A plating stack for a busbar contact pad is not automatically correct for an RF cavity, a coolant manifold, or a semiconductor equipment part.
 
-### Separate As-Printed, Machined, And Plated Surfaces
+## Separate As-Printed, Machined, And Plated Surfaces
 
 A strong drawing or RFQ marks surface classes. It does not treat the whole part as one finish.
 
@@ -53,7 +53,7 @@ A strong drawing or RFQ marks surface classes. It does not treat the whole part 
 
 If every surface receives the tightest requirement, cost rises and feasibility may fall. If functional surfaces are not identified, the quote may miss the risk.
 
-### Plating Options Need Context
+## Plating Options Need Context
 
 The RFQ does not need to solve the entire plating stack before review, but it should state why plating is needed.
 
@@ -67,7 +67,7 @@ Common directions include:
 
 State whether the plating requirement comes from a customer drawing, industry practice, electrical test, vacuum requirement, soldering process, or an internal preference. The reason affects masking, thickness, inspection, and whether the surface must be machined before plating.
 
-### Masking And Local Plating Can Be More Important Than The Metal
+## Masking And Local Plating Can Be More Important Than The Metal
 
 Many RFQs focus on the plating material but forget masking. For copper AM parts, masking can be difficult when the geometry has internal passages, threads, sealing grooves, or many small features.
 
@@ -82,7 +82,7 @@ Clarify:
 
 A 20 micron coating on the wrong face can matter more than the base material choice when a seal, thread, RF path, or contact pad is involved.
 
-### Cleaning Comes Before Finishing
+## Cleaning Comes Before Finishing
 
 For printed copper parts, finishing quality depends on cleaning and surface preparation. Internal channels, blind pockets, and powder-trap regions can create problems for plating and acceptance.
 
@@ -97,7 +97,7 @@ The RFQ should identify:
 
 For fluid parts, cleaning may be part of leak and pressure acceptance. For RF or vacuum parts, cleaning may be part of the functional surface requirement.
 
-### Inspection Evidence To Request
+## Inspection Evidence To Request
 
 Do not request every possible inspection by default. Match inspection to the failure mode.
 
@@ -113,7 +113,7 @@ Do not request every possible inspection by default. Match inspection to the fai
 
 The best RFQ defines the acceptance risk first, then chooses inspection.
 
-### Common RFQ Mistakes
+## Common RFQ Mistakes
 
 Avoid these patterns:
 
@@ -128,11 +128,11 @@ Avoid these patterns:
 
 These mistakes do not always make the part impossible. They make the route unclear.
 
-### Related Conductivity and Surface Guides
+## Related Conductivity and Surface Guides
 
 If the plated area carries current, start with [Electrical Conductivity in 3D Printed Copper Parts](/posts/EngineeringGuide/electrical-conductivity-in-3d-printed-copper-parts/) so contact resistance, surface finish, and testing are not treated as cosmetic notes. For upstream route planning, use [Copper 3D Printing Surface Finish Options](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [Post-Processing Methods for 3D Printed Copper Parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). For RF or vacuum-facing copper hardware, compare the [3D printed copper RF waveguide and vacuum parts guide](/posts/EngineeringGuide/3d-printed-copper-rf-waveguide-vacuum-components/).
 
-### Practical RFQ Checklist
+## Practical RFQ Checklist
 
 Send:
 

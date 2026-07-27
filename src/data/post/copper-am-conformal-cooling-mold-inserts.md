@@ -14,7 +14,7 @@ metadata:
 
 > Copper AM mold inserts are worth reviewing when cooling path geometry, local heat extraction, cycle time, or part quality cannot be solved with straight drilled channels alone. Send the mold layout, insert CAD, channel design, pressure requirement, material target, machining stock, and acceptance tests before treating additive manufacturing as the chosen route.
 
-### Why Mold Inserts Are Different From Simple Cold Plates
+## Why Mold Inserts Are Different From Simple Cold Plates
 
 A mold insert is not only a thermal part. It is also a precision tooling component with shutoff surfaces, cavity features, ejector logic, polishing requirements, and local wear risk. A conformal cooling idea may look good in a thermal model, but the RFQ still has to answer manufacturing questions.
 
@@ -24,7 +24,7 @@ The useful first question is:
 
 The answer may be cycle time, hot spots, warpage, sink marks, local crystallinity, short shots, tool temperature stability, or difficult heat removal around ribs, cores, pins, or deep pockets.
 
-### When Copper AM May Be Worth Reviewing
+## When Copper AM May Be Worth Reviewing
 
 Copper additive manufacturing can be useful when the insert needs copper-level thermal conductivity and a channel path that conventional drilling cannot place close enough to the heat source.
 
@@ -39,7 +39,7 @@ Good review candidates include:
 
 Weak candidates are simple plates, large blocks with straight drilling access, cosmetic inserts where thermal performance is not the limiting factor, or inserts where the printed channel cannot be cleaned, sealed, or pressure tested.
 
-### RFQ Inputs That Change Feasibility
+## RFQ Inputs That Change Feasibility
 
 A mold insert RFQ should not start from the printed geometry alone. The supplier needs to understand both the cooling function and the tooling interfaces.
 
@@ -56,7 +56,7 @@ A mold insert RFQ should not start from the printed geometry alone. The supplier
 
 If the RFQ only includes an STL or a concept image, the response will need assumptions. A STEP model, 2D drawing, channel sketch, and operating pressure make the quote more useful.
 
-### Channel Design: Do Not Optimize Only For Distance
+## Channel Design: Do Not Optimize Only For Distance
 
 The channel should be close enough to remove heat, but not so aggressive that it creates tooling risk. For copper AM mold inserts, the channel review usually asks:
 
@@ -70,7 +70,7 @@ The channel should be close enough to remove heat, but not so aggressive that it
 
 The best channel is not the most complex channel. It is the channel that solves the thermal problem while staying cleanable, inspectable, and tool-safe.
 
-### Material: Pure Copper Or CuCrZr?
+## Material: Pure Copper Or CuCrZr?
 
 Pure copper may be reviewed when thermal conductivity is the primary requirement and mechanical load is moderate. CuCrZr may be reviewed when strength, thread stability, clamp load, service temperature, or repeated tool cycling matters.
 
@@ -89,7 +89,7 @@ Use the [materials page](/materials/) when alloy choice is still open, and use t
 
 When the insert decision is mainly about thread strength, pressure boundaries, clamp load, thin walls near conformal channels, or heat-treated evidence, use [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) as the material route gate before comparing mold cooling performance.
 
-### Post-Machining Is Usually Part Of The Route
+## Post-Machining Is Usually Part Of The Route
 
 Most copper AM mold inserts are not used as-printed. The quote may include additive manufacturing plus CNC machining, EDM, polishing, thread machining, O-ring groove machining, pressure testing, and cleaning.
 
@@ -104,7 +104,7 @@ State which surfaces must be controlled:
 
 If a cavity surface needs a high cosmetic finish, that surface should not be treated like an internal printed channel. The drawing should separate functional surfaces from non-critical printed surfaces.
 
-### Pressure, Leak, Flow, And Cleaning
+## Pressure, Leak, Flow, And Cleaning
 
 Conformal cooling channels only help if they can be accepted after printing and machining. A practical RFQ defines:
 
@@ -117,7 +117,7 @@ Conformal cooling channels only help if they can be accepted after printing and 
 
 For prototype inserts, a pressure test and flow check may be enough. For production tooling, acceptance may require more documentation.
 
-### When Conventional Tooling May Be Better
+## When Conventional Tooling May Be Better
 
 Copper AM may not be the best first route when:
 
@@ -130,13 +130,13 @@ Copper AM may not be the best first route when:
 
 These points should be addressed before the RFQ becomes a price comparison. Additive manufacturing should be selected because it changes the cooling result, not because it sounds advanced.
 
-### Related Tooling and Validation Guides
+## Related Tooling and Validation Guides
 
 For a deeper mold example, review the [CuCrZr cooling insert design review for injection mold hot spots](/posts/EngineeringGuide/cucrzr-cooling-insert-case-study-injection-mold-hot-spots/). If the insert is likely to use CuCrZr, pair the RFQ with the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) so hardness, conductivity, and aging condition are not left implicit.
 
 Conformal cooling inserts also depend on [powder removal for copper AM internal channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/), [tolerances and dimensional accuracy](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/), and [post-processing methods for 3D printed copper parts](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/). These guides help separate printed cooling geometry from the machined tooling surfaces that control the mold.
 
-### Practical RFQ Checklist
+## Practical RFQ Checklist
 
 Send:
 
