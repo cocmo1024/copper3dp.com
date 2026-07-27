@@ -1,19 +1,19 @@
 ---
 title: 'Media Reference and Copyright Notice'
-description: 'Reference and copyright notes for external visual media used on the COPPER 3DP homepage.'
+description: 'Reference and copyright notes for external visual media used on COPPER 3DP website pages.'
 robots:
   index: false
   follow: true
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: July 23, 2026
+_Last updated_: July 27, 2026
 
-This page describes external visual material used on the COPPER 3DP homepage. The material is shown only to illustrate copper additive manufacturing processes, production capabilities, and representative part geometries. It does not indicate that equipment or powder is offered for sale.
+This page describes external and supplied reference visual material used on COPPER 3DP website pages. The material is shown only to illustrate copper additive manufacturing processes, production capabilities, representative engineering workflows, and part geometries. It does not indicate that equipment or powder is offered for sale.
 
 ## Media Scope
 
-The homepage includes selected images and video originally published by third-party industry sources, including BJ Tech.
+The website includes selected images and video originally published or supplied by industry sources, including BJ Tech and BLT. The Thermal Design & Validation page also uses channel-layout images extracted from a motor-cooling design brief supplied by the website owner.
 
 The material may include:
 
@@ -21,6 +21,8 @@ The material may include:
 - Copper material-route imagery.
 - Build-process imagery.
 - Representative copper geometries and application examples.
+- Representative topology-led thermal-fluid optimization, model-reconstruction, and physical-build study images.
+- Motor-cooling channel-layout and assembly-positioning illustrations with project-specific values omitted.
 
 For web presentation, media may be resized, cropped, compressed, shortened, or reordered. Segments containing identifiable people, visible brand marks, model labels, or unrelated third-party text may be omitted.
 

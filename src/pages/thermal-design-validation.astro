@@ -7,6 +7,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import thermalFlowStudyImage from '~/assets/images/partner/blt/thermal-fluid-topology-flow-study.webp';
 import thermalReconstructionStudyImage from '~/assets/images/partner/blt/thermal-fluid-topology-reconstruction-study.webp';
 import thermalPhysicalPrintStudyImage from '~/assets/images/partner/blt/thermal-topology-physical-print-study.webp';
+import motorCoolingLayoutImage from '~/assets/images/reference/motor-cooling-four-branch-channel-layout.png';
+import motorCoolingAssemblyImage from '~/assets/images/reference/motor-cooling-channel-assembly-overlay.png';
 import {
   createBreadcrumbSchema,
   createCopperApplicationServiceSchema,
@@ -16,9 +18,9 @@ import {
 
 const boundaryConditions = [
   {
-    title: 'Heat source and duty cycle',
+    title: 'Component heat sources and duty',
     description:
-      'Define total heat load, the source footprint or heat map, transient duty, and the temperature or thermal-resistance limit.',
+      'Allocate losses by component, define source footprints or volumetric heat generation, and record separate temperature limits, duty cycles, and transient events.',
     icon: 'tabler:flame',
   },
   {
@@ -28,9 +30,9 @@ const boundaryConditions = [
     icon: 'tabler:droplet',
   },
   {
-    title: 'Envelope and interfaces',
+    title: 'Assembly heat path and interfaces',
     description:
-      'Control keep-outs, ports, mounting, sealing lands, thermal contact faces, datums, machining stock, and service access.',
+      'Model air gaps, contact resistance, material states, thermal interfaces, keep-outs, seals, ports, mounting, and the path from each source to the coolant.',
     icon: 'tabler:box',
   },
   {
@@ -41,36 +43,56 @@ const boundaryConditions = [
   },
 ];
 
-const architectureOptions = [
+const architectureComparisons = [
   {
-    title: 'Conformal channels',
-    description:
-      'Route coolant around the heat-source geometry when straight drilling or milled layers cannot maintain useful coverage.',
+    architecture: 'Pin or post fields',
+    studyObservation:
+      'In the supplied screening work, the tested post layouts carried a lower hydraulic penalty but offered limited heat-transfer improvement.',
+    designRisk:
+      'Bypass flow, weak local mixing, and unresolved hotspots can remain even when total pressure loss looks acceptable.',
+    decisionEvidence: 'Temperature distribution, branch flow, and pressure drop at the same operating point.',
   },
   {
-    title: 'Integrated manifolds',
-    description:
-      'Combine distribution, ports, and local cooling while controlling flow balance, trapped volume, cleaning, and sealing risk.',
+    architecture: 'Continuous channels',
+    studyObservation:
+      'The evaluated channel concepts produced comparatively uniform cooling, but the hydraulic cost could become the dominant constraint.',
+    designRisk: 'A thermally attractive route can exceed the pump-head budget or starve parallel branches.',
+    decisionEvidence: 'Heat-source temperatures, flow distribution, total pressure loss, and branch-to-branch balance.',
   },
   {
-    title: 'Fin, pin, and lattice fields',
-    description:
-      'Screen feature density against heat transfer, pressure loss, powder removal, wall continuity, and inspection access.',
+    architecture: 'Thin fins and microchannels',
+    studyObservation:
+      'Reducing fin scale increases available area and can move active geometry closer to the heat source.',
+    designRisk:
+      'Print repeatability, powder removal, blockage, cleaning, wall continuity, and inspection become harder as scale falls.',
+    decisionEvidence: 'Manufacturing coupons, cleaning route, internal inspection, thermal result, and pressure drop.',
   },
   {
-    title: 'TPMS and topology-led cores',
-    description:
-      'Use generated geometry as a candidate architecture, then reconstruct it into continuous, manufacturable passages.',
+    architecture: 'Jet impingement',
+    studyObservation:
+      'The supplied concept comparison found impingement useful for peak-temperature reduction and temperature uniformity.',
+    designRisk:
+      'Nozzle loss, return-flow congestion, erosion, clogging, and pump demand can erase the local thermal gain.',
+    decisionEvidence:
+      'Local heat-flux response, nozzle flow balance, return-flow field, pressure loss, and contamination plan.',
   },
   {
-    title: 'Jet-impingement concepts',
-    description:
-      'Consider localized high-intensity cooling only when nozzle spacing, return flow, erosion, pumping, and blockage can be managed.',
+    architecture: 'TPMS or periodic surface cores',
+    studyObservation:
+      'Three surface families were screened through nine coupons, then eight product-scale core configurations were compared for formation, heat transfer, and flow resistance.',
+    designRisk:
+      'A family with stronger heat transfer can also carry the highest pressure penalty; rankings are geometry- and boundary-condition-specific.',
+    decisionEvidence:
+      'Coupon build evidence, internal inspection, paired thermal and pressure data, then product-scale confirmation.',
   },
   {
-    title: 'Hybrid thermal hardware',
-    description:
-      'Keep simple faces and interfaces machinable while printing only the internal geometry that creates measurable value.',
+    architecture: 'Topology-led flow paths',
+    studyObservation:
+      'Optimization can distribute flow or material beyond straight-fin layouts, but the raw result is only a design candidate.',
+    designRisk:
+      'Disconnected walls, abrupt transitions, trapped powder, inaccessible features, and uninspectable passages.',
+    decisionEvidence:
+      'Reconstructed CAD, DfAM review, flow re-check, representative build, and agreed inspection access.',
   },
 ];
 
@@ -90,7 +112,7 @@ const designWorkflow = [
     number: '03',
     title: 'Model',
     description:
-      'Evaluate candidate flow and heat-transfer behavior using agreed boundary conditions and stated assumptions.',
+      'Evaluate candidates with traceable losses, properties, contacts, gaps, convergence checks, energy balance, and sensitivity review.',
   },
   {
     number: '04',
@@ -106,64 +128,97 @@ const designWorkflow = [
   },
 ];
 
-const tradeoffs = [
+const sourceStudyEvidence = [
   {
-    decision: 'Increase internal surface area',
-    benefit: 'Can increase heat-transfer opportunity.',
-    risk: 'Can also increase flow resistance, dead zones, build difficulty, and cleaning burden.',
-    evidence: 'Thermal result plus pressure drop and flow distribution under the same boundary conditions.',
+    title: 'Coupon screening before product claims',
+    description:
+      'Three periodic-surface families were represented by nine coupons. Formation quality, heat transfer, and flow resistance were reviewed together instead of selecting geometry from simulation alone.',
   },
   {
-    decision: 'Reduce channel or fin scale',
-    benefit: 'Can bring more active geometry close to the heat source.',
-    risk: 'Raises blockage, powder-removal, inspection, tolerance, and repeatability risk.',
-    evidence: 'Manufacturing review, minimum feature strategy, cleaning route, and appropriate inspection.',
+    title: 'Scale-up changed the engineering questions',
+    description:
+      'Eight product-scale cores added cell-size variation, S- and U-type flow arrangements, inlet/outlet transitions, CT review, and local manifold optimization. Coupon ranking did not replace product verification.',
   },
   {
-    decision: 'Consolidate manifolds and joints',
-    benefit: 'Can reduce fittings, covers, plugs, or brazed interfaces.',
-    risk: 'Makes an internal defect or inaccessible passage more consequential.',
-    evidence: 'Pressure-boundary review, leak criteria, flow evidence, and defined repair or rejection rules.',
+    title: 'Thermal and hydraulic results moved independently',
+    description:
+      'Printed and machined cold-plate comparisons in the source material showed that a geometry change could improve heat rejection while either increasing or decreasing pressure loss. Both outcomes must be measured.',
   },
   {
-    decision: 'Use topology or TPMS geometry',
-    benefit: 'Expands the design space beyond straight or layered passages.',
-    risk: 'Optimization output may not be printable, cleanable, machinable, or verifiable as generated.',
-    evidence: 'Reconstructed CAD, DfAM review, representative build evidence, and project-specific validation.',
+    title: 'The rig matched the decision variables',
+    description:
+      'The referenced bench combined controlled coolant conditioning with flow, pressure, inlet/outlet temperature, and wall-temperature measurement so thermal gain could be assessed against pumping cost.',
   },
 ];
 
-const validationStages = [
+const modelReviewChecks = [
   {
-    title: 'Manufacturing evidence',
-    description:
-      'Review build orientation, wall continuity, supports, powder exits, machining stock, sealing features, and critical datums before release.',
-    icon: 'tabler:printer',
+    title: 'Loss ledger',
+    description: 'Separate winding, core, magnet, semiconductor, or other source losses and their temperature limits.',
   },
   {
-    title: 'Internal-feature evidence',
+    title: 'Thermal path',
     description:
-      'Use CT, sectioning, flow checks, or other agreed methods when inaccessible channels materially affect performance or safety.',
-    icon: 'tabler:scan',
+      'Record air gaps, interfaces, contact resistance, housings, fasteners, and the cooled surface location.',
   },
   {
-    title: 'Pressure-boundary evidence',
-    description:
-      'Define medium, pressure, dwell, leak threshold, test stage, and acceptance rule instead of relying on an undefined “no leak” statement.',
-    icon: 'tabler:gauge',
+    title: 'Model credibility',
+    description: 'State property sources, mesh or discretization checks, convergence criteria, and energy balance.',
   },
   {
-    title: 'Thermal evidence',
+    title: 'Scenario coverage',
     description:
-      'Test with boundary conditions that represent the real assembly closely enough to compare against the agreed design target.',
-    icon: 'tabler:temperature',
+      'Use steady state for screening where appropriate; add transient or sensitivity cases when duty or uncertainty requires them.',
   },
+];
+
+const validationEvidence = [
+  {
+    question: 'Is the specified heat being removed?',
+    observable: 'Coolant flow and inlet/outlet temperature difference',
+    method: 'Calibrated flow and temperature measurements under an agreed heat input',
+    output: 'Heat-rejection result with operating conditions and measurement boundary',
+  },
+  {
+    question: 'Are hotspots and uniformity controlled?',
+    observable: 'Wall, interface, or source-region temperature',
+    method: 'Thermocouples, resistance sensors, thermal imaging, or an agreed equivalent',
+    output: 'Temperature map or defined measurement-point result',
+  },
+  {
+    question: 'Is the pumping cost acceptable?',
+    observable: 'Flow rate, pressure drop, and branch balance',
+    method: 'Differential pressure and flow measurement across the relevant circuit',
+    output: 'Flow-pressure curve or acceptance-point result',
+  },
+  {
+    question: 'Are hidden passages manufacturable and clean?',
+    observable: 'Continuity, dimensions, residual powder, and accessible cleaning routes',
+    method: 'CT, sectioning, borescope, flow comparison, or another agreed inspection',
+    output: 'Internal-feature evidence tied to drawing or acceptance criteria',
+  },
+  {
+    question: 'Is the pressure boundary acceptable?',
+    observable: 'Pressure, dwell, leakage, and visible deformation',
+    method: 'Project-defined proof, leak, or pressure-decay test',
+    output: 'Test record with medium, limit, dwell, and acceptance rule',
+  },
+];
+
+const designDeliverables = [
+  'Input and assumption register, including open items and sensitivity risks',
+  'Candidate architecture comparison with rejection reasons and decision criteria',
+  'Simulation summary with model scope, boundary conditions, and applicability limits',
+  'Manufacturable geometry or DfAM actions for walls, transitions, powder exits, machining, seals, and datums',
+  'Prototype, inspection, and test plan with included evidence and acceptance points',
+  'Quotation boundary defining customer-owned system validation and supplier-owned part evidence',
 ];
 
 const rfqInputs = [
   'STEP or native CAD, drawings, envelope, and keep-outs',
-  'Heat load, heat-source map, duty cycle, and temperature limit',
+  'Component loss table, heat-source map, duty cycle, and separate temperature limits',
   'Coolant, inlet temperature, flow target, and pressure-drop limit',
+  'Air gaps, contact interfaces, material-property assumptions, and known thermal resistances',
   'Working pressure, proof pressure, and leak requirement',
   'Ports, seals, mounting, datums, and machined thermal faces',
   'Material preference, service environment, quantity, and project stage',
@@ -190,6 +245,11 @@ const faqs = [
     title: 'What validation can be included in a quotation?',
     description:
       'The quotation can define the applicable dimensional, CT, cleanliness, flow, pressure, leak, conductivity, surface, or thermal evidence. The exact methods and acceptance limits must be agreed for the specific part and operating conditions.',
+  },
+  {
+    title: 'Why can an air gap or contact assumption change the predicted hotspot?',
+    description:
+      'A cooling channel is only one part of the assembled heat path. Air gaps, interface resistance, material properties, source allocation, and the location of the cooled surface can redistribute component temperatures even when the channel geometry and total pressure loss remain similar. These assumptions must be version-controlled and reviewed through sensitivity cases.',
   },
 ];
 
@@ -226,13 +286,20 @@ const metadata = {
     createItemListSchema('Copper thermal design and validation workflow', [
       {
         name: 'Define boundary conditions',
-        description: 'Heat source, coolant, hydraulic limits, envelope, interfaces, and acceptance evidence.',
+        description: 'Component losses, duty, coolant, hydraulic limits, assembly heat path, and acceptance evidence.',
         url: '/thermal-design-validation/#boundary-conditions',
       },
       {
         name: 'Screen cooling architectures',
-        description: 'Conformal channels, manifolds, fins, lattices, TPMS, topology-led structures, and hybrid routes.',
+        description:
+          'Compare candidate structures through thermal, hydraulic, manufacturing, cleaning, and inspection evidence.',
         url: '/thermal-design-validation/#architecture-screening',
+      },
+      {
+        name: 'Control model fidelity',
+        description:
+          'Track losses, contacts, air gaps, properties, convergence, energy balance, and sensitivity cases.',
+        url: '/thermal-design-validation/#model-fidelity',
       },
       {
         name: 'Reconstruct manufacturable geometry',
@@ -244,6 +311,12 @@ const metadata = {
         name: 'Plan project-specific validation',
         description: 'Dimensional, CT, flow, pressure, leak, cleanliness, and thermal evidence as applicable.',
         url: '/thermal-design-validation/#validation-plan',
+      },
+      {
+        name: 'Define project deliverables',
+        description:
+          'Assumption register, trade study, model summary, DfAM actions, validation plan, and responsibility boundary.',
+        url: '/thermal-design-validation/#design-deliverables',
       },
     ]),
     createFaqSchema(faqs),
@@ -264,18 +337,32 @@ const metadata = {
           heat source, coolant, pressure-drop budget, package envelope, interfaces, and acceptance plan.
         </p>
         <p class="mt-4 leading-7 text-muted">
-          Metal additive manufacturing expands the design space. It creates value only when the thermal concept can be
-          reconstructed as manufacturable geometry and verified under defined operating conditions.
+          Start with a design-stage thermal brief or with build-ready CAD. In both cases, the work must connect the
+          assembled heat path, fluid circuit, printable geometry, and acceptance evidence.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <Button
             variant="primary"
             text="Start a thermal design review"
-            href="/rfq/?project=heat-exchanger#rfq-form"
+            href="/rfq/#rfq-form"
             icon="tabler:arrow-right"
           />
           <Button variant="secondary" text="See required inputs" href="#boundary-conditions" />
         </div>
+        <dl class="mt-7 grid gap-4 border-t border-page-border pt-5 sm:grid-cols-2">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Design-stage brief</dt>
+            <dd class="mt-2 text-sm leading-6 text-muted">
+              Heat sources, limits, coolant, envelope, interfaces, and open assumptions.
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Build-ready CAD</dt>
+            <dd class="mt-2 text-sm leading-6 text-muted">
+              Geometry, drawings, material, machining, inspection, and acceptance requirements.
+            </dd>
+          </div>
+        </dl>
       </div>
 
       <figure>
@@ -293,8 +380,8 @@ const metadata = {
           />
         </div>
         <figcaption class="mt-3 text-xs leading-5 text-muted">
-          Representative internal engineering study: optimization output reconstructed into usable channel geometry.
-          Results remain specific to the stated boundary conditions.
+          Representative partner engineering study supplied for publication: optimization output reconstructed into
+          usable channel geometry. Results remain specific to the stated boundary conditions.
         </figcaption>
       </figure>
     </div>
@@ -326,43 +413,163 @@ const metadata = {
           ))
         }
       </div>
+
+      <div class="mt-8 grid gap-5 border-y border-page-border py-6 sm:grid-cols-[0.82fr_1.18fr] sm:gap-10">
+        <h3 class="font-heading text-xl font-semibold text-heading">Every model starts with an assumption register</h3>
+        <p class="text-sm leading-6 text-muted">
+          Inputs are marked as confirmed, assumed, or sensitivity-controlled, with an owner for each open item. If
+          component losses, contact conditions, coolant limits, or acceptance targets are unknown, the result is treated
+          as architecture screening rather than a validated temperature prediction.
+        </p>
+      </div>
     </div>
   </section>
 
   <section id="architecture-screening" class="scroll-mt-24 border-b border-page-border bg-page py-12 sm:py-16">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-        <div>
-          <p class="text-sm font-semibold text-accent">02 | Screen the architecture</p>
-          <h2 class="mt-2 font-heading text-3xl font-bold text-heading">Choose geometry by system value</h2>
-          <p class="mt-4 leading-7 text-muted">
-            Conformal, lattice, TPMS, topology-led, or impingement concepts are options—not guaranteed upgrades. Each
-            must earn its place against a simpler machined, brazed, skived, tube-based, or folded-fin route.
-          </p>
-          <p class="mt-4 text-sm leading-6 text-muted">
-            The decision criterion is measurable value in thermal performance, packaging, joint reduction, or
-            reliability after pumping, manufacturing, inspection, and cleaning costs are included.
-          </p>
-        </div>
-
-        <div class="grid border-t border-page-border sm:grid-cols-2">
-          {
-            architectureOptions.map((item) => (
-              <article class="border-b border-page-border py-5 sm:odd:pr-6 sm:even:border-l sm:even:pl-6">
-                <h3 class="font-heading text-lg font-semibold text-heading">{item.title}</h3>
-                <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
-              </article>
-            ))
-          }
-        </div>
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-accent">02 | Screen the architecture</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
+          Pair every thermal gain with its hydraulic and manufacturing cost
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The source material did not identify one universally best internal structure. It screened posts, channels,
+          fins, impingement, periodic surfaces, and topology-led paths by comparing heat transfer, pressure loss,
+          formation quality, and product-scale verification.
+        </p>
       </div>
+
+      <div class="mt-8 overflow-x-auto border-y border-page-border">
+        <table class="w-full min-w-[70rem] text-left lg:min-w-0">
+          <thead>
+            <tr class="border-b border-page-border text-sm text-muted">
+              <th class="w-[18%] px-4 py-3 font-semibold text-heading">Candidate architecture</th>
+              <th class="w-[30%] px-4 py-3 font-semibold text-heading">Observation from the supplied studies</th>
+              <th class="w-[27%] px-4 py-3 font-semibold text-heading">What can make it fail</th>
+              <th class="px-4 py-3 font-semibold text-heading">Evidence needed for a decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              architectureComparisons.map((row) => (
+                <tr class="border-b border-page-border last:border-0">
+                  <td class="px-4 py-4 align-top font-semibold text-heading">{row.architecture}</td>
+                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.studyObservation}</td>
+                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.designRisk}</td>
+                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.decisionEvidence}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 max-w-4xl text-xs leading-5 text-muted">
+        These are project-specific screening observations from the supplied engineering material, not universal
+        rankings. Geometry, material, scale, heat flux, coolant, flow range, and acceptance limits can change the
+        outcome.
+      </p>
     </div>
   </section>
 
-  <section id="engineering-workflow" class="scroll-mt-24 border-b border-page-border bg-surface py-12 sm:py-16">
+  <section id="model-fidelity" class="scroll-mt-24 border-b border-page-border bg-surface py-12 sm:py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+        <div>
+          <p class="text-sm font-semibold text-accent">03 | Control model fidelity</p>
+          <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
+            A small assembly assumption can move the hotspot
+          </h2>
+        </div>
+        <div>
+          <p class="leading-7 text-muted">
+            A representative motor-cooling brief allocated losses to the winding, stator core, rotor core, and magnets,
+            then routed one inlet into four parallel cooling branches around assembly keep-outs.
+          </p>
+          <p class="mt-4 leading-7 text-muted">
+            When a later model version updated the assembly air-gap representation, predicted component temperatures
+            shifted materially and unevenly even though the channel concept and reported hydraulic loss remained
+            similar. The lesson is not a performance number: the assembled heat path can matter more than another round
+            of channel-shape refinement.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-7 lg:grid-cols-2">
+        <figure class="border-t border-page-border pt-5">
+          <div class="overflow-hidden rounded-lg border border-page-border bg-white">
+            <Image
+              src={motorCoolingLayoutImage}
+              alt="One inlet divided into four parallel circular cooling branches around a central opening"
+              class="aspect-[4/3] w-full object-contain p-4"
+              widths={[480, 720, 960]}
+              sizes="(max-width: 1023px) calc(100vw - 2rem), 480px"
+              width={1040}
+              height={781}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption class="mt-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Model input | flow circuit</p>
+            <h3 class="mt-2 font-heading text-xl font-semibold text-heading">Define the branch topology</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">
+              Record total flow, pump-head budget, branch resistance, local restrictions, and the distribution evidence
+              needed before accepting a parallel circuit.
+            </p>
+          </figcaption>
+        </figure>
+
+        <figure class="border-t border-page-border pt-5">
+          <div class="overflow-hidden rounded-lg border border-page-border bg-white">
+            <Image
+              src={motorCoolingAssemblyImage}
+              alt="Four-branch cooling channel layout positioned inside a motor housing with assembly keep-outs"
+              class="aspect-[4/3] w-full object-contain p-4"
+              widths={[480, 720, 960]}
+              sizes="(max-width: 1023px) calc(100vw - 2rem), 480px"
+              width={1067}
+              height={752}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption class="mt-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+              Model input | assembled heat path
+            </p>
+            <h3 class="mt-2 font-heading text-xl font-semibold text-heading">Place cooling inside the real assembly</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">
+              Channel clearance, axial position, gaps, contacts, material interfaces, and source-to-coolant distance all
+              belong in the model, not only in the final CAD review.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <ol class="mt-10 grid border-y border-page-border sm:grid-cols-2 lg:grid-cols-4">
+        {
+          modelReviewChecks.map((item, index) => (
+            <li class="border-b border-page-border px-5 py-6 sm:even:border-l lg:border-b-0 lg:border-l lg:first:border-l-0">
+              <span class="font-mono text-sm font-semibold text-accent">{String(index + 1).padStart(2, '0')}</span>
+              <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{item.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <p class="mt-5 max-w-4xl text-xs leading-5 text-muted">
+        Source note: the two images above were extracted from the motor-cooling design brief supplied for this website.
+        Project-specific dimensions, loads, temperatures, and operating values are intentionally omitted. The brief
+        documents a steady-state model iteration, not a completed physical validation or manufacturing claim.
+      </p>
+    </div>
+  </section>
+
+  <section id="engineering-workflow" class="scroll-mt-24 border-b border-page-border bg-page py-12 sm:py-16">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-accent">03 | Close the engineering loop</p>
+        <p class="text-sm font-semibold text-accent">04 | Close the engineering loop</p>
         <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
           From requirements to manufacturable, testable hardware
         </h2>
@@ -458,96 +665,138 @@ const metadata = {
       </div>
 
       <p class="mt-6 max-w-4xl text-xs leading-5 text-muted">
-        Source note: the three images above were extracted from the engineering material supplied for this website. They
-        illustrate the workflow only; they are not universal performance claims or a finished-part guarantee.
+        Source note: the three images above were extracted from BLT partner thermal-management engineering material
+        supplied for publication. They illustrate the optimization-to-reconstruction workflow only; they are not
+        universal performance claims or a finished-part guarantee.
       </p>
     </div>
   </section>
 
-  <section class="border-b border-page-border bg-page py-12 sm:py-16" aria-labelledby="system-tradeoffs">
+  <section class="border-b border-page-border bg-surface py-12 sm:py-16" aria-labelledby="source-study-evidence">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-accent">04 | Make the trade-off explicit</p>
-        <h2 id="system-tradeoffs" class="mt-2 font-heading text-3xl font-bold text-heading">
-          Better cooling is a system result
+        <p class="text-sm font-semibold text-accent">05 | Read the evidence chain</p>
+        <h2 id="source-study-evidence" class="mt-2 font-heading text-3xl font-bold text-heading">
+          What the supplied cold-plate studies actually demonstrate
         </h2>
         <p class="mt-4 leading-7 text-muted">
-          More area or geometric complexity does not automatically improve the assembled system. A useful design
-          decision connects its intended benefit to a failure mode and the evidence needed to control it.
+          The strongest engineering content is not a single temperature image. It is the progression from coupons to
+          product-scale cores, internal inspection, paired thermal and hydraulic measurements, and a test rig built
+          around the decision variables.
         </p>
       </div>
 
-      <div class="mt-8 overflow-x-auto border-y border-page-border">
-        <table class="w-full min-w-[58rem] text-left">
-          <thead>
-            <tr class="border-b border-page-border text-sm text-muted">
-              <th class="w-[20%] px-4 py-3 font-semibold text-heading">Design decision</th>
-              <th class="w-[23%] px-4 py-3 font-semibold text-heading">Intended benefit</th>
-              <th class="w-[29%] px-4 py-3 font-semibold text-heading">Failure risk</th>
-              <th class="px-4 py-3 font-semibold text-heading">Evidence to request</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              tradeoffs.map((row) => (
-                <tr class="border-b border-page-border last:border-0">
-                  <td class="px-4 py-4 align-top font-semibold text-heading">{row.decision}</td>
-                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.benefit}</td>
-                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.risk}</td>
-                  <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.evidence}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <ol class="mt-8 grid gap-px overflow-hidden rounded-md border border-page-border bg-page-border sm:grid-cols-2">
+        {
+          sourceStudyEvidence.map((item, index) => (
+            <li class="bg-page p-6 sm:p-7">
+              <span class="font-mono text-sm font-semibold text-accent">{String(index + 1).padStart(2, '0')}</span>
+              <h3 class="mt-3 font-heading text-xl font-semibold text-heading">{item.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="mt-8 grid gap-5 border-y border-page-border py-6 sm:grid-cols-[0.82fr_1.18fr] sm:gap-10">
+        <h3 class="font-heading text-xl font-semibold text-heading">The design gate is paired evidence</h3>
+        <p class="text-sm leading-6 text-muted">
+          A unit cell is not approved because it has more area, and an optimization plot is not approved because it
+          looks organic. The route advances only when thermal benefit, pressure loss, flow distribution, build evidence,
+          cleaning, and inspection remain compatible at the relevant scale.
+        </p>
       </div>
     </div>
   </section>
 
-  <section id="validation-plan" class="scroll-mt-24 border-b border-page-border bg-surface py-12 sm:py-16">
+  <section id="validation-plan" class="scroll-mt-24 border-b border-page-border bg-page py-12 sm:py-16">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
-        <div>
-          <p class="text-sm font-semibold text-accent">05 | Plan validation before release</p>
-          <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
-            Match evidence to the real failure consequence
-          </h2>
-          <p class="mt-4 leading-7 text-muted">
-            Not every part needs every test. The quotation should identify which evidence is included, the method and
-            acceptance limit, and which party owns system-level thermal verification.
-          </p>
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-accent">06 | Plan validation before release</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
+          Match each engineering question to an observable result
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Not every project needs every test. The quotation should identify the question, observable, method, acceptance
+          limit, included record, and the party responsible for final system-level thermal verification.
+        </p>
+
+        <div class="mt-8 overflow-x-auto border-y border-page-border">
+          <table class="w-full min-w-[70rem] text-left lg:min-w-0">
+            <thead>
+              <tr class="border-b border-page-border text-sm text-muted">
+                <th class="w-[24%] px-4 py-3 font-semibold text-heading">Question to answer</th>
+                <th class="w-[24%] px-4 py-3 font-semibold text-heading">Observable</th>
+                <th class="w-[27%] px-4 py-3 font-semibold text-heading">Possible method</th>
+                <th class="px-4 py-3 font-semibold text-heading">Customer-facing evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                validationEvidence.map((row) => (
+                  <tr class="border-b border-page-border last:border-0">
+                    <td class="px-4 py-4 align-top font-semibold text-heading">{row.question}</td>
+                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.observable}</td>
+                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.method}</td>
+                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.output}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
         </div>
 
-        <div class="grid gap-px overflow-hidden rounded-md border border-page-border bg-page-border sm:grid-cols-2">
-          {
-            validationStages.map((item) => (
-              <article class="bg-page p-6">
-                <Icon name={item.icon} class="h-6 w-6 text-accent" />
-                <h3 class="mt-4 font-heading text-lg font-semibold text-heading">{item.title}</h3>
-                <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
-              </article>
-            ))
-          }
-        </div>
+        <p class="mt-4 max-w-4xl text-xs leading-5 text-muted">
+          Methods are selected by project risk and scope. Listing a method here does not mean it is included in every
+          quotation or that the source studies constitute certification of a new part.
+        </p>
       </div>
+    </div>
+  </section>
+
+  <section id="design-deliverables" class="scroll-mt-24 border-b border-page-border bg-surface py-12 sm:py-16">
+    <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+      <div>
+        <p class="text-sm font-semibold text-accent">07 | Define the deliverable</p>
+        <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
+          A thermal project should leave an auditable decision record
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The output is more than a visually complex CAD model. Scope should state what was assumed, which candidates
+          were rejected, why the selected route advanced, what evidence is included, and which system-level questions
+          remain with the customer.
+        </p>
+      </div>
+
+      <ul class="border-y border-page-border">
+        {
+          designDeliverables.map((item, index) => (
+            <li class="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-page-border py-4 last:border-0">
+              <span class="font-mono text-sm font-semibold text-accent">{String(index + 1).padStart(2, '0')}</span>
+              <span class="text-sm leading-6 text-muted">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 
   <section class="border-b border-page-border bg-page py-12 sm:py-16" aria-labelledby="thermal-rfq-inputs">
     <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-14">
       <div>
-        <p class="text-sm font-semibold text-accent">Start a design review</p>
+        <p class="text-sm font-semibold text-accent">Two project entry points</p>
         <h2 id="thermal-rfq-inputs" class="mt-2 font-heading text-3xl font-bold text-heading">
-          Send the constraints that decide the geometry
+          Send a thermal brief or build-ready CAD
         </h2>
         <p class="mt-4 leading-7 text-muted">
-          Finished CAD is useful but not mandatory for design-stage work. Unknown fields can remain open if the brief
-          separates confirmed requirements from assumptions.
+          A design-stage brief starts with losses, temperature limits, coolant, the assembled heat path, envelope, and
+          open assumptions. Build-ready CAD starts with DfAM, material, machining, inspection, and acceptance review.
+          Unknown fields can remain open when they are clearly separated from confirmed requirements.
         </p>
         <Button
           variant="primary"
           text="Submit thermal requirements or CAD"
-          href="/rfq/?project=heat-exchanger#rfq-form"
+          href="/rfq/#rfq-form"
           icon="tabler:file-upload"
           class="mt-6"
         />
