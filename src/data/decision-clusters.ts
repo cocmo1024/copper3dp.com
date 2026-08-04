@@ -410,6 +410,13 @@ export const decisionClusters: DecisionCluster[] = [
     ],
     guides: [
       {
+        topicId: 'T099',
+        title: 'Release a Copper LPBF Thermal Part with the Right Evidence',
+        description:
+          'Connect alloy, powder, representative geometry, cleaning, final material state, inspection, and functional tests in one risk-based release plan.',
+        href: '/posts/EngineeringGuide/copper-lpbf-thermal-hardware-release-guide/',
+      },
+      {
         topicId: 'T035',
         title: 'Why Relative Density Cannot Predict Conductivity',
         description: 'Keep porosity evidence in its proper role and specify conductivity separately.',
