@@ -40,7 +40,7 @@ It is:
 
 > Can this specific copper part be manufactured, cleaned, inspected, and released with evidence that matches its service conditions?
 
-This guide organizes that evidence into a practical release chain. It does not replace an application-specific qualification plan, drawing, specification, or approval by the responsible engineering and quality teams.
+This guide organizes that evidence into a practical release chain. Use the [quality and acceptance decision path](/knowledge/decision-guides/#quality-acceptance) to place it within the wider finished-part evidence framework. It does not replace an application-specific qualification plan, drawing, specification, or approval by the responsible engineering and quality teams.
 
 ## Begin with the operating requirement, not the alloy name
 

@@ -11,6 +11,7 @@ export const articleSlugs = [
   'electrical-isolation-fluid-routing-copper-am-charger-cooling-blocks',
   'co-designing-rf-current-paths-vacuum-channels-copper-plasma-hardware',
   'flatness-cleanliness-traceability-copper-metrology-components',
+  'copper-lpbf-thermal-hardware-release-guide',
   'why-relative-density-alone-cannot-predict-copper-am-conductivity',
   'proof-pressure-helium-leak-flow-test-copper-am-acceptance',
 ];
