@@ -30,6 +30,7 @@ This append-only record prevents the 200-topic publishing plan from selecting th
 | T032     | Allocating Datums and Inspection Features on Copper LPBF Drawings                     | https://copper3dp.com/posts/EngineeringGuide/allocating-datums-and-inspection-features-on-copper-lpbf-drawings/                     | 2026-07-19   | `de9a2c5a` | HTTP 200; canonical, BlogPosting, parent backlink, RFQ path, and sitemap verified  |
 | T036     | Copper AM Qualification Coupons: Placement, Orientation, and Measurements             | https://copper3dp.com/posts/EngineeringGuide/copper-am-qualification-coupons-placement-orientation-and-measurements/                | 2026-07-20   | `809926db` | HTTP 200; canonical, BlogPosting, parent backlinks, RFQ path, and sitemap verified |
 | T042     | Copper Microchannel Cold Plate Clogging: Channel Size, Filtration, and Cleaning       | https://copper3dp.com/posts/EngineeringGuide/copper-microchannel-cold-plate-clogging-channel-size-filtration-and-cleaning/          | 2026-07-20   | `809926db` | HTTP 200; canonical, BlogPosting, parent backlink, RFQ path, and sitemap verified  |
+| T099     | Copper LPBF Beyond “Can It Print?”: What It Takes to Release a Real Thermal Part      | https://copper3dp.com/posts/EngineeringGuide/copper-lpbf-thermal-hardware-release-guide/                                            | 2026-08-04   | `c9339d36` | HTTP 200; canonical, BlogPosting, cover, cluster, RFQ, and sitemap verified        |
 
 ## Skipped Topic Reviews
 
