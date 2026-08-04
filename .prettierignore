@@ -3,5 +3,7 @@ node_modules
 .github
 .changeset
 .playwright-cli
+.wrangler/
+会话_*/
 output
 src/data/post/*.md

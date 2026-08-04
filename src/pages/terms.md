@@ -1,6 +1,9 @@
 ---
 title: 'Terms and Conditions'
 description: 'COPPER 3DP terms for website use, preliminary RFQ discussions, technical content, CAD file submission, quotation scope, and engineering guidance.'
+robots:
+  index: false
+  follow: true
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 

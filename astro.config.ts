@@ -80,6 +80,7 @@ const shouldIndexSitemapPage = (page: string) => {
     !pathname.startsWith('/blog/tag') &&
     !pathname.startsWith('/blog/category') &&
     pathname !== '/media-credits' &&
+    pathname !== '/terms' &&
     !isPaginatedArchive &&
     !isStaticLegacyFallback
   );

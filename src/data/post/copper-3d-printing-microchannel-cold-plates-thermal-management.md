@@ -1,15 +1,15 @@
 ---
-title: '3D Printed Copper Microchannel Cold Plates: Design Guide'
+title: '3D Printed Copper Cooling Plates: Microchannel Design Guide'
 publishDate: 2026-05-12
 updateDate: 2026-07-11
-excerpt: 'When 3D printed copper microchannel cold plates beat machined or brazed routes, and how to specify channels, pressure drop, cleaning, leak testing, and RFQ acceptance.'
+excerpt: 'When 3D printed copper cooling plates beat machined or brazed routes, and how to specify cleanable microchannels, pressure drop, leak testing, and RFQ acceptance.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'thermal-management', 'micro-channel-heat-exchangers', 'rfq-specification', 'quality-inspection', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-3d-printing-microchannel-cold-plate-cross-section.webp
 metadata:
-  title: '3D Printed Copper Microchannel Cold Plates'
-  description: 'Design 3D printed copper microchannel cold plates around channel access, pressure drop, powder removal, machined interfaces, leak testing, and first-article acceptance.'
+  title: '3D Printed Copper Cooling Plates: Design Guide'
+  description: 'Design 3D printed copper cooling plates around cleanable microchannels, pressure drop, machined interfaces, leak testing, and first-article acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/copper-3d-printing-microchannel-cold-plates-thermal-management/
 ---
 

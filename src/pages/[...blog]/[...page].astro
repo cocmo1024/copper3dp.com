@@ -21,9 +21,9 @@ const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `Engineering Library${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
+  title: `Copper 3D Printing Engineering Library${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
   description:
-    'Find copper additive manufacturing guidance by engineering intent: thermal management, electrical and RF parts, semiconductor equipment, tooling, materials, inspection, and RFQ preparation.',
+    'Engineering guides for copper 3D printing, thermal management, materials, inspection, design limits, and RFQ preparation for custom parts.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -52,7 +52,9 @@ const metadata = {
   <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
     <header class="max-w-3xl">
       <p class="text-sm font-semibold text-primary">Technical content</p>
-      <h1 class="mt-3 font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">Engineering Library</h1>
+      <h1 class="mt-3 font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">
+        Copper 3D Printing Engineering Library
+      </h1>
       <p class="mt-5 text-lg leading-8 text-muted">
         Browse by application or engineering decision, then open the guide closest to the part, requirement, or
         acceptance question you are working through.

@@ -8,8 +8,8 @@ tags: ['copper-heat-sinks', 'feasibility', 'process-selection', 'thermal-managem
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/3d-printed-copper-heat-sinks-feasibility/01-3d-printed-copper-heat-sinks-feasibility-1-9f1a216c.webp
 metadata:
-  title: '3D Printed Copper Heat Sinks: Feasibility Guide'
-  description: 'When a 3D printed copper heat sink makes sense, when conventional manufacturing is better, and what geometry, material, finishing, testing, and RFQ inputs decide feasibility.'
+  title: '3D Printed Copper Heat Sinks: When AM Works'
+  description: 'Decide when 3D printed copper heat sinks make sense over machining, skiving, or brazing. Compare geometry, materials, finishing, testing, and RFQ inputs.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/
 ---
 
