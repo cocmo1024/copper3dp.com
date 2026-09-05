@@ -1,6 +1,7 @@
 ---
 title: '3D Printed Copper Cold Plates for AI Accelerators'
 publishDate: 2026-05-04
+updateDate: 2026-09-05
 excerpt: 'RFQ guide for AI accelerator copper cold plates: heat-flux map, microchannels, manifolds, flatness, leak testing, cleaning, and inspection inputs.'
 category: Engineering Guide
 tags: ['ai-accelerator-cooling', 'copper-cold-plates', 'micro-channel-heat-exchangers', 'thermal-management', 'rfq-specification', 'engineering-guide']
@@ -130,6 +131,12 @@ Do not ask for maximum inspection by default. Ask for inspection that matches th
 | Thermal uncertainty | Thermal test plan, instrumented prototype, or customer-side validation |
 
 Prototype work may start with geometry, pressure, leak, and flow checks. Qualification hardware may need deeper documentation.
+
+## Separate the package review from the loop acceptance
+
+For multiple accelerator packages, keep the contact stack, clamping conditions and heat-source locations in the same revision as the fluid model. A satisfactory total coolant flow does not establish how that flow divides between packages. Define whether branch flow, local temperatures, or both must be demonstrated, and which system-level work remains with the customer.
+
+Use the existing [dual-GPU design-review scenario](/posts/EngineeringGuide/copper-am-cold-plate-case-study-dual-gpu-ai-accelerator-modules/) to structure the package discussion; it is illustrative, not a measured customer result. Then use the [flow-distribution acceptance guide](/posts/EngineeringGuide/flow-distribution-acceptance-testing-multi-passage-copper-heat-exchangers/) for the test decision and the [cold plate RFQ checklist](/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/) for supplier responsibilities. If these details are still open, [start an inquiry with the information available](/rfq/?project=heat-exchanger).
 
 ## Practical RFQ Email
 

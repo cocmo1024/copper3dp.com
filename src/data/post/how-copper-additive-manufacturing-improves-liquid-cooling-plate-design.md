@@ -1,7 +1,7 @@
 ---
 title: 'How Copper Additive Manufacturing Improves Liquid Cooling Plate Design'
 publishDate: 2026-05-14
-updateDate: 2026-05-18
+updateDate: 2026-09-05
 excerpt: 'A practical engineering guide to copper additive manufacturing for liquid cooling plate design, including internal channels, manifolds, material choice, pressure drop, cleaning, testing, and RFQ inputs.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'thermal-management', 'liquid-cooling', 'copper-3dp', 'rfq-specification', 'engineering-guide']
@@ -72,7 +72,7 @@ Liquid cooling plate performance is usually controlled by three questions:
 
 Copper additive manufacturing gives designers more freedom in the first two questions, but it can make the third question harder if the channel network is too aggressive. A CFD model may reward small hydraulic diameters, sharp turns, and dense branching. The printed part adds internal roughness, trapped-powder risk, cleaning uncertainty, and local flow imbalance.
 
-We have seen designs where a 0.8 mm channel looked excellent in simulation but created too much powder removal risk for the available ports. Moving selected passages toward 1.2-1.8 mm reduced the theoretical surface area, but it made the channel network more realistic for printing, flushing, and first-article testing.
+A narrow simulated passage may be a poor manufacturing choice when the available ports do not support powder removal. Evaluate a larger or more accessible passage as a candidate, then compare thermal and hydraulic behavior under unchanged boundary conditions. No universal channel dimension is established here; the [channel cleaning and clogging guide](/posts/EngineeringGuide/copper-microchannel-cold-plate-clogging-channel-size-filtration-and-cleaning/) explains the evidence needed before fixing that dimension.
 
 That is the practical ledger: the most elegant thermal model is not always the best manufactured part.
 

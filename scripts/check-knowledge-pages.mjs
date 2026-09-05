@@ -77,6 +77,7 @@ const result = {
     zblog: /zblog/i.test(allHtml),
     imagePrompt: /image prompt/i.test(allHtml),
     bracketedPlaceholder: /\[placeholder\]/i.test(allHtml),
+    internalOperationsSource: /Add or discover new sources for your notebook|Upgrade NotebookLM/.test(allHtml),
   },
 };
 

@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 
 const liveSitemapUrl = 'https://copper3dp.com/sitemap-0.xml';
 const localSitemapPath = new URL('../dist/sitemap-0.xml', import.meta.url);
-const urlPattern = /<loc>(https:\/\/copper3dp\.com\/[^<]+)<\/loc>/g;
+const urlPattern = /<loc>(https:\/\/copper3dp\.com\/[^<]*)<\/loc>/g;
 const requestHeaders = { 'user-agent': 'copper3dp-production-check/1.0' };
 
 const getUrls = (xml) => Array.from(xml.matchAll(urlPattern), (match) => match[1]).sort();
@@ -54,16 +54,13 @@ const main = async () => {
   const localUrls = getUrls(localXml);
   const liveUrls = new Set(getUrls(liveXml));
   const missing = localUrls.filter((url) => !liveUrls.has(url));
-  const criticalUrls = localUrls.filter(
-    (url) =>
-      url === 'https://copper3dp.com/' ||
-      url === 'https://copper3dp.com/copper-heat-sinks/' ||
-      url === 'https://copper3dp.com/copper-cold-plates/' ||
-      url === 'https://copper3dp.com/rfq/' ||
-      url.includes('/posts/EngineeringGuide/')
+  // Always probe these routes; alphabetical article sampling must not displace the RFQ page.
+  const criticalUrls = ['/', '/rfq/', '/copper-heat-sinks/', '/copper-cold-plates/', '/thermal-design-validation/'].map(
+    (path) => `https://copper3dp.com${path}`
   );
+  const articleSample = localUrls.filter((url) => url.includes('/posts/EngineeringGuide/')).slice(0, 8);
 
-  const sample = [...criticalUrls.slice(0, 12), ...missing.slice(0, 8)].filter(
+  const sample = [...criticalUrls, ...articleSample, ...missing.slice(0, 8)].filter(
     (url, index, urls) => urls.indexOf(url) === index
   );
   const statuses = await Promise.all(sample.map(async (url) => [url, await getStatus(url)]));

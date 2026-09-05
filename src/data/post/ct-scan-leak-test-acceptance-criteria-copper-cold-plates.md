@@ -1,241 +1,86 @@
 ---
 title: 'CT and Leak Test Criteria for Copper Cold Plates'
 publishDate: 2026-02-01
-updateDate: 2026-07-11
-excerpt: 'Practical CT scan and leak test acceptance criteria for copper cold plates, including defect thresholds, escalation logic, and cost trade-offs.'
+updateDate: 2026-09-05
+excerpt: 'Specify copper cold plate CT inspection by critical region, detection capability, uncertainty, and disposition, then separate leak, proof, and flow acceptance.'
 category: Engineering Guide
 tags: ['copper-cold-plates', 'quality-inspection', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
-image: ~/assets/images/online-posts/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/01-ct-scan-leak-test-acceptance-criteria-copper-cold-plates-1-1c3947f1.webp
 metadata:
   title: 'CT and Leak Test Criteria for Copper Cold Plates'
-  description: 'Practical CT scan and leak test acceptance criteria for copper cold plates, including defect thresholds, escalation logic, and cost trade-offs.'
+  description: 'Specify copper cold plate CT inspection by critical region, detection capability, uncertainty, and disposition, then separate leak, proof, and flow acceptance.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/
 ---
 
-> Copper cold plate CT scan and leak test acceptance criteria only work when they are written as a trade-off ledger: defect risk vs. test sensitivity vs. throughput cost.
+CT and leak testing answer different questions. CT can investigate hidden geometry and detectable internal indications; a leak test measures leakage under a defined setup. Neither a clean-looking scan nor a high relative-density result establishes that a finished cold plate meets its operating requirements.
 
-When a copper cold plate fails in the field, it rarely fails because “copper is weak.” It fails because a hidden void intersects a thin wall, a braze bridge becomes a leak path after thermal cycling, or a printed channel necks down until pressure drop and hotspot drift become the real defect. CT scanning and leak testing exist to prevent those failure modes, but “pass/fail” is meaningless unless you define (1) what defects matter for your geometry and duty cycle, and (2) what detection limits are realistic for the chosen inspection method.
+This guide focuses on writing the **CT inspection and disposition portion** of a cold plate acceptance plan. For the broader choice between proof, helium leak, and flow tests, use the [test-method selection guide](/posts/EngineeringGuide/proof-pressure-helium-leak-flow-test-copper-am-acceptance/).
 
-This article provides an engineering-grade acceptance framework you can adapt to your specific cold plate design (machined + bonded, brazed stack, vacuum-brazed, or 3D printed copper). It is intentionally explicit about what criteria cost to enforce, what they miss, and how we structure escalation when results are ambiguous.
 
 
-1. What you are actually trying to guarantee
+## Start with a feature and failure consequence
 
-Most teams say they want “no leaks” and “good internal quality.” The real objective is narrower:
+Do not purchase “CT inspection” without identifying the question it must resolve. A thin pressure boundary, a restricted branch, and a machined port breaking into a channel need different regions of interest and reporting.
 
-A. Containment: no external leakage under specified pressure, temperature, and thermal cycling.
-B. Hydraulic integrity: no internal blockage or critical restriction beyond a defined pressure-drop limit.
-C. Structural margin: minimum ligament thickness around channels and ports so fatigue crack initiation probability stays below your tolerance.
-D. Process stability: defect rate stays predictable enough that procurement can plan yield and lead time.
+| Feature or concern | What to define before scanning | Evidence to request |
+| --- | --- | --- |
+| Wall between coolant and electronics | Critical region, final-state wall requirement, loading basis, and agreed decision rule | Registered sections and local wall measurements with uncertainty relevant to the feature |
+| Port-to-channel transition | Finished port geometry, machining datum, and required remaining material | Model-to-scan registration and measurements at the actual transition |
+| Narrow or branching passage | Critical cross-sections, permissible geometric deviation, and accessible inspection route | Local section measurements and a separate functional flow result |
+| Internal indication near a sealing land | Location, morphology, size descriptors, and escalation responsibility | Annotated indication map and disposition, not only an overall porosity percentage |
 
-Acceptance criteria should map to these guarantees directly. Anything that doesn’t reduce risk on A–D becomes noise (and cost).
+The engineering owner sets the acceptance limits from the design and applicable requirements. A supplier should not invent a generic “production class” that silently substitutes for those limits. Read the [printed-channel and machined-port tolerance guide](/posts/EngineeringGuide/tolerance-stack-up-for-copper-am-parts-with-printed-channels-and-machined-ports/) before fixing the inspection region.
 
-2. CT scan: what it can and cannot prove
+## Voxel size is not a guaranteed detection limit
 
-Computed tomography (CT) is strongest at detecting internal geometry deviations and volumetric defects (voids, lack of fusion, inclusions) when the scan resolution (voxel size) and contrast are sufficient. It is weaker when you ask it to quantify very tight surface-connected microcracks, or when your part geometry causes beam-hardening and scatter that bury defects in artifacts.
+Ask the inspection provider to explain whether the selected setup can answer the specific feature question through the relevant copper section. Record acquisition settings, reconstruction and segmentation approach, part orientation, and any region that cannot be evaluated confidently.
 
-Key CT limitations we have encountered in copper cold plates:
+Nominal voxel size alone is not a dimensional uncertainty statement or a guarantee that every defect of that size will be found. NIST research shows that acquisition parameters affect image noise and the probability of detecting simulated AM defects. It does not establish a universal copper cold plate threshold. [NIST study on CT acquisition and detection](https://www.nist.gov/publications/influence-x-ray-computed-tomography-acquisition-parameters-image-quality-and).
 
-- Copper is high density; attenuation forces higher tube energy and longer exposure, which increases cycle time and reduces throughput.
-- Fine channels and thin walls create partial-volume effects: the measured wall thickness can shift by 1–3 voxels depending on thresholding.
-- Beam-hardening and ring artifacts can imitate “shadow voids” near sharp edges, especially around ports and thicker bosses.
-- Very thin, surface-connected cracks can be missed if their opening is below the effective voxel size or aligned with the scan direction.
+For dimensional acceptance, agree how the measurement result and its uncertainty enter the decision. The need for traceability and quantitative uncertainty is discussed in [NIST work on dimensional CT traceability](https://www.nist.gov/publications/charting-course-towards-dimensional-measurement-traceability-x-ray-computed-tomography). Do not replace that discussion with an unsupported rule such as “three voxels always passes.”
 
-Practical inference: CT acceptance must be written in terms of “detectable defect classes at defined scan settings,” not as a blanket guarantee of perfection.
+## Define pass, fail, and indeterminate before the first article
 
-CT scan inputs that must be declared in a procurement-ready acceptance spec
+A useful acceptance plan allows an **indeterminate** result. If an artifact obscures the critical wall, reporting “no defect detected” without that limitation is not a defensible release decision.
 
-If you want CT results to be comparable across suppliers and batches, specify the minimum reporting fields:
+- **Pass:** the agreed method adequately evaluates the required region and the result satisfies the stated decision rule.
+- **Fail:** the evaluated result violates a controlled requirement. Record the feature, evidence, and disposition authority.
+- **Indeterminate:** coverage, contrast, uncertainty, or an ambiguous indication prevents a reliable decision. Hold release of the affected requirement while the owner agrees another scan setup, another method, a representative section, or a design change.
 
-- Voxel size (µm) and scan region of interest (full part vs. channel zone only).
-- Tube voltage/current and filtration (reported, not necessarily mandated).
-- Reconstruction method and artifact controls (ring artifact correction on/off; beam-hardening correction).
-- Segmentation method for wall thickness and channel diameter (threshold or dual-threshold).
-- Measurement uncertainty statement for wall thickness and channel diameter (e.g., ±(2–3 voxels)).
+These are proposed workflow states, not standardized cold plate quality classes. Rework, impregnation, local repair, or changed acceptance limits require explicit engineering approval and a revised verification plan. They are not automatic remedies for a thin pressure boundary.
 
-Without these, you cannot interpret “no defects found” consistently.
+## Keep CT, leak, proof, and flow results separate
 
-3. Leak testing: you are selecting a sensitivity and a physics model
+A leak result must identify the test method, medium, pressure reference, temperature or stabilization controls, fixture boundary, limit and units, instrument capability, and tested part state. Fixture leakage must be distinguished from part leakage. “Helium tested” without these fields cannot be compared across suppliers.
 
-Leak tests do not measure “quality.” They measure whether a pressure boundary allows mass flow under a chosen driving force. The method you choose sets the detection threshold and determines what “pass” actually means.
+Proof testing addresses the agreed pressure-loading requirement; it is not the same as measuring leakage sensitivity. Define the pressure and sequence through the responsible engineering process, not a multiplier copied from a general article. Testing pressure systems also requires a suitable safety procedure.
 
-Common methods for cold plates:
+Flow testing can reveal a restriction but may not identify its location. Total flow can also conceal unequal branches. Where distribution matters, use the [multi-passage flow acceptance guide](/posts/EngineeringGuide/flow-distribution-acceptance-testing-multi-passage-copper-heat-exchangers/). Cleaning verification remains a separate requirement; see [internal-channel powder removal](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/).
 
-- Pressure decay (air or nitrogen): good for gross leaks, fast, low cost; sensitivity depends on volume, temperature stability, and time.
-- Helium mass spectrometer (sniffer or vacuum chamber): high sensitivity, higher cost, better at micro-leaks; requires cleanliness and process discipline.
-- Bubble immersion: intuitive, cheap, detects gross leaks; not a quantitative micro-leak method.
-- Flow-through / rate-of-rise variants: used when internal volume and temperature drift are controlled.
+## A release record that a buyer can actually review
 
-The core variables that dominate your leak test capability:
+For each critical requirement, request:
 
-- Test pressure (bar or kPa) and stabilization time (s).
-- Internal volume (cm³) and its temperature drift (°C) during test.
-- Allowed leak rate threshold (e.g., mbar·L/s for helium, sccm for air-equivalent).
-- Part sealing method during test (fixture o-rings, port plugs, brazed adapters).
+1. Part identifier, drawing revision, material and final processing state.
+2. Feature or region of interest and the controlled requirement reference.
+3. Inspection procedure, equipment identity, coverage and relevant capability limitations.
+4. Result, units, uncertainty or detection qualification where applicable, and supporting images or data.
+5. Pass, fail, or indeterminate disposition with the approving role and any open concession.
 
-![Side-by-side comparison of pressure decay and helium chamber leak testing setups for copper cold plates.](../../assets/images/online-posts/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/02-ct-scan-leak-test-acceptance-criteria-copper-cold-plates-2-93c433dc.webp)
+For metal powder-bed-fusion parts, [ISO/ASTM 52908:2023](https://www.iso.org/standard/81779.html) addresses qualification, quality assurance, post-processing, inspection and testing. The public scope does not supply the part-specific wall, pore, proof-pressure or leakage limits for this checklist.
 
-4. A usable acceptance framework: tiered criteria by risk
+## Common procurement questions
 
-Because cold plate applications range from lab prototypes to mission-critical compute racks, a single threshold is either too strict (kills yield) or too loose (creates warranty failures). We recommend tiered acceptance classes, each tied to a clear use case.
+### Does every cold plate need a full-volume CT scan?
 
-Assumptions (explicit, because your use case may differ):
+No universal requirement is established here. Select coverage according to inaccessible features, failure consequences, process evidence, contractual requirements and demonstrated inspection capability. Accessible dimensions may be better measured directly.
 
-- Copper cold plates with channel wall thickness commonly in the 0.6–2.0 mm range.
-- Operating pressure typically < 10 bar, with thermal cycling that can exceed 10³ cycles in long-life deployments.
-- Failure cost is high when coolant contacts electronics; therefore containment is the primary gate for most customers.
+### Can a low porosity percentage replace a leak test?
 
-Acceptance Class A (Prototype / R&D)
+No. An overall percentage does not describe every indication's location, connectivity, or relationship to the finished pressure boundary. Keep the functional leakage requirement and its evidence.
 
-- Goal: fast iteration, identify gross build problems.
-- CT: geometry sanity check on critical zones only; report minimum wall thickness and obvious void clusters.
-- Leak test: pressure decay or bubble test at an agreed pressure; “no visible bubbles” or pressure drop below agreed limit.
-- Risk: micro-leaks and fatigue-initiating voids can pass; acceptable when failures are tolerable and learning speed matters.
+### What should be sent before the inspection plan is settled?
 
-Acceptance Class B (Pilot / Pre-production)
+Send the available CAD, critical regions, coolant and operating requirements, and the consequence of leakage or blockage. Mark unresolved limits as open questions. The [cold plate RFQ checklist](/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/) helps separate early review from released acceptance.
 
-- Goal: control yield and field reliability for limited release.
-- CT: full channel network inspection at declared voxel size; quantify minimum ligament thickness and major porosity clusters.
-- Leak test: pressure decay with defined stabilization + time window; optional helium sniff on suspect units.
-- Risk: smallest surface-connected defects may still escape; mitigated by sampling strategy and process control.
-
-Acceptance Class C (Production / High consequence leakage)
-
-- Goal: contain coolant reliably; reduce early-life failures.
-- CT: defined voxel size plus artifact criteria; explicit reject thresholds for voids near pressure boundary and for minimum wall thickness.
-- Leak test: helium mass spectrometer (vacuum chamber preferred for sensitivity), with declared threshold and fixture method.
-- Risk: CT misses sub-voxel cracks; helium catches many but not all if wetted paths are blocked by contamination.
-
-Acceptance Class D (Mission-critical / Long-life thermal cycling)
-
-- Goal: reduce fatigue-driven leaks over long service.
-- CT: stricter wall-thickness margin and defect proximity rules; higher sampling or 100% CT depending on geometry risk.
-- Leak test: helium chamber test + pressure proof test; optional thermal preconditioning before leak test.
-- Risk: cost and throughput hit; fixtures and calibration become part of acceptance risk.
-
-5. Recommended CT acceptance criteria for copper cold plates
-
-Below is a practical criteria set that teams can lift into an RFQ, then tune.
-
-5.1 Channel geometry and wall thickness (structural + hydraulic integrity)
-
-- Minimum ligament thickness around channels:
-  - Class B: t_min ≥ design t_min + 0.15 mm (or ≥ +3 voxels, whichever is larger)
-    - Class C/D: t_min ≥ design t_min + 0.25 mm (or ≥ +5 voxels, whichever is larger) Rationale: CT-derived thickness uncertainty and segmentation drift can easily be 2–3 voxels. If you set margin below measurement uncertainty, you get false rejects and endless arguments.
-- Channel hydraulic diameter deviation:
-  - Class B: ±0.10 mm in critical zones
-    - Class C/D: ±0.05 mm in critical zones Tie to pressure-drop budget; if your system tolerates ±10% flow variation, loosen this threshold and buy yield.
-- Blockage / un-fused powder / burr intrusion:
-  - Reject if any channel cross-section reduction exceeds 15% (Class B) or 10% (Class C/D) over any continuous length > 5 mm. This is more actionable than “no obstructions.”
-
-5.2 Porosity / voids and proximity to pressure boundary
-
-Define a “pressure boundary zone” as the material volume within a set distance from external surfaces and sealing interfaces. Then tie defect rules to that zone:
-
-- Surface-connected voids/cracks:
-  - Reject if CT shows a connected indication that intersects the boundary zone. CT cannot always prove connectivity, but you can use morphology + proximity as a conservative proxy.
-- Volumetric voids near boundary zone:
-  - Class B: reject if any single void equivalent diameter ≥ 0.6 mm within 0.5 mm of boundary.
-    - Class C/D: reject if any single void equivalent diameter ≥ 0.3 mm within 0.5 mm of boundary. The point is not the absolute number; it’s enforcing that large voids near thin walls are not negotiable.
-- Bulk porosity away from boundary zone:
-  - Class B: allow if total volumetric porosity fraction < 0.5% in non-critical volume.
-    - Class C/D: allow if < 0.2% in non-critical volume. If you do not have validated porosity fraction capability, replace this with a simpler “no void cluster exceeding X mm³ in ROI.”
-
-5.3 CT artifact and interpretability gate
-
-This is the “we can’t trust the scan” rule. It prevents false confidence:
-
-- Reject CT report (require re-scan) if ring artifacts obscure more than 10% of the channel perimeter in any critical slice stack, or if beam-hardening streaks intersect the boundary zone around ports. This is not a part reject; it is an evidence reject.
-
-![Decision matrix mapping CT scan and leak test results to ship, re-scan, rework, or reject outcomes for copper cold plates.](../../assets/images/online-posts/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/03-ct-scan-leak-test-acceptance-criteria-copper-cold-plates-3-ec5f1876.webp)
-
-6. Recommended leak test acceptance criteria
-
-Leak acceptance should be written as a method + threshold + fixture description. Otherwise, suppliers will select the cheapest method that still allows them to claim compliance.
-
-6.1 Pressure proof and pressure decay (baseline containment)
-
-- Proof pressure: 1.5× max operating pressure, hold 60–120 s, no visible deformation or fixture blow-off.
-- Pressure decay test:
-  - Stabilization: ≥ 30–60 s (depends on internal volume)
-    - Test window: 60–180 s
-    - Pass: pressure drop ≤ defined ΔP that corresponds to your allowable leak rate and system volume.
-
-Hard metric example (replace with your system numbers):
-
-- If internal volume ≈ 50 cm³ and test pressure = 6 bar, a pressure decay threshold equivalent to ≤ 1 sccm air-equivalent might be reasonable for production screening, but only if temperature drift is controlled within ±0.2°C during the test window. Temperature control is often the hidden failure mode of pressure decay tests.
-
-6.2 Helium mass spectrometer (micro-leak gate)
-
-- Method: vacuum chamber preferred; sniffing is acceptable for localized diagnosis but is operator-dependent.
-- Threshold (typical procurement language):
-  - Class C: ≤ 1×10⁻⁶ mbar·L/s He equivalent
-    - Class D: ≤ 1×10⁻⁷ mbar·L/s He equivalent These thresholds are common in high-consequence containment contexts, but they are not free: fixtures, cleanliness, and cycle time rise.
-
-Practical note from execution: we have seen “mysterious fails” disappear after adding a controlled drying step and banning certain lubricants on port threads. Helium leak testing punishes contamination and trapped moisture because they change outgassing behavior.
-
-7. The acceptance matrix you can hand to procurement
-
-Use this table to convert “CT results” into “ship / rework / scrap.” It is intentionally operational.
-
-| Defect / Condition | Detection | Class B Disposition | Class C/D Disposition | Typical Rework Path |
-| --- | --- | --- | --- | --- |
-| Min wall thickness below threshold | CT | Rework if localized and machinable | Reject (usually) | Add external boss, local machining + insert, redesign |
-| Channel constriction > limit | CT | Rework if accessible | Reject if in critical flow zone | Drill-out, EDM, redesign for powder removal |
-| Single void near boundary zone | CT | Case-by-case + leak test escalation | Reject | None (usually scrap) |
-| Void cluster away from boundary | CT | Accept if below cluster limit | Conditional accept + sample leak | Process tuning (print params, braze cycle) |
-| Evidence quality gate failed (artifacts) | CT | Re-scan | Re-scan | Adjust CT setup, re-fixture |
-| Pressure decay fail | Leak test | Diagnose; re-test after stabilization | Diagnose; helium confirm | Fixture check, seal replacement, cleaning |
-| Helium leak fail | Leak test | Reject or localized repair if proven external | Reject | Local braze repair (rare), scrap |
-
-8. Illustrative acceptance conflict: pressure decay, helium leak, and CT disagree
-
-Consider a cold plate that passes a pressure-decay screen but fails a more sensitive helium leak criterion. A coarse CT scan may not resolve the defect responsible for that leak, particularly near a threaded port transition where wall thickness, machining, and image artifacts interact.
-
-A defensible response is to:
-
-- Review the minimum ligament around the port transition.
-- Confirm that CT resolution is appropriate for the defect class.
-- Stabilize temperature before leak testing and validate the fixture seal.
-
-This route can increase inspection time and fixture cost, but it prevents CT, pressure decay, and helium testing from being treated as interchangeable evidence. The actual thresholds and sampling plan must come from application risk.
-
-9. Readiness check before you publish acceptance criteria
-
-Answer these as yes/no. Any “no” means your acceptance spec will create disputes or waste money.
-
-- Do you have a declared operating pressure, proof pressure, and allowable leak rate threshold tied to system risk?
-- Is your CT voxel size tied to the smallest defect class you care about, with a stated measurement uncertainty?
-- Did you define a pressure boundary zone (distance from external surfaces and seals) for proximity-based defect rules?
-- Are CT artifact limits included (evidence quality gate), so “bad scans” don’t become “bad parts” or false passes?
-- Is the leak test fixture method described (ports sealed how, o-ring material, torque spec), not just “perform leak test”?
-- Do you have an escalation rule: when pressure decay fails, does helium confirm, and who pays for re-test?
-
-10. Verdict: which acceptance strategy to choose
-
-Choose Class A if you are still changing geometry weekly and a failure is a learning event, not a catastrophe.
-
-Choose Class B if you need predictable yield and basic field reliability, but your cost ceiling cannot support helium testing on every unit.
-
-Choose Class C if coolant leakage has high consequence (electronics exposure, warranty risk), and you are ready to pay for higher discipline in fixtures, cleanliness, and CT reporting.
-
-Choose Class D only when long-life thermal cycling risk is a primary driver, and you can justify higher inspection cost via avoided downtime, liability, or replacement logistics.
-
-**FAQ: What is the most common mistake in CT acceptance criteria?**
-
-Writing “no internal defects” without stating voxel size, ROI, and artifact limits. That creates false certainty and inconsistent enforcement across suppliers.
-
-**FAQ: Can pressure decay replace helium leak testing for production?**
-
-It can screen gross leaks well, but micro-leak sensitivity depends on volume and temperature stability. If you cannot control drift within roughly ±0.2°C during the test window, pressure decay results become ambiguous.
-
-**FAQ: Should CT be 100% inspection?**
-
-Only when the geometry risk is high (thin ligaments, complex port transitions) or the cost of failure dominates inspection cost. Otherwise, combine CT sampling with stable process controls and 100% leak testing.
-
-**FAQ: How do we handle borderline CT indications?**
-
-Use an escalation ladder: re-scan ROI at tighter settings (evidence gate), then apply leak test escalation. If you cannot prove interpretability, treat it as an evidence failure and re-scan rather than arguing about the part.
-
----
+[Request a cold plate manufacturing and inspection review](/rfq/?project=heat-exchanger).

@@ -1,7 +1,7 @@
 ---
 import KnowledgePage from '~/components/knowledge/KnowledgePage.astro';
 import EvidenceBadge from '~/components/knowledge/EvidenceBadge.astro';
-import { evidenceLabels, knowledgeManifest } from '~/data/knowledge';
+import { evidenceLabels, knowledgeManifest, knowledgeSources } from '~/data/knowledge';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const sectionDetails = [
@@ -67,15 +67,14 @@ const sectionDetails = [
     title: 'Source index',
     description:
       'Trace technical statements to standards, research institutions, peer-reviewed work and official supplier data.',
-    metric: `${knowledgeManifest.counts.sources} unique URLs`,
+    metric: `${knowledgeSources.length} unique URLs`,
   },
 ] as const;
 
 const metadata = {
   title: 'Copper Additive Manufacturing Knowledge Center | COPPER 3DP',
   ignoreTitleTemplate: true,
-  description:
-    'Evidence-based copper additive manufacturing knowledge center covering materials, processes, equipment, applications, defects, quality, public cases, and 196 sources.',
+  description: `Evidence-based copper additive manufacturing knowledge center covering materials, processes, equipment, applications, defects, quality, public cases, and ${knowledgeSources.length} sources.`,
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
@@ -96,7 +95,7 @@ const metadata = {
   title="A traceable engineering map for copper additive manufacturing"
   introduction="Use this library to move from a functional requirement to a material, manufacturing route, validation plan, and quotable project scope. It consolidates public technical evidence without turning supplier values or research samples into universal capability claims."
   stats={[
-    { value: knowledgeManifest.counts.sources, label: 'Unique sources' },
+    { value: knowledgeSources.length, label: 'Unique sources' },
     { value: knowledgeManifest.counts.technical, label: 'Technical records' },
     { value: knowledgeManifest.counts.equipment, label: 'Equipment records' },
     { value: knowledgeManifest.counts.cases, label: 'Public cases' },

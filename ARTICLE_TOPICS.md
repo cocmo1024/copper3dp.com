@@ -1,5 +1,11 @@
 # Copper 3D Printing SEO Article Topic Library
 
+## Current use after the 2026-09-05 content review
+
+The library has 73 published engineering articles. This document is a historical topic bank, not an automatic publishing queue or a quota. Before adding a URL, compare the existing article inventory and its buyer decision. Refresh an existing URL when it already owns the intent. The current cycle adds no article URLs and prioritizes evidence, specific decision support, and inquiry pathways.
+
+Follow `CONTENT_UPDATE_GUIDE.md` if older cadence, word-count, or image-count suggestions below conflict with it. See [the content review and update register](docs/seo/content-review-2026-09-05.md) for this cycle's scope and remaining review work.
+
 ## Objective
 
 Generate 100 English SEO article topics for Copper 3D Printing / Copper Additive Manufacturing, focused on industrial RFQ intent. Avoid broad consumer-style topics.

@@ -42,6 +42,11 @@ const heatSinkFaqs = [
     description:
       'Common causes are weak thermal boundary conditions, poor contact flatness, excessive TIM thickness, fin spacing that starves airflow, blocked internal channels, and acceptance tests that do not match the final assembly.',
   },
+  {
+    title: 'What if the thermal design is not ready for quotation?',
+    description:
+      'Start with the heat load, source footprint, maximum component temperature, inlet air or coolant temperature, available space, and mounting constraints. Share the fan curve or coolant flow and pressure budget if known. Mark missing values as open so the review can separate assumptions from confirmed requirements before committing to a fin or channel layout.',
+  },
 ];
 
 const heatSinkShowcases = [
@@ -75,10 +80,10 @@ const heatSinkShowcases = [
 ];
 
 const metadata = {
-  title: '3D Printed Copper Heat Sinks | Custom LPBF Service',
+  title: 'Custom Copper Heat Sinks | 3D Printing & CAD Review',
   ignoreTitleTemplate: true,
   description:
-    'Custom 3D printed copper heat sink service for complex fins, pins, channels, pure copper or CuCrZr, machined thermal faces, inspection, and quotation support.',
+    'Custom copper heat sinks from CAD: review LPBF against CNC, skiving and brazing. Define airflow, machined interfaces and thermal acceptance before quotation.',
   openGraph: {
     images: [
       {
@@ -131,13 +136,13 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Copper heat sinks"
-    title="3D printed copper heat sink service for custom thermal hardware"
-    subtitle="Send CAD, quantity, thermal target, material preference if known, and interface or inspection requirements. We will compare LPBF copper AM with machining, skiving, and brazed construction before quoting."
+    title="Custom copper heat sinks, from CAD review to 3D printing"
+    subtitle="For OEM and engineering teams developing complex fins, pins, integrated cooling paths, or constrained thermal hardware. Send CAD or a thermal brief; we will compare LPBF copper AM with machining, skiving, and brazing before quoting."
     actions={[
       {
         variant: 'primary',
         text: 'Submit heat sink RFQ',
-        href: '/rfq/?project=Copper%20heat%20sink#rfq-form',
+        href: '/rfq/?project=heat-exchanger#rfq-form',
         icon: 'tabler:file-upload',
       },
       {
@@ -267,7 +272,7 @@ const metadata = {
       {
         title: 'Airflow or pressure drop',
         description:
-          'Rough surfaces and dense geometry can add flow penalty, so airflow, coolant, or pressure limits should be shared when relevant.',
+          'Share inlet temperature, the fan curve or coolant flow, and the pressure budget. Review the installed flow path and bypass gaps: a free-air fan rating does not establish the flow through dense fins.',
         icon: 'tabler:wind',
       },
       {
@@ -279,8 +284,12 @@ const metadata = {
       {
         title: 'Validation method',
         description:
-          'Thermal test setup, sensor locations, acceptable limits, and inspection scope should be stated if acceptance depends on them.',
+          'Agree the heat input, assembly orientation, clamp and interface conditions, sensor locations, and temperature limits. Compare designs at the same operating point, then confirm the selected route in the intended assembly.',
         icon: 'tabler:clipboard-check',
+        callToAction: {
+          text: 'Plan thermal design validation',
+          href: '/thermal-design-validation/#validation-plan',
+        },
       },
     ]}
   />
@@ -338,7 +347,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Submit heat sink RFQ',
-        href: '/rfq/?project=Copper%20heat%20sink#rfq-form',
+        href: '/rfq/?project=heat-exchanger#rfq-form',
         icon: 'tabler:file-upload',
       },
       {

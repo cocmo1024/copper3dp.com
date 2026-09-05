@@ -1,5 +1,11 @@
 # Copper AM Case Study Daily Content Plan
 
+## Current use after the 2026-09-05 content review
+
+Retain this plan as a historical idea library. Its title does not authorize daily publication. Existing representative scenarios are not measured customer case studies. Do not publish another case merely to satisfy cadence, image count, or keyword variation; first establish a distinct buyer decision and adequate evidence. Prefer improving an existing page when it already answers the task.
+
+`CONTENT_UPDATE_GUIDE.md` and [the current review register](docs/seo/content-review-2026-09-05.md) control new work. No new case-study URLs are planned for this cycle.
+
 ## Site Positioning
 
 COPPER 3DP is a B2B RFQ website for industrial copper additive manufacturing. The site should attract engineers, buyers, and technical teams who need copper parts reviewed for manufacturability, quotation, post-processing, and acceptance.

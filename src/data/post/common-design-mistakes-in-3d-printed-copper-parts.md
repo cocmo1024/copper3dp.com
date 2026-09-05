@@ -1,6 +1,7 @@
 ---
 title: 'Common Design Mistakes in 3D Printed Copper Parts'
 publishDate: 2026-05-29
+updateDate: 2026-09-05
 excerpt: 'A practical guide to common design mistakes in 3D printed copper parts, covering thin walls, trapped powder, missing machining stock, weak ports, over-tight tolerances, material mismatch, and acceptance gaps.'
 category: Engineering Guide
 tags:
@@ -76,7 +77,7 @@ A better design asks three questions before the quote:
 2. Can the channel be flushed and dried?
 3. Can the finished part prove flow, pressure, or cleanliness?
 
-The best channel is not always the smallest channel. A slightly larger passage with direct access can produce a more reliable first article than a dense microchannel network that cannot be cleared. We have seen early reviews move from a 0.9 mm blind serpentine path to a 1.4 mm rounded channel with two cleaning access points. The revised design gave up some theoretical surface area, but it made flushing, pressure testing, and acceptance more realistic.
+The best channel is not always the smallest channel. A larger passage with direct access is a candidate when a dense microchannel network cannot be cleared. Treat a revised section or added cleaning access as a design change requiring thermal, hydraulic and closure review, not a universally safer dimension. Use the [internal-channel DFM workflow](/posts/EngineeringGuide/copper-am-dfm-review-workflow-for-parts-with-hidden-internal-channels/) to record the trade-off and verification plan.
 
 For deeper planning, see [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/) and [3D Printed Copper Heat Exchangers: Design Benefits and Manufacturing Limits](/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/).
 
@@ -124,7 +125,7 @@ Common port mistakes include:
 - No torque or repeated assembly expectation.
 - No working pressure or proof pressure in the RFQ.
 
-A representative issue: a cooling block with G1/4 style ports may look robust from the outside, but after thread machining and channel clearance are considered, the remaining copper wall near the port can become too thin for a 6 bar working pressure and 10 bar proof pressure. The fix may require a larger boss, shifted channel, different fitting, or material review.
+An illustrative issue is a cooling block whose remaining wall near a port is inadequate after thread machining and channel clearance are considered. Required wall thickness depends on the actual geometry, material state and loading; this example assigns no safe pressure rating. A larger boss, shifted channel, different fitting or material review may be needed, followed by verification against the controlled requirements.
 
 Pure copper can be appropriate when thermal or electrical conductivity dominates. CuCrZr or CuCr1Zr may deserve review when port strength, repeated tightening, clamp load, or pressure boundary integrity matters. For material trade-offs, see [Copper Alloy Selection for Metal 3D Printing: Pure Cu vs CuCrZr vs CuCr1Zr](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) and [Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts](/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/).
 

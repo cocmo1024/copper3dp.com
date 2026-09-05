@@ -10,6 +10,8 @@
 /Terms /terms/ 301
 /sitemap.xml /sitemap-index.xml 301
 /rss.xml /category/EngineeringGuide/ 301
+/blog/tag/tolerances/ /posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/ 301
+/blog/tag/tolerances /posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/ 301
 /knowledge/decision-guides/materials-selection/ /knowledge/decision-guides/#materials-selection 301
 /knowledge/decision-guides/materials-selection /knowledge/decision-guides/#materials-selection 301
 /knowledge/decision-guides/cold-plates-heat-exchangers/ /knowledge/decision-guides/#cold-plates-heat-exchangers 301

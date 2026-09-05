@@ -13,8 +13,7 @@ const primaryCount = knowledgeSources.filter((source) => source.evidence_tier ==
 
 const metadata = {
   title: 'Copper Additive Manufacturing Source Index',
-  description:
-    'Trace 196 copper additive manufacturing sources across standards, research, government, manufacturers, equipment, applications, quality, and process evidence.',
+  description: `Trace ${knowledgeSources.length} copper additive manufacturing sources across standards, research, government, manufacturers, equipment, applications, quality, and process evidence.`,
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },

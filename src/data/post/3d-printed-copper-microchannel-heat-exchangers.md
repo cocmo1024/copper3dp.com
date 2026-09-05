@@ -1,6 +1,7 @@
 ---
 title: '3D Printed Copper Microchannel Heat Exchangers'
 publishDate: 2026-05-03
+updateDate: 2026-09-05
 excerpt: 'RFQ guide for LPBF copper microchannel heat exchangers: channel geometry, powder removal, pressure drop, cleaning, machining, and inspection inputs.'
 category: Engineering Guide
 tags: ['micro-channel-heat-exchangers', 'copper-cold-plates', 'thermal-management', 'rfq-specification', 'engineering-guide']
@@ -113,7 +114,7 @@ Inspection is not a decoration. It should be connected to what could fail.
 | Risk | Useful inspection or test |
 | --- | --- |
 | Hidden blockage | Flow test, pressure drop check, CT when required |
-| Leak path | Helium leak test, pressure hold, proof pressure |
+| Leakage | Defined leak test with specified medium, pressure, limit and fixture boundary; proof loading is a separate requirement |
 | Channel continuity | CT, sectioned coupon, flow verification |
 | Interface performance | Flatness, surface finish, CMM, thermal test when required |
 | Material requirement | Conductivity, density, heat-treatment record, material certificate |
@@ -134,6 +135,12 @@ Before sending a copper microchannel heat exchanger RFQ, check whether any of th
 - The part is a simple plate where CNC or brazing may solve the problem more directly.
 
 These are not automatic rejection points. They are the points that change quote route, cost, and schedule.
+
+## Decide which evidence is missing before reducing channel size
+
+If the open issue is retained powder or service particles, use the [channel size, filtration and cleaning guide](/posts/EngineeringGuide/copper-microchannel-cold-plate-clogging-channel-size-filtration-and-cleaning/). If it is unequal branches, use the [flow-distribution acceptance guide](/posts/EngineeringGuide/flow-distribution-acceptance-testing-multi-passage-copper-heat-exchangers/). A clear flow path, a balanced network and a leak-tight boundary are different requirements; success in one does not establish the others.
+
+For a hidden geometry that cannot be assessed directly, define the region and inspection capability through the [CT and leak criteria guide](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/). Carry unresolved items into the quote as engineering work, not assumed acceptance. [Send the current concept for review](/rfq/?project=heat-exchanger) without inventing values for unknown requirements.
 
 ## Practical RFQ Email
 

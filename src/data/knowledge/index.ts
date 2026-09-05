@@ -12,7 +12,10 @@ export type EvidenceTier = 'A' | 'B' | 'C' | 'D' | 'U';
 export type KnowledgeRecord = Record<string, string>;
 
 export const knowledgeManifest = manifestRaw;
-export const knowledgeSources = sourcesRaw as KnowledgeRecord[];
+// Keep imported operations records intact, but exclude them from public engineering evidence.
+export const knowledgeSources = (sourcesRaw as KnowledgeRecord[]).filter(
+  (source) => source.category_en !== 'Knowledge-base operations'
+);
 export const knowledgeEquipment = equipmentRaw as KnowledgeRecord[];
 export const knowledgeApplications = applicationsRaw as KnowledgeRecord[];
 export const knowledgeCases = casesRaw as KnowledgeRecord[];
