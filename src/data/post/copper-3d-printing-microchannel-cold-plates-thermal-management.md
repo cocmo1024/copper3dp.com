@@ -25,7 +25,7 @@ The [Open Compute Project cold plate workstream](https://www.opencompute.org/wik
 
 If the project is already ready for supplier review, use the [3D printed copper cold plate RFQ page](/copper-cold-plates/) as the commercial entry point, then use this article to refine microchannel geometry, powder removal, pressure drop, leak testing, and acceptance criteria.
 
-**Choose your next step:** [Submit CAD or an early-stage thermal brief](/rfq/?project=heat-exchanger#rfq-form) if you need a quotation review. If the heat load, flow budget, or test scope is still open, start with [thermal design validation and boundary conditions](/thermal-design-validation/#boundary-conditions). Unknown values can be marked as open; do not turn assumptions into purchase requirements.
+**Choose your next step:** [Submit CAD or an early-stage thermal brief](/rfq/?project=cold-plate#rfq-form) if you need a quotation review. If the heat load, flow budget, or test scope is still open, start with [thermal design validation and boundary conditions](/thermal-design-validation/#boundary-conditions). Unknown values can be marked as open; do not turn assumptions into purchase requirements.
 
 ## The Process Window: What Actually Controls the Design
 
@@ -277,4 +277,4 @@ It is a weak route when the design is simple, the pressure-drop budget is unclea
 
 The practical recommendation is straightforward: use copper AM for the geometry it uniquely enables, then budget for the finishing and verification that make the cold plate usable.
 
-[Submit your cold plate CAD or thermal brief for review](/rfq/?project=heat-exchanger#rfq-form), or email [info@szcomo.com](mailto:info@szcomo.com). Include quantity and the known thermal, coolant, pressure, surface, and inspection requirements. An early review can start with open items; the final quotation and acceptance plan must resolve the requirements that control the part.
+[Submit your cold plate CAD or thermal brief for review](/rfq/?project=cold-plate#rfq-form), or email [info@szcomo.com](mailto:info@szcomo.com). Include quantity and the known thermal, coolant, pressure, surface, and inspection requirements. An early review can start with open items; the final quotation and acceptance plan must resolve the requirements that control the part.

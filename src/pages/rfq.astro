@@ -22,9 +22,9 @@ const rfqFaqs = [
       'No. If the drawing and quantity are clear, the reply may be a straightforward quotation. If key requirements are missing, we ask focused clarification questions first.',
   },
   {
-    title: 'Can I send an early concept?',
+    title: 'Can I start without CAD or a complete specification?',
     description:
-      'Yes. Early CAD is useful for a first review, but quotation usually needs material, quantity, lead time, and any critical requirements.',
+      'Yes. Start with your name, work email, company, and a short description of the part and the problem to solve. CAD and the other project fields are optional for an initial inquiry. A firm quotation may still need geometry, quantity, material state, and acceptance requirements.',
   },
   {
     title: 'Do you need a drawing if CAD is available?',
@@ -55,22 +55,24 @@ const rfqShowcases = [
       src: '~/assets/images/copper/rfq-review-workspace.webp',
       alt: 'Copper AM RFQ review workspace',
     },
-    title: 'How we handle different quotation requests',
-    description: 'The response depends on part complexity and the information available.',
+    title: 'What happens after your inquiry',
+    description:
+      'Submitting a brief starts a review, not a production order. The next step depends on the information available.',
     points: [
       {
-        title: 'Straightforward quotation',
-        description: 'If geometry and quantity are clear, we can quote against a concise set of stated assumptions.',
+        title: 'Route and quotation scope',
+        description:
+          'We review whether the part fits a copper AM route and identify the manufacturing, finishing, and inspection scope needed for a quotation.',
       },
       {
-        title: 'Clarification needed',
+        title: 'Focused questions, if needed',
         description:
           'If material, tolerance, pressure, current, thermal load, or inspection needs are unclear, we ask focused questions before quoting.',
       },
       {
-        title: 'Complex engineering review',
+        title: 'Quotation or an agreed engineering next step',
         description:
-          'For demanding parts, we discuss process route, post-processing, inspection, and lead-time drivers as needed.',
+          'When the inputs are sufficient, a quotation can state the scope and assumptions. Detailed design, simulation, testing, or qualification work needs a separately agreed scope; submitting an inquiry does not include those services automatically.',
       },
     ],
   },
@@ -148,11 +150,11 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <HeroText
-    tagline="RFQ inputs"
-    title="What to send for a useful copper AM quotation"
-    subtitle="A drawing and quantity can be enough for an initial quotation. For complex thermal, electrical, RF, vacuum, or fluid parts, include the requirements that affect material, finishing, inspection, and acceptance."
+    tagline="Copper AM project inquiry"
+    title="Request a copper 3D printing review and quotation"
+    subtitle="Start with your part and the problem it needs to solve. Send CAD if available, or a short project brief if you are still defining the design. Unknown material, quantity, or test requirements can be clarified during review."
     callToAction={{
-      text: 'Submit secure RFQ',
+      text: 'Start an online inquiry',
       href: '#rfq-form',
       icon: 'tabler:file-upload',
       'data-aw-cta-location': 'rfq_hero',
@@ -176,7 +178,7 @@ const metadata = {
   <SplitShowcase
     title="How quotation works"
     tagline="Practical inputs"
-    subtitle="Send the drawing first. Add the requirements that affect quotation and acceptance."
+    subtitle="Send what you know now. Use the checklist below when you are ready to define a firm quotation."
     items={rfqShowcases}
     classes={{ container: sectionContainerClass }}
   />
@@ -276,10 +278,16 @@ const metadata = {
   />
 
   <CallToAction
-    title="Send the drawing and requirements"
+    title="Have a part or a project question?"
     actions={[
       {
         variant: 'primary',
+        text: 'Start an online inquiry',
+        href: '#rfq-form',
+        icon: 'tabler:file-upload',
+        'data-aw-cta-location': 'rfq_footer',
+      },
+      {
         text: 'Email CAD files',
         href: rfqEmailHref,
         icon: 'tabler:mail',
@@ -296,8 +304,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="subtitle">
-      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with CAD, drawings, quantity,
-      material if known, lead time, service conditions, and inspection requirements when they matter.
+      Your inquiry is handled by <a class="font-semibold underline underline-offset-4" href="/about/"
+        >Suzhou Como Precision Materials Co., Ltd.</a
+      >. Start with a short brief; CAD can follow. Prefer email? Contact <a
+        class="font-semibold underline underline-offset-4"
+        href={rfqEmailHref}>{rfqEmail}</a
+      >.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -1,10 +1,9 @@
 ---
+import { projectApplications as applicationOptionsByProject } from '~/utils/rfq-context';
+
 const defaultTurnstileSiteKey = '0x4AAAAAAD1IsOhMIIWtxkf6';
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || defaultTurnstileSiteKey;
-const projectApplications = JSON.stringify({
-  'heat-exchanger': 'Heat sink or heat exchanger',
-  busbar: 'Busbar or electrical conductor',
-});
+const projectApplications = JSON.stringify(applicationOptionsByProject);
 
 const fieldClass =
   'mt-2 block w-full rounded-md border border-control-border bg-page px-3 py-2.5 text-default shadow-sm outline-none transition placeholder:text-muted/70 focus:border-primary focus:ring-2 focus:ring-focus';
@@ -15,13 +14,10 @@ const labelClass = 'block text-sm font-semibold text-heading';
   <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
     <div>
       <p class="text-sm font-semibold text-accent">Secure RFQ submission</p>
-      <h2 class="mt-2 font-heading text-3xl font-bold text-heading">
-        Submit CAD or thermal requirements for an engineering review
-      </h2>
+      <h2 class="mt-2 font-heading text-3xl font-bold text-heading">Start your copper AM inquiry</h2>
       <p class="mt-4 leading-7 text-muted">
-        Start with your name, work email, company, and a short project brief. CAD is optional for design-stage work, and
-        application, quantity, material, timing, or location details can be added only when useful. A confirmation
-        appears only after the secure submission service accepts the request.
+        Tell us what the part needs to do. Start with your contact details and a short brief; CAD and additional project
+        details are optional.
       </p>
       <ul class="mt-6 grid gap-3 text-sm leading-6 text-muted">
         <li><strong class="text-heading">Useful files:</strong> STEP/STP, X_T/X_B, IGES, STL, or PDF drawings.</li>

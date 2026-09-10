@@ -1,8 +1,13 @@
 ---
 import { UI } from 'astrowind:config';
+import { projectApplications } from '~/utils/rfq-context';
 ---
 
-<script is:inline data-default-theme={UI.theme || 'system'}>
+<script
+  is:inline
+  data-default-theme={UI.theme || 'system'}
+  data-project-contexts={JSON.stringify(Object.keys(projectApplications))}
+>
   (() => {
     const defaultTheme = document.currentScript?.dataset.defaultTheme || 'system';
 
@@ -71,7 +76,7 @@ import { UI } from 'astrowind:config';
 
     const attributionStorageKey = 'copper3dp_attribution';
     const attributionTtlMs = 90 * 24 * 60 * 60 * 1000;
-    const supportedProjectContexts = new Set(['heat-exchanger', 'busbar']);
+    const supportedProjectContexts = new Set(JSON.parse(document.currentScript?.dataset.projectContexts || '[]'));
 
     function getAvailableAttributionStorage() {
       const storageCandidates = [];

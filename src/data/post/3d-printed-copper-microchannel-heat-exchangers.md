@@ -140,7 +140,7 @@ These are not automatic rejection points. They are the points that change quote 
 
 If the open issue is retained powder or service particles, use the [channel size, filtration and cleaning guide](/posts/EngineeringGuide/copper-microchannel-cold-plate-clogging-channel-size-filtration-and-cleaning/). If it is unequal branches, use the [flow-distribution acceptance guide](/posts/EngineeringGuide/flow-distribution-acceptance-testing-multi-passage-copper-heat-exchangers/). A clear flow path, a balanced network and a leak-tight boundary are different requirements; success in one does not establish the others.
 
-For a hidden geometry that cannot be assessed directly, define the region and inspection capability through the [CT and leak criteria guide](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/). Carry unresolved items into the quote as engineering work, not assumed acceptance. [Send the current concept for review](/rfq/?project=heat-exchanger) without inventing values for unknown requirements.
+For a hidden geometry that cannot be assessed directly, define the region and inspection capability through the [CT and leak criteria guide](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/). Carry unresolved items into the quote as engineering work, not assumed acceptance. [Send the current concept for review](/rfq/?project=heat-exchanger#rfq-form) without inventing values for unknown requirements.
 
 ## Practical RFQ Email
 

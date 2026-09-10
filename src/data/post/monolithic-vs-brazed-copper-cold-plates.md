@@ -87,4 +87,4 @@ It eliminates only the joints actually removed by the design. Reliability still 
 
 Do not assume it can. The joining route and product requirements determine the permitted repair or replacement strategy. Agree this before selecting the construction.
 
-[Send CAD for a construction and manufacturing review](/rfq/?project=heat-exchanger).
+[Send CAD for a construction and manufacturing review](/rfq/?project=cold-plate#rfq-form).

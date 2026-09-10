@@ -1,15 +1,13 @@
 ---
 import type { Post } from '~/types';
+import { getArticleRfqContext } from '~/utils/rfq-context';
 
 interface Props {
   post: Post;
 }
 
 const { post } = Astro.props;
-const context = [post.title, post.category?.title, ...(post.tags?.map((tag) => tag.title) ?? [])]
-  .filter(Boolean)
-  .join(' ')
-  .toLowerCase();
+const context = post.title.toLowerCase().replaceAll('-', ' ');
 
 type KnowledgeLink = { title: string; description: string; href: string };
 const overview: KnowledgeLink = {
@@ -35,7 +33,7 @@ const contextualLinks: Array<{ pattern: RegExp; links: KnowledgeLink[] }> = [
     ],
   },
   {
-    pattern: /\brf\b|microwave|waveguide|antenna|resonator|cavity|filter/,
+    pattern: /\brf\b|microwave|waveguide|antenna|resonator|vacuum/,
     links: [
       {
         title: 'RF and waveguide application evidence',
@@ -142,59 +140,7 @@ const contextualLinks: Array<{ pattern: RegExp; links: KnowledgeLink[] }> = [
   },
 ];
 
-const decisionClusters: Array<{ pattern: RegExp; link: KnowledgeLink }> = [
-  {
-    pattern: /semiconductor|wafer|plasma|chip|metrology|lithography|photonics|advanced packaging/,
-    link: {
-      title: 'Semiconductor equipment service path',
-      description: 'Connect thermal, RF, vacuum, cleanliness, metrology, and traceability requirements.',
-      href: '/copper-semiconductor-cooling/',
-    },
-  },
-  {
-    pattern: /sic|power electronics|onboard charger|dc-to-dc|dc-dc|igbt|inverter|battery test|busbar/,
-    link: {
-      title: 'Power electronics application map',
-      description: 'Coordinate current, cooling, isolation, coolant, interfaces, and system validation.',
-      href: '/knowledge/applications/#motors-drives-power-electronics',
-    },
-  },
-  {
-    pattern: /\brf\b|microwave|waveguide|antenna|resonator|cavity|filter|accelerator/,
-    link: {
-      title: 'RF component service path',
-      description: 'Plan RF surfaces, tolerances, plating, cooling, vacuum, and final measurement.',
-      href: '/copper-rf-waveguides/',
-    },
-  },
-  {
-    pattern: /cold plate|heat exchanger|microchannel|cooling manifold|cooling jacket/,
-    link: {
-      title: 'Cold plate service path',
-      description: 'Connect thermal duty, flow distribution, cleaning, pressure, leakage, and acceptance.',
-      href: '/copper-cold-plates/',
-    },
-  },
-  {
-    pattern: /pure copper|cucrzr|cucr1zr|alloy selection|material specification|heat treatment|iacs/,
-    link: {
-      title: 'Copper materials service path',
-      description: 'Select the delivered material state from conductivity, strength, temperature, and load.',
-      href: '/materials/',
-    },
-  },
-  {
-    pattern: /acceptance|qualification|relative density|proof pressure|helium leak|inspection|quality|test method/,
-    link: {
-      title: 'Quality and qualification library',
-      description: 'Match material, dimensional, NDE, pressure, leak, flow, and functional tests to failure risk.',
-      href: '/knowledge/quality-and-qualification/',
-    },
-  },
-];
-
 const matched = contextualLinks.find((item) => item.pattern.test(context));
-const decisionCluster = decisionClusters.find((item) => item.pattern.test(context));
 const fallback: KnowledgeLink[] = [
   {
     title: 'Copper AM process selection',
@@ -208,7 +154,9 @@ const fallback: KnowledgeLink[] = [
   },
 ];
 const contextual = matched?.links ?? fallback;
-const links = decisionCluster ? [overview, decisionCluster.link, contextual[0]] : [overview, ...contextual];
+const links = [overview, getArticleRfqContext(post).service, ...contextual]
+  .filter((item, index, items) => items.findIndex((other) => other.href === item.href) === index)
+  .slice(0, 3);
 ---
 
 <aside class="mx-auto mt-10 max-w-4xl px-4 sm:px-6" aria-labelledby="knowledge-pathways-title">

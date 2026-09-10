@@ -14,7 +14,7 @@ metadata:
 
 A useful copper cold plate RFQ separates **what is known, what still needs engineering, and what the supplier is being asked to deliver**. You do not need a completed qualification plan before making first contact. You do need to prevent assumptions from becoming invisible quotation exclusions.
 
-Use the [online RFQ form](/rfq/?project=heat-exchanger) for an initial inquiry. This checklist supports the follow-up technical handover; it is not another form or a requirement to fill every field before asking a question.
+Use the [online RFQ form](/rfq/?project=cold-plate#rfq-form) for an initial inquiry. This checklist supports the follow-up technical handover; it is not another form or a requirement to fill every field before asking a question.
 
 
 
@@ -98,4 +98,4 @@ An early description can start the discussion. Provide available files through t
 
 Separate learning objectives from acceptance requirements. A prototype intended to evaluate routing is not automatically qualified for installed service.
 
-[Start a cold plate inquiry](/rfq/?project=heat-exchanger), or use the optional email template on the same page.
+[Start a cold plate inquiry](/rfq/?project=cold-plate#rfq-form), or use the optional email template on the same page.

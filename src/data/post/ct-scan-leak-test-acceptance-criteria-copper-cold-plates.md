@@ -83,4 +83,4 @@ No. An overall percentage does not describe every indication's location, connect
 
 Send the available CAD, critical regions, coolant and operating requirements, and the consequence of leakage or blockage. Mark unresolved limits as open questions. The [cold plate RFQ checklist](/posts/EngineeringGuide/rfq-checklist-custom-3d-printed-copper-cold-plates/) helps separate early review from released acceptance.
 
-[Request a cold plate manufacturing and inspection review](/rfq/?project=heat-exchanger).
+[Request a cold plate manufacturing and inspection review](/rfq/?project=cold-plate#rfq-form).

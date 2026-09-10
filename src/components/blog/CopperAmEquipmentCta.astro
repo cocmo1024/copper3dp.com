@@ -3,6 +3,13 @@ import { Icon } from 'astro-icon/components';
 
 import Image from '~/components/common/Image.astro';
 import capabilityImage from '~/assets/images/generated/copper-production-components-screening.webp';
+import { getArticleRfqContext } from '~/utils/rfq-context';
+import type { Post } from '~/types';
+
+interface Props {
+  post: Post;
+}
+const context = getArticleRfqContext(Astro.props.post);
 ---
 
 <section
@@ -15,22 +22,26 @@ import capabilityImage from '~/assets/images/generated/copper-production-compone
   >
     <div class="px-5 py-7 sm:px-7 sm:py-8">
       <p class="text-sm font-semibold text-primary">Copper AM quotation</p>
-      <h2 class="mt-2 font-heading text-2xl font-bold leading-tight text-heading">Have a copper part to quote?</h2>
+      <h2 class="mt-2 font-heading text-2xl font-bold leading-tight text-heading">{context.heading}</h2>
       <p class="mt-3 max-w-xl text-sm leading-6 text-muted sm:text-base">
-        Email CAD, quantity, material preference if known, operating conditions, and acceptance requirements. We will
-        identify a suitable manufacturing and inspection route before pricing.
+        {context.brief}
       </p>
       <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
         <a
-          href="mailto:info@szcomo.com"
+          href={context.href}
+          data-aw-cta-location="article_footer"
           class="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
-          aria-label="Email a copper additive manufacturing RFQ"
         >
-          <Icon name="tabler:mail" class="h-4 w-4" />
-          Email CAD and requirements
+          <Icon name="tabler:file-upload" class="h-4 w-4" />
+          Start an online inquiry
         </a>
-        <a class="text-sm font-semibold text-link hover:underline" href="/capabilities/">View capabilities</a>
+        <a class="text-sm font-semibold text-link hover:underline" href="mailto:info@szcomo.com">Prefer email?</a>
       </div>
+      <p class="mt-4 text-sm leading-6 text-muted">
+        Before you submit: <a class="font-semibold text-link hover:underline" href={context.service.href}
+          >{context.service.title}</a
+        >.
+      </p>
     </div>
 
     <Image

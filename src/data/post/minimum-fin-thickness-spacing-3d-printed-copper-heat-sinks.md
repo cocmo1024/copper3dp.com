@@ -82,4 +82,4 @@ Only if the supplier can justify that it applies to the proposed fin geometry an
 
 ### What is the next step when the geometry is unresolved?
 
-Use [thermal design support](/thermal-design-validation/) to define the comparison and validation plan, or [send the current heat sink concept for review](/rfq/?project=heat-exchanger). Unknown dimensions can be reviewed; they should not be filled with unsupported universal minima.
+Use [thermal design support](/thermal-design-validation/) to define the comparison and validation plan, or [send the current heat sink concept for review](/rfq/?project=heat-exchanger#rfq-form). Unknown dimensions can be reviewed; they should not be filled with unsupported universal minima.
