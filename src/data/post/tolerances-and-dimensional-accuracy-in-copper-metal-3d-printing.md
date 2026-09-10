@@ -1,8 +1,8 @@
 ---
 title: 'Tolerances and Dimensional Accuracy in Copper Metal 3D Printing'
 publishDate: 2026-06-08
-updateDate: 2026-07-11
-excerpt: 'Copper 3D printing tolerance guide separating as-built LPBF geometry, machined datums, flatness, ports, internal channels, and functional acceptance evidence.'
+updateDate: 2026-09-10
+excerpt: 'Specify copper AM tolerances by feature and delivered state, with an acceptance-record example covering flatness, measurement uncertainty, inspection access, and internal-channel limits.'
 category: Engineering Guide
 tags:
   [
@@ -20,11 +20,13 @@ author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-am-tolerances-metrology-bench-cover.webp
 metadata:
   title: 'Copper 3D Printing Tolerances | As-Built vs Machined'
-  description: 'Starting RFQ ranges for copper LPBF: often +/-0.10 to 0.30 mm as-built and +/-0.02 to 0.05 mm on accessible machined features, subject to review.'
+  description: 'Specify copper 3D printing tolerances by feature: as-built versus machined geometry, flatness, measurement uncertainty, inspection access, and acceptance records.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/
 ---
 
 > Tolerances in copper metal 3D printing should be assigned by function. A printed copper part may need loose near-net envelope control, tight machined datum control, and functional acceptance tests on the same drawing. The RFQ becomes clearer when the buyer separates as-built geometry, post-machined interfaces, and inspected performance evidence.
+
+_Image note: the cover and metrology illustrations are AI-generated concepts, not inspection photographs or evidence of a demonstrated tolerance._
 
 The most expensive tolerance mistake in copper AM is asking every surface to behave like a CNC-machined copper block.
 
@@ -36,7 +38,7 @@ General tolerance: +/-0.05 mm unless otherwise specified.
 
 That note may be normal for a small machined copper plate. It becomes weak for a copper LPBF part with internal channels, threaded ports, seal lands, flat thermal faces, support-side surfaces, and thin walls. The supplier must guess which dimensions are critical, which can be machined, which are only near-net, and which are hidden inside the part where a normal CMM cannot reach.
 
-The issue matters more in 2026 because copper additive manufacturing is being reviewed for denser thermal, electrical, RF, and semiconductor hardware. [EOS positions copper AM](https://www.eos.info/metal-solutions/metal-materials/copper) around conductivity-driven applications such as heat exchangers, electronics, motors, inductors, and power electronics heat sinks. Those applications do not fail only because the outer envelope is off by 0.2 mm. They fail when a seal land leaks, a contact pad does not sit flat, a port thread cuts too close to a channel, or an internal passage cannot be verified.
+For thermal, electrical, RF, and semiconductor hardware, a correct outer envelope is only one requirement. A seal land can leak, a contact pad can fail to seat, or a machined thread can approach a hidden channel too closely. These local interfaces need their own acceptance requirements.
 
 ## The Tolerance Question Is Not One Number
 
@@ -44,7 +46,7 @@ The useful question is not "what tolerance can copper 3D printing hold?"
 
 The useful question is:
 
-> Which dimensions are acceptable as-built, which dimensions must be machined after printing, and which dimensions should be accepted by a functional test instead of a local measurement?
+> Which features are acceptable as-built, which must be machined, and what geometric and functional evidence is required for each?
 
 Those are different control systems.
 
@@ -54,7 +56,7 @@ Those are different control systems.
 | Post-machined interfaces | Datum pads, flat thermal faces, O-ring lands, gasket faces, threaded ports, bolt holes, RF flanges, electrical contact pads | CNC finishing, stock allowance, fixture plan, CMM, roughness, thread gauge, flatness check |
 | Functional acceptance | Internal channels, pressure boundary, flow path, leak tightness, thermal contact behavior, conductivity route | Flow, pressure, leak, CT, borescope, section coupon, roughness, hardness, conductivity, first article records |
 
-If the drawing applies one number to all three categories, the quote will contain hidden assumptions. A +/-0.05 mm positional tolerance on a machined bolt pattern is a different request from +/-0.05 mm on an as-built fin field. A pressure-tested internal cooling path is a different requirement from a hidden channel dimension that no practical gauge can reach.
+If the drawing applies one number to all three categories, the quote will contain hidden assumptions. A datum-referenced position tolerance on a machined bolt pattern differs from a size tolerance on an as-built fin. Pressure or flow testing also answers a different question from measurement of a hidden wall. Do not substitute one for the other without an agreed acceptance basis.
 
 For the manufacturing foundation, pair this page with [Design Rules for Copper Laser Powder Bed Fusion Parts](/posts/EngineeringGuide/design-rules-copper-laser-powder-bed-fusion-parts/) and [How to Prepare CAD Files for Copper Metal 3D Printing](/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/).
 
@@ -70,21 +72,21 @@ That is why the tolerance plan should follow the finished part, not the print mo
 
 Two narrower decisions often need their own review. Use the [channel-to-port tolerance stack guide](/posts/EngineeringGuide/tolerance-stack-up-for-copper-am-parts-with-printed-channels-and-machined-ports/) when a machined port, bore, thread, counterbore, or face approaches a hidden channel. Use the [copper LPBF datum and inspection-feature guide](/posts/EngineeringGuide/allocating-datums-and-inspection-features-on-copper-lpbf-drawings/) when the open question is how the functional datum system will survive build, thermal processing, plate removal, machining, and final inspection.
 
-## Practical Starting Ranges For RFQ Discussion
+## What to Request Instead of a Universal Tolerance Range
 
-The numbers below are not universal guarantees. They are starting ranges for discussion before a supplier reviews the actual material route, machine, geometry, orientation, post-processing, and inspection plan.
+This guide does not publish a blanket copper LPBF tolerance or machining allowance. A useful capability statement identifies the feature, size, material and delivered state, manufacturing route, and measurement evidence. An isolated brochure range does not establish capability on the part being quoted.
 
-| Feature or surface | Early RFQ discussion range | What usually controls it |
+| Feature or surface | Evidence to request before agreement | What usually controls it |
 | --- | --- | --- |
-| As-built exterior envelope | Often discussed around +/-0.10 to +/-0.30 mm | Part size, orientation, supports, local heat history, stress relief, measurement method |
-| Machined datum pad or bolt hole | Often discussed around +/-0.02 to +/-0.05 mm where accessible | CNC setup, stock, fixture, datum strategy, part stiffness |
-| Flat thermal contact face | Tens of microns may be reviewable, but footprint and clamp plan matter | Stress relief, machining, lapping or grinding, flatness inspection |
-| Threaded coolant port | Usually should be drilled, tapped, or machined after printing | Boss size, wall thickness, tool access, fitting type, pressure requirement |
-| O-ring land or gasket face | Usually should be machined and inspected | Seal design, groove geometry, surface finish, leak test |
-| Internal channel dimension | Should not be treated like an external machined slot | Build route, powder removal, CT or section evidence, flow and pressure-drop test |
-| Thin fin or pin field | Highly geometry-dependent | Build orientation, support strategy, heat distortion, handling damage, acceptance criteria |
+| As-built exterior envelope | Comparable geometry measured in the same delivered state, with actual deviations and method | Size, orientation, supports, thermal history and measurement method |
+| Machined datum pad or bolt hole | Proposed datum/fixture plan and feature-level inspection after finishing | CNC setup, stock, part stiffness and access |
+| Flat thermal contact face | Surface extent, free or restrained condition, flatness method and separate roughness requirement | Processing sequence, footprint, clamping and measurement coverage |
+| Threaded coolant port | Thread specification, gauge or measurement plan, and remaining wall review | Boss geometry, tool access, fitting and pressure boundary |
+| O-ring land or gasket face | Controlled seal geometry and texture plus separately defined leak acceptance | Seal design, finishing route and assembly conditions |
+| Internal channel dimension | Demonstrated inspection access or an explicitly agreed alternative acceptance route | Attenuation/size limits for CT, section representativeness and functional test coverage |
+| Thin fin or pin field | Feature definition, sampling/coverage and damage criteria | Orientation, distortion, handling and measurement accessibility |
 
-The wrong move is to choose the tightest number and apply it everywhere. That increases quote risk without improving the part. A stronger drawing marks the 5-10 features that control assembly, sealing, contact, pressure, RF performance, or heat transfer, then leaves noncritical regions as near-net geometry.
+A stronger drawing identifies every feature that controls assembly, sealing, contact, pressure, RF performance, or heat transfer. Noncritical regions can use less demanding requirements where the design permits; there is no prescribed number of critical features.
 
 This fits the logic of [ISO/ASTM 52911-1](https://www.iso.org/standard/72951.html), which treats laser-based powder bed fusion of metals as a process-specific design problem. The standard is not a copper tolerance table, but it reinforces the correct behavior: design requirements should reflect the AM process, not only the CAD ideal.
 
@@ -112,7 +114,7 @@ For many copper parts, the finished component needs machining on:
 - RF mating flanges or conductive surface paths.
 - Tube interfaces and manifold ports.
 
-Machining stock is not wasted material. It is tolerance insurance. In early reviews, 0.4-1.0 mm of stock on functional faces is a common discussion range, but the final number depends on part size, wall thickness, channel proximity, distortion risk, build orientation, and fixture access.
+Machining stock provides material for cleanup; it does not guarantee a final tolerance. Agree it against the finished model, distortion risk, build orientation, thermal processing, and fixture access. Verify the remaining channel wall and port geometry after the planned material removal rather than copying a generic allowance.
 
 Without stock, the supplier has only two poor options: accept the as-built surface or machine deeper than planned and risk wall thickness, channel exposure, or seal failure.
 
@@ -139,7 +141,7 @@ For adjacent application guidance, use [3D Printed Copper Heat Exchangers: Desig
 
 Internal channels are where copper AM creates value, but they are also where dimensional language often becomes least useful.
 
-A buried channel cannot always be measured by CMM. CT can help, but CT resolution, copper density, wall thickness, part size, reconstruction settings, and cost all matter. A flow test can prove function without measuring every local wall. A sectioned witness coupon can prove representative geometry without cutting the final part.
+A buried channel cannot always be measured by CMM. CT may help, but copper attenuation, wall thickness, part size, reconstruction, and demonstrated measurement performance limit what can be resolved. A flow test checks the response at the stated conditions; it does not measure every local wall. A sectioned coupon only provides representative evidence when its relationship to the actual build and feature is established. See the [CT acceptance guide](/posts/EngineeringGuide/ct-scan-leak-test-acceptance-criteria-copper-cold-plates/) for that narrower decision.
 
 For an internal copper cooling channel, specify:
 
@@ -178,23 +180,32 @@ Copper AM projects may use:
 
 _Figure 3. Dimensional accuracy for copper AM is accepted through a route: metrology, surface checks, leak or flow tests, and material evidence where needed._
 
-## Case Pattern: A Tight Drawing That Became A Better Quote
+## Flatness, Size, and Position Are Different Requirements
 
-A representative project involved a copper liquid-cooled power electronics plate. The envelope was about 145 mm x 90 mm x 16 mm. The CAD had a curved internal channel network, four ports, twelve mounting holes, and one thermal contact face.
+A plus/minus dimension controls limits around a nominal size or coordinate; it is not a flatness callout. For example, writing "flatness +/-0.05 mm" leaves the form requirement confused. Specify flatness using the applicable geometrical tolerancing convention and identify the controlled surface. This is a notation example, not a proposed tolerance for a copper part.
 
-The first drawing applied +/-0.05 mm to almost every dimension. It also asked for the thermal face at final size with no machining stock. The internal channels were treated as if every local width could be checked like a milled slot.
+For an ordinary surface-flatness requirement, the tolerance concerns form without a datum reference. A face's orientation or location relative to other features needs the appropriate separate control. A compliant contact face can also behave differently free and clamped, so the agreed measurement and assembly conditions must be visible.
 
-The revised RFQ separated the part into three zones:
+[ISO 1101](https://www.iso.org/standard/66777.html) defines the language and interpretation of geometrical specifications. Its public scope is not a supplier capability certificate; the responsible drawing authority must choose the applicable standard and complete callouts. Do not mix ISO and ASME conventions without review.
 
-- As-built envelope: near-net copper LPBF, with noncritical exterior surfaces not held to CNC tolerance.
-- Machined interfaces: thermal face, port seats, threaded ports, datum pads, and bolt holes controlled after stress relief.
-- Functional tests: pressure hold, flow check, leak test, and CMM report for accessible features.
+## Build a Feature-Level Acceptance Record
 
-That changed the discussion. Instead of arguing over a single general tolerance note, the supplier could quote a real route: print, stress relief, support removal, channel cleaning, machine critical faces, inspect, pressure test, and document.
+The following is an illustrative record structure, not a completed inspection report. It connects a requirement to a result without assuming a universal tolerance or guaranteed machine capability.
 
-The part did not become simpler. The quote became clearer.
+| Record field | What the buyer and supplier should agree |
+| --- | --- |
+| Identity | Part, revision, serial/lot, and drawing feature identifier |
+| Requirement | Characteristic, units, limit, controlled surface extent, datum reference where applicable, and drawing convention |
+| Delivered state | Thermal processing, support removal, machining, plating and cleaning state at measurement |
+| Measurement setup | Instrument/method, access, fixture/restraint, temperature conditions and measurement coverage |
+| Result and uncertainty | Actual result, relevant measurement uncertainty and the agreed conformity decision rule |
+| Disposition | Accepted, rejected or unresolved under that rule; approved deviation or rework and reinspection references if applicable |
 
-This is the same logic used in [When Copper 3D Printing Is Better Than CNC Machining](/posts/EngineeringGuide/when-copper-3d-printing-is-better-than-cnc-machining/): use additive manufacturing where geometry creates value, then use machining and inspection where the finished interface demands it.
+[ISO 14253-1](https://www.iso.org/standard/70137.html) addresses conformity decisions that account for measurement uncertainty, including results near specification limits. For an RFQ, the practical action is to agree the rule before inspection, not argue from the instrument's displayed decimal places after delivery. The table is a handover aid, not a reproduction of the standard's procedures.
+
+If two laboratories disagree, first reconcile part identity, delivered state, datum alignment, restraint, surface sampling and uncertainty. Do not average incompatible results or loosen the drawing simply to close the report. Record the unresolved condition and have the responsible parties agree the next measurement or disposition.
+
+The existing [datum and inspection-feature guide](/posts/EngineeringGuide/allocating-datums-and-inspection-features-on-copper-lpbf-drawings/) covers how to design the reference system; the [channel-to-port stack guide](/posts/EngineeringGuide/tolerance-stack-up-for-copper-am-parts-with-printed-channels-and-machined-ports/) covers remaining-wall and cross-process risks. This page covers how to specify and accept the finished feature.
 
 ## Application-Specific Tolerance Priorities
 
@@ -243,7 +254,7 @@ There is no single reliable answer. As-built LPBF geometry is usually broader th
 <details>
 <summary>Can 3D printed copper parts hold +/-0.05 mm?</summary>
 
-Sometimes, but usually not as a blanket requirement on every surface. A machined datum pad, bolt hole, or contact face may be reviewable at that level. Thin fins, support-side surfaces, internal channels, and as-built external walls need a different tolerance strategy.
+That cannot be promised from the material or process name alone. Send the feature, size, material state, machining access and inspection requirement for review. A bilateral size tolerance, a position tolerance and flatness are not interchangeable, even when a similar number appears in the callout.
 
 </details>
 

@@ -1,7 +1,8 @@
 ---
 title: 'How to Prepare CAD Files for Copper Metal 3D Printing'
 publishDate: 2026-05-27
-excerpt: 'A practical CAD preparation guide for copper metal 3D printing RFQs, covering STEP files, native CAD, drawings, internal channels, machining stock, material choice, and inspection data.'
+updateDate: 2026-09-10
+excerpt: 'Prepare a traceable copper AM CAD package: STEP export checks, a file release manifest, revision conflicts, internal-channel views, finished-part geometry, and open requirements.'
 category: Engineering Guide
 tags:
   [
@@ -17,18 +18,20 @@ tags:
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/copper-metal-3d-printing-cad-files-cover.webp
 metadata:
-  title: 'Prepare CAD Files for Copper Metal 3D Printing'
-  description: 'Prepare CAD files for copper metal 3D printing with STEP files, drawings, channels, machining stock, material choice, and inspection scope.'
+  title: 'Copper 3D Printing CAD Preparation: STEP and Release Checks'
+  description: 'Prepare copper AM CAD with a file release manifest, STEP export checks, matching revisions, channel sections, machining intent, and a clear production approval gate.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/how-to-prepare-cad-files-for-copper-metal-3d-printing/
 ---
 
 > A useful CAD package for copper metal 3D printing is not only a STEP file. It should show the real internal geometry, units, revision, critical surfaces, machining allowance, material preference, pressure or thermal requirements, and inspection expectations. The goal is to help the supplier quote a finished copper component, not only a printable shape.
 
+_Image note: the cover and workshop illustrations are AI-generated concepts, not screenshots of customer CAD, manufactured parts, or inspection records._
+
 The fastest way to slow down a copper AM quote is to send a beautiful model that hides the important work.
 
-We have seen this pattern many times. The CAD file opens cleanly. The copper part looks complete on screen. It has ports, bolt holes, curved channels, thin walls, and a polished copper rendering. Then the review starts and the missing information becomes the project: no channel section view, no units, no drawing revision, no pressure requirement, no critical face definition, no machining stock, no material route, and no acceptance test.
+A model can open cleanly and still leave a quote underdefined. Ports, channels, and bolt holes show the shape, but missing units, revision control, operating requirements, critical surfaces, and acceptance tests leave the manufacturing intent unresolved.
 
-The shape may still be printable. The quote is not ready.
+The shape may still be printable. An initial review can start, but a firm production quote needs the open assumptions identified.
 
 Copper metal 3D printing, especially laser powder bed fusion, is used because copper can combine thermal conductivity, electrical conductivity, compact internal channels, and part consolidation. That value only becomes useful when the CAD files describe the finished component route: print, depowder, heat treat if required, machine critical faces, clean, inspect, and test.
 
@@ -61,11 +64,11 @@ Before sending files, confirm:
 - Units: mm or inch.
 - Model scale: 1:1.
 - Revision: drawing and CAD must match.
-- File authority: which file controls if STEP and drawing disagree.
+- File authority: which file controls each requirement, and who resolves a model/drawing conflict.
 - Quantity and development stage: prototype, first article, pilot batch, or production.
 - Any NDA, export, or customer drawing control requirement.
 
-The most common issue is a mismatch between the model and drawing. A STEP file may show one port depth while the PDF drawing shows another. A filename may say Rev B while the title block says Rev A. A supplier can ask for clarification, but that delay is avoidable.
+A STEP file may show one port depth while the PDF drawing shows another. A filename may say Rev B while the title block says Rev A. Do not silently choose the newest filename or assume that the model always overrides the drawing. Record the conflict and obtain the design owner's disposition before releasing the affected feature.
 
 Use simple revision control:
 
@@ -76,6 +79,33 @@ project-name_part-name_rev-c_requirements_2026-05-27.pdf
 ```
 
 The date does not replace revision control. It helps prevent two versions with the same revision name from circulating in email.
+
+### A File Release Manifest That Survives Email Forwarding
+
+Put a short manifest in the package or message. It is a handover record, not an additional prerequisite for making a first inquiry. Use one row per file so the receiving engineer can distinguish controlled geometry from supporting context.
+
+| Manifest field | What to record |
+| --- | --- |
+| Part and revision | Part identifier, design revision, and release status: concept, quotation, or approved for manufacture |
+| Exact file | Filename, format, export date, and source revision; a checksum is optional when stricter file identity is needed |
+| Geometry state | Finished component, proposed printed blank, assembly context, or reference-only model |
+| Units and reference | Length unit, expected envelope, coordinate system, and assembly placement where relevant |
+| Requirement authority | Where geometry, dimensions/PMI, material state, finish, and acceptance requirements are controlled |
+| Open items and owner | Question, person responsible for its disposition, and whether it blocks only pricing or also manufacturing |
+
+Do not delete old records to make the package look consistent. Mark superseded files and identify the complete replacement set. A revised PDF beside an old STEP file is not a released package merely because both open successfully.
+
+### Reopen the Export, Not Only the Native Model
+
+Perform a receiving-side check of the exact STEP file being sent. This can be done in a separate CAD session or a suitable viewer without changing the manufacturing master.
+
+1. Check units, envelope, solid/body count, and assembly placement against the intended configuration. Hidden or suppressed reference bodies should not become unintended manufactured parts.
+2. Compare volume, surface area, and centroid with the originating model when validation properties are available. Agree a comparison tolerance appropriate to the exchange; these checks can reveal a transfer discrepancy but cannot prove every local feature is correct.
+3. Cut sections through the smallest passages, branch junctions, port transitions, and minimum walls. Confirm that exported geometry retains the intended cavities and solid boundaries.
+4. Check whether dimensions, datum annotations, and other product and manufacturing information (PMI) survived the exchange. A visible annotation is not necessarily machine-readable semantic PMI.
+5. Record the result, viewer/CAD used, and unresolved differences against the exact file. Return errors to the design owner instead of silently healing production geometry.
+
+[NIST's STEP File Analyzer and Viewer](https://www.nist.gov/services-resources/software/step-file-analyzer-and-viewer) can inspect file-format errors, PMI, and validation properties. Its [user guide](https://www.nist.gov/publications/step-file-analyzer-and-viewer-user-guide-update-6) explains comparison of exported validation properties with the receiving model. These are data-exchange checks, not certification of copper printability, channel cleanability, or compliance with the drawing.
 
 ## Show the Real Internal Geometry
 
@@ -94,9 +124,9 @@ Show:
 - Inlet and outlet relationship.
 - Cleaning access, flushing direction, or temporary openings if planned.
 
-If the channel network is confidential, send a simplified review model that preserves the same minimum passage size, longest path, wall thickness, and port relationship. A simplified model is much more useful than an outside envelope with hidden channels.
+If the channel network is confidential, a simplified model can support a conditional concept review if it preserves the relevant passage, path, wall, and port relationships. Mark it reference-only and identify what was removed. It cannot authorize manufacturing of hidden geometry; a firm route review needs the controlled geometry through an agreed confidential handover.
 
-A 0.8 mm channel may look efficient in CFD. It may also be difficult to print, depowder, flush, and inspect in copper LPBF. A 1.2-1.8 mm passage with better access can sometimes produce a more reliable quote, even if the simulation gives up some local surface area.
+A smaller passage may improve a simulated local heat-transfer result while making powder removal, flushing, or inspection harder. Passage size alone is not a feasibility threshold: path length, turns, orientation, material route, and access must be reviewed together.
 
 For deeper channel risk, see [Copper AM Cleaning and Powder Removal for Internal Channels](/posts/EngineeringGuide/copper-am-cleaning-powder-removal-internal-channels/) and [3D Printed Copper Heat Exchangers: Design Benefits and Manufacturing Limits](/posts/EngineeringGuide/3d-printed-copper-heat-exchangers-design-benefits-manufacturing-limits/).
 
@@ -122,7 +152,7 @@ Copper metal 3D printed parts often need post-machining on:
 
 If a face must meet flatness, roughness, sealing, conductivity, or datum requirements, do not assume the as-built surface will be enough. Add machining allowance or mark the area for supplier review.
 
-Typical early discussion ranges:
+Feature-by-feature preparation:
 
 | Feature | CAD preparation action | Why it matters |
 | --- | --- | --- |
@@ -133,7 +163,7 @@ Typical early discussion ranges:
 | RF surface | Separate critical surface from noncritical surfaces | Affects machining, polishing, or plating route |
 | Datum pad | Provide accessible machined reference | Makes CMM inspection and setup practical |
 
-For many copper AM components, 0.4-1.0 mm of machining stock on functional faces is a reasonable early review range, but the exact value depends on part size, orientation, heat treatment, distortion risk, and required tolerance. Do not treat that range as a universal rule.
+Agree machining allowance for each functional region after reviewing the finished geometry, build orientation, thermal processing, distortion risk, and tool access. Show where added stock goes and check the final channel wall after removal. This guide does not supply a universal allowance.
 
 The CAD file should make the finished state visible. If the model represents the printed blank, label it as the printed blank in the RFQ notes. If it represents the final machined part, say which faces need machining allowance before printing.
 
@@ -202,7 +232,7 @@ Include:
 
 If the project is early, use language such as:
 
-"Material open to review. Primary function is thermal performance, but threaded ports and 8 bar proof pressure must be considered."
+"Material open to review. Primary function is thermal performance. Thread loading and pressure-test conditions remain open items to close with the design owner before manufacturing."
 
 That sentence gives the reviewer room to choose a practical route.
 
@@ -246,7 +276,7 @@ Possible acceptance data:
 - CT inspection, if internal geometry risk justifies it.
 - Cleanliness, drying, and packaging expectation.
 
-CAD alone cannot tell the supplier whether the part is a display model, prototype, pressure boundary, thermal device, RF component, or production fixture. A 95 mm x 70 mm copper cooling block with no pressure requirement is a different quote from the same block with 6 bar working pressure, 10 bar proof pressure, a 2 L/min flow target, and +/-0.05 mm flatness on the thermal face.
+CAD alone cannot tell the supplier whether the part is a display model, pressure boundary, thermal device, or production fixture. The same geometry has a different scope when defined pressure, flow, leak, and interface acceptance requirements are added. State flatness separately from dimensional plus/minus tolerances; use the [feature-based tolerance guide](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/) to connect each requirement to evidence.
 
 The acceptance criteria do not need to be final during concept review. They do need to be visible.
 
@@ -278,28 +308,19 @@ If you must send an STL, also send:
 
 For serious copper AM parts, the better package is STEP or native CAD plus drawing. Mesh can be a supplement, not the engineering authority.
 
-## Case Pattern: The STEP File Was Clean, but the Quote Was Not
+## Handover Example: Resolve a Port-Depth Conflict Before Release
 
-A representative RFQ involved a compact copper cooling plate for a power electronics test fixture. The first email included one STEP file and a quantity of five. The part opened correctly. The outside envelope was about 110 mm x 76 mm x 20 mm. It had two side ports, a serpentine internal path, and a bolt pattern around the perimeter.
+This is an illustrative file-control exercise, not a customer case. A STEP file and drawing carry the same revision label but disagree on a port depth close to an internal channel.
 
-The CAD file had no obvious geometry corruption. The problem was missing intent.
+| Stage | Record or action | Release status |
+| --- | --- | --- |
+| Receive | Identify both exact files and mark the conflicting port on a section | Review only; do not machine the disputed feature |
+| Clarify | Ask the design owner which geometry and remaining wall are intended | Estimate may remain conditional; no silent supplier choice |
+| Revise | Owner issues a matching model/drawing set and identifies superseded files | New package awaiting receiving-side verification |
+| Verify | Reopen the export, check the port/channel section, stock and requirement references | Record any unresolved difference |
+| Approve | Confirm the exact revision, scope, and acceptance requirements in the release record | Manufacture only under the agreed approval process |
 
-The review found six gaps:
-
-- The internal channel had no section view or minimum passage note.
-- The thermal face was modeled at final size with no machining allowance.
-- The side ports had no thread standard or sealing method.
-- The material was listed only as "copper."
-- No pressure, coolant, flow, or leak requirement was included.
-- The drawing revision did not match the CAD filename.
-
-The buyer did not need a complete redesign. They needed a better file package.
-
-The revised package included a STEP file, native CAD, a preliminary drawing, section views, 0.7 mm machining stock on the thermal face, G1/4 port intent, working pressure of 6 bar, proof pressure of 10 bar, coolant flow around 2 L/min, and "pure Cu or CuCrZr to be reviewed." The channel transitions were opened slightly, port bosses were thickened, and support-sensitive faces were marked as functional.
-
-The quote became more expensive than the first rough estimate. It also became executable. The new package allowed the supplier to quote the printed body, machining, channel cleaning, pressure hold, CMM inspection, and material route instead of guessing.
-
-That is the point of CAD preparation. It does not make the project complicated. It makes the real requirements visible before the purchase order.
+A supplier's DFM suggestion is not itself a design release. Keep proposed changes distinct from the approved manufacturing model. This avoids quoting one revision, building another, and inspecting against a third.
 
 ## CAD File Preparation Checklist
 
@@ -367,14 +388,14 @@ State which one it represents. If the model shows the final part, the quote may 
 <details>
 <summary>Do internal channels need to be included in the CAD file?</summary>
 
-Yes, unless confidentiality prevents it. If the true channel geometry cannot be shared, send a simplified model with the same minimum passage size, wall thickness, longest enclosed path, and port relationship. The supplier cannot judge depowdering or flow risk from the outside shape alone.
+The manufacturing review needs the actual controlled channels. A simplified confidential model can support a conditional concept discussion, but it is not sufficient to release the hidden geometry for production. Label its limitations and agree how the complete geometry will be shared.
 
 </details>
 
 <details>
-<summary>What is the most common CAD mistake in copper AM RFQs?</summary>
+<summary>What should block release of a copper AM CAD package?</summary>
 
-The most common mistake is treating the CAD model as finished intent while omitting manufacturing intent. Missing machining stock, hidden channels, undefined critical surfaces, unclear material, and absent acceptance tests usually create more delay than small geometry defects.
+A conflicting revision, unexplained geometry difference, or unresolved critical interface should block manufacturing release of the affected scope. Preliminary geometry can still support a discussion or conditional estimate when its limits are explicit. A file opening successfully is not an approval to manufacture it.
 
 </details>
 
