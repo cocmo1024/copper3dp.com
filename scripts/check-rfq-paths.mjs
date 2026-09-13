@@ -47,6 +47,10 @@ const intentCases = [
   ['Copper Metrology Components', 'general', '/copper-semiconductor-cooling/'],
   ['Releasing a Real Thermal Part', 'general', '/thermal-design-validation/'],
   ['Copper Induction Coil Quotation', 'induction-coil', '/copper-induction-coils/'],
+  ['Cost Drivers in Copper Metal 3D Printing', 'general', '/capabilities/'],
+  ['Design Rules for Copper Laser Powder Bed Fusion Parts', 'general', '/capabilities/'],
+  ['Copper RF and Vacuum Manifold Cooling', 'rf-vacuum', '/copper-rf-waveguides/'],
+  ['Copper Alloy Selection: Pure Cu vs CuCrZr vs CuCr1Zr', 'general', '/materials/'],
 ];
 for (const [title, project, service] of intentCases) {
   const context = getArticleRfqContext({ title });
@@ -197,6 +201,20 @@ const walk = (dir) =>
 let projectLinks = 0;
 let renderedArticles = 0;
 const articleContexts = [];
+// Explicit expectations test the built template, not a duplicate title classifier.
+const knowledgeEvidence = {
+  '/capabilities/': '/knowledge/process-selection/',
+  '/copper-cold-plates/': '/knowledge/applications/#heat-exchangers-cold-plates',
+  '/copper-heat-exchangers/': '/knowledge/applications/#heat-exchangers-cold-plates',
+  '/copper-heat-sinks/': '/knowledge/applications/#heat-exchangers-cold-plates',
+  '/thermal-design-validation/': '/knowledge/applications/#heat-exchangers-cold-plates',
+  '/copper-induction-coils/': '/knowledge/applications/#motors-drives-power-electronics',
+  '/copper-busbars/': '/knowledge/applications/#motors-drives-power-electronics',
+  '/copper-rf-waveguides/': '/knowledge/applications/#rf-waveguides-accelerators',
+  '/copper-conformal-cooling-inserts/': '/knowledge/applications/#tooling-conformal-cooling',
+  '/copper-semiconductor-cooling/': '/knowledge/applications/#semiconductor-advanced-packaging',
+  '/materials/': '/knowledge/materials-and-properties/',
+};
 for (const file of walk('src/data/post').filter((name) => /\.mdx?$/.test(name))) {
   const frontmatter = fs.readFileSync(file, 'utf8').match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1];
   const post = yaml.load(frontmatter);
@@ -228,6 +246,16 @@ for (const file of walk('dist').filter((name) => name.endsWith('.html'))) {
       assert.equal(attr(tag, 'href'), context.href, `${file}: ${location}`);
     }
     assert.ok(html.includes(`href="${context.service.href}"`));
+    const pathways =
+      html.match(/<aside\b[^>]*aria-labelledby="knowledge-pathways-title"[^>]*>([\s\S]*?)<\/aside>/)?.[1] ?? '';
+    const knowledgeLinks = [...pathways.matchAll(/<a\b[^>]*>/g)].map(([tag]) => attr(tag, 'href'));
+    assert.ok(knowledgeEvidence[context.service.href], `Unknown evidence route: ${context.service.href}`);
+    assert.deepEqual(
+      knowledgeLinks,
+      ['/knowledge/', context.service.href, knowledgeEvidence[context.service.href]],
+      `${file}: knowledge pathways must match service intent`
+    );
+    assert.equal(new Set(knowledgeLinks).size, 3, `${file}: three distinct knowledge pathways`);
     assert.ok(html.includes('mailto:info@szcomo.com'));
   }
   if (html.includes('data-aw-cta-location="application_hero"')) {

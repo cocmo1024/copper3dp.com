@@ -1,7 +1,8 @@
 ---
 title: 'Pure Copper vs CuCrZr for 3D Printed Heat Transfer Parts'
 publishDate: 2026-05-23
-excerpt: 'Compare pure copper and CuCrZr for 3D printed heat transfer parts, including conductivity, strength, internal channels, heat treatment, and RFQ gates.'
+updateDate: 2026-09-13
+excerpt: 'Compare pure copper and CuCrZr at the same thermal duty: isolate conductivity sensitivity, then review manufacturable geometry, interfaces, flow and release evidence.'
 category: Engineering Guide
 tags:
   [
@@ -18,212 +19,202 @@ author: 'COPPER 3DP Engineering'
 image: ~/assets/images/generated/pure-copper-vs-cucrzr-heat-transfer-cover.webp
 metadata:
   title: 'Pure Copper vs CuCrZr Heat Transfer Parts'
-  description: 'Compare pure copper and CuCrZr for 3D printed heat transfer parts, including conductivity, strength, internal channels, heat treatment, and RFQ gates.'
+  description: 'Pure copper vs CuCrZr for cold plates and heat transfer parts: compare thermal resistance, equal-duty designs, material state and finished-part evidence.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/pure-copper-vs-cucrzr-3d-printed-heat-transfer-parts/
 ---
 
-> Pure copper and CuCrZr can both be valid for 3D printed heat transfer parts, but they solve different problems. Pure copper is strongest when bulk conductivity dominates and the part is mechanically calm. CuCrZr becomes more attractive when pressure, threads, thin walls, clamp load, heat treatment, or repeatable assembly would otherwise damage the thermal result.
+> Pure copper and CuCrZr can both be candidates for a 3D printed heat transfer part. First isolate the benefit of conductivity in the same geometry. Then compare manufacturable designs at the same duty, including interfaces, coolant-loop limits and mechanical requirements. A material data sheet alone cannot select the better finished component.
 
-The common RFQ question is simple: "Should this heat transfer part be pure copper or CuCrZr?"
+*Illustration note: the existing cover and figures are AI-generated concepts, not photographs of delivered parts, measured comparisons or completed tests. They do not establish our equipment ownership or performance.*
 
-The useful answer is less simple. A 3D printed cold plate, heat exchanger core, cooling manifold, or heat spreader is rarely just a block of conductive metal. It also has ports, seals, bolt patterns, internal walls, machining stock, cleaning access, pressure requirements, and sometimes a heat treatment route that changes the final property state.
+A cold plate, heat exchanger or heat spreader is rarely just a block of conductive metal. It also has interfaces, mounting loads, surfaces, ports and possibly a pressure boundary. This article addresses a specific decision: **does a change from a documented CuCrZr route to a documented pure-copper route deliver a useful thermal benefit without making the finished part unacceptable?**
 
-That is why the material choice should start with the dominant failure mode, not the best-looking conductivity number.
+For the broader choice of material designations and supplier data, use the [copper alloy selection guide](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/). For the project-wide analysis and evidence plan, use [thermal design and validation](/thermal-design-validation/).
 
-## The First Gate: What Is the Thermal Part Also Doing?
+## First Gate: Where Is the Temperature Rise Coming From?
 
-If the part is a simple heat spreader, a broad contact plate, or a low-pressure thermal block with modest assembly load, pure copper may be the cleanest candidate. Copper's value is direct: high thermal conductivity and high electrical conductivity. The [Copper Information Center](https://help.copper.fyi/hc/en-us/articles/360021017340-Copper) notes thermal conductivity around 394 W/m-K and high-conductivity copper at about 101% IACS in electrical applications. That is why engineers reach for copper first.
+Before comparing alloys, agree what temperature must be limited and under which duty. “Lower temperature” can mean a lower peak device temperature, a more uniform contact face, a lower outlet temperature or a transient limit. Those are different objectives.
 
-If the same part includes 1.0-1.8 mm internal walls, threaded ports near channels, high clamp load, proof pressure, repeated assembly cycles, or elevated thermal exposure, the decision shifts. CuCrZr is a precipitation-hardenable copper alloy. [EOS describes CuCrZr](https://www.eos.info/metal-solutions/metal-materials/copper) as a copper alloy with a favorable combination of electrical and thermal conductivity plus mechanical properties, and states that its useful properties are reached during heat treatment. That is the trade: less headline conductivity than commercially pure copper, but more mechanical reserve after the correct process route.
+Trace the heat path:
 
-The material is not automatically better. It is better only when mechanical stability protects the thermal function.
+- Heat source and its spatial distribution, not only total power.
+- Contact interface, mounting condition and thermal interface material.
+- Conduction and spreading through the finished copper body.
+- Heat transfer into the coolant or surrounding air.
+- Fluid temperature rise, flow distribution and the rest of the cooling loop.
 
-## Pure Copper: When Maximum Conductivity Is the Main Job
+If the dominant resistance is outside the bulk metal, improving the metal's conductivity may produce only a small system benefit. Conversely, if conduction through the body is a large part of the resistance, conductivity deserves closer attention. Establish that sensitivity before paying for a route change.
 
-Pure copper is usually reviewed first for heat transfer parts where the heat path is the bottleneck and the mechanical requirements are controlled.
+## A Transparent Conductivity-Sensitivity Example
 
-Good candidates include:
+For a simple steady, one-dimensional slab with constant properties, bulk conduction resistance is **R_bulk = L / (k × A)**, where L is path length, k is thermal conductivity and A is area. Series resistances add; [MIT's conduction notes](https://web.mit.edu/16.unified/www/FALL/thermodynamics/notes/node118.html) explain that model.
 
-- Heat spreaders with large contact areas and limited torque load.
-- Simple cold plates where channels are wide, accessible, and not close to threaded bosses.
-- Electrical-thermal components where conductivity is more important than strength.
-- Prototype test coupons where thermal response matters more than production handling.
-- Components that will receive enough support from external fixtures, frames, or fasteners.
+The following is an original, deliberately simplified calculation—not Cu/CuCrZr material data, a customer result or a prediction for an actual cold plate.
 
-The hidden cost of pure copper appears when the geometry asks the material to be a structure. A soft copper body can lose flatness, creep under clamp load, distort during stress relief, or smear at thin edges during finishing. A 0.06 mm flatness change at the thermal interface can matter more than a small gain in bulk conductivity if it increases the thermal interface material thickness.
+Assume:
 
-For pure copper AM, process stability also deserves attention. Copper reflects energy strongly and conducts heat away quickly, which has made laser powder bed fusion difficult on conventional systems. [EOS states](https://www.eos.info/metal-solutions/metal-materials/copper) that copper's reflectivity and high thermal conductivity historically made 3D printing difficult. A 2026 [NIST publication on LPBF of highly reflective metals](https://www.nist.gov/publications/ultra-high-speed-printing-regime-laser-powder-bed-fusion-highly-reflective-metals) also describes copper and aluminum as challenging in LPBF because reflected energy losses can require high power or careful scan conditions.
+- Geometry, heat load, interfaces and cooling conditions are unchanged.
+- Total resistance is represented by **R_total = R_other + R_bulk**.
+- **f** is the original bulk-metal share of total resistance.
+- The candidate material has **1.25 times** the original conductivity; this ratio is hypothetical.
 
-In other words, pure copper is attractive, but it is not a free pass. The RFQ still needs machine capability, powder route, geometry review, and acceptance criteria.
+With the other resistance unchanged, **new total resistance / old total resistance = (1 − f) + f / 1.25**.
 
-For a broader pure copper route decision across thermal, electrical, RF, and semiconductor parts, use [Pure Copper 3D Printing: Applications, Benefits, and Manufacturing Challenges](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/). This heat-transfer article compares pure copper and CuCrZr; the broader guide explains when pure copper is worth quoting at all and what evidence should be requested.
+| Original bulk-metal share of total resistance | Hypothetical conductivity increase | Calculated total-resistance reduction |
+| --- | --- | --- |
+| 10% | 25% | 2% |
+| 50% | 25% | 10% |
+| 90% | 25% | 18% |
 
-## CuCrZr: When Strength Protects Heat Transfer
+The lesson is about sensitivity: the same material improvement can have very different value depending on where resistance sits.
 
-CuCrZr deserves review when the part must conduct heat and also remain dimensionally stable after manufacturing, machining, heat treatment, and use.
+This lumped model does **not** resolve three-dimensional spreading, local hot spots, changing fluid temperatures, flow maldistribution, temperature-dependent properties or transient operation. It is a screening calculation. Use an appropriate thermal model and agreed test conditions for a part-level decision, not these percentages as a performance claim.
 
-Typical candidates include:
+## Compare in Two Passes, Not One Mixed Simulation
 
-- Cold plates with threaded inlet and outlet ports.
-- Heat exchanger cores with thin internal walls and pressure boundaries.
-- Cooling blocks that need flatness after clamp load and thermal cycling.
-- Manifolds where port bosses, seals, and internal channels share a compact body.
-- Heat transfer hardware that needs witness coupons, conductivity checks, or hardness checks.
+Changing material, channel geometry and flow conditions in a single comparison makes it difficult to identify why a result changed. Separate the material question from the manufacturable-product question.
 
-The material route matters because CuCrZr is not only "copper with strength." It depends on heat treatment and supplier-specific data. The [EOS CuCrZr material data sheet](https://www.eos.info/05-datasheet-images/Assets_MDS_Metal/EOS_CopperAlloy_CuCrZr/Material_DataSheet_EOS%20_Copper_CuCrZr_en.pdf) reports different property states for as-manufactured and heat-treated conditions, including conductivity changes after heat treatment. A [3D Systems CuCr1Zr data sheet](https://www.3dsystems.com/sites/default/files/2023-07/3d-systems-certified-cucr1zra-material-datasheet-usen-2023-07-14-a-web_0.pdf) similarly describes a high-strength copper alloy route for additive manufacturing with electrical conductivity exceeding 90% IACS under specified heat-treatment conditions and lists heat management and cooling systems among typical uses.
+### Pass 1: Same Geometry, Material Sensitivity
 
-Those numbers help engineers frame the decision, but they are not universal promises. Machine platform, powder, build parameters, heat treatment, part thickness, orientation, and test method all affect the finished result. If the project needs a minimum conductivity or hardness, use witness coupons and define the test method before quotation.
+Keep the geometry and boundary conditions fixed. Change only the relevant documented material properties to establish whether conductivity has a meaningful influence on the defined thermal objective.
 
-## Material Comparison for 3D Printed Heat Transfer Parts
+Use properties associated with the proposed material state and temperature range. If the values are uncertain, evaluate a justified range and label the result provisional. This pass does not prove that either geometry can be manufactured or accepted.
 
-| Decision point | Pure copper direction | CuCrZr direction | RFQ consequence |
-| --- | --- | --- | --- |
-| Main thermal driver | Maximum bulk conductivity | Conductivity plus mechanical reserve | State whether W/m-K or dimensional stability is the priority |
-| Internal channels | Best when channels are wider and mechanically supported | Better candidate for thin walls and pressure boundaries | Provide channel section views and powder-removal access |
-| Threaded ports | Risk rises when threads are loaded directly in soft copper | Stronger candidate after proper heat treatment | Specify thread size, torque, inserts, and port finishing |
-| Clamp-loaded flat face | Can work if load is low or carried elsewhere | Good candidate when flatness retention matters | Define flatness before and after thermal exposure |
-| Pressure testing | Feasible with robust geometry and test plan | Often preferred when walls, ports, and seals are compact | Provide working pressure, proof pressure, and leak criteria |
-| Heat treatment | Usually simpler, but stress relief can still move the part | Core part of the material property route | Include coupons, conductivity, hardness, and process sequence |
-| Cost and lead time | Lower process complexity if geometry is forgiving | Higher planning burden and validation scope | Expect extra review for heat treatment and first-article testing |
+### Pass 2: Manufacturable Designs, Same Duty
 
-This is why we do not treat material selection as a single line item. It is a package: alloy, process, geometry, finishing, and acceptance criteria.
+Now allow each candidate to use geometry that its manufacturing route can support, while holding the required function and interfaces comparable.
 
-![Isometric cutaway of pure copper and CuCrZr heat transfer parts showing internal channels and structural features](../../assets/images/generated/pure-copper-vs-cucrzr-channel-comparison.webp)
+| Comparison item | Keep aligned or explicitly report | Misleading comparison to avoid |
+| --- | --- | --- |
+| Thermal duty | Heat-source map, heat load, duty cycle and temperature metric | Different heater coverage or a different peak-temperature location |
+| Envelope and interfaces | Available volume, contact area, mounting and interface material | A larger part or improved interface presented as a material-only gain |
+| Coolant boundary | Fluid, inlet temperature and the chosen loop constraint | Colder inlet fluid on one candidate |
+| Hydraulic basis | Fixed flow, available pressure or pump-power constraint; state which is controlled | Equal flow at unequal pressure drop presented as equal pumping effort |
+| Geometry and surfaces | Manufacturable walls, channels, roughness assumptions and finishing scope | Ideal smooth channels compared with an as-built surface assumption |
+| Material state | Documented properties for each proposed delivered route | As-built data for one alloy versus aged data for another without disclosure |
+| Mechanical duty | Pressure differential, loads, service temperature and interfaces | Thermal compliance without checking the required structural or sealing function |
 
-_Figure 2. The practical choice is often visible in the geometry: broad low-load heat paths favor pure copper; compact channels, ports, pressure walls, and reinforced bosses often justify CuCrZr review._
+If both candidates are evaluated at the same flow but have different pressure losses, report those losses. That is an **equal-flow comparison**, not automatically an equal-pump comparison. For a pump-constrained loop, evaluate the attainable operating point with the loop and pump information; do not assume the same flow remains available.
 
-## Case Pattern: A Cold Plate Where Pure Copper Looked Better Until Assembly
+For heat exchangers with two fluid streams, specify both sides and the temperature/performance metric. For an air-cooled heat sink, define the air-side flow or fan constraint rather than borrowing a liquid-loop assumption.
 
-A representative RFQ involved a compact liquid-cooled heat transfer part for a power electronics test fixture. The heat source footprint was about 65 mm x 90 mm. Coolant flow was 2.5 L/min. Working pressure was 6 bar, with a 10 bar proof-pressure target. The drawing called for a machined thermal face with +/-0.05 mm flatness relative to the mounting datum and two threaded side ports.
+## Pure Copper: When the Conductivity Benefit Is Worth Pursuing
 
-At first glance, pure copper looked correct. The simulation team wanted maximum conductivity, and the first thermal model predicted a small improvement, roughly 1-2 degrees C at the hot spot compared with a lower-conductivity copper alloy route.
+Pure copper is worth reviewing when the bulk heat path materially limits the objective and the proposed finished state can meet the other requirements. Broad heat spreaders and supported thermal interfaces can be useful candidates, but geometry and loading—not the application label alone—determine suitability.
 
-The manufacturing review found a different risk:
+Check these practical limits:
 
-- The threaded port bosses were close to internal channels.
-- Two channel walls were thin enough to raise distortion and depowdering concerns.
-- Clamp load from the fixture would pass through the same body that carried the coolant boundary.
-- The part would be assembled and disassembled during development, not mounted once and left alone.
+- Can the thermal face meet its requirement after processing and under the specified mounting condition?
+- Are threads, port bosses and thin sections adequate for their actual loads and temperatures?
+- Does the design provide access for channel cleaning and verification?
+- Is the relevant conductivity supported for the quoted manufacturing route?
+- Does the material-only benefit remain useful once interface and cooling uncertainties are included?
 
-We did not reject pure copper because it was a bad thermal material. We rejected the assumption that conductivity alone controlled the result.
+The [pure copper manufacturing guide](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) addresses process feasibility. A conductivity preference should not bypass that review.
 
-The revised route used CuCrZr, added about 0.5 mm machining stock on the thermal interface, increased local wall thickness near the port bosses by 0.3-0.4 mm, and opened the worst channel transition to reduce cleaning risk. The thermal model lost some local surface area, but the finished part became easier to machine, pressure test, and assemble without flatness drift.
+## CuCrZr: When a Documented Material State Supports the Combined Duty
 
-The price of success was real:
+CuCrZr deserves review when the component must transfer heat while meeting mechanical requirements associated with ports, walls, mounting or service exposure. It is not automatically required whenever a part contains pressure or threads.
 
-- Heat treatment and coupon verification added planning time, typically several working days depending on queue and inspection scope.
-- The first article required pressure hold, flow check, flatness inspection, and either hardness or conductivity verification.
-- Machining could not be treated as cosmetic. The thermal face, sealing lands, datum pads, and port seats were functional surfaces.
+The [EOS CuCrZr product documentation](https://store.eos.info/products/eos-copperalloy-cucrzr) ties its combination of conductivity and mechanical properties to heat treatment. That supports asking for the delivered state, not assuming universal properties for all printed CuCrZr.
 
-For a one-off prototype, that can feel heavy. For a production-intent heat transfer part, it is often the cost that prevents the copper component from becoming an unaccepted trial piece.
+Confirm the property basis, process sequence and evidence relevant to the proposed part. Do not assemble a fictitious material state from the highest strength in one condition and highest conductivity in another. Electrical conductivity is also not a direct substitute for thermal conductivity without a justified correlation.
 
-## Do Not Compare Materials Without Comparing Interfaces
+Use the [CuCrZr heat-treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) for that process discussion, and the [strength-led selection guide](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) when mechanical constraints dominate.
 
-The most expensive mistake is comparing pure copper and CuCrZr only by thermal conductivity. Heat transfer parts fail at interfaces as often as they fail in the bulk material.
+![Concept cutaways showing different copper channel layouts, not an experimental material comparison](../../assets/images/generated/pure-copper-vs-cucrzr-channel-comparison.webp)
 
-Review these before choosing:
+*Geometry, walls, ports and surface assumptions must be disclosed alongside material properties. Two different pictured designs do not establish a thermal winner.*
 
-- Thermal interface material thickness and pump-out risk.
-- Contact face flatness after machining, heat treatment, and thermal cycling.
-- Surface roughness target for the contact face.
-- Sealing land geometry and O-ring compression.
-- Port thread depth, torque, and insert strategy.
-- Channel pressure drop and powder removal route.
-- Cleaning method and residual-powder acceptance.
-- Proof pressure, leak rate, and flow-balance criteria.
+## Example Decision Record: A Better Model Is Not Yet a Released Part
 
-If the interface dominates the thermal resistance, a stronger alloy with lower bulk conductivity can outperform pure copper at the system level because it holds the interface geometry more reliably. That is not a material slogan. It is a stack-up problem.
+*This is a hypothetical review scenario, not a reported project.*
 
-## Validation Should Follow the Material Route
+Suppose Pass 1 predicts a lower peak temperature for a pure-copper candidate. During Pass 2, one channel must be enlarged for cleaning access, a port region needs revised geometry, and the finished interface must be checked under the actual clamp load.
 
-The inspection plan for pure copper and CuCrZr should not be identical.
+Do not carry the original material-only result directly into a performance promise:
 
-For pure copper, we usually focus on:
+1. Update the manufacturable geometry and surface assumptions.
+2. Repeat the comparison at the same thermal and hydraulic duty.
+3. Check whether the predicted difference is meaningful relative to input and measurement uncertainty.
+4. Identify the remaining material-state, dimensional, pressure/leak and thermal evidence required for the application.
 
-- Density or internal-defect risk when the AM process is new.
-- Machined flatness and surface finish.
-- Distortion after stress relief or thermal exposure.
-- Channel cleaning and flow restriction.
-- Handling damage around thin fins, edges, or ports.
+Possible outcomes include retaining pure copper, retaining CuCrZr, revising both candidates, or selecting a conventional route. If the benefit is smaller than the unresolved uncertainty, the next useful action is better evidence—not a stronger headline.
 
-For CuCrZr, we add material-state controls:
+This is also a stopping rule for development spend: pause optimization when neither candidate has a credible manufacturing or acceptance route, and close that gap first.
 
-- Heat-treatment route and furnace record.
-- Witness coupons built and processed with the part.
-- Conductivity or hardness checks when property state matters.
-- Dimensional movement before and after thermal processing.
-- Recheck of flatness, port alignment, and sealing surfaces after finishing.
+## Interfaces and Validation Can Change the Decision
 
-![3D printed copper heat transfer part on a validation bench with coupons, flatness gauge, pressure lines, and inspection tools](../../assets/images/generated/pure-copper-vs-cucrzr-validation-bench.webp)
+Compare the finished interface as part of the thermal system. Specify flatness and roughness where functional, the mounting condition, the thermal interface material, and any required inspection after relevant processing or exposure. Avoid a universal flatness number disconnected from area, assembly and function.
 
-_Figure 3. Material selection should carry through to validation: heat treatment, coupons, pressure or leak checks, flow testing, and final flatness inspection should match the chosen route._
+A stronger material could support a more stable interface in a particular design, but that benefit must be demonstrated for the actual load and state. It is not an inherent system-performance guarantee.
 
-## RFQ Readiness Checklist
+Both candidate materials need the **same applicable functional acceptance gates**. Their supporting material/process evidence may differ:
 
-Before asking for a quote on pure copper vs CuCrZr heat transfer parts, prepare the following:
+| Evidence level | Question it can address | What it does not prove by itself |
+| --- | --- | --- |
+| Material-state data or agreed witness testing | Are the specified properties supported for the delivered route? | Local geometry, cleaning or sealing of the actual part |
+| Dimensional and surface inspection | Do the specified finished features meet the drawing and inspection condition? | Thermal duty under an untested mounting condition |
+| Appropriate pressure/leak tests | Does the defined boundary meet the agreed test criterion? | Thermal performance or a different leak-test sensitivity |
+| Flow and pressure-drop checks | Is hydraulic behavior acceptable under the test conditions? | Heat removal at the required thermal duty |
+| Thermal test in the defined assembly | Does the agreed temperature/performance metric pass at that duty? | Other operating points or lifetime unless covered by the plan |
 
-- STEP or native CAD with internal channels included.
-- Section views showing channels, wall thickness, ports, and sealing faces.
-- Material preference: pure copper, CuCrZr, CuCr1Zr, or open to engineering review.
-- Heat load, heat-source footprint, target temperature, and duty cycle if known.
-- Coolant, flow rate, operating temperature, pressure drop target, and cleanliness requirement.
-- Working pressure, proof pressure, leak rate, and test medium.
-- Clamp load, torque values, assembly cycle count, and thread requirements.
-- Flatness, roughness, and datum requirements for thermal and sealing surfaces.
-- Heat treatment, conductivity, hardness, tensile, density, CT, leak, pressure, or flow test expectations.
-- Quantity, prototype or production stage, and target lead time.
+The scope should follow risk and agreed requirements. Not every development part needs every test. Do not replace a thermal test with a pressure hold, or interpret a coupon as finished-channel evidence.
 
-If the team does not know the correct alloy yet, say so. "Please review pure copper vs CuCrZr" is better than forcing a material that conflicts with the geometry. Send the package to [info@szcomo.com](mailto:info@szcomo.com), or use the [RFQ guidance page](/rfq/) to organize the first review.
+![Concept illustration of a copper component and inspection tools, not a measured validation setup](../../assets/images/generated/pure-copper-vs-cucrzr-validation-bench.webp)
 
-## Related Material and Process Decisions
+*Illustrative only. A release record needs identified specimens or parts, methods, conditions, results and acceptance limits—not an equipment image.*
 
-Use the [pure copper 3D printing guide](/posts/EngineeringGuide/pure-copper-3d-printing-applications-benefits-manufacturing-challenges/) when the buyer needs to decide whether pure copper is an appropriate AM route before comparing alloys. Use the [copper alloy selection guide](/posts/EngineeringGuide/copper-alloy-selection-metal-3d-printing-pure-cu-cucrzr-cucr1zr/) when the choice includes pure copper, CuCrZr, and CuCr1Zr rather than only two routes. If CuCrZr is selected for strength or thermal cycling stability, the [CuCrZr heat treatment guide](/posts/EngineeringGuide/heat-treatment-cucrzr-3d-printed-components/) explains why property state and inspection evidence should be part of the quote.
+## Request a Useful Thermal Material Comparison
 
-For projects where the material decision is driven less by thermal comparison and more by threads, pressure, clamp load, thin walls, or machining stability, use [CuCrZr 3D Printing: When Strength Matters More Than Maximum Conductivity](/posts/EngineeringGuide/cucrzr-3d-printing-when-strength-matters-more-than-maximum-conductivity/) as the strength-first route gate.
+You do not need to settle the alloy before starting a review. Send the available geometry or sketch, the part's function and the main known constraint, and mark the material as open to review.
 
-For finished heat transfer components, material choice also depends on [surface finish requirements](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/), [post-processing scope](/posts/EngineeringGuide/post-processing-methods-for-3d-printed-copper-parts/), and [tolerances in copper metal 3D printing](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/). These pages help keep the RFQ focused on the usable part, not only the printed alloy.
+To make the comparison actionable, add the following as they become available:
+
+- Heat load and source footprint, temperature limit and steady/transient duty.
+- Envelope, contact/interface details and mounting loads.
+- Coolant and inlet temperature, plus the flow or pump/pressure constraint.
+- Working pressure and any specified proof/leak boundary.
+- Mandatory material designation, finished state or customer approval rules.
+- Critical surfaces, cleaning expectations, quantity and development stage.
+
+Use [thermal design support](/thermal-design-validation/) when the boundary conditions or comparison method need development. For hardware quotation, start a [thermal-part RFQ](/rfq/?project=heat-exchanger#rfq-form) or email [info@szcomo.com](mailto:info@szcomo.com). Describe a cold plate, heat spreader or heat exchanger explicitly so that the review follows the actual component.
+
+Once the material shortlist is settled, the [material specification guide](/posts/EngineeringGuide/writing-a-copper-am-material-specification-when-strength-and-conductivity-both-matter/) helps define the final state and acceptance evidence. Use the existing [surface finish](/posts/EngineeringGuide/copper-3d-printing-surface-finish-as-built-machined-polished-options/) and [tolerance](/posts/EngineeringGuide/tolerances-and-dimensional-accuracy-in-copper-metal-3d-printing/) guides for those drawing requirements.
 
 ## FAQ
 
 <details>
-<summary>Is pure copper always better for heat transfer?</summary>
+<summary>Is pure copper always better than CuCrZr for heat transfer?</summary>
 
-No. Pure copper usually has the advantage in bulk conductivity, but a heat transfer part also depends on contact flatness, surface finish, channel cleanliness, sealing, pressure integrity, and assembly stability. If pure copper deforms and increases interface resistance, the system-level result can be worse than a more stable CuCrZr part.
-
-</details>
-
-<details>
-<summary>When should we choose CuCrZr instead of pure copper?</summary>
-
-Choose CuCrZr for review when the part includes threaded ports, thin channel walls, pressure boundaries, high clamp load, repeated assembly, thermal cycling, or a need for stable machined interfaces. The alloy must still be matched to a defined heat-treatment and inspection route.
+No. Compare documented material properties first, then the finished designs at the same duty. The benefit depends on the share of resistance in the bulk metal, the interfaces, attainable flow and the geometry that can actually be manufactured and accepted.
 
 </details>
 
 <details>
-<summary>Does CuCrZr need heat treatment after printing?</summary>
+<summary>Does a 25% conductivity increase mean a 25% cooler component?</summary>
 
-Usually yes when the project depends on its balanced conductivity and mechanical properties. The exact route depends on supplier capability, powder, machine, parameter set, and required property state. If the drawing requires a minimum conductivity or hardness, include witness coupons and test requirements in the RFQ.
-
-</details>
-
-<details>
-<summary>Can pure copper be used for microchannel cold plates?</summary>
-
-It can be reviewed when channels are printable, cleanable, and mechanically supported. The risk increases when channels are very small, close to port threads, or inside a pressure-loaded body. In those cases, the review should compare thermal benefit against build stability, powder removal, and final inspection risk.
+No. In the simplified example above, a hypothetical 25% conductivity increase reduces total resistance by only 2% when the bulk metal initially accounts for 10% of that resistance. This is a mathematical illustration, not a copper-alloy property claim or a prediction for a real component.
 
 </details>
 
 <details>
-<summary>What is the fastest way to decide between the two materials?</summary>
+<summary>Should pure copper and CuCrZr designs be compared at the same flow?</summary>
 
-Start with two questions: what property must be maximized, and what failure would make the part unacceptable? If the answer is maximum conductivity with low mechanical risk, pure copper is a strong candidate. If the answer includes flatness drift, thread damage, pressure leakage, thin-wall distortion, or heat-treatment property control, CuCrZr deserves review.
+Only if fixed flow is the intended comparison basis. Report pressure drop as well. If the real loop is limited by available pressure or pumping power, compare attainable operation under that constraint; equal flow does not necessarily require equal pumping effort.
 
 </details>
 
-## Verdict
+<details>
+<summary>Does choosing CuCrZr remove the need to check pressure integrity?</summary>
 
-Pure copper is the right direction when the heat transfer part is mainly a conductor: broad heat path, controlled load, simple interfaces, accessible channels, and a clear need for maximum conductivity.
+No. Material properties do not establish the integrity of the printed wall, ports or seals. The actual boundary needs the applicable design review and agreed pressure/leak evidence, regardless of which alloy is selected.
 
-CuCrZr is the right direction when the heat transfer part is also a mechanical component: pressure boundary, threaded body, thin internal structure, clamp-loaded interface, repeated assembly, or thermal cycling requirement.
+</details>
 
-The practical recommendation is to quote the finished component, not just the printed material. Define the alloy, internal channels, heat treatment, machining stock, critical surfaces, inspection method, and acceptance criteria together. That is how pure copper and CuCrZr stop being abstract material names and become usable 3D printed heat transfer parts.
+<details>
+<summary>Can we request a review before choosing the material?</summary>
+
+Yes. Start with the available geometry, thermal duty and known constraints, leaving unknowns explicit. The useful first result is a conditional shortlist and a plan to close the remaining questions, not an unsupported promise that one alloy will perform better.
+
+</details>
