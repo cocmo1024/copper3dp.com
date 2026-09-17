@@ -205,6 +205,30 @@ const validationEvidence = [
   },
 ];
 
+const modelToTestRecord = [
+  {
+    result: 'Hotspot temperature',
+    comparison:
+      'Compare the prediction at the sensor location or defined measurement region, not an unmeasurable model maximum with a remote thermocouple.',
+    decision:
+      'Record model-to-test difference, uncertainty and distance to the temperature limit. Revisit source allocation and interfaces if the mismatch matters to the decision.',
+  },
+  {
+    result: 'Flow and pressure loss',
+    comparison:
+      'Match fluid, temperature, flow direction, pressure-tap locations and the part/fixture boundary. Keep fixture losses identifiable.',
+    decision:
+      'Investigate geometry, venting, flow distribution or boundary assumptions before using a fitted pressure-loss value to predict a new duty point.',
+  },
+  {
+    result: 'Transient or off-design duty',
+    comparison:
+      'Name the load history, initial state and tested flow/temperature range. Separate measured operating cases from extrapolated predictions.',
+    decision:
+      'A successful steady-state point does not release start-up, cycling or another coolant. List the additional evidence needed for the intended use.',
+  },
+];
+
 const designDeliverables = [
   'Input and assumption register, including open items and sensitivity risks',
   'Candidate architecture comparison with rejection reasons and decision criteria',
@@ -226,6 +250,16 @@ const rfqInputs = [
 ];
 
 const faqs = [
+  {
+    title: 'Does a converged CFD simulation count as thermal design validation?',
+    description:
+      'No. Convergence and numerical checks support calculation verification. Model validation compares specified predictions with relevant physical measurements, including uncertainty and applicability limits. Product acceptance separately asks whether the finished hardware meets the agreed requirements; a converged model, a good model-to-test match and an accepted part are not interchangeable results.',
+  },
+  {
+    title: 'Can a prototype pass its temperature limit while the model remains unvalidated?',
+    description:
+      'Yes. A prototype can meet the measured limit at the tested duty while the model predicts it poorly or lacks sufficient evidence. Record the hardware test result separately from model credibility. Do not use that one passing point to guarantee a different heat load, coolant, contact stack or flow range.',
+  },
   {
     title: 'Can a thermal design review start before the CAD is finished?',
     description:
@@ -257,7 +291,7 @@ const metadata = {
   title: 'Thermal Design Validation | Copper Cooling & Test Plans',
   ignoreTitleTemplate: true,
   description:
-    'Thermal design validation for copper cold plates and heat sinks: boundary conditions, CFD review, manufacturable channels, flow tests and acceptance planning.',
+    'Connect CFD to thermal test evidence for copper cooling parts. Define model-to-test comparisons, uncertainty, acceptance limits and a scoped engineering review.',
   openGraph: {
     images: [
       {
@@ -345,7 +379,7 @@ const metadata = {
           <Button
             variant="primary"
             text="Start a thermal design review"
-            href="/rfq/#rfq-form"
+            href="/rfq/?project=heat-exchanger#rfq-form"
             icon="tabler:arrow-right"
           />
           <Button variant="secondary" text="See required inputs" href="#boundary-conditions" />
@@ -367,6 +401,7 @@ const metadata = {
         <nav aria-label="Thermal design guide sections" class="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm">
           <a class="font-semibold text-link hover:underline" href="#model-fidelity">Model review</a>
           <a class="font-semibold text-link hover:underline" href="#validation-plan">Validation test plan</a>
+          <a class="font-semibold text-link hover:underline" href="#model-to-test-record">CFD-to-test decisions</a>
           <a class="font-semibold text-link hover:underline" href="#design-deliverables">Project deliverables</a>
         </nav>
       </div>
@@ -757,6 +792,77 @@ const metadata = {
         Methods are selected by project risk and scope. Listing a method here does not mean it is included in every
         quotation or that the source studies constitute certification of a new part.
       </p>
+
+      <div id="model-to-test-record" class="mt-10 scroll-mt-24 border-t border-page-border pt-8">
+        <h3 class="font-heading text-2xl font-semibold text-heading">
+          Separate a verified calculation, a validated model and an accepted part
+        </h3>
+        <p class="mt-4 max-w-4xl leading-7 text-muted">
+          A converged temperature plot is not physical validation. Calculation verification examines numerical behavior;
+          model validation compares predictions with relevant measurements; part acceptance applies the agreed product
+          limits. A prototype can meet its temperature limit while the model still predicts it poorly. Conversely, a
+          model can correctly predict that the part fails.
+        </p>
+        <p class="mt-4 max-w-4xl text-sm leading-6 text-muted">
+          NASA's
+          <a
+            class="font-semibold text-link hover:underline"
+            href="https://www.grc.nasa.gov/www/wind/valid/tutorial/valassess.html">CFD validation guidance</a
+          >
+          ties credibility to physical comparisons, numerical checks and the intended range of use. The published scope of
+          <a
+            class="font-semibold text-link hover:underline"
+            href="https://www.asme.org/codes-standards/find-codes-standards/standard-for-verification-and-validation-in-computational-fluid-dynamics-and-heat-transfer"
+            >ASME V&amp;V 20-2009 (R2021)</a
+          >
+          addresses specified variables at specified validation points with solution and experimental uncertainty. These references
+          inform the review; they do not certify this service or any example on this page.
+        </p>
+
+        <div class="mt-6 overflow-x-auto border-y border-page-border">
+          <table class="w-full min-w-[52rem] text-left lg:min-w-0">
+            <caption class="pb-3 text-left text-sm leading-6 text-muted">
+              Example model-to-test decision record. Agree project-specific values, methods and owners before testing.
+            </caption>
+            <thead>
+              <tr class="border-b border-page-border text-sm">
+                <th class="w-[20%] px-4 py-3 font-semibold text-heading">Result to compare</th>
+                <th class="w-[40%] px-4 py-3 font-semibold text-heading">Make the comparison valid</th>
+                <th class="px-4 py-3 font-semibold text-heading">Decision and next evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                modelToTestRecord.map((row) => (
+                  <tr class="border-b border-page-border last:border-0">
+                    <td class="px-4 py-4 align-top font-semibold text-heading">{row.result}</td>
+                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.comparison}</td>
+                    <td class="px-4 py-4 align-top text-sm leading-6 text-muted">{row.decision}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-5 max-w-4xl text-sm leading-6 text-muted">
+          If an uncertain contact or friction parameter is adjusted using a test, label that result as calibration.
+          Preserve the original prediction and check the revised model against additional relevant conditions before
+          treating it as predictive. There is no universal acceptable percentage error: the required confidence depends
+          on the quantity, measurement uncertainty, margin to the limit and consequence of a wrong decision.
+        </p>
+        <p class="mt-4 max-w-4xl text-sm leading-6 text-muted">
+          For a review, send the model revision, as-tested geometry, raw measurement table, sensor map, operating
+          conditions and the decision that the result must support. We can scope the evidence gap before a new build;
+          simulation, prototype manufacture, testing and customer system qualification must each have an agreed owner.
+          For branch-specific methods, continue to the
+          <a
+            class="font-semibold text-link hover:underline"
+            href="/posts/EngineeringGuide/flow-distribution-acceptance-testing-multi-passage-copper-heat-exchangers/"
+            >flow-distribution acceptance guide</a
+          >.
+        </p>
+      </div>
       <p class="mt-4 max-w-4xl text-sm leading-6 text-muted">
         For the handover from design to an accepted part, use the
         <a
@@ -810,7 +916,7 @@ const metadata = {
         <Button
           variant="primary"
           text="Submit thermal requirements or CAD"
-          href="/rfq/#rfq-form"
+          href="/rfq/?project=heat-exchanger#rfq-form"
           icon="tabler:file-upload"
           class="mt-6"
         />

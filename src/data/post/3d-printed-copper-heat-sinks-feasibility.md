@@ -1,15 +1,15 @@
 ---
 title: '3D Printed Copper Heat Sinks: Feasibility Guide'
 publishDate: 2026-01-02
-updateDate: 2026-07-11
-excerpt: 'Decide whether a copper heat sink should be 3D printed by checking geometry value, material route, fins, interfaces, post-processing, testing, cost, and RFQ inputs.'
+updateDate: 2026-09-17
+excerpt: 'Decide whether a copper heat sink should be 3D printed, then compare a replacement in the installed assembly with controlled interfaces, fan settings and acceptance evidence.'
 category: Engineering Guide
 tags: ['copper-heat-sinks', 'feasibility', 'process-selection', 'thermal-management', 'engineering-guide']
 author: 'COPPER 3DP Engineering'
 image: ~/assets/images/online-posts/3d-printed-copper-heat-sinks-feasibility/01-3d-printed-copper-heat-sinks-feasibility-1-9f1a216c.webp
 metadata:
   title: '3D Printed Copper Heat Sinks: When AM Works'
-  description: 'Decide when 3D printed copper heat sinks make sense over machining, skiving, or brazing. Compare geometry, materials, finishing, testing, and RFQ inputs.'
+  description: 'Decide when copper AM beats conventional heat sinks. Compare a replacement at installed fan conditions, control interfaces, and define evidence before an RFQ.'
   canonical: https://copper3dp.com/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/
 ---
 
@@ -133,6 +133,8 @@ Dimensional acceptance alone does not prove thermal performance. CT does not pro
 
 ## RFQ checklist
 
+For a new part, use the inputs below. For an existing part that misses its temperature target, first preserve the baseline and use the replacement comparison that follows.
+
 Send:
 
 1. STEP file and controlled drawing.
@@ -145,6 +147,35 @@ Send:
 8. Dimensional, CT, flow, leak, pressure, conductivity, or thermal tests.
 9. Prototype and expected production quantities.
 10. Target timing and any qualification milestones.
+
+## Compare a replacement in the installed assembly
+
+A replacement study asks a narrower question than “can this heat sink be printed?”: **can the proposed finished part meet the requirement inside the allowed assembly, without transferring the problem to the fan, interface, noise limit or maintenance route?**
+
+Use two distinct comparisons. A controlled-flow bench comparison can isolate how two heat sinks behave at a specified airflow. An installed-system comparison keeps the agreed enclosure and fan control conditions, then measures the operating result. Do not present one as the other.
+
+The fan operating point follows the intersection of its performance curve and the system resistance curve, as explained in [ebm-papst's fan engineering FAQ](https://www.ebmpapst.com/us/en/support/faq.html). Changing the fin field can change that intersection. The same fan, speed setting or free-air rating does not prove that equal air passes through both parts.
+
+Use a comparison record such as this before ordering the first printed replacement:
+
+| Record item | Hold fixed or explicitly account for | What would invalidate the comparison? |
+| --- | --- | --- |
+| Source and duty | Heat input, footprint, load distribution and steady or transient duty | One concept is tested at a lower load or a different heat-source location |
+| Installed airflow | Enclosure, ducting, bypass gaps, inlet temperature, fan model and control setting | A free-air rating is substituted for the installed condition, or the enclosure changes without being reported |
+| Contact stack | TIM, application method, contact faces, clamp procedure and mounting orientation | An interface improvement is attributed solely to the printed fin geometry |
+| Temperature result | Named measurement points, limits, sensor method and stabilization rule | A base temperature is compared with a component or junction temperature |
+| Confidence in the difference | Measurement uncertainty and a repeat mounting/test check where assembly variation matters | The claimed gain cannot be distinguished from measurement or setup variation |
+| Purchased scope | Finished material state, machining, coating, inspection, quantity and included testing | A printed blank is compared with a finished, accepted conventional part |
+
+This is a proposed review template, not a customer result or a universal test specification. Natural-convection parts need the relevant orientation, ambient and surrounding-clearance conditions instead of a forced-air fan comparison. Liquid-cooled designs need the corresponding fluid, flow and hydraulic boundaries.
+
+### Decide whether to build, revise or keep the baseline
+
+- **Proceed to a scoped prototype:** the candidate addresses a named constraint, the comparison is reproducible, and the geometry can be manufactured and inspected. This is permission to learn from a build, not approval for a production batch.
+- **Revise the test or interface first:** the apparent gain depends on a changed TIM, clamp, inlet condition or enclosure. Keep those changes visible and assess whether the current heat sink can meet the requirement with them.
+- **Retain the conventional part:** it meets the agreed duty and the printed candidate does not show sufficient functional or packaging value to justify its total delivered cost and qualification effort.
+
+When a simulation and bench test disagree, use the [thermal model-to-test decision record](/thermal-design-validation/#model-to-test-record) before accepting or discarding the design. For a purchasing discussion, send the baseline result, the missed limit, allowed changes and prototype quantity through the [custom heat sink review path](/copper-heat-sinks/#replacement-review). Missing CAD can remain an open item; do not invent boundary conditions to obtain a nominal price.
 
 ## Frequently asked questions
 

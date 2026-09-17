@@ -47,6 +47,11 @@ const heatSinkFaqs = [
     description:
       'Start with the heat load, source footprint, maximum component temperature, inlet air or coolant temperature, available space, and mounting constraints. Share the fan curve or coolant flow and pressure budget if known. Mark missing values as open so the review can separate assumptions from confirmed requirements before committing to a fin or channel layout.',
   },
+  {
+    title: 'Can you review a replacement for an underperforming heat sink?',
+    description:
+      'Yes. Share the existing geometry, an assembly view, measured temperatures with sensor locations, heat load, fan settings or coolant conditions, and the limit being missed. Identify what must remain unchanged. The first decision is whether the gap needs a different heat sink, an interface or flow-path change, or a revised system requirement; a more complex printed part is not automatically the answer.',
+  },
 ];
 
 const heatSinkShowcases = [
@@ -215,29 +220,30 @@ const metadata = {
   />
 
   <Features2
-    title="Confirm the production route before issuing the RFQ"
-    subtitle="Use the published capability boundary to decide whether the part should stay CNC, skived, fabricated, brazed, or move to LPBF copper AM."
+    id="purchase-scope"
+    title="Define what the heat sink order must prove"
+    subtitle="A drawing-compliant component and a demonstrated system temperature are different deliverables. Separate manufacturing scope from thermal development before comparing quotations."
     columns={2}
     classes={{ container: sectionContainerClass }}
     items={[
       {
-        title: 'Copper AM capabilities',
+        title: 'Build to an approved drawing',
         description:
-          'Representative green-laser build envelope, material routes, finishing, machining, inspection, and quotation responsibility.',
-        icon: 'tabler:settings',
+          'Send the controlled CAD, drawing revision, finished material state, prototype or batch quantity, and inspection requirements. The quote should identify machining, finishing and included records. Meeting the drawing does not by itself demonstrate the temperature of the customer assembly.',
+        icon: 'tabler:file-check',
         callToAction: {
-          text: 'View capabilities',
-          href: '/capabilities/',
+          text: 'Request a drawing-based quote',
+          href: '/rfq/?project=heat-exchanger#rfq-form',
         },
       },
       {
-        title: 'Heat sink RFQ inputs',
+        title: 'Develop or recover thermal performance',
         description:
-          'CAD, heat load, airflow or coolant, interface flatness, mounting, material, quantity, finishing, and validation method.',
-        icon: 'tabler:clipboard-list',
+          'Send the temperature gap, heat-source footprint, installed fan or coolant conditions, envelope and interfaces. Include baseline test data if available; a sketch can start a scoped review. Agree design work, prototype supply, test ownership and the release decision separately.',
+        icon: 'tabler:temperature',
         callToAction: {
-          text: 'View quotation checklist',
-          href: '/rfq/',
+          text: 'Scope a thermal design review',
+          href: '/thermal-design-validation/#design-deliverables',
         },
       },
     ]}
@@ -289,6 +295,42 @@ const metadata = {
         callToAction: {
           text: 'Plan thermal design validation',
           href: '/thermal-design-validation/#validation-plan',
+        },
+      },
+    ]}
+  />
+
+  <Features2
+    id="replacement-review"
+    title="Replacing an underperforming copper heat sink?"
+    subtitle="Start with the failed requirement and an assembly view, not a request for more fins. These observations help define the review; none is a diagnosis without the operating data."
+    columns={3}
+    classes={{ container: sectionContainerClass }}
+    items={[
+      {
+        title: 'The component is hot, but the base is cooler',
+        description:
+          'Map the sensor locations and the package-to-base heat path. Include TIM, contact area, clamp method and flatness. An interface or package bottleneck needs review before changing the external fin field.',
+        icon: 'tabler:arrows-minimize',
+      },
+      {
+        title: 'The bench result fails inside the enclosure',
+        description:
+          'Show inlet air temperature, fan control, ducting, nearby obstructions and bypass gaps in both setups. Compare the installed flow path; the same fan model does not establish the same flow through two different heat sinks.',
+        icon: 'tabler:wind',
+        callToAction: {
+          text: 'Build a like-for-like comparison',
+          href: '/posts/EngineeringGuide/3d-printed-copper-heat-sinks-feasibility/#compare-a-replacement-in-the-installed-assembly',
+        },
+      },
+      {
+        title: 'The new concept only wins in simulation',
+        description:
+          'Provide both model revisions and the conditions used for the baseline. Separate predicted improvement from measured performance, then agree the evidence needed before buying a production batch.',
+        icon: 'tabler:clipboard-check',
+        callToAction: {
+          text: 'Review the model-to-test decision',
+          href: '/thermal-design-validation/#model-to-test-record',
         },
       },
     ]}
